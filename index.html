@@ -179,7 +179,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .ag-s{margin-top:7px;display:flex;justify-content:space-between;align-items:center;font-size:9.5px;color:var(--dim)}
 .ag-b{border-radius:8px;padding:1px 7px;font-weight:600}
 .ag-b.ok{background:rgba(34,197,94,.12);color:#86efac}
-.ag-b.skip{background:rgba(96,165,250,.12);color:#93c5fd}
+.ag-b.skip{background:rgba(96,165,250,.1);color:#93c5fd}
 .ag-b.fail{background:rgba(239,68,68,.12);color:#fca5a5}
 .ag-b.idle{background:rgba(107,114,128,.14);color:#9ca3af}
 .ag-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px;font-size:11.5px;color:var(--mut)}
@@ -251,7 +251,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
       <span id="agT"></span>
     </div>
     <div class="ag-grid" id="agL"></div>
-    <div class="note">ثمانيةُ وكلاءَ مستقلّين يتعاقبون على كل جولة، لكلٍّ دورُه ومخرجُه. الحالةُ تُنشر كما هي: ما نجح، وما تُخطّي توفيرًا، وما أخفق.</div>
+    <div class="note">تسعةُ وكلاءَ يتناوبون بجدولٍ ثابت — لا يعمل الجميع في كل جولة عمدًا، بل يتناوب الثقيلُ منهم لتوزيع الكلفة. «مجدول» تعني نوبتَه لم تحن بعد، ومعها موعدُها.</div>
   </div>
 
   <div id="offWrap" style="display:none">
@@ -470,8 +470,8 @@ async function load(){
   }catch(e){}
   try{
     const a=await (await fetch(RAW+"agents.json?t="+Date.now())).json();
-    const lbl={ok:"نجح",skip:"تُخطّي",fail:"أخفق",idle:"خامل"};
-    agH.textContent=`${a.healthy}/${a.total} وكيلًا بحالة سليمة`;
+    const lbl={ok:"عمل الآن",skip:"مجدول",fail:"أخفق",idle:"خامل"};
+    agH.textContent=`${a.ran!==undefined?a.ran:"—"} عملوا هذه الجولة · ${a.healthy}/${a.total} سليم`;
     agT.textContent="آخر جولة "+new Date(a.updated).toLocaleTimeString("ar-KW",{hour:"2-digit",minute:"2-digit"});
     agL.innerHTML=(a.agents||[]).map(x=>`
       <div class="ag ${x.status}">
@@ -479,7 +479,7 @@ async function load(){
         <div class="ag-r">${x.role}</div>
         <div class="ag-s">
           <span class="ag-b ${x.status}">${lbl[x.status]||x.status}</span>
-          <span>${x.ms>999?(x.ms/1000).toFixed(1)+"s":(x.ms?x.ms+"ms":(x.note||"").slice(0,18))}</span>
+          <span>${x.status==="ok"&&x.ms?(x.ms>999?(x.ms/1000).toFixed(1)+"s":x.ms+"ms"):(x.note||"").slice(0,22)}</span>
         </div>
       </div>`).join("");
     agWrap.style.display="block";
