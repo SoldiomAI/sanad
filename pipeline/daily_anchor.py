@@ -69,6 +69,54 @@ json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"c
     open(f"{OUT}/news.json","w"),ensure_ascii=False,indent=1)
 print(f"🗞️ news.json: {sum(len(v) for v in cats.values())} خبرًا في {len(cats)} أقسام")
 
+# ═══ Grok: حصيلة الأزمة + عاجل من X (محسَّن بالكاش) ═══
+GROK_KEY=os.environ.get("GROK_API_KEY","")
+INTEL=f"{OUT}/intel.json"
+
+def intel_fresh(hours):
+    try:
+        p=json.load(open(INTEL))
+        age=(datetime.now(timezone.utc)-datetime.fromisoformat(p["updated"])).total_seconds()/3600
+        return p, age<hours
+    except Exception: return None, False
+
+def grok_intel():
+    old, fresh = intel_fresh(6)
+    if fresh:
+        print(f"♻️ intel.json حديث — تخطي Grok (توفير)"); return old
+    if not GROK_KEY:
+        print("⚠️ لا مفتاح Grok"); return old
+    P=("ابحث عن آخر المعطيات الموثقة عن الأزمة الإيرانية الأمريكية الحالية وأثرها على الخليج.\n"
+       "أخرج JSON فقط:\n"
+       '{"war":"اسم الأزمة","since":"YYYY-MM-DD","toll":[{"c":"البلد","f":"إيموجي العلم","d":"قتلى","w":"جرحى","dmg":"أبرز الأضرار جملة قصيرة","e":"الخسائر الاقتصادية"}],'
+       '"brk":[{"h":"عنوان عاجل","s":"الحساب","u":"رابط"}]}\n'
+       "البلدان: إيران، الولايات المتحدة، الكويت، وأي دولة خليجية متضررة. ٤ عناوين عاجلة كحد أقصى "
+       "من حسابات موثقة خلال ٦ ساعات. أرقام موثقة فقط وإلا اكتب «غير مؤكد». لا شيء خارج JSON.")
+    body={"model":"grok-4.5","input":[{"role":"user","content":P}],
+        "tools":[{"type":"web_search"},{"type":"x_search"}],
+        "max_output_tokens":2200,"max_tool_calls":8}
+    try:
+        req=urllib.request.Request("https://api.x.ai/v1/responses",data=json.dumps(body).encode(),
+            headers={"Authorization":"Bearer "+GROK_KEY,"Content-Type":"application/json"})
+        d=json.load(urllib.request.urlopen(req,timeout=300))
+        txt="".join(c.get("text","") for o in d.get("output",[]) if o.get("type")=="message"
+                    for c in o.get("content",[]))
+        txt=txt.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
+        j=json.loads(txt); j["updated"]=datetime.now(timezone.utc).isoformat(timespec="minutes")
+        json.dump(j,open(INTEL,"w"),ensure_ascii=False,indent=1)
+        print(f"🛰️ Grok: {len(j.get('toll',[]))} دول · {len(j.get('brk',[]))} عاجل · {d['usage']['total_tokens']} توكن")
+        return j
+    except Exception as e:
+        print(f"Grok فشل: {str(e)[:100]}"); return old
+
+INT=grok_intel()
+if INT and INT.get("brk"):
+    cats["عاجل"]=[{"head":b["h"],"src":b.get("s","X"),"grade":"حسن","link":b.get("u",""),"fa":False,"x":True}
+                  for b in INT["brk"]]
+    json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"cats":cats},
+        open(f"{OUT}/news.json","w"),ensure_ascii=False,indent=1)
+    print(f"⚡ أضيف قسم عاجل: {len(cats['عاجل'])}")
+
 if os.environ.get("NEWS_ONLY"):
     print("⚡ وضع تحديث الأخبار فقط — تم"); sys.exit(0)
 
