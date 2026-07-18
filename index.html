@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سَنَد | SANAD — استخبارات إخبارية بمنهج المحدّثين</title>
+<meta name="description" content="أول منصة تطبّق علم الإسناد على أخبار اليوم — بروتوكول إسناد يبني الحكم على خمسة معايير من علم الحديث. صناعة SOLDIOM، الكويت.">
+<meta property="og:title" content="سَنَد | SANAD — Sovereign News Intelligence">
+<meta property="og:description" content="استخبارات إخبارية بمنهج المحدّثين — بروتوكول الإسناد للتحقق السيادي">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🛡️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#05070B;--card:#0d1117;--border:#1e2633;--gold:#c9a227;--gold-l:#e8c96a;--gold-x:#f5e3a8;--txt:#e6e9ef;--mut:#8b94a3;--dim:#5a6372}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--txt);font-family:'IBM Plex Sans Arabic',sans-serif;min-height:100vh}
+.amiri{font-family:'Amiri',serif}
+.sadu{height:4px;background-image:repeating-linear-gradient(90deg,#0d5c3f 0 16px,#c9a227 16px 20px,#7a1f2b 20px 36px,#0a0a0a 36px 40px)}
+.gold{background:linear-gradient(135deg,#e8c96a,#c9a227 45%,#f5e3a8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.gold-line{height:1px;background:linear-gradient(90deg,transparent,rgba(201,162,39,.4),transparent)}
+.wrap{max-width:680px;margin:0 auto;padding:0 18px}
+/* top bar */
+.topbar{position:sticky;top:0;z-index:30;background:rgba(7,10,16,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(30,38,51,.7)}
+.topbar-in{display:flex;justify-content:space-between;align-items:center;padding:9px 0;font-size:11px}
+.live-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#ef4444;animation:blink 1.2s infinite}
+@keyframes blink{50%{opacity:.35}}
+.ticker-box{overflow:hidden;border-top:1px solid rgba(127,29,29,.4);background:rgba(69,10,10,.25);padding:6px 0}
+.ticker{display:inline-block;white-space:nowrap;animation:tick 30s linear infinite;font-size:11px;color:#fecaca}
+@keyframes tick{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+/* hero */
+.hero{text-align:center;padding:38px 0 22px}
+.hero h1{font-size:52px;font-weight:700;line-height:1.1}
+.hero .tag{font-size:14px;color:#cbd2dc;margin-top:8px;font-weight:500}
+.hero .sub{font-size:12px;color:var(--mut);margin-top:8px;line-height:1.8;max-width:440px;margin-inline:auto}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+.metric{border:1px solid var(--border);background:rgba(13,17,23,.6);border-radius:14px;padding:12px 6px;text-align:center}
+.metric b{font-size:20px;display:block}
+.metric span{font-size:10px;color:var(--dim);display:block;margin-top:2px}
+/* tabs */
+.tabs{display:flex;gap:8px;margin:18px 0}
+.tab{padding:8px 16px;border-radius:999px;font-size:13px;border:1px solid var(--border);background:none;color:var(--mut);cursor:pointer;font-family:inherit;transition:.2s}
+.tab.on{border-color:rgba(201,162,39,.7);color:var(--gold-l);background:rgba(201,162,39,.1)}
+/* swarm */
+.swarm{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px}
+.agent{border:1px solid var(--border);background:rgba(13,17,23,.5);border-radius:12px;padding:10px 12px}
+.agent.full{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;border-color:#2a3444;background:rgba(13,17,23,.8)}
+.agent .nm{font-size:13px;font-weight:600}
+.agent .sc{font-size:9px;color:var(--dim);margin-top:2px}
+.agent .st{font-size:10px;margin-top:4px;color:var(--dim)}
+.agent.working{border-color:rgba(201,162,39,.5);animation:ring 1.4s infinite}
+.agent.working .st{color:var(--gold-l)}
+.agent.done .st{color:#34d399}
+.agent.err .st{color:#f87171}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(201,162,39,.3)}70%{box-shadow:0 0 0 8px rgba(201,162,39,0)}100%{box-shadow:0 0 0 0 rgba(201,162,39,0)}}
+/* brief */
+.brief{border:1px solid rgba(201,162,39,.35);background:linear-gradient(180deg,rgba(201,162,39,.09),transparent);border-radius:16px;padding:18px;margin-bottom:18px}
+.brief h2{font-size:14px;font-weight:700;display:inline}
+.brief p{font-size:13.5px;line-height:2;color:#dbe1ea;margin-top:8px}
+.brief .audit{font-size:10px;color:var(--dim);margin-top:12px;padding-top:10px;border-top:1px solid rgba(30,38,51,.7)}
+.pill{display:inline-block;font-size:9px;padding:2px 8px;border-radius:999px;border:1px solid;margin-inline-start:6px;vertical-align:middle}
+.pill.musnad{border-color:rgba(16,185,129,.5);color:#6ee7b7;background:rgba(6,78,59,.35)}
+/* controls */
+.controls{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.chip{font-size:10.5px;padding:4px 10px;border-radius:999px;border:1px solid var(--border);background:none;color:var(--mut);cursor:pointer;font-family:inherit}
+.chip.on{border-color:rgba(201,162,39,.6);color:var(--gold-l);background:rgba(201,162,39,.1)}
+.btn{font-size:11px;padding:6px 14px;border-radius:999px;border:1px solid rgba(201,162,39,.5);background:none;color:var(--gold-l);cursor:pointer;font-family:inherit;white-space:nowrap;transition:.2s}
+.btn:hover{background:rgba(201,162,39,.1)}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.solid{background:rgba(201,162,39,.14);border-color:rgba(201,162,39,.7);font-weight:600}
+.meta-line{font-size:10px;color:var(--dim);margin-bottom:14px}
+/* cards */
+.card{border:1px solid var(--border);background:rgba(13,17,23,.6);border-radius:16px;padding:18px;margin-bottom:12px;animation:fadeUp .45s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.badges{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:10px;margin-bottom:8px}
+.badge{padding:2px 8px;border-radius:999px;border:1px solid}
+.b-urgent{border-color:rgba(239,68,68,.6);color:#fca5a5;background:rgba(69,10,10,.3)}
+.b-imp{border-color:rgba(245,158,11,.5);color:#fcd34d;background:rgba(69,26,3,.3)}
+.b-watch{border-color:rgba(90,99,114,.5);color:#9aa3b2;background:rgba(30,38,51,.3)}
+.b-sahih{border-color:rgba(16,185,129,.6);color:#6ee7b7;background:rgba(6,78,59,.25)}
+.b-hasan{border-color:rgba(201,162,39,.55);color:#e8c96a;background:rgba(66,50,10,.25)}
+.b-unv{border-color:rgba(90,99,114,.45);color:#8b94a3;background:rgba(30,38,51,.25)}
+.card h3{font-size:15px;line-height:1.7;font-weight:700;margin-bottom:6px}
+.card .desc{font-size:12.5px;color:var(--mut);line-height:1.8;margin-bottom:10px}
+.card .foot{display:flex;justify-content:space-between;align-items:center}
+.src{font-size:11.5px;color:var(--gold-l);text-decoration:none}
+.src:hover{color:var(--gold-x)}
+.isnad-btn{font-size:10px;background:none;border:none;color:var(--dim);cursor:pointer;font-family:inherit}
+.isnad-btn:hover{color:var(--mut)}
+.isnad{margin-top:10px;padding-top:10px;border-top:1px solid rgba(30,38,51,.7);display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:10.5px;color:var(--mut)}
+.hop{padding:4px 9px;border-radius:9px;background:rgba(30,38,51,.6);border:1px solid rgba(42,52,68,.7)}
+.arrow{color:var(--gold)}
+.empty{border:1px solid var(--border);border-radius:16px;padding:24px;text-align:center;font-size:13px;color:var(--dim)}
+.skel{height:110px;border-radius:16px;background:rgba(30,38,51,.4);margin-bottom:12px;animation:pulse 1.4s ease infinite}
+@keyframes pulse{50%{opacity:.5}}
+/* duas */
+.dua{border:1px solid var(--border);background:rgba(13,17,23,.6);border-radius:16px;padding:22px;margin-bottom:14px}
+.dua h3{font-size:13px;color:#cbd2dc;font-weight:500;margin-bottom:10px}
+.dua .txt{font-size:22px;line-height:2.15;color:#f5ecd7}
+.dua .foot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:10px;border-top:1px solid var(--border)}
+.dua .ref{font-size:10.5px;color:var(--dim)}
+/* about */
+.quote{border:1px solid rgba(201,162,39,.3);background:linear-gradient(180deg,rgba(201,162,39,.08),transparent);border-radius:16px;padding:22px;text-align:center;margin-bottom:14px}
+.quote p{font-size:22px;font-weight:700;line-height:1.9}
+.quote span{font-size:10.5px;color:var(--dim);display:block;margin-top:8px}
+.about-block{border:1px solid var(--border);background:rgba(13,17,23,.6);border-radius:16px;padding:22px;margin-bottom:14px}
+.about-block h3{font-size:14px;font-weight:700;margin-bottom:6px}
+.about-block p{font-size:13px;color:var(--mut);line-height:1.9;margin-bottom:16px}
+.about-block p:last-child{margin-bottom:0}
+.cta{text-align:center}
+.cta a{display:block;font-size:13px;margin:6px 0;text-decoration:none}
+.cta .mail{font-weight:600}
+.cta .ig{color:var(--mut)}
+.cta .ig:hover{color:var(--txt)}
+.foot-note{font-size:10px;color:var(--dim);line-height:1.9;margin-top:22px}
+/* modal */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:50;display:none;align-items:center;justify-content:center;padding:18px}
+.modal-bg.open{display:flex}
+.modal{background:var(--card);border:1px solid rgba(201,162,39,.4);border-radius:18px;padding:24px;max-width:420px;width:100%}
+.modal h3{font-size:15px;margin-bottom:6px}
+.modal p{font-size:11.5px;color:var(--mut);line-height:1.8;margin-bottom:14px}
+.modal input{width:100%;background:#070a10;border:1px solid var(--border);border-radius:10px;padding:10px 12px;color:var(--txt);font-family:inherit;font-size:13px;direction:ltr;text-align:left}
+.modal .row{display:flex;gap:8px;margin-top:14px;justify-content:flex-end}
+.modal a{color:var(--gold-l)}
+footer{margin-top:40px}
+@media(max-width:480px){.hero h1{font-size:44px}.swarm{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="sadu"></div>
+
+<div class="topbar">
+  <div class="wrap topbar-in">
+    <div style="display:flex;align-items:center;gap:8px">
+      <span class="live-dot"></span><b>مباشر</b>
+      <span style="color:#2a3444">|</span>
+      <span id="clock" style="color:var(--dim)"></span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;color:var(--dim)">
+      <b class="gold" style="font-size:14px">سَنَد</b>
+      <span class="hide-sm">Sovereign News Intelligence</span>
+      <span>🇰🇼</span>
+    </div>
+  </div>
+  <div class="ticker-box" id="tickerBox" style="display:none"><div class="ticker" id="ticker"></div></div>
+</div>
+
+<div class="wrap">
+  <header class="hero">
+    <h1 class="amiri gold">سَنَد</h1>
+    <p class="tag">استخبارات إخبارية بمنهج المحدّثين</p>
+    <p class="sub">أول منصة تطبّق علم الإسناد — أدق نظام تحقق عرفته البشرية منذ ١٢٠٠ سنة — على أخبار اليوم، بسرب وكلاء ذكاء اصطناعي.</p>
+    <div class="gold-line" style="width:160px;margin:20px auto 0"></div>
+    <div class="metrics">
+      <div class="metric"><b class="gold">٥</b><span>وكلاء في السرب</span></div>
+      <div class="metric"><b class="gold" id="mVerified">—</b><span>خبر مرصود الآن</span></div>
+      <div class="metric"><b class="gold" id="mExcluded">—</b><span>استُبعد / كُرر</span></div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab on" data-tab="ops">غرفة العمليات</button>
+    <button class="tab" data-tab="duas">الملاذ</button>
+    <button class="tab" data-tab="about">عن سَنَد</button>
+  </nav>
+
+  <main>
+    <!-- OPS -->
+    <section id="tab-ops">
+      <div class="swarm" id="swarm"></div>
+      <div id="briefBox"></div>
+      <div class="controls">
+        <div class="filters" id="filters"></div>
+        <div style="display:flex;gap:6px">
+          <button class="btn" id="refreshBtn">⟳ انشر السرب</button>
+          <button class="btn solid" id="analystBtn">🧠 حاكم الإسناد</button>
+        </div>
+      </div>
+      <p class="meta-line" id="metaLine"></p>
+      <div id="feed"></div>
+      <p class="foot-note">الشارات: <b style="color:#6ee7b7">✓✓ صحيح</b> = سلسلتان مستقلتان أو مصدر ثقة ثبت مع شاهد · <b style="color:#e8c96a">✓ حسن</b> = مصدر أول موثوق واحد · <b style="color:#8b94a3">غير مُسند</b> = ناقل لم يُوثَّق بعد — لا يُبنى عليه قرار. للتعليمات الرسمية اتبع دائمًا جهات بلدك.</p>
+    </section>
+
+    <!-- DUAS -->
+    <section id="tab-duas" style="display:none">
+      <p style="text-align:center;font-size:12px;color:var(--dim);margin-bottom:14px">الملاذ — أدعية مأثورة ضد العدوان الغاشم</p>
+      <div id="duasList"></div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="tab-about" style="display:none">
+      <div class="quote">
+        <p class="amiri gold">«إِنَّ هذا العِلمَ دِينٌ، فانظُروا عمَّن تأخُذونَ دِينَكم»</p>
+        <span>ابن سيرين — مقدمة صحيح مسلم</span>
+      </div>
+      <div class="about-block">
+        <h3 class="gold">المشكلة</h3>
+        <p>في أوقات الأزمات، الشائعة أسرع من الصاروخ. المنصات العالمية تتحقق بعد الانتشار — والعالم العربي يستهلك أخباره عبر وسطاء لا يملكون منهج تحقق أصيلًا.</p>
+        <h3 class="gold">الحل</h3>
+        <p>سَنَد يعكس المعادلة: سرب وكلاء رصد يجلب الخبر من مصادر حية بروابطها الأصلية، ووكيل محلّل — حاكم الإسناد — مبني على خمسة معايير من علم الحديث: الإسناد، عدالة الراوي، الضبط، الشاهد، نقد المتن. ثم يصدر الحكم: صحيح، حسن، أو استبعاد.</p>
+        <h3 class="gold">لماذا لا يمكن تقليده</h3>
+        <p>المنهج عمره ١٢٠٠ سنة ووُلد في حضارتنا. سَنَد يدمجه مع سلسلة العهدة الجنائية الرقمية (ISO/IEC 27037) — منهجية محاكم، لا منهجية تريند. والوكيل لا يصنع الروابط أبدًا: يحكم فقط على ما جُلب فعلًا، فلا مكان لخبر مختلق.</p>
+        <h3 class="gold">لمن</h3>
+        <p>غرف الأخبار، الجهات الحكومية، فرق إدارة الأزمات، والمنصات التي تريد طبقة تحقق سيادية عربية — عبر API أو ترخيص المنصة كاملة.</p>
+      </div>
+      <div class="about-block cta">
+        <p style="margin-bottom:10px">للشراكات والاستحواذ والترخيص التجاري</p>
+        <a href="mailto:soldiom@gmail.com" class="mail gold">soldiom@gmail.com</a>
+        <a href="https://instagram.com/alialthowaikh" target="_blank" rel="noopener" class="ig">Instagram · @alialthowaikh</a>
+        <div class="gold-line" style="width:130px;margin:16px auto"></div>
+        <p style="font-size:10px;color:var(--dim);margin:0">SANAD™ — بروتوكول الإسناد للتحقق السيادي<br>صناعة SOLDIOM · دولة الكويت 🇰🇼 · ٢٠٢٦</p>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer><div class="sadu"></div></footer>
+
+<!-- Gemini key modal -->
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <h3>🧠 تفعيل حاكم الإسناد</h3>
+    <p>المحلّل يعمل بعقل Gemini (نسخة مجانية). أنشئ مفتاحًا مجانيًا من <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Google AI Studio</a> والصقه هنا. يُحفظ في متصفحك فقط — لا يغادر جهازك إلا نحو Google مباشرة.</p>
+    <input type="password" id="keyInput" placeholder="AIza...">
+    <div class="row">
+      <button class="btn" id="keyCancel">إلغاء</button>
+      <button class="btn solid" id="keySave">حفظ وتشغيل</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ═══════ سَنَد — SANAD live engine ═══════ */
+const $=q=>document.querySelector(q);
+
+const AGENTS=[
+ {id:"gulf",name:"وكيل الخليج",emoji:"🛡️",scope:"الكويت · البحرين · قطر · السعودية · الإمارات · عُمان",
+  q:'(الكويت OR البحرين OR قطر OR السعودية OR الإمارات) (اعتراض OR صواريخ OR مسيرات OR هجوم OR دفاع جوي) when:1d'},
+ {id:"palestine",name:"وكيل فلسطين",emoji:"🇵🇸",scope:"غزة · الضفة · القدس",
+  q:'(غزة OR فلسطين OR الضفة) (قصف OR غارة OR شهداء OR اقتحام) when:1d'},
+ {id:"mashreq",name:"وكيل المشرق",emoji:"🌙",scope:"العراق · سوريا · لبنان · الأردن · اليمن",
+  q:'(العراق OR سوريا OR لبنان OR الأردن OR اليمن) (هجوم OR قصف OR اعتراض OR غارة) when:1d'},
+ {id:"ummah",name:"وكيل العالم الإسلامي",emoji:"🌍",scope:"أي عدوان على دولة إسلامية",
+  q:'(إيران OR باكستان OR مصر OR ليبيا OR السودان) (عدوان OR هجوم OR ضربة OR قصف) when:1d'}
+];
+const REGION={gulf:"الخليج",palestine:"فلسطين",mashreq:"المشرق",ummah:"العالم الإسلامي"};
+
+/* سجل الرواة — عدالة الراوي */
+const TIER1=["كونا","kuna","واس","spa","وكالة الأنباء السعودية","وام","wam","قنا","qna","بنا","bna","العمانية","بترا","petra","وفا","wafa","الأناضول","anadolu","aa.com","واع","الوكالة الوطنية","وكالة الأنباء"];
+const TIER2=["رويترز","reuters","فرانس برس","afp","أسوشيتد","associated press","ap news"];
+const TIER3=["الجزيرة","العربية","سكاي نيوز","الشرق","cnn","bbc","الحدث","الإخبارية","alghad","الغد","القاهرة الإخبارية","اليوم السابع","الرأي","القبس","الأنباء","الجريدة","سبق","عكاظ"];
+
+function gradeSource(src){
+ const s=(src||"").toLowerCase();
+ if(TIER1.some(t=>s.includes(t.toLowerCase())))return{grade:"حسن",tier:"ثقة ثبت — وكالة رسمية"};
+ if(TIER2.some(t=>s.includes(t.toLowerCase())))return{grade:"حسن",tier:"صدوق — وكالة دولية"};
+ if(TIER3.some(t=>s.includes(t.toLowerCase())))return{grade:"غير مُسند",tier:"قناة إخبارية — يحتاج شاهدًا"};
+ return{grade:"غير مُسند",tier:"ناقل غير موثق"};
+}
+function severity(t){
+ if(/عاجل|اعتراض|قصف|صواريخ|مسيرات|غارة|شهداء|انفجار|هجوم/.test(t))return"عاجل";
+ if(/تحذير|إغلاق|تعليق|إخلاء|استنفار|بيان|دفاع/.test(t))return"مهم";
+ return"متابعة";
+}
+const norm=s=>(s||"").replace(/["""'«»\-–—:،,.!؟]/g," ").replace(/\s+/g," ").trim().slice(0,42);
+
+let ALL=[],BRIEF=null,STATS=null,FILTER="all",openIsnad=-1;
+
+function setAgent(id,st){const el=document.getElementById("ag-"+id);if(!el)return;
+ el.className="agent"+(id==="analyst"?" full":"")+(st==="working"?" working":st==="done"?" done":st==="err"?" err":"");
+ el.querySelector(".st").textContent=st==="working"?"● يعمل":st==="done"?"✓ اكتمل":st==="err"?"✕ تعذّر":"بانتظار";}
+
+function renderSwarm(){
+ $("#swarm").innerHTML=AGENTS.map(a=>`<div class="agent" id="ag-${a.id}"><div class="nm">${a.emoji} ${a.name}</div><div class="sc">${a.scope}</div><div class="st">بانتظار</div></div>`).join("")+
+ `<div class="agent full" id="ag-analyst"><div><div class="nm">🧠 الوكيل المحلّل <span style="font-size:9px;color:var(--dim);font-weight:400">حاكم الإسناد</span></div></div><div class="st">بانتظار المفتاح</div></div>`;
+}
+function renderFilters(){
+ $("#filters").innerHTML=["all",...AGENTS.map(a=>a.id)].map(r=>`<button class="chip ${FILTER===r?"on":""}" data-f="${r}">${r==="all"?"الكل":REGION[r]}</button>`).join("");
+ document.querySelectorAll(".chip").forEach(c=>c.onclick=()=>{FILTER=c.dataset.f;renderFilters();renderFeed();});
+}
+function badgeFor(g){
+ if(g==="صحيح")return'<span class="badge b-sahih">✓✓ صحيح</span>';
+ if(g==="حسن")return'<span class="badge b-hasan">✓ حسن</span>';
+ return'<span class="badge b-unv">غير مُسند</span>';
+}
+function sevBadge(s){return`<span class="badge ${s==="عاجل"?"b-urgent":s==="مهم"?"b-imp":"b-watch"}">${s}</span>`;}
+
+function renderFeed(){
+ const list=FILTER==="all"?ALL:ALL.filter(n=>n.region===FILTER);
+ const order={"عاجل":0,"مهم":1,"متابعة":2};
+ list.sort((a,b)=>(order[a.severity]??2)-(order[b.severity]??2)||(b.ts||0)-(a.ts||0));
+ if(!list.length){$("#feed").innerHTML='<div class="empty">لا توجد تقارير مستوفية شروط الإسناد حتى الآن.</div>';return;}
+ $("#feed").innerHTML=list.map((n,i)=>`
+  <article class="card" style="animation-delay:${i*40}ms">
+   <div class="badges">${sevBadge(n.severity)}${badgeFor(n.grade)}<span style="color:var(--dim)">${REGION[n.region]||""}</span><span style="color:#2a3444">•</span><span style="color:var(--dim)">${n.time||""}</span></div>
+   <h3>${n.title}</h3>
+   ${n.summary?`<p class="desc">${n.summary}</p>`:""}
+   <div class="foot">
+    <a class="src" href="${n.url}" target="_blank" rel="noopener">${n.source} <span>↗ المصدر</span></a>
+    ${n.isnad&&n.isnad.length?`<button class="isnad-btn" data-i="${i}">${openIsnad===i?"إخفاء الإسناد ▴":"سلسلة الإسناد ▾"}</button>`:""}
+   </div>
+   ${openIsnad===i&&n.isnad?`<div class="isnad">${n.isnad.map((h,j)=>`<span class="hop">${h}</span>${j<n.isnad.length-1?'<span class="arrow">←</span>':""}`).join("")}</div>`:""}
+  </article>`).join("");
+ document.querySelectorAll(".isnad-btn").forEach(b=>b.onclick=()=>{const i=+b.dataset.i;openIsnad=openIsnad===i?-1:i;renderFeed();});
+ /* ticker */
+ const urg=ALL.filter(n=>n.severity==="عاجل").slice(0,8);
+ if(urg.length){$("#tickerBox").style.display="block";$("#ticker").innerHTML=urg.map(n=>`<span style="margin:0 24px">⚡ ${n.title} — ${n.source}</span>`).join("");}
+ $("#mVerified").textContent=String(ALL.length).replace(/\d/g,d=>"٠١٢٣٤٥٦٧٨٩"[d]);
+}
+
+/* ─── Scouts: Google News RSS via rss2json ─── */
+async function fetchAgent(a){
+ const gn=`https://news.google.com/rss/search?q=${encodeURIComponent(a.q)}&hl=ar&gl=KW&ceid=KW:ar`;
+ const api=`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(gn)}`;
+ const r=await fetch(api);const d=await r.json();
+ if(d.status!=="ok")throw new Error("rss");
+ return(d.items||[]).slice(0,8).map(it=>{
+  const parts=it.title.split(" - ");
+  const source=parts.length>1?parts.pop().trim():"غير محدد";
+  const title=parts.join(" - ").trim();
+  const g=gradeSource(source);
+  const ts=new Date(it.pubDate).getTime();
+  const mins=Math.max(1,Math.round((Date.now()-ts)/60000));
+  const time=mins<60?`قبل ${mins} دقيقة`:mins<1440?`قبل ${Math.round(mins/60)} ساعة`:`قبل ${Math.round(mins/1440)} يوم`;
+  return{title,summary:"",source,url:it.link,time,ts,severity:severity(title),region:a.id,grade:g.grade,isnad:[g.tier,source,"جلب آلي — سرب سَنَد"]};
+ });
+}
+
+async function deploySwarm(){
+ $("#refreshBtn").disabled=true;
+ AGENTS.forEach(a=>setAgent(a.id,"working"));
+ const results=await Promise.allSettled(AGENTS.map(async a=>{
+  try{const items=await fetchAgent(a);setAgent(a.id,"done");return items;}
+  catch(e){setAgent(a.id,"err");return[];}
+ }));
+ let raw=results.flatMap(r=>r.status==="fulfilled"?r.value:[]);
+ /* dedupe + الشاهد: نفس الخبر من مصدرين مختلفين = تقوية */
+ const seen=new Map();let dropped=0;
+ for(const n of raw){
+  const k=norm(n.title);
+  if(seen.has(k)){
+   const prev=seen.get(k);dropped++;
+   if(prev.source!==n.source){prev.witnesses=(prev.witnesses||1)+1;
+    if(prev.grade==="حسن"&&prev.witnesses>=2){prev.grade="صحيح";prev.isnad=[...(prev.isnad||[]),`شاهد مستقل: ${n.source}`];}
+    else if(prev.grade==="غير مُسند"&&n.grade==="حسن"){prev.grade="حسن";prev.source=n.source;prev.url=n.url;prev.isnad=n.isnad;}
+   }
+  } else seen.set(k,n);
+ }
+ ALL=[...seen.values()];
+ $("#mExcluded").textContent=String(dropped).replace(/\d/g,d=>"٠١٢٣٤٥٦٧٨٩"[d]);
+ $("#metaLine").textContent="آخر دورة رصد: "+new Date().toLocaleTimeString("ar-KW",{hour:"2-digit",minute:"2-digit"})+" — المصدر: رصد حي عبر Google News RSS + سجل الرواة";
+ renderFeed();
+ $("#refreshBtn").disabled=false;
+}
+
+/* ─── Analyst: Gemini judges (never generates URLs) ─── */
+const MODELS=["gemini-2.5-flash","gemini-3.1-flash-lite","gemini-2.0-flash"];
+async function callGemini(key,prompt){
+ let lastErr;
+ for(const m of MODELS){
+  try{
+   const r=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent?key=${key}`,{
+    method:"POST",headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({contents:[{parts:[{text:prompt}]}],generationConfig:{temperature:0.2,maxOutputTokens:2000}})});
+   const d=await r.json();
+   if(d.error)throw new Error(d.error.message);
+   const txt=(d.candidates?.[0]?.content?.parts||[]).map(p=>p.text||"").join("");
+   if(txt)return txt;
+   throw new Error("empty");
+  }catch(e){lastErr=e;}
+ }
+ throw lastErr;
+}
+async function runAnalyst(){
+ const key=localStorage.getItem("sanad_gemini_key");
+ if(!key){$("#modalBg").classList.add("open");return;}
+ if(!ALL.length){alert("انشر السرب أولاً");return;}
+ setAgent("analyst","working");$("#analystBtn").disabled=true;
+ const compact=ALL.slice(0,25).map((n,i)=>({i,t:n.title,s:n.source,g:n.grade,r:n.region,time:n.time}));
+ const prompt=`أنت "حاكم الإسناد" في منصة سَنَد. طبق بروتوكول الإسناد المستمد من علم الحديث على هذه الأخبار المجلوبة فعلياً (لا تخترع أخباراً ولا روابط — احكم فقط على الموجود):
+${JSON.stringify(compact)}
+القواعد: الوكالات الرسمية (كونا/واس/وام/قنا/بنا/بترا/وفا/الأناضول) = ثقة ثبت. رويترز/فرانس برس/أسوشيتد = صدوق. القنوات الإخبارية = تحتاج شاهداً. واقعة واحدة من مصدرين مستقلين = صحيح. مصدر ثقة واحد = حسن. المتناقض أو المستحيل = مستبعد.
+أعد JSON فقط بلا أي نص آخر:
+{"brief":"موجز عمليات موحد ٣-٥ جمل وقائع فقط بالعربية مرتبة عاجل فمهم","stats":{"sahih":0,"hasan":0,"excluded":0},"verdicts":[{"i":0,"grade":"صحيح|حسن|مستبعد","isnad":["الجهة الأصلية للخبر","الناقل"],"summary":"جملة سياق واحدة"}]}`;
+ try{
+  const txt=await callGemini(key,prompt);
+  const c=txt.replace(/```json|```/g,"").trim();
+  const out=JSON.parse(c.slice(c.indexOf("{"),c.lastIndexOf("}")+1));
+  (out.verdicts||[]).forEach(v=>{
+   const n=ALL[v.i];if(!n)return;
+   if(v.grade==="مستبعد"){n._drop=true;return;}
+   if(v.grade)n.grade=v.grade;
+   if(v.summary)n.summary=v.summary;
+   if(Array.isArray(v.isnad)&&v.isnad.length)n.isnad=[...v.isnad,"حُكم مبني على بروتوكول سَنَد"];
+  });
+  const before=ALL.length;ALL=ALL.filter(n=>!n._drop);
+  STATS=out.stats||{sahih:ALL.filter(n=>n.grade==="صحيح").length,hasan:ALL.filter(n=>n.grade==="حسن").length,excluded:before-ALL.length};
+  BRIEF=out.brief||"";
+  const ar=x=>String(x).replace(/\d/g,d=>"٠١٢٣٤٥٦٧٨٩"[d]);
+  $("#briefBox").innerHTML=BRIEF?`<div class="brief"><h2 class="gold">موجز العمليات الموحّد</h2><span class="pill musnad">مُسند ✓</span><p>${BRIEF}</p><div class="audit">التحقق: بروتوكول سَنَد — <b style="color:#6ee7b7">${ar(STATS.sahih)} صحيح</b> · <b style="color:#e8c96a">${ar(STATS.hasan)} حسن</b> · <b style="color:#f87171">استُبعد ${ar(STATS.excluded)}</b> — بعقل Gemini</div></div>`:"";
+  renderFeed();setAgent("analyst","done");
+ }catch(e){
+  setAgent("analyst","err");
+  alert("تعذّر تشغيل المحلّل: "+e.message+"\nتأكد من صحة المفتاح أو من حدود الاستخدام المجاني.");
+ }
+ $("#analystBtn").disabled=false;
+}
+
+/* ─── Duas ─── */
+const DUAS=[
+ {t:"دعاء النبي ﷺ يوم الأحزاب",x:"اللَّهُمَّ مُنْزِلَ الْكِتَابِ، سَرِيعَ الْحِسَابِ، اهْزِمِ الْأَحْزَابَ، اللَّهُمَّ اهْزِمْهُمْ وَزَلْزِلْهُمْ",r:"متفق عليه"},
+ {t:"دعاء لقاء العدو",x:"اللَّهُمَّ إِنَّا نَجْعَلُكَ فِي نُحُورِهِمْ، وَنَعُوذُ بِكَ مِنْ شُرُورِهِمْ",r:"رواه أبو داود — صحيح"},
+ {t:"دعاء للمستضعفين",x:"اللَّهُمَّ أَنْجِ الْمُسْتَضْعَفِينَ مِنَ الْمُؤْمِنِينَ فِي كُلِّ مَكَانٍ، اللَّهُمَّ اشْدُدْ وَطْأَتَكَ عَلَى الظَّالِمِينَ الْمُعْتَدِينَ",r:"أصله في الصحيحين"},
+ {t:"حسبنا الله ونعم الوكيل",x:"حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ",r:"آل عمران ١٧٣"},
+ {t:"دعاء الكرب",x:"لَا إِلَهَ إِلَّا اللَّهُ الْعَظِيمُ الْحَلِيمُ، لَا إِلَهَ إِلَّا اللَّهُ رَبُّ الْعَرْشِ الْعَظِيمِ، لَا إِلَهَ إِلَّا اللَّهُ رَبُّ السَّمَاوَاتِ وَرَبُّ الْأَرْضِ وَرَبُّ الْعَرْشِ الْكَرِيمِ",r:"متفق عليه"},
+ {t:"دعاء الخوف",x:"أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ",r:"رواه مسلم"},
+ {t:"ستر العورات وأمن الروعات",x:"اللَّهُمَّ اسْتُرْ عَوْرَاتِنَا، وَآمِنْ رَوْعَاتِنَا، وَاحْفَظْنَا مِنْ بَيْنِ أَيْدِينَا وَمِنْ خَلْفِنَا وَعَنْ أَيْمَانِنَا وَعَنْ شَمَائِلِنَا وَمِنْ فَوْقِنَا",r:"رواه أبو داود"},
+ {t:"دعاء لبلاد المسلمين",x:"اللَّهُمَّ احْفَظْ بِلَادَ الْمُسْلِمِينَ مِنْ كُلِّ عُدْوَانٍ غَاشِمٍ، وَاجْعَلْهَا آمِنَةً مُطْمَئِنَّةً، وَرُدَّ كَيْدَ الْمُعْتَدِينَ فِي نُحُورِهِمْ",r:"دعاء عام بمعانٍ مشروعة"}
+];
+function renderDuas(){
+ $("#duasList").innerHTML=DUAS.map((d,i)=>`<div class="dua"><h3>${d.t}</h3><p class="txt amiri">${d.x}</p><div class="foot"><span class="ref">${d.r}</span><button class="btn" data-d="${i}">تسبيح <b id="cnt-${i}"></b></button></div></div>`).join("");
+ const counts={};
+ document.querySelectorAll("[data-d]").forEach(b=>b.onclick=()=>{const i=b.dataset.d;counts[i]=(counts[i]||0)+1;document.getElementById("cnt-"+i).textContent="· "+counts[i];});
+}
+
+/* ─── boot ─── */
+renderSwarm();renderFilters();renderDuas();
+document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{
+ document.querySelectorAll(".tab").forEach(x=>x.classList.remove("on"));t.classList.add("on");
+ ["ops","duas","about"].forEach(k=>document.getElementById("tab-"+k).style.display=k===t.dataset.tab?"":"none");
+});
+$("#refreshBtn").onclick=deploySwarm;
+$("#analystBtn").onclick=runAnalyst;
+$("#keyCancel").onclick=()=>$("#modalBg").classList.remove("open");
+$("#keySave").onclick=()=>{const v=$("#keyInput").value.trim();if(v){localStorage.setItem("sanad_gemini_key",v);$("#modalBg").classList.remove("open");runAnalyst();}};
+setInterval(()=>{$("#clock").textContent=new Date().toLocaleTimeString("ar-KW",{hour:"2-digit",minute:"2-digit",second:"2-digit"});},1000);
+$("#feed").innerHTML='<div class="skel"></div><div class="skel"></div><div class="skel"></div>';
+deploySwarm();
+setInterval(deploySwarm,10*60*1000); /* دورة رصد كل ١٠ دقائق */
+</script>
+</body>
+</html>
