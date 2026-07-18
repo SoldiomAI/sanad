@@ -94,7 +94,7 @@ def grok_intel():
        "من حسابات موثقة خلال ٦ ساعات. أرقام موثقة فقط وإلا اكتب «غير مؤكد». لا شيء خارج JSON.")
     body={"model":"grok-4.5","input":[{"role":"user","content":P}],
         "tools":[{"type":"web_search"},{"type":"x_search"}],
-        "max_output_tokens":2200,"max_tool_calls":8}
+        "max_output_tokens":6000,"max_tool_calls":14}
     try:
         req=urllib.request.Request("https://api.x.ai/v1/responses",data=json.dumps(body).encode(),
             headers={"Authorization":"Bearer "+GROK_KEY,"Content-Type":"application/json"})
@@ -102,7 +102,9 @@ def grok_intel():
         txt="".join(c.get("text","") for o in d.get("output",[]) if o.get("type")=="message"
                     for c in o.get("content",[]))
         txt=txt.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
-        j=json.loads(txt); j["updated"]=datetime.now(timezone.utc).isoformat(timespec="minutes")
+        if not txt:
+            print(f"Grok رد فارغ (status={d.get('status')} {d.get('incomplete_details')})"); return old
+        j=json.loads(txt[txt.find("{"):txt.rfind("}")+1]); j["updated"]=datetime.now(timezone.utc).isoformat(timespec="minutes")
         json.dump(j,open(INTEL,"w"),ensure_ascii=False,indent=1)
         print(f"🛰️ Grok: {len(j.get('toll',[]))} دول · {len(j.get('brk',[]))} عاجل · {d['usage']['total_tokens']} توكن")
         return j
