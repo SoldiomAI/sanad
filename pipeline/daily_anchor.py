@@ -7,13 +7,24 @@ from datetime import datetime, timezone
 
 HF_TOKEN = os.environ.get("HF_TOKEN",""); GEMINI_KEY = os.environ.get("GEMINI_API_KEY",""); OUT="daily"; os.makedirs(OUT, exist_ok=True)
 TIER1=["reuters","رويترز","afp","فرانس برس","ap news","أسوشيتد","kuna","كونا","wam","وام","spa","واس","bna","qna","ona"]
-TIER2=["aljazeera","الجزيرة","alarabiya","العربية","skynews","سكاي نيوز","bbc","france24","cnn","alqabas","القبس","aljarida","الجريدة","alrai","الراي","kuwaittimes","arabtimes","gulfnews","thenational","alkhaleej","الخليج","irna","ایرنا","إرنا","tasnim","تسنیم","تسنيم","mehr","مهر","fars","فارس","isna","ایسنا","العالم","press tv","khabaronline","خبرگزاری","همشهری","entekhab","اعتماد"]
+TIER2=["aljazeera","الجزيرة","alarabiya","العربية","skynews","سكاي نيوز","bbc","france24","cnn","alqabas","القبس","aljarida","الجريدة","alrai","الراي","kuwaittimes","arabtimes","gulfnews","thenational","alkhaleej","الخليج","irna","ایرنا","إرنا","tasnim","تسنیم","تسنيم","mehr","مهر","fars","فارس","isna","ایسنا","العالم","press tv","khabaronline","خبرگزاری","iran international","ایران اینترنشنال","bbc persian","بی‌بی‌سی","همشهری","entekhab","اعتماد"]
 FEEDS=[("الخليج","https://news.google.com/rss/search?q=%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA+OR+%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9+OR+%D8%A7%D9%84%D8%A5%D9%85%D8%A7%D8%B1%D8%A7%D8%AA&hl=ar&gl=KW&ceid=KW:ar"),
        ("فلسطين","https://news.google.com/rss/search?q=%D8%BA%D8%B2%D8%A9+OR+%D9%81%D9%84%D8%B3%D8%B7%D9%8A%D9%86&hl=ar&gl=KW&ceid=KW:ar"),
        ("عالم","https://news.google.com/rss/headlines/section/topic/WORLD?hl=ar&gl=KW&ceid=KW:ar"),
        ("تقنية","https://news.google.com/rss/search?q=%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1+%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A&hl=ar&gl=KW&ceid=KW:ar"),
        ("اقتصاد","https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=ar&gl=KW&ceid=KW:ar"),
-       ("إيران","https://news.google.com/rss?hl=fa&gl=IR&ceid=IR:fa")]
+       ("إيران","https://feeds.bbci.co.uk/persian/rss.xml"),
+       ("إيران","https://www.iranintl.com/feed")]
+
+# مصادر إيران: الاسم المعتمد وهوية الجهة — تُعرض للقارئ صراحةً
+FA_SRC={
+ "feeds.bbci.co.uk":("بي بي سي فارسي","هيئة بث بريطانية عامة"),
+ "iranintl.com":("إيران إنترناشونال","قناة فارسية مقرّها لندن"),
+}
+def fa_meta(url):
+    for k,v in FA_SRC.items():
+        if k in url: return v
+    return ("مصدر فارسي","غير محدد")
 RULES=f"{OUT}/rules.json"
 def load_rules():
     try:
@@ -45,12 +56,16 @@ for label,url in FEEDS:
         for it in root.iter("item"):
             title=clean(it.findtext("title","")); src_=title.rsplit(" - ",1)[-1] if " - " in title else ""
             head=title.rsplit(" - ",1)[0] if " - " in title else title
-            g=grade(src_ or clean(it.findtext("source","")))
+            is_fa = label=="إيران"
+            g="حسن" if is_fa else grade(src_ or clean(it.findtext("source","")))
             key=head[:40]
             if g in ("صحيح","حسن") and len(head)>15 and key not in seen and not blocked(head):
                 seen.add(key)
-                items.append({"head":head,"src":src_,"grade":g,"cat":label,
-                    "link":clean(it.findtext("link","")),"fa":label=="إيران"}); n+=1
+                d={"head":head,"src":src_,"grade":g,"cat":label,
+                   "link":clean(it.findtext("link","")),"fa":is_fa}
+                if is_fa:
+                    nm,who=fa_meta(url); d["src"]=nm; d["via"]=who
+                items.append(d); n+=1
                 if n>=6: break
     except Exception as e: print(f"feed {label}: {e}",file=sys.stderr)
 print(f"جُمع {len(items)} خبرًا مُسندًا")
@@ -69,11 +84,12 @@ fa_items=[i for i in items if i.get("fa")]
 if fa_items and GEMINI_KEY:
     try:
         lst="\n".join(f"{n}| {i['head']} :: {i['src']}" for n,i in enumerate(fa_items))
-        out=gemini_json("ترجم هذه العناوين الإخبارية من الفارسية إلى العربية الصحفية الرصينة، "
-            "وترجم اسم المصدر أيضًا (مثال: خبرگزاری فارس → وكالة فارس). "
-            "أخرج JSON فقط بصيغة: [{\"n\":الرقم,\"h\":\"العنوان العربي\",\"s\":\"المصدر بالعربية\"}]\n"+lst)
+        out=gemini_json("ترجم هذه العناوين الإخبارية من الفارسية إلى العربية الصحفية الرصينة. "
+            "ترجمة أمينة حرفية المعنى بلا إضافة ولا حذف ولا تهويل، واحتفظ بالأرقام والأسماء كما وردت. "
+            "لا تترجم أسماء المصادر — سنضعها نحن.\n"
+            "أخرج JSON فقط بصيغة: [{\"n\":الرقم,\"h\":\"العنوان العربي\"}]\n"+lst)
         for o in out:
-            fa_items[o["n"]]["head"]=o["h"]; fa_items[o["n"]]["src"]=o["s"]
+            fa_items[o["n"]]["head"]=o["h"]
         print(f"🇮🇷 تُرجم {len(out)} عنوانًا عن الفارسية")
     except Exception as e:
         print(f"ترجمة إيران فشلت: {str(e)[:80]}")
@@ -89,7 +105,9 @@ items=[i for i in items if i["cat"]!="__drop__"]
 if _rr: print(f"🧭 أعاد النظام توجيه {_rr} خبرًا وفق قواعده المكتسبة")
 
 cats={}
-for i in items: cats.setdefault(i["cat"],[]).append({k:i[k] for k in ("head","src","grade","link","fa")})
+for i in items:
+    cats.setdefault(i["cat"],[]).append({k:i[k] for k in ("head","src","grade","link","fa") if k in i}
+        | ({"via":i["via"]} if i.get("via") else {}))
 json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"cats":cats},
     open(f"{OUT}/news.json","w"),ensure_ascii=False,indent=1)
 print(f"🗞️ news.json: {sum(len(v) for v in cats.values())} خبرًا في {len(cats)} أقسام")
