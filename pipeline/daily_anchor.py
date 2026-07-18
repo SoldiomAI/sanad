@@ -170,7 +170,17 @@ for label,url in FEEDS:
             key=head[:40]
             if g in ("صحيح","حسن") and len(head)>15 and key not in seen and not blocked(head):
                 seen.add(key)
-                d={"head":head,"src":src_,"grade":g,"cat":label,
+                _pd=clean(it.findtext("pubDate","")) or clean(it.findtext("{http://purl.org/dc/elements/1.1/}date",""))
+                _iso=""
+                if _pd:
+                    for _f in ("%a, %d %b %Y %H:%M:%S %Z","%a, %d %b %Y %H:%M:%S %z","%Y-%m-%dT%H:%M:%S%z"):
+                        try:
+                            from email.utils import parsedate_to_datetime
+                            _iso=parsedate_to_datetime(_pd).astimezone(timezone.utc).isoformat(timespec="minutes"); break
+                        except Exception:
+                            try: _iso=datetime.strptime(_pd,_f).astimezone(timezone.utc).isoformat(timespec="minutes"); break
+                            except Exception: pass
+                d={"head":head,"src":src_,"grade":g,"cat":label,"at":_iso,
                    "link":clean(it.findtext("link","")),"fa":is_fa}
                 if is_fa:
                     nm,who=fa_meta(url); d["src"]=nm; d["via"]=who
@@ -235,7 +245,7 @@ if _rr: print(f"🧭 أعاد النظام توجيه {_rr} خبرًا وفق ق
 
 cats={}
 for i in items:
-    cats.setdefault(i["cat"],[]).append({k:i[k] for k in ("head","src","grade","link","fa") if k in i}
+    cats.setdefault(i["cat"],[]).append({k:i[k] for k in ("head","src","grade","link","fa","at") if k in i}
         | ({"via":i["via"]} if i.get("via") else {}))
 json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"cats":cats},
     open(f"{OUT}/news.json","w"),ensure_ascii=False,indent=1)
