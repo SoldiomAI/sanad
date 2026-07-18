@@ -6,7 +6,7 @@ import os, re, sys, json, asyncio, shutil, subprocess, urllib.request, xml.etree
 from datetime import datetime, timezone
 
 HF_TOKEN = os.environ.get("HF_TOKEN",""); GEMINI_KEY = os.environ.get("GEMINI_API_KEY",""); OUT="daily"; os.makedirs(OUT, exist_ok=True)
-TIER1=["reuters","رويترز","afp","فرانس برس","ap news","أسوشيتد","kuna","كونا","wam","وام","spa","واس","bna","qna","ona"]
+TIER1=["centcom","kuna","كونا","mew_kwt","kff_kw","moi_bahrain","mofauae","mofaqatar","وكالة الأنباء الكويتية","reuters","رويترز","afp","فرانس برس","ap news","أسوشيتد","kuna","كونا","wam","وام","spa","واس","bna","qna","ona"]
 TIER2=["aljazeera","الجزيرة","alarabiya","العربية","skynews","سكاي نيوز","bbc","france24","cnn","alqabas","القبس","aljarida","الجريدة","alrai","الراي","kuwaittimes","arabtimes","gulfnews","thenational","alkhaleej","الخليج","irna","ایرنا","إرنا","tasnim","تسنیم","تسنيم","mehr","مهر","fars","فارس","isna","ایسنا","العالم","press tv","khabaronline","خبرگزاری","iran international","ایران اینترنشنال","bbc persian","بی‌بی‌سی","همشهری","entekhab","اعتماد"]
 FEEDS=[("الخليج","https://news.google.com/rss/search?q=%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA+OR+%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9+OR+%D8%A7%D9%84%D8%A5%D9%85%D8%A7%D8%B1%D8%A7%D8%AA&hl=ar&gl=KW&ceid=KW:ar"),
        ("فلسطين","https://news.google.com/rss/search?q=%D8%BA%D8%B2%D8%A9+OR+%D9%81%D9%84%D8%B3%D8%B7%D9%8A%D9%86&hl=ar&gl=KW&ceid=KW:ar"),
@@ -313,6 +313,52 @@ def mustaqri():
     json.dump(j,open(FCAST,"w"),ensure_ascii=False,indent=1)
     print("🔮 الاستقراء: %d سيناريو · %d إشارة · دقة تراكمية %d%% (%d سابقة)"%(
         len(j.get("scenarios",[])),len(j.get("signals",[])),j["score"]["acc"],len(hist)))
+
+# ═══ المَنبع: بيانات رسمية من الجهات مباشرة (أعلى درجات الاتصال) ═══
+OFFI=f"{OUT}/official.json"
+
+def manba():
+    """يجلب آخر بيان رسمي من كل جهة — مصدر أول بلا واسطة."""
+    try:
+        old=json.load(open(OFFI))
+        age=(datetime.now(timezone.utc)-datetime.fromisoformat(old["updated"])).total_seconds()/3600
+    except Exception: old,age=None,999
+    if age<3 and not os.environ.get("FORCE_OFFICIAL"):
+        print("♻️ المَنبع حديث — تخطٍ (توفير)"); return
+    if not GROK_KEY: return
+    P=("ابحث في منصة إكس والمواقع الرسمية عن آخر بيان أو منشور رسمي من كل جهة أدناه "
+       "خلال ١٢ ساعة الماضية بشأن الأزمة الجارية.\n"
+       "الجهات: القيادة المركزية الأمريكية CENTCOM، وزارة الكهرباء والماء الكويتية، "
+       "قوة الإطفاء العام الكويتية، وزارة الداخلية الكويتية، وكالة الأنباء الكويتية كونا، "
+       "وزارة الصحة الكويتية، الداخلية أو الدفاع المدني السعودي، وزارة الخارجية الإماراتية، "
+       "وزارة الخارجية القطرية، وزارة الداخلية البحرينية، وزارة الخارجية العُمانية، "
+       "ووزارة الخارجية الإيرانية.\n"
+       "لكل جهة أعطني الحساب الرسمي الموثّق الفعلي كما هو على إكس — لا تخترع حسابًا — "
+       "وآخر منشور ذي صلة مترجمًا للعربية إن لزم، ترجمةً أمينة بلا تهويل.\n"
+       'أخرج JSON فقط: [{"c":"البلد","f":"إيموجي العلم","e":"اسم الجهة بالعربية",'
+       '"h":"@الحساب","p":"نص البيان بإيجاز","t":"الوقت التقريبي","u":"رابط المنشور"}]\n'
+       "إن لم تجد منشورًا حديثًا لجهة فاحذفها من القائمة. "
+       "لا تستخدم علامة تنصيص مزدوجة داخل النصوص. لا شيء خارج JSON.")
+    body={"model":"grok-4.5","input":[{"role":"user","content":P}],
+        "tools":[{"type":"x_search"},{"type":"web_search"}],
+        "max_output_tokens":3500,"max_tool_calls":10}
+    try:
+        req=urllib.request.Request("https://api.x.ai/v1/responses",data=json.dumps(body).encode(),
+            headers={"Authorization":"Bearer "+GROK_KEY,"Content-Type":"application/json"})
+        d=json.load(urllib.request.urlopen(req,timeout=420))
+        txt="".join(c.get("text","") for o in d.get("output",[]) if o.get("type")=="message"
+                    for c in o.get("content",[]))
+        txt=txt.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
+        lst=json.loads(txt[txt.find("["):txt.rfind("]")+1])
+        lst=[x for x in lst if x.get("h","").startswith("@") and x.get("p")]
+        if not lst: raise ValueError("قائمة فارغة")
+        json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"src":lst},
+            open(OFFI,"w"),ensure_ascii=False,indent=1)
+        print("📡 المَنبع: %d جهة رسمية · %d توكن"%(len(lst),d["usage"]["total_tokens"]))
+    except Exception as e:
+        print("المَنبع تخطّى: "+str(e)[:90])
+
+manba()
 
 mustaqri()
 
