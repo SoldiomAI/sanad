@@ -119,6 +119,47 @@ if INT and INT.get("brk"):
         open(f"{OUT}/news.json","w"),ensure_ascii=False,indent=1)
     print(f"⚡ أضيف قسم عاجل: {len(cats['عاجل'])}")
 
+# ═══ مجلس التحرير: مدقّق وكيل عبر Gemini CLI ═══
+def council():
+    """يشغّل Gemini CLI كوكيل يقرأ الملفات ويحكم عليها، ثم نطبّق أحكامه."""
+    if os.environ.get("SKIP_COUNCIL") or not GEMINI_KEY: return
+    P=("أنت مدقق تحريري في منصة سَنَد. اقرأ daily/news.json و daily/intel.json.\n"
+       "دقق: عناوين خارج موضوع قسمها (خاصة قسم إيران)، تكرار، عناوين مبالغ فيها أو عاطفية، "
+       "ادعاءات بلا مصدر، تناقض مع أرقام الحصيلة.\n"
+       'اكتب daily/council.json فقط بهذه الصيغة: {"reviewer":"Gemini CLI","checked":عدد,'
+       '"flags":[{"h":"العنوان كما ورد حرفيًا","issue":"المشكلة","action":"خُفّض|حُذف|أُقرّ"}],'
+       '"verdict":"جملة واحدة"}\n'
+       "استخدم أداة الكتابة لإنشاء الملف فعليًا. لا تطبع شيئًا آخر.")
+    env={**os.environ,"GEMINI_CLI_TRUST_WORKSPACE":"true","NODE_TLS_REJECT_UNAUTHORIZED":"0"}
+    try:
+        subprocess.run(["gemini","--skip-trust","-m","gemini-flash-latest","-y","-p",P],
+            env=env,timeout=420,capture_output=True)
+        c=json.load(open(f"{OUT}/council.json"))
+    except Exception as e:
+        print(f"مجلس التحرير تخطّى: {str(e)[:80]}"); return
+
+    drop={f["h"][:28] for f in c.get("flags",[]) if f.get("action")=="حُذف"}
+    down={f["h"][:28] for f in c.get("flags",[]) if f.get("action")=="خُفّض"}
+    n_d=n_w=0
+    for cat,lst in list(cats.items()):
+        keep=[]
+        for it in lst:
+            h=it["head"]
+            if any(d and (d in h or h[:28]==d) for d in drop): n_d+=1; continue
+            if any(w and (w in h or h[:28]==w) for w in down):
+                it["grade"]="حسن"; it["flag"]="روجع تحريريًا"; n_w+=1
+            keep.append(it)
+        if keep: cats[cat]=keep
+        else: del cats[cat]
+    c["applied"]={"removed":n_d,"downgraded":n_w}
+    c["updated"]=datetime.now(timezone.utc).isoformat(timespec="minutes")
+    json.dump(c,open(f"{OUT}/council.json","w"),ensure_ascii=False,indent=1)
+    json.dump({"updated":c["updated"],"cats":cats},
+        open(f"{OUT}/news.json","w"),ensure_ascii=False,indent=1)
+    print(f"⚖️ مجلس التحرير: حُذف {n_d} · خُفّض {n_w} · المتبقي {sum(len(v) for v in cats.values())}")
+
+council()
+
 if os.environ.get("NEWS_ONLY"):
     print("⚡ وضع تحديث الأخبار فقط — تم"); sys.exit(0)
 
