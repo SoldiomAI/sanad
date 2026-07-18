@@ -5,36 +5,76 @@ LongCat 720p أساسي + EchoMimic احتياطي | افتتاحية/خاتمة
 import os, re, sys, json, asyncio, shutil, subprocess, urllib.request, xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 
-HF_TOKEN = os.environ.get("HF_TOKEN",""); OUT="daily"; os.makedirs(OUT, exist_ok=True)
+HF_TOKEN = os.environ.get("HF_TOKEN",""); GEMINI_KEY = os.environ.get("GEMINI_API_KEY",""); OUT="daily"; os.makedirs(OUT, exist_ok=True)
 TIER1=["reuters","رويترز","afp","فرانس برس","ap news","أسوشيتد","kuna","كونا","wam","وام","spa","واس","bna","qna","ona"]
 TIER2=["aljazeera","الجزيرة","alarabiya","العربية","skynews","سكاي نيوز","bbc","france24","cnn","alqabas","القبس","aljarida","الجريدة","alrai","الراي","kuwaittimes","arabtimes","gulfnews","thenational","alkhaleej","الخليج"]
 FEEDS=[("الخليج","https://news.google.com/rss/search?q=%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA+OR+%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9+OR+%D8%A7%D9%84%D8%A5%D9%85%D8%A7%D8%B1%D8%A7%D8%AA&hl=ar&gl=KW&ceid=KW:ar"),
-       ("فلسطين","https://news.google.com/rss/search?q=%D8%BA%D8%B2%D8%A9+OR+%D9%81%D9%84%D8%B3%D8%B7%D9%8A%D9%86&hl=ar&gl=KW&ceid=KW:ar")]
+       ("فلسطين","https://news.google.com/rss/search?q=%D8%BA%D8%B2%D8%A9+OR+%D9%81%D9%84%D8%B3%D8%B7%D9%8A%D9%86&hl=ar&gl=KW&ceid=KW:ar"),
+       ("عالم","https://news.google.com/rss/headlines/section/topic/WORLD?hl=ar&gl=KW&ceid=KW:ar"),
+       ("تقنية","https://news.google.com/rss/search?q=%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1+%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A&hl=ar&gl=KW&ceid=KW:ar")]
 def grade(s):
     s=s.lower()
     return "صحيح" if any(t in s for t in TIER1) else ("حسن" if any(t in s for t in TIER2) else "غير مُسند")
 def clean(t): return re.sub(r"\s+"," ",re.sub(r"<[^>]+>","",t or "")).strip()
 
-items=[]
+items=[]; seen=set()
 for label,url in FEEDS:
     try:
         req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0"})
         root=ET.fromstring(urllib.request.urlopen(req,timeout=30).read())
+        n=0
         for it in root.iter("item"):
-            title=clean(it.findtext("title","")); src=title.rsplit(" - ",1)[-1] if " - " in title else ""
+            title=clean(it.findtext("title","")); src_=title.rsplit(" - ",1)[-1] if " - " in title else ""
             head=title.rsplit(" - ",1)[0] if " - " in title else title
-            g=grade(src or clean(it.findtext("source","")))
-            if g in ("صحيح","حسن") and len(head)>20:
-                items.append({"head":head,"src":src,"grade":g}); break
+            g=grade(src_ or clean(it.findtext("source","")))
+            key=head[:40]
+            if g in ("صحيح","حسن") and len(head)>20 and key not in seen:
+                seen.add(key); items.append({"head":head,"src":src_,"grade":g,"cat":label}); n+=1
+                if n>=3: break
     except Exception as e: print(f"feed {label}: {e}",file=sys.stderr)
+print(f"جُمع {len(items)} خبرًا مُسندًا")
 
 today=datetime.now(timezone.utc).strftime("%Y-%m-%d")
-news=[]
-for it in items[:2]:
-    tag="خبرٌ صحيحٌ مؤكَّد" if it["grade"]=="صحيح" else "خبرٌ حسنٌ من مصدرٍ معتبَر"
-    news.append(f"{tag}: {it['head']}."+(f" نقلًا عن {it['src']}." if it["src"] else ""))
-full=" ".join(["السلامُ عليكم. معكم نشرةُ سَنَد."]+news+["تحقَّقْ قبلَ أن تنشُر، فالكلمةُ أمانة."])
+
+OPEN_L="السلامُ عليكم. معكم نشرةُ سَنَد."
+CLOSE_L="تحقَّقْ قبلَ أن تنشُر، فالكلمةُ أمانة."
+def template_script():
+    news=[]
+    for it in items[:3]:
+        tag="خبرٌ صحيحٌ مؤكَّد" if it["grade"]=="صحيح" else "خبرٌ حسنٌ من مصدرٍ معتبَر"
+        news.append(f"{tag}: {it['head']}."+(f" نقلًا عن {it['src']}." if it["src"] else ""))
+    return " ".join([OPEN_L]+news+[CLOSE_L])
+
+def gemini_script():
+    if not GEMINI_KEY or not items: return None
+    heads="\n".join(f"- [{it['grade']}] ({it['cat']}) {it['head']} — المصدر: {it['src'] or 'غير مذكور'}" for it in items[:10])
+    prompt=(f"أنت رئيس تحرير نشرة «سَنَد» الإخبارية العربية. من العناوين التالية اختر أهم ثلاثة أخبار متنوعة، "
+        f"واكتب نشرة إذاعية قصيرة بالفصحى الرصينة.\n\nالقواعد الصارمة:\n"
+        f"1) ابدأ حرفيًا بـ: {OPEN_L}\n2) اختم حرفيًا بـ: {CLOSE_L}\n"
+        f"3) صدّر كل خبر بدرجته حرفيًا: «خبرٌ صحيحٌ مؤكَّد:» للصحيح و«خبرٌ حسنٌ من مصدرٍ معتبَر:» للحسن.\n"
+        f"4) اذكر المصدر بصيغة «نقلًا عن …».\n5) جمل قصيرة (يُفضَّل ≤ ٦٥ حرفًا للجملة) تناسب القراءة الصوتية.\n"
+        f"6) لا تُضِف أي معلومة غير موجودة في العناوين. لا رموز، لا نجوم، لا إنجليزي.\n"
+        f"7) النشرة كاملة ٦٠–١٠٠ كلمة.\n\nالعناوين:\n{heads}\n\nأخرج نص النشرة فقط.")
+    body={"contents":[{"parts":[{"text":prompt}]}],
+          "generationConfig":{"maxOutputTokens":900,"temperature":0.4,"thinkingConfig":{"thinkingBudget":0}}}
+    try:
+        req=urllib.request.Request(
+            f"https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key={GEMINI_KEY}",
+            data=json.dumps(body).encode(),headers={"Content-Type":"application/json"})
+        d=json.load(urllib.request.urlopen(req,timeout=60))
+        txt=d["candidates"][0]["content"]["parts"][0]["text"].strip()
+        txt=re.sub(r"[\*#`]","",txt)
+        if OPEN_L.split(".")[0] in txt and len(txt)>80:
+            print("🧠 النشرة بقلم Gemini"); return txt
+    except Exception as e: print(f"Gemini↘ القالب: {str(e)[:100]}")
+    return None
+
+full = gemini_script() or template_script()
 open(f"{OUT}/script-{today}.txt","w").write(full); print("SCRIPT:",full)
+json.dump({"date":today,"script":full,
+    "audio":f"bulletin-{today}.mp3","video":"latest.mp4",
+    "items":[{"head":i["head"],"src":i["src"],"grade":i["grade"]} for i in items[:3]]},
+    open(f"{OUT}/latest.json","w"),ensure_ascii=False,indent=1)
 
 # جُمل ≤٦٥ حرفًا (≈ ≤٤.٧ ثانية = تحت سقف الـ٥ث)
 def split65(s):
@@ -44,7 +84,8 @@ def split65(s):
         out.append(s[:cut].strip()); s=s[cut:].strip()
     if s: out.append(s)
     return out
-chunks=[c for n in news for c in split65(n)][:3]  # سقف ٣ مقاطع/يوم = ضمن حصة PRO
+body = full.replace(OPEN_L,"").replace(CLOSE_L,"").strip()
+chunks=[c for c in split65(body)][:3]  # سقف ٣ مقاطع/يوم = ضمن حصة PRO
 print(f"chunks: {len(chunks)}")
 
 import edge_tts
@@ -104,4 +145,6 @@ with open(lst,"w") as f:
 subprocess.run(["ffmpeg","-v","quiet","-y","-f","concat","-safe","0","-i",lst,"-c:v","libx264","-crf","18",
     "-pix_fmt","yuv420p","-c:a","aac","-movflags","+faststart",f"{OUT}/bulletin-{today}.mp4"])
 shutil.copy(f"{OUT}/bulletin-{today}.mp4",f"{OUT}/latest.mp4")
+meta=json.load(open(f"{OUT}/latest.json")); meta["video_date"]=today
+json.dump(meta,open(f"{OUT}/latest.json","w"),ensure_ascii=False,indent=1)
 print(f"🎬 VIDEO OK: {OUT}/bulletin-{today}.mp4")
