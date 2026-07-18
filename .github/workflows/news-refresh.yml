@@ -8,15 +8,20 @@ permissions:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: '3.11'}
-      - name: تحديث الأخبار
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: تركيب Gemini CLI (المدقّق الوكيل)
+        run: npm i -g @google/gemini-cli@latest
+      - name: تحديث الأخبار + مجلس التحرير
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GROK_API_KEY: ${{ secrets.GROK_API_KEY }}
+          GEMINI_CLI_TRUST_WORKSPACE: "true"
           NEWS_ONLY: "1"
         run: python pipeline/daily_anchor.py
       - name: حفظ
@@ -24,5 +29,5 @@ jobs:
         run: |
           git config user.name "sanad-bot"
           git config user.email "bot@sanad.news"
-          git add daily/ && git diff --cached --quiet || git commit -m "🗞️ تحديث الأخبار $(date -u +%H:%M)"
+          git add daily/ && git diff --cached --quiet || git commit -m "🗞️ تحديث $(date -u +%H:%M)"
           git push
