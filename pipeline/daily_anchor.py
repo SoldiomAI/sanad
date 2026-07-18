@@ -14,6 +14,23 @@ FEEDS=[("الخليج","https://news.google.com/rss/search?q=%D8%A7%D9%84%D9%83%
        ("تقنية","https://news.google.com/rss/search?q=%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1+%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A&hl=ar&gl=KW&ceid=KW:ar"),
        ("اقتصاد","https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=ar&gl=KW&ceid=KW:ar"),
        ("إيران","https://news.google.com/rss?hl=fa&gl=IR&ceid=IR:fa")]
+RULES=f"{OUT}/rules.json"
+def load_rules():
+    try:
+        r=json.load(open(RULES))
+        return {"v":r.get("v",0),"block":r.get("block",[]),"route":r.get("route",{}),"notes":r.get("notes",[])}
+    except Exception: return {"v":0,"block":[],"route":{},"notes":[]}
+R=load_rules()
+print(f"📚 قواعد مُكتسبة: إصدار {R['v']} · {len(R['block'])} نمط محظور · {len(R['route'])} قاعدة توجيه")
+
+def blocked(head):
+    return any(b and b in head for b in R["block"])
+
+def reroute(head,cat):
+    for c,keys in R["route"].items():
+        if c!=cat and any(k and k in head for k in keys): return c
+    return cat
+
 def grade(s):
     s=s.lower()
     return "صحيح" if any(t in s for t in TIER1) else ("حسن" if any(t in s for t in TIER2) else "غير مُسند")
@@ -128,6 +145,20 @@ if INT and INT.get("brk"):
     print(f"⚡ أضيف قسم عاجل: {len(cats['عاجل'])}")
 
 # ═══ النَّاقِد: الجرح والتعديل — تدقيق ذاتي + تطوير القواعد ═══
+def safe_json(path):
+    """يقرأ JSON ويصلح علامات التنصيص المتطفلة داخل النصوص العربية."""
+    raw=open(path,encoding="utf-8").read()
+    raw=raw[raw.find("{"):raw.rfind("}")+1]
+    try: return json.loads(raw)
+    except Exception: pass
+    out=[]
+    for ln in raw.split("\n"):
+        m=re.match(r'^(\s*"[A-Za-z_]+"\s*:\s*")(.*)("\s*,?\s*)$', ln)
+        if m and '"' in m.group(2):
+            out.append(m.group(1)+m.group(2).replace('"','«')+m.group(3))
+        else: out.append(ln)
+    return json.loads("\n".join(out))
+
 def naqid():
     """يفحص ما جُمع، يجرح ويعدّل، ثم يكتب قواعد جديدة تمنع تكرار الخطأ."""
     if os.environ.get("SKIP_COUNCIL") or not GEMINI_KEY: return
@@ -142,12 +173,13 @@ def naqid():
        '"notes":["درس تعلّمناه بجملة قصيرة"]}\n'
        "احتفظ بالقواعد السابقة وأضف عليها. block: كلمات مميِّزة فقط لا كلمات عامة قد تحذف أخبارًا صحيحة. "
        "لا تتجاوز ٤٠ نمطًا في block ولا ١٢ ملاحظة — احذف الأقدم إن لزم.\n"
+       "مهم: لا تستخدم علامة التنصيص المزدوجة داخل النصوص إطلاقًا — استعمل «» بدلًا منها.\n"
        "استخدم أداة الكتابة لإنشاء الملفين فعليًا. لا تطبع شيئًا آخر.")
     env={**os.environ,"GEMINI_CLI_TRUST_WORKSPACE":"true","NODE_TLS_REJECT_UNAUTHORIZED":"0"}
     try:
         subprocess.run(["gemini","--skip-trust","-m","gemini-flash-latest","-y","-p",P],
             env=env,timeout=480,capture_output=True)
-        c=json.load(open(f"{OUT}/council.json"))
+        c=safe_json(f"{OUT}/council.json")
     except Exception as e:
         print(f"النَّاقِد تخطّى: {str(e)[:80]}"); return
 
@@ -167,7 +199,7 @@ def naqid():
 
     # ── تشذيب القواعد المُكتسبة ──
     try:
-        nr=json.load(open(RULES))
+        nr=safe_json(RULES)
         nr["block"]=[b for b in dict.fromkeys(nr.get("block",[])) if 3<len(b)<40][:40]
         nr["notes"]=list(dict.fromkeys(nr.get("notes",[])))[-12:]
         nr["v"]=max(int(nr.get("v",0)),R["v"]+1)
