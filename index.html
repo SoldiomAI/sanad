@@ -74,6 +74,14 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .agent{font-size:10px;border-radius:10px;padding:3px 9px;border:1px solid var(--border);color:var(--mut);display:flex;align-items:center;gap:4px}
 .agent.on{border-color:rgba(34,197,94,.4);color:#86efac;background:rgba(34,197,94,.07)}
 .b-rev{background:rgba(201,162,39,.1);border:1px solid rgba(201,162,39,.3);color:var(--gold-l)}
+.evo{background:linear-gradient(160deg,rgba(13,92,63,.12),var(--card));border:1px solid rgba(13,92,63,.45);border-radius:12px;padding:14px;margin:12px 0}
+.evo-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.evo-v{font-size:13px;font-weight:700;color:#86efac}
+.evo-n{font-size:11px;color:var(--mut)}
+.spark{display:flex;align-items:flex-end;gap:3px;height:34px;margin:10px 0}
+.spark i{flex:1;background:linear-gradient(180deg,#22c55e,rgba(34,197,94,.25));border-radius:2px 2px 0 0;min-height:2px}
+.lesson{font-size:11.5px;color:#cbd2dc;line-height:1.9;padding-inline-start:14px;position:relative}
+.lesson::before{content:"◂";position:absolute;right:0;color:#22c55e}
 .empty{text-align:center;color:var(--dim);padding:30px 0;font-size:13px}
 </style></head>
 <body>
@@ -86,7 +94,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 <div class="wrap">
   <div class="hero">
     <h1 class="amiri gold">سَنَد</h1>
-    <div class="sub">أول منصة إخبارية بمجلس تحرير من نماذج ذكاء متعددة — وحُكم كل خبر مبنيٌّ على خمسة معايير من علم الحديث<br>نشرة مذيع يومية آلية · تغطية حية · أخبار إيران مترجمة عن الفارسية</div>
+    <div class="sub">منصة إخبارية ذاتية التطوّر — مجلسُ نقدٍ يجرح ويعدّل، وحُكمُ كل خبر مبنيٌّ على خمسة معايير من علم الحديث<br>نشرة مذيع يومية آلية · تغطية حية · أخبار إيران مترجمة عن الفارسية</div>
     <div class="method">
       <span class="pill">الاتصال</span><span class="pill">عدالة المصدر</span><span class="pill">الضبط</span><span class="pill">عدم الشذوذ</span><span class="pill">انتفاء العلة</span>
     </div>
@@ -113,11 +121,22 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
       <div class="top"><span class="who" id="cWho"></span><span class="stat" id="cStat"></span></div>
       <div class="verdict" id="cVerdict"></div>
       <div class="agents">
-        <span class="agent on">🛰️ Grok — الاستطلاع الحي</span>
-        <span class="agent on">✍️ Gemini — الترجمة والتحرير</span>
-        <span class="agent on">⚖️ Gemini CLI — التدقيق الوكيل</span>
-        <span class="agent on">🎙️ Edge TTS — صوت المذيع</span>
+        <span class="agent on" title="يرصد ما يُنشر لحظةً بلحظة">🛰️ الرَّاصِد</span>
+        <span class="agent on" title="ينقل الخبر عن ألسنة أخرى">🗣️ التَّرْجُمَان</span>
+        <span class="agent on" title="يجرح ويعدّل قبل النشر">⚖️ النَّاقِد</span>
+        <span class="agent on" title="يؤدي النشرة صوتًا">🎙️ الرَّاوِي</span>
+        <span class="agent on" title="يطوّر قواعد المنصة بعد كل جولة">🧬 المُصنِّف</span>
       </div>
+    </div>
+  </div>
+
+  <div id="evoWrap" style="display:none">
+    <div class="sec-h">🧬 التطوّر الذاتي</div>
+    <div class="evo">
+      <div class="evo-top"><span class="evo-v" id="evoV"></span><span class="evo-n" id="evoN"></span></div>
+      <div class="spark" id="spark"></div>
+      <div id="lessons"></div>
+      <div class="note">تتعلّم المنصة من أخطائها: كل جولة يُحدِّث النَّاقِد قواعد الفرز، فتُحجب الأنماط الخاطئة تلقائيًا في الجولة التالية دون تدخل بشري.</div>
     </div>
   </div>
 
@@ -129,7 +148,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
     سَنَد © SOLDIOM — الكويت 🇰🇼<br>
     تصنيف آلي شفّاف: <b style="color:var(--green)">صحيح</b> = وكالات من الدرجة الأولى · <b style="color:var(--blue)">حسن</b> = مصادر معتبَرة<br>
     الأخبار كل ٣ ساعات · حصيلة الأزمة كل ٦ ساعات · النشرة يوميًا ٦ مساءً بتوقيت الكويت<br>
-    العاجل من 𝕏 عبر بحث حي · الترجمة عن الفارسية آليّة · كل خبر يمرّ على مدقّق وكيل قبل النشر
+    العاجل من 𝕏 عبر بحث حي · الترجمة عن الفارسية آليّة · كل خبر يمرّ على النَّاقِد قبل النشر — والقواعد تتطوّر ذاتيًا
   </footer>
 </div>
 
@@ -188,11 +207,22 @@ async function load(){
   try{ tolls(await (await fetch(RAW+"intel.json?t="+Date.now())).json()) }catch(e){}
   try{
     const c=await (await fetch(RAW+"council.json?t="+Date.now())).json();
-    cWho.textContent="⚖️ راجعها "+(c.reviewer||"المجلس");
+    cWho.textContent="⚖️ حكم النَّاقِد";
     const a=c.applied||{};
-    cStat.textContent=`فُحص ${c.checked||0} خبرًا · حُذف ${a.removed||0} · خُفّض ${a.downgraded||0}`;
+    cStat.textContent=`فُحص ${c.checked||0} خبرًا · جُرِح ${a.removed||0} · نُقِّح ${a.downgraded||0}`+(c.rules_v?` · القواعد ن${c.rules_v}`:"");
     cVerdict.textContent=c.verdict||"";
     councilWrap.style.display="block";
+  }catch(e){}
+  try{
+    const e=await (await fetch(RAW+"evolution.json?t="+Date.now())).json();
+    const r=e.runs||[]; if(!r.length) throw 0;
+    const last=r[r.length-1];
+    evoV.textContent=`⚙️ قواعد الفرز — الإصدار ${last.v}`;
+    evoN.textContent=`${last.rules} نمط مُكتسَب · متوسط الجرح ${e.trend} لكل جولة`;
+    const mx=Math.max(...r.slice(-20).map(x=>x.removed),1);
+    spark.innerHTML=r.slice(-20).map(x=>`<i style="height:${Math.max(6,x.removed/mx*100)}%" title="${x.t}: جُرِح ${x.removed}"></i>`).join("");
+    lessons.innerHTML=(e.lessons||[]).map(l=>`<div class="lesson">${l}</div>`).join("");
+    evoWrap.style.display="block";
   }catch(e){}
 }
 load(); setInterval(load, 10*60*1000);
