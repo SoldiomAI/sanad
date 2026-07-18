@@ -83,10 +83,22 @@ def save_agents():
     print(f"🤖 طبقة الوكلاء: {ok}/{len(out)} بحالة سليمة")
 
 RULES=f"{OUT}/rules.json"
+PROTECT=["إيران","الكويت","السعودي","الإمارات","قطر","البحرين","عُمان","عمان","العراق","الخليج",
+ "ترامب","أمريك","واشنطن","هرمز","نفط","غاز","صاروخ","مسيّر","مسير","ضرب","هجوم","قصف","هدنة","تهدئة",
+ "غزة","فلسطين","إسرائيل","نووي","كهرباء","مياه","تحلية","العديد","قاعدة","إنذار","طهران","الحرس الثوري",
+ "الذكاء الاصطناعي","الأمم المتحدة","مفاوضات","عقوبات","لاجئ","قتلى","جرحى","إخلاء","مجال جوي"]
+
+def safe_pattern(b):
+    """يرفض أي نمط قد يحجب أخبارًا جوهرية أو كان فضفاضًا."""
+    if not b or len(b)<5 or len(b)>34: return False
+    return not any(p in b for p in PROTECT)
+
 def load_rules():
     try:
         r=json.load(open(RULES))
-        return {"v":r.get("v",0),"block":r.get("block",[]),"route":r.get("route",{}),"notes":r.get("notes",[])}
+        raw=r.get("block",[]); blk=[b for b in raw if safe_pattern(b)]
+        if len(blk)<len(raw): print(f"🛡️ رُفض {len(raw)-len(blk)} نمطًا لمساسه بموضوعات جوهرية")
+        return {"v":r.get("v",0),"block":blk[:26],"route":r.get("route",{}),"notes":r.get("notes",[])}
     except Exception: return {"v":0,"block":[],"route":{},"notes":[]}
 R=load_rules()
 print(f"📚 قواعد مُكتسبة: إصدار {R['v']} · {len(R['block'])} نمط محظور · {len(R['route'])} قاعدة توجيه")
@@ -154,6 +166,10 @@ if fa_items and GEMINI_KEY:
 
 # ═══ خريطة الأخبار الكاملة للمنصة ═══
 _rr=0
+_would=[i for i in items if blocked(i["head"])]
+if len(_would)>max(3,int(len(items)*0.35)):
+    print(f"🛡️ الحجب كان سيزيل {len(_would)} من {len(items)} — عُطِّل هذه الجولة وتُراجَع القواعد")
+    R["block"]=[]
 for i in items:
     if blocked(i["head"]): i["cat"]="__drop__"; continue
     nc=reroute(i["head"],i["cat"])
@@ -252,8 +268,12 @@ def naqid():
        '   {"v":رقم_الإصدار+1,"block":["كلمة تدل على خبر خارج نطاقنا"],'
        '"route":{"فلسطين":["غزة","الضفة"],"الخليج":["الكويت","السعودية"],"عالم":[]},'
        '"notes":["درس تعلّمناه بجملة قصيرة"]}\n'
-       "احتفظ بالقواعد السابقة وأضف عليها. block: كلمات مميِّزة فقط لا كلمات عامة قد تحذف أخبارًا صحيحة. "
-       "لا تتجاوز ٤٠ نمطًا في block ولا ١٢ ملاحظة — احذف الأقدم إن لزم.\n"
+       "قواعد صارمة لـ block: يُستخدم فقط لموضوعات خارج نطاق المنصة كليًا (رياضة، ترفيه، مشاهير، "
+       "سياسة محلية أجنبية لا صلة لها بالخليج أو الأزمة). "
+       "ممنوع منعًا باتًا إضافة أي كلمة تخص: الأزمة، الخليج، إيران، أمريكا، النفط، الطاقة، "
+       "المفاوضات، الهدنة، الضربات، أو أسماء أماكن وردت في الأخبار الجارية — "
+       "فإن كان الخبر في القسم الخطأ فقط، عالجه عبر route لا block.\n"
+       "لا تتجاوز ٢٤ نمطًا في block ولا ١٢ ملاحظة — احذف الأقدم إن لزم.\n"
        "مهم: لا تستخدم علامة التنصيص المزدوجة داخل النصوص إطلاقًا — استعمل «» بدلًا منها.\n"
        "استخدم أداة الكتابة لإنشاء الملفين فعليًا. لا تطبع شيئًا آخر.")
     env={**os.environ,"GEMINI_CLI_TRUST_WORKSPACE":"true","NODE_TLS_REJECT_UNAUTHORIZED":"0"}
@@ -281,7 +301,7 @@ def naqid():
     # ── تشذيب القواعد المُكتسبة ──
     try:
         nr=safe_json(RULES)
-        nr["block"]=[b for b in dict.fromkeys(nr.get("block",[])) if 3<len(b)<40][:40]
+        nr["block"]=[b for b in dict.fromkeys(nr.get("block",[])) if safe_pattern(b)][:24]
         nr["notes"]=list(dict.fromkeys(nr.get("notes",[])))[-12:]
         nr["v"]=max(int(nr.get("v",0)),R["v"]+1)
         nr["updated"]=datetime.now(timezone.utc).isoformat(timespec="minutes")
@@ -607,3 +627,6 @@ shutil.copy(f"{OUT}/bulletin-{today}.mp4",f"{OUT}/latest.mp4")
 meta=json.load(open(f"{OUT}/latest.json")); meta["video_date"]=today
 json.dump(meta,open(f"{OUT}/latest.json","w"),ensure_ascii=False,indent=1)
 print(f"🎬 VIDEO OK: {OUT}/bulletin-{today}.mp4")
+
+try: mark("rawi", _LOG.get("rawi",{}).get("status","ok"), _LOG.get("rawi",{}).get("note","نشرة اليوم")); save_agents()
+except Exception: pass
