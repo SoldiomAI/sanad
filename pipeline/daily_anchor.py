@@ -76,7 +76,7 @@ def save_agents():
             "note":cur.get("note", prev.get("note","")),
             "at":cur.get("at", prev.get("at","")),
             "ran":aid in _LOG})
-    ok=sum(1 for a in out if a["status"]=="ok")
+    ok=sum(1 for a in out if a["status"] in ("ok","skip"))
     json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),
         "healthy":ok,"total":len(out),"agents":out},
         open(AGENTS_F,"w"),ensure_ascii=False,indent=1)
@@ -484,7 +484,12 @@ analyst_segment()
 naqid()
 
 if os.environ.get("NEWS_ONLY"):
-    mark("rawi","idle","يعمل في النشرة اليومية فقط")
+    try:
+        _m=json.load(open(f"{OUT}/latest.json")); _t=datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        if _m.get("video_date")==_t: mark("rawi","ok","فيديو اليوم جاهز")
+        elif _m.get("date")==_t:     mark("rawi","ok","نشرة اليوم صوتيًا")
+        else:                        mark("rawi","skip","بانتظار ٦ مساءً")
+    except Exception: mark("rawi","skip","بانتظار أول نشرة")
     save_agents()
     print("⚡ وضع تحديث الأخبار فقط — تم"); sys.exit(0)
 
