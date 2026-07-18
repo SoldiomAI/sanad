@@ -101,6 +101,18 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .rev span{font-size:10px;border-radius:9px;padding:2px 8px;border:1px solid var(--border);color:var(--dim)}
 .rev span.y{border-color:rgba(34,197,94,.4);color:#86efac}
 .rev span.p{border-color:rgba(251,191,36,.4);color:#fcd34d}
+.guest{background:linear-gradient(150deg,#0f1520,var(--card));border:1px solid rgba(201,162,39,.34);border-radius:14px;overflow:hidden;margin:12px 0}
+.guest-hd{display:flex;gap:13px;align-items:center;padding:14px;background:linear-gradient(90deg,rgba(201,162,39,.1),transparent)}
+.guest-av{width:66px;height:66px;border-radius:12px;object-fit:cover;border:2px solid rgba(201,162,39,.5);flex-shrink:0;background:#05070B}
+.guest-id{flex:1;min-width:0}
+.guest-nm{font-size:17px;font-weight:700;color:var(--gold-l);line-height:1.35}
+.guest-ti{font-size:11px;color:var(--mut);margin-top:3px}
+.onair{display:inline-flex;align-items:center;gap:5px;font-size:9.5px;background:rgba(239,68,68,.14);border:1px solid rgba(239,68,68,.45);color:#fca5a5;border-radius:9px;padding:2px 8px;margin-top:6px}
+.onair i{width:6px;height:6px;border-radius:50%;background:#ef4444;animation:blink 1.2s infinite;display:block}
+.guest-bd{padding:0 14px 14px}
+.guest-tx{font-size:14px;line-height:2.15;color:#dbe0e8;border-inline-start:3px solid rgba(201,162,39,.45);padding-inline-start:13px;margin-bottom:11px}
+.guest audio{width:100%;height:38px;border-radius:9px}
+.ai-note{font-size:10px;color:var(--dim);text-align:center;padding:9px 14px;border-top:1px solid rgba(30,38,51,.6);line-height:1.8;background:rgba(0,0,0,.2)}
 .empty{text-align:center;color:var(--dim);padding:30px 0;font-size:13px}
 </style></head>
 <body>
@@ -150,8 +162,27 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
     </div>
   </div>
 
+  <div id="gWrap" style="display:none">
+    <div class="sec-h">🎤 قراءة المُستقرِئ</div>
+    <div class="guest">
+      <div class="guest-hd">
+        <img class="guest-av" id="gAv" alt="المُستقرِئ">
+        <div class="guest-id">
+          <div class="guest-nm" id="gNm"></div>
+          <div class="guest-ti" id="gTi"></div>
+          <span class="onair"><i></i> تحليل الساعة</span>
+        </div>
+      </div>
+      <div class="guest-bd">
+        <div class="guest-tx" id="gTx"></div>
+        <audio id="gAu" controls style="display:none"></audio>
+      </div>
+      <div class="ai-note">🤖 المُستقرِئ وكيلُ ذكاءٍ اصطناعي وليس شخصًا حقيقيًا — الصورة رسمٌ توضيحي، والصوت مُركَّب، والقراءة احتمالية تستند إلى تصريحات ووقائع وسوابق منشورة.</div>
+    </div>
+  </div>
+
   <div id="fcWrap" style="display:none">
-    <div class="sec-h">🔮 الاسْتِقْراء — ما قد يقع</div>
+    <div class="sec-h">📐 تفصيل الاستقراء</div>
     <div class="fc">
       <div class="fc-top"><span class="fc-h" id="fcH"></span><span class="fc-acc" id="fcAcc"></span></div>
       <div id="sigs"></div>
@@ -243,6 +274,14 @@ async function load(){
     cStat.textContent=`فُحص ${c.checked||0} خبرًا · جُرِح ${a.removed||0} · نُقِّح ${a.downgraded||0}`+(c.rules_v?` · القواعد ن${c.rules_v}`:"");
     cVerdict.textContent=c.verdict||"";
     councilWrap.style.display="block";
+  }catch(e){}
+  try{
+    const g=await (await fetch(RAW+"analyst.json?t="+Date.now())).json();
+    gNm.textContent="🔮 "+(g.name||"المُستقرِئ"); gTi.textContent=g.title||"";
+    gTx.textContent=g.text||"";
+    gAv.src=RAW+(g.avatar||"analyst.jpg");
+    if(g.audio){gAu.src=RAW+g.audio+"?t="+Date.now();gAu.style.display="block"}
+    gWrap.style.display="block";
   }catch(e){}
   try{
     const f=await (await fetch(RAW+"forecast.json?t="+Date.now())).json();
