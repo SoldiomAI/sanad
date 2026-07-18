@@ -294,6 +294,62 @@ def mustaqri():
 
 mustaqri()
 
+# ═══ فقرة المحلل الاستراتيجي (وكيل — يُصرَّح بذلك) ═══
+def analyst_segment():
+    """يحوّل الاستقراء إلى تحليل منطوق بأسلوب ضيف النشرات، بصوت مغاير للمذيع."""
+    try: f=json.load(open(FCAST))
+    except Exception: return
+    try:
+        a_old=json.load(open(f"{OUT}/analyst.json"))
+        if a_old.get("src")==f.get("updated"):
+            print("♻️ فقرة المحلل مطابقة للاستقراء — تخطٍ"); return
+    except Exception: pass
+    if not GEMINI_KEY: return
+
+    scn="\n".join("- (%s%%) %s | السابقة: %s"%(x.get("p"),x.get("s",""),x.get("why","")[:150])
+                   for x in f.get("scenarios",[]))
+    sig="\n".join("- %s: %s"%(x.get("who",""),x.get("q","")[:120]) for x in f.get("signals",[])[:4])
+    P=("اكتب فقرة تحليل استراتيجي منطوقة، بأسلوب الضيف الخبير في النشرات الإخبارية العربية.\n\n"
+       "الإشارات:\n"+sig+"\n\nالسيناريوهات:\n"+scn+"\n\n"
+       "القواعد: ابدأ بـ«شكرًا لك. المشهد اليوم يُقرأ من ثلاث زوايا:». "
+       "٩٠ إلى ١٢٠ كلمة. عربية فصيحة رصينة بلا مبالغة. اذكر النسبة الأعلى صراحةً بالأرقام العربية. "
+       "استشهد بسابقة تاريخية واحدة. اختم بـ«وتبقى هذه قراءةً احتمالية، والمؤشر الحاسم هو» ثم اذكر المؤشر. "
+       "أخرج النص فقط بلا عناوين ولا رموز ولا أسماء نماذج أو شركات.")
+    try:
+        body={"contents":[{"parts":[{"text":P}]}],
+            "generationConfig":{"maxOutputTokens":700,"temperature":0.55,
+                "thinkingConfig":{"thinkingBudget":0}}}
+        req=urllib.request.Request(
+            "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key="+GEMINI_KEY,
+            data=json.dumps(body).encode(),headers={"Content-Type":"application/json"})
+        d=json.load(urllib.request.urlopen(req,timeout=90))
+        txt=d["candidates"][0]["content"]["parts"][0]["text"].strip()
+    except Exception as e:
+        print("فقرة المحلل تخطّت: "+str(e)[:80]); return
+
+    mp3=f"{OUT}/analyst.mp3"
+    try:
+        import edge_tts, ssl as _s, asyncio as _a
+        import edge_tts.communicate as _c
+        _ctx=_s.create_default_context(); _ctx.check_hostname=False; _ctx.verify_mode=_s.CERT_NONE
+        try: _c._SSL_CTX=_ctx
+        except Exception: pass
+        async def _go():
+            await edge_tts.Communicate(txt,"ar-SA-HamedNeural",rate="-4%").save(mp3)
+        _a.run(_go())
+        ok=os.path.getsize(mp3)>4000
+    except Exception as e:
+        print("صوت المحلل تعذّر: "+str(e)[:70]); ok=False
+
+    json.dump({"name":"المُستقرِئ","title":"محلل استراتيجي · وكيل ذكاء اصطناعي",
+        "text":txt,"audio":"analyst.mp3" if ok else "",
+        "src":f.get("updated",""),"avatar":"analyst.jpg",
+        "updated":datetime.now(timezone.utc).isoformat(timespec="minutes")},
+        open(f"{OUT}/analyst.json","w"),ensure_ascii=False,indent=1)
+    print("🎤 فقرة المحلل: %d كلمة%s"%(len(txt.split())," + صوت" if ok else ""))
+
+analyst_segment()
+
 naqid()
 
 if os.environ.get("NEWS_ONLY"):
