@@ -52,12 +52,12 @@ video,audio{width:100%;border-radius:10px;background:#000}
 footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;line-height:2}
 .sec-h{display:flex;align-items:center;gap:9px;margin:22px 0 10px;font-size:15px;font-weight:700;color:var(--gold-l)}
 .sec-h::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(201,162,39,.35),transparent)}
-.toll-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:10px}
+.toll-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(162px,1fr));gap:10px}
 .toll{background:linear-gradient(160deg,rgba(127,29,29,.13),var(--card));border:1px solid rgba(127,29,29,.4);border-radius:12px;padding:13px}
 .toll .c{font-size:14px;font-weight:700;display:flex;align-items:center;gap:7px;margin-bottom:9px}
 .toll .nums{display:flex;gap:14px;margin-bottom:8px}
 .toll .n{text-align:center}
-.toll .n b{display:block;font-size:20px;font-weight:700;line-height:1.2}
+.toll .n b{display:block;font-size:20px;font-weight:700;line-height:1.2;min-height:24px}
 .toll .n.d b{color:#f87171}.toll .n.w b{color:#fbbf24}
 .toll .n span{font-size:10px;color:var(--dim)}
 .toll .dmg{font-size:11px;color:var(--mut);line-height:1.7;border-top:1px solid rgba(127,29,29,.25);padding-top:7px}
@@ -220,6 +220,11 @@ const ORDER=["الكل","عاجل","الخليج","فلسطين","عالم","ا�
 let DATA=null, cur="الكل";
 
 function badge(g){return g==="صحيح"?'<span class="badge b-sahih">صحيح ✓</span>':'<span class="badge b-hasan">حسن</span>'}
+function num(v){
+  if(v===undefined||v===null||v==="") return "—";
+  const s=String(v);
+  return /^\d[\d,]*$/.test(s)?s:'<span style="font-size:11px;color:var(--dim);font-weight:500">'+s+'</span>';
+}
 function tolls(t){
   if(!t||!t.toll||!t.toll.length) return;
   warName.textContent="⚔️ "+(t.war||"الأزمة الحالية");
@@ -228,8 +233,8 @@ function tolls(t){
     <div class="toll">
       <div class="c">${x.f||"🏳️"} ${x.c}</div>
       <div class="nums">
-        <div class="n d"><b>${x.d||"—"}</b><span>قتلى</span></div>
-        <div class="n w"><b>${x.w||"—"}</b><span>جرحى</span></div>
+        <div class="n d"><b>${num(x.d)}</b><span>قتلى</span></div>
+        <div class="n w"><b>${num(x.w)}</b><span>جرحى</span></div>
       </div>
       <div class="dmg">${x.dmg||""}</div>
       ${x.e&&x.e!=="غير مؤكد"?`<div class="econ">💰 ${x.e}</div>`:""}
