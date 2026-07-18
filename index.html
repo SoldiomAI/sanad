@@ -26,7 +26,7 @@ body{background:var(--bg);color:var(--txt);font-family:'IBM Plex Sans Arabic',sa
 .ticker-box{overflow:hidden;border-top:1px solid rgba(127,29,29,.4);background:rgba(69,10,10,.22);padding:6px 0}
 .ticker{display:inline-block;white-space:nowrap;animation:tick 45s linear infinite;font-size:12px;color:#fecaca;padding-inline-start:100%}
 @keyframes tick{to{transform:translateX(100%)}}
-.hero{text-align:center;padding:26px 0 8px}
+.hero{text-align:center;padding:30px 0 10px}
 .hero h1{font-size:44px;font-weight:700}
 .hero .sub{font-size:12px;color:var(--mut);margin-top:6px;line-height:1.9}
 .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;margin:14px 0}
@@ -50,6 +50,21 @@ video,audio{width:100%;border-radius:10px;background:#000}
 .method{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding:8px 0 4px}
 .pill{font-size:10.5px;color:var(--mut);border:1px solid var(--border);border-radius:14px;padding:3px 10px}
 footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;line-height:2}
+.sec-h{display:flex;align-items:center;gap:9px;margin:22px 0 10px;font-size:15px;font-weight:700;color:var(--gold-l)}
+.sec-h::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(201,162,39,.35),transparent)}
+.toll-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:10px}
+.toll{background:linear-gradient(160deg,rgba(127,29,29,.13),var(--card));border:1px solid rgba(127,29,29,.4);border-radius:12px;padding:13px}
+.toll .c{font-size:14px;font-weight:700;display:flex;align-items:center;gap:7px;margin-bottom:9px}
+.toll .nums{display:flex;gap:14px;margin-bottom:8px}
+.toll .n{text-align:center}
+.toll .n b{display:block;font-size:20px;font-weight:700;line-height:1.2}
+.toll .n.d b{color:#f87171}.toll .n.w b{color:#fbbf24}
+.toll .n span{font-size:10px;color:var(--dim)}
+.toll .dmg{font-size:11px;color:var(--mut);line-height:1.7;border-top:1px solid rgba(127,29,29,.25);padding-top:7px}
+.toll .econ{font-size:11px;color:var(--gold-l);margin-top:5px}
+.war-h{display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:var(--dim);margin-bottom:10px;flex-wrap:wrap;gap:6px}
+.b-x{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);color:#e6e9ef}
+.note{font-size:10.5px;color:var(--dim);text-align:center;margin-top:12px;line-height:1.8}
 .empty{text-align:center;color:var(--dim);padding:30px 0;font-size:13px}
 </style></head>
 <body>
@@ -76,22 +91,47 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
     <div class="script" id="s" style="display:none"></div>
   </div>
 
+  <div id="tollWrap" style="display:none">
+    <div class="sec-h">📊 حصيلة الأزمة</div>
+    <div class="war-h"><span id="warName"></span><span id="warSince"></span></div>
+    <div class="toll-grid" id="toll"></div>
+    <div class="note">أرقام مجمّعة آليًا من وكالات ومصادر مفتوحة عبر بحث حي — قابلة للتغيير، وما لم يُوثَّق يُكتب «غير مؤكد».</div>
+  </div>
+
+  <div class="sec-h">🗞️ الأخبار</div>
   <div class="tabs" id="tabs"></div>
   <div class="card" id="feed"><div class="empty">جارِ تحميل الأخبار…</div></div>
 
   <footer>
     سَنَد © SOLDIOM — الكويت 🇰🇼<br>
     تصنيف آلي شفّاف: <b style="color:var(--green)">صحيح</b> = وكالات من الدرجة الأولى · <b style="color:var(--blue)">حسن</b> = مصادر معتبَرة<br>
-    الأخبار تُحدَّث كل ٣ ساعات — والنشرة يوميًا ٦ مساءً بتوقيت الكويت
+    الأخبار كل ٣ ساعات · حصيلة الأزمة كل ٦ ساعات · النشرة يوميًا ٦ مساءً بتوقيت الكويت<br>
+    العاجل من 𝕏 عبر بحث حي — والترجمة عن الفارسية آليّة
   </footer>
 </div>
 
 <script>
 const RAW="https://raw.githubusercontent.com/Soldiom/sanad/main/daily/";
-const ORDER=["الكل","الخليج","فلسطين","عالم","اقتصاد","تقنية","إيران"];
+const ORDER=["الكل","عاجل","الخليج","فلسطين","عالم","اقتصاد","تقنية","إيران"];
 let DATA=null, cur="الكل";
 
 function badge(g){return g==="صحيح"?'<span class="badge b-sahih">صحيح ✓</span>':'<span class="badge b-hasan">حسن</span>'}
+function tolls(t){
+  if(!t||!t.toll||!t.toll.length) return;
+  warName.textContent="⚔️ "+(t.war||"الأزمة الحالية");
+  warSince.textContent=t.since?("منذ "+t.since):"";
+  toll.innerHTML=t.toll.map(x=>`
+    <div class="toll">
+      <div class="c">${x.f||"🏳️"} ${x.c}</div>
+      <div class="nums">
+        <div class="n d"><b>${x.d||"—"}</b><span>قتلى</span></div>
+        <div class="n w"><b>${x.w||"—"}</b><span>جرحى</span></div>
+      </div>
+      <div class="dmg">${x.dmg||""}</div>
+      ${x.e&&x.e!=="غير مؤكد"?`<div class="econ">💰 ${x.e}</div>`:""}
+    </div>`).join("");
+  tollWrap.style.display="block";
+}
 function render(){
   if(!DATA) return;
   const cats=DATA.cats||{};
@@ -99,7 +139,7 @@ function render(){
   feed.innerHTML=list.length?list.map(i=>`
     <div class="item">
       <a href="${i.link||'#'}" target="_blank" rel="noopener">${i.head}</a>
-      <div class="meta">${badge(i.grade)}${i.fa?'<span class="badge b-fa">مترجم عن الفارسية</span>':''}<span>نقلًا عن ${i.src||"المصدر"}</span></div>
+      <div class="meta">${badge(i.grade)}${i.fa?'<span class="badge b-fa">مترجم عن الفارسية</span>':''}${i.x?'<span class="badge b-x">𝕏 مباشر</span>':''}<span>نقلًا عن ${i.src||"المصدر"}</span></div>
     </div>`).join(""):'<div class="empty">لا أخبار في هذا القسم حاليًا</div>';
 }
 function tabs(){
@@ -122,6 +162,7 @@ async function load(){
     if(m.video_date===m.date){v.src=RAW+m.video+"?t="+Date.now();v.style.display="block"}
     else{a.src=RAW+m.audio+"?t="+Date.now();a.style.display="block"}
   }catch(e){bdate.textContent="قيد التجهيز"}
+  try{ tolls(await (await fetch(RAW+"intel.json?t="+Date.now())).json()) }catch(e){}
 }
 load(); setInterval(load, 10*60*1000);
 </script>
