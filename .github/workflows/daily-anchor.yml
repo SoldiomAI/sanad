@@ -1,7 +1,7 @@
 name: 🎙️ نشرة المذيع اليومية
 on:
   schedule:
-    - cron: '0 3 * * *'   # ٦ صباحًا بتوقيت الكويت
+    - cron: '0 15 * * *'  # ٦ مساءً بتوقيت الكويت
   workflow_dispatch: {}     # تشغيل يدوي وقت ما تبي
 permissions:
   contents: write
