@@ -17,6 +17,7 @@ jobs:
       - name: توليد النشرة (نص → صوت → فيديو)
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python pipeline/daily_anchor.py
       - name: حفظ في الريبو
         if: always()
