@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """سَنَد — خط الإنتاج الآلي: RSS → إسناد → نص → صوت فهد → فيديو مذيع مُجزّأ
 LongCat 720p أساسي + EchoMimic احتياطي | افتتاحية/خاتمة مكاشة | يشتغل صفر تدخّل"""
-import os, re, sys, json, asyncio, shutil, subprocess, urllib.request, xml.etree.ElementTree as ET
+import os, re, sys, json, time, asyncio, shutil, subprocess, urllib.request, xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 
 HF_TOKEN = os.environ.get("HF_TOKEN",""); GEMINI_KEY = os.environ.get("GEMINI_API_KEY",""); OUT="daily"; os.makedirs(OUT, exist_ok=True)
@@ -25,6 +25,63 @@ def fa_meta(url):
     for k,v in FA_SRC.items():
         if k in url: return v
     return ("مصدر فارسي","غير محدد")
+
+# ═══════════ طبقة الوكلاء — سجلٌّ ومراقبةٌ حيّة ═══════════
+AGENTS_F=f"{OUT}/agents.json"
+AGENTS=[
+ ("rasid","الرَّاصِد","🛰️","يرصد المصادر الحيّة ويجمع الحصيلة والعاجل"),
+ ("manba","المَنبع","📡","ينقل البيانات الرسمية عن الجهات مباشرة"),
+ ("turjuman","التَّرْجُمَان","🗣️","ينقل الخبر الفارسي إلى العربية ترجمةً أمينة"),
+ ("mudaqqiq","المُدقِّق","⚖️","يراجع المواد ويستبعد ما لا يصلح للنشر"),
+ ("musannif","المُصنِّف","🧬","يطوّر قواعد الفرز بعد كل جولة"),
+ ("mustaqri","المُستقرِئ","🔮","يستقرئ ما قد يقع من السوابق والتصريحات"),
+ ("murtajil","المُحلِّل","🎤","يصوغ قراءة الساعة ويؤدّيها صوتًا"),
+ ("rawi","الرَّاوِي","🎙️","يؤدّي النشرة اليومية بصوت المذيع"),
+]
+_LOG={}
+def _load_log():
+    try: return {a["id"]:a for a in json.load(open(AGENTS_F)).get("agents",[])}
+    except Exception: return {}
+_PREV=_load_log()
+
+def agent(aid):
+    """يغلّف الوكيل: يقيس الزمن، يلتقط الأعطال، ويسجّل الحالة."""
+    def deco(fn):
+        def wrap(*a,**k):
+            t0=time.time(); st="ok"; note=""
+            try:
+                r=fn(*a,**k)
+                if isinstance(r,dict) and r.get("skipped"): st="skip"; note=r.get("why","")
+                return r
+            except Exception as e:
+                st="fail"; note=str(e)[:110]; print(f"⚠️ {aid}: {note}"); return None
+            finally:
+                _LOG[aid]={"ms":int((time.time()-t0)*1000),"status":st,"note":note,
+                    "at":datetime.now(timezone.utc).isoformat(timespec="minutes")}
+        return wrap
+    return deco
+
+def mark(aid,status="ok",note=""):
+    _LOG[aid]={"ms":_LOG.get(aid,{}).get("ms",0),"status":status,"note":note,
+        "at":datetime.now(timezone.utc).isoformat(timespec="minutes")}
+
+def save_agents():
+    out=[]
+    for aid,nm,ic,role in AGENTS:
+        cur=_LOG.get(aid) or {}
+        prev=_PREV.get(aid,{})
+        out.append({"id":aid,"name":nm,"icon":ic,"role":role,
+            "status":cur.get("status", prev.get("status","idle")),
+            "ms":cur.get("ms", prev.get("ms",0)),
+            "note":cur.get("note", prev.get("note","")),
+            "at":cur.get("at", prev.get("at","")),
+            "ran":aid in _LOG})
+    ok=sum(1 for a in out if a["status"]=="ok")
+    json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),
+        "healthy":ok,"total":len(out),"agents":out},
+        open(AGENTS_F,"w"),ensure_ascii=False,indent=1)
+    print(f"🤖 طبقة الوكلاء: {ok}/{len(out)} بحالة سليمة")
+
 RULES=f"{OUT}/rules.json"
 def load_rules():
     try:
@@ -90,9 +147,9 @@ if fa_items and GEMINI_KEY:
             "أخرج JSON فقط بصيغة: [{\"n\":الرقم,\"h\":\"العنوان العربي\"}]\n"+lst)
         for o in out:
             fa_items[o["n"]]["head"]=o["h"]
-        print(f"🇮🇷 تُرجم {len(out)} عنوانًا عن الفارسية")
+        print(f"🇮🇷 تُرجم {len(out)} عنوانًا عن الفارسية"); mark("turjuman","ok",f"{len(out)} عنوانًا")
     except Exception as e:
-        print(f"ترجمة إيران فشلت: {str(e)[:80]}")
+        print(f"ترجمة إيران فشلت: {str(e)[:80]}"); mark("turjuman","fail",str(e)[:80])
         items=[i for i in items if not i.get("fa")]
 
 # ═══ خريطة الأخبار الكاملة للمنصة ═══
@@ -123,10 +180,11 @@ def intel_fresh(hours):
         return p, age<hours
     except Exception: return None, False
 
+@agent("rasid")
 def grok_intel():
     old, fresh = intel_fresh(6)
     if fresh and not os.environ.get("FORCE_INTEL"):
-        print(f"♻️ intel.json حديث — تخطي Grok (توفير)"); return old
+        print("♻️ intel.json حديث — تخطٍ (توفير)"); return {"skipped":1,"why":"كاش ٦ ساعات",**(old or {})}
     if not GROK_KEY:
         print("⚠️ لا مفتاح Grok"); return old
     P=("ابحث عن آخر المعطيات الموثقة عن الأزمة الإيرانية الأمريكية الحالية وأثرها على الخليج.\n"
@@ -166,7 +224,7 @@ if INT and INT.get("brk"):
         open(f"{OUT}/news.json","w"),ensure_ascii=False,indent=1)
     print(f"⚡ أضيف قسم عاجل: {len(cats['عاجل'])}")
 
-# ═══ النَّاقِد: الجرح والتعديل — تدقيق ذاتي + تطوير القواعد ═══
+# ═══ المُدقِّق: مراجعة وتمحيص + تطوير القواعد ═══
 def safe_json(path):
     """يقرأ JSON ويصلح علامات التنصيص المتطفلة داخل النصوص العربية."""
     raw=open(path,encoding="utf-8").read()
@@ -181,12 +239,13 @@ def safe_json(path):
         else: out.append(ln)
     return json.loads("\n".join(out))
 
+@agent("mudaqqiq")
 def naqid():
-    """يفحص ما جُمع، يجرح ويعدّل، ثم يكتب قواعد جديدة تمنع تكرار الخطأ."""
+    """يراجع ما جُمع، يستبعد غير الصالح ويخفّض المشكوك فيه، ثم يكتب قواعد تمنع تكرار الخطأ."""
     if os.environ.get("SKIP_COUNCIL") or not GEMINI_KEY: return
-    P=("أنت «النَّاقِد» في منصة سَنَد — وظيفتك الجرح والتعديل قبل النشر.\n"
+    P=("أنت «المُدقِّق» في منصة سَنَد — وظيفتك مراجعة المواد وتمحيصها قبل النشر.\n"
        "١) اقرأ daily/news.json و daily/intel.json و daily/rules.json.\n"
-       "٢) اجرح ما يستحق: عناوين خارج موضوع قسمها، تكرار، مبالغة أو إثارة، ادعاء بلا مصدر، تناقض مع الحصيلة.\n"
+       "٢) راجع المواد واستبعد ما لا يصلح للنشر: عناوين خارج موضوع قسمها، تكرار، مبالغة أو إثارة، ادعاء بلا مصدر، تناقض مع الحصيلة.\n"
        "٣) اكتب daily/council.json:\n"
        '   {"checked":عدد,"flags":[{"h":"العنوان حرفيًا","issue":"سبب الجرح","action":"خُفّض|حُذف|أُقرّ"}],"verdict":"جملة واحدة"}\n'
        "٤) الأهم — طوّر النظام: اكتب daily/rules.json محدّثًا ليمنع تكرار ما جرحته اليوم:\n"
@@ -214,7 +273,7 @@ def naqid():
             h=it["head"]
             if any(d and (d in h or h[:28]==d) for d in drop): nd+=1; continue
             if any(w and (w in h or h[:28]==w) for w in down):
-                it["grade"]="حسن"; it["flag"]="جُرِح ونُقِّح"; nw+=1
+                it["grade"]="حسن"; it["flag"]="روجعت درجته"; nw+=1
             keep.append(it)
         if keep: cats[cat]=keep
         else: del cats[cat]
@@ -229,6 +288,7 @@ def naqid():
         json.dump(nr,open(RULES,"w"),ensure_ascii=False,indent=1)
         grew=len(nr["block"])-len(R["block"])
         print(f"🧬 تطوّر ذاتي: إصدار {nr['v']} · {len(nr['block'])} نمط (+{grew}) · {len(nr['notes'])} درس")
+        mark("musannif","ok",f"إصدار {nr['v']} · {len(nr['block'])} نمط")
     except Exception as e:
         nr=R; print(f"القواعد لم تُحدَّث: {str(e)[:60]}")
 
@@ -248,11 +308,12 @@ def naqid():
     c["updated"]=datetime.now(timezone.utc).isoformat(timespec="minutes")
     json.dump(c,open(f"{OUT}/council.json","w"),ensure_ascii=False,indent=1)
     json.dump({"updated":c["updated"],"cats":cats},open(f"{OUT}/news.json","w"),ensure_ascii=False,indent=1)
-    print(f"⚖️ النَّاقِد: جُرِح {nd} · نُقِّح {nw} · المتبقي {sum(len(v) for v in cats.values())}")
+    print(f"⚖️ المُدقِّق: استُبعد {nd} · خُفِّض {nw} · المتبقي {sum(len(v) for v in cats.values())}")
 
 # ═══ المُستقرِئ: استقراء الساعات القادمة + محاسبة ذاتية ═══
 FCAST=f"{OUT}/forecast.json"
 
+@agent("mustaqri")
 def mustaqri():
     """يستقرئ ما قد يقع، ويحاسب نفسه على استقرائه السابق."""
     try:
@@ -260,7 +321,7 @@ def mustaqri():
         age=(datetime.now(timezone.utc)-datetime.fromisoformat(prev["updated"])).total_seconds()/3600
     except Exception: prev,age=None,999
     if age<3:
-        print("♻️ الاستقراء حديث — تخطٍ (توفير)"); return
+        print("♻️ الاستقراء حديث — تخطٍ (توفير)"); return {"skipped":1,"why":"كاش ٣ ساعات"}
     if not GROK_KEY: return
 
     heads=[i["head"] for l in cats.values() for i in l][:14]
@@ -317,6 +378,7 @@ def mustaqri():
 # ═══ المَنبع: بيانات رسمية من الجهات مباشرة (أعلى درجات الاتصال) ═══
 OFFI=f"{OUT}/official.json"
 
+@agent("manba")
 def manba():
     """يجلب آخر بيان رسمي من كل جهة — مصدر أول بلا واسطة."""
     try:
@@ -324,7 +386,7 @@ def manba():
         age=(datetime.now(timezone.utc)-datetime.fromisoformat(old["updated"])).total_seconds()/3600
     except Exception: old,age=None,999
     if age<3 and not os.environ.get("FORCE_OFFICIAL"):
-        print("♻️ المَنبع حديث — تخطٍ (توفير)"); return
+        print("♻️ المَنبع حديث — تخطٍ (توفير)"); return {"skipped":1,"why":"كاش ٣ ساعات"}
     if not GROK_KEY: return
     P=("ابحث في منصة إكس والمواقع الرسمية عن آخر بيان أو منشور رسمي من كل جهة أدناه "
        "خلال ١٢ ساعة الماضية بشأن الأزمة الجارية.\n"
@@ -363,6 +425,7 @@ manba()
 mustaqri()
 
 # ═══ فقرة المحلل الاستراتيجي (وكيل — يُصرَّح بذلك) ═══
+@agent("murtajil")
 def analyst_segment():
     """يحوّل الاستقراء إلى تحليل منطوق بأسلوب ضيف النشرات، بصوت مغاير للمذيع."""
     try: f=json.load(open(FCAST))
@@ -370,7 +433,7 @@ def analyst_segment():
     try:
         a_old=json.load(open(f"{OUT}/analyst.json"))
         if a_old.get("src")==f.get("updated"):
-            print("♻️ فقرة المحلل مطابقة للاستقراء — تخطٍ"); return
+            print("♻️ قراءة المحلل مطابقة — تخطٍ"); return {"skipped":1,"why":"مطابقة للاستقراء"}
     except Exception: pass
     if not GEMINI_KEY: return
 
@@ -421,6 +484,8 @@ analyst_segment()
 naqid()
 
 if os.environ.get("NEWS_ONLY"):
+    mark("rawi","idle","يعمل في النشرة اليومية فقط")
+    save_agents()
     print("⚡ وضع تحديث الأخبار فقط — تم"); sys.exit(0)
 
 today=datetime.now(timezone.utc).strftime("%Y-%m-%d")
