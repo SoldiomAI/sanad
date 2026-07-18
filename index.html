@@ -272,7 +272,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
     <div class="council">
       <div class="top"><span class="who" id="cWho"></span><span class="stat" id="cStat"></span></div>
       <div class="verdict" id="cVerdict"></div>
-      <div class="agents">
+      <div class="agents" id="agentChips" style="display:none">
         <span class="agent on" title="يرصد ما يُنشر لحظةً بلحظة">🛰️ الرَّاصِد</span>
         <span class="agent on" title="ينقل الخبر عن ألسنة أخرى">🗣️ التَّرْجُمَان</span>
         <span class="agent on" title="يراجع المواد قبل النشر">⚖️ المُدقِّق</span>
@@ -337,19 +337,19 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
     </div>
   </div>
 
-  <div class="sec-h">🧠 البحث الذكي — داخل جهازك</div>
+  <div class="sec-h">🔎 البحث الذكي</div>
   <div class="ai">
     <div class="ai-hd">
-      <span class="ai-t">🧠 المُفهرِس</span>
-      <span><span class="ai-chip">بلا خادم</span> <span class="ai-chip">بلا تتبّع</span></span>
+      <span class="ai-t">🔎 ابحث بلغتك</span>
+      <span><span class="ai-chip">خصوصية كاملة</span></span>
     </div>
     <div id="aiIntro">
       <div class="ai-st" style="text-align:right;margin:0 0 11px">
-        اسأل عن الأخبار بلغتك الطبيعية، وسيفهم النموذج مقصدك لا كلماتك فقط.
-        يُحمَّل النموذج مرةً واحدة (~١١٨ م.ب) ثم يعمل <b style="color:#93c5fd">كاملًا داخل متصفحك</b> —
-        لا تُرسل كلمةٌ واحدة إلى أي خادم.
+        اسأل عن الأخبار بلغتك الطبيعية — يفهم مقصدك لا كلماتك فقط.
+        يُجهَّز مرةً واحدة، ثم يعمل <b style="color:#93c5fd">داخل جهازك</b>؛
+        لا يغادر سؤالُك متصفّحك ولا نراه.
       </div>
-      <button class="ai-btn" id="aiGo" onclick="aiLoad()">⬇︎ شغّل البحث الذكي</button>
+      <button class="ai-btn" id="aiGo" onclick="aiLoad()">✨ فعّل البحث الذكي</button>
       <div class="ai-bar" id="aiBar"><i id="aiFill"></i></div>
       <div class="ai-st" id="aiSt"></div>
     </div>
@@ -374,8 +374,8 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
   <footer>
     سَنَد © SOLDIOM — الكويت 🇰🇼<br>
     تصنيف آلي شفّاف: <b style="color:var(--green)">صحيح</b> = وكالات من الدرجة الأولى · <b style="color:var(--blue)">حسن</b> = مصادر معتبَرة<br>
-    الأخبار كل ٣ ساعات · حصيلة الأزمة كل ٦ ساعات · النشرة يوميًا ٦ مساءً بتوقيت الكويت<br>
-    العاجل من 𝕏 عبر بحث حي · الترجمة عن الفارسية آليّة · كل خبر يمرّ على المُدقِّق قبل النشر — والقواعد تتطوّر ذاتيًا
+    تُحدَّث الأخبار على مدار اليوم · نشرة المذيع مساءً<br>
+    كلُّ خبرٍ يُراجَع قبل نشره، وتُعرض درجةُ إسنادِه ومصدرُه
   </footer>
 </div>
 
@@ -384,6 +384,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 const RAW="https://raw.githubusercontent.com/Soldiom/sanad/main/daily/";
 const ORDER=["الكل","عاجل","الخليج","فلسطين","عالم","اقتصاد","تقنية","إيران"];
 let DATA=null, cur="الكل";
+const STUDIO = new URLSearchParams(location.search).has("studio");
 
 function badge(g){return g==="صحيح"?'<span class="badge b-sahih">صحيح ✓</span>'
   :g==="ضعيف الإسناد"?'<span class="badge b-daif">ضعيف الإسناد</span>':'<span class="badge b-hasan">حسن</span>'}
@@ -451,8 +452,7 @@ async function load(){
     if(m.video_date===m.date){v.src=RAW+m.video+"?t="+Date.now();v.style.display="block"}
     else{
       a.src=RAW+m.audio+"?t="+Date.now();a.style.display="block";
-      vnote.textContent="🎬 نشرة الفيديو تُنتَج على حصة حوسبة مجانية — تظهر هنا فور توفّرها، والصوت جاهز الآن.";
-      vnote.style.display="block";
+      vnote.style.display="none";
     }
   }catch(e){bdate.textContent="قيد التجهيز"}
   try{
@@ -472,7 +472,7 @@ async function load(){
     const a=await (await fetch(RAW+"agents.json?t="+Date.now())).json();
     const lbl={ok:"عمل الآن",skip:"مجدول",fail:"أخفق",idle:"خامل"};
     agH.textContent=`${a.ran!==undefined?a.ran:"—"} عملوا هذه الجولة · ${a.healthy}/${a.total} سليم`;
-    agT.textContent="آخر جولة "+new Date(a.updated).toLocaleTimeString("ar-KW",{hour:"2-digit",minute:"2-digit"});
+    agT.textContent="آخر تشغيل "+new Date(a.updated).toLocaleTimeString("ar-KW",{hour:"2-digit",minute:"2-digit"});
     agL.innerHTML=(a.agents||[]).map(x=>`
       <div class="ag ${x.status}">
         <div class="ag-t">${x.icon} ${x.name}</div>
@@ -482,7 +482,7 @@ async function load(){
           <span>${x.status==="ok"&&x.ms?(x.ms>999?(x.ms/1000).toFixed(1)+"s":x.ms+"ms"):(x.note||"").slice(0,22)}</span>
         </div>
       </div>`).join("");
-    agWrap.style.display="block";
+    if(STUDIO) agWrap.style.display="block";
   }catch(e){}
   try{
     const o=await (await fetch(RAW+"official.json?t="+Date.now())).json();
@@ -500,9 +500,11 @@ async function load(){
   }catch(e){}
   try{
     const c=await (await fetch(RAW+"council.json?t="+Date.now())).json();
-    cWho.textContent="⚖️ تقرير المُدقِّق";
+    cWho.textContent="⚖️ مراجعةُ ما قبل النشر";
     const a=c.applied||{};
-    cStat.textContent=`فُحص ${c.checked||0} خبرًا · استُبعد ${a.removed||0} · خُفِّض ${a.downgraded||0}`+(c.rules_v?` · القواعد ن${c.rules_v}`:"");
+    cStat.textContent=STUDIO
+  ? `فُحص ${c.checked||0} · استُبعد ${a.removed||0} · خُفِّض ${a.downgraded||0} · ن${c.rules_v||"-"}`
+  : `استُبعدت ${a.removed||0} مادة لم تستوفِ الشروط`;
     cVerdict.textContent=c.verdict||"";
     councilWrap.style.display="block";
   }catch(e){}
@@ -555,7 +557,7 @@ async function load(){
     const mx=Math.max(...r.slice(-20).map(x=>x.removed),1);
     spark.innerHTML=r.slice(-20).map(x=>`<i style="height:${Math.max(6,x.removed/mx*100)}%" title="${x.t}: استُبعد ${x.removed}"></i>`).join("");
     lessons.innerHTML=(e.lessons||[]).map(l=>`<div class="lesson">${l}</div>`).join("");
-    evoWrap.style.display="block";
+    if(STUDIO) evoWrap.style.display="block";
   }catch(e){}
 }
 // ══ المُفهرِس: نموذج تضمين يعمل محليًا في المتصفح ══
@@ -567,17 +569,17 @@ async function aiLoad(){
   try{
     const T=await import("https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.7.6");
     try{ AI.dev = (navigator.gpu && await navigator.gpu.requestAdapter()) ? "webgpu":"wasm" }catch(e){ AI.dev="wasm" }
-    aiSt.textContent="تنزيل النموذج… ("+(AI.dev==="webgpu"?"تسريع رسومي":"معالج")+")";
+    aiSt.textContent="جارِ التجهيز…";
     AI.ext=await T.pipeline("feature-extraction","Xenova/multilingual-e5-small",{
       device:AI.dev, dtype:"q8",
       progress_callback:p=>{
         if(p.status==="progress"&&p.total){
           const pc=Math.round(p.loaded/p.total*100);
           aiFill.style.width=pc+"%";
-          aiSt.textContent=`تنزيل ${p.file||""} — ${pc}%`;
+          aiSt.textContent=`التجهيز — ${pc}%`;
         } else if(p.status==="ready") aiSt.textContent="جاهز";
       }});
-    aiFill.style.width="100%"; aiSt.textContent="فهرسة الأخبار…";
+    aiFill.style.width="100%"; aiSt.textContent="ترتيب الأخبار…";
     AI.docs=[];
     for(const [c,l] of Object.entries((DATA&&DATA.cats)||{}))
       l.forEach(i=>AI.docs.push({t:i.head,c,src:i.src,link:i.link,g:i.grade}));
@@ -588,10 +590,12 @@ async function aiLoad(){
     const emb=await AI.ext(AI.docs.map(d=>"passage: "+d.t),{pooling:"mean",normalize:true});
     AI.vecs=emb.tolist(); AI.ready=1;
     aiIntro.style.display="none"; aiBox.style.display="block";
-    aiFoot.textContent=`فُهرست ${AI.docs.length} مادة · ${AI.dev==="webgpu"?"WebGPU":"WASM"} · النموذج محفوظ لزيارتك القادمة`;
+    aiFoot.textContent = STUDIO
+      ? `${AI.docs.length} مادة · ${AI.dev} · محفوظ محليًا`
+      : `جاهز — ${AI.docs.length} مادة قابلة للبحث`;
     aiQ.focus();
   }catch(e){
-    aiSt.textContent="تعذّر التشغيل: "+String(e).slice(0,90);
+    aiSt.textContent = STUDIO ? ("تعذّر: "+String(e).slice(0,90)) : "تعذّر التشغيل — جرّب مرة أخرى.";
     btn.disabled=false; btn.textContent="↻ أعد المحاولة";
   }
 }
