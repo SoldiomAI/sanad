@@ -82,6 +82,25 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .spark i{flex:1;background:linear-gradient(180deg,#22c55e,rgba(34,197,94,.25));border-radius:2px 2px 0 0;min-height:2px}
 .lesson{font-size:11.5px;color:#cbd2dc;line-height:1.9;padding-inline-start:14px;position:relative}
 .lesson::before{content:"◂";position:absolute;right:0;color:#22c55e}
+.fc{background:linear-gradient(160deg,rgba(122,31,43,.14),var(--card));border:1px solid rgba(201,162,39,.3);border-radius:12px;padding:15px;margin:12px 0}
+.fc-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:11px}
+.fc-h{font-size:13px;font-weight:700;color:var(--gold-l)}
+.fc-acc{font-size:11px;color:var(--mut)}
+.sig{font-size:11.5px;color:#cbd2dc;line-height:1.85;margin:5px 0;display:flex;gap:7px;align-items:flex-start}
+.sig .w{flex-shrink:0;font-size:9.5px;border-radius:9px;padding:2px 7px;border:1px solid var(--border);color:var(--dim)}
+.sig .w.hi{border-color:rgba(239,68,68,.45);color:#fca5a5}
+.scn{margin:11px 0;padding-top:10px;border-top:1px solid rgba(201,162,39,.16)}
+.scn-t{display:flex;justify-content:space-between;gap:10px;font-size:13px;font-weight:600;line-height:1.7}
+.scn-p{flex-shrink:0;color:var(--gold-l);font-weight:700}
+.bar{height:5px;background:rgba(255,255,255,.06);border-radius:3px;margin:7px 0 8px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),#e8c96a);border-radius:3px}
+.scn-w{font-size:11px;color:var(--mut);line-height:1.8}
+.scn-w b{color:var(--dim);font-weight:600}
+.caveat{font-size:10.5px;color:#fca5a5;background:rgba(127,29,29,.16);border:1px solid rgba(127,29,29,.35);border-radius:8px;padding:9px 11px;margin-top:12px;line-height:1.85}
+.rev{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+.rev span{font-size:10px;border-radius:9px;padding:2px 8px;border:1px solid var(--border);color:var(--dim)}
+.rev span.y{border-color:rgba(34,197,94,.4);color:#86efac}
+.rev span.p{border-color:rgba(251,191,36,.4);color:#fcd34d}
 .empty{text-align:center;color:var(--dim);padding:30px 0;font-size:13px}
 </style></head>
 <body>
@@ -94,7 +113,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 <div class="wrap">
   <div class="hero">
     <h1 class="amiri gold">سَنَد</h1>
-    <div class="sub">منصة إخبارية ذاتية التطوّر — مجلسُ نقدٍ يجرح ويعدّل، وحُكمُ كل خبر مبنيٌّ على خمسة معايير من علم الحديث<br>نشرة مذيع يومية آلية · تغطية حية · أخبار إيران مترجمة عن الفارسية</div>
+    <div class="sub">منصة إخبارية ذاتية التطوّر — تجرح الخبر وتعدّله، وتستقرئ ما بعده، وحُكمُها مبنيٌّ على خمسة معايير من علم الحديث<br>نشرة مذيع يومية آلية · تغطية حية · أخبار إيران مترجمة عن الفارسية</div>
     <div class="method">
       <span class="pill">الاتصال</span><span class="pill">عدالة المصدر</span><span class="pill">الضبط</span><span class="pill">عدم الشذوذ</span><span class="pill">انتفاء العلة</span>
     </div>
@@ -126,7 +145,19 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
         <span class="agent on" title="يجرح ويعدّل قبل النشر">⚖️ النَّاقِد</span>
         <span class="agent on" title="يؤدي النشرة صوتًا">🎙️ الرَّاوِي</span>
         <span class="agent on" title="يطوّر قواعد المنصة بعد كل جولة">🧬 المُصنِّف</span>
+        <span class="agent on" title="يستقرئ ما قد يقع من السوابق والتصريحات">🔮 المُستقرِئ</span>
       </div>
+    </div>
+  </div>
+
+  <div id="fcWrap" style="display:none">
+    <div class="sec-h">🔮 الاسْتِقْراء — ما قد يقع</div>
+    <div class="fc">
+      <div class="fc-top"><span class="fc-h" id="fcH"></span><span class="fc-acc" id="fcAcc"></span></div>
+      <div id="sigs"></div>
+      <div id="scns"></div>
+      <div class="rev" id="rev"></div>
+      <div class="caveat" id="fcCav"></div>
     </div>
   </div>
 
@@ -212,6 +243,25 @@ async function load(){
     cStat.textContent=`فُحص ${c.checked||0} خبرًا · جُرِح ${a.removed||0} · نُقِّح ${a.downgraded||0}`+(c.rules_v?` · القواعد ن${c.rules_v}`:"");
     cVerdict.textContent=c.verdict||"";
     councilWrap.style.display="block";
+  }catch(e){}
+  try{
+    const f=await (await fetch(RAW+"forecast.json?t="+Date.now())).json();
+    fcH.textContent="⏳ "+(f.horizon||"الساعات القادمة");
+    const sc=f.score||{};
+    fcAcc.textContent=sc.n?`دقة تراكمية ${sc.acc}% · ${sc.n} استقراء سابق`:"أول استقراء";
+    sigs.innerHTML=(f.signals||[]).slice(0,4).map(s=>
+      `<div class="sig"><span class="w ${s.w==='عالٍ'?'hi':''}">${s.w||''}</span><span><b>${s.who||''}:</b> ${s.q||''}</span></div>`).join("");
+    scns.innerHTML=(f.scenarios||[]).map(s=>`
+      <div class="scn">
+        <div class="scn-t"><span>${s.s}</span><span class="scn-p">${s.p}%</span></div>
+        <div class="bar"><i style="width:${s.p}%"></i></div>
+        <div class="scn-w"><b>السابقة:</b> ${s.why||""}</div>
+        <div class="scn-w"><b>المؤشر:</b> ${s.watch||""}</div>
+      </div>`).join("");
+    rev.innerHTML=(f.review||[]).map(r=>
+      `<span class="${r.r==='وقع'?'y':r.r==='جزئيًا'?'p':''}">${r.r}: ${(r.s||'').slice(0,34)}…</span>`).join("");
+    fcCav.textContent="⚠️ "+(f.caveat||"استقراء احتمالي لا يقين.")+" — تُنشر النِسَب ويُحاسَب النظام عليها في الجولة التالية.";
+    fcWrap.style.display="block";
   }catch(e){}
   try{
     const e=await (await fetch(RAW+"evolution.json?t="+Date.now())).json();
