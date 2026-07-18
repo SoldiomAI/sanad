@@ -72,49 +72,41 @@ import subprocess
 dur = float(subprocess.run(["ffprobe","-v","quiet","-show_entries","format=duration","-of","csv=p=0",f"{OUT}/bulletin-{today}.mp3"],capture_output=True,text=True).stdout.strip() or 15)
 print(f"AUDIO: {dur:.1f}s")
 
-# ── ٤) الفيديو — LongCat 720p أساسي + EchoMimic احتياطي ──
+# ── ٤) الفيديو — EchoMimic عبر حساب HF ────────────────────
 if not HF_TOKEN:
     print("⚠️ HF_TOKEN غير موجود — تخطّي الفيديو (الصوت والنص جاهزان)"); sys.exit(0)
 
 from gradio_client import Client, handle_file
-import inspect, shutil
-_tok_kw = "token" if "token" in inspect.signature(Client.__init__).parameters else "hf_token"
+import subprocess, shutil
+c = Client("fffiloni/EchoMimic", token=HF_TOKEN)
 
-def save(vid):
-    if isinstance(vid,(list,tuple)): vid = vid[0]
-    if isinstance(vid,dict): vid = vid.get("video") or vid.get("path")
-    shutil.copy(vid, f"{OUT}/bulletin-{today}.mp4")
-    shutil.copy(vid, f"{OUT}/latest.mp4")
-    print(f"✅ VIDEO: {OUT}/bulletin-{today}.mp4")
+def gen_chunk(audio_path, out_path):
+    d = float(subprocess.run(["ffprobe","-v","quiet","-show_entries","format=duration","-of","csv=p=0",audio_path],capture_output=True,text=True).stdout.strip())
+    r = c.predict(uploaded_img=handle_file("pipeline/anchor_face.jpg"), uploaded_audio=handle_file(audio_path),
+        width=512, height=512, length=min(int(d*24)+8,120), seed=77,
+        facemask_dilation_ratio=0.1, facecrop_dilation_ratio=0.5, context_frames=12, context_overlap=3,
+        cfg=2.5, steps=30, sample_rate=16000, fps=24, device="cuda", api_name="/generate_video")
+    v = r[0] if isinstance(r,(list,tuple)) else r
+    if isinstance(v,dict): v = v.get("video") or v.get("path")
+    shutil.copy(v, out_path)
 
-PROMPT = ("A professional Gulf Arab news anchor wearing white ghutra and black agal, "
-          "speaking clearly and confidently to camera, subtle natural head movements, "
-          "broadcast news studio")
-try:
-    print("🎬 LongCat 720p ...")
-    c = Client("victor/LongCat-Video-Avatar-1.5", **{_tok_kw: HF_TOKEN})
-    r = c.predict(image_path=handle_file("pipeline/anchor_face.jpg"),
-                  audio_path=handle_file(f"{OUT}/bulletin-{today}.mp3"),
-                  prompt=PROMPT, resolution="720p", seed=77,
-                  vocal_mode="Clean speech (fast)", acceleration="DBCache faster",
-                  api_name="/generate")
-    save(r)
-except Exception as e:
-    msg = str(e)
-    print(f"⚠️ LongCat فشل: {msg[:160]}")
-    if "quota" in msg.lower():
-        print("⏳ حصة GPU مستهلكة اليوم — الصوت والنص محفوظان، الفيديو بكرة"); sys.exit(0)
-    try:
-        print("🎬 الاحتياط: EchoMimic ...")
-        frames = min(int(dur*24)+12, 600)
-        c = Client("fffiloni/EchoMimic", **{_tok_kw: HF_TOKEN})
-        r = c.predict(uploaded_img=handle_file("pipeline/anchor_face.jpg"),
-                      uploaded_audio=handle_file(f"{OUT}/bulletin-{today}.mp3"),
-                      width=512, height=512, length=frames, seed=77,
-                      facemask_dilation_ratio=0.1, facecrop_dilation_ratio=0.5,
-                      context_frames=12, context_overlap=3,
-                      cfg=1.0, steps=6, sample_rate=16000, fps=24, device="cuda",
-                      api_name="/generate_video")
-        save(r)
-    except Exception as e2:
-        print(f"⚠️ الاحتياط فشل أيضًا: {str(e2)[:160]} — الصوت والنص محفوظان"); sys.exit(0)
+# الافتتاحية والخاتمة مكاشة بالريبو — تتولّد مرة وحدة فقط
+parts = []
+if os.path.exists("daily/opening.mp4"): parts.append("daily/opening.mp4")
+# جُمل الأخبار فقط (سطور بين الافتتاحية والخاتمة)
+news_lines = lines[1:-1]
+for i, sent in enumerate(news_lines, 1):
+    ap = f"{OUT}/n{i}.mp3"
+    asyncio.run(edge_tts.Communicate(sent, "ar-KW-FahedNeural", rate="-2%").save(ap))
+    subprocess.run(["ffmpeg","-v","quiet","-y","-i",ap,"-af","apad=pad_dur=0.3",ap+".p.mp3"])
+    vp = f"{OUT}/n{i}.mp4"
+    gen_chunk(ap+".p.mp3", vp); parts.append(vp)
+    print(f"chunk {i} done")
+if os.path.exists("daily/outro.mp4"): parts.append("daily/outro.mp4")
+
+with open(f"{OUT}/list.txt","w") as f:
+    for p in parts: f.write(f"file '{os.path.basename(p) if p.startswith(OUT) else '../'+p}'\n")
+subprocess.run(["ffmpeg","-v","quiet","-y","-f","concat","-safe","0","-i",f"{OUT}/list.txt",
+    "-c:v","libx264","-crf","18","-pix_fmt","yuv420p","-c:a","aac","-movflags","+faststart",f"{OUT}/bulletin-{today}.mp4"])
+shutil.copy(f"{OUT}/bulletin-{today}.mp4", f"{OUT}/latest.mp4")
+print(f"VIDEO OK: {OUT}/bulletin-{today}.mp4")
