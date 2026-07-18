@@ -5,19 +5,21 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+concurrency:
+  group: sanad-daily
+  cancel-in-progress: false
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: '3.11'}
       - uses: actions/setup-node@v4
         with: {node-version: '22'}
-      - name: تركيب Gemini CLI (المدقّق الوكيل)
-        run: npm i -g @google/gemini-cli@latest
-      - name: تحديث الأخبار + مجلس التحرير
+      - run: npm i -g @google/gemini-cli@latest
+      - name: تحديث الأخبار وتشغيل الوكلاء
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GROK_API_KEY: ${{ secrets.GROK_API_KEY }}
@@ -29,5 +31,11 @@ jobs:
         run: |
           git config user.name "sanad-bot"
           git config user.email "bot@sanad.news"
-          git add daily/ && git diff --cached --quiet || git commit -m "🗞️ تحديث $(date -u +%H:%M)"
-          git push
+          git add daily/
+          git diff --cached --quiet && exit 0
+          git commit -m "🗞️ تحديث $(date -u +%H:%M)"
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash origin main && git push && exit 0
+            echo "محاولة $i…"; sleep $((i*6))
+          done
+          exit 1
