@@ -1,23 +1,32 @@
 name: 🎙️ نشرة المذيع اليومية
 on:
   schedule:
-    - cron: '0 15 * * *'  # ٦ مساءً بتوقيت الكويت
-  workflow_dispatch: {}     # تشغيل يدوي وقت ما تبي
+    - cron: '0 15 * * *'
+  workflow_dispatch: {}
 permissions:
   contents: write
+concurrency:
+  group: sanad-daily
+  cancel-in-progress: false
 jobs:
   bulletin:
     runs-on: ubuntu-latest
+    timeout-minutes: 55
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with: { python-version: '3.12' }
+        with: {python-version: '3.12'}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
       - run: sudo apt-get install -y -q ffmpeg
       - run: pip install -q edge-tts gradio_client
-      - name: توليد النشرة (نص → صوت → فيديو)
+      - run: npm i -g @google/gemini-cli@latest
+      - name: النشرة الكاملة (نص → صوت → فيديو) بكل الوكلاء
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROK_API_KEY: ${{ secrets.GROK_API_KEY }}
+          GEMINI_CLI_TRUST_WORKSPACE: "true"
         run: python pipeline/daily_anchor.py
       - name: حفظ في الريبو
         if: always()
@@ -25,5 +34,10 @@ jobs:
           git config user.name "SANAD Bot"
           git config user.email "soldiom@gmail.com"
           git add daily/
-          git commit -m "🎙️ نشرة $(date +%F) [skip ci]" || echo "no changes"
-          git push
+          git diff --cached --quiet && exit 0
+          git commit -m "🎙️ نشرة $(date +%F) [skip ci]"
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash origin main && git push && exit 0
+            echo "محاولة $i…"; sleep $((i*6))
+          done
+          exit 1
