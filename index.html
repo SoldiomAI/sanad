@@ -188,7 +188,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
         <p>اضغط أيَّ دعاءٍ لنسخه ومشاركته</p>
       </div>
       <div class="dua-list" id="duaL"></div>
-      <div class="dua-ft" id="duaN"></div>
+      <div class="dua-ft" id="duaN" style="display:none"></div>
     </div>
   </div>
 
@@ -279,7 +279,7 @@ function render(){
   feed.innerHTML=list.length?list.map(i=>`
     <div class="item">
       <a href="${i.link||'#'}" target="_blank" rel="noopener">${i.head}</a>
-      <div class="meta">${badge(i.grade)}${i.fa?'<span class="badge b-fa">مترجم عن الفارسية</span>':''}${i.x?'<span class="badge b-x">𝕏 مباشر</span>':''}${i.flag?'<span class="badge b-rev">⚖️ '+i.flag+'</span>':''}<span>نقلًا عن ${i.src||"المصدر"}</span></div>
+      <div class="meta">${badge(i.grade)}${i.fa?'<span class="badge b-fa">مترجم عن الفارسية</span>':''}${i.via?'<span class="badge b-x">'+i.via+'</span>':''}${i.x?'<span class="badge b-x">𝕏 مباشر</span>':''}${i.flag?'<span class="badge b-rev">⚖️ '+i.flag+'</span>':''}<span>نقلًا عن ${i.src||"المصدر"}</span></div>
     </div>`).join(""):'<div class="empty">لا أخبار في هذا القسم حاليًا</div>';
 }
 function tabs(){
@@ -313,7 +313,8 @@ async function load(){
   }catch(e){}
   try{
     const d=await (await fetch(RAW+"dua.json?t="+Date.now())).json();
-    duaT.textContent=d.title||"دعاء"; duaN.textContent="ⓘ "+(d.note||"");
+    duaT.textContent=d.title||"دعاء";
+    if(d.note){duaN.textContent=d.note;duaN.style.display="block"}else{duaN.style.display="none"}
     const kc={"مأثور":"k-m","قرآن":"k-q","عام":"k-a"};
     duaL.innerHTML=(d.items||[]).map((x,n)=>
       `<div class="dua" onclick="cpy(${n})" id="d${n}">
