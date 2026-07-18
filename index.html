@@ -244,16 +244,6 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
     </div>
   </details>
 
-  <div id="agWrap" style="display:none">
-    <div class="sec-h">🤖 طبقة الوكلاء</div>
-    <div class="ag-head">
-      <span><span class="pulse"></span><b id="agH"></b></span>
-      <span id="agT"></span>
-    </div>
-    <div class="ag-grid" id="agL"></div>
-    <div class="note">تسعةُ وكلاءَ يتناوبون بجدولٍ ثابت — لا يعمل الجميع في كل جولة عمدًا، بل يتناوب الثقيلُ منهم لتوزيع الكلفة. «مجدول» تعني نوبتَه لم تحن بعد، ومعها موعدُها.</div>
-  </div>
-
   <div id="offWrap" style="display:none">
     <div class="sec-h">📡 من المَنبع — بياناتٌ رسمية</div>
     <div class="off" id="offL"></div>
@@ -272,15 +262,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
     <div class="council">
       <div class="top"><span class="who" id="cWho"></span><span class="stat" id="cStat"></span></div>
       <div class="verdict" id="cVerdict"></div>
-      <div class="agents" id="agentChips" style="display:none">
-        <span class="agent on" title="يرصد ما يُنشر لحظةً بلحظة">🛰️ الرَّاصِد</span>
-        <span class="agent on" title="ينقل الخبر عن ألسنة أخرى">🗣️ التَّرْجُمَان</span>
-        <span class="agent on" title="يراجع المواد قبل النشر">⚖️ المُدقِّق</span>
-        <span class="agent on" title="يؤدي النشرة صوتًا">🎙️ الرَّاوِي</span>
-        <span class="agent on" title="يطوّر قواعد المنصة بعد كل جولة">🧬 المُصنِّف</span>
-        <span class="agent on" title="يستقرئ ما قد يقع من السوابق والتصريحات">🔮 المُستقرِئ</span>
-        <span class="agent on" title="يقابل الأرقام بمصادر مستقلة">🔍 المُطابِق</span>
-      </div>
+
     </div>
   </div>
 
@@ -324,16 +306,6 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
       <div id="scns"></div>
       <div class="rev" id="rev"></div>
       <div class="caveat" id="fcCav"></div>
-    </div>
-  </div>
-
-  <div id="evoWrap" style="display:none">
-    <div class="sec-h">🧬 التطوّر الذاتي</div>
-    <div class="evo">
-      <div class="evo-top"><span class="evo-v" id="evoV"></span><span class="evo-n" id="evoN"></span></div>
-      <div class="spark" id="spark"></div>
-      <div id="lessons"></div>
-      <div class="note">تتعلّم المنصة من أخطائها: كل جولة يُحدِّث النَّاقِد قواعد الفرز، فتُحجب الأنماط الخاطئة تلقائيًا في الجولة التالية دون تدخل بشري.</div>
     </div>
   </div>
 
@@ -385,6 +357,44 @@ const RAW="https://raw.githubusercontent.com/Soldiom/sanad/main/daily/";
 const ORDER=["الكل","عاجل","الخليج","فلسطين","عالم","اقتصاد","تقنية","إيران"];
 let DATA=null, cur="الكل";
 const STUDIO = new URLSearchParams(location.search).has("studio");
+if(STUDIO){
+  const _h=document.createElement("div");
+  _h.innerHTML=`  <div id="agWrap" style="display:none">
+    <div class="sec-h">🤖 طبقة الوكلاء</div>
+    <div class="ag-head">
+      <span><span class="pulse"></span><b id="agH"></b></span>
+      <span id="agT"></span>
+    </div>
+    <div class="ag-grid" id="agL"></div>
+    <div class="note">تسعةُ وكلاءَ يتناوبون بجدولٍ ثابت — لا يعمل الجميع في كل جولة عمدًا، بل يتناوب الثقيلُ منهم لتوزيع الكلفة. «مجدول» تعني نوبتَه لم تحن بعد، ومعها موعدُها.</div>
+  </div>
+
+  <div id="evoWrap" style="display:none">
+    <div class="sec-h">🧬 التطوّر الذاتي</div>
+    <div class="evo">
+      <div class="evo-top"><span class="evo-v" id="evoV"></span><span class="evo-n" id="evoN"></span></div>
+      <div class="spark" id="spark"></div>
+      <div id="lessons"></div>
+      <div class="note">تتعلّم المنصة من أخطائها: كل جولة يُحدِّث النَّاقِد قواعد الفرز، فتُحجب الأنماط الخاطئة تلقائيًا في الجولة التالية دون تدخل بشري.</div>
+    </div>
+  </div>
+
+`;
+  const w=document.querySelector(".wrap"), anchor=document.getElementById("offWrap");
+  while(_h.firstElementChild) w.insertBefore(_h.firstElementChild, anchor);
+  const cv=document.getElementById("cVerdict");
+  if(cv){const c=document.createElement("div");
+    c.innerHTML=`      <div class="agents" id="agentChips" >
+        <span class="agent on" title="يرصد ما يُنشر لحظةً بلحظة">🛰️ الرَّاصِد</span>
+        <span class="agent on" title="ينقل الخبر عن ألسنة أخرى">🗣️ التَّرْجُمَان</span>
+        <span class="agent on" title="يراجع المواد قبل النشر">⚖️ المُدقِّق</span>
+        <span class="agent on" title="يؤدي النشرة صوتًا">🎙️ الرَّاوِي</span>
+        <span class="agent on" title="يطوّر قواعد المنصة بعد كل جولة">🧬 المُصنِّف</span>
+        <span class="agent on" title="يستقرئ ما قد يقع من السوابق والتصريحات">🔮 المُستقرِئ</span>
+        <span class="agent on" title="يقابل الأرقام بمصادر مستقلة">🔍 المُطابِق</span>
+      </div>`;
+    cv.parentNode.appendChild(c.firstElementChild);}
+}
 
 function badge(g){return g==="صحيح"?'<span class="badge b-sahih">صحيح ✓</span>'
   :g==="ضعيف الإسناد"?'<span class="badge b-daif">ضعيف الإسناد</span>':'<span class="badge b-hasan">حسن</span>'}
