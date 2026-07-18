@@ -7,11 +7,13 @@ from datetime import datetime, timezone
 
 HF_TOKEN = os.environ.get("HF_TOKEN",""); GEMINI_KEY = os.environ.get("GEMINI_API_KEY",""); OUT="daily"; os.makedirs(OUT, exist_ok=True)
 TIER1=["reuters","رويترز","afp","فرانس برس","ap news","أسوشيتد","kuna","كونا","wam","وام","spa","واس","bna","qna","ona"]
-TIER2=["aljazeera","الجزيرة","alarabiya","العربية","skynews","سكاي نيوز","bbc","france24","cnn","alqabas","القبس","aljarida","الجريدة","alrai","الراي","kuwaittimes","arabtimes","gulfnews","thenational","alkhaleej","الخليج"]
+TIER2=["aljazeera","الجزيرة","alarabiya","العربية","skynews","سكاي نيوز","bbc","france24","cnn","alqabas","القبس","aljarida","الجريدة","alrai","الراي","kuwaittimes","arabtimes","gulfnews","thenational","alkhaleej","الخليج","irna","ایرنا","إرنا","tasnim","تسنیم","تسنيم","mehr","مهر","fars","فارس","isna","ایسنا","العالم","press tv","khabaronline","خبرگزاری","همشهری","entekhab","اعتماد"]
 FEEDS=[("الخليج","https://news.google.com/rss/search?q=%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA+OR+%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9+OR+%D8%A7%D9%84%D8%A5%D9%85%D8%A7%D8%B1%D8%A7%D8%AA&hl=ar&gl=KW&ceid=KW:ar"),
        ("فلسطين","https://news.google.com/rss/search?q=%D8%BA%D8%B2%D8%A9+OR+%D9%81%D9%84%D8%B3%D8%B7%D9%8A%D9%86&hl=ar&gl=KW&ceid=KW:ar"),
        ("عالم","https://news.google.com/rss/headlines/section/topic/WORLD?hl=ar&gl=KW&ceid=KW:ar"),
-       ("تقنية","https://news.google.com/rss/search?q=%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1+%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A&hl=ar&gl=KW&ceid=KW:ar")]
+       ("تقنية","https://news.google.com/rss/search?q=%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1+%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A&hl=ar&gl=KW&ceid=KW:ar"),
+       ("اقتصاد","https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=ar&gl=KW&ceid=KW:ar"),
+       ("إيران","https://news.google.com/rss?hl=fa&gl=IR&ceid=IR:fa")]
 def grade(s):
     s=s.lower()
     return "صحيح" if any(t in s for t in TIER1) else ("حسن" if any(t in s for t in TIER2) else "غير مُسند")
@@ -28,11 +30,47 @@ for label,url in FEEDS:
             head=title.rsplit(" - ",1)[0] if " - " in title else title
             g=grade(src_ or clean(it.findtext("source","")))
             key=head[:40]
-            if g in ("صحيح","حسن") and len(head)>20 and key not in seen:
-                seen.add(key); items.append({"head":head,"src":src_,"grade":g,"cat":label}); n+=1
-                if n>=3: break
+            if g in ("صحيح","حسن") and len(head)>15 and key not in seen:
+                seen.add(key)
+                items.append({"head":head,"src":src_,"grade":g,"cat":label,
+                    "link":clean(it.findtext("link","")),"fa":label=="إيران"}); n+=1
+                if n>=6: break
     except Exception as e: print(f"feed {label}: {e}",file=sys.stderr)
 print(f"جُمع {len(items)} خبرًا مُسندًا")
+
+def gemini_json(prompt, max_tok=1500):
+    body={"contents":[{"parts":[{"text":prompt}]}],
+        "generationConfig":{"maxOutputTokens":max_tok,"temperature":0.2,
+            "thinkingConfig":{"thinkingBudget":0},"responseMimeType":"application/json"}}
+    req=urllib.request.Request(
+        f"https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key={GEMINI_KEY}",
+        data=json.dumps(body).encode(),headers={"Content-Type":"application/json"})
+    d=json.load(urllib.request.urlopen(req,timeout=60))
+    return json.loads(d["candidates"][0]["content"]["parts"][0]["text"])
+
+fa_items=[i for i in items if i.get("fa")]
+if fa_items and GEMINI_KEY:
+    try:
+        lst="\n".join(f"{n}| {i['head']} :: {i['src']}" for n,i in enumerate(fa_items))
+        out=gemini_json("ترجم هذه العناوين الإخبارية من الفارسية إلى العربية الصحفية الرصينة، "
+            "وترجم اسم المصدر أيضًا (مثال: خبرگزاری فارس → وكالة فارس). "
+            "أخرج JSON فقط بصيغة: [{\"n\":الرقم,\"h\":\"العنوان العربي\",\"s\":\"المصدر بالعربية\"}]\n"+lst)
+        for o in out:
+            fa_items[o["n"]]["head"]=o["h"]; fa_items[o["n"]]["src"]=o["s"]
+        print(f"🇮🇷 تُرجم {len(out)} عنوانًا عن الفارسية")
+    except Exception as e:
+        print(f"ترجمة إيران فشلت: {str(e)[:80]}")
+        items=[i for i in items if not i.get("fa")]
+
+# ═══ خريطة الأخبار الكاملة للمنصة ═══
+cats={}
+for i in items: cats.setdefault(i["cat"],[]).append({k:i[k] for k in ("head","src","grade","link","fa")})
+json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"cats":cats},
+    open(f"{OUT}/news.json","w"),ensure_ascii=False,indent=1)
+print(f"🗞️ news.json: {sum(len(v) for v in cats.values())} خبرًا في {len(cats)} أقسام")
+
+if os.environ.get("NEWS_ONLY"):
+    print("⚡ وضع تحديث الأخبار فقط — تم"); sys.exit(0)
 
 today=datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
