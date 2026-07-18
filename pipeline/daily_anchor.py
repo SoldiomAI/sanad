@@ -52,12 +52,15 @@ async def tts(t,p): await edge_tts.Communicate(t,"ar-KW-FahedNeural",rate="-2%")
 
 def dur(p): return float(subprocess.run(["ffprobe","-v","quiet","-show_entries","format=duration","-of","csv=p=0",p],capture_output=True,text=True).stdout.strip() or 0)
 
-if not HF_TOKEN: print("⚠️ HF_TOKEN مفقود — نص+صوت فقط"); asyncio.run(tts(full,f"{OUT}/bulletin-{today}.mp3")); sys.exit(0)
+asyncio.run(tts(full, f"{OUT}/bulletin-{today}.mp3"))
+print(f"AUDIO: {dur(f'{OUT}/bulletin-{today}.mp3'):.1f}s")
+if not HF_TOKEN: print("⚠️ HF_TOKEN مفقود — نص+صوت فقط"); sys.exit(0)
 
 from gradio_client import Client, handle_file
 def _mk(space):
     try: return Client(space, token=HF_TOKEN)
     except TypeError: return Client(space, hf_token=HF_TOKEN)
+class QuotaOut(Exception): pass
 PROMPT="A professional Gulf Arab news anchor in white ghutra and black agal speaking to camera, news studio"
 _lc=_ec=None
 def gen(ap,vp):
@@ -69,20 +72,33 @@ def gen(ap,vp):
             acceleration="DBCache faster",api_name="/generate")
     except Exception as e:
         print(f"LongCat↘ EchoMimic: {str(e)[:120]}")
-        _ec=_ec or _mk("fffiloni/EchoMimic")
-        r=_ec.predict(uploaded_img=handle_file("pipeline/anchor_face.jpg"),uploaded_audio=handle_file(ap),
-            width=512,height=512,length=120,seed=77,facemask_dilation_ratio=0.1,facecrop_dilation_ratio=0.5,
-            context_frames=12,context_overlap=3,cfg=2.5,steps=30,sample_rate=16000,fps=24,device="cuda",
-            api_name="/generate_video")
+        try:
+            _ec=_ec or _mk("fffiloni/EchoMimic")
+            r=_ec.predict(uploaded_img=handle_file("pipeline/anchor_face.jpg"),uploaded_audio=handle_file(ap),
+                width=512,height=512,length=120,seed=77,facemask_dilation_ratio=0.1,facecrop_dilation_ratio=0.5,
+                context_frames=12,context_overlap=3,cfg=2.5,steps=30,sample_rate=16000,fps=24,device="cuda",
+                api_name="/generate_video")
+        except Exception as e2:
+            if "quota" in str(e2).lower(): raise QuotaOut(str(e2)[:120])
+            raise
     v=r[0] if isinstance(r,(list,tuple)) else r
     if isinstance(v,dict): v=v.get("video") or v.get("path")
     shutil.copy(v,vp)
 
 parts=["daily/opening.mp4"] if os.path.exists("daily/opening.mp4") else []
+ok=0
 for i,s in enumerate(chunks,1):
     ap=f"{OUT}/n{i}.mp3"; asyncio.run(tts(s,ap))
     subprocess.run(["ffmpeg","-v","quiet","-y","-i",ap,"-af","apad=pad_dur=0.3",ap+".p.mp3"])
-    vp=f"{OUT}/n{i}.mp4"; gen(ap+".p.mp3",vp); parts.append(vp); print(f"✅ chunk {i}")
+    vp=f"{OUT}/n{i}.mp4"
+    try:
+        gen(ap+".p.mp3",vp); parts.append(vp); ok+=1; print(f"✅ chunk {i}")
+    except QuotaOut as q:
+        print(f"⏳ حصة GPU خلصت عند المقطع {i} ({q}) — نركّب من الموجود"); break
+    except Exception as e:
+        print(f"⚠️ المقطع {i} فشل: {str(e)[:120]} — نتجاوزه"); continue
+if ok==0:
+    print("⏳ ما اكتمل ولا مقطع اليوم — النص والصوت محفوظان، الفيديو بالتشغيلة الجاية"); sys.exit(0)
 if os.path.exists("daily/outro.mp4"): parts.append("daily/outro.mp4")
 
 lst=f"{OUT}/list.txt"
