@@ -359,40 +359,12 @@ let DATA=null, cur="الكل";
 const STUDIO = new URLSearchParams(location.search).has("studio");
 if(STUDIO){
   const _h=document.createElement("div");
-  _h.innerHTML=`  <div id="agWrap" style="display:none">
-    <div class="sec-h">🤖 طبقة الوكلاء</div>
-    <div class="ag-head">
-      <span><span class="pulse"></span><b id="agH"></b></span>
-      <span id="agT"></span>
-    </div>
-    <div class="ag-grid" id="agL"></div>
-    <div class="note">تسعةُ وكلاءَ يتناوبون بجدولٍ ثابت — لا يعمل الجميع في كل جولة عمدًا، بل يتناوب الثقيلُ منهم لتوزيع الكلفة. «مجدول» تعني نوبتَه لم تحن بعد، ومعها موعدُها.</div>
-  </div>
-
-  <div id="evoWrap" style="display:none">
-    <div class="sec-h">🧬 التطوّر الذاتي</div>
-    <div class="evo">
-      <div class="evo-top"><span class="evo-v" id="evoV"></span><span class="evo-n" id="evoN"></span></div>
-      <div class="spark" id="spark"></div>
-      <div id="lessons"></div>
-      <div class="note">تتعلّم المنصة من أخطائها: كل جولة يُحدِّث النَّاقِد قواعد الفرز، فتُحجب الأنماط الخاطئة تلقائيًا في الجولة التالية دون تدخل بشري.</div>
-    </div>
-  </div>
-
-`;
+  _h.innerHTML=atob("ICA8ZGl2IGlkPSJhZ1dyYXAiIHN0eWxlPSJkaXNwbGF5Om5vbmUiPgogICAgPGRpdiBjbGFzcz0ic2VjLWgiPvCfpJYg2LfYqNmC2Kkg2KfZhNmI2YPZhNin2KE8L2Rpdj4KICAgIDxkaXYgY2xhc3M9ImFnLWhlYWQiPgogICAgICA8c3Bhbj48c3BhbiBjbGFzcz0icHVsc2UiPjwvc3Bhbj48YiBpZD0iYWdIIj48L2I+PC9zcGFuPgogICAgICA8c3BhbiBpZD0iYWdUIj48L3NwYW4+CiAgICA8L2Rpdj4KICAgIDxkaXYgY2xhc3M9ImFnLWdyaWQiIGlkPSJhZ0wiPjwvZGl2PgogICAgPGRpdiBjbGFzcz0ibm90ZSI+2KrYs9i52KnZjyDZiNmD2YTYp9ih2Y4g2YrYqtmG2KfZiNio2YjZhiDYqNis2K/ZiNmE2Y0g2KvYp9io2Kog4oCUINmE2Kcg2YrYudmF2YQg2KfZhNis2YXZiti5INmB2Yog2YPZhCDYrNmI2YTYqSDYudmF2K/Zi9in2Iwg2KjZhCDZitiq2YbYp9mI2Kgg2KfZhNir2YLZitmE2Y8g2YXZhtmH2YUg2YTYqtmI2LLZiti5INin2YTZg9mE2YHYqS4gwqvZhdis2K/ZiNmEwrsg2KrYudmG2Yog2YbZiNio2KrZjtmHINmE2YUg2KrYrdmGINio2LnYr9iMINmI2YXYudmH2Kcg2YXZiNi52K/Zj9mH2KcuPC9kaXY+CiAgPC9kaXY+CgogIDxkaXYgaWQ9ImV2b1dyYXAiIHN0eWxlPSJkaXNwbGF5Om5vbmUiPgogICAgPGRpdiBjbGFzcz0ic2VjLWgiPvCfp6wg2KfZhNiq2LfZiNmR2LEg2KfZhNiw2KfYqtmKPC9kaXY+CiAgICA8ZGl2IGNsYXNzPSJldm8iPgogICAgICA8ZGl2IGNsYXNzPSJldm8tdG9wIj48c3BhbiBjbGFzcz0iZXZvLXYiIGlkPSJldm9WIj48L3NwYW4+PHNwYW4gY2xhc3M9ImV2by1uIiBpZD0iZXZvTiI+PC9zcGFuPjwvZGl2PgogICAgICA8ZGl2IGNsYXNzPSJzcGFyayIgaWQ9InNwYXJrIj48L2Rpdj4KICAgICAgPGRpdiBpZD0ibGVzc29ucyI+PC9kaXY+CiAgICAgIDxkaXYgY2xhc3M9Im5vdGUiPtiq2KrYudmE2ZHZhSDYp9mE2YXZhti12Kkg2YXZhiDYo9iu2LfYp9im2YfYpzog2YPZhCDYrNmI2YTYqSDZitmP2K3Yr9mQ2ZHYqyDYp9mE2YbZjtmR2KfZgtmQ2K8g2YLZiNin2LnYryDYp9mE2YHYsdiy2Iwg2YHYqtmP2K3YrNioINin2YTYo9mG2YXYp9i3INin2YTYrtin2LfYptipINiq2YTZgtin2KbZitmL2Kcg2YHZiiDYp9mE2KzZiNmE2Kkg2KfZhNiq2KfZhNmK2Kkg2K/ZiNmGINiq2K/YrtmEINio2LTYsdmKLjwvZGl2PgogICAgPC9kaXY+CiAgPC9kaXY+Cgo=");
   const w=document.querySelector(".wrap"), anchor=document.getElementById("offWrap");
   while(_h.firstElementChild) w.insertBefore(_h.firstElementChild, anchor);
   const cv=document.getElementById("cVerdict");
   if(cv){const c=document.createElement("div");
-    c.innerHTML=`      <div class="agents" id="agentChips" >
-        <span class="agent on" title="يرصد ما يُنشر لحظةً بلحظة">🛰️ الرَّاصِد</span>
-        <span class="agent on" title="ينقل الخبر عن ألسنة أخرى">🗣️ التَّرْجُمَان</span>
-        <span class="agent on" title="يراجع المواد قبل النشر">⚖️ المُدقِّق</span>
-        <span class="agent on" title="يؤدي النشرة صوتًا">🎙️ الرَّاوِي</span>
-        <span class="agent on" title="يطوّر قواعد المنصة بعد كل جولة">🧬 المُصنِّف</span>
-        <span class="agent on" title="يستقرئ ما قد يقع من السوابق والتصريحات">🔮 المُستقرِئ</span>
-        <span class="agent on" title="يقابل الأرقام بمصادر مستقلة">🔍 المُطابِق</span>
-      </div>`;
+    c.innerHTML=atob("ICAgICAgPGRpdiBjbGFzcz0iYWdlbnRzIiBpZD0iYWdlbnRDaGlwcyIgPgogICAgICAgIDxzcGFuIGNsYXNzPSJhZ2VudCBvbiIgdGl0bGU9ItmK2LHYtdivINmF2Kcg2YrZj9mG2LTYsSDZhNit2LjYqdmLINio2YTYrdi42KkiPvCfm7DvuI8g2KfZhNix2Y7Zkdin2LXZkNivPC9zcGFuPgogICAgICAgIDxzcGFuIGNsYXNzPSJhZ2VudCBvbiIgdGl0bGU9ItmK2YbZgtmEINin2YTYrtio2LEg2LnZhiDYo9mE2LPZhtipINij2K7YsdmJIj7wn5ej77iPINin2YTYqtmO2ZHYsdmS2KzZj9mF2Y7Yp9mGPC9zcGFuPgogICAgICAgIDxzcGFuIGNsYXNzPSJhZ2VudCBvbiIgdGl0bGU9ItmK2LHYp9is2Lkg2KfZhNmF2YjYp9ivINmC2KjZhCDYp9mE2YbYtNixIj7impbvuI8g2KfZhNmF2Y/Yr9mC2ZDZkdmCPC9zcGFuPgogICAgICAgIDxzcGFuIGNsYXNzPSJhZ2VudCBvbiIgdGl0bGU9ItmK2KTYr9mKINin2YTZhti02LHYqSDYtdmI2KrZi9inIj7wn46Z77iPINin2YTYsdmO2ZHYp9mI2ZDZijwvc3Bhbj4KICAgICAgICA8c3BhbiBjbGFzcz0iYWdlbnQgb24iIHRpdGxlPSLZiti32YjZkdixINmC2YjYp9i52K8g2KfZhNmF2YbYtdipINio2LnYryDZg9mEINis2YjZhNipIj7wn6esINin2YTZhdmP2LXZhtmQ2ZHZgTwvc3Bhbj4KICAgICAgICA8c3BhbiBjbGFzcz0iYWdlbnQgb24iIHRpdGxlPSLZitiz2KrZgtix2KYg2YXYpyDZgtivINmK2YLYuSDZhdmGINin2YTYs9mI2KfYqNmCINmI2KfZhNiq2LXYsdmK2K3Yp9iqIj7wn5SuINin2YTZhdmP2LPYqtmC2LHZkNimPC9zcGFuPgogICAgICAgIDxzcGFuIGNsYXNzPSJhZ2VudCBvbiIgdGl0bGU9ItmK2YLYp9io2YQg2KfZhNij2LHZgtin2YUg2KjZhdi12KfYr9ixINmF2LPYqtmC2YTYqSI+8J+UjSDYp9mE2YXZj9i32KfYqNmQ2YI8L3NwYW4+CiAgICAgIDwvZGl2Pg==");
     cv.parentNode.appendChild(c.firstElementChild);}
 }
 
