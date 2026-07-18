@@ -124,6 +124,39 @@ body{background:var(--bg);color:var(--txt);font-family:'IBM Plex Sans Arabic',sa
 .modal a{color:var(--gold-l)}
 footer{margin-top:40px}
 @media(max-width:480px){.hero h1{font-size:44px}.swarm{grid-template-columns:1fr 1fr}}
+/* ═══ استوديو المذيع الافتراضي ═══ */
+.studio{position:fixed;inset:0;z-index:80;display:none;flex-direction:column;background:radial-gradient(120% 90% at 50% 0%,#0e1b2e 0%,#070d16 55%,#05080e 100%);overflow:hidden}
+.studio.open{display:flex}
+.studio::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 78px,rgba(201,162,39,.04) 78px 79px);pointer-events:none}
+.st-top{display:flex;justify-content:space-between;align-items:center;padding:14px 20px}
+.st-live{display:flex;align-items:center;gap:8px;font-weight:800;color:#f87171;font-size:13px;letter-spacing:1px}
+.st-live i{width:9px;height:9px;border-radius:50%;background:#ef4444;animation:pulse 1s infinite}
+.st-close{background:rgba(255,255,255,.06);border:1px solid #2a3444;color:var(--fg);border-radius:10px;padding:8px 14px;cursor:pointer;font-family:inherit;font-size:13px}
+.st-stage{flex:1;display:flex;align-items:center;justify-content:center;position:relative;min-height:0}
+.st-halo{position:absolute;width:min(62vmin,420px);height:min(62vmin,420px);border-radius:50%;background:radial-gradient(circle,rgba(201,162,39,.14),transparent 65%);filter:blur(2px)}
+.anchor{width:min(52vmin,340px);filter:drop-shadow(0 18px 40px rgba(0,0,0,.6))}
+.anchor .mouth{transform-box:fill-box;transform-origin:center}
+.studio.speaking .anchor .mouth{animation:talk .16s infinite alternate ease-in-out}
+@keyframes talk{from{transform:scaleY(.6)}to{transform:scaleY(3.4)}}
+.anchor .eyeL,.anchor .eyeR{transform-box:fill-box;transform-origin:center;animation:blinkE 4.2s infinite}
+@keyframes blinkE{0%,94%,100%{transform:scaleY(1)}96%{transform:scaleY(.08)}}
+.studio.speaking .anchor .head{animation:nod 2.6s ease-in-out infinite}
+@keyframes nod{0%,100%{transform:rotate(0)}30%{transform:rotate(1.2deg)}70%{transform:rotate(-1deg)}}
+.anchor .head{transform-box:fill-box;transform-origin:50% 85%}
+.st-desk{position:absolute;bottom:0;width:100%;display:flex;justify-content:center}
+.st-desk b{background:linear-gradient(180deg,#101a2a,#0a121e);border:1px solid rgba(201,162,39,.35);border-bottom:none;border-radius:14px 14px 0 0;padding:10px 34px;color:var(--gold);font-size:20px;letter-spacing:2px}
+.lower3{margin:0 14px;border-radius:12px;overflow:hidden;border:1px solid rgba(201,162,39,.3);background:rgba(8,13,22,.92);backdrop-filter:blur(6px)}
+.l3-tag{display:inline-block;font-weight:800;font-size:12px;padding:5px 12px;border-radius:0 0 10px 0;color:#0a0f1a}
+.l3-body{padding:10px 14px 12px;font-size:15px;font-weight:700;line-height:1.5;min-height:44px}
+.l3-src{color:var(--dim);font-size:11.5px;font-weight:400;margin-top:3px}
+.st-ticker{margin:10px 14px 14px;border:1px solid #1d2735;border-radius:10px;background:#0a0f19;overflow:hidden;white-space:nowrap;display:flex;align-items:center}
+.st-ticker b{flex-shrink:0;background:var(--gold);color:#0a0f1a;font-size:11px;padding:8px 12px}
+.tick-wrap{overflow:hidden;flex:1}
+.tick-in{display:inline-block;padding:8px 0;font-size:12.5px;color:#9fb1c9;animation:tkr 60s linear infinite}
+@keyframes tkr{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+.st-ctrl{display:flex;gap:8px;justify-content:center;padding:0 14px 6px;flex-wrap:wrap}
+.st-ctrl .btn{font-size:12.5px;padding:8px 14px}
+.st-ctrl select{background:#0d1522;border:1px solid #2a3444;color:var(--fg);border-radius:9px;padding:8px 10px;font-family:inherit;font-size:12px}
 </style>
 </head>
 <body>
@@ -174,6 +207,7 @@ footer{margin-top:40px}
         <div style="display:flex;gap:6px">
           <button class="btn" id="refreshBtn">⟳ انشر السرب</button>
           <button class="btn solid" id="analystBtn">🧠 حاكم الإسناد</button>
+          <button class="btn solid" id="anchorBtn" style="background:linear-gradient(135deg,#7f1d1d,#b91c1c);border-color:#dc2626;color:#fff">🎙️ نشرة المذيع</button>
         </div>
       </div>
       <p class="meta-line" id="metaLine"></p>
@@ -215,6 +249,53 @@ footer{margin-top:40px}
 </div>
 
 <footer><div class="sadu"></div></footer>
+
+<!-- ═══ استوديو مذيع سَنَد ═══ -->
+<div class="studio" id="studio" dir="rtl">
+  <div class="st-top">
+    <div class="st-live"><i></i> مباشر · نشرة سَنَد</div>
+    <button class="st-close" id="stClose">✕ إغلاق</button>
+  </div>
+  <div class="st-stage">
+    <div class="st-halo"></div>
+    <svg class="anchor" viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg">
+      <path d="M22 250 L36 176 Q100 152 164 176 L178 250 Z" fill="#141d2c" stroke="#c9a227" stroke-width="1.5"/>
+      <path d="M92 156 L100 178 L108 156 L100 162 Z" fill="#f5f5f0"/>
+      <path d="M96 162 L100 250 L104 162 L100 170 Z" fill="#c9a227" opacity=".85"/>
+      <g class="head">
+        <rect x="87" y="126" width="26" height="26" rx="6" fill="#c8956c"/>
+        <ellipse cx="100" cy="99" rx="39" ry="45" fill="#d8a97e"/>
+        <path d="M70 116 Q100 150 130 116 Q127 142 100 150 Q73 142 70 116" fill="#2e2018" opacity=".9"/>
+        <path d="M83 128 Q100 138 117 128 Q112 134 100 135 Q88 134 83 128" fill="#d8a97e"/>
+        <path d="M54 96 Q46 34 100 28 Q154 34 146 96 L139 72 Q100 50 61 72 Z" fill="#f7f7f2"/>
+        <path d="M54 92 Q42 148 56 196 L74 190 Q62 140 62 86 Z" fill="#f7f7f2"/>
+        <path d="M146 92 Q158 148 144 196 L126 190 Q138 140 138 86 Z" fill="#f7f7f2"/>
+        <path d="M58 60 Q100 40 142 60 Q143 70 141 76 Q100 56 59 76 Q57 70 58 60Z" fill="#111" />
+        <path d="M60 68 Q100 50 140 68" stroke="#c9a227" stroke-width="1.2" fill="none" opacity=".7"/>
+        <ellipse class="eyeL" cx="84" cy="95" rx="5" ry="6.5" fill="#1c1410"/>
+        <ellipse class="eyeR" cx="116" cy="95" rx="5" ry="6.5" fill="#1c1410"/>
+        <circle cx="86" cy="93" r="1.6" fill="#fff" opacity=".9"/>
+        <circle cx="118" cy="93" r="1.6" fill="#fff" opacity=".9"/>
+        <path d="M75 84 Q84 79 93 84" stroke="#241a12" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M107 84 Q116 79 125 84" stroke="#241a12" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M100 96 L96 112 Q100 116 104 112 Z" fill="#b98455"/>
+        <ellipse class="mouth" cx="100" cy="126" rx="9" ry="2.2" fill="#5c3226"/>
+      </g>
+    </svg>
+    <div class="st-desk"><b>سَنَد</b></div>
+  </div>
+  <div class="lower3">
+    <span class="l3-tag" id="l3tag" style="background:var(--gold)">نشرة سَنَد</span>
+    <div class="l3-body" id="l3body">جاهز للبث — اضغط تشغيل<div class="l3-src" id="l3src"></div></div>
+  </div>
+  <div class="st-ticker"><b>الشريط</b><div class="tick-wrap"><span class="tick-in" id="tickIn">سَنَد — بروتوكول الإسناد للتحقق السيادي</span></div></div>
+  <div class="st-ctrl">
+    <button class="btn solid" id="stPlay">▶ تشغيل النشرة</button>
+    <button class="btn" id="stStop">⏹ إيقاف</button>
+    <select id="stVoice" title="الصوت"></select>
+    <select id="stRate" title="السرعة"><option value="0.9">هادئ</option><option value="1" selected>طبيعي</option><option value="1.12">سريع</option></select>
+  </div>
+</div>
 
 <!-- Gemini key modal -->
 <div class="modal-bg" id="modalBg">
@@ -455,6 +536,87 @@ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{
 });
 $("#refreshBtn").onclick=deploySwarm;
 $("#analystBtn").onclick=runAnalyst;
+
+/* ═══════ مذيع سَنَد الافتراضي — نشرة صوتية سيادية ═══════ */
+const AN={playing:false,idx:0,script:[],voice:null,keep:null};
+const GRADE_INTRO={"صحيح":"خبرٌ صحيحٌ مؤكَّد","حسن":"خبرٌ حسنٌ موثوق","غير مُسند":"خبرٌ غير مُسنَد، ننقله للعلم"};
+const GRADE_CLR={"صحيح":"#34d399","حسن":"#e8c96a","غير مُسند":"#94a3b8"};
+
+function anchorVoices(){
+ const vs=speechSynthesis.getVoices().filter(v=>/^ar/i.test(v.lang));
+ const sel=$("#stVoice");
+ sel.innerHTML=vs.length?vs.map((v,i)=>`<option value="${i}">${v.name.replace(/Microsoft |Google /,"")} (${v.lang})</option>`).join(""):`<option value="-1">لا يوجد صوت عربي — جرّب Chrome/Edge</option>`;
+ AN.voice=vs[0]||null;AN._list=vs;
+ sel.onchange=()=>{AN.voice=AN._list[+sel.value]||null};
+}
+speechSynthesis.onvoiceschanged=anchorVoices;
+
+function buildScript(){
+ const s=[];
+ const items=ALL.filter(n=>!n.needsTranslation||n.summary).slice(0,8);
+ s.push({tag:"افتتاحية",clr:"#c9a227",title:"نشرة سَنَد الإخبارية",src:"",
+  text:"بسمِ اللهِ الرحمنِ الرحيم. السلامُ عليكم ورحمةُ الله. معكم نشرةُ سَنَد، حيثُ يُروى الخبرُ بإسنادِه. إليكم أبرزَ ما رصَدَه سربُ الوكلاء."});
+ if(BRIEF)s.push({tag:"الموجز الموحّد",clr:"#c9a227",title:"موجز العمليات",src:"مُسند — حاكم الإسناد",text:"موجزُ العملياتِ الموحّد. "+BRIEF});
+ items.forEach(n=>{
+  const intro=GRADE_INTRO[n.grade]||"خبر";
+  const body=n.needsTranslation&&n.summary?n.summary:(n.title+(n.summary?". "+n.summary:""));
+  s.push({tag:n.grade,clr:GRADE_CLR[n.grade]||"#c9a227",title:n.title,src:`${n.source} · ${REGION[n.region]||""}`,
+   text:`${intro}، نقلًا عن ${n.source}. ${body}`});
+ });
+ s.push({tag:"ختام",clr:"#c9a227",title:"والسند متصل",src:"سَنَد © SOLDIOM",
+  text:"كانت هذه نشرةَ سَنَد. تحقَّقْ قبلَ أن تنشُر، فالكلمةُ أمانة. والسلامُ عليكم ورحمةُ اللهِ وبركاتُه."});
+ return s;
+}
+
+function chunk(t){const out=[];let cur="";t.split(/(?<=[.؟!،؛])\s+/).forEach(p=>{if((cur+p).length>170){if(cur)out.push(cur);cur=p;}else cur+=(cur?" ":"")+p;});if(cur)out.push(cur);return out;}
+
+function speakItem(item,done){
+ $("#l3tag").textContent=item.tag;$("#l3tag").style.background=item.clr;
+ $("#l3body").firstChild.textContent=item.title;
+ $("#l3src").textContent=item.src;
+ const parts=chunk(item.text);let pi=0;
+ const next=()=>{
+  if(!AN.playing)return;
+  if(pi>=parts.length){done();return;}
+  const u=new SpeechSynthesisUtterance(parts[pi++]);
+  u.lang="ar";if(AN.voice)u.voice=AN.voice;
+  u.rate=+$("#stRate").value;u.pitch=1;
+  u.onend=next;u.onerror=next;
+  speechSynthesis.speak(u);
+ };
+ next();
+}
+
+function playBulletin(){
+ if(AN.playing)return;
+ if(!ALL.length){alert("انشر السرب أولًا لجلب الأخبار.");return;}
+ AN.script=buildScript();AN.idx=0;AN.playing=true;
+ $("#studio").classList.add("speaking");
+ $("#tickIn").textContent=ALL.slice(0,15).map(n=>n.title).join("  ◆  ")+"  ◆  ";
+ speechSynthesis.cancel();
+ clearInterval(AN.keep);
+ AN.keep=setInterval(()=>{if(speechSynthesis.speaking){speechSynthesis.pause();speechSynthesis.resume();}},9000);
+ const step=()=>{
+  if(!AN.playing||AN.idx>=AN.script.length){stopBulletin();return;}
+  speakItem(AN.script[AN.idx++],step);
+ };
+ step();
+}
+function stopBulletin(){
+ AN.playing=false;clearInterval(AN.keep);
+ speechSynthesis.cancel();
+ $("#studio").classList.remove("speaking");
+ $("#l3tag").textContent="نشرة سَنَد";$("#l3tag").style.background="var(--gold)";
+ $("#l3body").firstChild.textContent="انتهت النشرة — والسند متصل";$("#l3src").textContent="";
+}
+function openStudio(){$("#studio").classList.add("open");anchorVoices();
+ $("#tickIn").textContent=(ALL.length?ALL.slice(0,15).map(n=>n.title).join("  ◆  "):"انشر السرب لجلب الأخبار الحية")+"  ◆  ";}
+function closeStudio(){stopBulletin();$("#studio").classList.remove("open");}
+$("#anchorBtn").onclick=openStudio;
+$("#stClose").onclick=closeStudio;
+$("#stPlay").onclick=playBulletin;
+$("#stStop").onclick=stopBulletin;
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeStudio();});
 $("#keyCancel").onclick=()=>$("#modalBg").classList.remove("open");
 $("#keySave").onclick=()=>{const v=$("#keyInput").value.trim();if(v){localStorage.setItem("sanad_gemini_key",v);$("#modalBg").classList.remove("open");runAnalyst();}};
 setInterval(()=>{$("#clock").textContent=new Date().toLocaleTimeString("ar-KW",{hour:"2-digit",minute:"2-digit",second:"2-digit"});},1000);
