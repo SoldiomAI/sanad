@@ -5,7 +5,18 @@
 <title>سَنَد | SANAD — منصة الأخبار المُسنَدة</title>
 <meta name="description" content="أول منصة إخبارية تطبّق علم الإسناد — حكم كل خبر مبني على خمسة معايير من علم الحديث. نشرة مذيع يومية + أخبار حية من الخليج والعالم وإيران مترجمة.">
 <meta property="og:title" content="سَنَد | SANAD — Sovereign News Intelligence">
-<meta property="og:description" content="أخبار مُسنَدة بمنهج المحدّثين — نشرة يومية آلية وتغطية حية">
+<meta property="og:description" content="أخبار مُسنَدة بمنهج المحدّثين — لكلِّ خبرٍ درجةُ إسنادٍ ومصدرٌ معروض">
+<meta property="og:image" content="https://raw.githubusercontent.com/Soldiom/sanad/main/daily/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_KW">
+<meta property="og:site_name" content="سَنَد">
+<meta property="og:url" content="https://sanad-sovereign-news-intelligence.netlify.app">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="سَنَد | منصةُ الأخبارِ المُسنَدة">
+<meta name="twitter:description" content="لكلِّ خبرٍ درجةُ إسنادٍ ومصدرٌ معروض">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Soldiom/sanad/main/daily/og.jpg">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🛡️</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -343,6 +354,18 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
   <div class="tabs" id="tabs"></div>
   <div class="card" id="feed"><div class="empty">جارِ تحميل الأخبار…</div></div>
 
+  <details class="meth" style="margin-top:16px">
+    <summary style="cursor:pointer;font-size:13px;font-weight:700;color:var(--gold-l)">ℹ️ عن سَنَد</summary>
+    <div style="margin-top:11px">
+      <div class="meth-r"><b>الناشر</b><span>SOLDIOM — الكويت. مبادرةٌ مستقلّة، غير مموّلة من أي جهة حكوميّة أو حزبيّة.</span></div>
+      <div class="meth-r"><b>ما نفعله</b><span>نجمع الأخبار من مصادر معلنة، ونعرض لكل خبر مصدرَه ودرجةَ إسنادِه وحسابَها كاملًا.</span></div>
+      <div class="meth-r"><b>ما لا نفعله</b><span>لا ننتج خبرًا من عندنا، ولا نخفي ما عجزنا عن التحقّق منه — بل نضع عليه شارةً صريحة.</span></div>
+      <div class="meth-r"><b>التصحيح</b><span>كلُّ رقمٍ يتغيّر يُنشر تغيُّرُه في سجل التصحيحات أعلاه.</span></div>
+      <div class="meth-r"><b>للتواصل</b><span><a href="mailto:soldiom@gmail.com" style="color:var(--gold-l)">soldiom@gmail.com</a> · <a href="https://instagram.com/alialthowaikh" target="_blank" rel="noopener" style="color:var(--gold-l)">@alialthowaikh</a></span></div>
+      <div class="meth-r"><b>الأرشيف</b><span><a id="arcLink" href="https://github.com/Soldiom/sanad/tree/main/daily/archive" target="_blank" rel="noopener" style="color:var(--gold-l)">لقطاتُ الجولات السابقة ↗</a></span></div>
+    </div>
+  </details>
+
   <footer>
     سَنَد © SOLDIOM — الكويت 🇰🇼<br>
     تصنيف آلي شفّاف: <b style="color:var(--green)">صحيح</b> = وكالات من الدرجة الأولى · <b style="color:var(--blue)">حسن</b> = مصادر معتبَرة<br>
@@ -370,6 +393,15 @@ if(STUDIO){
 
 function badge(g){return g==="صحيح"?'<span class="badge b-sahih">صحيح ✓</span>'
   :g==="ضعيف الإسناد"?'<span class="badge b-daif">ضعيف الإسناد</span>':'<span class="badge b-hasan">حسن</span>'}
+function ago(iso){
+  if(!iso) return "";
+  const m=Math.floor((Date.now()-new Date(iso))/60000);
+  if(m<0||m>20160) return "";
+  if(m<60) return `قبل ${m} د`;
+  const hh=Math.floor(m/60);
+  if(hh<24) return `قبل ${hh} س`;
+  return `قبل ${Math.floor(hh/24)} ي`;
+}
 const CRIT=["الاتصال","عدالة المصدر","الضبط","عدم الشذوذ","انتفاء العلة"];
 function isnadBar(o){
   if(!o) return "";
@@ -411,7 +443,7 @@ function render(){
   feed.innerHTML=list.length?list.map(i=>`
     <div class="item">
       <a href="${i.link||'#'}" target="_blank" rel="noopener">${i.head}</a>
-      <div class="meta">${badge(i.grade)}${i.score!==undefined?`<span class="badge b-src">${i.score}/7</span>`:""}${i.fa?'<span class="badge b-fa">مترجم عن الفارسية</span>':''}${i.via?'<span class="badge b-x">'+i.via+'</span>':''}${i.x?'<span class="badge b-x">𝕏 مباشر</span>':''}${i.flag?'<span class="badge b-rev">⚖️ '+i.flag+'</span>':''}<span>نقلًا عن ${i.src||"المصدر"}</span></div>${isnadBar(i.isnad)}
+      <div class="meta">${badge(i.grade)}${i.score!==undefined?`<span class="badge b-src">${i.score}/7</span>`:""}${i.fa?'<span class="badge b-fa">مترجم عن الفارسية</span>':''}${i.via?'<span class="badge b-x">'+i.via+'</span>':''}${i.x?'<span class="badge b-x">𝕏 مباشر</span>':''}${i.flag?'<span class="badge b-rev">⚖️ '+i.flag+'</span>':''}<span>نقلًا عن ${i.src||"المصدر"}</span>${i.at?`<span>· ${ago(i.at)}</span>`:""}</div>${isnadBar(i.isnad)}
     </div>`).join(""):'<div class="empty">لا أخبار في هذا القسم حاليًا</div>';
 }
 function tabs(){
