@@ -1,0 +1,27 @@
+name: 🎙️ نشرة المذيع اليومية
+on:
+  schedule:
+    - cron: '0 3 * * *'   # ٦ صباحًا بتوقيت الكويت
+  workflow_dispatch: {}     # تشغيل يدوي وقت ما تبي
+permissions:
+  contents: write
+jobs:
+  bulletin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: sudo apt-get install -y -q ffmpeg
+      - run: pip install -q edge-tts gradio_client
+      - name: توليد النشرة (نص → صوت → فيديو)
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: python pipeline/daily_anchor.py
+      - name: حفظ في الريبو
+        run: |
+          git config user.name "SANAD Bot"
+          git config user.email "soldiom@gmail.com"
+          git add daily/
+          git commit -m "🎙️ نشرة $(date +%F) [skip ci]" || echo "no changes"
+          git push
