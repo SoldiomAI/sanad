@@ -113,6 +113,23 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .guest-tx{font-size:14px;line-height:2.15;color:#dbe0e8;border-inline-start:3px solid rgba(201,162,39,.45);padding-inline-start:13px;margin-bottom:11px}
 .guest audio{width:100%;height:38px;border-radius:9px}
 .ai-note{font-size:10px;color:var(--dim);text-align:center;padding:9px 14px;border-top:1px solid rgba(30,38,51,.6);line-height:1.8;background:rgba(0,0,0,.2)}
+.dua-wrap{border:1px solid rgba(13,92,63,.5);border-radius:14px;overflow:hidden;margin:14px 0;background:linear-gradient(170deg,rgba(13,92,63,.14),#0a0f14)}
+.dua-hd{text-align:center;padding:15px 14px 11px}
+.dua-hd h3{font-size:21px;font-weight:700;color:#d6b955;line-height:1.5}
+.dua-hd p{font-size:10.5px;color:var(--mut);margin-top:6px}
+.dua-list{padding:0 13px 13px}
+.dua{background:rgba(5,7,11,.55);border:1px solid rgba(13,92,63,.32);border-radius:11px;padding:14px;margin-bottom:9px;cursor:pointer;transition:.18s}
+.dua:active{transform:scale(.99)}
+.dua:hover{border-color:rgba(201,162,39,.4)}
+.dua .t{font-size:17px;line-height:2.35;color:#eef1f6;text-align:center}
+.dua .s{font-size:10px;color:var(--dim);text-align:center;margin-top:10px;padding-top:8px;border-top:1px solid rgba(13,92,63,.28);line-height:1.7}
+.dua .k{display:inline-block;font-size:9px;border-radius:8px;padding:1px 7px;margin-inline-end:5px}
+.k-m{background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.35);color:#86efac}
+.k-q{background:rgba(201,162,39,.12);border:1px solid rgba(201,162,39,.38);color:var(--gold-l)}
+.k-a{background:rgba(139,148,163,.1);border:1px solid rgba(139,148,163,.3);color:var(--mut)}
+.dua-ft{font-size:11px;color:#9fb3a8;background:rgba(13,92,63,.16);border-top:1px solid rgba(13,92,63,.35);padding:12px 15px;line-height:2;text-align:center}
+.copied{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--gold);color:#05070B;font-size:12px;font-weight:600;padding:9px 18px;border-radius:20px;opacity:0;transition:.25s;pointer-events:none;z-index:60}
+.copied.on{opacity:1}
 .empty{text-align:center;color:var(--dim);padding:30px 0;font-size:13px}
 </style></head>
 <body>
@@ -159,6 +176,19 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
         <span class="agent on" title="يطوّر قواعد المنصة بعد كل جولة">🧬 المُصنِّف</span>
         <span class="agent on" title="يستقرئ ما قد يقع من السوابق والتصريحات">🔮 المُستقرِئ</span>
       </div>
+    </div>
+  </div>
+
+  <div id="duaWrap" style="display:none">
+    <div class="sec-h">🤲 الدُّعاء</div>
+    <div class="dua-wrap">
+      <div class="sadu"></div>
+      <div class="dua-hd">
+        <h3 class="amiri" id="duaT"></h3>
+        <p>اضغط أيَّ دعاءٍ لنسخه ومشاركته</p>
+      </div>
+      <div class="dua-list" id="duaL"></div>
+      <div class="dua-ft" id="duaN"></div>
     </div>
   </div>
 
@@ -214,6 +244,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
   </footer>
 </div>
 
+<div class="copied" id="cp">✓ نُسخ الدعاء</div>
 <script>
 const RAW="https://raw.githubusercontent.com/Soldiom/sanad/main/daily/";
 const ORDER=["الكل","عاجل","الخليج","فلسطين","عالم","اقتصاد","تقنية","إيران"];
@@ -281,6 +312,17 @@ async function load(){
     councilWrap.style.display="block";
   }catch(e){}
   try{
+    const d=await (await fetch(RAW+"dua.json?t="+Date.now())).json();
+    duaT.textContent=d.title||"دعاء"; duaN.textContent="ⓘ "+(d.note||"");
+    const kc={"مأثور":"k-m","قرآن":"k-q","عام":"k-a"};
+    duaL.innerHTML=(d.items||[]).map((x,n)=>
+      `<div class="dua" onclick="cpy(${n})" id="d${n}">
+         <div class="t amiri">${x.t}</div>
+         <div class="s"><span class="k ${kc[x.k]||'k-a'}">${x.k}</span>${x.s}</div>
+       </div>`).join("");
+    window.DUA=d.items; duaWrap.style.display="block";
+  }catch(e){}
+  try{
     const g=await (await fetch(RAW+"analyst.json?t="+Date.now())).json();
     gNm.textContent="🔮 "+(g.name||"المُستقرِئ"); gTi.textContent=g.title||"";
     gTx.textContent=g.text||"";
@@ -318,6 +360,15 @@ async function load(){
     lessons.innerHTML=(e.lessons||[]).map(l=>`<div class="lesson">${l}</div>`).join("");
     evoWrap.style.display="block";
   }catch(e){}
+}
+function cpy(n){
+  const x=(window.DUA||[])[n]; if(!x) return;
+  const t=x.t+"\n\n— "+x.s+"\n\nسَنَد | sanad-sovereign-news-intelligence.netlify.app";
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject())
+   .then(()=>{cp.classList.add("on");setTimeout(()=>cp.classList.remove("on"),1600)})
+   .catch(()=>{const a=document.createElement("textarea");a.value=t;document.body.appendChild(a);
+     a.select();try{document.execCommand("copy")}catch(e){}a.remove();
+     cp.classList.add("on");setTimeout(()=>cp.classList.remove("on"),1600)});
 }
 load(); setInterval(load, 10*60*1000);
 </script>
