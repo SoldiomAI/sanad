@@ -72,24 +72,49 @@ import subprocess
 dur = float(subprocess.run(["ffprobe","-v","quiet","-show_entries","format=duration","-of","csv=p=0",f"{OUT}/bulletin-{today}.mp3"],capture_output=True,text=True).stdout.strip() or 15)
 print(f"AUDIO: {dur:.1f}s")
 
-# ── ٤) الفيديو — EchoMimic عبر حساب HF ────────────────────
+# ── ٤) الفيديو — LongCat 720p أساسي + EchoMimic احتياطي ──
 if not HF_TOKEN:
     print("⚠️ HF_TOKEN غير موجود — تخطّي الفيديو (الصوت والنص جاهزان)"); sys.exit(0)
 
 from gradio_client import Client, handle_file
-frames = min(int(dur*24)+12, 600)
-c = Client("fffiloni/EchoMimic", hf_token=HF_TOKEN)
-r = c.predict(
-    uploaded_img=handle_file("pipeline/anchor_face.jpg"),
-    uploaded_audio=handle_file(f"{OUT}/bulletin-{today}.mp3"),
-    width=512, height=512, length=frames, seed=77,
-    facemask_dilation_ratio=0.1, facecrop_dilation_ratio=0.5,
-    context_frames=12, context_overlap=3,
-    cfg=1.0, steps=6, sample_rate=16000, fps=24, device="cuda",
-    api_name="/generate_video")
-vid = r if isinstance(r,str) else (r.get("video") if isinstance(r,dict) else r[0])
-if isinstance(vid,dict): vid = vid.get("video") or vid.get("path")
-import shutil
-shutil.copy(vid, f"{OUT}/bulletin-{today}.mp4")
-shutil.copy(vid, f"{OUT}/latest.mp4")
-print(f"✅ VIDEO: {OUT}/bulletin-{today}.mp4")
+import inspect, shutil
+_tok_kw = "token" if "token" in inspect.signature(Client.__init__).parameters else "hf_token"
+
+def save(vid):
+    if isinstance(vid,(list,tuple)): vid = vid[0]
+    if isinstance(vid,dict): vid = vid.get("video") or vid.get("path")
+    shutil.copy(vid, f"{OUT}/bulletin-{today}.mp4")
+    shutil.copy(vid, f"{OUT}/latest.mp4")
+    print(f"✅ VIDEO: {OUT}/bulletin-{today}.mp4")
+
+PROMPT = ("A professional Gulf Arab news anchor wearing white ghutra and black agal, "
+          "speaking clearly and confidently to camera, subtle natural head movements, "
+          "broadcast news studio")
+try:
+    print("🎬 LongCat 720p ...")
+    c = Client("victor/LongCat-Video-Avatar-1.5", **{_tok_kw: HF_TOKEN})
+    r = c.predict(image_path=handle_file("pipeline/anchor_face.jpg"),
+                  audio_path=handle_file(f"{OUT}/bulletin-{today}.mp3"),
+                  prompt=PROMPT, resolution="720p", seed=77,
+                  vocal_mode="Clean speech (fast)", acceleration="DBCache faster",
+                  api_name="/generate")
+    save(r)
+except Exception as e:
+    msg = str(e)
+    print(f"⚠️ LongCat فشل: {msg[:160]}")
+    if "quota" in msg.lower():
+        print("⏳ حصة GPU مستهلكة اليوم — الصوت والنص محفوظان، الفيديو بكرة"); sys.exit(0)
+    try:
+        print("🎬 الاحتياط: EchoMimic ...")
+        frames = min(int(dur*24)+12, 600)
+        c = Client("fffiloni/EchoMimic", **{_tok_kw: HF_TOKEN})
+        r = c.predict(uploaded_img=handle_file("pipeline/anchor_face.jpg"),
+                      uploaded_audio=handle_file(f"{OUT}/bulletin-{today}.mp3"),
+                      width=512, height=512, length=frames, seed=77,
+                      facemask_dilation_ratio=0.1, facecrop_dilation_ratio=0.5,
+                      context_frames=12, context_overlap=3,
+                      cfg=1.0, steps=6, sample_rate=16000, fps=24, device="cuda",
+                      api_name="/generate_video")
+        save(r)
+    except Exception as e2:
+        print(f"⚠️ الاحتياط فشل أيضًا: {str(e2)[:160]} — الصوت والنص محفوظان"); sys.exit(0)
