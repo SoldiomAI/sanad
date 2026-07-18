@@ -65,6 +65,15 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .war-h{display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:var(--dim);margin-bottom:10px;flex-wrap:wrap;gap:6px}
 .b-x{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);color:#e6e9ef}
 .note{font-size:10.5px;color:var(--dim);text-align:center;margin-top:12px;line-height:1.8}
+.council{background:linear-gradient(160deg,rgba(201,162,39,.07),var(--card));border:1px solid rgba(201,162,39,.32);border-radius:12px;padding:14px;margin:14px 0}
+.council .top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:9px}
+.council .who{font-size:13px;font-weight:700;color:var(--gold-l)}
+.council .stat{font-size:11px;color:var(--mut)}
+.council .verdict{font-size:12.5px;line-height:1.9;color:#cbd2dc;border-top:1px solid rgba(201,162,39,.2);padding-top:9px}
+.agents{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.agent{font-size:10px;border-radius:10px;padding:3px 9px;border:1px solid var(--border);color:var(--mut);display:flex;align-items:center;gap:4px}
+.agent.on{border-color:rgba(34,197,94,.4);color:#86efac;background:rgba(34,197,94,.07)}
+.b-rev{background:rgba(201,162,39,.1);border:1px solid rgba(201,162,39,.3);color:var(--gold-l)}
 .empty{text-align:center;color:var(--dim);padding:30px 0;font-size:13px}
 </style></head>
 <body>
@@ -77,7 +86,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 <div class="wrap">
   <div class="hero">
     <h1 class="amiri gold">سَنَد</h1>
-    <div class="sub">منصة الأخبار المُسنَدة — حُكم كل خبر مبنيٌّ على خمسة معايير من علم الحديث<br>نشرة مذيع يومية آلية · تغطية حية · أخبار إيران مترجمة عن الفارسية</div>
+    <div class="sub">أول منصة إخبارية بمجلس تحرير من نماذج ذكاء متعددة — وحُكم كل خبر مبنيٌّ على خمسة معايير من علم الحديث<br>نشرة مذيع يومية آلية · تغطية حية · أخبار إيران مترجمة عن الفارسية</div>
     <div class="method">
       <span class="pill">الاتصال</span><span class="pill">عدالة المصدر</span><span class="pill">الضبط</span><span class="pill">عدم الشذوذ</span><span class="pill">انتفاء العلة</span>
     </div>
@@ -98,6 +107,20 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
     <div class="note">أرقام مجمّعة آليًا من وكالات ومصادر مفتوحة عبر بحث حي — قابلة للتغيير، وما لم يُوثَّق يُكتب «غير مؤكد».</div>
   </div>
 
+  <div id="councilWrap" style="display:none">
+    <div class="sec-h">⚖️ مجلس التحرير</div>
+    <div class="council">
+      <div class="top"><span class="who" id="cWho"></span><span class="stat" id="cStat"></span></div>
+      <div class="verdict" id="cVerdict"></div>
+      <div class="agents">
+        <span class="agent on">🛰️ Grok — الاستطلاع الحي</span>
+        <span class="agent on">✍️ Gemini — الترجمة والتحرير</span>
+        <span class="agent on">⚖️ Gemini CLI — التدقيق الوكيل</span>
+        <span class="agent on">🎙️ Edge TTS — صوت المذيع</span>
+      </div>
+    </div>
+  </div>
+
   <div class="sec-h">🗞️ الأخبار</div>
   <div class="tabs" id="tabs"></div>
   <div class="card" id="feed"><div class="empty">جارِ تحميل الأخبار…</div></div>
@@ -106,7 +129,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
     سَنَد © SOLDIOM — الكويت 🇰🇼<br>
     تصنيف آلي شفّاف: <b style="color:var(--green)">صحيح</b> = وكالات من الدرجة الأولى · <b style="color:var(--blue)">حسن</b> = مصادر معتبَرة<br>
     الأخبار كل ٣ ساعات · حصيلة الأزمة كل ٦ ساعات · النشرة يوميًا ٦ مساءً بتوقيت الكويت<br>
-    العاجل من 𝕏 عبر بحث حي — والترجمة عن الفارسية آليّة
+    العاجل من 𝕏 عبر بحث حي · الترجمة عن الفارسية آليّة · كل خبر يمرّ على مدقّق وكيل قبل النشر
   </footer>
 </div>
 
@@ -139,7 +162,7 @@ function render(){
   feed.innerHTML=list.length?list.map(i=>`
     <div class="item">
       <a href="${i.link||'#'}" target="_blank" rel="noopener">${i.head}</a>
-      <div class="meta">${badge(i.grade)}${i.fa?'<span class="badge b-fa">مترجم عن الفارسية</span>':''}${i.x?'<span class="badge b-x">𝕏 مباشر</span>':''}<span>نقلًا عن ${i.src||"المصدر"}</span></div>
+      <div class="meta">${badge(i.grade)}${i.fa?'<span class="badge b-fa">مترجم عن الفارسية</span>':''}${i.x?'<span class="badge b-x">𝕏 مباشر</span>':''}${i.flag?'<span class="badge b-rev">⚖️ '+i.flag+'</span>':''}<span>نقلًا عن ${i.src||"المصدر"}</span></div>
     </div>`).join(""):'<div class="empty">لا أخبار في هذا القسم حاليًا</div>';
 }
 function tabs(){
@@ -163,6 +186,14 @@ async function load(){
     else{a.src=RAW+m.audio+"?t="+Date.now();a.style.display="block"}
   }catch(e){bdate.textContent="قيد التجهيز"}
   try{ tolls(await (await fetch(RAW+"intel.json?t="+Date.now())).json()) }catch(e){}
+  try{
+    const c=await (await fetch(RAW+"council.json?t="+Date.now())).json();
+    cWho.textContent="⚖️ راجعها "+(c.reviewer||"المجلس");
+    const a=c.applied||{};
+    cStat.textContent=`فُحص ${c.checked||0} خبرًا · حُذف ${a.removed||0} · خُفّض ${a.downgraded||0}`;
+    cVerdict.textContent=c.verdict||"";
+    councilWrap.style.display="block";
+  }catch(e){}
 }
 load(); setInterval(load, 10*60*1000);
 </script>
