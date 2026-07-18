@@ -128,6 +128,18 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .k-q{background:rgba(201,162,39,.12);border:1px solid rgba(201,162,39,.38);color:var(--gold-l)}
 .k-a{background:rgba(139,148,163,.1);border:1px solid rgba(139,148,163,.3);color:var(--mut)}
 .dua-ft{font-size:11px;color:#9fb3a8;background:rgba(13,92,63,.16);border-top:1px solid rgba(13,92,63,.35);padding:12px 15px;line-height:2;text-align:center}
+.off{background:linear-gradient(160deg,rgba(13,92,63,.1),var(--card));border:1px solid rgba(34,197,94,.28);border-radius:12px;padding:13px;margin:12px 0}
+.off-i{display:flex;gap:11px;padding:11px 0;border-bottom:1px solid rgba(30,38,51,.5)}
+.off-i:last-child{border:none;padding-bottom:0}
+.off-i:first-child{padding-top:0}
+.off-f{font-size:24px;line-height:1.2;flex-shrink:0}
+.off-b{flex:1;min-width:0}
+.off-e{font-size:12.5px;font-weight:700;color:#86efac;line-height:1.6}
+.off-h{font-size:10.5px;color:var(--dim);margin-inline-start:6px;font-weight:500}
+.off-p{font-size:13.5px;color:#dbe0e8;line-height:1.95;margin-top:5px}
+.off-m{margin-top:6px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:10.5px;color:var(--dim)}
+.off-m a{color:var(--gold-l);text-decoration:none}
+.b-off{background:rgba(34,197,94,.14);border:1px solid rgba(34,197,94,.4);color:#86efac;border-radius:12px;padding:2px 9px;font-size:10px;font-weight:600}
 .copied{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--gold);color:#05070B;font-size:12px;font-weight:600;padding:9px 18px;border-radius:20px;opacity:0;transition:.25s;pointer-events:none;z-index:60}
 .copied.on{opacity:1}
 .empty{text-align:center;color:var(--dim);padding:30px 0;font-size:13px}
@@ -154,6 +166,12 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
     <audio id="a" style="display:none" controls></audio>
     <span class="toggle" onclick="s.style.display=s.style.display==='none'?'block':'none'">📜 نص النشرة</span>
     <div class="script" id="s" style="display:none"></div>
+  </div>
+
+  <div id="offWrap" style="display:none">
+    <div class="sec-h">📡 من المَنبع — بياناتٌ رسمية</div>
+    <div class="off" id="offL"></div>
+    <div class="note">نقلٌ مباشر عن الحسابات الرسمية الموثّقة للجهات نفسها — أعلى درجات الاتصال في الإسناد: لا واسطة بين الخبر ومصدره.</div>
   </div>
 
   <div id="tollWrap" style="display:none">
@@ -303,6 +321,20 @@ async function load(){
     else{a.src=RAW+m.audio+"?t="+Date.now();a.style.display="block"}
   }catch(e){bdate.textContent="قيد التجهيز"}
   try{ tolls(await (await fetch(RAW+"intel.json?t="+Date.now())).json()) }catch(e){}
+  try{
+    const o=await (await fetch(RAW+"official.json?t="+Date.now())).json();
+    if(!(o.src||[]).length) throw 0;
+    offL.innerHTML=o.src.map(x=>`
+      <div class="off-i">
+        <div class="off-f">${x.f||"🏛️"}</div>
+        <div class="off-b">
+          <div><span class="off-e">${x.e||""}</span><span class="off-h">${x.h||""}</span></div>
+          <div class="off-p">${x.p||""}</div>
+          <div class="off-m"><span class="b-off">صحيح · مصدر أول</span><span>${x.t||""}</span>${x.u?`<a href="${x.u}" target="_blank" rel="noopener">↗ البيان</a>`:""}</div>
+        </div>
+      </div>`).join("");
+    offWrap.style.display="block";
+  }catch(e){}
   try{
     const c=await (await fetch(RAW+"council.json?t="+Date.now())).json();
     cWho.textContent="⚖️ حكم النَّاقِد";
