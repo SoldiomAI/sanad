@@ -16,6 +16,7 @@ jobs:
       - name: تحديث الأخبار
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROK_API_KEY: ${{ secrets.GROK_API_KEY }}
           NEWS_ONLY: "1"
         run: python pipeline/daily_anchor.py
       - name: حفظ
