@@ -152,7 +152,7 @@ footer{margin-top:40px}
     <p class="sub">أول منصة تطبّق علم الإسناد — أدق نظام تحقق عرفته البشرية منذ ١٢٠٠ سنة — على أخبار اليوم، بسرب وكلاء ذكاء اصطناعي.</p>
     <div class="gold-line" style="width:160px;margin:20px auto 0"></div>
     <div class="metrics">
-      <div class="metric"><b class="gold">٥</b><span>وكلاء في السرب</span></div>
+      <div class="metric"><b class="gold">٧</b><span>وكلاء في السرب</span></div>
       <div class="metric"><b class="gold" id="mVerified">—</b><span>خبر مرصود الآن</span></div>
       <div class="metric"><b class="gold" id="mExcluded">—</b><span>استُبعد / كُرر</span></div>
     </div>
@@ -241,14 +241,24 @@ const AGENTS=[
  {id:"mashreq",name:"وكيل المشرق",emoji:"🌙",scope:"العراق · سوريا · لبنان · الأردن · اليمن",
   q:'(العراق OR سوريا OR لبنان OR الأردن OR اليمن) (هجوم OR قصف OR اعتراض OR غارة) when:1d'},
  {id:"ummah",name:"وكيل العالم الإسلامي",emoji:"🌍",scope:"أي عدوان على دولة إسلامية",
-  q:'(إيران OR باكستان OR مصر OR ليبيا OR السودان) (عدوان OR هجوم OR ضربة OR قصف) when:1d'}
+  q:'(إيران OR باكستان OR مصر OR ليبيا OR السودان) (عدوان OR هجوم OR ضربة OR قصف) when:1d'},
+ {id:"iran",name:"وكيل إيران",emoji:"🇮🇷",scope:"IRNA · PressTV · Tasnim · الأخبار الرسمية الإيرانية",
+  q:'(Iran OR IRNA OR "Islamic Republic" OR Khamenei OR Khamenei OR Pezeshkian OR IRGC) (attack OR missile OR response OR nuclear OR Hormuz OR statement OR ceasefire OR retaliation) when:1d',
+  lang:"en"},
+ {id:"trump",name:"وكيل ترامب",emoji:"🇺🇸",scope:"تصريحات ترامب · البيت الأبيض · السياسة الأمريكية",
+  q:'(Trump) (Iran OR Gaza OR Middle East OR statement OR said OR declared OR Truth Social OR executive order OR tariff OR ceasefire) when:1d',
+  lang:"en"}
 ];
-const REGION={gulf:"الخليج",palestine:"فلسطين",mashreq:"المشرق",ummah:"العالم الإسلامي"};
+const REGION={gulf:"الخليج",palestine:"فلسطين",mashreq:"المشرق",ummah:"العالم الإسلامي",iran:"إيران",trump:"ترامب"};
 
 /* سجل الرواة — عدالة الراوي */
-const TIER1=["كونا","kuna","واس","spa","وكالة الأنباء السعودية","وام","wam","قنا","qna","بنا","bna","العمانية","بترا","petra","وفا","wafa","الأناضول","anadolu","aa.com","واع","الوكالة الوطنية","وكالة الأنباء"];
-const TIER2=["رويترز","reuters","فرانس برس","afp","أسوشيتد","associated press","ap news"];
-const TIER3=["الجزيرة","العربية","سكاي نيوز","الشرق","cnn","bbc","الحدث","الإخبارية","alghad","الغد","القاهرة الإخبارية","اليوم السابع","الرأي","القبس","الأنباء","الجريدة","سبق","عكاظ"];
+const TIER1=["كونا","kuna","واس","spa","وكالة الأنباء السعودية","وام","wam","قنا","qna","بنا","bna","العمانية","بترا","petra","وفا","wafa","الأناضول","anadolu","aa.com","واع","الوكالة الوطنية","وكالة الأنباء",
+ /* وكالات إيران الرسمية */
+ "irna","iran news agency","irna.ir","presstv","press tv","tasnim","فارس","fars news","mehr news","mehr agency",
+ /* البيت الأبيض والمصادر الأمريكية الرسمية */
+ "white house","whitehouse.gov","state department","pentagon","reuters.com"];
+const TIER2=["رويترز","reuters","فرانس برس","afp","أسوشيتد","associated press","ap news","bloomberg","axios","politico","the hill","npr"];
+const TIER3=["الجزيرة","العربية","سكاي نيوز","الشرق","cnn","bbc","الحدث","الإخبارية","alghad","الغد","القاهرة الإخبارية","اليوم السابع","الرأي","القبس","الأنباء","الجريدة","سبق","عكاظ","fox news","msnbc","sky news","guardian","times"];
 
 function gradeSource(src){
  const s=(src||"").toLowerCase();
@@ -292,7 +302,7 @@ function renderFeed(){
  if(!list.length){$("#feed").innerHTML='<div class="empty">لا توجد تقارير مستوفية شروط الإسناد حتى الآن.</div>';return;}
  $("#feed").innerHTML=list.map((n,i)=>`
   <article class="card" style="animation-delay:${i*40}ms">
-   <div class="badges">${sevBadge(n.severity)}${badgeFor(n.grade)}<span style="color:var(--dim)">${REGION[n.region]||""}</span><span style="color:#2a3444">•</span><span style="color:var(--dim)">${n.time||""}</span></div>
+   <div class="badges">${sevBadge(n.severity)}${badgeFor(n.grade)}<span style="color:var(--dim)">${REGION[n.region]||""}</span>${n.needsTranslation?'<span class="badge" style="border-color:rgba(99,102,241,.5);color:#a5b4fc;background:rgba(30,27,75,.3)">🌐 مُترجم</span>':''}<span style="color:#2a3444">•</span><span style="color:var(--dim)">${n.time||""}</span></div>
    <h3>${n.title}</h3>
    ${n.summary?`<p class="desc">${n.summary}</p>`:""}
    <div class="foot">
@@ -322,7 +332,8 @@ async function fetchAgent(a){
   const ts=new Date(it.pubDate).getTime();
   const mins=Math.max(1,Math.round((Date.now()-ts)/60000));
   const time=mins<60?`قبل ${mins} دقيقة`:mins<1440?`قبل ${Math.round(mins/60)} ساعة`:`قبل ${Math.round(mins/1440)} يوم`;
-  return{title,summary:"",source,url:it.link,time,ts,severity:severity(title),region:a.id,grade:g.grade,isnad:[g.tier,source,"جلب آلي — سرب سَنَد"]};
+  const needsTranslation=!!(a.lang&&a.lang==="en");
+  return{title,summary:"",source,url:it.link,time,ts,severity:severity(title),region:a.id,grade:g.grade,needsTranslation,isnad:[g.tier,source,"جلب آلي — سرب سَنَد"]};
  });
 }
 
@@ -376,12 +387,25 @@ async function runAnalyst(){
  if(!key){$("#modalBg").classList.add("open");return;}
  if(!ALL.length){alert("انشر السرب أولاً");return;}
  setAgent("analyst","working");$("#analystBtn").disabled=true;
- const compact=ALL.slice(0,25).map((n,i)=>({i,t:n.title,s:n.source,g:n.grade,r:n.region,time:n.time}));
- const prompt=`أنت "حاكم الإسناد" في منصة سَنَد. طبق بروتوكول الإسناد المستمد من علم الحديث على هذه الأخبار المجلوبة فعلياً (لا تخترع أخباراً ولا روابط — احكم فقط على الموجود):
+ const compact=ALL.slice(0,30).map((n,i)=>({i,t:n.title,s:n.source,g:n.grade,r:n.region,time:n.time,tr:n.needsTranslation?1:0}));
+ const prompt=`أنت "حاكم الإسناد" في منصة سَنَد. طبق بروتوكول الإسناد على هذه الأخبار (لا تخترع أخباراً ولا روابط — احكم وترجم فقط على الموجود):
 ${JSON.stringify(compact)}
-القواعد: الوكالات الرسمية (كونا/واس/وام/قنا/بنا/بترا/وفا/الأناضول) = ثقة ثبت. رويترز/فرانس برس/أسوشيتد = صدوق. القنوات الإخبارية = تحتاج شاهداً. واقعة واحدة من مصدرين مستقلين = صحيح. مصدر ثقة واحد = حسن. المتناقض أو المستحيل = مستبعد.
+
+قواعد التحقق:
+- وكالات رسمية (كونا/واس/وام/قنا/بنا/الأناضول/IRNA/PressTV/البيت الأبيض) = ثقة ثبت → حسن
+- رويترز/AFP/AP/بلومبرج = صدوق → حسن
+- القنوات الإخبارية (CNN/BBC/الجزيرة/العربية) = تحتاج شاهداً → غير مسند
+- مصدران مستقلان على نفس الخبر = صحيح
+- المتناقض أو المستحيل = مستبعد
+
+قواعد خاصة:
+- أخبار إيران (region=iran): ترجم العنوان للعربية في summary + حلل الموقف الإيراني الرسمي
+- تصريحات ترامب (region=trump): ترجم للعربية في summary + وضّح السياق السياسي باختصار
+- الأخبار التي tr=1: يجب أن تحتوي summary على ترجمة عربية واضحة للعنوان
+- للأخبار العربية: summary جملة سياق إضافية بالعربية
+
 أعد JSON فقط بلا أي نص آخر:
-{"brief":"موجز عمليات موحد ٣-٥ جمل وقائع فقط بالعربية مرتبة عاجل فمهم","stats":{"sahih":0,"hasan":0,"excluded":0},"verdicts":[{"i":0,"grade":"صحيح|حسن|مستبعد","isnad":["الجهة الأصلية للخبر","الناقل"],"summary":"جملة سياق واحدة"}]}`;
+{"brief":"موجز عمليات موحد ٣-٦ جمل بالعربية: الخليج أولاً ثم إيران ثم ترامب ثم غزة — وقائع فقط","stats":{"sahih":0,"hasan":0,"excluded":0},"verdicts":[{"i":0,"grade":"صحيح|حسن|مستبعد","isnad":["الجهة الأصلية","الناقل"],"summary":"ترجمة/سياق بالعربية"}]}`;
  try{
   const txt=await callGemini(key,prompt);
   const c=txt.replace(/```json|```/g,"").trim();
