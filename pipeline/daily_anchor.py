@@ -52,15 +52,14 @@ async def tts(t,p): await edge_tts.Communicate(t,"ar-KW-FahedNeural",rate="-2%")
 
 def dur(p): return float(subprocess.run(["ffprobe","-v","quiet","-show_entries","format=duration","-of","csv=p=0",p],capture_output=True,text=True).stdout.strip() or 0)
 
-asyncio.run(tts(full, f"{OUT}/bulletin-{today}.mp3"))
-print(f"AUDIO: {dur(f'{OUT}/bulletin-{today}.mp3'):.1f}s")
+asyncio.run(tts(full,f"{OUT}/bulletin-{today}.mp3"))  # النشرة الصوتية الكاملة — تُحفظ دائمًا
 if not HF_TOKEN: print("⚠️ HF_TOKEN مفقود — نص+صوت فقط"); sys.exit(0)
 
 from gradio_client import Client, handle_file
+class QuotaOut(Exception): pass
 def _mk(space):
     try: return Client(space, token=HF_TOKEN)
     except TypeError: return Client(space, hf_token=HF_TOKEN)
-class QuotaOut(Exception): pass
 PROMPT="A professional Gulf Arab news anchor in white ghutra and black agal speaking to camera, news studio"
 _lc=_ec=None
 def gen(ap,vp):
@@ -79,26 +78,24 @@ def gen(ap,vp):
                 context_frames=12,context_overlap=3,cfg=2.5,steps=30,sample_rate=16000,fps=24,device="cuda",
                 api_name="/generate_video")
         except Exception as e2:
-            if "quota" in str(e2).lower(): raise QuotaOut(str(e2)[:120])
+            if "quota" in (str(e)+str(e2)).lower(): raise QuotaOut(str(e2)[:150])
             raise
     v=r[0] if isinstance(r,(list,tuple)) else r
     if isinstance(v,dict): v=v.get("video") or v.get("path")
     shutil.copy(v,vp)
 
 parts=["daily/opening.mp4"] if os.path.exists("daily/opening.mp4") else []
-ok=0
-for i,s in enumerate(chunks,1):
-    ap=f"{OUT}/n{i}.mp3"; asyncio.run(tts(s,ap))
-    subprocess.run(["ffmpeg","-v","quiet","-y","-i",ap,"-af","apad=pad_dur=0.3",ap+".p.mp3"])
-    vp=f"{OUT}/n{i}.mp4"
-    try:
-        gen(ap+".p.mp3",vp); parts.append(vp); ok+=1; print(f"✅ chunk {i}")
-    except QuotaOut as q:
-        print(f"⏳ حصة GPU خلصت عند المقطع {i} ({q}) — نركّب من الموجود"); break
-    except Exception as e:
-        print(f"⚠️ المقطع {i} فشل: {str(e)[:120]} — نتجاوزه"); continue
-if ok==0:
-    print("⏳ ما اكتمل ولا مقطع اليوم — النص والصوت محفوظان، الفيديو بالتشغيلة الجاية"); sys.exit(0)
+try:
+    for i,s in enumerate(chunks,1):
+        ap=f"{OUT}/n{i}.mp3"; asyncio.run(tts(s,ap))
+        subprocess.run(["ffmpeg","-v","quiet","-y","-i",ap,"-af","apad=pad_dur=0.3",ap+".p.mp3"])
+        vp=f"{OUT}/n{i}.mp4"; gen(ap+".p.mp3",vp); parts.append(vp); print(f"✅ chunk {i}")
+except QuotaOut as q:
+    print(f"⏳ حصة GPU مستهلكة ({q}) — النص والصوت الكامل محفوظان، الفيديو بالتشغيلة الجاية")
+    for f in os.listdir(OUT):
+        if f.startswith("n") and (f.endswith(".mp3") or f.endswith(".mp4") or f.endswith(".p.mp3")):
+            os.remove(f"{OUT}/{f}")
+    sys.exit(0)
 if os.path.exists("daily/outro.mp4"): parts.append("daily/outro.mp4")
 
 lst=f"{OUT}/list.txt"
