@@ -228,6 +228,72 @@ def naqid():
     json.dump({"updated":c["updated"],"cats":cats},open(f"{OUT}/news.json","w"),ensure_ascii=False,indent=1)
     print(f"⚖️ النَّاقِد: جُرِح {nd} · نُقِّح {nw} · المتبقي {sum(len(v) for v in cats.values())}")
 
+# ═══ المُستقرِئ: استقراء الساعات القادمة + محاسبة ذاتية ═══
+FCAST=f"{OUT}/forecast.json"
+
+def mustaqri():
+    """يستقرئ ما قد يقع، ويحاسب نفسه على استقرائه السابق."""
+    try:
+        prev=json.load(open(FCAST))
+        age=(datetime.now(timezone.utc)-datetime.fromisoformat(prev["updated"])).total_seconds()/3600
+    except Exception: prev,age=None,999
+    if age<3:
+        print("♻️ الاستقراء حديث — تخطٍ (توفير)"); return
+    if not GROK_KEY: return
+
+    heads=[i["head"] for l in cats.values() for i in l][:14]
+    toll=", ".join(t.get("c","")+": "+str(t.get("d","")) for t in (INT or {}).get("toll",[]))
+    review=""
+    if prev and prev.get("scenarios"):
+        review=("\n\nاستقراؤك السابق قبل %.1f ساعة كان:\n"%age + "\n".join(
+            "- (%s%%) %s"%(x.get("p"),x.get("s","")) for x in prev["scenarios"]) +
+            "\nقيّم بصدق ما وقع منه فعلًا وأضف الحقل review.")
+    P=("أنت «المُستقرِئ» في منصة سَنَد. استقرئ ما قد يقع في الساعات القادمة بناءً على "
+       "تصريحات ترامب والمسؤولين، والوقائع الجارية، والسوابق التاريخية المشابهة.\n\n"
+       "الأخبار الحالية:\n- "+"\n- ".join(heads)+"\n\nالحصيلة: "+toll+review+"\n\n"
+       "ابحث عن آخر تصريحات ترامب والبيت الأبيض وإيران خلال ١٢ ساعة، ثم أخرج JSON فقط:\n"
+       '{"horizon":"النافذة الزمنية",'
+       '"signals":[{"q":"التصريح أو الواقعة","who":"القائل","w":"عالٍ|متوسط|منخفض"}],'
+       '"scenarios":[{"s":"السيناريو","p":نسبة_رقم,"why":"المبرر مع السابقة التاريخية","watch":"المؤشر المؤكد أو النافي"}],'
+       '"review":[{"s":"السيناريو السابق","r":"وقع|جزئيًا|لم يقع","note":"بجملة"}],'
+       '"caveat":"تحذير صريح بأن هذا استقراء احتمالي لا يقين"}\n'
+       "٣ سيناريوهات كحد أقصى ومجموع نسبها ١٠٠. لا تستخدم علامة تنصيص مزدوجة داخل النصوص. "
+       "لا تذكر أسماء نماذج أو شركات. لا شيء خارج JSON.")
+    body={"model":"grok-4.5","input":[{"role":"user","content":P}],
+        "tools":[{"type":"web_search"},{"type":"x_search"}],
+        "max_output_tokens":4000,"max_tool_calls":10}
+    try:
+        req=urllib.request.Request("https://api.x.ai/v1/responses",data=json.dumps(body).encode(),
+            headers={"Authorization":"Bearer "+GROK_KEY,"Content-Type":"application/json"})
+        d=json.load(urllib.request.urlopen(req,timeout=300))
+        txt="".join(c.get("text","") for o in d.get("output",[]) if o.get("type")=="message"
+                    for c in o.get("content",[]))
+        txt=txt.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
+        j=json.loads(txt[txt.find("{"):txt.rfind("}")+1])
+    except Exception as e:
+        print("المُستقرِئ تخطّى: "+str(e)[:90]); return
+
+    # ── سجل الإصابة ──
+    hist=(prev or {}).get("history",[])
+    if prev and prev.get("scenarios"):
+        prevs=[x.get("s","")[:40] for x in prev["scenarios"]]
+        for r in j.get("review",[]):
+            sc=r.get("s","")
+            if r.get("r") in ("وقع","جزئيًا","لم يقع") and any(p[:20] in sc or sc[:20] in p for p in prevs):
+                hist.append({"t":prev.get("updated",""),"s":sc[:70],"r":r["r"]})
+    else: j["review"]=[]
+    hist=hist[-24:]
+    hit=sum(1 for h in hist if h["r"]=="وقع"); part=sum(1 for h in hist if h["r"]=="جزئيًا")
+    j["history"]=hist
+    j["score"]={"n":len(hist),"hit":hit,"partial":part,
+        "acc":round((hit+part*0.5)/max(len(hist),1)*100)}
+    j["updated"]=datetime.now(timezone.utc).isoformat(timespec="minutes")
+    json.dump(j,open(FCAST,"w"),ensure_ascii=False,indent=1)
+    print("🔮 الاستقراء: %d سيناريو · %d إشارة · دقة تراكمية %d%% (%d سابقة)"%(
+        len(j.get("scenarios",[])),len(j.get("signals",[])),j["score"]["acc"],len(hist)))
+
+mustaqri()
+
 naqid()
 
 if os.environ.get("NEWS_ONLY"):
