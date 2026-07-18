@@ -5,7 +5,7 @@ LongCat 720p أساسي + EchoMimic احتياطي | افتتاحية/خاتمة
 import os, re, sys, json, time, asyncio, shutil, subprocess, urllib.request, xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 
-HF_TOKEN = os.environ.get("HF_TOKEN",""); GEMINI_KEY = os.environ.get("GEMINI_API_KEY",""); OUT="daily"; os.makedirs(OUT, exist_ok=True)
+GROK_KEY = os.environ.get("GROK_API_KEY",""); HF_TOKEN = os.environ.get("HF_TOKEN",""); GEMINI_KEY = os.environ.get("GEMINI_API_KEY",""); OUT="daily"; os.makedirs(OUT, exist_ok=True)
 TIER1=["centcom","kuna","كونا","mew_kwt","kff_kw","moi_bahrain","mofauae","mofaqatar","وكالة الأنباء الكويتية","reuters","رويترز","afp","فرانس برس","ap news","أسوشيتد","kuna","كونا","wam","وام","spa","واس","bna","qna","ona"]
 TIER2=["aljazeera","الجزيرة","alarabiya","العربية","skynews","سكاي نيوز","bbc","france24","cnn","alqabas","القبس","aljarida","الجريدة","alrai","الراي","kuwaittimes","arabtimes","gulfnews","thenational","alkhaleej","الخليج","irna","ایرنا","إرنا","tasnim","تسنیم","تسنيم","mehr","مهر","fars","فارس","isna","ایسنا","العالم","press tv","khabaronline","خبرگزاری","iran international","ایران اینترنشنال","bbc persian","بی‌بی‌سی","همشهری","entekhab","اعتماد"]
 FEEDS=[("الخليج","https://news.google.com/rss/search?q=%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA+OR+%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9+OR+%D8%A7%D9%84%D8%A5%D9%85%D8%A7%D8%B1%D8%A7%D8%AA&hl=ar&gl=KW&ceid=KW:ar"),
@@ -30,6 +30,7 @@ def fa_meta(url):
 AGENTS_F=f"{OUT}/agents.json"
 AGENTS=[
  ("rasid","الرَّاصِد","🛰️","يرصد المصادر الحيّة ويجمع الحصيلة والعاجل"),
+ ("mutabiq","المُطابِق","🔍","يقابل أرقام الحصيلة بمصادر مستقلة"),
  ("manba","المَنبع","📡","ينقل البيانات الرسمية عن الجهات مباشرة"),
  ("turjuman","التَّرْجُمَان","🗣️","ينقل الخبر الفارسي إلى العربية ترجمةً أمينة"),
  ("mudaqqiq","المُدقِّق","⚖️","يراجع المواد ويستبعد ما لا يصلح للنشر"),
@@ -65,6 +66,26 @@ def mark(aid,status="ok",note=""):
     _LOG[aid]={"ms":_LOG.get(aid,{}).get("ms",0),"status":status,"note":note,
         "at":datetime.now(timezone.utc).isoformat(timespec="minutes")}
 
+
+# ═══ الأرشيف: لقطة لكل جولة + فهرس ═══
+def archive():
+    try:
+        os.makedirs(f"{OUT}/archive",exist_ok=True)
+        stamp=datetime.now(timezone.utc).strftime("%Y-%m-%d-%H%M")
+        snap={"at":datetime.now(timezone.utc).isoformat(timespec="minutes"),"cats":cats}
+        for f in ("intel","forecast","council"):
+            try: snap[f]=json.load(open(f"{OUT}/{f}.json"))
+            except Exception: pass
+        json.dump(snap,open(f"{OUT}/archive/{stamp}.json","w"),ensure_ascii=False,indent=1)
+        try: idx=json.load(open(f"{OUT}/archive/index.json"))
+        except Exception: idx={"snaps":[]}
+        idx["snaps"]=(idx.get("snaps",[])+[{"id":stamp,
+            "n":sum(len(v) for v in cats.values()),"cats":len(cats)}])[-120:]
+        idx["updated"]=snap["at"]
+        json.dump(idx,open(f"{OUT}/archive/index.json","w"),ensure_ascii=False,indent=1)
+        print(f"🗄️ الأرشيف: {stamp} ({idx['snaps'][-1]['n']} خبرًا) · {len(idx['snaps'])} لقطة")
+    except Exception as e: print("الأرشفة تعذّرت: "+str(e)[:70])
+
 def save_agents():
     out=[]
     for aid,nm,ic,role in AGENTS:
@@ -81,6 +102,11 @@ def save_agents():
         "healthy":ok,"total":len(out),"agents":out},
         open(AGENTS_F,"w"),ensure_ascii=False,indent=1)
     print(f"🤖 طبقة الوكلاء: {ok}/{len(out)} بحالة سليمة")
+
+OFFICIAL_HANDLES=set()
+try:
+    OFFICIAL_HANDLES={x.get("h","").lower().lstrip("@") for x in json.load(open(f"{OUT}/official.json")).get("src",[])}
+except Exception: pass
 
 RULES=f"{OUT}/rules.json"
 PROTECT=["إيران","الكويت","السعودي","الإمارات","قطر","البحرين","عُمان","عمان","العراق","الخليج",
@@ -161,8 +187,24 @@ if fa_items and GEMINI_KEY:
             fa_items[o["n"]]["head"]=o["h"]
         print(f"🇮🇷 تُرجم {len(out)} عنوانًا عن الفارسية"); mark("turjuman","ok",f"{len(out)} عنوانًا")
     except Exception as e:
-        print(f"ترجمة إيران فشلت: {str(e)[:80]}"); mark("turjuman","fail",str(e)[:80])
-        items=[i for i in items if not i.get("fa")]
+        print(f"ترجمة إيران عبر المسار الأول فشلت: {str(e)[:60]} — تحويل للاحتياطي")
+        try:
+            body={"model":"grok-4.5","input":[{"role":"user","content":
+                "ترجم هذه العناوين من الفارسية إلى العربية الصحفية ترجمةً أمينة. "
+                'أخرج JSON فقط: [{"n":الرقم,"h":"العنوان العربي"}]\n'+lst}],
+                "max_output_tokens":2200}
+            rq=urllib.request.Request("https://api.x.ai/v1/responses",data=json.dumps(body).encode(),
+                headers={"Authorization":"Bearer "+GROK_KEY,"Content-Type":"application/json"})
+            dd=json.load(urllib.request.urlopen(rq,timeout=180))
+            tx="".join(c.get("text","") for o in dd.get("output",[]) if o.get("type")=="message"
+                       for c in o.get("content",[]))
+            tx=tx.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
+            for o in json.loads(tx[tx.find("["):tx.rfind("]")+1]):
+                fa_items[o["n"]]["head"]=o["h"]
+            print("🇮🇷 تُرجم عبر المسار الاحتياطي"); mark("turjuman","ok","المسار الاحتياطي")
+        except Exception as e2:
+            print(f"الاحتياطي فشل أيضًا: {str(e2)[:60]}"); mark("turjuman","fail",str(e2)[:60])
+            items=[i for i in items if not i.get("fa")]
 
 # ═══ خريطة الأخبار الكاملة للمنصة ═══
 _rr=0
@@ -186,7 +228,6 @@ json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"c
 print(f"🗞️ news.json: {sum(len(v) for v in cats.values())} خبرًا في {len(cats)} أقسام")
 
 # ═══ Grok: حصيلة الأزمة + عاجل من X (محسَّن بالكاش) ═══
-GROK_KEY=os.environ.get("GROK_API_KEY","")
 INTEL=f"{OUT}/intel.json"
 
 def intel_fresh(hours):
@@ -211,6 +252,9 @@ def grok_intel():
        "الكويت، السعودية، الإمارات، قطر، البحرين، عُمان، العراق.\n"
        "إن لم تُوثَّق خسائر لدولة فاكتب d و w بقيمة «لا خسائر مؤكدة» واذكر في dmg أثرها غير المباشر "
        "(إنذارات، إغلاق مجال جوي، تعطل ملاحة، استضافة قواعد) — ولا تحذفها من القائمة.\n"
+       "لكل رقم اذكر الجهة المعلِنة في src (مثل: وزارة الصحة الإيرانية، الدفاع المدني الكويتي، "
+       "الأمم المتحدة) ورابطها في u وتاريخها في asof. إن كان الرقم تقديرًا صحفيًا لا إعلانًا رسميًا "
+       "فاكتب في src: تقدير صحفي غير رسمي.\n"
        "٤ عناوين عاجلة كحد أقصى من حسابات موثقة خلال ٦ ساعات. أرقام موثقة فقط وإلا «غير مؤكد». "
        "لا تستخدم علامة تنصيص مزدوجة داخل النصوص. لا شيء خارج JSON.")
     body={"model":"grok-4.5","input":[{"role":"user","content":P}],
@@ -234,11 +278,44 @@ def grok_intel():
 
 INT=grok_intel()
 if INT and INT.get("brk"):
-    cats["عاجل"]=[{"head":b["h"],"src":b.get("s","X"),"grade":"حسن","link":b.get("u",""),"fa":False,"x":True}
+    cats["عاجل"]=[{"head":b["h"],"src":b.get("s","X"),"grade":"حسن","link":b.get("u",""),"fa":False,"x":True,"official":str(b.get("s","")).lower().replace("@","") in OFFICIAL_HANDLES}
                   for b in INT["brk"]]
     json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"cats":cats},
         open(f"{OUT}/news.json","w"),ensure_ascii=False,indent=1)
     print(f"⚡ أضيف قسم عاجل: {len(cats['عاجل'])}")
+
+
+# ═══ حساب الإسناد الفعلي: خمسة معايير لكل خبر ═══
+def isnad(it, heads_all):
+    """يحسب المعايير الخمسة ويعيد (درجة, تفصيل) — لا شارة تُمنح بلا حساب."""
+    h=it.get("head",""); src=(it.get("src") or "").lower()
+    c={}
+    # ١ الاتصال: مصدر أول بلا واسطة
+    c["الاتصال"] = 2 if it.get("official") else (1 if it.get("link") else 0)
+    # ٢ عدالة المصدر: طبقة الناشر
+    c["عدالة المصدر"] = 2 if any(t in src for t in TIER1) else (1 if any(t in src for t in TIER2) else 0)
+    # ٣ الضبط: تحديد زمني أو رقمي يقبل التحقق
+    c["الضبط"] = 1 if re.search(r"\d", h) else 0
+    # ٤ عدم الشذوذ: لا يتفرّد عن بقية ما جُمع
+    toks=set(re.findall(r"[\u0600-\u06FF]{4,}", h))
+    kin=sum(1 for o in heads_all if o is not h and len(toks & set(re.findall(r"[\u0600-\u06FF]{4,}", o)))>=2)
+    c["عدم الشذوذ"] = 1 if kin>0 else 0
+    # ٥ انتفاء العلة: لم يُخفّض في التدقيق
+    c["انتفاء العلة"] = 0 if it.get("flag") else 1
+    sc=sum(c.values())                      # من ٧
+    g = "صحيح" if (sc>=6 and c["عدالة المصدر"]==2 and c["انتفاء العلة"]==1) else \
+        ("حسن" if sc>=3 else "ضعيف الإسناد")
+    return g, c, sc
+
+def apply_isnad():
+    allh=[i["head"] for l in cats.values() for i in l]
+    tally={}
+    for l in cats.values():
+        for it in l:
+            g,c,sc=isnad(it,allh)
+            it["grade"]=g; it["isnad"]=c; it["score"]=sc
+            tally[g]=tally.get(g,0)+1
+    print("⚖️ الإسناد المحسوب: "+" · ".join(f"{k} {v}" for k,v in tally.items()))
 
 # ═══ المُدقِّق: مراجعة وتمحيص + تطوير القواعد ═══
 def safe_json(path):
@@ -323,6 +400,9 @@ def naqid():
     ev["lessons"]=nr.get("notes",[])[-4:]
     json.dump(ev,open(f"{OUT}/evolution.json","w"),ensure_ascii=False,indent=1)
 
+    for k in [k for k,v in cats.items() if len(v)<3 and k not in ("عاجل",)]:
+        print(f"🔇 أُخفي قسم «{k}» ({len(cats[k])} خبرًا فقط)"); del cats[k]
+    apply_isnad()
     c["applied"]={"removed":nd,"downgraded":nw}
     c["rules_v"]=nr.get("v",0)
     c["updated"]=datetime.now(timezone.utc).isoformat(timespec="minutes")
@@ -364,7 +444,7 @@ def mustaqri():
        "لا تذكر أسماء نماذج أو شركات. لا شيء خارج JSON.")
     body={"model":"grok-4.5","input":[{"role":"user","content":P}],
         "tools":[{"type":"web_search"},{"type":"x_search"}],
-        "max_output_tokens":4000,"max_tool_calls":10}
+        "max_output_tokens":3200,"max_tool_calls":7}
     try:
         req=urllib.request.Request("https://api.x.ai/v1/responses",data=json.dumps(body).encode(),
             headers={"Authorization":"Bearer "+GROK_KEY,"Content-Type":"application/json"})
@@ -405,16 +485,18 @@ def manba():
         old=json.load(open(OFFI))
         age=(datetime.now(timezone.utc)-datetime.fromisoformat(old["updated"])).total_seconds()/3600
     except Exception: old,age=None,999
-    if age<3 and not os.environ.get("FORCE_OFFICIAL"):
+    old=old or {}
+    if age<4 and not os.environ.get("FORCE_OFFICIAL"):
         print("♻️ المَنبع حديث — تخطٍ (توفير)"); return {"skipped":1,"why":"كاش ٣ ساعات"}
     if not GROK_KEY: return
+    B=[("القيادة المركزية الأمريكية CENTCOM، وزارة الكهرباء والماء الكويتية، "
+        "قوة الإطفاء العام الكويتية، وكالة الأنباء الكويتية كونا، وزارة الداخلية الكويتية"),
+       ("وزارة الصحة الكويتية، الداخلية أو الدفاع المدني السعودي، وزارة الخارجية الإماراتية، "
+        "وزارة الخارجية القطرية، وزارة الداخلية البحرينية، وزارة الخارجية العُمانية")]
+    BATCH=B[(datetime.now(timezone.utc).hour//4)%2]
     P=("ابحث في منصة إكس والمواقع الرسمية عن آخر بيان أو منشور رسمي من كل جهة أدناه "
        "خلال ١٢ ساعة الماضية بشأن الأزمة الجارية.\n"
-       "الجهات: القيادة المركزية الأمريكية CENTCOM، وزارة الكهرباء والماء الكويتية، "
-       "قوة الإطفاء العام الكويتية، وزارة الداخلية الكويتية، وكالة الأنباء الكويتية كونا، "
-       "وزارة الصحة الكويتية، الداخلية أو الدفاع المدني السعودي، وزارة الخارجية الإماراتية، "
-       "وزارة الخارجية القطرية، وزارة الداخلية البحرينية، وزارة الخارجية العُمانية، "
-       "ووزارة الخارجية الإيرانية.\n"
+       "الجهات: "+BATCH+".\n"
        "لكل جهة أعطني الحساب الرسمي الموثّق الفعلي كما هو على إكس — لا تخترع حسابًا — "
        "وآخر منشور ذي صلة مترجمًا للعربية إن لزم، ترجمةً أمينة بلا تهويل.\n"
        'أخرج JSON فقط: [{"c":"البلد","f":"إيموجي العلم","e":"اسم الجهة بالعربية",'
@@ -423,7 +505,7 @@ def manba():
        "لا تستخدم علامة تنصيص مزدوجة داخل النصوص. لا شيء خارج JSON.")
     body={"model":"grok-4.5","input":[{"role":"user","content":P}],
         "tools":[{"type":"x_search"},{"type":"web_search"}],
-        "max_output_tokens":3500,"max_tool_calls":10}
+        "max_output_tokens":2600,"max_tool_calls":6}
     try:
         req=urllib.request.Request("https://api.x.ai/v1/responses",data=json.dumps(body).encode(),
             headers={"Authorization":"Bearer "+GROK_KEY,"Content-Type":"application/json"})
@@ -434,13 +516,56 @@ def manba():
         lst=json.loads(txt[txt.find("["):txt.rfind("]")+1])
         lst=[x for x in lst if x.get("h","").startswith("@") and x.get("p")]
         if not lst: raise ValueError("قائمة فارغة")
-        json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"src":lst},
+        keep={x["h"].lower():x for x in (old or {}).get("src",[])}
+        for x in lst: keep[x["h"].lower()]=x
+        merged=list(keep.values())[-14:]
+        json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"src":merged},
             open(OFFI,"w"),ensure_ascii=False,indent=1)
-        print("📡 المَنبع: %d جهة رسمية · %d توكن"%(len(lst),d["usage"]["total_tokens"]))
+        print("📡 المَنبع: +%d جهة (المجموع %d) · %d توكن"%(len(lst),len(merged),d["usage"]["total_tokens"]))
     except Exception as e:
         print("المَنبع تخطّى: "+str(e)[:90])
 
 manba()
+
+# ═══ المُطابِق: يقابل أرقام الحصيلة بمصدر مستقل ═══
+@agent("mutabiq")
+def mutabiq():
+    """يتحقق من أرقام الحصيلة عبر بحث مستقل ويصنّفها: مطابق / متباين / غير موثّق."""
+    try: t=json.load(open(INTEL))
+    except Exception: return
+    try:
+        v=json.load(open(f"{OUT}/verify.json"))
+        if v.get("src_updated")==t.get("updated"):
+            print("♻️ المُطابَقة مطابقة للحصيلة — تخطٍ"); return {"skipped":1,"why":"لا جديد في الحصيلة"}
+    except Exception: pass
+    if not GROK_KEY: return
+    rows="\n".join("- %s: قتلى %s، جرحى %s (المُعلن: %s)"%(x.get("c"),x.get("d"),x.get("w"),x.get("src","غير مذكور"))
+                    for x in t.get("toll",[]))
+    P=("تحقّق من هذه الأرقام عبر مصادر مستقلة (وكالات دولية، أمم متحدة، جهات رسمية) "
+       "وقُل لكلٍّ منها هل تطابق ما هو منشور أم تتباين.\n"+rows+"\n\n"
+       'أخرج JSON فقط: [{"c":"البلد","r":"مطابق|متباين|غير موثّق","alt":"الرقم البديل إن وُجد",'
+       '"by":"الجهة المستقلة","note":"سطر واحد"}]\n'
+       "كن صارمًا: إن لم تجد مصدرًا مستقلًا فاكتب غير موثّق. "
+       "لا تستخدم علامة تنصيص مزدوجة داخل النصوص. لا شيء خارج JSON.")
+    try:
+        body={"model":"grok-4.5","input":[{"role":"user","content":P}],
+            "tools":[{"type":"web_search"}],"max_output_tokens":2200,"max_tool_calls":6}
+        req=urllib.request.Request("https://api.x.ai/v1/responses",data=json.dumps(body).encode(),
+            headers={"Authorization":"Bearer "+GROK_KEY,"Content-Type":"application/json"})
+        d=json.load(urllib.request.urlopen(req,timeout=300))
+        txt="".join(c.get("text","") for o in d.get("output",[]) if o.get("type")=="message"
+                    for c in o.get("content",[]))
+        txt=txt.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
+        lst=json.loads(txt[txt.find("["):txt.rfind("]")+1])
+        ok=sum(1 for x in lst if x.get("r")=="مطابق")
+        json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),
+            "src_updated":t.get("updated"),"matched":ok,"total":len(lst),"rows":lst},
+            open(f"{OUT}/verify.json","w"),ensure_ascii=False,indent=1)
+        print("🔍 المُطابِق: %d/%d رقمًا مطابقًا لمصدر مستقل"%(ok,len(lst)))
+    except Exception as e:
+        print("المُطابِق تخطّى: "+str(e)[:80])
+
+mutabiq()
 
 mustaqri()
 
@@ -510,6 +635,7 @@ if os.environ.get("NEWS_ONLY"):
         elif _m.get("date")==_t:     mark("rawi","ok","نشرة اليوم صوتيًا")
         else:                        mark("rawi","skip","بانتظار ٦ مساءً")
     except Exception: mark("rawi","skip","بانتظار أول نشرة")
+    archive()
     save_agents()
     print("⚡ وضع تحديث الأخبار فقط — تم"); sys.exit(0)
 
