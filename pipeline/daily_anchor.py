@@ -30,7 +30,7 @@ for label,url in FEEDS:
             head=title.rsplit(" - ",1)[0] if " - " in title else title
             g=grade(src_ or clean(it.findtext("source","")))
             key=head[:40]
-            if g in ("صحيح","حسن") and len(head)>15 and key not in seen:
+            if g in ("صحيح","حسن") and len(head)>15 and key not in seen and not blocked(head):
                 seen.add(key)
                 items.append({"head":head,"src":src_,"grade":g,"cat":label,
                     "link":clean(it.findtext("link","")),"fa":label=="إيران"}); n+=1
@@ -63,6 +63,14 @@ if fa_items and GEMINI_KEY:
         items=[i for i in items if not i.get("fa")]
 
 # ═══ خريطة الأخبار الكاملة للمنصة ═══
+_rr=0
+for i in items:
+    if blocked(i["head"]): i["cat"]="__drop__"; continue
+    nc=reroute(i["head"],i["cat"])
+    if nc!=i["cat"]: i["cat"]=nc; _rr+=1
+items=[i for i in items if i["cat"]!="__drop__"]
+if _rr: print(f"🧭 أعاد النظام توجيه {_rr} خبرًا وفق قواعده المكتسبة")
+
 cats={}
 for i in items: cats.setdefault(i["cat"],[]).append({k:i[k] for k in ("head","src","grade","link","fa")})
 json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"cats":cats},
@@ -119,46 +127,76 @@ if INT and INT.get("brk"):
         open(f"{OUT}/news.json","w"),ensure_ascii=False,indent=1)
     print(f"⚡ أضيف قسم عاجل: {len(cats['عاجل'])}")
 
-# ═══ مجلس التحرير: مدقّق وكيل عبر Gemini CLI ═══
-def council():
-    """يشغّل Gemini CLI كوكيل يقرأ الملفات ويحكم عليها، ثم نطبّق أحكامه."""
+# ═══ النَّاقِد: الجرح والتعديل — تدقيق ذاتي + تطوير القواعد ═══
+def naqid():
+    """يفحص ما جُمع، يجرح ويعدّل، ثم يكتب قواعد جديدة تمنع تكرار الخطأ."""
     if os.environ.get("SKIP_COUNCIL") or not GEMINI_KEY: return
-    P=("أنت مدقق تحريري في منصة سَنَد. اقرأ daily/news.json و daily/intel.json.\n"
-       "دقق: عناوين خارج موضوع قسمها (خاصة قسم إيران)، تكرار، عناوين مبالغ فيها أو عاطفية، "
-       "ادعاءات بلا مصدر، تناقض مع أرقام الحصيلة.\n"
-       'اكتب daily/council.json فقط بهذه الصيغة: {"reviewer":"Gemini CLI","checked":عدد,'
-       '"flags":[{"h":"العنوان كما ورد حرفيًا","issue":"المشكلة","action":"خُفّض|حُذف|أُقرّ"}],'
-       '"verdict":"جملة واحدة"}\n'
-       "استخدم أداة الكتابة لإنشاء الملف فعليًا. لا تطبع شيئًا آخر.")
+    P=("أنت «النَّاقِد» في منصة سَنَد — وظيفتك الجرح والتعديل قبل النشر.\n"
+       "١) اقرأ daily/news.json و daily/intel.json و daily/rules.json.\n"
+       "٢) اجرح ما يستحق: عناوين خارج موضوع قسمها، تكرار، مبالغة أو إثارة، ادعاء بلا مصدر، تناقض مع الحصيلة.\n"
+       "٣) اكتب daily/council.json:\n"
+       '   {"checked":عدد,"flags":[{"h":"العنوان حرفيًا","issue":"سبب الجرح","action":"خُفّض|حُذف|أُقرّ"}],"verdict":"جملة واحدة"}\n'
+       "٤) الأهم — طوّر النظام: اكتب daily/rules.json محدّثًا ليمنع تكرار ما جرحته اليوم:\n"
+       '   {"v":رقم_الإصدار+1,"block":["كلمة تدل على خبر خارج نطاقنا"],'
+       '"route":{"فلسطين":["غزة","الضفة"],"الخليج":["الكويت","السعودية"],"عالم":[]},'
+       '"notes":["درس تعلّمناه بجملة قصيرة"]}\n'
+       "احتفظ بالقواعد السابقة وأضف عليها. block: كلمات مميِّزة فقط لا كلمات عامة قد تحذف أخبارًا صحيحة. "
+       "لا تتجاوز ٤٠ نمطًا في block ولا ١٢ ملاحظة — احذف الأقدم إن لزم.\n"
+       "استخدم أداة الكتابة لإنشاء الملفين فعليًا. لا تطبع شيئًا آخر.")
     env={**os.environ,"GEMINI_CLI_TRUST_WORKSPACE":"true","NODE_TLS_REJECT_UNAUTHORIZED":"0"}
     try:
         subprocess.run(["gemini","--skip-trust","-m","gemini-flash-latest","-y","-p",P],
-            env=env,timeout=420,capture_output=True)
+            env=env,timeout=480,capture_output=True)
         c=json.load(open(f"{OUT}/council.json"))
     except Exception as e:
-        print(f"مجلس التحرير تخطّى: {str(e)[:80]}"); return
+        print(f"النَّاقِد تخطّى: {str(e)[:80]}"); return
 
     drop={f["h"][:28] for f in c.get("flags",[]) if f.get("action")=="حُذف"}
     down={f["h"][:28] for f in c.get("flags",[]) if f.get("action")=="خُفّض"}
-    n_d=n_w=0
+    nd=nw=0
     for cat,lst in list(cats.items()):
         keep=[]
         for it in lst:
             h=it["head"]
-            if any(d and (d in h or h[:28]==d) for d in drop): n_d+=1; continue
+            if any(d and (d in h or h[:28]==d) for d in drop): nd+=1; continue
             if any(w and (w in h or h[:28]==w) for w in down):
-                it["grade"]="حسن"; it["flag"]="روجع تحريريًا"; n_w+=1
+                it["grade"]="حسن"; it["flag"]="جُرِح ونُقِّح"; nw+=1
             keep.append(it)
         if keep: cats[cat]=keep
         else: del cats[cat]
-    c["applied"]={"removed":n_d,"downgraded":n_w}
+
+    # ── تشذيب القواعد المُكتسبة ──
+    try:
+        nr=json.load(open(RULES))
+        nr["block"]=[b for b in dict.fromkeys(nr.get("block",[])) if 3<len(b)<40][:40]
+        nr["notes"]=list(dict.fromkeys(nr.get("notes",[])))[-12:]
+        nr["v"]=max(int(nr.get("v",0)),R["v"]+1)
+        nr["updated"]=datetime.now(timezone.utc).isoformat(timespec="minutes")
+        json.dump(nr,open(RULES,"w"),ensure_ascii=False,indent=1)
+        grew=len(nr["block"])-len(R["block"])
+        print(f"🧬 تطوّر ذاتي: إصدار {nr['v']} · {len(nr['block'])} نمط (+{grew}) · {len(nr['notes'])} درس")
+    except Exception as e:
+        nr=R; print(f"القواعد لم تُحدَّث: {str(e)[:60]}")
+
+    # ── سجل التطوّر ──
+    try: ev=json.load(open(f"{OUT}/evolution.json"))
+    except Exception: ev={"runs":[]}
+    ev["runs"]=(ev.get("runs",[])+[{"t":datetime.now(timezone.utc).isoformat(timespec="minutes"),
+        "checked":c.get("checked",0),"removed":nd,"downgraded":nw,
+        "rules":len(nr.get("block",[])),"v":nr.get("v",0)}])[-40:]
+    rec=ev["runs"][-6:]
+    ev["trend"]=round(sum(r["removed"] for r in rec)/max(len(rec),1),1)
+    ev["lessons"]=nr.get("notes",[])[-4:]
+    json.dump(ev,open(f"{OUT}/evolution.json","w"),ensure_ascii=False,indent=1)
+
+    c["applied"]={"removed":nd,"downgraded":nw}
+    c["rules_v"]=nr.get("v",0)
     c["updated"]=datetime.now(timezone.utc).isoformat(timespec="minutes")
     json.dump(c,open(f"{OUT}/council.json","w"),ensure_ascii=False,indent=1)
-    json.dump({"updated":c["updated"],"cats":cats},
-        open(f"{OUT}/news.json","w"),ensure_ascii=False,indent=1)
-    print(f"⚖️ مجلس التحرير: حُذف {n_d} · خُفّض {n_w} · المتبقي {sum(len(v) for v in cats.values())}")
+    json.dump({"updated":c["updated"],"cats":cats},open(f"{OUT}/news.json","w"),ensure_ascii=False,indent=1)
+    print(f"⚖️ النَّاقِد: جُرِح {nd} · نُقِّح {nw} · المتبقي {sum(len(v) for v in cats.values())}")
 
-council()
+naqid()
 
 if os.environ.get("NEWS_ONLY"):
     print("⚡ وضع تحديث الأخبار فقط — تم"); sys.exit(0)
