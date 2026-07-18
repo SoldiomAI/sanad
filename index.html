@@ -129,6 +129,25 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .k-q{background:rgba(201,162,39,.12);border:1px solid rgba(201,162,39,.38);color:var(--gold-l)}
 .k-a{background:rgba(139,148,163,.1);border:1px solid rgba(139,148,163,.3);color:var(--mut)}
 .dua-ft{font-size:11px;color:#9fb3a8;background:rgba(13,92,63,.16);border-top:1px solid rgba(13,92,63,.35);padding:12px 15px;line-height:2;text-align:center}
+.isn{display:flex;gap:3px;margin-top:5px}
+.isn i{width:16px;height:3px;border-radius:2px;background:rgba(255,255,255,.1)}
+.isn i.on{background:#22c55e}.isn i.half{background:#fbbf24}
+.b-daif{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.35);color:#fca5a5}
+.b-src{background:rgba(139,148,163,.1);border:1px solid rgba(139,148,163,.28);color:var(--mut)}
+.toll .src{font-size:9.5px;color:var(--dim);margin-top:6px;line-height:1.6;border-top:1px dashed rgba(127,29,29,.3);padding-top:5px}
+.toll .src a{color:var(--gold-l);text-decoration:none}
+.vfy{font-size:9.5px;border-radius:8px;padding:1px 6px;margin-inline-start:5px}
+.vfy.m{background:rgba(34,197,94,.13);color:#86efac}
+.vfy.d{background:rgba(251,191,36,.13);color:#fcd34d}
+.vfy.n{background:rgba(139,148,163,.12);color:var(--mut)}
+.corr{background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.28);border-radius:11px;padding:12px;margin:12px 0}
+.corr-i{font-size:11.5px;color:#cbd2dc;line-height:1.95;padding:5px 0;border-bottom:1px solid rgba(251,191,36,.14)}
+.corr-i:last-child{border:none}
+.corr-i b{color:#fcd34d}
+.meth{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;margin:12px 0}
+.meth-r{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid rgba(30,38,51,.5);font-size:11.5px;line-height:1.85}
+.meth-r:last-child{border:none}
+.meth-r b{color:var(--gold-l);flex-shrink:0;min-width:88px}
 .ag-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:9px}
 .ag{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:11px 12px;position:relative;overflow:hidden}
 .ag::before{content:"";position:absolute;inset-inline-start:0;top:0;bottom:0;width:3px;background:var(--dim)}
@@ -180,9 +199,29 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
     <div class="bdate">🎙️ نشرة اليوم — <span id="bdate"></span></div>
     <video id="v" style="display:none" controls playsinline></video>
     <audio id="a" style="display:none" controls></audio>
+    <div id="vnote" class="note" style="display:none;text-align:right;margin-top:8px"></div>
     <span class="toggle" onclick="s.style.display=s.style.display==='none'?'block':'none'">📜 نص النشرة</span>
     <div class="script" id="s" style="display:none"></div>
   </div>
+
+  <div id="corrWrap" style="display:none">
+    <div class="sec-h">📋 سجل التصحيحات</div>
+    <div class="corr" id="corrL"></div>
+    <div class="note">كل رقم يتغيّر يُنشر تغيّره — لا تُبدَّل الأرقام في صمت.</div>
+  </div>
+
+  <details class="meth" id="methBox">
+    <summary style="cursor:pointer;font-size:13px;font-weight:700;color:var(--gold-l)">📐 كيف نُصنِّف الخبر؟</summary>
+    <div style="margin-top:11px">
+      <div class="meth-r"><b>الاتصال</b><span>مصدرٌ أولٌ بلا واسطة = ٢ · خبرٌ بمصدرٍ موثّق = ١ · بلا رابط = ٠</span></div>
+      <div class="meth-r"><b>عدالة المصدر</b><span>جهة رسمية أو وكالة كبرى = ٢ · صحيفة معتبَرة = ١ · غير ذلك = ٠</span></div>
+      <div class="meth-r"><b>الضبط</b><span>يحمل رقمًا أو تاريخًا يقبل التحقق = ١</span></div>
+      <div class="meth-r"><b>عدم الشذوذ</b><span>يوافقه خبرٌ آخر في المادة المجموعة = ١ · يتفرّد = ٠</span></div>
+      <div class="meth-r"><b>انتفاء العلة</b><span>لم يُخفَّض في التدقيق = ١</span></div>
+      <div class="meth-r"><b>الحصيلة</b><span><b style="color:#86efac">صحيح</b> = ٦/٧ فأعلى بمصدرٍ من الطبقة الأولى · <b style="color:#93c5fd">حسن</b> = ٣ فأعلى · <b style="color:#fca5a5">ضعيف الإسناد</b> = دون ذلك</span></div>
+      <div class="meth-r"><b>ما لا ندّعيه</b><span>لا نؤكّد صدق الخبر في نفسه — نقيس قوة إسناده فقط، ونعرض الحساب كاملًا لتحكم بنفسك.</span></div>
+    </div>
+  </details>
 
   <div id="agWrap" style="display:none">
     <div class="sec-h">🤖 طبقة الوكلاء</div>
@@ -219,6 +258,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
         <span class="agent on" title="يؤدي النشرة صوتًا">🎙️ الرَّاوِي</span>
         <span class="agent on" title="يطوّر قواعد المنصة بعد كل جولة">🧬 المُصنِّف</span>
         <span class="agent on" title="يستقرئ ما قد يقع من السوابق والتصريحات">🔮 المُستقرِئ</span>
+        <span class="agent on" title="يقابل الأرقام بمصادر مستقلة">🔍 المُطابِق</span>
       </div>
     </div>
   </div>
@@ -294,11 +334,24 @@ const RAW="https://raw.githubusercontent.com/Soldiom/sanad/main/daily/";
 const ORDER=["الكل","عاجل","الخليج","فلسطين","عالم","اقتصاد","تقنية","إيران"];
 let DATA=null, cur="الكل";
 
-function badge(g){return g==="صحيح"?'<span class="badge b-sahih">صحيح ✓</span>':'<span class="badge b-hasan">حسن</span>'}
+function badge(g){return g==="صحيح"?'<span class="badge b-sahih">صحيح ✓</span>'
+  :g==="ضعيف الإسناد"?'<span class="badge b-daif">ضعيف الإسناد</span>':'<span class="badge b-hasan">حسن</span>'}
+const CRIT=["الاتصال","عدالة المصدر","الضبط","عدم الشذوذ","انتفاء العلة"];
+function isnadBar(o){
+  if(!o) return "";
+  return '<div class="isn" title="'+CRIT.map(k=>k+": "+(o[k]||0)).join(" · ")+'">'+
+    CRIT.map(k=>{const v=o[k]||0;return `<i class="${v>=2?'on':v===1?'half':''}"></i>`}).join("")+'</div>';
+}
 function num(v){
   if(v===undefined||v===null||v==="") return "—";
   const s=String(v);
   return /^\d[\d,]*$/.test(s)?s:'<span style="font-size:11px;color:var(--dim);font-weight:500">'+s+'</span>';
+}
+let VFY={};
+function vfy(c){
+  const r=VFY[c]; if(!r) return "";
+  const m={"مطابق":["m","✓ مطابق"],"متباين":["d","⚠ متباين"],"غير موثّق":["n","؟ غير موثّق"]}[r.r];
+  return m?` <span class="vfy ${m[0]}" title="${(r.by||"")+" "+(r.note||"")}">${m[1]}</span>`:"";
 }
 function tolls(t){
   if(!t||!t.toll||!t.toll.length) return;
@@ -313,6 +366,7 @@ function tolls(t){
       </div>
       <div class="dmg">${x.dmg||""}</div>
       ${x.e&&x.e!=="غير مؤكد"?`<div class="econ">💰 ${x.e}</div>`:""}
+      <div class="src">📌 ${x.src||"لم تُذكر جهة"}${x.asof?" · "+x.asof:""}${x.u?` · <a href="${x.u}" target="_blank" rel="noopener">المصدر ↗</a>`:""}${vfy(x.c)}</div>
     </div>`).join("");
   tollWrap.style.display="block";
 }
@@ -323,7 +377,7 @@ function render(){
   feed.innerHTML=list.length?list.map(i=>`
     <div class="item">
       <a href="${i.link||'#'}" target="_blank" rel="noopener">${i.head}</a>
-      <div class="meta">${badge(i.grade)}${i.fa?'<span class="badge b-fa">مترجم عن الفارسية</span>':''}${i.via?'<span class="badge b-x">'+i.via+'</span>':''}${i.x?'<span class="badge b-x">𝕏 مباشر</span>':''}${i.flag?'<span class="badge b-rev">⚖️ '+i.flag+'</span>':''}<span>نقلًا عن ${i.src||"المصدر"}</span></div>
+      <div class="meta">${badge(i.grade)}${i.score!==undefined?`<span class="badge b-src">${i.score}/7</span>`:""}${i.fa?'<span class="badge b-fa">مترجم عن الفارسية</span>':''}${i.via?'<span class="badge b-x">'+i.via+'</span>':''}${i.x?'<span class="badge b-x">𝕏 مباشر</span>':''}${i.flag?'<span class="badge b-rev">⚖️ '+i.flag+'</span>':''}<span>نقلًا عن ${i.src||"المصدر"}</span></div>${isnadBar(i.isnad)}
     </div>`).join(""):'<div class="empty">لا أخبار في هذا القسم حاليًا</div>';
 }
 function tabs(){
@@ -344,9 +398,25 @@ async function load(){
     const m=await (await fetch(RAW+"latest.json?t="+Date.now())).json();
     bdate.textContent=m.date; s.textContent=m.script;
     if(m.video_date===m.date){v.src=RAW+m.video+"?t="+Date.now();v.style.display="block"}
-    else{a.src=RAW+m.audio+"?t="+Date.now();a.style.display="block"}
+    else{
+      a.src=RAW+m.audio+"?t="+Date.now();a.style.display="block";
+      vnote.textContent="🎬 نشرة الفيديو تُنتَج على حصة حوسبة مجانية — تظهر هنا فور توفّرها، والصوت جاهز الآن.";
+      vnote.style.display="block";
+    }
   }catch(e){bdate.textContent="قيد التجهيز"}
+  try{
+    const v=await (await fetch(RAW+"verify.json?t="+Date.now())).json();
+    (v.rows||[]).forEach(r=>VFY[r.c]=r);
+  }catch(e){}
   try{ tolls(await (await fetch(RAW+"intel.json?t="+Date.now())).json()) }catch(e){}
+  try{
+    const cr=await (await fetch(RAW+"corrections.json?t="+Date.now())).json();
+    if((cr.log||[]).length){
+      corrL.innerHTML=cr.log.slice(-6).reverse().map(x=>
+        `<div class="corr-i">${x.f} <b>${x.c}</b> — ${x.field}: ${x.from} ← <b>${x.to}</b>${x.src?` · ${x.src}`:""}</div>`).join("");
+      corrWrap.style.display="block";
+    }
+  }catch(e){}
   try{
     const a=await (await fetch(RAW+"agents.json?t="+Date.now())).json();
     const lbl={ok:"نجح",skip:"تُخطّي",fail:"أخفق",idle:"خامل"};
@@ -409,7 +479,8 @@ async function load(){
     const f=await (await fetch(RAW+"forecast.json?t="+Date.now())).json();
     fcH.textContent="⏳ "+(f.horizon||"الساعات القادمة");
     const sc=f.score||{};
-    fcAcc.textContent=sc.n?`دقة تراكمية ${sc.acc}% · ${sc.n} استقراء سابق`:"أول استقراء";
+    fcAcc.textContent=(sc.n>=3)?`دقة تراكمية ${sc.acc}% · ${sc.n} مراجعة`
+  :`سجل الدقة يُنشر بعد ${3-(sc.n||0)} دورات مراجعة`;
     sigs.innerHTML=(f.signals||[]).slice(0,4).map(s=>
       `<div class="sig"><span class="w ${s.w==='عالٍ'?'hi':''}">${s.w||''}</span><span><b>${s.who||''}:</b> ${s.q||''}</span></div>`).join("");
     scns.innerHTML=(f.scenarios||[]).map(s=>`
