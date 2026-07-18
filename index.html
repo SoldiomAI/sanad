@@ -129,6 +129,27 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .k-q{background:rgba(201,162,39,.12);border:1px solid rgba(201,162,39,.38);color:var(--gold-l)}
 .k-a{background:rgba(139,148,163,.1);border:1px solid rgba(139,148,163,.3);color:var(--mut)}
 .dua-ft{font-size:11px;color:#9fb3a8;background:rgba(13,92,63,.16);border-top:1px solid rgba(13,92,63,.35);padding:12px 15px;line-height:2;text-align:center}
+.ai{background:linear-gradient(155deg,rgba(96,165,250,.09),var(--card));border:1px solid rgba(96,165,250,.3);border-radius:14px;padding:15px;margin:12px 0}
+.ai-hd{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:11px}
+.ai-t{font-size:14px;font-weight:700;color:#93c5fd}
+.ai-chip{font-size:9.5px;border:1px solid rgba(96,165,250,.35);color:#93c5fd;border-radius:9px;padding:2px 8px}
+.ai-btn{background:linear-gradient(135deg,#3b82f6,#2563eb);border:none;color:#fff;font-family:inherit;font-size:13px;font-weight:600;border-radius:10px;padding:11px 16px;cursor:pointer;width:100%;transition:.2s}
+.ai-btn:hover{filter:brightness(1.1)}.ai-btn:disabled{opacity:.55;cursor:default}
+.ai-bar{height:5px;background:rgba(255,255,255,.07);border-radius:3px;overflow:hidden;margin-top:10px;display:none}
+.ai-bar i{display:block;height:100%;background:linear-gradient(90deg,#3b82f6,#93c5fd);width:0;transition:width .3s}
+.ai-st{font-size:10.5px;color:var(--mut);margin-top:8px;line-height:1.8;text-align:center}
+.ai-box{display:none;margin-top:12px}
+.ai-in{width:100%;background:#05070B;border:1px solid var(--border);border-radius:10px;color:var(--txt);font-family:inherit;font-size:14px;padding:12px 13px;outline:none}
+.ai-in:focus{border-color:rgba(96,165,250,.55)}
+.ai-sug{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+.ai-sug span{font-size:11px;border:1px solid var(--border);border-radius:14px;padding:4px 11px;color:var(--mut);cursor:pointer;transition:.15s}
+.ai-sug span:hover{border-color:rgba(96,165,250,.5);color:#93c5fd}
+.ai-res{margin-top:12px}
+.ai-r{border-inline-start:3px solid rgba(96,165,250,.5);padding:9px 0 9px 0;padding-inline-start:11px;margin-bottom:9px}
+.ai-r a{color:var(--txt);text-decoration:none;font-size:13.5px;line-height:1.85;font-weight:500}
+.ai-r a:hover{color:#93c5fd}
+.ai-r .m{font-size:10px;color:var(--dim);margin-top:4px;display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.ai-pc{color:#93c5fd;font-weight:600}
 .isn{display:flex;gap:3px;margin-top:5px}
 .isn i{width:16px;height:3px;border-radius:2px;background:rgba(255,255,255,.1)}
 .isn i.on{background:#22c55e}.isn i.half{background:#fbbf24}
@@ -313,6 +334,36 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
       <div class="spark" id="spark"></div>
       <div id="lessons"></div>
       <div class="note">تتعلّم المنصة من أخطائها: كل جولة يُحدِّث النَّاقِد قواعد الفرز، فتُحجب الأنماط الخاطئة تلقائيًا في الجولة التالية دون تدخل بشري.</div>
+    </div>
+  </div>
+
+  <div class="sec-h">🧠 البحث الذكي — داخل جهازك</div>
+  <div class="ai">
+    <div class="ai-hd">
+      <span class="ai-t">🧠 المُفهرِس</span>
+      <span><span class="ai-chip">بلا خادم</span> <span class="ai-chip">بلا تتبّع</span></span>
+    </div>
+    <div id="aiIntro">
+      <div class="ai-st" style="text-align:right;margin:0 0 11px">
+        اسأل عن الأخبار بلغتك الطبيعية، وسيفهم النموذج مقصدك لا كلماتك فقط.
+        يُحمَّل النموذج مرةً واحدة (~١١٨ م.ب) ثم يعمل <b style="color:#93c5fd">كاملًا داخل متصفحك</b> —
+        لا تُرسل كلمةٌ واحدة إلى أي خادم.
+      </div>
+      <button class="ai-btn" id="aiGo" onclick="aiLoad()">⬇︎ شغّل البحث الذكي</button>
+      <div class="ai-bar" id="aiBar"><i id="aiFill"></i></div>
+      <div class="ai-st" id="aiSt"></div>
+    </div>
+    <div class="ai-box" id="aiBox">
+      <input class="ai-in" id="aiQ" placeholder="اكتب سؤالك… مثال: وش صار بمحطات الكهرباء؟" oninput="aiSearch()">
+      <div class="ai-sug">
+        <span onclick="aiAsk('ماذا حدث في الكويت؟')">ماذا حدث في الكويت؟</span>
+        <span onclick="aiAsk('تصريحات ترامب')">تصريحات ترامب</span>
+        <span onclick="aiAsk('أثر الأزمة على النفط والاقتصاد')">النفط والاقتصاد</span>
+        <span onclick="aiAsk('ضحايا مدنيون وإصابات')">الضحايا</span>
+        <span onclick="aiAsk('مفاوضات وتهدئة')">التهدئة</span>
+      </div>
+      <div class="ai-res" id="aiRes"></div>
+      <div class="ai-st" id="aiFoot"></div>
     </div>
   </div>
 
@@ -506,6 +557,61 @@ async function load(){
     lessons.innerHTML=(e.lessons||[]).map(l=>`<div class="lesson">${l}</div>`).join("");
     evoWrap.style.display="block";
   }catch(e){}
+}
+// ══ المُفهرِس: نموذج تضمين يعمل محليًا في المتصفح ══
+let AI={ready:0,ext:null,vecs:[],docs:[],dev:"wasm"};
+async function aiLoad(){
+  const btn=document.getElementById("aiGo");
+  btn.disabled=true; btn.textContent="جارِ التحميل…";
+  aiBar.style.display="block"; aiSt.textContent="تهيئة…";
+  try{
+    const T=await import("https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.7.6");
+    try{ AI.dev = (navigator.gpu && await navigator.gpu.requestAdapter()) ? "webgpu":"wasm" }catch(e){ AI.dev="wasm" }
+    aiSt.textContent="تنزيل النموذج… ("+(AI.dev==="webgpu"?"تسريع رسومي":"معالج")+")";
+    AI.ext=await T.pipeline("feature-extraction","Xenova/multilingual-e5-small",{
+      device:AI.dev, dtype:"q8",
+      progress_callback:p=>{
+        if(p.status==="progress"&&p.total){
+          const pc=Math.round(p.loaded/p.total*100);
+          aiFill.style.width=pc+"%";
+          aiSt.textContent=`تنزيل ${p.file||""} — ${pc}%`;
+        } else if(p.status==="ready") aiSt.textContent="جاهز";
+      }});
+    aiFill.style.width="100%"; aiSt.textContent="فهرسة الأخبار…";
+    AI.docs=[];
+    for(const [c,l] of Object.entries((DATA&&DATA.cats)||{}))
+      l.forEach(i=>AI.docs.push({t:i.head,c,src:i.src,link:i.link,g:i.grade}));
+    try{const o=await (await fetch(RAW+"official.json?t="+Date.now())).json();
+      (o.src||[]).forEach(x=>AI.docs.push({t:x.p,c:"بيان رسمي",src:x.e,link:x.u,g:"صحيح"}))}catch(e){}
+    try{const f=await (await fetch(RAW+"forecast.json?t="+Date.now())).json();
+      (f.scenarios||[]).forEach(x=>AI.docs.push({t:x.s+" — "+(x.why||""),c:"استقراء",src:"المُستقرِئ",link:"",g:"حسن"}))}catch(e){}
+    const emb=await AI.ext(AI.docs.map(d=>"passage: "+d.t),{pooling:"mean",normalize:true});
+    AI.vecs=emb.tolist(); AI.ready=1;
+    aiIntro.style.display="none"; aiBox.style.display="block";
+    aiFoot.textContent=`فُهرست ${AI.docs.length} مادة · ${AI.dev==="webgpu"?"WebGPU":"WASM"} · النموذج محفوظ لزيارتك القادمة`;
+    aiQ.focus();
+  }catch(e){
+    aiSt.textContent="تعذّر التشغيل: "+String(e).slice(0,90);
+    btn.disabled=false; btn.textContent="↻ أعد المحاولة";
+  }
+}
+function aiAsk(q){ aiQ.value=q; aiSearch() }
+let aiT=null;
+function aiSearch(){ clearTimeout(aiT); aiT=setTimeout(aiRun,260) }
+async function aiRun(){
+  const q=aiQ.value.trim();
+  if(!AI.ready||q.length<2){aiRes.innerHTML="";return}
+  const e=await AI.ext(["query: "+q],{pooling:"mean",normalize:true});
+  const v=e.tolist()[0];
+  const all=AI.vecs.map((d,i)=>({i,s:d.reduce((a,x,k)=>a+x*v[k],0)})).sort((a,b)=>b.s-a.s);
+  const top=all[0]?all[0].s:0;
+  const sc=all.filter(x=>x.s>0.785 && (top-x.s)<=0.045).slice(0,5);
+  aiRes.innerHTML=sc.length?sc.map(x=>{
+    const d=AI.docs[x.i], pc=Math.round(100-((top-x.s)/0.05*40));
+    return `<div class="ai-r">
+      <a href="${d.link||'#'}" ${d.link?'target="_blank" rel="noopener"':''}>${d.t}</a>
+      <div class="m"><span class="ai-pc">${Math.min(99,Math.max(55,pc))}% صلة</span><span>${d.c}</span><span>${d.src||""}</span></div>
+    </div>`}).join(""):'<div class="ai-st">لا توجد مادة قريبة من سؤالك في نشرة اليوم.</div>';
 }
 function cpy(n){
   const x=(window.DUA||[])[n]; if(!x) return;
