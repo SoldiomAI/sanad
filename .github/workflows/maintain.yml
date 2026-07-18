@@ -1,0 +1,52 @@
+name: maintain
+# صيانة الكود بوكلاء برمجة — تعمل يدويًا فقط، وتتخطى بأمان إن غاب المفتاح
+on:
+  workflow_dispatch:
+    inputs:
+      agent:
+        description: 'الوكيل'
+        type: choice
+        options: [claude, cursor]
+        default: claude
+      task:
+        description: 'المهمة المطلوبة'
+        required: true
+        default: 'راجع pipeline/daily_anchor.py واقترح تحسينات دون تغيير السلوك'
+permissions:
+  contents: write
+jobs:
+  maintain:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+
+      - name: Claude Code
+        if: inputs.agent == 'claude'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "⚠️ أضف السر ANTHROPIC_API_KEY لتفعيل Claude Code"; exit 0; fi
+          npm i -g @anthropic-ai/claude-code@latest
+          claude -p "${{ inputs.task }}" --permission-mode acceptEdits --allowedTools "Read,Edit,Write,Bash(python3 -m py_compile*)"
+
+      - name: Cursor CLI
+        if: inputs.agent == 'cursor'
+        env:
+          CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
+        run: |
+          if [ -z "$CURSOR_API_KEY" ]; then
+            echo "⚠️ أضف السر CURSOR_API_KEY لتفعيل Cursor"; exit 0; fi
+          npm i -g cursor-agent@latest
+          cursor-agent -p "${{ inputs.task }}" --force
+
+      - name: حفظ التعديلات
+        if: always()
+        run: |
+          git config user.name "sanad-maintainer"
+          git config user.email "bot@sanad.news"
+          git add -A && git diff --cached --quiet || git commit -m "🔧 صيانة بـ${{ inputs.agent }}"
+          git push || true
