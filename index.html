@@ -128,6 +128,21 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .k-q{background:rgba(201,162,39,.12);border:1px solid rgba(201,162,39,.38);color:var(--gold-l)}
 .k-a{background:rgba(139,148,163,.1);border:1px solid rgba(139,148,163,.3);color:var(--mut)}
 .dua-ft{font-size:11px;color:#9fb3a8;background:rgba(13,92,63,.16);border-top:1px solid rgba(13,92,63,.35);padding:12px 15px;line-height:2;text-align:center}
+.ag-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:9px}
+.ag{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:11px 12px;position:relative;overflow:hidden}
+.ag::before{content:"";position:absolute;inset-inline-start:0;top:0;bottom:0;width:3px;background:var(--dim)}
+.ag.ok::before{background:#22c55e}.ag.skip::before{background:#60a5fa}
+.ag.fail::before{background:#ef4444}.ag.idle::before{background:#4b5563}
+.ag-t{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:var(--txt)}
+.ag-r{font-size:10.5px;color:var(--mut);line-height:1.75;margin-top:5px}
+.ag-s{margin-top:7px;display:flex;justify-content:space-between;align-items:center;font-size:9.5px;color:var(--dim)}
+.ag-b{border-radius:8px;padding:1px 7px;font-weight:600}
+.ag-b.ok{background:rgba(34,197,94,.12);color:#86efac}
+.ag-b.skip{background:rgba(96,165,250,.12);color:#93c5fd}
+.ag-b.fail{background:rgba(239,68,68,.12);color:#fca5a5}
+.ag-b.idle{background:rgba(107,114,128,.14);color:#9ca3af}
+.ag-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px;font-size:11.5px;color:var(--mut)}
+.pulse{display:inline-block;width:7px;height:7px;border-radius:50%;background:#22c55e;animation:blink 1.6s infinite;margin-inline-end:5px}
 .off{background:linear-gradient(160deg,rgba(13,92,63,.1),var(--card));border:1px solid rgba(34,197,94,.28);border-radius:12px;padding:13px;margin:12px 0}
 .off-i{display:flex;gap:11px;padding:11px 0;border-bottom:1px solid rgba(30,38,51,.5)}
 .off-i:last-child{border:none;padding-bottom:0}
@@ -154,7 +169,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 <div class="wrap">
   <div class="hero">
     <h1 class="amiri gold">سَنَد</h1>
-    <div class="sub">منصة إخبارية ذاتية التطوّر — تجرح الخبر وتعدّله، وتستقرئ ما بعده، وحُكمُها مبنيٌّ على خمسة معايير من علم الحديث<br>نشرة مذيع يومية آلية · تغطية حية · أخبار إيران مترجمة عن الفارسية</div>
+    <div class="sub">منصة إخبارية ذاتية التطوّر — تُدقّق الخبر قبل نشره، وتستقرئ ما بعده، وحُكمُها مبنيٌّ على خمسة معايير من علم الحديث<br>نشرة مذيع يومية آلية · تغطية حية · أخبار إيران مترجمة عن الفارسية</div>
     <div class="method">
       <span class="pill">الاتصال</span><span class="pill">عدالة المصدر</span><span class="pill">الضبط</span><span class="pill">عدم الشذوذ</span><span class="pill">انتفاء العلة</span>
     </div>
@@ -166,6 +181,16 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
     <audio id="a" style="display:none" controls></audio>
     <span class="toggle" onclick="s.style.display=s.style.display==='none'?'block':'none'">📜 نص النشرة</span>
     <div class="script" id="s" style="display:none"></div>
+  </div>
+
+  <div id="agWrap" style="display:none">
+    <div class="sec-h">🤖 طبقة الوكلاء</div>
+    <div class="ag-head">
+      <span><span class="pulse"></span><b id="agH"></b></span>
+      <span id="agT"></span>
+    </div>
+    <div class="ag-grid" id="agL"></div>
+    <div class="note">ثمانيةُ وكلاءَ مستقلّين يتعاقبون على كل جولة، لكلٍّ دورُه ومخرجُه. الحالةُ تُنشر كما هي: ما نجح، وما تُخطّي توفيرًا، وما أخفق.</div>
   </div>
 
   <div id="offWrap" style="display:none">
@@ -182,14 +207,14 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
   </div>
 
   <div id="councilWrap" style="display:none">
-    <div class="sec-h">⚖️ مجلس التحرير</div>
+    <div class="sec-h">⚖️ تدقيق ما قبل النشر</div>
     <div class="council">
       <div class="top"><span class="who" id="cWho"></span><span class="stat" id="cStat"></span></div>
       <div class="verdict" id="cVerdict"></div>
       <div class="agents">
         <span class="agent on" title="يرصد ما يُنشر لحظةً بلحظة">🛰️ الرَّاصِد</span>
         <span class="agent on" title="ينقل الخبر عن ألسنة أخرى">🗣️ التَّرْجُمَان</span>
-        <span class="agent on" title="يجرح ويعدّل قبل النشر">⚖️ النَّاقِد</span>
+        <span class="agent on" title="يراجع المواد قبل النشر">⚖️ المُدقِّق</span>
         <span class="agent on" title="يؤدي النشرة صوتًا">🎙️ الرَّاوِي</span>
         <span class="agent on" title="يطوّر قواعد المنصة بعد كل جولة">🧬 المُصنِّف</span>
         <span class="agent on" title="يستقرئ ما قد يقع من السوابق والتصريحات">🔮 المُستقرِئ</span>
@@ -258,7 +283,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
     سَنَد © SOLDIOM — الكويت 🇰🇼<br>
     تصنيف آلي شفّاف: <b style="color:var(--green)">صحيح</b> = وكالات من الدرجة الأولى · <b style="color:var(--blue)">حسن</b> = مصادر معتبَرة<br>
     الأخبار كل ٣ ساعات · حصيلة الأزمة كل ٦ ساعات · النشرة يوميًا ٦ مساءً بتوقيت الكويت<br>
-    العاجل من 𝕏 عبر بحث حي · الترجمة عن الفارسية آليّة · كل خبر يمرّ على النَّاقِد قبل النشر — والقواعد تتطوّر ذاتيًا
+    العاجل من 𝕏 عبر بحث حي · الترجمة عن الفارسية آليّة · كل خبر يمرّ على المُدقِّق قبل النشر — والقواعد تتطوّر ذاتيًا
   </footer>
 </div>
 
@@ -322,6 +347,22 @@ async function load(){
   }catch(e){bdate.textContent="قيد التجهيز"}
   try{ tolls(await (await fetch(RAW+"intel.json?t="+Date.now())).json()) }catch(e){}
   try{
+    const a=await (await fetch(RAW+"agents.json?t="+Date.now())).json();
+    const lbl={ok:"نجح",skip:"تُخطّي",fail:"أخفق",idle:"خامل"};
+    agH.textContent=`${a.healthy}/${a.total} وكيلًا بحالة سليمة`;
+    agT.textContent="آخر جولة "+new Date(a.updated).toLocaleTimeString("ar-KW",{hour:"2-digit",minute:"2-digit"});
+    agL.innerHTML=(a.agents||[]).map(x=>`
+      <div class="ag ${x.status}">
+        <div class="ag-t">${x.icon} ${x.name}</div>
+        <div class="ag-r">${x.role}</div>
+        <div class="ag-s">
+          <span class="ag-b ${x.status}">${lbl[x.status]||x.status}</span>
+          <span>${x.ms>999?(x.ms/1000).toFixed(1)+"s":(x.ms?x.ms+"ms":(x.note||"").slice(0,18))}</span>
+        </div>
+      </div>`).join("");
+    agWrap.style.display="block";
+  }catch(e){}
+  try{
     const o=await (await fetch(RAW+"official.json?t="+Date.now())).json();
     if(!(o.src||[]).length) throw 0;
     offL.innerHTML=o.src.map(x=>`
@@ -337,9 +378,9 @@ async function load(){
   }catch(e){}
   try{
     const c=await (await fetch(RAW+"council.json?t="+Date.now())).json();
-    cWho.textContent="⚖️ حكم النَّاقِد";
+    cWho.textContent="⚖️ تقرير المُدقِّق";
     const a=c.applied||{};
-    cStat.textContent=`فُحص ${c.checked||0} خبرًا · جُرِح ${a.removed||0} · نُقِّح ${a.downgraded||0}`+(c.rules_v?` · القواعد ن${c.rules_v}`:"");
+    cStat.textContent=`فُحص ${c.checked||0} خبرًا · استُبعد ${a.removed||0} · خُفِّض ${a.downgraded||0}`+(c.rules_v?` · القواعد ن${c.rules_v}`:"");
     cVerdict.textContent=c.verdict||"";
     councilWrap.style.display="block";
   }catch(e){}
@@ -387,9 +428,9 @@ async function load(){
     const r=e.runs||[]; if(!r.length) throw 0;
     const last=r[r.length-1];
     evoV.textContent=`⚙️ قواعد الفرز — الإصدار ${last.v}`;
-    evoN.textContent=`${last.rules} نمط مُكتسَب · متوسط الجرح ${e.trend} لكل جولة`;
+    evoN.textContent=`${last.rules} نمط مُكتسَب · متوسط الاستبعاد ${e.trend} لكل جولة`;
     const mx=Math.max(...r.slice(-20).map(x=>x.removed),1);
-    spark.innerHTML=r.slice(-20).map(x=>`<i style="height:${Math.max(6,x.removed/mx*100)}%" title="${x.t}: جُرِح ${x.removed}"></i>`).join("");
+    spark.innerHTML=r.slice(-20).map(x=>`<i style="height:${Math.max(6,x.removed/mx*100)}%" title="${x.t}: استُبعد ${x.removed}"></i>`).join("");
     lessons.innerHTML=(e.lessons||[]).map(l=>`<div class="lesson">${l}</div>`).join("");
     evoWrap.style.display="block";
   }catch(e){}
