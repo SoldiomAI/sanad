@@ -98,15 +98,29 @@ def save_agents():
             "at":cur.get("at", prev.get("at","")),
             "ran":aid in _LOG})
     ok=sum(1 for a in out if a["status"] in ("ok","skip"))
+    ran=sum(1 for a in out if a["status"]=="ok")
     json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),
-        "healthy":ok,"total":len(out),"agents":out},
+        "healthy":ok,"total":len(out),"ran":ran,"slot":SLOT,"agents":out},
         open(AGENTS_F,"w"),ensure_ascii=False,indent=1)
-    print(f"🤖 طبقة الوكلاء: {ok}/{len(out)} بحالة سليمة")
+    print(f"🤖 طبقة الوكلاء: {ran} عمل الآن · {ok}/{len(out)} سليم · النوبة {SLOT}")
 
 OFFICIAL_HANDLES=set()
 try:
     OFFICIAL_HANDLES={x.get("h","").lower().lstrip("@") for x in json.load(open(f"{OUT}/official.json")).get("src",[])}
 except Exception: pass
+
+
+# ═══ الجدولة: توزيع الوكلاء الثقيلة على الجولات بالتناوب ═══
+_H=datetime.now(timezone.utc).hour
+SLOT=(_H//3)%2          # 0 أو 1 — يتبدّل كل ٣ ساعات
+def due(aid, age, hard):
+    """يقرر التشغيل: نوبة الوكيل، أو تجاوز المهلة القصوى."""
+    turn = {"rasid":0,"manba":1,"mutabiq":1}.get(aid,None)
+    if os.environ.get("FORCE_"+aid.upper()): return True, ""
+    if age>=hard: return True, "تجاوز المهلة"
+    if turn is not None and SLOT!=turn:
+        return False, f"نوبته الجولة القادمة (~{3-(_H%3)}س)"
+    return (age>=3), (f"يعمل بعد ~{max(0,round(3-age,1))}س" if age<3 else "")
 
 RULES=f"{OUT}/rules.json"
 PROTECT=["إيران","الكويت","السعودي","الإمارات","قطر","البحرين","عُمان","عمان","العراق","الخليج",
@@ -239,9 +253,12 @@ def intel_fresh(hours):
 
 @agent("rasid")
 def grok_intel():
-    old, fresh = intel_fresh(6)
-    if fresh and not os.environ.get("FORCE_INTEL"):
-        print("♻️ intel.json حديث — تخطٍ (توفير)"); return {"skipped":1,"why":"كاش ٦ ساعات",**(old or {})}
+    old, _ = intel_fresh(99)
+    try: _age=(datetime.now(timezone.utc)-datetime.fromisoformat((old or {}).get("updated","2000-01-01T00:00+00:00"))).total_seconds()/3600
+    except Exception: _age=999
+    go,why = due("rasid",_age,9)
+    if not go and not os.environ.get("FORCE_INTEL"):
+        print(f"⏱️ الرَّاصِد: {why}"); return {"skipped":1,"why":why,**(old or {})}
     if not GROK_KEY:
         print("⚠️ لا مفتاح Grok"); return old
     P=("ابحث عن آخر المعطيات الموثقة عن الأزمة الإيرانية الأمريكية الحالية وأثرها على الخليج.\n"
@@ -420,8 +437,9 @@ def mustaqri():
         prev=json.load(open(FCAST))
         age=(datetime.now(timezone.utc)-datetime.fromisoformat(prev["updated"])).total_seconds()/3600
     except Exception: prev,age=None,999
-    if age<3:
-        print("♻️ الاستقراء حديث — تخطٍ (توفير)"); return {"skipped":1,"why":"كاش ٣ ساعات"}
+    if age<2.6:
+        print(f"⏱️ المُستقرِئ: يعمل بعد ~{max(0,round(2.6-age,1))}س")
+        return {"skipped":1,"why":f"يعمل بعد ~{max(0,round(2.6-age,1))}س"}
     if not GROK_KEY: return
 
     heads=[i["head"] for l in cats.values() for i in l][:14]
@@ -486,8 +504,9 @@ def manba():
         age=(datetime.now(timezone.utc)-datetime.fromisoformat(old["updated"])).total_seconds()/3600
     except Exception: old,age=None,999
     old=old or {}
-    if age<4 and not os.environ.get("FORCE_OFFICIAL"):
-        print("♻️ المَنبع حديث — تخطٍ (توفير)"); return {"skipped":1,"why":"كاش ٣ ساعات"}
+    go,why = due("manba",age,9)
+    if not go and not os.environ.get("FORCE_OFFICIAL"):
+        print(f"⏱️ المَنبع: {why}"); return {"skipped":1,"why":why}
     if not GROK_KEY: return
     B=[("القيادة المركزية الأمريكية CENTCOM، وزارة الكهرباء والماء الكويتية، "
         "قوة الإطفاء العام الكويتية، وكالة الأنباء الكويتية كونا، وزارة الداخلية الكويتية"),
@@ -536,7 +555,8 @@ def mutabiq():
     try:
         v=json.load(open(f"{OUT}/verify.json"))
         if v.get("src_updated")==t.get("updated"):
-            print("♻️ المُطابَقة مطابقة للحصيلة — تخطٍ"); return {"skipped":1,"why":"لا جديد في الحصيلة"}
+            print("⏱️ المُطابِق: لا أرقام جديدة تحتاج مقابلة")
+            return {"skipped":1,"why":"لا أرقام جديدة"}
     except Exception: pass
     if not GROK_KEY: return
     rows="\n".join("- %s: قتلى %s، جرحى %s (المُعلن: %s)"%(x.get("c"),x.get("d"),x.get("w"),x.get("src","غير مذكور"))
@@ -578,7 +598,8 @@ def analyst_segment():
     try:
         a_old=json.load(open(f"{OUT}/analyst.json"))
         if a_old.get("src")==f.get("updated"):
-            print("♻️ قراءة المحلل مطابقة — تخطٍ"); return {"skipped":1,"why":"مطابقة للاستقراء"}
+            print("⏱️ المُحلِّل: القراءة مواكبة لآخر استقراء")
+            return {"skipped":1,"why":"القراءة مواكبة"}
     except Exception: pass
     if not GEMINI_KEY: return
 
@@ -633,7 +654,9 @@ if os.environ.get("NEWS_ONLY"):
         _m=json.load(open(f"{OUT}/latest.json")); _t=datetime.now(timezone.utc).strftime("%Y-%m-%d")
         if _m.get("video_date")==_t: mark("rawi","ok","فيديو اليوم جاهز")
         elif _m.get("date")==_t:     mark("rawi","ok","نشرة اليوم صوتيًا")
-        else:                        mark("rawi","skip","بانتظار ٦ مساءً")
+        else:
+            _hk=(datetime.now(timezone.utc).hour+3)%24
+            mark("rawi","skip",f"النشرة ٦ مساءً (~{(18-_hk)%24}س)")
     except Exception: mark("rawi","skip","بانتظار أول نشرة")
     archive()
     save_agents()
