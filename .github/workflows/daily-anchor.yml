@@ -19,6 +19,7 @@ jobs:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: python pipeline/daily_anchor.py
       - name: حفظ في الريبو
+        if: always()
         run: |
           git config user.name "SANAD Bot"
           git config user.email "soldiom@gmail.com"
