@@ -443,7 +443,53 @@ def grok_intel():
         txt=txt.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
         if not txt:
             print(f"Grok رد فارغ (status={d.get('status')} {d.get('incomplete_details')})"); return old
-        j=json.loads(txt[txt.find("{"):txt.rfind("}")+1]); j["updated"]=datetime.now(timezone.utc).isoformat(timespec="minutes")
+        j=json.loads(txt[txt.find("{"):txt.rfind("}")+1])
+
+        def _numc(tl):
+            return sum(1 for x in tl if str(x.get("d","")).replace(",","").replace("-","").isdigit())
+
+        # ① دمج أرقام الذخائر السابقة إن غابت الآن
+        try:
+            pm={t.get("c"):t for t in (old or {}).get("toll",[])}
+            for t in j.get("toll",[]):
+                p=pm.get(t.get("c")) or {}
+                for k in ("mis","drn","itc","src","u","asof"):
+                    cur=str(t.get(k,"")).strip()
+                    if (not cur or cur in ("غير معلن","—","لا خسائر مؤكدة","غير مؤكد")) and p.get(k):
+                        if str(p[k]).strip() not in ("غير معلن","—",""): t[k]=p[k]
+                # الأرقام نفسها: لا تُستبدل بقيمة نصية إن كانت السابقة رقمًا
+                for k in ("d","w"):
+                    if not str(t.get(k,"")).replace(",","").isdigit() and str(p.get(k,"")).replace(",","").isdigit():
+                        t[k]=p[k]
+        except Exception: pass
+
+        # ② حارس: لا تُستبدل حصيلة فيها أرقام بأخرى فارغة
+        if old and old.get("toll") and _numc(j.get("toll",[])) < _numc(old["toll"])*0.5:
+            print(f"🛡️ الحصيلة الجديدة أضعف ({_numc(j.get('toll',[]))} مقابل {_numc(old['toll'])}) — أُبقيت السابقة")
+            return old
+
+        # ③ سجل التصحيحات
+        try:
+            prevmap={t.get("c"):t for t in (old or {}).get("toll",[])}
+            chg=[]
+            for t in j.get("toll",[]):
+                p=prevmap.get(t.get("c"))
+                if not p: continue
+                for k,lbl in (("d","قتلى"),("w","جرحى"),("mis","صواريخ"),("drn","مسيّرات")):
+                    a,b_=str(p.get(k,"")).strip(),str(t.get(k,"")).strip()
+                    if a and b_ and a!=b_ and a.replace(",","").isdigit() and b_.replace(",","").isdigit():
+                        chg.append({"c":t["c"],"f":t.get("f",""),"field":lbl,"from":a,"to":b_,
+                            "src":t.get("src",""),"at":datetime.now(timezone.utc).isoformat(timespec="minutes")})
+            if chg:
+                try: cl=json.load(open(f"{OUT}/corrections.json"))
+                except Exception: cl={"log":[]}
+                cl["log"]=(cl.get("log",[])+chg)[-40:]
+                cl["updated"]=datetime.now(timezone.utc).isoformat(timespec="minutes")
+                json.dump(cl,open(f"{OUT}/corrections.json","w"),ensure_ascii=False,indent=1)
+                print(f"📋 سجل التصحيحات: {len(chg)} رقمًا تغيّر")
+        except Exception: pass
+
+        j["updated"]=datetime.now(timezone.utc).isoformat(timespec="minutes")
         json.dump(j,open(INTEL,"w"),ensure_ascii=False,indent=1)
         bill(d,"الرَّاصِد")
         print(f"🛰️ الرَّاصِد: {len(j.get('toll',[]))} دول · {len(j.get('brk',[]))} عاجل")
