@@ -6,7 +6,7 @@
 <meta name="description" content="أول منصة إخبارية تطبّق علم الإسناد — حكم كل خبر مبني على خمسة معايير من علم الحديث. نشرة مذيع يومية + أخبار حية من الخليج والعالم وإيران مترجمة.">
 <meta property="og:title" content="سَنَد | SANAD — Sovereign News Intelligence">
 <meta property="og:description" content="أخبار مُسنَدة بمنهج المحدّثين — لكلِّ خبرٍ درجةُ إسنادٍ ومصدرٌ معروض">
-<meta property="og:image" content="https://raw.githubusercontent.com/Soldiom/sanad/main/daily/og.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:type" content="website">
@@ -16,7 +16,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="سَنَد | منصةُ الأخبارِ المُسنَدة">
 <meta name="twitter:description" content="لكلِّ خبرٍ درجةُ إسنادٍ ومصدرٌ معروض">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Soldiom/sanad/main/daily/og.jpg">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/og.jpg">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🛡️</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
@@ -249,6 +249,21 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .off-m{margin-top:6px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:10.5px;color:var(--dim)}
 .off-m a{color:var(--gold-l);text-decoration:none}
 .b-off{background:rgba(34,197,94,.14);border:1px solid rgba(34,197,94,.4);color:#86efac;border-radius:12px;padding:2px 9px;font-size:10px;font-weight:600}
+.arc-ov{position:fixed;inset:0;background:rgba(8,11,18,.93);backdrop-filter:blur(8px);z-index:80;display:none;overflow-y:auto}
+.arc-ov.on{display:block}
+.arc-in{max-width:680px;margin:0 auto;padding:var(--s4) var(--s3) var(--s6)}
+.arc-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--s3);
+  font-family:'Noto Kufi Arabic',sans-serif;font-size:14px;font-weight:700;color:var(--gold-l)}
+.arc-x{background:none;border:1px solid var(--border);color:var(--mut);border-radius:4px;
+  padding:5px 12px;cursor:pointer;font-family:inherit;font-size:12px}
+.arc-x:hover{border-color:var(--gold);color:var(--gold-l)}
+.arc-s{background:var(--card);border:1px solid var(--border);border-radius:5px;padding:11px 13px;
+  margin-bottom:7px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;transition:.15s}
+.arc-s:hover{border-color:rgba(201,162,39,.45)}
+.arc-t{font-family:'Noto Kufi Arabic',sans-serif;font-size:12.5px;color:var(--txt)}
+.arc-n{font-size:10.5px;color:var(--dim)}
+.arc-body{margin-top:var(--s3)}
+.arc-body .item a{font-size:14px}
 .copied{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--gold);color:#05070B;font-size:12px;font-weight:600;padding:9px 18px;border-radius:20px;opacity:0;transition:.25s;pointer-events:none;z-index:60}
 .copied.on{opacity:1}
 .empty{text-align:center;color:var(--dim);padding:30px 0;font-size:13px}
@@ -412,7 +427,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
       <div class="meth-r"><b>ما لا نفعله</b><span>لا ننتج خبرًا من عندنا، ولا نخفي ما عجزنا عن التحقّق منه — بل نضع عليه شارةً صريحة.</span></div>
       <div class="meth-r"><b>التصحيح</b><span>كلُّ رقمٍ يتغيّر يُنشر تغيُّرُه في سجل التصحيحات أعلاه.</span></div>
       <div class="meth-r"><b>للتواصل</b><span><a href="mailto:soldiom@gmail.com" style="color:var(--gold-l)">soldiom@gmail.com</a> · <a href="https://instagram.com/alialthowaikh" target="_blank" rel="noopener" style="color:var(--gold-l)">@alialthowaikh</a></span></div>
-      <div class="meth-r"><b>الأرشيف</b><span><a id="arcLink" href="https://github.com/Soldiom/sanad/tree/main/daily/archive" target="_blank" rel="noopener" style="color:var(--gold-l)">لقطاتُ الجولات السابقة ↗</a></span></div>
+      <div class="meth-r"><b>الأرشيف</b><span><a href="#" onclick="openArc(event)" style="color:var(--gold-l)">تصفَّح لقطاتِ الجولات السابقة</a></span></div>
     </div>
   </details>
 
@@ -425,8 +440,13 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 </div>
 
 <div class="copied" id="cp">✓ نُسخ الدعاء</div>
+<div class="arc-ov" id="arcOv"><div class="arc-in">
+  <div class="arc-hd"><span>أرشيفُ الجولات</span><button class="arc-x" onclick="closeArc()">إغلاق</button></div>
+  <div id="arcList"></div>
+  <div class="arc-body" id="arcBody"></div>
+</div></div>
 <script>
-const RAW="https://raw.githubusercontent.com/Soldiom/sanad/main/daily/";
+const RAW="https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/";
 const ORDER=["الكل","عاجل","الخليج","فلسطين","عالم","اقتصاد","تقنية","إيران"];
 let DATA=null, cur="الكل";
 const STUDIO = new URLSearchParams(location.search).has("studio");
@@ -698,6 +718,36 @@ async function aiRun(){
       <div class="m"><span class="ai-pc">${Math.min(99,Math.max(55,pc))}% صلة</span><span>${d.c}</span><span>${d.src||""}</span></div>
     </div>`}).join(""):'<div class="ai-st">لا توجد مادة قريبة من سؤالك في نشرة اليوم.</div>';
 }
+async function openArc(e){
+  if(e) e.preventDefault();
+  arcOv.classList.add("on"); document.body.style.overflow="hidden";
+  arcBody.innerHTML="";
+  arcList.innerHTML='<div class="arc-n">جارِ التحميل…</div>';
+  try{
+    const ix=await (await fetch(RAW+"archive/index.json?t="+Date.now())).json();
+    const s=(ix.snaps||[]).slice().reverse();
+    arcList.innerHTML=s.length?s.map(x=>{
+      const d=x.id.slice(0,10), t=x.id.slice(11,13)+":"+x.id.slice(13,15);
+      return `<div class="arc-s" onclick="showArc('${x.id}')">
+        <span class="arc-t">${d} — ${t}</span>
+        <span class="arc-n">${x.n} خبرًا · ${x.cats} أقسام</span></div>`}).join("")
+      :'<div class="arc-n">لا لقطات بعد.</div>';
+  }catch(err){ arcList.innerHTML='<div class="arc-n">تعذّر تحميل الأرشيف.</div>' }
+}
+function closeArc(){ arcOv.classList.remove("on"); document.body.style.overflow="" }
+async function showArc(id){
+  arcBody.innerHTML='<div class="arc-n">جارِ الفتح…</div>';
+  try{
+    const s=await (await fetch(RAW+"archive/"+id+".json")).json();
+    const all=Object.entries(s.cats||{});
+    arcBody.innerHTML=`<div class="sec-h">${id.slice(0,10)} — ${id.slice(11,13)}:${id.slice(13,15)}</div>`+
+      all.map(([c,l])=>`<div class="card"><div class="arc-t" style="margin-bottom:8px;color:var(--gold-l)">${c}</div>`+
+        l.map(i=>`<div class="item"><a href="${i.link||'#'}" ${i.link?'target="_blank" rel="noopener"':''}>${i.head}</a>
+          <div class="meta">${badge(i.grade)}<span>نقلًا عن ${i.src||"المصدر"}</span></div></div>`).join("")+`</div>`).join("");
+    arcBody.scrollIntoView({behavior:"smooth",block:"start"});
+  }catch(e){ arcBody.innerHTML='<div class="arc-n">تعذّر فتح اللقطة.</div>' }
+}
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeArc()});
 function cpy(n){
   const x=(window.DUA||[])[n]; if(!x) return;
   const t=x.t+"\n\n— "+x.s+"\n\nسَنَد | sanad-sovereign-news-intelligence.netlify.app";
