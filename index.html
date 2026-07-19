@@ -19,50 +19,89 @@
 <meta name="twitter:image" content="https://raw.githubusercontent.com/Soldiom/sanad/main/daily/og.jpg">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🛡️</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#05070B;--card:#0d1117;--border:#1e2633;--gold:#c9a227;--gold-l:#e8c96a;--txt:#e6e9ef;--mut:#8b94a3;--dim:#5a6372;--red:#ef4444;--green:#22c55e;--blue:#60a5fa}
+:root{
+  /* حبرُ المخطوط ورقُّه وشمعُ الختم */
+  --ink:#080B12; --ink-2:#0E131C; --card:#111825; --border:#1C2532;
+  --vellum:#EDE6D6; --txt:#DDE3EC; --mut:#8E99A9; --dim:#5C6675;
+  --gold:#C9A227; --gold-l:#E4C766; --gold-d:#8A6F1B;
+  --seal:#9E2B37; --seal-l:#E08792;
+  --verify:#3E9B72; --verify-l:#7FD2AC;
+  --lapis:#4A7CC7;
+  /* سلّم المسافات */
+  --s1:6px; --s2:10px; --s3:16px; --s4:24px; --s5:36px; --s6:56px;
+  /* سلّم الخطوط */
+  --f-lead:clamp(24px,5.4vw,34px); --f-h:17px; --f-b:14.5px; --f-s:11.5px; --f-xs:10px;
+  --bg:#080B12;--gold-l:#E4C766;--red:#9E2B37;--green:#3E9B72;--blue:#4A7CC7}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:var(--txt);font-family:'IBM Plex Sans Arabic',sans-serif;min-height:100vh}
+body{background:var(--ink);color:var(--txt);font-family:'IBM Plex Sans Arabic',sans-serif;min-height:100vh;
+  background-image:radial-gradient(ellipse 900px 500px at 50% -10%,rgba(201,162,39,.05),transparent 70%)}
+.kufi{font-family:'Noto Kufi Arabic',sans-serif;letter-spacing:-.01em}
+.col-rail{display:none}
+@media(min-width:1040px){
+  .col-rail{display:block}
+  .col-rail .sec-h{margin-top:0}
+  .rail>div{margin-bottom:var(--s4)}
+}
+::selection{background:rgba(201,162,39,.28);color:#fff}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:4px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 .amiri{font-family:'Amiri',serif}
 .sadu{height:4px;background-image:repeating-linear-gradient(90deg,#0d5c3f 0 16px,#c9a227 16px 20px,#7a1f2b 20px 36px,#0a0a0a 36px 40px)}
 .gold{background:linear-gradient(135deg,#e8c96a,#c9a227 45%,#f5e3a8);-webkit-background-clip:text;background-clip:text;color:transparent}
-.wrap{max-width:760px;margin:0 auto;padding:0 16px}
-.topbar{position:sticky;top:0;z-index:30;background:rgba(7,10,16,.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(30,38,51,.7)}
+.wrap{max-width:760px;margin:0 auto;padding:0 var(--s3)}
+@media(min-width:1040px){
+  .wrap{max-width:1120px}
+  .grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:var(--s5);align-items:start}
+  .rail{position:sticky;top:96px}
+}
+.topbar{position:sticky;top:0;z-index:30;background:rgba(8,11,18,.93);backdrop-filter:blur(14px) saturate(1.2);border-bottom:1px solid rgba(28,37,50,.8)}
 .topbar-in{display:flex;justify-content:space-between;align-items:center;padding:10px 0;font-size:12px}
-.brand{font-weight:700;font-size:16px}
-.live{display:flex;align-items:center;gap:6px;color:var(--mut)}
+.brand{font-weight:700;font-size:17px;font-family:'Amiri',serif;letter-spacing:.02em}
+.live{display:flex;align-items:center;gap:6px;color:var(--mut);font-family:'Noto Kufi Arabic',sans-serif;font-size:10.5px}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--red);animation:blink 1.2s infinite}
 @keyframes blink{50%{opacity:.3}}
 .ticker-box{overflow:hidden;border-top:1px solid rgba(127,29,29,.4);background:rgba(69,10,10,.22);padding:6px 0}
 .ticker{display:inline-block;white-space:nowrap;animation:tick 45s linear infinite;font-size:12px;color:#fecaca;padding-inline-start:100%}
 @keyframes tick{to{transform:translateX(100%)}}
-.hero{text-align:center;padding:30px 0 10px}
-.hero h1{font-size:44px;font-weight:700}
-.hero .sub{font-size:12px;color:var(--mut);margin-top:6px;line-height:1.9}
-.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;margin:14px 0}
+.hero{text-align:center;padding:var(--s6) 0 var(--s3);position:relative}
+.hero h1{font-size:clamp(46px,11vw,68px);font-weight:700;line-height:1.1;letter-spacing:.02em}
+.hero .sub{font-size:12.5px;color:var(--mut);margin-top:var(--s3);line-height:2.1;max-width:520px;margin-inline:auto}
+.hero .rule{width:64px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:var(--s3) auto 0}
+.card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:var(--s3);margin:var(--s3) 0}
 video,audio{width:100%;border-radius:10px;background:#000}
 .bdate{color:var(--gold-l);font-size:13px;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:8px}
 .script{line-height:2.1;font-size:15px;white-space:pre-wrap;color:#cbd2dc}
 .toggle{cursor:pointer;color:var(--gold);font-size:12px;margin-top:10px;display:inline-block}
 .tabs{display:flex;gap:8px;overflow-x:auto;padding:6px 0 2px;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
-.tab{flex-shrink:0;padding:7px 16px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--mut);font-size:13px;cursor:pointer;transition:.2s}
-.tab.on{border-color:var(--gold);color:var(--gold-l);background:rgba(201,162,39,.08)}
-.item{border-bottom:1px solid rgba(30,38,51,.5);padding:13px 0}
+.tab{flex-shrink:0;padding:8px 15px;border-radius:3px;border:1px solid var(--border);background:transparent;
+  color:var(--mut);font-family:'Noto Kufi Arabic',sans-serif;font-size:12px;cursor:pointer;transition:.18s}
+.tab:hover{color:var(--txt);border-color:rgba(201,162,39,.3)}
+.tab.on{border-color:var(--gold);color:var(--ink);background:var(--gold);font-weight:700}
+.item{border-bottom:1px solid rgba(28,37,50,.7);padding:var(--s3) 0;transition:.18s}
 .item:last-child{border:none}
-.item a{color:var(--txt);text-decoration:none;font-size:14.5px;line-height:1.8;font-weight:500}
+.item:hover{padding-inline-start:6px;border-color:rgba(201,162,39,.25)}
+.item a{color:var(--vellum);text-decoration:none;font-size:15.5px;line-height:1.95;font-weight:500;
+  display:block;text-wrap:balance}
 .item a:hover{color:var(--gold-l)}
-.meta{margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:11px;color:var(--dim)}
-.badge{border-radius:12px;padding:2px 10px;font-size:10.5px;font-weight:600}
-.b-sahih{background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.35);color:var(--green)}
-.b-hasan{background:rgba(96,165,250,.12);border:1px solid rgba(96,165,250,.35);color:var(--blue)}
+.item.lead a{font-family:'Amiri',serif;font-size:var(--f-lead);line-height:1.5;font-weight:700;color:#fff}
+.item.lead{padding:var(--s2) 0 var(--s4);border-bottom:1px solid rgba(201,162,39,.22)}
+.meta{margin-top:var(--s2);display:flex;flex-wrap:wrap;gap:var(--s1);align-items:center;
+  font-family:'Noto Kufi Arabic',sans-serif;font-size:10.5px;color:var(--dim)}
+.badge{border-radius:3px;padding:3px 9px;font-size:9.5px;font-weight:600;font-family:'Noto Kufi Arabic',sans-serif}
+.b-sahih{background:rgba(62,155,114,.14);border:1px solid rgba(62,155,114,.4);color:var(--verify-l)}
+.b-hasan{background:rgba(74,124,199,.12);border:1px solid rgba(74,124,199,.32);color:#93b4e8}
 .b-fa{background:rgba(201,162,39,.1);border:1px solid rgba(201,162,39,.3);color:var(--gold-l)}
-.method{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding:8px 0 4px}
-.pill{font-size:10.5px;color:var(--mut);border:1px solid var(--border);border-radius:14px;padding:3px 10px}
+.method{display:flex;justify-content:center;gap:var(--s1);flex-wrap:wrap;padding:var(--s3) 0 var(--s1)}
+.pill{font-family:'Noto Kufi Arabic',sans-serif;font-size:10px;color:var(--dim);border:1px solid var(--border);
+  border-radius:3px;padding:4px 11px;transition:.2s}
+.pill:hover{border-color:rgba(201,162,39,.45);color:var(--gold-l)}
 footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;line-height:2}
-.sec-h{display:flex;align-items:center;gap:9px;margin:22px 0 10px;font-size:15px;font-weight:700;color:var(--gold-l)}
-.sec-h::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(201,162,39,.35),transparent)}
+.sec-h{display:flex;align-items:center;gap:10px;margin:var(--s5) 0 var(--s3);font-family:'Noto Kufi Arabic',sans-serif;
+  font-size:13.5px;font-weight:700;color:var(--gold-l);letter-spacing:.01em}
+.sec-h::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(201,162,39,.4),rgba(201,162,39,.05) 60%,transparent)}
 .toll-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(162px,1fr));gap:10px}
 .toll{background:linear-gradient(160deg,rgba(127,29,29,.13),var(--card));border:1px solid rgba(127,29,29,.4);border-radius:12px;padding:13px}
 .toll .c{font-size:14px;font-weight:700;display:flex;align-items:center;gap:7px;margin-bottom:9px}
@@ -161,9 +200,12 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .ai-r a:hover{color:#93c5fd}
 .ai-r .m{font-size:10px;color:var(--dim);margin-top:4px;display:flex;gap:7px;align-items:center;flex-wrap:wrap}
 .ai-pc{color:#93c5fd;font-weight:600}
-.isn{display:flex;gap:3px;margin-top:5px}
-.isn i{width:16px;height:3px;border-radius:2px;background:rgba(255,255,255,.1)}
-.isn i.on{background:#22c55e}.isn i.half{background:#fbbf24}
+.isn{display:flex;align-items:center;gap:0;margin-top:var(--s2);opacity:.92}
+.isn i{width:9px;height:9px;border-radius:50%;background:transparent;border:1.5px solid rgba(142,153,169,.35);flex-shrink:0}
+.isn i.half{border-color:var(--gold);background:rgba(201,162,39,.3)}
+.isn i.on{border-color:var(--verify);background:var(--verify)}
+.isn u{width:14px;height:1px;background:rgba(142,153,169,.3);text-decoration:none;flex-shrink:0}
+.isn.done u{background:rgba(62,155,114,.45)}
 .b-daif{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.35);color:#fca5a5}
 .b-src{background:rgba(139,148,163,.1);border:1px solid rgba(139,148,163,.28);color:var(--mut)}
 .toll .src{font-size:9.5px;color:var(--dim);margin-top:6px;line-height:1.6;border-top:1px dashed rgba(127,29,29,.3);padding-top:5px}
@@ -222,6 +264,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
   <div class="hero">
     <h1 class="amiri gold">سَنَد</h1>
     <div class="sub">منصة إخبارية ذاتية التطوّر — تُدقّق الخبر قبل نشره، وتستقرئ ما بعده، وحُكمُها مبنيٌّ على خمسة معايير من علم الحديث<br>نشرة مذيع يومية آلية · تغطية حية · أخبار إيران مترجمة عن الفارسية</div>
+    <div class="rule"></div>
     <div class="method">
       <span class="pill">الاتصال</span><span class="pill">عدالة المصدر</span><span class="pill">الضبط</span><span class="pill">عدم الشذوذ</span><span class="pill">انتفاء العلة</span>
     </div>
@@ -237,7 +280,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
   </div>
 
   <div id="corrWrap" style="display:none">
-    <div class="sec-h">📋 سجل التصحيحات</div>
+    <div class="sec-h">سجلُّ التصحيحات</div>
     <div class="corr" id="corrL"></div>
     <div class="note">كل رقم يتغيّر يُنشر تغيّره — لا تُبدَّل الأرقام في صمت.</div>
   </div>
@@ -255,21 +298,24 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
     </div>
   </details>
 
+  <div class="grid">
+  <div class="col-main">
+
   <div id="offWrap" style="display:none">
-    <div class="sec-h">📡 من المَنبع — بياناتٌ رسمية</div>
+    <div class="sec-h">من المَنبع · بياناتٌ رسمية</div>
     <div class="off" id="offL"></div>
     <div class="note">نقلٌ مباشر عن الحسابات الرسمية الموثّقة للجهات نفسها — أعلى درجات الاتصال في الإسناد: لا واسطة بين الخبر ومصدره.</div>
   </div>
 
   <div id="tollWrap" style="display:none">
-    <div class="sec-h">📊 حصيلة الأزمة</div>
+    <div class="sec-h">حصيلة الأزمة</div>
     <div class="war-h"><span id="warName"></span><span id="warSince"></span></div>
     <div class="toll-grid" id="toll"></div>
     <div class="note">أرقام مجمّعة آليًا من وكالات ومصادر مفتوحة عبر بحث حي — قابلة للتغيير، وما لم يُوثَّق يُكتب «غير مؤكد».</div>
   </div>
 
   <div id="councilWrap" style="display:none">
-    <div class="sec-h">⚖️ تدقيق ما قبل النشر</div>
+    <div class="sec-h">تدقيقُ ما قبل النشر</div>
     <div class="council">
       <div class="top"><span class="who" id="cWho"></span><span class="stat" id="cStat"></span></div>
       <div class="verdict" id="cVerdict"></div>
@@ -278,7 +324,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
   </div>
 
   <div id="duaWrap" style="display:none">
-    <div class="sec-h">🤲 الدُّعاء</div>
+    <div class="sec-h">الدُّعاء</div>
     <div class="dua-wrap">
       <div class="dua-top"></div>
       <div class="dua-hd">
@@ -291,7 +337,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
   </div>
 
   <div id="gWrap" style="display:none">
-    <div class="sec-h">🎤 قراءة المُستقرِئ</div>
+    <div class="sec-h">قراءةُ المُستقرِئ</div>
     <div class="guest">
       <div class="guest-hd">
         <img class="guest-av" id="gAv" alt="المُستقرِئ">
@@ -310,7 +356,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
   </div>
 
   <div id="fcWrap" style="display:none">
-    <div class="sec-h">📐 تفصيل الاستقراء</div>
+    <div class="sec-h">تفصيلُ الاستقراء</div>
     <div class="fc">
       <div class="fc-top"><span class="fc-h" id="fcH"></span><span class="fc-acc" id="fcAcc"></span></div>
       <div id="sigs"></div>
@@ -320,7 +366,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
     </div>
   </div>
 
-  <div class="sec-h">🔎 البحث الذكي</div>
+  <div class="sec-h">البحثُ الذكي</div>
   <div class="ai">
     <div class="ai-hd">
       <span class="ai-t">🔎 ابحث بلغتك</span>
@@ -350,9 +396,13 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
     </div>
   </div>
 
-  <div class="sec-h">🗞️ الأخبار</div>
+  <div class="sec-h">الأخبار</div>
   <div class="tabs" id="tabs"></div>
   <div class="card" id="feed"><div class="empty">جارِ تحميل الأخبار…</div></div>
+  </div>
+
+  <aside class="col-rail"><div class="rail" id="railHost"></div></aside>
+  </div>
 
   <details class="meth" style="margin-top:16px">
     <summary style="cursor:pointer;font-size:13px;font-weight:700;color:var(--gold-l)">ℹ️ عن سَنَد</summary>
@@ -403,10 +453,15 @@ function ago(iso){
   return `قبل ${Math.floor(hh/24)} ي`;
 }
 const CRIT=["الاتصال","عدالة المصدر","الضبط","عدم الشذوذ","انتفاء العلة"];
-function isnadBar(o){
+function isnadBar(o,g){
   if(!o) return "";
-  return '<div class="isn" title="'+CRIT.map(k=>k+": "+(o[k]||0)).join(" · ")+'">'+
-    CRIT.map(k=>{const v=o[k]||0;return `<i class="${v>=2?'on':v===1?'half':''}"></i>`}).join("")+'</div>';
+  const full=g==="صحيح";
+  const nodes=CRIT.map((k,n)=>{
+    const v=o[k]||0, cls=v>=2?"on":v===1?"half":"";
+    return (n?'<u></u>':'')+`<i class="${cls}"></i>`;
+  }).join("");
+  const tip=CRIT.map(k=>`${k}: ${(o[k]||0)>=2?"تامّ":(o[k]||0)===1?"جزئي":"غائب"}`).join(" ← ");
+  return `<div class="isn${full?" done":""}" title="سلسلة الإسناد — ${tip}">${nodes}</div>`;
 }
 function num(v){
   if(v===undefined||v===null||v==="") return "—";
@@ -440,10 +495,10 @@ function render(){
   if(!DATA) return;
   const cats=DATA.cats||{};
   let list=cur==="الكل"?Object.values(cats).flat():(cats[cur]||[]);
-  feed.innerHTML=list.length?list.map(i=>`
-    <div class="item">
+  feed.innerHTML=list.length?list.map((i,n)=>`
+    <div class="item${n===0&&cur==="الكل"?" lead":""}">
       <a href="${i.link||'#'}" target="_blank" rel="noopener">${i.head}</a>
-      <div class="meta">${badge(i.grade)}${i.score!==undefined?`<span class="badge b-src">${i.score}/7</span>`:""}${i.fa?'<span class="badge b-fa">مترجم عن الفارسية</span>':''}${i.via?'<span class="badge b-x">'+i.via+'</span>':''}${i.x?'<span class="badge b-x">𝕏 مباشر</span>':''}${i.flag?'<span class="badge b-rev">⚖️ '+i.flag+'</span>':''}<span>نقلًا عن ${i.src||"المصدر"}</span>${i.at?`<span>· ${ago(i.at)}</span>`:""}</div>${isnadBar(i.isnad)}
+      <div class="meta">${badge(i.grade)}${i.score!==undefined?`<span class="badge b-src">${i.score}/7</span>`:""}${i.fa?'<span class="badge b-fa">مترجم عن الفارسية</span>':''}${i.via?'<span class="badge b-x">'+i.via+'</span>':''}${i.x?'<span class="badge b-x">𝕏 مباشر</span>':''}${i.flag?'<span class="badge b-rev">⚖️ '+i.flag+'</span>':''}<span>نقلًا عن ${i.src||"المصدر"}</span>${i.at?`<span>· ${ago(i.at)}</span>`:""}</div>${isnadBar(i.isnad,i.grade)}
     </div>`).join(""):'<div class="empty">لا أخبار في هذا القسم حاليًا</div>';
 }
 function tabs(){
@@ -573,6 +628,7 @@ async function load(){
     fcCav.textContent="⚠️ "+(f.caveat||"استقراء احتمالي لا يقين.")+" — تُنشر النِسَب ويُحاسَب النظام عليها في الجولة التالية.";
     fcWrap.style.display="block";
   }catch(e){}
+  layout();
   try{
     const e=await (await fetch(RAW+"evolution.json?t="+Date.now())).json();
     const r=e.runs||[]; if(!r.length) throw 0;
@@ -651,6 +707,20 @@ function cpy(n){
      a.select();try{document.execCommand("copy")}catch(e){}a.remove();
      cp.classList.add("on");setTimeout(()=>cp.classList.remove("on"),1600)});
 }
+function layout(){
+  const rail=document.getElementById("railHost"), main=document.querySelector(".col-main");
+  if(!rail||!main) return;
+  const wide=window.innerWidth>=1040;
+  ["tollWrap","duaWrap"].forEach(id=>{
+    const el=document.getElementById(id); if(!el) return;
+    const want = wide ? rail : main;
+    if(el.parentElement!==want){
+      if(wide) rail.appendChild(el);
+      else main.insertBefore(el, document.querySelector(".sec-h:last-of-type"));
+    }
+  });
+}
+window.addEventListener("resize",()=>{clearTimeout(window._lt);window._lt=setTimeout(layout,180)});
 load(); setInterval(load, 10*60*1000);
 </script>
 </body></html>
