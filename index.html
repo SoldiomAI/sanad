@@ -242,6 +242,17 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .sub h3{font-family:'Amiri',serif;font-size:24px;color:var(--gold-l);text-align:center;line-height:1.5}
 .sub p.lead{font-size:12.5px;color:var(--mut);text-align:center;line-height:2;margin-top:var(--s2);
   max-width:440px;margin-inline:auto}
+.tg{display:flex;align-items:center;gap:var(--s3);margin-top:var(--s3);
+  background:linear-gradient(135deg,rgba(41,171,226,.14),var(--ink-2));
+  border:1px solid rgba(41,171,226,.42);border-radius:6px;padding:18px 20px;
+  text-decoration:none;transition:.18s}
+.tg:hover{border-color:rgba(41,171,226,.85);transform:translateY(-1px);
+  box-shadow:0 6px 22px rgba(41,171,226,.14)}
+.tg-ic{font-size:34px;flex-shrink:0}
+.tg-tx{flex:1;min-width:0}
+.tg-tx b{display:block;font-family:'Noto Kufi Arabic',sans-serif;font-size:16px;color:var(--vellum)}
+.tg-tx span{font-size:11.5px;color:var(--mut);display:block;margin-top:4px}
+.tg-ar{font-size:26px;color:#4FC3F7;flex-shrink:0}
 .chan{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:var(--s2);margin-top:var(--s3)}
 .chan a{display:flex;align-items:center;gap:9px;background:var(--ink-2);border:1px solid var(--border);
   border-radius:5px;padding:13px 14px;text-decoration:none;transition:.16s}
@@ -391,7 +402,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
     <div class="sub">منصة إخبارية ذاتية التطوّر — تُدقّق الخبر قبل نشره، وتستقرئ ما بعده، وحُكمُها مبنيٌّ على خمسة معايير من علم الحديث<br>نشرة مذيع يومية آلية · تغطية حية · أخبار إيران مترجمة عن الفارسية</div>
     <div class="rule"></div>
     <div class="cta">
-      <a class="btn btn-p" href="#subscribe">◉ اشترك في النشرة اليومية</a>
+      <a class="btn btn-p" href="#subscribe">◉ اشترك في النشرة الصوتية</a>
       <a class="btn btn-s" href="#enterprise">للجهات والمؤسسات</a>
     </div>
     <div class="method">
@@ -434,20 +445,13 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
   <div class="sec-h">النشرةُ اليومية</div>
   <div class="sub">
     <h3>تصلُك النشرةُ كلَّ مساء</h3>
-    <p class="lead">نشرةٌ صوتيةٌ ونصّيةٌ بصوت مذيعٍ خليجي، وتحذيراتٌ رسميةٌ فورَ صدورها — مجّانًا وبلا إعلانات.</p>
-    <div class="chan">
-      <a href="https://t.me/sanad_news" target="_blank" rel="noopener">
-        <span class="ic">✈️</span><span class="tx"><b>تلغرام</b><span>النشرةُ والتحذيراتُ فور صدورها</span></span></a>
-      <a href="https://instagram.com/alialthowaikh" target="_blank" rel="noopener">
-        <span class="ic">◎</span><span class="tx"><b>إنستغرام</b><span>ملخّصٌ مصوَّر</span></span></a>
-    </div>
-    <form name="sanad-sub" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="return subOK(this)">
-      <input type="hidden" name="form-name" value="sanad-sub">
-      <p style="display:none"><input name="bot-field"></p>
-      <input type="email" name="email" placeholder="بريدُك الإلكتروني" required>
-      <button type="submit" class="btn btn-p">أرسِلوا لي النشرة</button>
-    </form>
-    <div class="priv" id="subMsg">لن نُرسل إلا النشرة والتحذيرات — ولا نبيع بريدك ولا نشاركه مع أحد.</div>
+    <p class="lead">نشرةٌ صوتيةٌ كاملةٌ بصوتِ مذيعٍ خليجي، ونصُّها مكتوبًا، وتحذيراتٌ رسميةٌ فورَ صدورها — مجّانًا وبلا إعلانات.</p>
+    <a class="tg" href="https://t.me/sanad_news" target="_blank" rel="noopener">
+      <span class="tg-ic">✈️</span>
+      <span class="tg-tx"><b>اشترك عبر تلغرام</b><span>t.me/sanad_news · بضغطةٍ واحدة</span></span>
+      <span class="tg-ar">←</span>
+    </a>
+    <div class="priv">لا حساب · لا بريد · لا بياناتٍ تُجمَع — تفتحُ القناةَ وتشترك.</div>
   </div>
 
   <div id="alertWrap" style="display:none">
@@ -760,8 +764,7 @@ async function load(){
     else{
       a.src=RAW+m.audio+"?t="+Date.now();a.style.display="block";
       try{
-        const g=await grab("gpu");
-        if(g.next){
+        const g=null; if(g&&g.next){
           const mn=Math.max(0,Math.round((new Date(g.next)-Date.now())/60000));
           if(mn>0){
             vnote.textContent = mn>=60
@@ -1104,12 +1107,6 @@ async function net3d(){
   const tot=cats.reduce((a,[,l])=>a+l.length,0);
   document.getElementById("netStat").textContent=
     `${srcs.length} مصدرًا · ${cats.length} أقسام · ${tot} خبرًا`;
-}
-function subOK(f){
-  const m=document.getElementById("subMsg");
-  setTimeout(()=>{ m.textContent="✓ وصلَنا بريدُك — ستصلُك أوّلُ نشرةٍ مساءَ اليوم.";
-    m.style.color="var(--verify-l)"; },400);
-  return true;
 }
 function cpy(n){
   const x=(window.DUA||[])[n]; if(!x) return;
