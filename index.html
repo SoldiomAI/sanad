@@ -206,6 +206,9 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .isn i.on{border-color:var(--verify);background:var(--verify)}
 .isn u{width:14px;height:1px;background:rgba(142,153,169,.3);text-decoration:none;flex-shrink:0}
 .isn.done u{background:rgba(62,155,114,.45)}
+.tstamp{color:var(--gold-l);font-weight:600}
+.tstamp.dim{color:var(--dim);font-weight:400}
+.item.lead .tstamp{font-size:11.5px}
 .b-daif{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.35);color:#fca5a5}
 .b-src{background:rgba(139,148,163,.1);border:1px solid rgba(139,148,163,.28);color:var(--mut)}
 .toll .src{font-size:9.5px;color:var(--dim);margin-top:6px;line-height:1.6;border-top:1px dashed rgba(127,29,29,.3);padding-top:5px}
@@ -463,6 +466,17 @@ if(STUDIO){
 
 function badge(g){return g==="صحيح"?'<span class="badge b-sahih">صحيح ✓</span>'
   :g==="ضعيف الإسناد"?'<span class="badge b-daif">ضعيف الإسناد</span>':'<span class="badge b-hasan">حسن</span>'}
+const AR=["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر"];
+function stamp(iso){
+  if(!iso) return "";
+  const d=new Date(iso); if(isNaN(d)) return "";
+  const t=d.toLocaleTimeString("ar-KW",{hour:"2-digit",minute:"2-digit",hour12:true});
+  const today=new Date(), sameDay=d.toDateString()===today.toDateString();
+  const yst=new Date(today); yst.setDate(today.getDate()-1);
+  if(sameDay) return `اليوم ${t}`;
+  if(d.toDateString()===yst.toDateString()) return `أمس ${t}`;
+  return `${d.getDate()} ${AR[d.getMonth()]} · ${t}`;
+}
 function ago(iso){
   if(!iso) return "";
   const m=Math.floor((Date.now()-new Date(iso))/60000);
@@ -471,6 +485,11 @@ function ago(iso){
   const hh=Math.floor(m/60);
   if(hh<24) return `قبل ${hh} س`;
   return `قبل ${Math.floor(hh/24)} ي`;
+}
+function byTime(a,b){
+  const ta=a.at?new Date(a.at).getTime():0, tb=b.at?new Date(b.at).getTime():0;
+  if(tb!==ta) return tb-ta;                     // الأحدث أولًا
+  return (b.score||0)-(a.score||0);             // ثم الأقوى إسنادًا
 }
 const CRIT=["الاتصال","عدالة المصدر","الضبط","عدم الشذوذ","انتفاء العلة"];
 function isnadBar(o,g){
@@ -514,11 +533,11 @@ function tolls(t){
 function render(){
   if(!DATA) return;
   const cats=DATA.cats||{};
-  let list=cur==="الكل"?Object.values(cats).flat():(cats[cur]||[]);
+  let list=(cur==="الكل"?Object.values(cats).flat():(cats[cur]||[])).slice().sort(byTime);
   feed.innerHTML=list.length?list.map((i,n)=>`
     <div class="item${n===0&&cur==="الكل"?" lead":""}">
       <a href="${i.link||'#'}" target="_blank" rel="noopener">${i.head}</a>
-      <div class="meta">${badge(i.grade)}${i.score!==undefined?`<span class="badge b-src">${i.score}/7</span>`:""}${i.fa?'<span class="badge b-fa">مترجم عن الفارسية</span>':''}${i.via?'<span class="badge b-x">'+i.via+'</span>':''}${i.x?'<span class="badge b-x">𝕏 مباشر</span>':''}${i.flag?'<span class="badge b-rev">⚖️ '+i.flag+'</span>':''}<span>نقلًا عن ${i.src||"المصدر"}</span>${i.at?`<span>· ${ago(i.at)}</span>`:""}</div>${isnadBar(i.isnad,i.grade)}
+      <div class="meta">${badge(i.grade)}${i.score!==undefined?`<span class="badge b-src">${i.score}/7</span>`:""}${i.fa?'<span class="badge b-fa">مترجم عن الفارسية</span>':''}${i.via?'<span class="badge b-x">'+i.via+'</span>':''}${i.x?'<span class="badge b-x">𝕏 مباشر</span>':''}${i.flag?'<span class="badge b-rev">⚖️ '+i.flag+'</span>':''}<span>نقلًا عن ${i.src||"المصدر"}</span>${i.at?`<span class="tstamp" title="${new Date(i.at).toLocaleString("ar-KW")}">🕐 ${stamp(i.at)}</span><span>· ${ago(i.at)}</span>`:'<span class="tstamp dim">وقتٌ غير معلن</span>'}</div>${isnadBar(i.isnad,i.grade)}
     </div>`).join(""):'<div class="empty">لا أخبار في هذا القسم حاليًا</div>';
 }
 function tabs(){
@@ -742,7 +761,7 @@ async function showArc(id){
     const all=Object.entries(s.cats||{});
     arcBody.innerHTML=`<div class="sec-h">${id.slice(0,10)} — ${id.slice(11,13)}:${id.slice(13,15)}</div>`+
       all.map(([c,l])=>`<div class="card"><div class="arc-t" style="margin-bottom:8px;color:var(--gold-l)">${c}</div>`+
-        l.map(i=>`<div class="item"><a href="${i.link||'#'}" ${i.link?'target="_blank" rel="noopener"':''}>${i.head}</a>
+        l.slice().sort(byTime).map(i=>`<div class="item"><a href="${i.link||'#'}" ${i.link?'target="_blank" rel="noopener"':''}>${i.head}</a>
           <div class="meta">${badge(i.grade)}<span>نقلًا عن ${i.src||"المصدر"}</span></div></div>`).join("")+`</div>`).join("");
     arcBody.scrollIntoView({behavior:"smooth",block:"start"});
   }catch(e){ arcBody.innerHTML='<div class="arc-n">تعذّر فتح اللقطة.</div>' }
