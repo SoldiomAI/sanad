@@ -287,6 +287,25 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .btn-s{background:transparent;border-color:rgba(201,162,39,.45);color:var(--gold-l)}
 .btn-s:hover{border-color:var(--gold);background:rgba(201,162,39,.08)}
 /* ── الاشتراك ── */
+.player{background:linear-gradient(150deg,rgba(201,162,39,.09),var(--ink-2));
+  border:1px solid rgba(201,162,39,.32);border-radius:8px;padding:14px 16px;margin-top:10px;
+  display:flex;align-items:center;gap:14px}
+.pl-btn{width:52px;height:52px;border-radius:50%;flex-shrink:0;cursor:pointer;border:none;
+  background:linear-gradient(135deg,var(--gold),var(--gold-d));color:var(--ink);
+  font-size:20px;display:grid;place-items:center;transition:.18s}
+.pl-btn:hover{filter:brightness(1.12);transform:scale(1.04)}
+.pl-mid{flex:1;min-width:0}
+.pl-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:7px;
+  font-family:'Noto Kufi Arabic',sans-serif}
+.pl-top b{font-size:12.5px;color:var(--vellum)}
+.pl-top span{font-size:10.5px;color:var(--mut);font-variant-numeric:tabular-nums}
+.pl-bar{height:5px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden;cursor:pointer}
+.pl-bar i{display:block;height:100%;width:0;border-radius:3px;
+  background:linear-gradient(90deg,var(--gold-d),var(--gold-l));transition:width .18s linear}
+.pl-wave{display:flex;align-items:flex-end;gap:2px;height:22px;margin-top:7px}
+.pl-wave u{flex:1;background:rgba(201,162,39,.28);border-radius:1px;text-decoration:none;height:22%}
+.pl-wave.on u{animation:wv .9s ease-in-out infinite}
+@keyframes wv{0%,100%{height:22%}50%{height:88%}}
 .sub{background:linear-gradient(155deg,rgba(201,162,39,.09),var(--card));border:1px solid rgba(201,162,39,.34);
   border-radius:6px;padding:var(--s4) var(--s3);margin:var(--s3) 0}
 .sub h3{font-family:'Amiri',serif;font-size:24px;color:var(--gold-l);text-align:center;line-height:1.5}
@@ -463,7 +482,15 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
   <div class="card">
     <div class="bdate">🎙️ نشرة اليوم — <span id="bdate"></span></div>
     <video id="v" style="display:none" controls playsinline></video>
-    <audio id="a" style="display:none" controls></audio>
+    <div class="player" id="plr" style="display:none">
+      <button class="pl-btn" id="plBtn" aria-label="تشغيل">▶</button>
+      <div class="pl-mid">
+        <div class="pl-top"><b>نشرةُ سَنَد الصوتية</b><span id="plTime">٠٠:٠٠</span></div>
+        <div class="pl-bar" id="plBar"><i id="plFill"></i></div>
+        <div class="pl-wave" id="plWave"><u style="animation-delay:0ms"></u><u style="animation-delay:70ms"></u><u style="animation-delay:140ms"></u><u style="animation-delay:210ms"></u><u style="animation-delay:280ms"></u><u style="animation-delay:350ms"></u><u style="animation-delay:420ms"></u><u style="animation-delay:490ms"></u><u style="animation-delay:560ms"></u><u style="animation-delay:630ms"></u><u style="animation-delay:700ms"></u><u style="animation-delay:770ms"></u><u style="animation-delay:840ms"></u><u style="animation-delay:910ms"></u><u style="animation-delay:980ms"></u><u style="animation-delay:1050ms"></u><u style="animation-delay:1120ms"></u><u style="animation-delay:1190ms"></u><u style="animation-delay:1260ms"></u><u style="animation-delay:1330ms"></u><u style="animation-delay:1400ms"></u><u style="animation-delay:1470ms"></u><u style="animation-delay:1540ms"></u><u style="animation-delay:1610ms"></u><u style="animation-delay:1680ms"></u><u style="animation-delay:1750ms"></u><u style="animation-delay:1820ms"></u><u style="animation-delay:1890ms"></u></div>
+      </div>
+    </div>
+    <audio id="a" style="display:none"></audio>
     <div id="vnote" class="note" style="display:none;text-align:right;margin-top:8px"></div>
     <span class="toggle" onclick="s.style.display=s.style.display==='none'?'block':'none'">📜 نص النشرة</span>
     <div class="script" id="s" style="display:none"></div>
@@ -996,6 +1023,8 @@ async function load(){
       `<span class="${r.r==='وقع'?'y':r.r==='جزئيًا'?'p':''}">${r.r}: ${(r.s||'').slice(0,34)}…</span>`).join("");
     fcCav.textContent="⚠️ "+(f.caveat||"استقراء احتمالي لا يقين.")+" — تُنشر النِسَب ويُحاسَب النظام عليها في الجولة التالية.";
     fcWrap.style.display="block";
+    try{ const _p=document.getElementById("plr"), _a=document.getElementById("a");
+      if(_p&&_a&&_a.src) _p.style.display="flex"; }catch(e){}
   }catch(e){}
   try{ layout() }catch(e){}
   try{ net3d() }catch(e){}
@@ -1207,6 +1236,32 @@ async function net3d(){
   document.getElementById("netStat").textContent=
     `${srcs.length} مصدرًا · ${cats.length} أقسام · ${tot} خبرًا`;
 }
+(function player(){
+  const A=()=>document.getElementById("a");
+  const two=n=>String(Math.floor(n)).padStart(2,"0").replace(/[0-9]/g,d=>"٠١٢٣٤٥٦٧٨٩"[d]);
+  const fmt=s=>isNaN(s)?"٠٠:٠٠":two(s/60)+":"+two(s%60);
+  document.addEventListener("click",e=>{
+    if(e.target.closest("#plBtn")){
+      const a=A(); if(!a||!a.src) return;
+      if(a.paused){a.play()}else{a.pause()}
+    }
+    const bar=e.target.closest("#plBar");
+    if(bar){ const a=A(); if(!a||!a.duration) return;
+      const r=bar.getBoundingClientRect();
+      a.currentTime = (1-(e.clientX-r.left)/r.width)*a.duration;   // RTL
+    }
+  });
+  setInterval(()=>{
+    const a=A(); if(!a) return;
+    const btn=document.getElementById("plBtn"), fill=document.getElementById("plFill"),
+          t=document.getElementById("plTime"), w=document.getElementById("plWave");
+    if(!btn) return;
+    btn.textContent = a.paused ? "▶" : "❚❚";
+    w.classList.toggle("on", !a.paused);
+    if(a.duration){ fill.style.width=(a.currentTime/a.duration*100)+"%";
+      t.textContent = fmt(a.duration - a.currentTime); }
+  },200);
+})();
 function cpy(n){
   const x=(window.DUA||[])[n]; if(!x) return;
   const t=x.t+"\n\n— "+x.s+"\n\nسَنَد | isnad.news";
@@ -1234,4 +1289,4 @@ function layout(){
 window.addEventListener("resize",()=>{clearTimeout(window._lt);window._lt=setTimeout(layout,180)});
 load(); setInterval(load, 10*60*1000);
 </script>
-<!--b:200818--></body></html>
+</body></html>
