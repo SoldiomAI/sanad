@@ -213,7 +213,7 @@ if fa_items and GEMINI_KEY:
     except Exception as e:
         print(f"ترجمة إيران عبر المسار الأول فشلت: {str(e)[:60]} — تحويل للاحتياطي")
         try:
-            body={"model":"grok-4.5","input":[{"role":"user","content":
+            body={"model":os.environ.get("GROK_MODEL","grok-4.3"),"input":[{"role":"user","content":
                 "ترجم هذه العناوين من الفارسية إلى العربية الصحفية ترجمةً أمينة. "
                 'أخرج JSON فقط: [{"n":الرقم,"h":"العنوان العربي"}]\n'+lst}],
                 "max_output_tokens":2200}
@@ -284,7 +284,7 @@ def grok_intel():
        "فاكتب في src: تقدير صحفي غير رسمي.\n"
        "٤ عناوين عاجلة كحد أقصى من حسابات موثقة خلال ٦ ساعات. أرقام موثقة فقط وإلا «غير مؤكد». "
        "لا تستخدم علامة تنصيص مزدوجة داخل النصوص. لا شيء خارج JSON.")
-    body={"model":"grok-4.5","input":[{"role":"user","content":P}],
+    body={"model":os.environ.get("GROK_MODEL","grok-4.3"),"input":[{"role":"user","content":P}],
         "tools":[{"type":"web_search"},{"type":"x_search"}],
         "max_output_tokens":6000,"max_tool_calls":14}
     try:
@@ -470,7 +470,7 @@ def mustaqri():
        '"caveat":"تحذير صريح بأن هذا استقراء احتمالي لا يقين"}\n'
        "٣ سيناريوهات كحد أقصى ومجموع نسبها ١٠٠. لا تستخدم علامة تنصيص مزدوجة داخل النصوص. "
        "لا تذكر أسماء نماذج أو شركات. لا شيء خارج JSON.")
-    body={"model":"grok-4.5","input":[{"role":"user","content":P}],
+    body={"model":os.environ.get("GROK_MODEL","grok-4.3"),"input":[{"role":"user","content":P}],
         "tools":[{"type":"web_search"},{"type":"x_search"}],
         "max_output_tokens":3200,"max_tool_calls":7}
     try:
@@ -532,7 +532,7 @@ def manba():
        '"h":"@الحساب","p":"نص البيان بإيجاز","t":"الوقت التقريبي","u":"رابط المنشور"}]\n'
        "إن لم تجد منشورًا حديثًا لجهة فاحذفها من القائمة. "
        "لا تستخدم علامة تنصيص مزدوجة داخل النصوص. لا شيء خارج JSON.")
-    body={"model":"grok-4.5","input":[{"role":"user","content":P}],
+    body={"model":os.environ.get("GROK_MODEL","grok-4.3"),"input":[{"role":"user","content":P}],
         "tools":[{"type":"x_search"},{"type":"web_search"}],
         "max_output_tokens":2600,"max_tool_calls":6}
     try:
@@ -578,7 +578,7 @@ def mutabiq():
        "كن صارمًا: إن لم تجد مصدرًا مستقلًا فاكتب غير موثّق. "
        "لا تستخدم علامة تنصيص مزدوجة داخل النصوص. لا شيء خارج JSON.")
     try:
-        body={"model":"grok-4.5","input":[{"role":"user","content":P}],
+        body={"model":os.environ.get("GROK_MODEL","grok-4.3"),"input":[{"role":"user","content":P}],
             "tools":[{"type":"web_search"}],"max_output_tokens":2200,"max_tool_calls":6}
         req=urllib.request.Request("https://api.x.ai/v1/responses",data=json.dumps(body).encode(),
             headers={"Authorization":"Bearer "+GROK_KEY,"Content-Type":"application/json"})
