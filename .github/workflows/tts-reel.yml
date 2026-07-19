@@ -1,0 +1,31 @@
+name: 🎙️ صوت الريل
+on: {workflow_dispatch: {inputs: {text: {description: النص, required: true}}}}
+permissions: {contents: write}
+jobs:
+  tts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -q edge-tts
+      - name: توليد
+        run: |
+          python3 - <<'EOF'
+          import asyncio, edge_tts, os
+          T = os.environ["TXT"]
+          async def go():
+              c = edge_tts.Communicate(T, "ar-KW-FahedNeural", rate="-4%")
+              await c.save("reel.mp3")
+          asyncio.run(go())
+          print("bytes:", os.path.getsize("reel.mp3"))
+          EOF
+        env:
+          TXT: ${{ inputs.text }}
+      - name: حفظ
+        run: |
+          mkdir -p daily/reel && mv reel.mp3 daily/reel/vo.mp3
+          git config user.name sanad-bot; git config user.email bot@sanad.news
+          git add daily/reel/vo.mp3
+          git commit -m "🎙️ صوت الريل [skip ci]" || exit 0
+          for i in 1 2 3; do git pull -q --rebase --autostash origin main && git push -q && exit 0; sleep 5; done
