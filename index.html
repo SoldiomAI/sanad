@@ -12,7 +12,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ar_KW">
 <meta property="og:site_name" content="سَنَد">
-<meta property="og:url" content="https://sanad-sovereign-news-intelligence.netlify.app">
+<meta property="og:url" content="https://isnad.news">
+<link rel="canonical" href="https://isnad.news">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="سَنَد | منصةُ الأخبارِ المُسنَدة">
 <meta name="twitter:description" content="لكلِّ خبرٍ درجةُ إسنادٍ ومصدرٌ معروض">
@@ -1097,7 +1098,7 @@ function subOK(f){
 }
 function cpy(n){
   const x=(window.DUA||[])[n]; if(!x) return;
-  const t=x.t+"\n\n— "+x.s+"\n\nسَنَد | sanad-sovereign-news-intelligence.netlify.app";
+  const t=x.t+"\n\n— "+x.s+"\n\nسَنَد | isnad.news";
   (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject())
    .then(()=>{cp.classList.add("on");setTimeout(()=>cp.classList.remove("on"),1600)})
    .catch(()=>{const a=document.createElement("textarea");a.value=t;document.body.appendChild(a);
