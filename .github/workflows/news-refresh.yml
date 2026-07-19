@@ -22,6 +22,8 @@ jobs:
       - name: تحديث الأخبار وتشغيل الوكلاء
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL: ${{ secrets.TELEGRAM_CHANNEL }}
           GROK_API_KEY: ${{ secrets.GROK_API_KEY }}
           GEMINI_CLI_TRUST_WORKSPACE: "true"
           NEWS_ONLY: "1"
