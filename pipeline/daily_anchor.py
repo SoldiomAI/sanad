@@ -104,6 +104,24 @@ def save_agents():
         open(AGENTS_F,"w"),ensure_ascii=False,indent=1)
     print(f"🤖 طبقة الوكلاء: {ran} عمل الآن · {ok}/{len(out)} سليم · النوبة {SLOT}")
 
+def bill(d,who):
+    """يسجّل التكلفة الفعلية من رد الـAPI."""
+    day=datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    try:
+        usd=d.get("usage",{}).get("cost_in_usd_ticks",0)/1e10
+        if not usd: return 0
+        try: c=json.load(open(f"{OUT}/cost.json"))
+        except Exception: c={"day":day,"usd":0,"calls":0,"by":{}}
+        if c.get("day")!=day: c={"day":day,"usd":0,"calls":0,"by":{}}
+        c["usd"]=round(c.get("usd",0)+usd,4); c["calls"]=c.get("calls",0)+1
+        c["by"][who]=round(c["by"].get(who,0)+usd,4)
+        c["month_est"]=round(c["usd"]*30,2)
+        json.dump(c,open(f"{OUT}/cost.json","w"),ensure_ascii=False,indent=1)
+        print(f"💵 {who}: ${usd:.4f} · اليوم ${c['usd']:.3f} ({c['calls']} نداء) · الشهر ~${c['month_est']}")
+        return usd
+    except Exception as e:
+        print(f"تسجيل التكلفة تعذّر: {str(e)[:60]}"); return 0
+
 OFFICIAL_HANDLES=set()
 try:
     OFFICIAL_HANDLES={x.get("h","").lower().lstrip("@") for x in json.load(open(f"{OUT}/official.json")).get("src",[])}
@@ -286,7 +304,7 @@ def grok_intel():
        "لا تستخدم علامة تنصيص مزدوجة داخل النصوص. لا شيء خارج JSON.")
     body={"model":os.environ.get("GROK_MODEL","grok-4.3"),"input":[{"role":"user","content":P}],
         "tools":[{"type":"web_search"},{"type":"x_search"}],
-        "max_output_tokens":6000,"max_tool_calls":14}
+        "max_output_tokens":3000,"max_tool_calls":5}
     try:
         req=urllib.request.Request("https://api.x.ai/v1/responses",data=json.dumps(body).encode(),
             headers={"Authorization":"Bearer "+GROK_KEY,"Content-Type":"application/json"})
@@ -298,7 +316,8 @@ def grok_intel():
             print(f"Grok رد فارغ (status={d.get('status')} {d.get('incomplete_details')})"); return old
         j=json.loads(txt[txt.find("{"):txt.rfind("}")+1]); j["updated"]=datetime.now(timezone.utc).isoformat(timespec="minutes")
         json.dump(j,open(INTEL,"w"),ensure_ascii=False,indent=1)
-        print(f"🛰️ Grok: {len(j.get('toll',[]))} دول · {len(j.get('brk',[]))} عاجل · {d['usage']['total_tokens']} توكن")
+        bill(d,"الرَّاصِد")
+        print(f"🛰️ الرَّاصِد: {len(j.get('toll',[]))} دول · {len(j.get('brk',[]))} عاجل")
         return j
     except Exception as e:
         print(f"Grok فشل: {str(e)[:100]}"); return old
@@ -472,7 +491,7 @@ def mustaqri():
        "لا تذكر أسماء نماذج أو شركات. لا شيء خارج JSON.")
     body={"model":os.environ.get("GROK_MODEL","grok-4.3"),"input":[{"role":"user","content":P}],
         "tools":[{"type":"web_search"},{"type":"x_search"}],
-        "max_output_tokens":3200,"max_tool_calls":7}
+        "max_output_tokens":3000,"max_tool_calls":4}
     try:
         req=urllib.request.Request("https://api.x.ai/v1/responses",data=json.dumps(body).encode(),
             headers={"Authorization":"Bearer "+GROK_KEY,"Content-Type":"application/json"})
@@ -500,6 +519,7 @@ def mustaqri():
         "acc":round((hit+part*0.5)/max(len(hist),1)*100)}
     j["updated"]=datetime.now(timezone.utc).isoformat(timespec="minutes")
     json.dump(j,open(FCAST,"w"),ensure_ascii=False,indent=1)
+    bill(d,"المُستقرِئ")
     print("🔮 الاستقراء: %d سيناريو · %d إشارة · دقة تراكمية %d%% (%d سابقة)"%(
         len(j.get("scenarios",[])),len(j.get("signals",[])),j["score"]["acc"],len(hist)))
 
@@ -534,7 +554,7 @@ def manba():
        "لا تستخدم علامة تنصيص مزدوجة داخل النصوص. لا شيء خارج JSON.")
     body={"model":os.environ.get("GROK_MODEL","grok-4.3"),"input":[{"role":"user","content":P}],
         "tools":[{"type":"x_search"},{"type":"web_search"}],
-        "max_output_tokens":2600,"max_tool_calls":6}
+        "max_output_tokens":2600,"max_tool_calls":4}
     try:
         req=urllib.request.Request("https://api.x.ai/v1/responses",data=json.dumps(body).encode(),
             headers={"Authorization":"Bearer "+GROK_KEY,"Content-Type":"application/json"})
@@ -550,7 +570,8 @@ def manba():
         merged=list(keep.values())[-14:]
         json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"src":merged},
             open(OFFI,"w"),ensure_ascii=False,indent=1)
-        print("📡 المَنبع: +%d جهة (المجموع %d) · %d توكن"%(len(lst),len(merged),d["usage"]["total_tokens"]))
+        bill(d,"المَنبع")
+        print("📡 المَنبع: +%d جهة (المجموع %d)"%(len(lst),len(merged)))
     except Exception as e:
         print("المَنبع تخطّى: "+str(e)[:90])
 
@@ -579,7 +600,7 @@ def mutabiq():
        "لا تستخدم علامة تنصيص مزدوجة داخل النصوص. لا شيء خارج JSON.")
     try:
         body={"model":os.environ.get("GROK_MODEL","grok-4.3"),"input":[{"role":"user","content":P}],
-            "tools":[{"type":"web_search"}],"max_output_tokens":2200,"max_tool_calls":6}
+            "tools":[{"type":"web_search"}],"max_output_tokens":2000,"max_tool_calls":4}
         req=urllib.request.Request("https://api.x.ai/v1/responses",data=json.dumps(body).encode(),
             headers={"Authorization":"Bearer "+GROK_KEY,"Content-Type":"application/json"})
         d=json.load(urllib.request.urlopen(req,timeout=300))
@@ -591,6 +612,7 @@ def mutabiq():
         json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),
             "src_updated":t.get("updated"),"matched":ok,"total":len(lst),"rows":lst},
             open(f"{OUT}/verify.json","w"),ensure_ascii=False,indent=1)
+        bill(d,"المُطابِق")
         print("🔍 المُطابِق: %d/%d رقمًا مطابقًا لمصدر مستقل"%(ok,len(lst)))
     except Exception as e:
         print("المُطابِق تخطّى: "+str(e)[:80])
@@ -827,6 +849,7 @@ def gen(ap,vp):
 # ═══ إنتاج الفيديو: قابل للاستئناف وواعٍ بالحصة ═══
 SEG=f"{OUT}/seg"; os.makedirs(SEG,exist_ok=True)
 GPU=f"{OUT}/gpu.json"
+
 
 def gpu_state():
     try: return json.load(open(GPU))
