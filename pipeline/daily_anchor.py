@@ -12,11 +12,27 @@ FEEDS=[("الخليج","https://news.google.com/rss/search?q=%D8%A7%D9%84%D9%83%
        ("فلسطين","https://news.google.com/rss/search?q=%D8%BA%D8%B2%D8%A9+OR+%D9%81%D9%84%D8%B3%D8%B7%D9%8A%D9%86&hl=ar&gl=KW&ceid=KW:ar"),
        ("عالم","https://news.google.com/rss/headlines/section/topic/WORLD?hl=ar&gl=KW&ceid=KW:ar"),
        ("تقنية","https://news.google.com/rss/search?q=%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1+%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A&hl=ar&gl=KW&ceid=KW:ar"),
+       ("تقنية","https://news.google.com/rss/search?q=%22%D9%86%D9%85%D9%88%D8%B0%D8%AC+%D9%85%D9%81%D8%AA%D9%88%D8%AD+%D8%A7%D9%84%D9%85%D8%B5%D8%AF%D8%B1%22+OR+%22%D8%A5%D8%B5%D8%AF%D8%A7%D8%B1+%D9%86%D9%85%D9%88%D8%B0%D8%AC%22&hl=ar&ceid=KW:ar"),
+       ("تقنية","https://huggingface.co/blog/feed.xml"),
+       ("تقنية","https://openai.com/blog/rss.xml"),
+       ("تقنية","https://deepmind.google/blog/rss.xml"),
+       ("تقنية","https://blog.google/technology/ai/rss/"),
        ("اقتصاد","https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=ar&gl=KW&ceid=KW:ar"),
        ("إيران","https://feeds.bbci.co.uk/persian/rss.xml"),
        ("إيران","https://www.iranintl.com/feed")]
 
 # مصادر إيران: الاسم المعتمد وهوية الجهة — تُعرض للقارئ صراحةً
+EN_SRC={
+ "huggingface.co":("هَغِنغ فيس","منصّة النماذج المفتوحة"),
+ "openai.com":("أوبن إيه آي","مختبر أبحاث"),
+ "deepmind.google":("ديب مايند","مختبر أبحاث — غوغل"),
+ "blog.google":("مدونة غوغل","شركة"),
+}
+def en_meta(url):
+    for k,v in EN_SRC.items():
+        if k in url: return v
+    return (None,None)
+
 FA_SRC={
  "feeds.bbci.co.uk":("بي بي سي فارسي","هيئة بث بريطانية عامة"),
  "iranintl.com":("إيران إنترناشونال","قناة فارسية مقرّها لندن"),
@@ -274,7 +290,9 @@ for label,url in FEEDS:
             title=clean(it.findtext("title","")); src_=title.rsplit(" - ",1)[-1] if " - " in title else ""
             head=title.rsplit(" - ",1)[0] if " - " in title else title
             is_fa = label=="إيران"
-            g="حسن" if is_fa else grade(src_ or clean(it.findtext("source","")))
+            _en_nm,_en_who = en_meta(url)
+            is_en = bool(_en_nm)
+            g="حسن" if (is_fa or is_en) else grade(src_ or clean(it.findtext("source","")))
             key=head[:40]
             if g in ("صحيح","حسن") and len(head)>15 and key not in seen and not blocked(head):
                 seen.add(key)
@@ -292,6 +310,8 @@ for label,url in FEEDS:
                    "link":clean(it.findtext("link","")),"fa":is_fa}
                 if is_fa:
                     nm,who=fa_meta(url); d["src"]=nm; d["via"]=who
+                elif is_en:
+                    d["src"]=_en_nm; d["via"]=_en_who; d["en"]=True
                 items.append(d); n+=1
                 if n>=6: break
     except Exception as e: print(f"feed {label}: {e}",file=sys.stderr)
@@ -338,6 +358,24 @@ if fa_items and GEMINI_KEY:
             print(f"الاحتياطي فشل أيضًا: {str(e2)[:60]}"); mark("turjuman","fail",str(e2)[:60])
             items=[i for i in items if not i.get("fa")]
 
+# ═══ ترجمة العناوين التقنية الإنجليزية ═══
+en_items=[i for i in items if i.get("en")]
+if en_items and GEMINI_KEY:
+    try:
+        lst="\n".join(f"{n}| {i['head']}" for n,i in enumerate(en_items))
+        out=gemini_json("ترجم عناوين أخبار الذكاء الاصطناعي هذه إلى العربية التقنية الدقيقة. "
+            "احتفظ بأسماء النماذج والشركات كما هي بالإنجليزية داخل النص العربي "
+            "(مثال: أطلقت Meta نموذج Llama 4 مفتوح المصدر). "
+            "ترجمة أمينة بلا تهويل ولا اختصار.\n"
+            'أخرج JSON فقط: [{"n":الرقم,"h":"العنوان العربي"}]\n'+lst)
+        for o in out:
+            en_items[o["n"]]["head"]=o["h"]
+        print(f"🌐 تُرجم {len(out)} عنوانًا تقنيًا")
+        mark("turjuman","ok",f"{len(out)} تقني")
+    except Exception as e:
+        print(f"ترجمة التقنية فشلت: {str(e)[:70]}")
+        items=[i for i in items if not i.get("en")]
+
 # ═══ خريطة الأخبار الكاملة للمنصة ═══
 _rr=0
 _would=[i for i in items if blocked(i["head"])]
@@ -353,7 +391,7 @@ if _rr: print(f"🧭 أعاد النظام توجيه {_rr} خبرًا وفق ق
 
 cats={}
 for i in items:
-    cats.setdefault(i["cat"],[]).append({k:i[k] for k in ("head","src","grade","link","fa","at") if k in i}
+    cats.setdefault(i["cat"],[]).append({k:i[k] for k in ("head","src","grade","link","fa","at","en") if k in i}
         | ({"via":i["via"]} if i.get("via") else {}))
 json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"cats":cats},
     open(f"{OUT}/news.json","w"),ensure_ascii=False,indent=1)
