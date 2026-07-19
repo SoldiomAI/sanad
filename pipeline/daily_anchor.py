@@ -450,7 +450,7 @@ def grok_intel():
 
         # ① دمج أرقام الذخائر السابقة إن غابت الآن
         try:
-            pm={t.get("c"):t for t in (old or {}).get("toll",[])}
+            pm={t.get("c"):t for t in (locals().get("ref") or old or {}).get("toll",[])}
             for t in j.get("toll",[]):
                 p=pm.get(t.get("c")) or {}
                 for k in ("mis","drn","itc","src","u","asof"):
@@ -464,9 +464,18 @@ def grok_intel():
         except Exception: pass
 
         # ② حارس: لا تُستبدل حصيلة فيها أرقام بأخرى فارغة
-        if old and old.get("toll") and _numc(j.get("toll",[])) < _numc(old["toll"])*0.5:
-            print(f"🛡️ الحصيلة الجديدة أضعف ({_numc(j.get('toll',[]))} مقابل {_numc(old['toll'])}) — أُبقيت السابقة")
-            return old
+        # مرجع الجودة: الأفضل بين المحلي والمنشور
+        ref=old
+        try:
+            pub=json.load(urllib.request.urlopen(
+                "https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/intel.json",timeout=25))
+            if _numc(pub.get("toll",[])) > _numc((old or {}).get("toll",[])): ref=pub
+        except Exception: pass
+        new_n=_numc(j.get("toll",[])); ref_n=_numc((ref or {}).get("toll",[]))
+        if ref and ref.get("toll") and new_n < max(3,ref_n*0.7):
+            print(f"🛡️ الحصيلة الجديدة أضعف ({new_n} مقابل {ref_n}) — أُبقيت الأقوى")
+            json.dump(ref,open(INTEL,"w"),ensure_ascii=False,indent=1)
+            return ref
 
         # ③ سجل التصحيحات
         try:
