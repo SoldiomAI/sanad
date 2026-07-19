@@ -1,0 +1,40 @@
+name: 🎬 استئناف الفيديو
+on:
+  schedule:
+    - cron: '25 * * * *'
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: sanad-daily
+  cancel-in-progress: false
+jobs:
+  resume:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: sudo apt-get install -y -q ffmpeg
+      - run: pip install -q edge-tts gradio_client
+      - name: استئناف مقاطع الفيديو الناقصة
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          VIDEO_ONLY: "1"
+          SKIP_COUNCIL: "1"
+        run: python pipeline/daily_anchor.py
+      - name: حفظ
+        if: always()
+        run: |
+          git config user.name "sanad-bot"
+          git config user.email "bot@sanad.news"
+          git add daily/
+          git diff --cached --quiet && exit 0
+          git commit -m "🎬 استئناف الفيديو $(date -u +%H:%M) [skip ci]"
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash origin main && git push && exit 0
+            sleep $((i*6))
+          done
+          exit 1
