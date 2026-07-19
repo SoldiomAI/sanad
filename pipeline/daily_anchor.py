@@ -894,9 +894,10 @@ def gemini_script():
         f"3) صدّر كل خبر بدرجته حرفيًا: «خبرٌ صحيحٌ مؤكَّد:» للصحيح و«خبرٌ حسنٌ من مصدرٍ معتبَر:» للحسن.\n"
         f"4) اذكر المصدر بصيغة «نقلًا عن …».\n5) جمل قصيرة (يُفضَّل ≤ ٦٥ حرفًا للجملة) تناسب القراءة الصوتية.\n"
         f"6) لا تُضِف أي معلومة غير موجودة في العناوين. لا رموز، لا نجوم، لا إنجليزي.\n"
-        f"7) النشرة كاملة ١٦٠–٢٤٠ كلمة تغطي كل العناوين المعطاة.\n\nالعناوين:\n{heads}\n\nأخرج نص النشرة فقط.")
+        f"7) النشرة كاملة ٣٥٠–٤٥٠ كلمة تغطي كل العناوين المعطاة بترتيب الأهمية، "
+        f"مع جملة ربط قصيرة بين المحاور (الأزمة ثم الخليج ثم التقنية).\n\nالعناوين:\n{heads}\n\nأخرج نص النشرة فقط.")
     body={"contents":[{"parts":[{"text":prompt}]}],
-          "generationConfig":{"maxOutputTokens":1600,"temperature":0.4,"thinkingConfig":{"thinkingBudget":0}}}
+          "generationConfig":{"maxOutputTokens":2600,"temperature":0.4,"thinkingConfig":{"thinkingBudget":0}}}
     try:
         req=urllib.request.Request(
             f"https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key={GEMINI_KEY}",
@@ -922,7 +923,7 @@ else:
 open(f"{OUT}/script-{today}.txt","w").write(full); print("SCRIPT:",full)
 json.dump({"date":today,"script":full,
     "audio":f"bulletin-{today}.mp3","video":"latest.mp4",
-    "items":[{"head":i["head"],"src":i["src"],"grade":i["grade"]} for i in items[:8]]},
+    "items":[{"head":i["head"],"src":i["src"],"grade":i["grade"]} for i in items[:12]]},
     open(f"{OUT}/latest.json","w"),ensure_ascii=False,indent=1)
 
 # جُمل ≤٦٥ حرفًا (≈ ≤٤.٧ ثانية = تحت سقف الـ٥ث)
@@ -1025,6 +1026,13 @@ def gen(ap,vp):
     v=r[0] if isinstance(r,(list,tuple)) else r
     if isinstance(v,dict): v=v.get("video") or v.get("path")
     shutil.copy(v,vp)
+
+# ═══ النسخة الأولى: صوتٌ فقط — الفيديو مؤجَّل ═══
+if not os.environ.get("ENABLE_VIDEO"):
+    mark("rawi","ok","نشرة صوتية")
+    bundle(); broadcast_bulletin(); broadcast_alerts(); save_agents()
+    print("🎙️ النشرة الصوتية جاهزة — الفيديو معطَّل في هذه النسخة")
+    sys.exit(0)
 
 # ═══ إنتاج الفيديو: قابل للاستئناف وواعٍ بالحصة ═══
 SEG=f"{OUT}/seg"; os.makedirs(SEG,exist_ok=True)
