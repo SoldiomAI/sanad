@@ -49,6 +49,7 @@ AGENTS=[
  ("mutabiq","المُطابِق","🔍","يقابل أرقام الحصيلة بمصادر مستقلة"),
  ("manba","المَنبع","📡","ينقل البيانات الرسمية عن الجهات مباشرة"),
  ("munabbih","المُنبِّه","⚠️","يجمع تحذيرات الجهات وتوجيهاتها للمواطن"),
+ ("muhsi","المُحصي","🎯","ينقل أعداد الذخائر عن وزارات الدفاع مباشرة"),
  ("turjuman","التَّرْجُمَان","🗣️","ينقل الخبر الفارسي إلى العربية ترجمةً أمينة"),
  ("mudaqqiq","المُدقِّق","⚖️","يراجع المواد ويستبعد ما لا يصلح للنشر"),
  ("musannif","المُصنِّف","🧬","يطوّر قواعد الفرز بعد كل جولة"),
@@ -845,6 +846,94 @@ def munabbih():
         print("المُنبِّه تخطّى: "+str(e)[:90])
 
 munabbih()
+
+# ═══ المُحصي: أعداد الذخائر نقلًا عن وزارات الدفاع مباشرة ═══
+MODF=f"{OUT}/mod.json"
+
+@agent("muhsi")
+def muhsi():
+    """ينقل أعداد الصواريخ والمسيّرات عن الجهات العسكرية الرسمية نفسها."""
+    try:
+        old=json.load(open(MODF))
+        age=(datetime.now(timezone.utc)-datetime.fromisoformat(old["updated"])).total_seconds()/3600
+    except Exception: old,age=None,999
+    if age<6 and not os.environ.get("FORCE_MOD"):
+        print(f"⏱️ المُحصي: يعمل بعد ~{max(0,round(6-age,1))}س")
+        return {"skipped":1,"why":f"يعمل بعد ~{max(0,round(6-age,1))}س"}
+    if not GROK_KEY: return
+    P=("ابحث في الحسابات والمواقع الرسمية لوزارات الدفاع والأركان في كل بلد أدناه، "
+       "واستخرج ما أعلنته هي بنفسها عن الصواريخ والمسيّرات التي استُهدفت بها وما اعترضته دفاعاتها.\n\n"
+       "الجهات الرسمية المستهدفة:\n"
+       "- الكويت: رئاسة الأركان العامة للجيش الكويتي / وزارة الدفاع\n"
+       "- السعودية: وزارة الدفاع السعودية / قوات الدفاع الجوي\n"
+       "- الإمارات: وزارة الدفاع الإماراتية\n"
+       "- قطر: وزارة الدفاع القطرية / القوات المسلحة\n"
+       "- البحرين: قوة دفاع البحرين\n"
+       "- عُمان: وزارة الدفاع العُمانية\n"
+       "- العراق: وزارة الدفاع / خلية الإعلام الأمني\n"
+       "- الولايات المتحدة: CENTCOM / البنتاغون\n"
+       "- إيران: وزارة الدفاع الإيرانية / الحرس الثوري\n\n"
+       'أخرج JSON فقط: [{"c":"البلد","f":"علم","mis":"عدد الصواريخ","drn":"عدد المسيّرات",'
+       '"itc":"عدد ما اعتُرض","body":"اسم الجهة الرسمية كما وردت","h":"@حسابها الرسمي إن وُجد",'
+       '"u":"رابط البيان","asof":"تاريخ البيان","q":"اقتباس قصير من البيان"}]\n\n'
+       "قواعد صارمة: انقل الأرقام عن الجهة الرسمية نفسها فقط. "
+       "إن لم تُعلن الجهة رقمًا فاكتب «لم تُعلن» ولا تنقل عن صحيفة أو ناشط. "
+       "لا تنصيص مزدوج داخل النصوص. لا شيء خارج JSON.")
+    body={"model":os.environ.get("GROK_MODEL_HEAVY","grok-4.5"),"input":[{"role":"user","content":P}],
+        "tools":[{"type":"x_search"},{"type":"web_search"}],
+        "max_output_tokens":4000,"max_tool_calls":10}
+    try:
+        req=urllib.request.Request("https://api.x.ai/v1/responses",data=json.dumps(body).encode(),
+            headers={"Authorization":"Bearer "+GROK_KEY,"Content-Type":"application/json"})
+        d=json.load(urllib.request.urlopen(req,timeout=520))
+        txt="".join(c.get("text","") for o in d.get("output",[]) if o.get("type")=="message"
+                    for c in o.get("content",[]))
+        txt=txt.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
+        lst=json.loads(txt[txt.find("["):txt.rfind("]")+1])
+        NA={"لم تُعلن","لم تعلن","غير معلن","—",""}
+        # حارس: احتفظ بما أُعلن سابقًا إن غاب الآن
+        pm={x.get("c"):x for x in (old or {}).get("list",[])}
+        for x in lst:
+            p=pm.get(x.get("c")) or {}
+            for k in ("mis","drn","itc","q","u","h","body","asof"):
+                if str(x.get(k,"")).strip() in NA and str(p.get(k,"")).strip() not in NA:
+                    x[k]=p[k]
+        good=sum(1 for x in lst if str(x.get("mis","")) not in NA or str(x.get("drn","")) not in NA)
+        if old and good < len([1 for x in old.get("list",[])
+                   if str(x.get("mis","")) not in NA or str(x.get("drn","")) not in NA])*0.7:
+            print("🛡️ بيانات المُحصي أضعف — أُبقيت السابقة"); return old
+        bill(d,"المُحصي")
+        json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"list":lst},
+            open(MODF,"w"),ensure_ascii=False,indent=1)
+        print(f"🎯 المُحصي: {good}/{len(lst)} جهة أعلنت أرقامًا رسميًا")
+        return {"list":lst}
+    except Exception as e:
+        print("المُحصي تخطّى: "+str(e)[:90])
+        return old
+
+muhsi()
+
+# ═══ دمج الأرقام الرسمية في الحصيلة (تسبق المجمَّعة) ═══
+def merge_mod():
+    try:
+        md={x["c"]:x for x in json.load(open(MODF)).get("list",[])}
+        t=json.load(open(INTEL))
+        NA={"لم تُعلن","لم تعلن","غير معلن","—",""}
+        n=0
+        for row in t.get("toll",[]):
+            m=md.get(row.get("c"))
+            if not m: continue
+            for k in ("mis","drn","itc"):
+                v=str(m.get(k,"")).strip()
+                if v and v not in NA: row[k]=v; row["mil_src"]=m.get("body",""); row["mil_h"]=m.get("h","")
+                
+            if m.get("q"): row["mil_q"]=m["q"]; row["mil_u"]=m.get("u","")
+            if row.get("mil_src"): n+=1
+        json.dump(t,open(INTEL,"w"),ensure_ascii=False,indent=1)
+        if n: print(f"🔗 دُمجت أرقام {n} جهة عسكرية رسمية في الحصيلة")
+    except Exception as e: print("الدمج تعذّر: "+str(e)[:70])
+
+merge_mod()
 
 mustaqri()
 
