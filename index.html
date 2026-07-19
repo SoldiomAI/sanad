@@ -647,22 +647,36 @@ function tabs(){
   tabsEl.innerHTML=ORDER.filter(c=>c==="الكل"||have.has(c)).map(c=>
     `<div class="tab ${c===cur?'on':''}" onclick="cur='${c}';tabs();render()">${c==='إيران'?'إيران 🔎':c}</div>`).join("");
 }
-async function load(){
+let BUNDLE=null;
+async function grab(name){
+  if(BUNDLE && BUNDLE[name]) return BUNDLE[name];
+  const r=await fetch(RAW+name+".json?t="+Date.now());
+  return r.json();
+}
+async function loadBundle(){
   try{
-    const n=await (await fetch(RAW+"news.json?t="+Date.now())).json();
+    const r=await fetch(RAW+"bundle.json?t="+Math.floor(Date.now()/60000));
+    if(!r.ok) throw 0;
+    BUNDLE=await r.json();
+  }catch(e){ BUNDLE=null }
+}
+async function load(){
+  await loadBundle();
+  try{
+    const n=await grab("news");
     DATA=n;
     upd.textContent="آخر تحديث "+new Date(n.updated).toLocaleTimeString("ar-KW",{hour:"2-digit",minute:"2-digit"});
     const heads=Object.values(n.cats).flat().slice(0,10).map(i=>"◉ "+i.head).join("   ");
     ticker.textContent=heads; tabs(); render();
   }catch(e){feed.innerHTML='<div class="empty">الأخبار قيد التجهيز الأول — دقائق وتظهر</div>'}
   try{
-    const m=await (await fetch(RAW+"latest.json?t="+Date.now())).json();
+    const m=await grab("latest");
     bdate.textContent=m.date; s.textContent=m.script;
     if(m.video_date===m.date){v.src=RAW+m.video+"?t="+Date.now();v.style.display="block"}
     else{
       a.src=RAW+m.audio+"?t="+Date.now();a.style.display="block";
       try{
-        const g=await (await fetch(RAW+"gpu.json?t="+Date.now())).json();
+        const g=await grab("gpu");
         if(g.next){
           const mn=Math.max(0,Math.round((new Date(g.next)-Date.now())/60000));
           if(mn>0){
@@ -676,12 +690,12 @@ async function load(){
     }
   }catch(e){bdate.textContent="قيد التجهيز"}
   try{
-    const v=await (await fetch(RAW+"verify.json?t="+Date.now())).json();
+    const v=await grab("verify");
     (v.rows||[]).forEach(r=>VFY[r.c]=r);
   }catch(e){}
-  try{ tolls(await (await fetch(RAW+"intel.json?t="+Date.now())).json()) }catch(e){}
+  try{ tolls(await grab("intel")) }catch(e){}
   try{
-    const cr=await (await fetch(RAW+"corrections.json?t="+Date.now())).json();
+    const cr=await grab("corrections");
     if((cr.log||[]).length){
       corrL.innerHTML=cr.log.slice(-6).reverse().map(x=>
         `<div class="corr-i">${x.f} <b>${x.c}</b> — ${x.field}: ${x.from} ← <b>${x.to}</b>${x.src?` · ${x.src}`:""}</div>`).join("");
@@ -689,7 +703,7 @@ async function load(){
     }
   }catch(e){}
   if(STUDIO) try{
-    const c=await (await fetch(RAW+"cost.json?t="+Date.now())).json();
+    const c=await grab("cost");
     const usd=n=>"$"+Number(n||0).toFixed(2);
     cToday.textContent=usd(c.usd); cMonth.textContent=usd(c.month_est); cCalls.textContent=c.calls||0;
     const by=Object.entries(c.by||{}).sort((a,b)=>b[1]-a[1]);
@@ -703,7 +717,7 @@ async function load(){
     cFoot.textContent=`يوم ${c.day} · بمعدّل اليوم تُقدَّر السنة بـ${usd(y)} · تُحتسب من ردود المزوّد لا من تقدير`;
   }catch(e){}
   try{
-    const a=await (await fetch(RAW+"agents.json?t="+Date.now())).json();
+    const a=await grab("agents");
     const lbl={ok:"عمل الآن",skip:"مجدول",fail:"أخفق",idle:"خامل"};
     agH.textContent=`${a.ran!==undefined?a.ran:"—"} عملوا هذه الجولة · ${a.healthy}/${a.total} سليم`;
     agT.textContent="آخر تشغيل "+new Date(a.updated).toLocaleTimeString("ar-KW",{hour:"2-digit",minute:"2-digit"});
@@ -719,7 +733,7 @@ async function load(){
     if(STUDIO) agWrap.style.display="block";
   }catch(e){}
   try{
-    const al=await (await fetch(RAW+"alerts.json?t="+Date.now())).json();
+    const al=await grab("alerts");
     const L=(al.list||[]);
     if(!L.length) throw 0;
     alertL.innerHTML=L.map((x,n)=>{
@@ -734,7 +748,7 @@ async function load(){
     alertWrap.style.display="block";
   }catch(e){}
   try{
-    const o=await (await fetch(RAW+"official.json?t="+Date.now())).json();
+    const o=await grab("official");
     if(!(o.src||[]).length) throw 0;
     offL.innerHTML=o.src.map(x=>`
       <div class="off-i">
@@ -748,7 +762,7 @@ async function load(){
     offWrap.style.display="block";
   }catch(e){}
   try{
-    const c=await (await fetch(RAW+"council.json?t="+Date.now())).json();
+    const c=await grab("council");
     cWho.textContent="⚖️ مراجعةُ ما قبل النشر";
     const a=c.applied||{};
     cStat.textContent=STUDIO
@@ -758,7 +772,7 @@ async function load(){
     councilWrap.style.display="block";
   }catch(e){}
   try{
-    const d=await (await fetch(RAW+"dua.json?t="+Date.now())).json();
+    const d=await grab("dua");
     duaT.textContent=d.title||"دعاء";
     if(d.note){duaN.textContent=d.note;duaN.style.display="block"}else{duaN.style.display="none"}
     const kc={"مأثور":"k-m","قرآن":"k-q","عام":"k-a"};
@@ -770,7 +784,7 @@ async function load(){
     window.DUA=d.items; duaWrap.style.display="block";
   }catch(e){}
   try{
-    const g=await (await fetch(RAW+"analyst.json?t="+Date.now())).json();
+    const g=await grab("analyst");
     gNm.textContent="🔮 "+(g.name||"المُستقرِئ"); gTi.textContent=g.title||"";
     gTx.textContent=g.text||"";
     gAv.src=RAW+(g.avatar||"analyst.jpg");
@@ -778,7 +792,7 @@ async function load(){
     gWrap.style.display="block";
   }catch(e){}
   try{
-    const f=await (await fetch(RAW+"forecast.json?t="+Date.now())).json();
+    const f=await grab("forecast");
     fcH.textContent="⏳ "+(f.horizon||"الساعات القادمة");
     const sc=f.score||{};
     fcAcc.textContent=(sc.n>=3)?`دقة تراكمية ${sc.acc}% · ${sc.n} مراجعة`
@@ -800,7 +814,7 @@ async function load(){
   try{ layout() }catch(e){}
   try{ net3d() }catch(e){}
   try{
-    const e=await (await fetch(RAW+"evolution.json?t="+Date.now())).json();
+    const e=await grab("evolution");
     const r=e.runs||[]; if(!r.length) throw 0;
     const last=r[r.length-1];
     evoV.textContent=`⚙️ قواعد الفرز — الإصدار ${last.v}`;
@@ -834,9 +848,9 @@ async function aiLoad(){
     AI.docs=[];
     for(const [c,l] of Object.entries((DATA&&DATA.cats)||{}))
       l.forEach(i=>AI.docs.push({t:i.head,c,src:i.src,link:i.link,g:i.grade}));
-    try{const o=await (await fetch(RAW+"official.json?t="+Date.now())).json();
+    try{const o=await grab("official");
       (o.src||[]).forEach(x=>AI.docs.push({t:x.p,c:"بيان رسمي",src:x.e,link:x.u,g:"صحيح"}))}catch(e){}
-    try{const f=await (await fetch(RAW+"forecast.json?t="+Date.now())).json();
+    try{const f=await grab("forecast");
       (f.scenarios||[]).forEach(x=>AI.docs.push({t:x.s+" — "+(x.why||""),c:"استقراء",src:"المُستقرِئ",link:"",g:"حسن"}))}catch(e){}
     const emb=await AI.ext(AI.docs.map(d=>"passage: "+d.t),{pooling:"mean",normalize:true});
     AI.vecs=emb.tolist(); AI.ready=1;
@@ -874,7 +888,7 @@ async function openArc(e){
   arcBody.innerHTML="";
   arcList.innerHTML='<div class="arc-n">يجري التحميل…</div>';
   try{
-    const ix=await (await fetch(RAW+"archive/index.json?t="+Date.now())).json();
+    const ix=(BUNDLE&&BUNDLE.archive_index)?BUNDLE.archive_index:await (await fetch(RAW+"archive/index.json?t="+Date.now())).json();
     const s=(ix.snaps||[]).slice().reverse();
     arcList.innerHTML=s.length?s.map(x=>{
       const d=x.id.slice(0,10), t=x.id.slice(11,13)+":"+x.id.slice(13,15);
