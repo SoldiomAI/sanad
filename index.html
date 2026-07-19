@@ -301,7 +301,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 <div class="topbar"><div class="wrap topbar-in">
   <span class="brand">🛡️ <span class="gold">سَنَد</span></span>
   <span class="live"><span class="dot"></span> بث مُسنَد · <span id="upd">…</span></span>
-</div><div class="ticker-box"><div class="ticker" id="ticker">جارِ تحميل آخر الأخبار…</div></div></div>
+</div><div class="ticker-box"><div class="ticker" id="ticker">يجري تحميل آخر الأخبار…</div></div></div>
 
 <div class="wrap">
   <div class="hero">
@@ -325,7 +325,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
   <div id="corrWrap" style="display:none">
     <div class="sec-h">سجلُّ التصحيحات</div>
     <div class="corr" id="corrL"></div>
-    <div class="note">كل رقم يتغيّر يُنشر تغيّره — لا تُبدَّل الأرقام في صمت.</div>
+    <div class="note">كلُّ رقمٍ يطرأ عليه تعديل يُنشر في السجل — لا تُبدَّل الأرقام في صمت.</div>
   </div>
 
   <details class="meth" id="methBox">
@@ -335,9 +335,9 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
       <div class="meth-r"><b>عدالة المصدر</b><span>جهة رسمية أو وكالة كبرى = ٢ · صحيفة معتبَرة = ١ · غير ذلك = ٠</span></div>
       <div class="meth-r"><b>الضبط</b><span>يحمل رقمًا أو تاريخًا يقبل التحقق = ١</span></div>
       <div class="meth-r"><b>عدم الشذوذ</b><span>يوافقه خبرٌ آخر في المادة المجموعة = ١ · يتفرّد = ٠</span></div>
-      <div class="meth-r"><b>انتفاء العلة</b><span>لم يُخفَّض في التدقيق = ١</span></div>
+      <div class="meth-r"><b>انتفاء العلة</b><span>خلوُّ الخبر من عِلّةٍ قادحة عند المراجعة = ١</span></div>
       <div class="meth-r"><b>الحصيلة</b><span><b style="color:#86efac">صحيح</b> = ٦/٧ فأعلى بمصدرٍ من الطبقة الأولى · <b style="color:#93c5fd">حسن</b> = ٣ فأعلى · <b style="color:#fca5a5">ضعيف الإسناد</b> = دون ذلك</span></div>
-      <div class="meth-r"><b>ما لا ندّعيه</b><span>لا نؤكّد صدق الخبر في نفسه — نقيس قوة إسناده فقط، ونعرض الحساب كاملًا لتحكم بنفسك.</span></div>
+      <div class="meth-r"><b>ما لا ندّعيه</b><span>لا نجزم بوقوع الحدث ذاته — بل نقيس موثوقيّة مصدره ونعرض الحساب كاملًا لتحكم بنفسك.</span></div>
     </div>
   </details>
 
@@ -394,7 +394,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
         <div class="guest-tx" id="gTx"></div>
         <audio id="gAu" controls style="display:none"></audio>
       </div>
-      <div class="ai-note">🤖 المُستقرِئ وكيلُ ذكاءٍ اصطناعي وليس شخصًا حقيقيًا — الصورة رسمٌ توضيحي، والصوت مُركَّب، والقراءة احتمالية تستند إلى تصريحات ووقائع وسوابق منشورة.</div>
+      <div class="ai-note">🤖 المُستقرِئ مساعدُ ذكاءٍ اصطناعي وليس شخصًا حقيقيًا — الصورة رسمٌ توضيحي، والصوت مُركَّب، والقراءة احتمالية تستند إلى تصريحات ووقائع وسوابق منشورة.</div>
     </div>
   </div>
 
@@ -455,7 +455,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 
   <div class="sec-h">الأخبار</div>
   <div class="tabs" id="tabs"></div>
-  <div class="card" id="feed"><div class="empty">جارِ تحميل الأخبار…</div></div>
+  <div class="card" id="feed"><div class="empty">يجري تحميل الأخبار…</div></div>
   </div>
 
   <aside class="col-rail"><div class="rail" id="railHost"></div></aside>
@@ -481,7 +481,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
   </footer>
 </div>
 
-<div class="copied" id="cp">✓ نُسخ الدعاء</div>
+<div class="copied" id="cp">✓ تم نسخ الدعاء</div>
 <div class="arc-ov" id="arcOv"><div class="arc-in">
   <div class="arc-hd"><span>أرشيفُ الجولات</span><button class="arc-x" onclick="closeArc()">إغلاق</button></div>
   <div id="arcList"></div>
@@ -740,12 +740,12 @@ async function load(){
 let AI={ready:0,ext:null,vecs:[],docs:[],dev:"wasm"};
 async function aiLoad(){
   const btn=document.getElementById("aiGo");
-  btn.disabled=true; btn.textContent="جارِ التحميل…";
+  btn.disabled=true; btn.textContent="يجري التحميل…";
   aiBar.style.display="block"; aiSt.textContent="تهيئة…";
   try{
     const T=await import("https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.7.6");
     try{ AI.dev = (navigator.gpu && await navigator.gpu.requestAdapter()) ? "webgpu":"wasm" }catch(e){ AI.dev="wasm" }
-    aiSt.textContent="جارِ التجهيز…";
+    aiSt.textContent="يجري التجهيز…";
     AI.ext=await T.pipeline("feature-extraction","Xenova/multilingual-e5-small",{
       device:AI.dev, dtype:"q8",
       progress_callback:p=>{
@@ -797,7 +797,7 @@ async function openArc(e){
   if(e) e.preventDefault();
   arcOv.classList.add("on"); document.body.style.overflow="hidden";
   arcBody.innerHTML="";
-  arcList.innerHTML='<div class="arc-n">جارِ التحميل…</div>';
+  arcList.innerHTML='<div class="arc-n">يجري التحميل…</div>';
   try{
     const ix=await (await fetch(RAW+"archive/index.json?t="+Date.now())).json();
     const s=(ix.snaps||[]).slice().reverse();
@@ -811,7 +811,7 @@ async function openArc(e){
 }
 function closeArc(){ arcOv.classList.remove("on"); document.body.style.overflow="" }
 async function showArc(id){
-  arcBody.innerHTML='<div class="arc-n">جارِ الفتح…</div>';
+  arcBody.innerHTML='<div class="arc-n">يجري الفتح…</div>';
   try{
     const s=await (await fetch(RAW+"archive/"+id+".json")).json();
     const all=Object.entries(s.cats||{});
