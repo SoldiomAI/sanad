@@ -43,3 +43,19 @@ jobs:
             echo "محاولة $i…"; sleep $((i*6))
           done
           exit 1
+      - name: نشر البيانات للمستودع العام
+        if: always()
+        env:
+          DATA_PUSH_TOKEN: ${{ secrets.DATA_PUSH_TOKEN }}
+        run: |
+          [ -z "$DATA_PUSH_TOKEN" ] && exit 0
+          rm -rf /tmp/pub && git clone -q --depth 1 \
+            "https://x-access-token:${DATA_PUSH_TOKEN}@github.com/Soldiom/sanad-data.git" /tmp/pub
+          mkdir -p /tmp/pub/daily
+          cp -r daily/* /tmp/pub/daily/ 2>/dev/null || true
+          cd /tmp/pub
+          git config user.name "SANAD Bot"; git config user.email "soldiom@gmail.com"
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -qm "📦 بيانات $(date -u +%F\ %H:%M)"
+          for i in 1 2 3; do git pull -q --rebase --autostash origin main && git push -q && exit 0; sleep 5; done
