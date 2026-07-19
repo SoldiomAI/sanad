@@ -218,6 +218,11 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
   font-family:'Noto Kufi Arabic',sans-serif;font-weight:700}
 .mu i{font-style:normal;font-size:12px}
 .mu b{font-weight:400;font-size:9.5px;color:var(--mut);margin-inline-start:2px}
+.milsrc{margin-top:7px;display:flex;gap:7px;align-items:center;flex-wrap:wrap;font-size:10px;color:var(--mut);
+  font-family:'Noto Kufi Arabic',sans-serif}
+.milsrc a{color:var(--gold-l);text-decoration:none}
+.milq{margin-top:6px;font-size:11px;color:#cbd2dc;line-height:1.85;border-inline-start:2px solid rgba(62,155,114,.5);
+  padding-inline-start:9px;font-style:italic}
 .mu.ok{color:var(--verify-l);background:rgba(62,155,114,.12);border-color:rgba(62,155,114,.3)}
 .toll .src{font-size:9.5px;color:var(--dim);margin-top:6px;line-height:1.6;border-top:1px dashed rgba(127,29,29,.3);padding-top:5px}
 .toll .src a{color:var(--gold-l);text-decoration:none}
@@ -490,7 +495,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
     <div class="sec-h">حصيلة الأزمة</div>
     <div class="war-h"><span id="warName"></span><span id="warSince"></span></div>
     <div class="toll-grid" id="toll"></div>
-    <div class="note">أرقام مجمّعة آليًا من وكالات ومصادر مفتوحة عبر بحث حي — قابلة للتغيير، وما لم يُوثَّق يُكتب «غير مؤكد».</div>
+    <div class="note">أعدادُ الذخائر منقولةٌ عن الجهاتِ العسكريةِ الرسميةِ نفسِها بشارةٍ خضراء. وما دونَها أرقامٌ مجمّعةٌ آليًا من وكالاتٍ ومصادرَ مفتوحة — قابلةٌ للتغيير، وما لم يُوثَّق يُكتب «غير مؤكد».</div>
   </div>
 
   <div id="councilWrap" style="display:none">
@@ -710,12 +715,21 @@ function vfy(c){
   return m?` <span class="vfy ${m[0]}" title="${(r.by||"")+" "+(r.note||"")}">${m[1]}</span>`:"";
 }
 function muni(x){
-  const ok=v=>v&&!["غير معلن","—","غير مؤكد","0"].includes(String(v).trim());
+  const NA=["غير معلن","لم تُعلن","لم تعلن","—","غير مؤكد",""];
+  const ok=v=>v&&!NA.includes(String(v).trim());
   const p=[];
   if(ok(x.mis)) p.push(`<span class="mu"><i>🚀</i>${x.mis}<b>صاروخًا</b></span>`);
   if(ok(x.drn)) p.push(`<span class="mu"><i>🛩️</i>${x.drn}<b>مسيّرة</b></span>`);
   if(ok(x.itc)) p.push(`<span class="mu ok"><i>🛡️</i>${x.itc}<b>اعتُرض</b></span>`);
-  return p.length?`<div class="muni">${p.join("")}</div>`:"";
+  if(!p.length) return "";
+  let out=`<div class="muni">${p.join("")}</div>`;
+  if(x.mil_src){
+    out+=`<div class="milsrc"><span class="badge b-sahih">رسمي · مصدر أول</span>
+      <span>${x.mil_src}${x.mil_h?" "+x.mil_h:""}</span>
+      ${x.mil_u?`<a href="${x.mil_u}" target="_blank" rel="noopener">البيان ↗</a>`:""}</div>`;
+    if(x.mil_q) out+=`<div class="milq">« ${x.mil_q} »</div>`;
+  }
+  return out;
 }
 function tolls(t){
   if(!t||!t.toll||!t.toll.length) return;
