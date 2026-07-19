@@ -212,6 +212,13 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .item.lead .tstamp{font-size:11.5px}
 .b-daif{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.35);color:#fca5a5}
 .b-src{background:rgba(139,148,163,.1);border:1px solid rgba(139,148,163,.28);color:var(--mut)}
+.muni{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px;padding-top:9px;border-top:1px dashed rgba(127,29,29,.28)}
+.mu{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:#f0a5a5;
+  background:rgba(158,43,55,.13);border:1px solid rgba(158,43,55,.3);border-radius:4px;padding:3px 8px;
+  font-family:'Noto Kufi Arabic',sans-serif;font-weight:700}
+.mu i{font-style:normal;font-size:12px}
+.mu b{font-weight:400;font-size:9.5px;color:var(--mut);margin-inline-start:2px}
+.mu.ok{color:var(--verify-l);background:rgba(62,155,114,.12);border-color:rgba(62,155,114,.3)}
 .toll .src{font-size:9.5px;color:var(--dim);margin-top:6px;line-height:1.6;border-top:1px dashed rgba(127,29,29,.3);padding-top:5px}
 .toll .src a{color:var(--gold-l);text-decoration:none}
 .vfy{font-size:9.5px;border-radius:8px;padding:1px 6px;margin-inline-start:5px}
@@ -702,6 +709,14 @@ function vfy(c){
   const m={"مطابق":["m","✓ مطابق"],"متباين":["d","⚠ متباين"],"غير موثّق":["n","؟ غير موثّق"]}[r.r];
   return m?` <span class="vfy ${m[0]}" title="${(r.by||"")+" "+(r.note||"")}">${m[1]}</span>`:"";
 }
+function muni(x){
+  const ok=v=>v&&!["غير معلن","—","غير مؤكد","0"].includes(String(v).trim());
+  const p=[];
+  if(ok(x.mis)) p.push(`<span class="mu"><i>🚀</i>${x.mis}<b>صاروخًا</b></span>`);
+  if(ok(x.drn)) p.push(`<span class="mu"><i>🛩️</i>${x.drn}<b>مسيّرة</b></span>`);
+  if(ok(x.itc)) p.push(`<span class="mu ok"><i>🛡️</i>${x.itc}<b>اعتُرض</b></span>`);
+  return p.length?`<div class="muni">${p.join("")}</div>`:"";
+}
 function tolls(t){
   if(!t||!t.toll||!t.toll.length) return;
   warName.textContent="⚔️ "+(t.war||"الأزمة الحالية");
@@ -714,6 +729,7 @@ function tolls(t){
         <div class="n w"><b>${num(x.w)}</b><span>جرحى</span></div>
       </div>
       <div class="dmg">${x.dmg||""}</div>
+      ${muni(x)}
       ${x.e&&x.e!=="غير مؤكد"?`<div class="econ">💰 ${x.e}</div>`:""}
       <div class="src">📌 ${x.src||"لم تُذكر جهة"}${x.asof?" · "+x.asof:""}${x.u?` · <a href="${x.u}" target="_blank" rel="noopener">المصدر ↗</a>`:""}${vfy(x.c)}</div>
     </div>`).join("");
