@@ -923,12 +923,20 @@ def merge_mod():
         for row in t.get("toll",[]):
             m=md.get(row.get("c"))
             if not m: continue
+            official=[]
             for k in ("mis","drn","itc"):
                 v=str(m.get(k,"")).strip()
-                if v and v not in NA: row[k]=v; row["mil_src"]=m.get("body",""); row["mil_h"]=m.get("h","")
-                
-            if m.get("q"): row["mil_q"]=m["q"]; row["mil_u"]=m.get("u","")
-            if row.get("mil_src"): n+=1
+                if v and v not in NA:
+                    row[k]=v; official.append(k)          # رسمي: من البيان
+                else:
+                    row.pop(k,None)                        # لم تُعلنه الجهة → لا يُعرض
+            if official:
+                row["mil_ok"]=official                     # أيُّ حقلٍ رسميٌّ بالضبط
+                row["mil_src"]=m.get("body",""); row["mil_h"]=m.get("h","")
+                if m.get("q"): row["mil_q"]=m["q"]; row["mil_u"]=m.get("u","")
+                n+=1
+            else:
+                for k in ("mil_src","mil_h","mil_q","mil_u","mil_ok"): row.pop(k,None)
         json.dump(t,open(INTEL,"w"),ensure_ascii=False,indent=1)
         if n: print(f"🔗 دُمجت أرقام {n} جهة عسكرية رسمية في الحصيلة")
     except Exception as e: print("الدمج تعذّر: "+str(e)[:70])
