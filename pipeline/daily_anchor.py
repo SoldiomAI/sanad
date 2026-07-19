@@ -692,9 +692,9 @@ def gemini_script():
         f"3) صدّر كل خبر بدرجته حرفيًا: «خبرٌ صحيحٌ مؤكَّد:» للصحيح و«خبرٌ حسنٌ من مصدرٍ معتبَر:» للحسن.\n"
         f"4) اذكر المصدر بصيغة «نقلًا عن …».\n5) جمل قصيرة (يُفضَّل ≤ ٦٥ حرفًا للجملة) تناسب القراءة الصوتية.\n"
         f"6) لا تُضِف أي معلومة غير موجودة في العناوين. لا رموز، لا نجوم، لا إنجليزي.\n"
-        f"7) النشرة كاملة ٦٠–١٠٠ كلمة.\n\nالعناوين:\n{heads}\n\nأخرج نص النشرة فقط.")
+        f"7) النشرة كاملة ١٦٠–٢٤٠ كلمة تغطي كل العناوين المعطاة.\n\nالعناوين:\n{heads}\n\nأخرج نص النشرة فقط.")
     body={"contents":[{"parts":[{"text":prompt}]}],
-          "generationConfig":{"maxOutputTokens":900,"temperature":0.4,"thinkingConfig":{"thinkingBudget":0}}}
+          "generationConfig":{"maxOutputTokens":1600,"temperature":0.4,"thinkingConfig":{"thinkingBudget":0}}}
     try:
         req=urllib.request.Request(
             f"https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key={GEMINI_KEY}",
@@ -707,11 +707,20 @@ def gemini_script():
     except Exception as e: print(f"Gemini↘ القالب: {str(e)[:100]}")
     return None
 
-full = gemini_script() or template_script()
+if os.environ.get("VIDEO_ONLY"):
+    try:
+        _m=json.load(open(f"{OUT}/latest.json"))
+        if _m.get("video_date")==today:
+            print("✅ فيديو اليوم موجود — لا حاجة"); sys.exit(0)
+        full=_m["script"]; print("🎬 وضع الفيديو فقط — استئناف نشرة اليوم")
+    except Exception as e:
+        print(f"لا توجد نشرة لليوم بعد: {str(e)[:60]}"); sys.exit(0)
+else:
+    full = gemini_script() or template_script()
 open(f"{OUT}/script-{today}.txt","w").write(full); print("SCRIPT:",full)
 json.dump({"date":today,"script":full,
     "audio":f"bulletin-{today}.mp3","video":"latest.mp4",
-    "items":[{"head":i["head"],"src":i["src"],"grade":i["grade"]} for i in items[:3]]},
+    "items":[{"head":i["head"],"src":i["src"],"grade":i["grade"]} for i in items[:8]]},
     open(f"{OUT}/latest.json","w"),ensure_ascii=False,indent=1)
 
 # جُمل ≤٦٥ حرفًا (≈ ≤٤.٧ ثانية = تحت سقف الـ٥ث)
@@ -723,7 +732,8 @@ def split65(s):
     if s: out.append(s)
     return out
 body = full.replace(OPEN_L,"").replace(CLOSE_L,"").strip()
-chunks=[c for c in split65(body)][:3]  # سقف ٣ مقاطع/يوم = ضمن حصة PRO
+MAXSEG=int(os.environ.get("MAX_SEGMENTS","6"))
+chunks=[c for c in split65(body)][:MAXSEG]
 print(f"chunks: {len(chunks)}")
 
 import edge_tts
@@ -763,29 +773,82 @@ def gen(ap,vp):
     if isinstance(v,dict): v=v.get("video") or v.get("path")
     shutil.copy(v,vp)
 
-parts=["daily/opening.mp4"] if os.path.exists("daily/opening.mp4") else []
-try:
-    for i,s in enumerate(chunks,1):
-        ap=f"{OUT}/n{i}.mp3"; asyncio.run(tts(s,ap))
-        subprocess.run(["ffmpeg","-v","quiet","-y","-i",ap,"-af","apad=pad_dur=0.3",ap+".p.mp3"])
-        vp=f"{OUT}/n{i}.mp4"; gen(ap+".p.mp3",vp); parts.append(vp); print(f"✅ chunk {i}")
-except QuotaOut as q:
-    print(f"⏳ حصة GPU مستهلكة ({q}) — النص والصوت الكامل محفوظان، الفيديو بالتشغيلة الجاية")
-    for f in os.listdir(OUT):
-        if f.startswith("n") and (f.endswith(".mp3") or f.endswith(".mp4") or f.endswith(".p.mp3")):
-            os.remove(f"{OUT}/{f}")
-    sys.exit(0)
-if os.path.exists("daily/outro.mp4"): parts.append("daily/outro.mp4")
+# ═══ إنتاج الفيديو: قابل للاستئناف وواعٍ بالحصة ═══
+SEG=f"{OUT}/seg"; os.makedirs(SEG,exist_ok=True)
+GPU=f"{OUT}/gpu.json"
 
+def gpu_state():
+    try: return json.load(open(GPU))
+    except Exception: return {}
+
+def gpu_blocked():
+    g=gpu_state(); nx=g.get("next")
+    if not nx: return False, 0
+    try:
+        left=(datetime.fromisoformat(nx)-datetime.now(timezone.utc)).total_seconds()
+        return left>0, max(0,round(left/60))
+    except Exception: return False, 0
+
+def gpu_note(msg):
+    """يلتقط «Try again in HH:MM:SS» ويخزّن موعد الإتاحة."""
+    m=re.search(r"[Tt]ry again in (\d+):(\d+):(\d+)", msg or "")
+    st={"at":datetime.now(timezone.utc).isoformat(timespec="minutes"),"msg":(msg or "")[:180]}
+    if m:
+        secs=int(m.group(1))*3600+int(m.group(2))*60+int(m.group(3))
+        nxt=datetime.now(timezone.utc).timestamp()+secs
+        st["next"]=datetime.fromtimestamp(nxt,timezone.utc).isoformat(timespec="minutes")
+        st["wait_min"]=round(secs/60)
+    json.dump(st,open(GPU,"w"),ensure_ascii=False,indent=1)
+
+# مقاطع اليوم — تُبنى مرةً وتُستأنف عند العودة
+need=[f"{SEG}/{today}-{i}.mp4" for i in range(1,len(chunks)+1)]
+have=[p for p in need if os.path.exists(p) and os.path.getsize(p)>20000]
+print(f"🎞️ مقاطع اليوم: {len(have)}/{len(need)} جاهزة")
+
+blocked,mins = gpu_blocked()
+if blocked and len(have)<len(need):
+    print(f"⏳ حصة GPU تعود بعد ~{mins} دقيقة — تخطٍ بلا استهلاك محاولات")
+    mark("rawi","skip",f"الفيديو بعد ~{mins}د · الصوت جاهز"); save_agents(); sys.exit(0)
+
+made=0
+try:
+    for i,ch in enumerate(chunks,1):
+        vp=f"{SEG}/{today}-{i}.mp4"
+        if os.path.exists(vp) and os.path.getsize(vp)>20000:
+            continue
+        ap=f"{OUT}/n{i}.mp3"; asyncio.run(tts(ch,ap))
+        subprocess.run(["ffmpeg","-v","quiet","-y","-i",ap,"-af","apad=pad_dur=0.3",ap+".p.mp3"])
+        gen(ap+".p.mp3",vp); made+=1
+        print(f"✅ مقطع {i}/{len(chunks)}")
+        for f in (ap,ap+".p.mp3"):
+            try: os.remove(f)
+            except Exception: pass
+except QuotaOut as q:
+    gpu_note(str(q))
+    _b,_m = gpu_blocked()
+    done=sum(1 for p in need if os.path.exists(p) and os.path.getsize(p)>20000)
+    print(f"⏳ نفدت الحصة بعد {made} مقطعًا ({done}/{len(need)} محفوظة) — تعود بعد ~{_m}د، وتُستأنف تلقائيًا")
+    mark("rawi","ok" if done else "skip",f"{done}/{len(need)} مقطعًا · يُستأنف بعد ~{_m}د")
+    save_agents(); sys.exit(0)
+except Exception as e:
+    print(f"⚠️ توليد الفيديو: {str(e)[:110]}")
+    mark("rawi","fail",str(e)[:70]); save_agents(); sys.exit(0)
+
+# اكتملت كل المقاطع → اللحام
+try: os.remove(GPU)
+except Exception: pass
+parts=(["daily/opening.mp4"] if os.path.exists("daily/opening.mp4") else [])+need
+if os.path.exists("daily/outro.mp4"): parts.append("daily/outro.mp4")
 lst=f"{OUT}/list.txt"
 with open(lst,"w") as f:
     for p in parts: f.write(f"file '{os.path.abspath(p)}'\n")
-subprocess.run(["ffmpeg","-v","quiet","-y","-f","concat","-safe","0","-i",lst,"-c:v","libx264","-crf","18",
+subprocess.run(["ffmpeg","-v","quiet","-y","-f","concat","-safe","0","-i",lst,"-c:v","libx264","-crf","20",
     "-pix_fmt","yuv420p","-c:a","aac","-movflags","+faststart",f"{OUT}/bulletin-{today}.mp4"])
 shutil.copy(f"{OUT}/bulletin-{today}.mp4",f"{OUT}/latest.mp4")
 meta=json.load(open(f"{OUT}/latest.json")); meta["video_date"]=today
 json.dump(meta,open(f"{OUT}/latest.json","w"),ensure_ascii=False,indent=1)
-print(f"🎬 VIDEO OK: {OUT}/bulletin-{today}.mp4")
+mark("rawi","ok","فيديو اليوم مكتمل")
+print(f"🎬 اكتمل الفيديو: bulletin-{today}.mp4 ({len(need)} مقطعًا)")
 
 try: mark("rawi", _LOG.get("rawi",{}).get("status","ok"), _LOG.get("rawi",{}).get("note","نشرة اليوم")); save_agents()
 except Exception: pass
