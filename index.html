@@ -466,7 +466,18 @@ async function load(){
     if(m.video_date===m.date){v.src=RAW+m.video+"?t="+Date.now();v.style.display="block"}
     else{
       a.src=RAW+m.audio+"?t="+Date.now();a.style.display="block";
-      vnote.style.display="none";
+      try{
+        const g=await (await fetch(RAW+"gpu.json?t="+Date.now())).json();
+        if(g.next){
+          const mn=Math.max(0,Math.round((new Date(g.next)-Date.now())/60000));
+          if(mn>0){
+            vnote.textContent = mn>=60
+              ? `🎬 نشرةُ المذيع المرئيّة قيدُ التجهيز — تظهر خلال ~${Math.round(mn/60)} ساعات.`
+              : `🎬 نشرةُ المذيع المرئيّة قيدُ التجهيز — تظهر خلال ~${mn} دقيقة.`;
+            vnote.style.display="block";
+          }
+        }
+      }catch(e){}
     }
   }catch(e){bdate.textContent="قيد التجهيز"}
   try{
