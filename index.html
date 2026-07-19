@@ -730,54 +730,18 @@ function vfy(c){
   return m?` <span class="vfy ${m[0]}" title="${(r.by||"")+" "+(r.note||"")}">${m[1]}</span>`:"";
 }
 function muni(x){
-  const NA=["غير معلن","لم تُعلن","لم تعلن","—","غير مؤكد",""];
-  const ok=v=>v&&!NA.includes(String(v).trim());
-  const p=[];
-  if(ok(x.mis)) p.push(`<span class="mu"><i>🚀</i>${x.mis}<b>صاروخًا</b></span>`);
-  if(ok(x.drn)) p.push(`<span class="mu"><i>🛩️</i>${x.drn}<b>مسيّرة</b></span>`);
-  if(ok(x.itc)) p.push(`<span class="mu ok"><i>🛡️</i>${x.itc}<b>اعتُرض</b></span>`);
+  const OK=new Set(x.mil_ok||[]);
+  if(!OK.size) return "";
+  const L={mis:["🚀","صاروخًا"],drn:["🛩️","مسيّرة"],itc:["🛡️","اعتُرض"]};
+  const p=["mis","drn","itc"].filter(k=>OK.has(k)&&x[k]).map(k=>
+    `<span class="mu${k==="itc"?" ok":""}"><i>${L[k][0]}</i>${x[k]}<b>${L[k][1]}</b></span>`);
   if(!p.length) return "";
   let out=`<div class="muni">${p.join("")}</div>`;
-  if(x.mil_src){
-    out+=`<div class="milsrc"><span class="badge b-sahih">رسمي · مصدر أول</span>
-      <span>${x.mil_src}${x.mil_h?" "+x.mil_h:""}</span>
-      ${x.mil_u?`<a href="${x.mil_u}" target="_blank" rel="noopener">البيان ↗</a>`:""}</div>`;
-    if(x.mil_q) out+=`<div class="milq">« ${x.mil_q} »</div>`;
-  }
+  out+=`<div class="milsrc"><span class="badge b-sahih">رسمي · نقلًا عن البيان</span>
+    <span>${x.mil_src||""}${x.mil_h?" "+x.mil_h:""}</span>
+    ${x.mil_u?`<a href="${x.mil_u}" target="_blank" rel="noopener">البيان ↗</a>`:""}</div>`;
+  if(x.mil_q) out+=`<div class="milq">« ${x.mil_q} »</div>`;
   return out;
-}
-function totals(t){
-  const NA=["غير معلن","لم تُعلن","لم تعلن","—","غير مؤكد",""];
-  const num=v=>{
-    const s=String(v??"").replace(/[,،٬]/g,"").trim();
-    if(NA.includes(s)) return null;
-    const m=s.match(/\d+/g);
-    return m?m.reduce((a,x)=>a+parseInt(x),0):null;
-  };
-  let d=0,w=0,mis=0,drn=0,itc=0, nd=0,nw=0,nm=0,ndr=0,ni=0, off=0;
-  (t.toll||[]).forEach(x=>{
-    const D=num(x.d), W=num(x.w), M=num(x.mis), R=num(x.drn), I=num(x.itc);
-    if(D!==null){d+=D;nd++} if(W!==null){w+=W;nw++}
-    if(M!==null){mis+=M;nm++} if(R!==null){drn+=R;ndr++} if(I!==null){itc+=I;ni++}
-    if(x.mil_src) off++;
-  });
-  const ar=n=>n.toLocaleString("ar-EG");
-  const cells=[
-    {v:d,   n:nd,  l:"قتلى",   c:"s"},
-    {v:w,   n:nw,  l:"جرحى",   c:"s"},
-    {v:mis, n:nm,  l:"صاروخًا", c:"m"},
-    {v:drn, n:ndr, l:"مسيّرة",  c:"m"},
-    {v:itc, n:ni,  l:"اعتُرض",  c:"g"},
-  ].filter(x=>x.n>0);
-  const tot=(t.toll||[]).length;
-  return `<div class="tot">
-    <div class="tot-h"><b>الإجمالي عبر ${ar(tot)} دول</b>
-      <span>${off} منها بأرقامٍ عسكريةٍ رسمية</span></div>
-    <div class="tot-g">${cells.map(x=>`
-      <div class="tot-c ${x.c}">
-        <b>${ar(x.v)}</b><span>${x.l}</span><i>${x.n}/${ar(tot)} دولة</i>
-      </div>`).join("")}</div>
-  </div>`;
 }
 function tolls(t){
   if(!t||!t.toll||!t.toll.length) return;
