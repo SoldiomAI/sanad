@@ -110,7 +110,7 @@ def broadcast_bulletin():
         st=json.load(open(f"{OUT}/tg.json"))
         if st.get("bulletin")==m.get("date"): return
     except Exception: st={}
-    site="https://sanad-sovereign-news-intelligence.netlify.app"
+    site="https://isnad.news"
     txt=(f"<b>🎙️ نشرة سَنَد — {m['date']}</b>\n\n"+m["script"][:2600]+
          f"\n\n<a href=\"{site}\">افتح المنصة ↗</a>")
     ap=f"{OUT}/{m.get('audio','')}" if m.get("audio") else None
@@ -128,7 +128,7 @@ def broadcast_alerts():
     seen=set(st.get("alerts",[]))
     fresh=[x for x in al.get("list",[]) if (x.get("txt","")[:60] not in seen)][:3]
     if not fresh: return
-    site="https://sanad-sovereign-news-intelligence.netlify.app"
+    site="https://isnad.news"
     for x in fresh:
         rumor="شائعة" in (x.get("kind") or "")
         t=(f"{'🟡 تنبيه من الشائعات' if rumor else '🔴 تحذير رسمي'}\n"
