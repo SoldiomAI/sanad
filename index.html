@@ -212,6 +212,27 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .item.lead .tstamp{font-size:11.5px}
 .b-daif{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.35);color:#fca5a5}
 .b-src{background:rgba(139,148,163,.1);border:1px solid rgba(139,148,163,.28);color:var(--mut)}
+.led{background:linear-gradient(160deg,rgba(74,124,199,.07),var(--card));border:1px solid rgba(74,124,199,.3);
+  border-radius:6px;padding:var(--s3);margin:var(--s2) 0}
+.led-h{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;
+  font-family:'Noto Kufi Arabic',sans-serif;margin-bottom:var(--s3)}
+.led-h b{font-size:14px;color:var(--vellum)}
+.led-h span{font-size:10px;color:#93b4e8;background:rgba(74,124,199,.12);
+  border:1px solid rgba(74,124,199,.3);border-radius:3px;padding:2px 8px}
+.led-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(84px,1fr));gap:7px}
+.led-c{background:rgba(8,11,18,.5);border:1px solid var(--border);border-radius:5px;padding:10px 6px;text-align:center}
+.led-c b{display:block;font-family:'Noto Kufi Arabic',sans-serif;font-size:20px;color:var(--gold-l);line-height:1.3}
+.led-c span{display:block;font-size:10px;color:var(--mut);margin-top:2px}
+.led-c i{display:block;font-style:normal;font-size:9px;color:var(--dim);margin-top:3px}
+.led-gap{margin-top:var(--s3);padding-top:var(--s3);border-top:1px dashed rgba(74,124,199,.25);
+  font-size:11px;color:var(--mut);line-height:1.95}
+.led-gap b{color:#fcd34d}
+.led-rows{margin-top:var(--s3);max-height:220px;overflow-y:auto;border:1px solid var(--border);border-radius:5px}
+.led-r{display:flex;justify-content:space-between;gap:8px;padding:7px 11px;font-size:11px;
+  border-bottom:1px solid rgba(28,37,50,.55);color:var(--mut)}
+.led-r:last-child{border:none}
+.led-r b{color:var(--gold-l);font-family:'Noto Kufi Arabic',sans-serif;font-weight:600;flex-shrink:0}
+.led-r span{color:#cbd2dc}
 .tot{background:linear-gradient(160deg,rgba(158,43,55,.1),var(--card));border:1px solid rgba(158,43,55,.35);
   border-radius:6px;padding:var(--s3);margin-bottom:var(--s3)}
 .tot-h{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:var(--s3);
@@ -481,6 +502,12 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
       <span class="tg-ar">←</span>
     </a>
     <div class="priv">لا حساب · لا بريد · لا بياناتٍ تُجمَع — تفتحُ القناةَ وتشترك.</div>
+  </div>
+
+  <div id="ledWrap" style="display:none">
+    <div class="sec-h">سجلُّ البياناتِ العسكرية</div>
+    <div id="ledL"></div>
+    <div class="note">جمعناها بيانًا بيانًا من حساب الجهةِ الرسمي، وعرضنا الحسابَ كاملًا — بما فيه ما عجزنا عن استخراجه.</div>
   </div>
 
   <div id="alertWrap" style="display:none">
@@ -863,6 +890,33 @@ async function load(){
         </div>
       </div>`).join("");
     if(STUDIO) agWrap.style.display="block";
+  }catch(e){}
+  try{
+    const lg=await grab("ledger");
+    const L=(lg.ledgers||[]);
+    if(!L.length) throw 0;
+    const ar=n=>Number(n||0).toLocaleString("ar-EG");
+    ledL.innerHTML=L.map(x=>{
+      const s=x.sum||{}, r=x.ref||{};
+      const cells=[["mis","باليستي","🚀"],["crz","جوّال","✈️"],["drn","مسيّرة","🛩️"],["itc","اعتُرض","🛡️"]]
+        .filter(([k])=>s[k])
+        .map(([k,l,i])=>`<div class="led-c"><b>${i} ${ar(s[k])}</b><span>${l}</span>${
+          r[k]?`<i>مرجع: ${ar(r[k])}</i>`:""}</div>`).join("");
+      const gaps=[["mis","باليستي"],["crz","جوّال"],["drn","مسيّرة"]]
+        .filter(([k])=>r[k]&&s[k]&&r[k]>s[k])
+        .map(([k,l])=>`${l} <b>${ar(r[k]-s[k])}</b>`).join(" · ");
+      return `<div class="led">
+        <div class="led-h"><b>${x.f||""} ${x.body||""}</b>
+          <span>${ar(x.n_stmt)} بيانًا · ${x.from} → ${x.to}</span></div>
+        <div class="led-g">${cells}</div>
+        ${gaps?`<div class="led-gap">استخرجنا الأرقامَ من <b>${ar(x.n_withnum)}</b> بيانًا من أصل <b>${ar(x.n_stmt)}</b>؛ والباقي لم يذكر عددًا صريحًا. لذلك مجموعُنا أقلُّ من المرجعِ المنشور بـ ${gaps}. نعرضُ الفرقَ ولا نُخفيه.</div>`:""}
+        ${(x.rows||[]).length?`<div class="led-rows">${x.rows.map(rr=>{
+          const p=[["mis","🚀"],["crz","✈️"],["drn","🛩️"],["itc","🛡️"]]
+            .filter(([k])=>+rr[k]>0).map(([k,i])=>`${i}${rr[k]}`).join(" ");
+          return `<div class="led-r"><b>بيان ${rr.no}</b><span>${p||"بلا عدد"}</span><span>${rr.date||""}</span></div>`;
+        }).join("")}</div>`:""}
+      </div>`}).join("");
+    ledWrap.style.display="block";
   }catch(e){}
   try{
     const al=await grab("alerts");
