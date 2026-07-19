@@ -732,7 +732,7 @@ def split65(s):
     if s: out.append(s)
     return out
 body = full.replace(OPEN_L,"").replace(CLOSE_L,"").strip()
-MAXSEG=int(os.environ.get("MAX_SEGMENTS","6"))
+MAXSEG=int(os.environ.get("MAX_SEGMENTS","4"))
 chunks=[c for c in split65(body)][:MAXSEG]
 print(f"chunks: {len(chunks)}")
 
@@ -756,7 +756,7 @@ def gen(ap,vp):
     try:
         _lc=_lc or _mk("victor/LongCat-Video-Avatar-1.5")
         r=_lc.predict(image_path=handle_file("pipeline/anchor_face.jpg"),audio_path=handle_file(ap),
-            prompt=PROMPT,resolution="720p",seed=77,vocal_mode="Clean speech (fast)",
+            prompt=PROMPT,resolution=os.environ.get("VID_RES","480p"),seed=77,vocal_mode="Clean speech (fast)",
             acceleration="DBCache faster",api_name="/generate")
     except Exception as e:
         print(f"LongCat↘ EchoMimic: {str(e)[:120]}")
@@ -767,7 +767,9 @@ def gen(ap,vp):
                 context_frames=12,context_overlap=3,cfg=2.5,steps=30,sample_rate=16000,fps=24,device="cuda",
                 api_name="/generate_video")
         except Exception as e2:
-            if "quota" in (str(e)+str(e2)).lower(): raise QuotaOut(str(e2)[:150])
+            both=f"{e} || {e2}"
+            if "quota" in both.lower() or "try again in" in both.lower():
+                raise QuotaOut(both[:300])
             raise
     v=r[0] if isinstance(r,(list,tuple)) else r
     if isinstance(v,dict): v=v.get("video") or v.get("path")
@@ -827,8 +829,10 @@ except QuotaOut as q:
     gpu_note(str(q))
     _b,_m = gpu_blocked()
     done=sum(1 for p in need if os.path.exists(p) and os.path.getsize(p)>20000)
-    print(f"⏳ نفدت الحصة بعد {made} مقطعًا ({done}/{len(need)} محفوظة) — تعود بعد ~{_m}د، وتُستأنف تلقائيًا")
-    mark("rawi","ok" if done else "skip",f"{done}/{len(need)} مقطعًا · يُستأنف بعد ~{_m}د")
+    _hh=round(_m/60,1) if _m>=60 else 0
+    _when=f"~{_hh}س" if _hh else f"~{_m}د"
+    print(f"⏳ نفدت الحصة بعد {made} مقطعًا ({done}/{len(need)} محفوظة) — تعود بعد {_when}، وتُستأنف تلقائيًا")
+    mark("rawi","ok" if done else "skip",f"{done}/{len(need)} مقطعًا · يُستأنف بعد {_when}")
     save_agents(); sys.exit(0)
 except Exception as e:
     print(f"⚠️ توليد الفيديو: {str(e)[:110]}")
