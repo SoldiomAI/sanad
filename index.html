@@ -226,6 +226,41 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .meth-r:last-child{border:none}
 .meth-r b{color:var(--gold-l);flex-shrink:0;min-width:88px}
 /* ── التحذيرات الرسمية ── */
+/* ── الأزرار ── */
+.cta{display:flex;gap:var(--s2);justify-content:center;flex-wrap:wrap;margin-top:var(--s4)}
+.btn{font-family:'Noto Kufi Arabic',sans-serif;font-size:13px;font-weight:700;border-radius:4px;
+  padding:12px 22px;cursor:pointer;border:1px solid transparent;transition:.18s;text-decoration:none;
+  display:inline-flex;align-items:center;gap:7px}
+.btn-p{background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#0A0E17}
+.btn-p:hover{filter:brightness(1.12);transform:translateY(-1px)}
+.btn-s{background:transparent;border-color:rgba(201,162,39,.45);color:var(--gold-l)}
+.btn-s:hover{border-color:var(--gold);background:rgba(201,162,39,.08)}
+/* ── الاشتراك ── */
+.sub{background:linear-gradient(155deg,rgba(201,162,39,.09),var(--card));border:1px solid rgba(201,162,39,.34);
+  border-radius:6px;padding:var(--s4) var(--s3);margin:var(--s3) 0}
+.sub h3{font-family:'Amiri',serif;font-size:24px;color:var(--gold-l);text-align:center;line-height:1.5}
+.sub p.lead{font-size:12.5px;color:var(--mut);text-align:center;line-height:2;margin-top:var(--s2);
+  max-width:440px;margin-inline:auto}
+.chan{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:var(--s2);margin-top:var(--s3)}
+.chan a{display:flex;align-items:center;gap:9px;background:var(--ink-2);border:1px solid var(--border);
+  border-radius:5px;padding:13px 14px;text-decoration:none;transition:.16s}
+.chan a:hover{border-color:rgba(201,162,39,.5);transform:translateY(-1px)}
+.chan .ic{font-size:19px;flex-shrink:0}
+.chan .tx b{display:block;font-size:12.5px;color:var(--vellum);font-family:'Noto Kufi Arabic',sans-serif}
+.chan .tx span{font-size:10px;color:var(--dim)}
+.sub form{display:flex;gap:var(--s1);margin-top:var(--s3);flex-wrap:wrap}
+.sub input{flex:1;min-width:190px;background:var(--ink);border:1px solid var(--border);border-radius:4px;
+  color:var(--txt);font-family:inherit;font-size:14px;padding:12px 13px;outline:none}
+.sub input:focus{border-color:rgba(201,162,39,.55)}
+.sub .priv{font-size:10px;color:var(--dim);text-align:center;margin-top:var(--s2);line-height:1.8}
+/* ── المؤسسات ── */
+.ent{background:linear-gradient(160deg,rgba(74,124,199,.07),var(--card));border:1px solid rgba(74,124,199,.28);
+  border-radius:6px;padding:var(--s4) var(--s3);margin:var(--s3) 0}
+.ent h3{font-family:'Amiri',serif;font-size:22px;color:#93b4e8;text-align:center;line-height:1.5}
+.ent-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:var(--s2);margin-top:var(--s3)}
+.ent-c{background:var(--ink-2);border:1px solid var(--border);border-radius:5px;padding:13px}
+.ent-c b{display:block;font-family:'Noto Kufi Arabic',sans-serif;font-size:12px;color:#93b4e8;margin-bottom:5px}
+.ent-c span{font-size:11.5px;color:var(--mut);line-height:1.85}
 .alert{background:linear-gradient(150deg,rgba(158,43,55,.16),var(--card));border:1px solid rgba(158,43,55,.5);
   border-radius:6px;padding:var(--s3);margin:var(--s2) 0;position:relative;overflow:hidden}
 .alert::before{content:"";position:absolute;top:0;inset-inline-start:0;width:3px;height:100%;
@@ -349,6 +384,10 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
     <h1 class="amiri gold">سَنَد</h1>
     <div class="sub">منصة إخبارية ذاتية التطوّر — تُدقّق الخبر قبل نشره، وتستقرئ ما بعده، وحُكمُها مبنيٌّ على خمسة معايير من علم الحديث<br>نشرة مذيع يومية آلية · تغطية حية · أخبار إيران مترجمة عن الفارسية</div>
     <div class="rule"></div>
+    <div class="cta">
+      <a class="btn btn-p" href="#subscribe">◉ اشترك في النشرة اليومية</a>
+      <a class="btn btn-s" href="#enterprise">للجهات والمؤسسات</a>
+    </div>
     <div class="method">
       <span class="pill">الاتصال</span><span class="pill">عدالة المصدر</span><span class="pill">الضبط</span><span class="pill">عدم الشذوذ</span><span class="pill">انتفاء العلة</span>
     </div>
@@ -384,6 +423,28 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 
   <div class="grid">
   <div class="col-main">
+
+  <div id="subscribe"></div>
+  <div class="sec-h">النشرةُ اليومية</div>
+  <div class="sub">
+    <h3>تصلُك النشرةُ كلَّ مساء</h3>
+    <p class="lead">نشرةٌ صوتيةٌ ونصّيةٌ بصوت مذيعٍ خليجي، وتحذيراتٌ رسميةٌ فورَ صدورها — مجّانًا وبلا إعلانات.</p>
+    <div class="chan">
+      <a href="https://t.me/sanad_news" target="_blank" rel="noopener">
+        <span class="ic">✈️</span><span class="tx"><b>تلغرام</b><span>بثٌّ فوري — الأسرع</span></span></a>
+      <a href="https://whatsapp.com/channel/" target="_blank" rel="noopener" id="waLink">
+        <span class="ic">💬</span><span class="tx"><b>واتساب</b><span>قناةٌ للنشرة</span></span></a>
+      <a href="https://instagram.com/alialthowaikh" target="_blank" rel="noopener">
+        <span class="ic">◎</span><span class="tx"><b>إنستغرام</b><span>ملخّصٌ مصوَّر</span></span></a>
+    </div>
+    <form name="sanad-sub" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="return subOK(this)">
+      <input type="hidden" name="form-name" value="sanad-sub">
+      <p style="display:none"><input name="bot-field"></p>
+      <input type="email" name="email" placeholder="بريدُك الإلكتروني" required>
+      <button type="submit" class="btn btn-p">أرسِلوا لي النشرة</button>
+    </form>
+    <div class="priv" id="subMsg">لن نُرسل إلا النشرة والتحذيرات — ولا نبيع بريدك ولا نشاركه مع أحد.</div>
+  </div>
 
   <div id="alertWrap" style="display:none">
     <div class="sec-h">تحذيراتٌ رسمية</div>
@@ -519,6 +580,25 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
   </div>
 
   <aside class="col-rail"><div class="rail" id="railHost"></div></aside>
+  </div>
+
+  <div id="enterprise"></div>
+  <div class="sec-h">للجهاتِ والمؤسسات</div>
+  <div class="ent">
+    <h3>طبقةُ تحقُّقٍ فوق مصادرِكم</h3>
+    <p class="lead" style="font-size:12.5px;color:var(--mut);text-align:center;line-height:2;margin-top:10px;max-width:470px;margin-inline:auto">
+      نُشغّل منهجَ الإسناد على تدفّقِ الأخبارِ الخاصِّ بجهتِكم، فيصلُ فريقَكم ما يستحقُّ الانتباه، مصنَّفًا ومُسنَدًا.</p>
+    <div class="ent-g">
+      <div class="ent-c"><b>رصدٌ مُسنَد</b><span>تصنيفٌ آليٌّ لكلِّ خبرٍ بدرجةِ إسنادِه وحسابِها الكامل</span></div>
+      <div class="ent-c"><b>كشفُ التضارب</b><span>مقابلةُ الأرقامِ بمصادرَ مستقلّةٍ وإظهارُ الاختلاف</span></div>
+      <div class="ent-c"><b>إنذارٌ مبكّر</b><span>تنبيهٌ فورَ صدورِ بيانٍ رسميٍّ يخصُّ نطاقَكم</span></div>
+      <div class="ent-c"><b>سيادةُ البيانات</b><span>تشغيلٌ داخلَ بنيتِكم — لا تُغادرُ بياناتُكم نطاقَكم</span></div>
+    </div>
+    <div class="cta" style="margin-top:18px">
+      <a class="btn btn-s" href="mailto:soldiom@gmail.com?subject=%D8%B7%D9%84%D8%A8%20%D8%AA%D8%AC%D8%B1%D8%A8%D8%A9%20%D9%85%D8%A4%D8%B3%D8%B3%D9%8A%D8%A9%20%E2%80%94%20%D8%B3%D9%8E%D9%86%D9%8E%D8%AF&body=%D8%A7%D9%84%D8%AC%D9%87%D8%A9%3A%20%0A%D8%A7%D9%84%D9%86%D8%B7%D8%A7%D9%82%3A%20%0A%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%3A%20">اطلبْ تجربةً تعريفية</a>
+    </div>
+    <div class="priv" style="font-size:10px;color:var(--dim);text-align:center;margin-top:12px;line-height:1.8">
+      نُصرّح دائمًا: نقيسُ قوّةَ الإسناد لا صدقَ الخبرِ في ذاته — وأيُّ تجربةٍ تبدأ بعرضِ سجلِّ دقّتِنا كاملًا.</div>
   </div>
 
   <details class="meth" style="margin-top:16px">
@@ -1008,6 +1088,12 @@ async function net3d(){
   const tot=cats.reduce((a,[,l])=>a+l.length,0);
   document.getElementById("netStat").textContent=
     `${srcs.length} مصدرًا · ${cats.length} أقسام · ${tot} خبرًا`;
+}
+function subOK(f){
+  const m=document.getElementById("subMsg");
+  setTimeout(()=>{ m.textContent="✓ وصلَنا بريدُك — ستصلُك أوّلُ نشرةٍ مساءَ اليوم.";
+    m.style.color="var(--verify-l)"; },400);
+  return true;
 }
 function cpy(n){
   const x=(window.DUA||[])[n]; if(!x) return;
