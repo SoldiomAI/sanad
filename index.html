@@ -225,6 +225,47 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .meth-r{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid rgba(30,38,51,.5);font-size:11.5px;line-height:1.85}
 .meth-r:last-child{border:none}
 .meth-r b{color:var(--gold-l);flex-shrink:0;min-width:88px}
+/* ── التحذيرات الرسمية ── */
+.alert{background:linear-gradient(150deg,rgba(158,43,55,.16),var(--card));border:1px solid rgba(158,43,55,.5);
+  border-radius:6px;padding:var(--s3);margin:var(--s2) 0;position:relative;overflow:hidden}
+.alert::before{content:"";position:absolute;top:0;inset-inline-start:0;width:3px;height:100%;
+  background:var(--seal);animation:pulseBar 2.4s ease-in-out infinite}
+@keyframes pulseBar{0%,100%{opacity:.45}50%{opacity:1}}
+.alert.rumor{background:linear-gradient(150deg,rgba(201,162,39,.13),var(--card));border-color:rgba(201,162,39,.5)}
+.alert.rumor::before{background:var(--gold)}
+.al-h{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:var(--s2)}
+.al-k{font-family:'Noto Kufi Arabic',sans-serif;font-size:9.5px;font-weight:700;border-radius:3px;padding:3px 9px;
+  background:rgba(158,43,55,.28);border:1px solid rgba(158,43,55,.5);color:var(--seal-l)}
+.alert.rumor .al-k{background:rgba(201,162,39,.18);border-color:rgba(201,162,39,.45);color:var(--gold-l)}
+.al-b{font-size:12.5px;font-weight:700;color:var(--vellum);font-family:'Noto Kufi Arabic',sans-serif}
+.al-t{font-size:14px;line-height:2;color:var(--txt)}
+.al-a{margin-top:var(--s2);padding-top:var(--s2);border-top:1px dashed rgba(158,43,55,.3);
+  font-size:12.5px;color:var(--seal-l);line-height:1.9;display:flex;gap:7px}
+.alert.rumor .al-a{border-top-color:rgba(201,162,39,.3);color:var(--gold-l)}
+.al-a b{flex-shrink:0}
+.al-m{margin-top:7px;font-size:10px;color:var(--dim);display:flex;gap:9px;flex-wrap:wrap}
+.al-m a{color:var(--gold-l);text-decoration:none}
+/* ── دليل التحقق ── */
+.guide-s{counter-reset:g}
+.guide-i{display:flex;gap:11px;padding:11px 0;border-bottom:1px solid rgba(28,37,50,.6)}
+.guide-i:last-child{border:none}
+.guide-i::before{counter-increment:g;content:counter(g);flex-shrink:0;width:24px;height:24px;border-radius:50%;
+  border:1px solid rgba(201,162,39,.5);color:var(--gold-l);display:grid;place-items:center;
+  font-family:'Noto Kufi Arabic',sans-serif;font-size:11px;font-weight:700}
+.guide-i div{font-size:13px;line-height:1.95;color:var(--txt)}
+.guide-i b{color:var(--gold-l);display:block;font-size:12.5px;margin-bottom:2px;font-family:'Noto Kufi Arabic',sans-serif}
+/* ── تأثيرات الحضور ── */
+@keyframes riseIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.rise{animation:riseIn .45s cubic-bezier(.2,.8,.3,1) both}
+@keyframes sweep{0%{transform:translateX(-100%)}100%{transform:translateX(200%)}}
+.livebar{position:relative;height:1px;background:rgba(201,162,39,.16);overflow:hidden;margin:2px 0 0}
+.livebar i{position:absolute;inset-block:0;width:34%;background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  animation:sweep 3.4s linear infinite}
+.dot{box-shadow:0 0 0 0 rgba(158,43,55,.6);animation:blink 1.2s infinite,halo 2.4s ease-out infinite}
+@keyframes halo{0%{box-shadow:0 0 0 0 rgba(158,43,55,.55)}70%{box-shadow:0 0 0 9px rgba(158,43,55,0)}100%{box-shadow:0 0 0 0 rgba(158,43,55,0)}}
+.item.lead{position:relative}
+.item.lead::after{content:"";position:absolute;inset-inline-start:-14px;top:14px;width:3px;height:26px;
+  background:linear-gradient(180deg,var(--gold),transparent);border-radius:2px}
 .net{position:relative;border:1px solid rgba(74,124,199,.28);border-radius:6px;overflow:hidden;
   background:radial-gradient(ellipse at 50% 40%,rgba(74,124,199,.09),var(--ink) 72%)}
 #netC{display:block;width:100%;height:340px;cursor:grab}
@@ -301,7 +342,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 <div class="topbar"><div class="wrap topbar-in">
   <span class="brand">🛡️ <span class="gold">سَنَد</span></span>
   <span class="live"><span class="dot"></span> بث مُسنَد · <span id="upd">…</span></span>
-</div><div class="ticker-box"><div class="ticker" id="ticker">يجري تحميل آخر الأخبار…</div></div></div>
+</div><div class="livebar"><i></i></div><div class="ticker-box"><div class="ticker" id="ticker">يجري تحميل آخر الأخبار…</div></div></div>
 
 <div class="wrap">
   <div class="hero">
@@ -343,6 +384,25 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 
   <div class="grid">
   <div class="col-main">
+
+  <div id="alertWrap" style="display:none">
+    <div class="sec-h">تحذيراتٌ رسمية</div>
+    <div id="alertL"></div>
+    <div class="note">منقولٌ عن الجهات الرسمية مباشرةً — وهي المرجعُ الوحيدُ وقتَ الطوارئ.</div>
+  </div>
+
+  <details class="meth" id="guideBox">
+    <summary style="cursor:pointer;font-size:13px;font-weight:700;color:var(--gold-l)">🛡️ كيف تتحقّق قبل أن تنشُر؟</summary>
+    <div class="guide-s" style="margin-top:11px">
+      <div class="guide-i"><div><b>اسأل: من قال؟</b>لا «سمعت» ولا «مصدر مطّلع». إن لم تجد جهةً بالاسم، فالخبر بلا سند.</div></div>
+      <div class="guide-i"><div><b>ارجع للمنبع</b>افتح حساب الجهة الرسمية نفسها. إن لم يكن الخبر عندها، فهو ليس منها.</div></div>
+      <div class="guide-i"><div><b>افحص التاريخ</b>أكثرُ ما يُتداول في الأزمات مقاطعُ قديمةٌ تُنشر كأنها الآن. ابحث عن أقدم ظهورٍ للمقطع.</div></div>
+      <div class="guide-i"><div><b>اطلب شاهدًا ثانيًا</b>خبرٌ حقيقيٌّ تنقله جهتان مستقلّتان. المنفردُ يحتاج تريّثًا.</div></div>
+      <div class="guide-i"><div><b>احذر ما يستفزّك</b>الشائعة تُصمَّم لتُغضبك فتنشرها قبل أن تفكّر. الغضبُ ناقلٌ ممتاز.</div></div>
+      <div class="guide-i"><div><b>وإن شككت فلا تنشُر</b>سكوتُك عن خبرٍ صحيحٍ لا يضرّ أحدًا. ونشرُك خبرًا كاذبًا قد يقتل.</div></div>
+    </div>
+    <div class="note" style="margin-top:11px">تحقَّقْ قبلَ أن تنشُر، فالكلمةُ أمانة.</div>
+  </details>
 
   <div id="offWrap" style="display:none">
     <div class="sec-h">من المَنبع · بياناتٌ رسمية</div>
@@ -559,7 +619,7 @@ function tolls(t){
   warName.textContent="⚔️ "+(t.war||"الأزمة الحالية");
   warSince.textContent=t.since?("منذ "+t.since):"";
   toll.innerHTML=t.toll.map(x=>`
-    <div class="toll">
+    <div class="toll rise" style="animation-delay:${(t.toll.indexOf(x)*60)}ms">
       <div class="c">${x.f||"🏳️"} ${x.c}</div>
       <div class="nums">
         <div class="n d"><b>${num(x.d)}</b><span>قتلى</span></div>
@@ -576,7 +636,7 @@ function render(){
   const cats=DATA.cats||{};
   let list=(cur==="الكل"?Object.values(cats).flat():(cats[cur]||[])).slice().sort(byTime);
   feed.innerHTML=list.length?list.map((i,n)=>`
-    <div class="item${n===0&&cur==="الكل"?" lead":""}">
+    <div class="item rise${n===0&&cur==="الكل"?" lead":""}" style="animation-delay:${Math.min(n*45,540)}ms">
       <a href="${i.link||'#'}" target="_blank" rel="noopener">${i.head}</a>
       <div class="meta">${badge(i.grade)}${i.score!==undefined?`<span class="badge b-src">${i.score}/7</span>`:""}${i.fa?'<span class="badge b-fa">مترجم عن الفارسية</span>':''}${i.via?'<span class="badge b-x">'+i.via+'</span>':''}${i.x?'<span class="badge b-x">𝕏 مباشر</span>':''}${i.flag?'<span class="badge b-rev">⚖️ '+i.flag+'</span>':''}<span>نقلًا عن ${i.src||"المصدر"}</span>${i.at?`<span class="tstamp" title="${new Date(i.at).toLocaleString("ar-KW")}">🕐 ${stamp(i.at)}</span><span>· ${ago(i.at)}</span>`:'<span class="tstamp dim">وقتٌ غير معلن</span>'}</div>${isnadBar(i.isnad,i.grade)}
     </div>`).join(""):'<div class="empty">لا أخبار في هذا القسم حاليًا</div>';
@@ -657,6 +717,21 @@ async function load(){
         </div>
       </div>`).join("");
     if(STUDIO) agWrap.style.display="block";
+  }catch(e){}
+  try{
+    const al=await (await fetch(RAW+"alerts.json?t="+Date.now())).json();
+    const L=(al.list||[]);
+    if(!L.length) throw 0;
+    alertL.innerHTML=L.map((x,n)=>{
+      const rumor=(x.kind||"").includes("شائعة");
+      return `<div class="alert ${rumor?"rumor":""} rise" style="animation-delay:${n*70}ms">
+        <div class="al-h"><span class="al-k">${rumor?"تنبيه من الشائعات":"تحذير"}</span>
+          <span class="al-b">${x.body||""}</span></div>
+        <div class="al-t">${x.txt||""}</div>
+        ${x.act?`<div class="al-a"><b>افعل:</b><span>${x.act}</span></div>`:""}
+        <div class="al-m">${x.when?`<span>${x.when}</span>`:""}${x.u?`<a href="${x.u}" target="_blank" rel="noopener">البيان ↗</a>`:""}</div>
+      </div>`}).join("");
+    alertWrap.style.display="block";
   }catch(e){}
   try{
     const o=await (await fetch(RAW+"official.json?t="+Date.now())).json();
