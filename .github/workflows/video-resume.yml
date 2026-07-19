@@ -21,6 +21,8 @@ jobs:
       - name: استئناف مقاطع الفيديو الناقصة
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          RUNPOD_API_KEY: ${{ secrets.RUNPOD_API_KEY }}
+          RUNPOD_ENDPOINT_ID: ${{ secrets.RUNPOD_ENDPOINT_ID }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           VIDEO_ONLY: "1"
           SKIP_COUNCIL: "1"
