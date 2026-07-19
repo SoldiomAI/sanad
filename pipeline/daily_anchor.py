@@ -69,6 +69,22 @@ def mark(aid,status="ok",note=""):
 
 
 # ═══ الأرشيف: لقطة لكل جولة + فهرس ═══
+
+# ═══ حزمة واحدة: طلبٌ واحدٌ بدل اثني عشر ═══
+def bundle():
+    """يدمج كل ملفات العرض في ملف واحد — يقضي على خنق الطلبات المتوازية."""
+    keys=["news","intel","official","forecast","analyst","dua","verify",
+          "alerts","corrections","latest","agents","cost","evolution","council","gpu"]
+    b={"built":datetime.now(timezone.utc).isoformat(timespec="minutes")}
+    for k in keys:
+        try: b[k]=json.load(open(f"{OUT}/{k}.json"))
+        except Exception: pass
+    try: b["archive_index"]=json.load(open(f"{OUT}/archive/index.json"))
+    except Exception: pass
+    json.dump(b,open(f"{OUT}/bundle.json","w"),ensure_ascii=False,separators=(",",":"))
+    sz=os.path.getsize(f"{OUT}/bundle.json")
+    print(f"📦 الحزمة: {len(b)-1} قسمًا · {sz//1024} ك.ب في طلبٍ واحد")
+
 def archive():
     try:
         os.makedirs(f"{OUT}/archive",exist_ok=True)
@@ -745,6 +761,7 @@ if os.environ.get("NEWS_ONLY"):
             mark("rawi","skip",f"النشرة ٦ مساءً (~{(18-_hk)%24}س)")
     except Exception: mark("rawi","skip","بانتظار أول نشرة")
     archive()
+    bundle()
     save_agents()
     print("⚡ وضع تحديث الأخبار فقط — تم"); sys.exit(0)
 
@@ -980,5 +997,6 @@ json.dump(meta,open(f"{OUT}/latest.json","w"),ensure_ascii=False,indent=1)
 mark("rawi","ok","فيديو اليوم مكتمل")
 print(f"🎬 اكتمل الفيديو: bulletin-{today}.mp4 ({len(need)} مقطعًا)")
 
+bundle()
 try: mark("rawi", _LOG.get("rawi",{}).get("status","ok"), _LOG.get("rawi",{}).get("note","نشرة اليوم")); save_agents()
 except Exception: pass
