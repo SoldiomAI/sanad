@@ -339,8 +339,9 @@ def isnad(it, heads_all):
     """يحسب المعايير الخمسة ويعيد (درجة, تفصيل) — لا شارة تُمنح بلا حساب."""
     h=it.get("head",""); src=(it.get("src") or "").lower()
     c={}
-    # ١ الاتصال: مصدر أول بلا واسطة
-    c["الاتصال"] = 2 if it.get("official") else (1 if it.get("link") else 0)
+    # ١ الاتصال: مصدر أول بلا واسطة — الجهات الرسمية والوكالات الأم
+    _t1 = any(t in src for t in TIER1)
+    c["الاتصال"] = 2 if (it.get("official") or _t1) else (1 if it.get("link") else 0)
     # ٢ عدالة المصدر: طبقة الناشر
     c["عدالة المصدر"] = 2 if any(t in src for t in TIER1) else (1 if any(t in src for t in TIER2) else 0)
     # ٣ الضبط: تحديد زمني أو رقمي يقبل التحقق
@@ -449,9 +450,6 @@ def naqid():
     ev["lessons"]=nr.get("notes",[])[-4:]
     json.dump(ev,open(f"{OUT}/evolution.json","w"),ensure_ascii=False,indent=1)
 
-    for k in [k for k,v in cats.items() if len(v)<3 and k not in ("عاجل",)]:
-        print(f"🔇 أُخفي قسم «{k}» ({len(cats[k])} خبرًا فقط)"); del cats[k]
-    apply_isnad()
     c["applied"]={"removed":nd,"downgraded":nw}
     c["rules_v"]=nr.get("v",0)
     c["updated"]=datetime.now(timezone.utc).isoformat(timespec="minutes")
@@ -673,7 +671,7 @@ def analyst_segment():
     except Exception as e:
         print("صوت المحلل تعذّر: "+str(e)[:70]); ok=False
 
-    json.dump({"name":"المُستقرِئ","title":"محلل استراتيجي · وكيل ذكاء اصطناعي",
+    json.dump({"name":"المُستقرِئ","title":"محلل استراتيجي · مساعد ذكاء اصطناعي",
         "text":txt,"audio":"analyst.mp3" if ok else "",
         "src":f.get("updated",""),"avatar":"analyst.jpg",
         "updated":datetime.now(timezone.utc).isoformat(timespec="minutes")},
@@ -683,6 +681,13 @@ def analyst_segment():
 analyst_segment()
 
 naqid()
+
+# ═══ الإسناد يُحسب دائمًا — حتى لو تُخطّي التدقيق ═══
+for _k in [k for k,v in cats.items() if len(v)<3 and k not in ("عاجل",)]:
+    print(f"🔇 أُخفي قسم «{_k}» ({len(cats[_k])} خبرًا فقط)"); del cats[_k]
+apply_isnad()
+json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"cats":cats},
+    open(f"{OUT}/news.json","w"),ensure_ascii=False,indent=1)
 
 if os.environ.get("NEWS_ONLY"):
     try:
