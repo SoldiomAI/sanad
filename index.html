@@ -236,6 +236,8 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .milsrc{margin-top:7px;display:flex;gap:7px;align-items:center;flex-wrap:wrap;font-size:10px;color:var(--mut);
   font-family:'Noto Kufi Arabic',sans-serif}
 .milsrc a{color:var(--gold-l);text-decoration:none}
+.milat{background:rgba(201,162,39,.1);border:1px solid rgba(201,162,39,.28);color:var(--gold-l);
+  border-radius:3px;padding:1px 7px;font-size:9.5px}
 .milq{margin-top:6px;font-size:11px;color:#cbd2dc;line-height:1.85;border-inline-start:2px solid rgba(62,155,114,.5);
   padding-inline-start:9px;font-style:italic}
 .mu.ok{color:var(--verify-l);background:rgba(62,155,114,.12);border-color:rgba(62,155,114,.3)}
@@ -737,8 +739,9 @@ function muni(x){
     `<span class="mu${k==="itc"?" ok":""}"><i>${L[k][0]}</i>${x[k]}<b>${L[k][1]}</b></span>`);
   if(!p.length) return "";
   let out=`<div class="muni">${p.join("")}</div>`;
-  out+=`<div class="milsrc"><span class="badge b-sahih">رسمي · نقلًا عن البيان</span>
+  out+=`<div class="milsrc"><span class="badge b-sahih">رسمي · تراكمي</span>
     <span>${x.mil_src||""}${x.mil_h?" "+x.mil_h:""}</span>
+    ${x.mil_at?`<span class="milat">حتى ${x.mil_at}</span>`:""}
     ${x.mil_u?`<a href="${x.mil_u}" target="_blank" rel="noopener">البيان ↗</a>`:""}</div>`;
   if(x.mil_q) out+=`<div class="milq">« ${x.mil_q} »</div>`;
   return out;
