@@ -225,6 +225,16 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .meth-r{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid rgba(30,38,51,.5);font-size:11.5px;line-height:1.85}
 .meth-r:last-child{border:none}
 .meth-r b{color:var(--gold-l);flex-shrink:0;min-width:88px}
+.cost{background:linear-gradient(160deg,rgba(201,162,39,.07),var(--card));border:1px solid rgba(201,162,39,.3);border-radius:6px;padding:var(--s3)}
+.cost-top{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s2);margin-bottom:var(--s3);text-align:center}
+.cost-n b{display:block;font-size:22px;font-weight:700;color:var(--gold-l);line-height:1.3;font-family:'Noto Kufi Arabic',sans-serif}
+.cost-n span{font-size:10px;color:var(--dim)}
+.cbar{margin:9px 0}
+.cbar-t{display:flex;justify-content:space-between;font-size:11.5px;color:var(--txt);margin-bottom:4px;
+  font-family:'Noto Kufi Arabic',sans-serif}
+.cbar-t s{color:var(--gold-l);text-decoration:none;font-weight:700}
+.cbar-r{height:6px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden}
+.cbar-r i{display:block;height:100%;background:linear-gradient(90deg,var(--gold-d),var(--gold));border-radius:3px}
 .ag-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:9px}
 .ag{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:11px 12px;position:relative;overflow:hidden}
 .ag::before{content:"";position:absolute;inset-inline-start:0;top:0;bottom:0;width:3px;background:var(--dim)}
@@ -455,7 +465,7 @@ let DATA=null, cur="الكل";
 const STUDIO = new URLSearchParams(location.search).has("studio");
 if(STUDIO){
   const _h=document.createElement("div");
-  _h.innerHTML=atob("ICA8ZGl2IGlkPSJhZ1dyYXAiIHN0eWxlPSJkaXNwbGF5Om5vbmUiPgogICAgPGRpdiBjbGFzcz0ic2VjLWgiPvCfpJYg2LfYqNmC2Kkg2KfZhNmI2YPZhNin2KE8L2Rpdj4KICAgIDxkaXYgY2xhc3M9ImFnLWhlYWQiPgogICAgICA8c3Bhbj48c3BhbiBjbGFzcz0icHVsc2UiPjwvc3Bhbj48YiBpZD0iYWdIIj48L2I+PC9zcGFuPgogICAgICA8c3BhbiBpZD0iYWdUIj48L3NwYW4+CiAgICA8L2Rpdj4KICAgIDxkaXYgY2xhc3M9ImFnLWdyaWQiIGlkPSJhZ0wiPjwvZGl2PgogICAgPGRpdiBjbGFzcz0ibm90ZSI+2KrYs9i52KnZjyDZiNmD2YTYp9ih2Y4g2YrYqtmG2KfZiNio2YjZhiDYqNis2K/ZiNmE2Y0g2KvYp9io2Kog4oCUINmE2Kcg2YrYudmF2YQg2KfZhNis2YXZiti5INmB2Yog2YPZhCDYrNmI2YTYqSDYudmF2K/Zi9in2Iwg2KjZhCDZitiq2YbYp9mI2Kgg2KfZhNir2YLZitmE2Y8g2YXZhtmH2YUg2YTYqtmI2LLZiti5INin2YTZg9mE2YHYqS4gwqvZhdis2K/ZiNmEwrsg2KrYudmG2Yog2YbZiNio2KrZjtmHINmE2YUg2KrYrdmGINio2LnYr9iMINmI2YXYudmH2Kcg2YXZiNi52K/Zj9mH2KcuPC9kaXY+CiAgPC9kaXY+CgogIDxkaXYgaWQ9ImV2b1dyYXAiIHN0eWxlPSJkaXNwbGF5Om5vbmUiPgogICAgPGRpdiBjbGFzcz0ic2VjLWgiPvCfp6wg2KfZhNiq2LfZiNmR2LEg2KfZhNiw2KfYqtmKPC9kaXY+CiAgICA8ZGl2IGNsYXNzPSJldm8iPgogICAgICA8ZGl2IGNsYXNzPSJldm8tdG9wIj48c3BhbiBjbGFzcz0iZXZvLXYiIGlkPSJldm9WIj48L3NwYW4+PHNwYW4gY2xhc3M9ImV2by1uIiBpZD0iZXZvTiI+PC9zcGFuPjwvZGl2PgogICAgICA8ZGl2IGNsYXNzPSJzcGFyayIgaWQ9InNwYXJrIj48L2Rpdj4KICAgICAgPGRpdiBpZD0ibGVzc29ucyI+PC9kaXY+CiAgICAgIDxkaXYgY2xhc3M9Im5vdGUiPtiq2KrYudmE2ZHZhSDYp9mE2YXZhti12Kkg2YXZhiDYo9iu2LfYp9im2YfYpzog2YPZhCDYrNmI2YTYqSDZitmP2K3Yr9mQ2ZHYqyDYp9mE2YbZjtmR2KfZgtmQ2K8g2YLZiNin2LnYryDYp9mE2YHYsdiy2Iwg2YHYqtmP2K3YrNioINin2YTYo9mG2YXYp9i3INin2YTYrtin2LfYptipINiq2YTZgtin2KbZitmL2Kcg2YHZiiDYp9mE2KzZiNmE2Kkg2KfZhNiq2KfZhNmK2Kkg2K/ZiNmGINiq2K/YrtmEINio2LTYsdmKLjwvZGl2PgogICAgPC9kaXY+CiAgPC9kaXY+Cgo=");
+  _h.innerHTML=atob("ICA8ZGl2IGlkPSJjb3N0V3JhcCI+CiAgICA8ZGl2IGNsYXNzPSJzZWMtaCI+2KfZhNil2YbZgdin2YI8L2Rpdj4KICAgIDxkaXYgY2xhc3M9ImNvc3QiPgogICAgICA8ZGl2IGNsYXNzPSJjb3N0LXRvcCI+CiAgICAgICAgPGRpdiBjbGFzcz0iY29zdC1uIj48YiBpZD0iY1RvZGF5Ij7igJQ8L2I+PHNwYW4+2KfZhNmK2YjZhTwvc3Bhbj48L2Rpdj4KICAgICAgICA8ZGl2IGNsYXNzPSJjb3N0LW4iPjxiIGlkPSJjTW9udGgiPuKAlDwvYj48c3Bhbj7YqtmC2K/ZitixINin2YTYtNmH2LE8L3NwYW4+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0iY29zdC1uIj48YiBpZD0iY0NhbGxzIj7igJQ8L2I+PHNwYW4+2YbYr9in2KHYp9iqPC9zcGFuPjwvZGl2PgogICAgICA8L2Rpdj4KICAgICAgPGRpdiBpZD0iY0JhcnMiPjwvZGl2PgogICAgICA8ZGl2IGNsYXNzPSJub3RlIiBpZD0iY0Zvb3QiPjwvZGl2PgogICAgPC9kaXY+CiAgPC9kaXY+CgogIDxkaXYgaWQ9ImFnV3JhcCIgc3R5bGU9ImRpc3BsYXk6bm9uZSI+CiAgICA8ZGl2IGNsYXNzPSJzZWMtaCI+8J+kliDYt9io2YLYqSDYp9mE2YjZg9mE2KfYoTwvZGl2PgogICAgPGRpdiBjbGFzcz0iYWctaGVhZCI+CiAgICAgIDxzcGFuPjxzcGFuIGNsYXNzPSJwdWxzZSI+PC9zcGFuPjxiIGlkPSJhZ0giPjwvYj48L3NwYW4+CiAgICAgIDxzcGFuIGlkPSJhZ1QiPjwvc3Bhbj4KICAgIDwvZGl2PgogICAgPGRpdiBjbGFzcz0iYWctZ3JpZCIgaWQ9ImFnTCI+PC9kaXY+CiAgICA8ZGl2IGNsYXNzPSJub3RlIj7Yqtiz2LnYqdmPINmI2YPZhNin2KHZjiDZitiq2YbYp9mI2KjZiNmGINio2KzYr9mI2YTZjSDYq9in2KjYqiDigJQg2YTYpyDZiti52YXZhCDYp9mE2KzZhdmK2Lkg2YHZiiDZg9mEINis2YjZhNipINi52YXYr9mL2KfYjCDYqNmEINmK2KrZhtin2YjYqCDYp9mE2KvZgtmK2YTZjyDZhdmG2YfZhSDZhNiq2YjYstmK2Lkg2KfZhNmD2YTZgdipLiDCq9mF2KzYr9mI2YTCuyDYqti52YbZiiDZhtmI2KjYqtmO2Ycg2YTZhSDYqtit2YYg2KjYudiv2Iwg2YjZhdi52YfYpyDZhdmI2LnYr9mP2YfYpy48L2Rpdj4KICA8L2Rpdj4KCiAgPGRpdiBpZD0iZXZvV3JhcCIgc3R5bGU9ImRpc3BsYXk6bm9uZSI+CiAgICA8ZGl2IGNsYXNzPSJzZWMtaCI+8J+nrCDYp9mE2KrYt9mI2ZHYsSDYp9mE2LDYp9iq2Yo8L2Rpdj4KICAgIDxkaXYgY2xhc3M9ImV2byI+CiAgICAgIDxkaXYgY2xhc3M9ImV2by10b3AiPjxzcGFuIGNsYXNzPSJldm8tdiIgaWQ9ImV2b1YiPjwvc3Bhbj48c3BhbiBjbGFzcz0iZXZvLW4iIGlkPSJldm9OIj48L3NwYW4+PC9kaXY+CiAgICAgIDxkaXYgY2xhc3M9InNwYXJrIiBpZD0ic3BhcmsiPjwvZGl2PgogICAgICA8ZGl2IGlkPSJsZXNzb25zIj48L2Rpdj4KICAgICAgPGRpdiBjbGFzcz0ibm90ZSI+2KrYqti52YTZkdmFINin2YTZhdmG2LXYqSDZhdmGINij2K7Yt9in2KbZh9inOiDZg9mEINis2YjZhNipINmK2Y/Yrdiv2ZDZkdirINin2YTZhtmO2ZHYp9mC2ZDYryDZgtmI2KfYudivINin2YTZgdix2LLYjCDZgdiq2Y/Yrdis2Kgg2KfZhNij2YbZhdin2Lcg2KfZhNiu2KfYt9im2Kkg2KrZhNmC2KfYptmK2YvYpyDZgdmKINin2YTYrNmI2YTYqSDYp9mE2KrYp9mE2YrYqSDYr9mI2YYg2KrYr9iu2YQg2KjYtNix2YouPC9kaXY+CiAgICA8L2Rpdj4KICA8L2Rpdj4KCg==");
   const w=document.querySelector(".wrap"), anchor=document.getElementById("offWrap");
   while(_h.firstElementChild) w.insertBefore(_h.firstElementChild, anchor);
   const cv=document.getElementById("cVerdict");
@@ -586,6 +596,20 @@ async function load(){
         `<div class="corr-i">${x.f} <b>${x.c}</b> — ${x.field}: ${x.from} ← <b>${x.to}</b>${x.src?` · ${x.src}`:""}</div>`).join("");
       corrWrap.style.display="block";
     }
+  }catch(e){}
+  if(STUDIO) try{
+    const c=await (await fetch(RAW+"cost.json?t="+Date.now())).json();
+    const usd=n=>"$"+Number(n||0).toFixed(2);
+    cToday.textContent=usd(c.usd); cMonth.textContent=usd(c.month_est); cCalls.textContent=c.calls||0;
+    const by=Object.entries(c.by||{}).sort((a,b)=>b[1]-a[1]);
+    const mx=by.length?by[0][1]:1;
+    cBars.innerHTML=by.map(([k,v])=>`
+      <div class="cbar">
+        <div class="cbar-t"><span>${k}</span><s>${usd(v)}</s></div>
+        <div class="cbar-r"><i style="width:${Math.max(4,v/mx*100)}%"></i></div>
+      </div>`).join("");
+    const y=(c.month_est||0)*12;
+    cFoot.textContent=`يوم ${c.day} · بمعدّل اليوم تُقدَّر السنة بـ${usd(y)} · تُحتسب من ردود المزوّد لا من تقدير`;
   }catch(e){}
   try{
     const a=await (await fetch(RAW+"agents.json?t="+Date.now())).json();
