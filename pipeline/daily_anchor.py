@@ -32,6 +32,7 @@ AGENTS=[
  ("rasid","الرَّاصِد","🛰️","يرصد المصادر الحيّة ويجمع الحصيلة والعاجل"),
  ("mutabiq","المُطابِق","🔍","يقابل أرقام الحصيلة بمصادر مستقلة"),
  ("manba","المَنبع","📡","ينقل البيانات الرسمية عن الجهات مباشرة"),
+ ("munabbih","المُنبِّه","⚠️","يجمع تحذيرات الجهات وتوجيهاتها للمواطن"),
  ("turjuman","التَّرْجُمَان","🗣️","ينقل الخبر الفارسي إلى العربية ترجمةً أمينة"),
  ("mudaqqiq","المُدقِّق","⚖️","يراجع المواد ويستبعد ما لا يصلح للنشر"),
  ("musannif","المُصنِّف","🧬","يطوّر قواعد الفرز بعد كل جولة"),
@@ -619,6 +620,51 @@ def mutabiq():
         print("المُطابِق تخطّى: "+str(e)[:80])
 
 mutabiq()
+
+# ═══ التحذيرات الرسمية: ما يحتاجه المواطن الآن ═══
+ALERTS=f"{OUT}/alerts.json"
+
+@agent("munabbih")
+def munabbih():
+    """يجمع التحذيرات والتوجيهات الرسمية العملية + تنبيهات الجهات من الشائعات."""
+    try:
+        old=json.load(open(ALERTS))
+        age=(datetime.now(timezone.utc)-datetime.fromisoformat(old["updated"])).total_seconds()/3600
+    except Exception: old,age=None,999
+    if age<3 and not os.environ.get("FORCE_ALERTS"):
+        print(f"⏱️ المُنبِّه: يعمل بعد ~{max(0,round(3-age,1))}س")
+        return {"skipped":1,"why":f"يعمل بعد ~{max(0,round(3-age,1))}س"}
+    if not GROK_KEY: return
+    P=("ابحث عن آخر التحذيرات والتوجيهات الرسمية الصادرة عن جهات الكويت والخليج بشأن الأزمة "
+       "خلال ٤٨ ساعة: الداخلية، الدفاع، الإطفاء، الصحة، الكهرباء والماء، الطيران المدني، الدفاع المدني.\n"
+       "ادرج نوعين:\n"
+       "أ) تحذير أو توجيه عملي للمواطنين (إخلاء، ملاجئ، مجال جوي، مياه، كهرباء، طوارئ).\n"
+       "ب) تنبيه رسمي من تداول أخبار غير موثوقة أو شائعات أو حسابات مجهولة.\n"
+       'أخرج JSON فقط: [{"kind":"تحذير|تنبيه من شائعة","body":"الجهة",'
+       '"txt":"نص التوجيه بإيجاز","act":"ما يفعله المواطن بجملة","u":"رابط","when":"الوقت"}]\n'
+       "٦ عناصر كحد أقصى من جهات رسمية فقط. لا تنصيص مزدوج داخل النصوص. لا شيء خارج JSON.")
+    body={"model":os.environ.get("GROK_MODEL_HEAVY","grok-4.5"),"input":[{"role":"user","content":P}],
+        "tools":[{"type":"x_search"},{"type":"web_search"}],
+        "max_output_tokens":2600,"max_tool_calls":6}
+    try:
+        req=urllib.request.Request("https://api.x.ai/v1/responses",data=json.dumps(body).encode(),
+            headers={"Authorization":"Bearer "+GROK_KEY,"Content-Type":"application/json"})
+        d=json.load(urllib.request.urlopen(req,timeout=420))
+        txt="".join(c.get("text","") for o in d.get("output",[]) if o.get("type")=="message"
+                    for c in o.get("content",[]))
+        txt=txt.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
+        lst=json.loads(txt[txt.find("["):txt.rfind("]")+1])
+        lst=[x for x in lst if x.get("body") and x.get("txt")][:6]
+        if not lst: raise ValueError("فارغة")
+        bill(d,"المُنبِّه")
+        json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"list":lst},
+            open(ALERTS,"w"),ensure_ascii=False,indent=1)
+        w=sum(1 for x in lst if x.get("kind")=="تحذير")
+        print(f"⚠️ المُنبِّه: {w} تحذيرًا · {len(lst)-w} تنبيهًا من الشائعات")
+    except Exception as e:
+        print("المُنبِّه تخطّى: "+str(e)[:90])
+
+munabbih()
 
 mustaqri()
 
