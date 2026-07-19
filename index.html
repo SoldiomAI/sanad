@@ -212,6 +212,21 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .item.lead .tstamp{font-size:11.5px}
 .b-daif{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.35);color:#fca5a5}
 .b-src{background:rgba(139,148,163,.1);border:1px solid rgba(139,148,163,.28);color:var(--mut)}
+.tot{background:linear-gradient(160deg,rgba(158,43,55,.1),var(--card));border:1px solid rgba(158,43,55,.35);
+  border-radius:6px;padding:var(--s3);margin-bottom:var(--s3)}
+.tot-h{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:var(--s3);
+  font-family:'Noto Kufi Arabic',sans-serif}
+.tot-h b{font-size:13px;color:var(--vellum)}
+.tot-h span{font-size:10px;color:var(--verify-l);background:rgba(62,155,114,.12);
+  border:1px solid rgba(62,155,114,.32);border-radius:3px;padding:2px 8px}
+.tot-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px}
+.tot-c{background:rgba(8,11,18,.55);border:1px solid var(--border);border-radius:5px;padding:11px 8px;text-align:center}
+.tot-c b{display:block;font-family:'Noto Kufi Arabic',sans-serif;font-size:23px;font-weight:700;line-height:1.25}
+.tot-c span{display:block;font-size:10.5px;color:var(--mut);margin-top:3px}
+.tot-c i{display:block;font-style:normal;font-size:9px;color:var(--dim);margin-top:4px}
+.tot-c.s b{color:#f87171}
+.tot-c.m b{color:var(--gold-l)}
+.tot-c.g b{color:var(--verify-l)}
 .muni{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px;padding-top:9px;border-top:1px dashed rgba(127,29,29,.28)}
 .mu{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:#f0a5a5;
   background:rgba(158,43,55,.13);border:1px solid rgba(158,43,55,.3);border-radius:4px;padding:3px 8px;
@@ -731,11 +746,44 @@ function muni(x){
   }
   return out;
 }
+function totals(t){
+  const NA=["غير معلن","لم تُعلن","لم تعلن","—","غير مؤكد",""];
+  const num=v=>{
+    const s=String(v??"").replace(/[,،٬]/g,"").trim();
+    if(NA.includes(s)) return null;
+    const m=s.match(/\d+/g);
+    return m?m.reduce((a,x)=>a+parseInt(x),0):null;
+  };
+  let d=0,w=0,mis=0,drn=0,itc=0, nd=0,nw=0,nm=0,ndr=0,ni=0, off=0;
+  (t.toll||[]).forEach(x=>{
+    const D=num(x.d), W=num(x.w), M=num(x.mis), R=num(x.drn), I=num(x.itc);
+    if(D!==null){d+=D;nd++} if(W!==null){w+=W;nw++}
+    if(M!==null){mis+=M;nm++} if(R!==null){drn+=R;ndr++} if(I!==null){itc+=I;ni++}
+    if(x.mil_src) off++;
+  });
+  const ar=n=>n.toLocaleString("ar-EG");
+  const cells=[
+    {v:d,   n:nd,  l:"قتلى",   c:"s"},
+    {v:w,   n:nw,  l:"جرحى",   c:"s"},
+    {v:mis, n:nm,  l:"صاروخًا", c:"m"},
+    {v:drn, n:ndr, l:"مسيّرة",  c:"m"},
+    {v:itc, n:ni,  l:"اعتُرض",  c:"g"},
+  ].filter(x=>x.n>0);
+  const tot=(t.toll||[]).length;
+  return `<div class="tot">
+    <div class="tot-h"><b>الإجمالي عبر ${ar(tot)} دول</b>
+      <span>${off} منها بأرقامٍ عسكريةٍ رسمية</span></div>
+    <div class="tot-g">${cells.map(x=>`
+      <div class="tot-c ${x.c}">
+        <b>${ar(x.v)}</b><span>${x.l}</span><i>${x.n}/${ar(tot)} دولة</i>
+      </div>`).join("")}</div>
+  </div>`;
+}
 function tolls(t){
   if(!t||!t.toll||!t.toll.length) return;
   warName.textContent="⚔️ "+(t.war||"الأزمة الحالية");
   warSince.textContent=t.since?("منذ "+t.since):"";
-  toll.innerHTML=t.toll.map(x=>`
+  toll.innerHTML=totals(t)+t.toll.map(x=>`
     <div class="toll rise" style="animation-delay:${(t.toll.indexOf(x)*60)}ms">
       <div class="c">${x.f||"🏳️"} ${x.c}</div>
       <div class="nums">
