@@ -724,15 +724,16 @@ json.dump({"date":today,"script":full,
     open(f"{OUT}/latest.json","w"),ensure_ascii=False,indent=1)
 
 # جُمل ≤٦٥ حرفًا (≈ ≤٤.٧ ثانية = تحت سقف الـ٥ث)
+SEGLEN=int(os.environ.get("SEG_LEN","95"))
 def split65(s):
     out=[]
-    while len(s)>65:
-        cut=max(s.rfind("،",0,65), s.rfind(" ",0,65)); cut=cut if cut>20 else 65
+    while len(s)>SEGLEN:
+        cut=max(s.rfind("،",0,SEGLEN), s.rfind(" ",0,SEGLEN)); cut=cut if cut>20 else SEGLEN
         out.append(s[:cut].strip()); s=s[cut:].strip()
     if s: out.append(s)
     return out
 body = full.replace(OPEN_L,"").replace(CLOSE_L,"").strip()
-MAXSEG=int(os.environ.get("MAX_SEGMENTS","4"))
+MAXSEG=int(os.environ.get("MAX_SEGMENTS","3"))
 chunks=[c for c in split65(body)][:MAXSEG]
 print(f"chunks: {len(chunks)}")
 
