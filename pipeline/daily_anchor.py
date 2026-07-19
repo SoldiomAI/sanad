@@ -752,6 +752,48 @@ def _mk(space):
     except TypeError: return Client(space, hf_token=HF_TOKEN)
 PROMPT="A professional Gulf Arab news anchor in white ghutra and black agal speaking to camera, news studio"
 _lc=_ec=None
+
+# ═══ الاحتياطي المدفوع: RunPod (لا يعمل إلا إذا نفدت الحصة المجانية) ═══
+RP_KEY=os.environ.get("RUNPOD_API_KEY","")
+RP_EP=os.environ.get("RUNPOD_ENDPOINT_ID","")
+RP_BUDGET=int(os.environ.get("RUNPOD_MAX_SEGMENTS","3"))   # سقف يومي يحمي محفظتك
+
+def rp_used_today():
+    try:
+        b=json.load(open(f"{OUT}/rp_budget.json"))
+        return b.get("n",0) if b.get("day")==today else 0
+    except Exception: return 0
+
+def rp_bump():
+    json.dump({"day":today,"n":rp_used_today()+1},
+        open(f"{OUT}/rp_budget.json","w"),ensure_ascii=False)
+
+def runpod_gen(ap,vp):
+    """يولّد مقطعًا عبر RunPod — يُستدعى فقط بعد فشل المسارات المجانية."""
+    if not (RP_KEY and RP_EP): raise RuntimeError("RunPod غير مهيّأ")
+    used=rp_used_today()
+    if used>=RP_BUDGET: raise RuntimeError(f"سقف RunPod اليومي ({RP_BUDGET}) مستهلَك")
+    import base64 as _b64
+    payload={"input":{
+        "image": _b64.b64encode(open("pipeline/anchor_face.jpg","rb").read()).decode(),
+        "audio": _b64.b64encode(open(ap,"rb").read()).decode(),
+        "prompt": PROMPT, "resolution": "480p", "seed": 77}}
+    req=urllib.request.Request(f"https://api.runpod.ai/v2/{RP_EP}/runsync",
+        data=json.dumps(payload).encode(),
+        headers={"Authorization":"Bearer "+RP_KEY,"Content-Type":"application/json"})
+    d=json.load(urllib.request.urlopen(req,timeout=900))
+    if d.get("status")!="COMPLETED": raise RuntimeError(f"RunPod: {str(d)[:120]}")
+    out=d.get("output") or {}
+    b64 = out.get("video_base64") or out.get("video") or out.get("output")
+    if isinstance(b64,dict): b64=b64.get("video_base64") or b64.get("data")
+    if isinstance(b64,str) and b64.startswith("http"):
+        urllib.request.urlretrieve(b64,vp)
+    elif isinstance(b64,str):
+        open(vp,"wb").write(_b64.b64decode(b64))
+    else: raise RuntimeError("RunPod: مخرج غير مفهوم")
+    rp_bump()
+    print(f"💳 RunPod أنتج المقطع ({used+1}/{RP_BUDGET} اليوم)")
+
 def gen(ap,vp):
     global _lc,_ec
     try:
@@ -769,8 +811,14 @@ def gen(ap,vp):
                 api_name="/generate_video")
         except Exception as e2:
             both=f"{e} || {e2}"
-            if "quota" in both.lower() or "try again in" in both.lower():
-                raise QuotaOut(both[:300])
+            out_of_quota = ("quota" in both.lower()) or ("try again in" in both.lower())
+            if RP_KEY and RP_EP:
+                try:
+                    print("↘ تحويل للاحتياطي المدفوع")
+                    runpod_gen(ap,vp); return
+                except Exception as e3:
+                    print(f"RunPod تعذّر: {str(e3)[:110]}")
+            if out_of_quota: raise QuotaOut(both[:300])
             raise
     v=r[0] if isinstance(r,(list,tuple)) else r
     if isinstance(v,dict): v=v.get("video") or v.get("path")
