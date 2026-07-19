@@ -71,6 +71,76 @@ def mark(aid,status="ok",note=""):
 # ═══ الأرشيف: لقطة لكل جولة + فهرس ═══
 
 # ═══ حزمة واحدة: طلبٌ واحدٌ بدل اثني عشر ═══
+
+# ═══ النشرة الآلية: بثٌّ ذاتيٌّ لقناة تلغرام ═══
+TG_TOKEN=os.environ.get("TELEGRAM_BOT_TOKEN","")
+TG_CHAT=os.environ.get("TELEGRAM_CHANNEL","")
+
+def tg_send(text,audio=None,silent=False):
+    if not (TG_TOKEN and TG_CHAT): return False
+    try:
+        if audio and os.path.exists(audio):
+            import mimetypes,uuid as _u
+            bnd="----sanad"+_u.uuid4().hex
+            parts=[]
+            def fld(n,v):
+                parts.append(f"--{bnd}\r\nContent-Disposition: form-data; name=\"{n}\"\r\n\r\n{v}\r\n".encode())
+            fld("chat_id",TG_CHAT); fld("caption",text[:1000]); fld("parse_mode","HTML")
+            fld("title","نشرة سَنَد"); fld("performer","سَنَد")
+            parts.append(f"--{bnd}\r\nContent-Disposition: form-data; name=\"audio\"; filename=\"{os.path.basename(audio)}\"\r\nContent-Type: audio/mpeg\r\n\r\n".encode())
+            parts.append(open(audio,"rb").read()); parts.append(f"\r\n--{bnd}--\r\n".encode())
+            body=b"".join(parts)
+            req=urllib.request.Request(f"https://api.telegram.org/bot{TG_TOKEN}/sendAudio",
+                data=body,headers={"Content-Type":f"multipart/form-data; boundary={bnd}"})
+        else:
+            d=json.dumps({"chat_id":TG_CHAT,"text":text[:4000],"parse_mode":"HTML",
+                "disable_web_page_preview":True,"disable_notification":silent}).encode()
+            req=urllib.request.Request(f"https://api.telegram.org/bot{TG_TOKEN}/sendMessage",
+                data=d,headers={"Content-Type":"application/json"})
+        r=json.load(urllib.request.urlopen(req,timeout=90))
+        return bool(r.get("ok"))
+    except Exception as e:
+        print(f"تلغرام تعذّر: {str(e)[:80]}"); return False
+
+def broadcast_bulletin():
+    """يبثّ نشرة اليوم صوتًا ونصًّا فور جاهزيتها."""
+    try: m=json.load(open(f"{OUT}/latest.json"))
+    except Exception: return
+    try:
+        st=json.load(open(f"{OUT}/tg.json"))
+        if st.get("bulletin")==m.get("date"): return
+    except Exception: st={}
+    site="https://sanad-sovereign-news-intelligence.netlify.app"
+    txt=(f"<b>🎙️ نشرة سَنَد — {m['date']}</b>\n\n"+m["script"][:2600]+
+         f"\n\n<a href=\"{site}\">افتح المنصة ↗</a>")
+    ap=f"{OUT}/{m.get('audio','')}" if m.get("audio") else None
+    if tg_send(txt,audio=ap):
+        st["bulletin"]=m["date"]
+        json.dump(st,open(f"{OUT}/tg.json","w"),ensure_ascii=False)
+        print("📣 بُثّت النشرة على القناة")
+
+def broadcast_alerts():
+    """يبثّ التحذيرات الرسمية الجديدة فور صدورها."""
+    try: al=json.load(open(ALERTS))
+    except Exception: return
+    try: st=json.load(open(f"{OUT}/tg.json"))
+    except Exception: st={}
+    seen=set(st.get("alerts",[]))
+    fresh=[x for x in al.get("list",[]) if (x.get("txt","")[:60] not in seen)][:3]
+    if not fresh: return
+    site="https://sanad-sovereign-news-intelligence.netlify.app"
+    for x in fresh:
+        rumor="شائعة" in (x.get("kind") or "")
+        t=(f"{'🟡 تنبيه من الشائعات' if rumor else '🔴 تحذير رسمي'}\n"
+           f"<b>{x.get('body','')}</b>\n\n{x.get('txt','')}\n")
+        if x.get("act"): t+=f"\n<b>افعل:</b> {x['act']}\n"
+        if x.get("u"):   t+=f"\n<a href=\"{x['u']}\">البيان الرسمي ↗</a>"
+        t+=f"\n\n<a href=\"{site}\">سَنَد</a>"
+        if tg_send(t): seen.add(x.get("txt","")[:60])
+    st["alerts"]=list(seen)[-40:]
+    json.dump(st,open(f"{OUT}/tg.json","w"),ensure_ascii=False)
+    print(f"📣 بُثّ {len(fresh)} تحذيرًا")
+
 def bundle():
     """يدمج كل ملفات العرض في ملف واحد — يقضي على خنق الطلبات المتوازية."""
     keys=["news","intel","official","forecast","analyst","dua","verify",
@@ -762,6 +832,7 @@ if os.environ.get("NEWS_ONLY"):
     except Exception: mark("rawi","skip","بانتظار أول نشرة")
     archive()
     bundle()
+    broadcast_alerts()
     save_agents()
     print("⚡ وضع تحديث الأخبار فقط — تم"); sys.exit(0)
 
@@ -998,5 +1069,7 @@ mark("rawi","ok","فيديو اليوم مكتمل")
 print(f"🎬 اكتمل الفيديو: bulletin-{today}.mp4 ({len(need)} مقطعًا)")
 
 bundle()
+broadcast_bulletin()
+broadcast_alerts()
 try: mark("rawi", _LOG.get("rawi",{}).get("status","ok"), _LOG.get("rawi",{}).get("note","نشرة اليوم")); save_agents()
 except Exception: pass
