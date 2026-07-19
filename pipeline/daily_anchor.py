@@ -425,6 +425,7 @@ def grok_intel():
        "الكويت، السعودية، الإمارات، قطر، البحرين، عُمان، العراق.\n"
        "إن لم تُوثَّق خسائر لدولة فاكتب d و w بقيمة «لا خسائر مؤكدة» واذكر في dmg أثرها غير المباشر "
        "(إنذارات، إغلاق مجال جوي، تعطل ملاحة، استضافة قواعد) — ولا تحذفها من القائمة.\n"
+       "mis وdrn وitc: أعداد ما أُطلق تجاه كل بلد وما اعترضته دفاعاته. إن لم يتوفر رقم فاكتب «غير معلن».\n"
        "لكل رقم اذكر الجهة المعلِنة في src (مثل: وزارة الصحة الإيرانية، الدفاع المدني الكويتي، "
        "الأمم المتحدة) ورابطها في u وتاريخها في asof. إن كان الرقم تقديرًا صحفيًا لا إعلانًا رسميًا "
        "فاكتب في src: تقدير صحفي غير رسمي.\n"
@@ -432,7 +433,7 @@ def grok_intel():
        "لا تستخدم علامة تنصيص مزدوجة داخل النصوص. لا شيء خارج JSON.")
     body={"model":os.environ.get("GROK_MODEL_HEAVY","grok-4.5"),"input":[{"role":"user","content":P}],
         "tools":[{"type":"web_search"},{"type":"x_search"}],
-        "max_output_tokens":3500,"max_tool_calls":8}
+        "max_output_tokens":4200,"max_tool_calls":8}
     try:
         req=urllib.request.Request("https://api.x.ai/v1/responses",data=json.dumps(body).encode(),
             headers={"Authorization":"Bearer "+GROK_KEY,"Content-Type":"application/json"})
