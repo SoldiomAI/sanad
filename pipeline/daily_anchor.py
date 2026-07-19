@@ -133,7 +133,10 @@ _H=datetime.now(timezone.utc).hour
 SLOT=(_H//3)%2          # 0 أو 1 — يتبدّل كل ٣ ساعات
 def due(aid, age, hard):
     """يقرر التشغيل: نوبة الوكيل، أو تجاوز المهلة القصوى."""
-    turn = {"rasid":0,"manba":1,"mutabiq":1}.get(aid,None)
+    if aid=="rasid":
+        if os.environ.get("FORCE_INTEL"): return True, ""
+        return (age>=11), (f"يعمل بعد ~{max(0,round(11-age,1))}س" if age<11 else "")
+    turn = {"manba":1,"mutabiq":1}.get(aid,None)
     if os.environ.get("FORCE_"+aid.upper()): return True, ""
     if age>=hard: return True, "تجاوز المهلة"
     if turn is not None and SLOT!=turn:
@@ -302,13 +305,13 @@ def grok_intel():
        "فاكتب في src: تقدير صحفي غير رسمي.\n"
        "٤ عناوين عاجلة كحد أقصى من حسابات موثقة خلال ٦ ساعات. أرقام موثقة فقط وإلا «غير مؤكد». "
        "لا تستخدم علامة تنصيص مزدوجة داخل النصوص. لا شيء خارج JSON.")
-    body={"model":os.environ.get("GROK_MODEL","grok-4.3"),"input":[{"role":"user","content":P}],
+    body={"model":os.environ.get("GROK_MODEL_HEAVY","grok-4.5"),"input":[{"role":"user","content":P}],
         "tools":[{"type":"web_search"},{"type":"x_search"}],
-        "max_output_tokens":3000,"max_tool_calls":5}
+        "max_output_tokens":3500,"max_tool_calls":8}
     try:
         req=urllib.request.Request("https://api.x.ai/v1/responses",data=json.dumps(body).encode(),
             headers={"Authorization":"Bearer "+GROK_KEY,"Content-Type":"application/json"})
-        d=json.load(urllib.request.urlopen(req,timeout=300))
+        d=json.load(urllib.request.urlopen(req,timeout=400))
         txt="".join(c.get("text","") for o in d.get("output",[]) if o.get("type")=="message"
                     for c in o.get("content",[]))
         txt=txt.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
