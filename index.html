@@ -732,8 +732,8 @@ function vfy(c){
 function muni(x){
   const OK=new Set(x.mil_ok||[]);
   if(!OK.size) return "";
-  const L={mis:["🚀","صاروخًا"],drn:["🛩️","مسيّرة"],itc:["🛡️","اعتُرض"]};
-  const p=["mis","drn","itc"].filter(k=>OK.has(k)&&x[k]).map(k=>
+  const L={mis:["🚀","باليستيًا"],crz:["✈️","جوّالًا"],drn:["🛩️","مسيّرة"],itc:["🛡️","اعتُرض"]};
+  const p=["mis","crz","drn","itc"].filter(k=>OK.has(k)&&x[k]).map(k=>
     `<span class="mu${k==="itc"?" ok":""}"><i>${L[k][0]}</i>${x[k]}<b>${L[k][1]}</b></span>`);
   if(!p.length) return "";
   let out=`<div class="muni">${p.join("")}</div>`;
