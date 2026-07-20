@@ -19,9 +19,14 @@
 <meta name="twitter:description" content="لكلِّ خبرٍ درجةُ إسنادٍ ومصدرٌ معروض">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/og.jpg">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🛡️</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/sanad-text.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/sanad-display.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+/* خطوط سَنَد — مستضافة ذاتيًّا، مُقتطعة على الكتلة العربية + اللاتيني الأساسي.
+   ملفّان بدل ١٦: نصّ (IBM Plex Sans Arabic) وعنوان (Markazi Text). */
+@font-face{font-family:'IBM Plex Sans Arabic';src:url(/fonts/sanad-text.woff2) format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Noto Kufi Arabic';src:url(/fonts/sanad-text.woff2) format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Amiri';src:url(/fonts/sanad-display.woff2) format('woff2');font-weight:700;font-style:normal;font-display:swap}
 :root{
   /* حبرُ المخطوط ورقُّه وشمعُ الختم */
   --ink:#080B12; --ink-2:#0E131C; --card:#111825; --border:#1C2532;
@@ -457,6 +462,13 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .copied{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--gold);color:#05070B;font-size:12px;font-weight:600;padding:9px 18px;border-radius:20px;opacity:0;transition:.25s;pointer-events:none;z-index:60}
 .copied.on{opacity:1}
 .empty{text-align:center;color:var(--dim);padding:30px 0;font-size:13px}
+.more-row{text-align:center;padding:var(--s3) 0 var(--s1)}
+.more-btn{font-family:'Noto Kufi Arabic',sans-serif;font-size:12.5px;font-weight:700;color:var(--gold-l);
+  background:transparent;border:1px solid var(--border);border-radius:8px;padding:10px 22px;cursor:pointer;transition:.18s}
+.more-btn:hover{border-color:rgba(201,162,39,.4);background:rgba(201,162,39,.06)}
+.stale{background:rgba(158,43,55,.14);border:1px solid rgba(224,135,146,.35);color:var(--seal-l);
+  font-family:'Noto Kufi Arabic',sans-serif;font-size:12px;font-weight:700;text-align:center;
+  border-radius:8px;padding:9px 14px;margin:var(--s3) 0 0}
 </style></head>
 <body>
 <div class="sadu"></div>
@@ -466,6 +478,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 </div><div class="livebar"><i></i></div><div class="ticker-box"><div class="ticker" id="ticker">يجري تحميل آخر الأخبار…</div></div></div>
 
 <div class="wrap">
+  <div id="staleBanner" class="stale" role="status" style="display:none"></div>
   <div class="hero">
     <h1 class="amiri gold">سَنَد</h1>
     <div class="sub">منصة إخبارية ذاتية التطوّر — تُدقّق الخبر قبل نشره، وتستقرئ ما بعده، وحُكمُها مبنيٌّ على خمسة معايير من علم الحديث<br>نشرة مذيع يومية آلية · تغطية حية · أخبار إيران مترجمة عن الفارسية</div>
@@ -481,7 +494,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 
   <div class="card">
     <div class="bdate">🎙️ نشرة اليوم — <span id="bdate"></span></div>
-    <video id="v" style="display:none" controls playsinline></video>
+    <video id="v" style="display:none" controls playsinline preload="none"></video>
     <div class="player" id="plr" style="display:none">
       <button class="pl-btn" id="plBtn" aria-label="تشغيل">▶</button>
       <div class="pl-mid">
@@ -490,7 +503,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
         <div class="pl-wave" id="plWave"><u style="animation-delay:0ms"></u><u style="animation-delay:70ms"></u><u style="animation-delay:140ms"></u><u style="animation-delay:210ms"></u><u style="animation-delay:280ms"></u><u style="animation-delay:350ms"></u><u style="animation-delay:420ms"></u><u style="animation-delay:490ms"></u><u style="animation-delay:560ms"></u><u style="animation-delay:630ms"></u><u style="animation-delay:700ms"></u><u style="animation-delay:770ms"></u><u style="animation-delay:840ms"></u><u style="animation-delay:910ms"></u><u style="animation-delay:980ms"></u><u style="animation-delay:1050ms"></u><u style="animation-delay:1120ms"></u><u style="animation-delay:1190ms"></u><u style="animation-delay:1260ms"></u><u style="animation-delay:1330ms"></u><u style="animation-delay:1400ms"></u><u style="animation-delay:1470ms"></u><u style="animation-delay:1540ms"></u><u style="animation-delay:1610ms"></u><u style="animation-delay:1680ms"></u><u style="animation-delay:1750ms"></u><u style="animation-delay:1820ms"></u><u style="animation-delay:1890ms"></u></div>
       </div>
     </div>
-    <audio id="a" style="display:none"></audio>
+    <audio id="a" style="display:none" preload="none"></audio>
     <div id="vnote" class="note" style="display:none;text-align:right;margin-top:8px"></div>
     <span class="toggle" onclick="s.style.display=s.style.display==='none'?'block':'none'">📜 نص النشرة</span>
     <div class="script" id="s" style="display:none"></div>
@@ -604,7 +617,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
       </div>
       <div class="guest-bd">
         <div class="guest-tx" id="gTx"></div>
-        <audio id="gAu" controls style="display:none"></audio>
+        <audio id="gAu" controls style="display:none" preload="none"></audio>
       </div>
       <div class="ai-note">🤖 المُستقرِئ مساعدُ ذكاءٍ اصطناعي وليس شخصًا حقيقيًا — الصورة رسمٌ توضيحي، والصوت مُركَّب، والقراءة احتمالية تستند إلى تصريحات ووقائع وسوابق منشورة.</div>
     </div>
@@ -818,21 +831,26 @@ function tolls(t){
     </div>`).join("");
   tollWrap.style.display="block";
 }
+let FEED_SHOWN=12, FEED_STEP=12;
+function showMore(){ FEED_SHOWN+=FEED_STEP; render(); }
 function render(){
   if(!DATA) return;
   const cats=DATA.cats||{};
   let list=(cur==="الكل"?Object.values(cats).flat():(cats[cur]||[])).slice().sort(byTime);
-  feed.innerHTML=list.length?list.map((i,n)=>`
+  const shown=list.slice(0,FEED_SHOWN), rest=list.length-shown.length;
+  feed.innerHTML=list.length?(shown.map((i,n)=>`
     <div class="item rise${n===0&&cur==="الكل"?" lead":""}" style="animation-delay:${Math.min(n*45,540)}ms">
       <a href="${i.link||'#'}" target="_blank" rel="noopener">${i.head}</a>
       <div class="meta">${badge(i.grade)}${i.score!==undefined?`<span class="badge b-src">${i.score}/7</span>`:""}${i.fa?'<span class="badge b-fa">مترجم عن الفارسية</span>':''}${i.via?'<span class="badge b-x">'+i.via+'</span>':''}${i.x?'<span class="badge b-x">𝕏 مباشر</span>':''}${i.flag?'<span class="badge b-rev">⚖️ '+i.flag+'</span>':''}<span>نقلًا عن ${i.src||"المصدر"}</span>${i.at?`<span class="tstamp" title="${new Date(i.at).toLocaleString("ar-KW")}">🕐 ${stamp(i.at)}</span><span>· ${ago(i.at)}</span>`:'<span class="tstamp dim">وقتٌ غير معلن</span>'}</div>${isnadBar(i.isnad,i.grade)}
-    </div>`).join(""):'<div class="empty">لا أخبار في هذا القسم حاليًا</div>';
+    </div>`).join("")
+    + (rest>0?`<div class="more-row"><button class="more-btn" type="button" onclick="showMore()">عرض المزيد · بقي ${rest}</button></div>`:""))
+    :'<div class="empty">لا أخبار في هذا القسم حاليًا</div>';
 }
 function tabs(){
   const have=new Set(Object.keys(DATA.cats||{}));
   tabsEl=document.getElementById("tabs");
   tabsEl.innerHTML=ORDER.filter(c=>c==="الكل"||have.has(c)).map(c=>
-    `<div class="tab ${c===cur?'on':''}" onclick="cur='${c}';tabs();render()">${c==='إيران'?'إيران 🔎':c}</div>`).join("");
+    `<div class="tab ${c===cur?'on':''}" onclick="cur='${c}';FEED_SHOWN=12;tabs();render()">${c==='إيران'?'إيران 🔎':c}</div>`).join("");
 }
 let BUNDLE=null;
 async function grab(name){
@@ -852,16 +870,18 @@ async function load(){
   try{
     const n=await grab("news");
     DATA=n;
+    LAST_UPDATED=n.updated;
     upd.textContent="آخر تحديث "+new Date(n.updated).toLocaleTimeString("ar-KW",{hour:"2-digit",minute:"2-digit"});
+    freshStamp();
     const heads=Object.values(n.cats).flat().slice(0,10).map(i=>"◉ "+i.head).join("   ");
     ticker.textContent=heads; tabs(); render();
   }catch(e){feed.innerHTML='<div class="empty">الأخبار قيد التجهيز الأول — دقائق وتظهر</div>'}
   try{
     const m=await grab("latest");
     bdate.textContent=m.date; s.textContent=m.script;
-    if(m.video_date===m.date){v.src=RAW+m.video+"?t="+Date.now();v.style.display="block"}
+    if(m.video_date===m.date){v.src=RAW+m.video;v.style.display="block"}
     else{
-      a.src=RAW+m.audio+"?t="+Date.now();a.style.display="block";
+      a.dataset.src=RAW+m.audio;a.style.display="block";
       try{
         const g=null; if(g&&g.next){
           const mn=Math.max(0,Math.round((new Date(g.next)-Date.now())/60000));
@@ -1001,7 +1021,7 @@ async function load(){
     gNm.textContent="🔮 "+(g.name||"المُستقرِئ"); gTi.textContent=g.title||"";
     gTx.textContent=g.text||"";
     gAv.src=RAW+(g.avatar||"analyst.jpg");
-    if(g.audio){gAu.src=RAW+g.audio+"?t="+Date.now();gAu.style.display="block"}
+    if(g.audio){gAu.src=RAW+g.audio;gAu.style.display="block"}
     gWrap.style.display="block";
   }catch(e){}
   try{
@@ -1024,10 +1044,18 @@ async function load(){
     fcCav.textContent="⚠️ "+(f.caveat||"استقراء احتمالي لا يقين.")+" — تُنشر النِسَب ويُحاسَب النظام عليها في الجولة التالية.";
     fcWrap.style.display="block";
     try{ const _p=document.getElementById("plr"), _a=document.getElementById("a");
-      if(_p&&_a&&_a.src) _p.style.display="flex"; }catch(e){}
+      if(_p&&_a&&(_a.src||_a.dataset.src)) _p.style.display="flex"; }catch(e){}
   }catch(e){}
   try{ layout() }catch(e){}
-  try{ net3d() }catch(e){}
+  try{
+    const _nc=document.getElementById("netC");
+    if(_nc && "IntersectionObserver" in window){
+      const _io=new IntersectionObserver((ents,obs)=>{        // three.js لا يُحمَّل إلا عند اقتراب القسم
+        if(ents.some(x=>x.isIntersecting)){ obs.disconnect(); try{ net3d() }catch(e){} }
+      },{rootMargin:"300px"});
+      _io.observe(_nc);
+    } else { try{ net3d() }catch(e){} }
+  }catch(e){ try{ net3d() }catch(_e){} }
   try{
     const e=await grab("evolution");
     const r=e.runs||[]; if(!r.length) throw 0;
@@ -1242,7 +1270,9 @@ async function net3d(){
   const fmt=s=>isNaN(s)?"٠٠:٠٠":two(s/60)+":"+two(s%60);
   document.addEventListener("click",e=>{
     if(e.target.closest("#plBtn")){
-      const a=A(); if(!a||!a.src) return;
+      const a=A(); if(!a) return;
+      if(!a.src && a.dataset.src) a.src=a.dataset.src;   // يُحمَّل الصوت عند أوّل ضغطة فقط
+      if(!a.src) return;
       if(a.paused){a.play()}else{a.pause()}
     }
     const bar=e.target.closest("#plBar");
@@ -1287,6 +1317,24 @@ function layout(){
   }catch(err){ /* لا يوقف بقية التحميل أبدًا */ }
 }
 window.addEventListener("resize",()=>{clearTimeout(window._lt);window._lt=setTimeout(layout,180)});
+// ══ ختمُ العُمر + قِشرةٌ تعمل دون شبكة ══
+let LAST_UPDATED=null;
+function freshStamp(){
+  const b=document.getElementById("staleBanner"); if(!b) return;
+  const offline=!navigator.onLine;
+  const age=LAST_UPDATED?ago(LAST_UPDATED):"";
+  const mins=LAST_UPDATED?Math.floor((Date.now()-new Date(LAST_UPDATED))/60000):0;
+  if(offline || mins>180){                          // غير متصل أو أقدم من ٣ ساعات
+    b.textContent=(offline?"غير متصل — ":"")+"تُعرض آخر حالة معروفة"+(age?" · عُمرها "+age.replace(/^قبل /,""):"");
+    b.style.display="block";
+  }else{ b.style.display="none"; }
+}
+addEventListener("online", freshStamp);
+addEventListener("offline", freshStamp);
+setInterval(freshStamp, 60*1000);
+if("serviceWorker" in navigator){
+  addEventListener("load", ()=>{ navigator.serviceWorker.register("/sw.js").catch(()=>{}); });
+}
 load(); setInterval(load, 10*60*1000);
 </script>
 </body></html>
