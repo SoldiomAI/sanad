@@ -3,26 +3,140 @@
   "url": "https://isnad.news",
   "profile": "mobile 390x844, cold cache, ar-KW",
   "metrics": {
-    "ttfb_ms":            {"now": 2566, "target": 400,  "owner": "01-speed"},
-    "dom_interactive_ms": {"now": 4387, "target": 1800, "owner": "01-speed"},
-    "load_ms":            {"now": 4844, "target": 2500, "owner": "01-speed"},
-    "page_weight_kb":     {"now": 2001, "target": 450,  "owner": "01-speed"},
-    "font_kb":            {"now": 680,  "target": 90,   "owner": "01-speed", "note": "16 woff2 from Google Fonts"},
-    "font_files":         {"now": 16,   "target": 2,    "owner": "01-speed"},
-    "audio_preload_kb":   {"now": 1014, "target": 0,    "owner": "01-speed", "note": "cache-busted, re-downloads every visit"},
-    "js_kb":              {"now": 249,  "target": 90,   "owner": "01-speed", "note": "three.js, below fold, not deferred"},
-    "html_kb":            {"now": 174,  "target": 60,   "owner": "01-speed"},
-    "feed_items_in_dom":  {"now": 57,   "target": 12,   "owner": "01-speed"},
-    "jsonld_blocks":      {"now": 0,    "target": 3,    "owner": "02-discoverability"},
-    "has_rss":            {"now": false,"target": true, "owner": "02-discoverability"},
-    "has_manifest":       {"now": false,"target": true, "owner": "02-discoverability"},
-    "h2_count":           {"now": 0,    "target": ">0", "owner": "02-discoverability"},
-    "landmarks_main":     {"now": 0,    "target": 1,    "owner": "03-accessibility"},
-    "landmarks_nav":      {"now": 0,    "target": 1,    "owner": "03-accessibility"},
-    "landmarks_header":   {"now": 0,    "target": 1,    "owner": "03-accessibility"},
-    "aria_live_regions":  {"now": 0,    "target": 2,    "owner": "03-accessibility"},
-    "skip_link":          {"now": false,"target": true, "owner": "03-accessibility"},
-    "console_errors":     {"now": 0,    "target": 0,    "owner": "all", "note": "already clean — keep it"}
+    "ttfb_ms": {
+      "now": 2566,
+      "target": 400,
+      "owner": "01-speed"
+    },
+    "dom_interactive_ms": {
+      "now": 4387,
+      "target": 1800,
+      "owner": "01-speed"
+    },
+    "load_ms": {
+      "now": 4844,
+      "target": 2500,
+      "owner": "01-speed"
+    },
+    "page_weight_kb": {
+      "now": 2001,
+      "target": 450,
+      "owner": "01-speed"
+    },
+    "font_kb": {
+      "now": 680,
+      "target": 90,
+      "owner": "01-speed",
+      "note": "16 woff2 from Google Fonts"
+    },
+    "font_files": {
+      "now": 16,
+      "target": 2,
+      "owner": "01-speed"
+    },
+    "audio_preload_kb": {
+      "now": 1014,
+      "target": 0,
+      "owner": "01-speed",
+      "note": "cache-busted, re-downloads every visit"
+    },
+    "js_kb": {
+      "now": 249,
+      "target": 90,
+      "owner": "01-speed",
+      "note": "three.js, below fold, not deferred"
+    },
+    "html_kb": {
+      "now": 174,
+      "target": 60,
+      "owner": "01-speed"
+    },
+    "feed_items_in_dom": {
+      "now": 57,
+      "target": 12,
+      "owner": "01-speed"
+    },
+    "jsonld_blocks": {
+      "now": 0,
+      "target": 3,
+      "owner": "02-discoverability"
+    },
+    "has_rss": {
+      "now": false,
+      "target": true,
+      "owner": "02-discoverability"
+    },
+    "has_manifest": {
+      "now": false,
+      "target": true,
+      "owner": "02-discoverability"
+    },
+    "h2_count": {
+      "now": 0,
+      "target": ">0",
+      "owner": "02-discoverability"
+    },
+    "landmarks_main": {
+      "now": 0,
+      "target": 1,
+      "owner": "03-accessibility"
+    },
+    "landmarks_nav": {
+      "now": 0,
+      "target": 1,
+      "owner": "03-accessibility"
+    },
+    "landmarks_header": {
+      "now": 0,
+      "target": 1,
+      "owner": "03-accessibility"
+    },
+    "aria_live_regions": {
+      "now": 0,
+      "target": 2,
+      "owner": "03-accessibility"
+    },
+    "skip_link": {
+      "now": false,
+      "target": true,
+      "owner": "03-accessibility"
+    },
+    "console_errors": {
+      "now": 0,
+      "target": 0,
+      "owner": "all",
+      "note": "already clean — keep it"
+    },
+    "bulletin_freshness_days": {
+      "now": 1,
+      "target": 0,
+      "owner": "08-reliability",
+      "note": "latest.date=2026-07-19 while news built 2026-07-20T12:47Z"
+    },
+    "anchor_cron_per_day": {
+      "now": 1,
+      "target": 2,
+      "owner": "08-reliability",
+      "note": "cron '0 15 * * *' — one chance, no retry"
+    },
+    "failure_alerting": {
+      "now": false,
+      "target": true,
+      "owner": "08-reliability",
+      "note": "19 Jul schedule failed silently; rescued by manual dispatch"
+    },
+    "stale_disclosure": {
+      "now": false,
+      "target": true,
+      "owner": "08-reliability",
+      "note": "yesterday's bulletin labelled نشرة اليوم"
+    },
+    "edge_cache_age_s": {
+      "now": 31641,
+      "target": 300,
+      "owner": "01-speed",
+      "note": "x-vercel-cache HIT despite must-revalidate"
+    }
   },
   "headers_now": {
     "cache-control": "public, max-age=0, must-revalidate",

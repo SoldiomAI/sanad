@@ -31,16 +31,18 @@ branch that does both halfway.
 | 4 | `04-editorial.md` | terminology, attribution | the part that cannot be bought back |
 | 5 | `06-security.md` | headers, secret audit | cheap, do it before it matters |
 | 6 | `05-agents.md` | validation, idempotency | deepest change, least visible |
-| 7 | `07-reel.md` | social distribution | only after the platform holds |
+| 7 | `08-reliability.md` | retry, alerting, stale disclosure | one daily cron, no retry, no alert |
+| 8 | `07-reel.md` | social distribution | only after the platform holds |
 
-Tasks 1–3 are worth more than 4–7 combined. Do not start at the bottom
+Tasks 1–3 are worth more than the rest combined, and task 8 is the one
+that stops a silent failure living for 24 hours. Do not start at the bottom
 because it is more interesting.
 
 ## Files
 
 ```
 prompts/00-context.md      shared — load with every task
-prompts/01..07             one task each, independently shippable
+prompts/01..08             one task each, independently shippable
 baseline.json              measured 2026-07-20, machine-readable
 checks/audit-perf.js       the audit that produced baseline.json
 checks/audit-detail.js     fonts, audio, landmarks, headings
