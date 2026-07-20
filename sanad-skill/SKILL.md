@@ -29,7 +29,7 @@ infrastructure damage, and anything that could cause panic or policy response.
 **A claim that has not passed SANAD does not exist.** Silence is always preferable to
 an ungraded claim.
 
-## The Five Pillars (الأركان الخمسة)
+## خمسة معايير من علم الحديث (Five Criteria from Hadith Science)
 
 Every claim must pass five gates, in order. Fail any gate → drop to the indicated grade.
 
