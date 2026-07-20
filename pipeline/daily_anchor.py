@@ -136,27 +136,105 @@ def broadcast_bulletin():
         json.dump(st,open(f"{OUT}/tg.json","w"),ensure_ascii=False)
         print("📣 بُثّت النشرة على القناة")
 
+def _tg_state():
+    try: return json.load(open(f"{OUT}/tg.json"))
+    except Exception: return {}
+
+def _tg_save(st):
+    for k in ("news","alerts","official"):
+        if isinstance(st.get(k),list): st[k]=st[k][-200:]
+    json.dump(st,open(f"{OUT}/tg.json","w"),ensure_ascii=False,indent=1)
+
+def _fp(s):
+    """بصمة مستقرّة تمنع التكرار حتى لو تغيّرت الصياغة قليلًا."""
+    import hashlib,re as _re
+    t=_re.sub(r"[^\w\u0600-\u06FF]+"," ",str(s or "")).strip()[:120]
+    return hashlib.md5(t.encode()).hexdigest()[:14]
+
+SITE="https://isnad.news"
+
+def broadcast_news():
+    """يبثّ الأخبارَ الحصريّة فقط: عاجلٌ أو صحيحُ الإسناد — مرّةً واحدة أبدًا."""
+    try: d=json.load(open(f"{OUT}/news.json"))
+    except Exception: return
+    st=_tg_state(); seen=set(st.get("news",[]))
+    pool=[]
+    for cat,lst in (d.get("cats") or {}).items():
+        for it in lst:
+            urgent = cat=="عاجل"
+            strong = it.get("grade")=="صحيح"
+            official= (it.get("score") or 0)>=6
+            if urgent or strong or official:
+                it=dict(it); it["_cat"]=cat
+                it["_pri"]= 0 if urgent else (1 if strong else 2)
+                pool.append(it)
+    pool.sort(key=lambda x:(x["_pri"], -(x.get("score") or 0)))
+    sent=0
+    for it in pool:
+        f=_fp(it.get("head"))
+        if f in seen: continue
+        if sent>=3: break                       # سقف يمنع الإغراق
+        g=it.get("grade","")
+        head = "🔴 عاجل" if it["_cat"]=="عاجل" else ("✅ خبرٌ صحيحُ الإسناد" if g=="صحيح" else "📌 خبرٌ قويُّ الإسناد")
+        t=(f"{head}\n\n<b>{it.get('head','')}</b>\n\n"
+           f"📡 {it.get('src','')}"+(f" · {it.get('via')}" if it.get('via') else "")+"\n"
+           f"⚖️ الإسناد: {g} · {it.get('score','—')}/7")
+        if it.get("at"):
+            try: t+=f"\n🕐 {datetime.fromisoformat(it['at']).strftime('%H:%M')}"
+            except Exception: pass
+        if it.get("link"): t+=f"\n\n<a href=\"{it['link']}\">المصدر ↗</a>"
+        t+=f" · <a href=\"{SITE}\">سَنَد</a>"
+        if tg_send(t): seen.add(f); sent+=1
+    if sent:
+        st["news"]=list(seen); _tg_save(st)
+        print(f"📣 بُثّ {sent} خبرًا حصريًا")
+
+def broadcast_official():
+    """يبثّ بياناتِ الجهاتِ الرسميّة والعسكريّة فورَ وصولها — CENTCOM ووزاراتِ الدفاع."""
+    try: o=json.load(open(f"{OUT}/official.json"))
+    except Exception: return
+    st=_tg_state(); seen=set(st.get("official",[]))
+    MIL=("CENTCOM","المركزية","الدفاع","الأركان","القوات المسلحة","الجيش",
+         "الداخلية","الدفاع المدني","خلية الإعلام","البنتاغون")
+    sent=0
+    for x in (o.get("src") or []):
+        ent=str(x.get("e","")); post=str(x.get("p",""))
+        if not post: continue
+        if not any(m in ent for m in MIL): continue     # عسكريٌّ أو أمنيٌّ فقط
+        f=_fp(ent+post)
+        if f in seen: continue
+        if sent>=4: break
+        t=(f"🎖️ <b>بيانٌ رسميّ — فورَ صدوره</b>\n\n"
+           f"{x.get('f','')} <b>{ent}</b>"+(f" {x.get('h')}" if x.get("h") else "")+"\n\n"
+           f"{post}\n")
+        if x.get("t"): t+=f"\n🕐 {x['t']}"
+        if x.get("u"): t+=f"\n<a href=\"{x['u']}\">البيان ↗</a>"
+        t+=f" · <a href=\"{SITE}\">سَنَد</a>"
+        if tg_send(t): seen.add(f); sent+=1
+    if sent:
+        st["official"]=list(seen); _tg_save(st)
+        print(f"📣 بُثّ {sent} بيانًا رسميًا")
+
 def broadcast_alerts():
-    """يبثّ التحذيرات الرسمية الجديدة فور صدورها."""
+    """يبثّ التحذيراتِ الرسميّةَ الجديدةَ فقط — بلا تكرار."""
     try: al=json.load(open(ALERTS))
     except Exception: return
-    try: st=json.load(open(f"{OUT}/tg.json"))
-    except Exception: st={}
-    seen=set(st.get("alerts",[]))
-    fresh=[x for x in al.get("list",[]) if (x.get("txt","")[:60] not in seen)][:3]
-    if not fresh: return
-    site="https://isnad.news"
-    for x in fresh:
+    st=_tg_state(); seen=set(st.get("alerts",[]))
+    sent=0
+    for x in (al.get("list") or []):
+        f=_fp(str(x.get("body",""))+str(x.get("txt","")))
+        if f in seen: continue
+        if sent>=2: break
         rumor="شائعة" in (x.get("kind") or "")
-        t=(f"{'🟡 تنبيه من الشائعات' if rumor else '🔴 تحذير رسمي'}\n"
+        t=(f"{'🟡 تنبيهٌ من الشائعات' if rumor else '🔴 تحذيرٌ رسميّ'}\n\n"
            f"<b>{x.get('body','')}</b>\n\n{x.get('txt','')}\n")
         if x.get("act"): t+=f"\n<b>افعل:</b> {x['act']}\n"
-        if x.get("u"):   t+=f"\n<a href=\"{x['u']}\">البيان الرسمي ↗</a>"
-        t+=f"\n\n<a href=\"{site}\">سَنَد</a>"
-        if tg_send(t): seen.add(x.get("txt","")[:60])
-    st["alerts"]=list(seen)[-40:]
-    json.dump(st,open(f"{OUT}/tg.json","w"),ensure_ascii=False)
-    print(f"📣 بُثّ {len(fresh)} تحذيرًا")
+        if x.get("u"):   t+=f"\n<a href=\"{x['u']}\">البيان ↗</a>"
+        t+=f"\n\n<a href=\"{SITE}\">سَنَد</a>"
+        if tg_send(t): seen.add(f); sent+=1
+    if sent:
+        st["alerts"]=list(seen); _tg_save(st)
+        print(f"📣 بُثّ {sent} تحذيرًا جديدًا")
 
 def bundle():
     """يدمج كل ملفات العرض في ملف واحد — يقضي على خنق الطلبات المتوازية."""
@@ -1025,7 +1103,7 @@ if os.environ.get("NEWS_ONLY"):
     except Exception: mark("rawi","skip","بانتظار أول نشرة")
     archive()
     bundle()
-    broadcast_alerts()
+    broadcast_official(); broadcast_alerts(); broadcast_news()
     save_agents()
     print("⚡ وضع تحديث الأخبار فقط — تم"); sys.exit(0)
 
@@ -1186,7 +1264,7 @@ def gen(ap,vp):
 # ═══ النسخة الأولى: صوتٌ فقط — الفيديو مؤجَّل ═══
 if not os.environ.get("ENABLE_VIDEO"):
     mark("rawi","ok","نشرة صوتية")
-    bundle(); broadcast_bulletin(); broadcast_alerts(); save_agents()
+    bundle(); broadcast_bulletin(); broadcast_official(); broadcast_alerts(); broadcast_news(); save_agents()
     print("🎙️ النشرة الصوتية جاهزة — الفيديو معطَّل في هذه النسخة")
     sys.exit(0)
 
@@ -1272,6 +1350,6 @@ print(f"🎬 اكتمل الفيديو: bulletin-{today}.mp4 ({len(need)} مقط
 
 bundle()
 broadcast_bulletin()
-broadcast_alerts()
+broadcast_official(); broadcast_alerts(); broadcast_news()
 try: mark("rawi", _LOG.get("rawi",{}).get("status","ok"), _LOG.get("rawi",{}).get("note","نشرة اليوم")); save_agents()
 except Exception: pass
