@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """Package consistency gate. Every metric owned, every task listed, every
-task measurable. Run from the uplift/ directory."""
+task measurable. Runs from anywhere — paths resolve against this file."""
 import json, os, re, sys
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+os.chdir(ROOT)
 
 fail = []
 prompts = sorted(f for f in os.listdir('prompts') if f.endswith('.md'))
