@@ -47,9 +47,22 @@ baseline.json              measured 2026-07-20, machine-readable
 checks/audit-perf.js       the audit that produced baseline.json
 checks/audit-detail.js     fonts, audio, landmarks, headings
 checks/copy-guard.sh       CI gate for terminology and comparison language
+checks/consistency.py      gate on the package itself — every task measurable
 ```
 
-## Rule
+## Rules
 
 A change you cannot measure is a change you cannot defend. Every task file
 ends with a Definition of done that is a number or a command, never a feeling.
+
+Every task owns at least one row of `baseline.json`, and
+`checks/consistency.py` fails if that stops being true. A task nobody can
+measure is a task nobody will finish.
+
+Report misses by how much. Never state a range and let the good end stand for
+the result.
+
+```bash
+python3 checks/consistency.py    # the package checks itself
+bash checks/copy-guard.sh .      # the copy checks itself
+```

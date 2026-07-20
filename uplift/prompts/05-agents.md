@@ -1,7 +1,11 @@
 # Task 5 — Agents and data integrity
 
-Eleven agents run every three hours. Today the failure modes are invisible
-until they reach the reader.
+Eleven agents run every three hours — 222 workflow runs to date. On
+2026-07-20 the refresh cycle succeeded at 04:16, 07:03, 10:02 and 12:42, and
+`bundle.json` was rebuilt at 12:47. The pipeline works.
+
+What is missing is what happens when it does not. Today the failure modes are
+invisible until they reach the reader.
 
 ## Harden
 

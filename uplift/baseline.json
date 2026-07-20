@@ -136,6 +136,95 @@
       "target": 300,
       "owner": "01-speed",
       "note": "x-vercel-cache HIT despite must-revalidate"
+    },
+    "anchor_job_timeout_min": {
+      "now": null,
+      "target": 25,
+      "owner": "08-reliability",
+      "note": "20 Jul run hung >1h in_progress, produced nothing, never alerted"
+    },
+    "copy_guard_in_ci": {
+      "now": false,
+      "target": true,
+      "owner": "04-editorial",
+      "note": "checks/copy-guard.sh exists and passes; not yet blocking merge"
+    },
+    "attribution_field_level": {
+      "now": false,
+      "target": true,
+      "owner": "04-editorial",
+      "note": "shipped once at card level and misled readers"
+    },
+    "corrections_test": {
+      "now": false,
+      "target": true,
+      "owner": "04-editorial"
+    },
+    "low_score_visual_parity": {
+      "now": false,
+      "target": true,
+      "owner": "04-editorial",
+      "note": "2/7 must render at the weight of 7/7"
+    },
+    "agent_count": {
+      "now": 11,
+      "target": 11,
+      "owner": "05-agents",
+      "note": "every 3h; 222 workflow runs to date"
+    },
+    "agent_schema_validation": {
+      "now": false,
+      "target": true,
+      "owner": "05-agents"
+    },
+    "agent_idempotency_test": {
+      "now": false,
+      "target": true,
+      "owner": "05-agents"
+    },
+    "criteria_stored_individually": {
+      "now": false,
+      "target": true,
+      "owner": "05-agents",
+      "note": "total is the conclusion; the five are the argument"
+    },
+    "stale_banner_hours": {
+      "now": null,
+      "target": 6,
+      "owner": "05-agents"
+    },
+    "security_headers": {
+      "now": 1,
+      "target": 5,
+      "owner": "06-security",
+      "note": "HSTS only; no CSP, nosniff, referrer-policy, permissions-policy"
+    },
+    "secret_scan_full_history": {
+      "now": false,
+      "target": true,
+      "owner": "06-security"
+    },
+    "classic_pats_active": {
+      "now": 1,
+      "target": 0,
+      "owner": "06-security",
+      "note": "token used to push this package still live 2026-07-20"
+    },
+    "reel_coverage_pct": {
+      "now": 94,
+      "target": 85,
+      "owner": "07-reel"
+    },
+    "reel_size_mb": {
+      "now": 3.4,
+      "target": 5,
+      "owner": "07-reel"
+    },
+    "reel_pronunciation_diffs": {
+      "now": 0,
+      "target": 0,
+      "owner": "07-reel",
+      "note": "silent ship — no voice generated"
     }
   },
   "headers_now": {

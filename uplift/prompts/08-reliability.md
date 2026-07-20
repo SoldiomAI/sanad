@@ -72,6 +72,29 @@ prominently as confidence. A platform whose entire proposition is grading the
 reliability of information cannot quietly present day-old content as current.
 That is the one failure mode that costs more than an outage.
 
+**4 — Treat a hung job as a failure.** Observed 2026-07-20: the anchor run
+started 15:39 and was still `in_progress` over an hour later, having produced
+nothing. It never concluded, so it never alerted.
+
+A hung job is worse than a failed one. A failure yields
+`conclusion: failure` and can be detected; a hang yields nothing at all and
+looks like work in progress forever.
+
+```yaml
+jobs:
+  anchor:
+    timeout-minutes: 25
+```
+
+The known cause here is GPU quota: LongCat bills the full requested duration
+per call regardless of clip length, so quota exhausts and the call stalls
+rather than erroring. Cap the job, let the timeout convert the hang into a
+real failure, and let condition 2 alert on it.
+
+Then make the retry meaningful: on timeout, fall back to the lighter TTS path
+and ship an audio-only bulletin. **A bulletin with no video beats no bulletin.**
+Degrade, do not disappear.
+
 ## Also worth fixing while here
 
 The HTML is served from the edge at **`age: 31641`** — 8.8 hours — with
@@ -87,4 +110,7 @@ the fix; verify here that the two are consistent once it lands.
 - No bulletin by 17:00 UTC produces an alert without any failure occurring
 - With `latest.date` set to yesterday in a test fixture, the page renders the
   stale-date wording and never the words **نشرة اليوم**
+- `timeout-minutes` set on the anchor job; a forced hang concludes as failure
+  within the cap and raises an alert
+- Timeout falls back to audio-only rather than producing nothing
 - One deliberate end-to-end failure exercise, executed and documented
