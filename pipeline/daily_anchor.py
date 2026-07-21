@@ -153,14 +153,43 @@ def _fp(s):
 
 SITE="https://isnad.news"
 
+# نافذةُ طزاجةِ القناة: لا يُبثُّ على تلغرام إلا خبرُ اليوم (آخر ٣٠ ساعة).
+# سببُ الوجود: كانت الأخبارُ القديمةُ تتسرَّبُ للقناةِ متى أعيدَ تصنيفُها دون بثٍّ سابق.
+TG_FRESH_H=30
+def _fresh_at(at):
+    """صحيحٌ فقط إن حملَ الخبرُ ختمًا زمنيًّا حديثًا موثوقًا (لا قديمًا ولا مفقودًا)."""
+    if not at: return False                      # بلا ختمٍ زمنيّ ⇒ لا نضمنُ حداثتَه
+    try:
+        t=datetime.fromisoformat(str(at).replace("Z","+00:00"))
+        if t.tzinfo is None: t=t.replace(tzinfo=timezone.utc)
+        age=(datetime.now(timezone.utc)-t).total_seconds()
+        return -7200 <= age <= TG_FRESH_H*3600   # نتساهلُ ساعتين للأمامِ (فروقُ الساعة)
+    except Exception: return False
+
+_AR_MON={"يناير":1,"فبراير":2,"مارس":3,"أبريل":4,"إبريل":4,"مايو":5,"يونيو":6,
+         "يوليو":7,"أغسطس":8,"اغسطس":8,"سبتمبر":9,"أكتوبر":10,"اكتوبر":10,
+         "نوفمبر":11,"ديسمبر":12}
+def _stmt_stale(t):
+    """صحيحٌ إن ذكرَ البيانُ تاريخًا صريحًا أقدمَ من يومين — فلا نبثُّه كأنّه «فورَ صدوره»."""
+    import re as _re
+    m=_re.search(r"(\d{1,2})\s+([^\s0-9]+)\s+(\d{4})", str(t or ""))
+    if not m: return False                       # بلا تاريخٍ صريح ⇒ لا نحكمُ بقِدَمِه
+    mon=_AR_MON.get(m.group(2))
+    if not mon: return False
+    try:
+        d=datetime(int(m.group(3)),mon,int(m.group(1)),tzinfo=timezone.utc)
+        return (datetime.now(timezone.utc)-d).total_seconds() > 2*86400
+    except Exception: return False
+
 def broadcast_news():
-    """يبثّ الأخبارَ الحصريّة فقط: عاجلٌ أو صحيحُ الإسناد — مرّةً واحدة أبدًا."""
+    """يبثّ الأخبارَ الحصريّة فقط: عاجلٌ أو صحيحُ الإسناد — أخبارَ اليومِ ومرّةً واحدة أبدًا."""
     try: d=json.load(open(f"{OUT}/news.json"))
     except Exception: return
     st=_tg_state(); seen=set(st.get("news",[]))
     pool=[]
     for cat,lst in (d.get("cats") or {}).items():
         for it in lst:
+            if not _fresh_at(it.get("at")): continue   # أخبارُ اليومِ فقط — لا القديمة
             urgent = cat=="عاجل"
             strong = it.get("grade")=="صحيح"
             official= (it.get("score") or 0)>=6
@@ -201,6 +230,7 @@ def broadcast_official():
         ent=str(x.get("e","")); post=str(x.get("p",""))
         if not post: continue
         if not any(m in ent for m in MIL): continue     # عسكريٌّ أو أمنيٌّ فقط
+        if _stmt_stale(x.get("t")): continue             # لا نبثُّ بيانًا قديمًا كأنّه فوريّ
         f=_fp(ent+post)
         if f in seen: continue
         if sent>=4: break
