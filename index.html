@@ -824,27 +824,27 @@ function introHTML(msg){
 function num(v){
   if(v===undefined||v===null||v==="") return "—";
   const s=String(v);
-  return /^\d[\d,]*$/.test(s)?s:'<span style="font-size:11px;color:var(--dim);font-weight:500">'+s+'</span>';
+  return /^\d[\d,]*$/.test(s)?s:'<span style="font-size:11px;color:var(--dim);font-weight:500">'+esc(s)+'</span>';
 }
 let VFY={};
 function vfy(c){
   const r=VFY[c]; if(!r) return "";
   const m={"مطابق":["m","✓ مطابق"],"متباين":["d","⚠ متباين"],"غير موثّق":["n","؟ غير موثّق"]}[r.r];
-  return m?` <span class="vfy ${m[0]}" title="${(r.by||"")+" "+(r.note||"")}">${m[1]}</span>`:"";
+  return m?` <span class="vfy ${m[0]}" title="${esc((r.by||"")+" "+(r.note||""))}">${m[1]}</span>`:"";
 }
 function muni(x){
   const OK=new Set(x.mil_ok||[]);
   if(!OK.size) return "";
   const L={mis:["🚀","باليستيًا"],crz:["✈️","جوّالًا"],drn:["🛩️","مسيّرة"],itc:["🛡️","اعتُرض"]};
   const p=["mis","crz","drn","itc"].filter(k=>OK.has(k)&&x[k]).map(k=>
-    `<span class="mu${k==="itc"?" ok":""}"><i>${L[k][0]}</i>${x[k]}<b>${L[k][1]}</b></span>`);
+    `<span class="mu${k==="itc"?" ok":""}"><i>${L[k][0]}</i>${esc(String(x[k]))}<b>${L[k][1]}</b></span>`);
   if(!p.length) return "";
   let out=`<div class="muni">${p.join("")}</div>`;
   out+=`<div class="milsrc"><span class="badge b-sahih">رسمي · تراكمي</span>
-    <span>${x.mil_src||""}${x.mil_h?" "+x.mil_h:""}</span>
-    ${x.mil_at?`<span class="milat">حتى ${x.mil_at}</span>`:""}
-    ${x.mil_u?`<a href="${x.mil_u}" target="_blank" rel="noopener">البيان ↗</a>`:""}</div>`;
-  if(x.mil_q) out+=`<div class="milq">« ${x.mil_q} »</div>`;
+    <span>${esc(x.mil_src||"")}${x.mil_h?" "+esc(x.mil_h):""}</span>
+    ${x.mil_at?`<span class="milat">حتى ${esc(x.mil_at)}</span>`:""}
+    ${x.mil_u?`<a href="${safeUrl(x.mil_u)}" target="_blank" rel="noopener">البيان ↗</a>`:""}</div>`;
+  if(x.mil_q) out+=`<div class="milq">« ${esc(x.mil_q)} »</div>`;
   return out;
 }
 function tolls(t){
@@ -853,15 +853,15 @@ function tolls(t){
   warSince.textContent=t.since?("منذ "+t.since):"";
   toll.innerHTML=totals(t)+t.toll.map(x=>`
     <div class="toll rise" style="animation-delay:${(t.toll.indexOf(x)*60)}ms">
-      <div class="c">${x.f||"🏳️"} ${x.c}</div>
+      <div class="c">${esc(x.f||"🏳️")} ${esc(x.c)}</div>
       <div class="nums">
         <div class="n d"><b>${num(x.d)}</b><span>قتلى</span></div>
         <div class="n w"><b>${num(x.w)}</b><span>جرحى</span></div>
       </div>
-      <div class="dmg">${x.dmg||""}</div>
+      <div class="dmg">${esc(x.dmg||"")}</div>
       ${muni(x)}
-      ${x.e&&x.e!=="غير مؤكد"?`<div class="econ">💰 ${x.e}</div>`:""}
-      <div class="src">📌 ${x.src||"لم تُذكر جهة"}${x.asof?" · "+x.asof:""}${x.u?` · <a href="${x.u}" target="_blank" rel="noopener">المصدر ↗</a>`:""}${vfy(x.c)}</div>
+      ${x.e&&x.e!=="غير مؤكد"?`<div class="econ">💰 ${esc(x.e)}</div>`:""}
+      <div class="src">📌 ${esc(x.src||"لم تُذكر جهة")}${x.asof?" · "+esc(x.asof):""}${x.u?` · <a href="${safeUrl(x.u)}" target="_blank" rel="noopener">المصدر ↗</a>`:""}${vfy(x.c)}</div>
     </div>`).join("");
   tollWrap.style.display="block";
 }
@@ -936,7 +936,7 @@ async function load(){
     const cr=await grab("corrections");
     if((cr.log||[]).length){
       corrL.innerHTML=cr.log.slice(-6).reverse().map(x=>
-        `<div class="corr-i">${x.f} <b>${x.c}</b> — ${x.field}: ${x.from} ← <b>${x.to}</b>${x.src?` · ${x.src}`:""}</div>`).join("");
+        `<div class="corr-i">${esc(x.f)} <b>${esc(x.c)}</b> — ${esc(x.field)}: ${esc(x.from)} ← <b>${esc(x.to)}</b>${x.src?` · ${esc(x.src)}`:""}</div>`).join("");
       corrWrap.style.display="block";
     }
   }catch(e){}
@@ -960,12 +960,12 @@ async function load(){
     agH.textContent=`${a.ran!==undefined?a.ran:"—"} عملوا هذه الجولة · ${a.healthy}/${a.total} سليم`;
     agT.textContent="آخر تشغيل "+new Date(a.updated).toLocaleTimeString("ar-KW",{hour:"2-digit",minute:"2-digit"});
     agL.innerHTML=(a.agents||[]).map(x=>`
-      <div class="ag ${x.status}">
-        <div class="ag-t">${x.icon} ${x.name}</div>
-        <div class="ag-r">${x.role}</div>
+      <div class="ag ${esc(x.status)}">
+        <div class="ag-t">${esc(x.icon)} ${esc(x.name)}</div>
+        <div class="ag-r">${esc(x.role)}</div>
         <div class="ag-s">
-          <span class="ag-b ${x.status}">${lbl[x.status]||x.status}</span>
-          <span>${x.status==="ok"&&x.ms?(x.ms>999?(x.ms/1000).toFixed(1)+"s":x.ms+"ms"):(x.note||"").slice(0,22)}</span>
+          <span class="ag-b ${esc(x.status)}">${esc(lbl[x.status]||x.status)}</span>
+          <span>${x.status==="ok"&&x.ms?(x.ms>999?(x.ms/1000).toFixed(1)+"s":x.ms+"ms"):esc((x.note||"").slice(0,22))}</span>
         </div>
       </div>`).join("");
     if(STUDIO) agWrap.style.display="block";
@@ -985,14 +985,14 @@ async function load(){
         .filter(([k])=>r[k]&&s[k]&&r[k]>s[k])
         .map(([k,l])=>`${l} <b>${ar(r[k]-s[k])}</b>`).join(" · ");
       return `<div class="led">
-        <div class="led-h"><b>${x.f||""} ${x.body||""}</b>
-          <span>${ar(x.n_stmt)} بيانًا · ${x.from} → ${x.to}</span></div>
+        <div class="led-h"><b>${esc(x.f||"")} ${esc(x.body||"")}</b>
+          <span>${ar(x.n_stmt)} بيانًا · ${esc(x.from)} → ${esc(x.to)}</span></div>
         <div class="led-g">${cells}</div>
         ${gaps?`<div class="led-gap">استخرجنا الأرقامَ من <b>${ar(x.n_withnum)}</b> بيانًا من أصل <b>${ar(x.n_stmt)}</b>؛ والباقي لم يذكر عددًا صريحًا. لذلك مجموعُنا أقلُّ من المرجعِ المنشور بـ ${gaps}. نعرضُ الفرقَ ولا نُخفيه.</div>`:""}
         ${(x.rows||[]).length?`<div class="led-rows">${x.rows.map(rr=>{
           const p=[["mis","🚀"],["crz","✈️"],["drn","🛩️"],["itc","🛡️"]]
             .filter(([k])=>+rr[k]>0).map(([k,i])=>`${i}${rr[k]}`).join(" ");
-          return `<div class="led-r"><b>بيان ${rr.no}</b><span>${p||"بلا عدد"}</span><span>${rr.date||""}</span></div>`;
+          return `<div class="led-r"><b>بيان ${esc(String(rr.no==null?"":rr.no))}</b><span>${p||"بلا عدد"}</span><span>${esc(rr.date||"")}</span></div>`;
         }).join("")}</div>`:""}
       </div>`}).join("");
     ledWrap.style.display="block";
@@ -1005,10 +1005,10 @@ async function load(){
       const rumor=(x.kind||"").includes("شائعة");
       return `<div class="alert ${rumor?"rumor":""} rise" style="animation-delay:${n*70}ms">
         <div class="al-h"><span class="al-k">${rumor?"تنبيه من الشائعات":"تحذير"}</span>
-          <span class="al-b">${x.body||""}</span></div>
-        <div class="al-t">${x.txt||""}</div>
-        ${x.act?`<div class="al-a"><b>افعل:</b><span>${x.act}</span></div>`:""}
-        <div class="al-m">${x.when?`<span>${x.when}</span>`:""}${x.u?`<a href="${x.u}" target="_blank" rel="noopener">البيان ↗</a>`:""}</div>
+          <span class="al-b">${esc(x.body||"")}</span></div>
+        <div class="al-t">${esc(x.txt||"")}</div>
+        ${x.act?`<div class="al-a"><b>افعل:</b><span>${esc(x.act)}</span></div>`:""}
+        <div class="al-m">${x.when?`<span>${esc(x.when)}</span>`:""}${x.u?`<a href="${safeUrl(x.u)}" target="_blank" rel="noopener">البيان ↗</a>`:""}</div>
       </div>`}).join("");
     alertWrap.style.display="block";
   }catch(e){}
@@ -1017,11 +1017,11 @@ async function load(){
     if(!(o.src||[]).length) throw 0;
     offL.innerHTML=o.src.map(x=>`
       <div class="off-i">
-        <div class="off-f">${x.f||"🏛️"}</div>
+        <div class="off-f">${esc(x.f||"🏛️")}</div>
         <div class="off-b">
-          <div><span class="off-e">${x.e||""}</span><span class="off-h">${x.h||""}</span></div>
-          <div class="off-p">${x.p||""}</div>
-          <div class="off-m"><span class="b-off">صحيح · مصدر أول</span><span>${x.t||""}</span>${x.u?`<a href="${x.u}" target="_blank" rel="noopener">↗ البيان</a>`:""}</div>
+          <div><span class="off-e">${esc(x.e||"")}</span><span class="off-h">${esc(x.h||"")}</span></div>
+          <div class="off-p">${esc(x.p||"")}</div>
+          <div class="off-m"><span class="b-off">صحيح · مصدر أول</span><span>${esc(x.t||"")}</span>${x.u?`<a href="${safeUrl(x.u)}" target="_blank" rel="noopener">↗ البيان</a>`:""}</div>
         </div>
       </div>`).join("");
     offWrap.style.display="block";
@@ -1043,8 +1043,8 @@ async function load(){
     const kc={"مأثور":"k-m","قرآن":"k-q","عام":"k-a"};
     duaL.innerHTML=(d.items||[]).map((x,n)=>
       `<div class="dua" onclick="cpy(${n})" id="d${n}">
-         <div class="t amiri">${x.t}</div>
-         <div class="s"><span class="k ${kc[x.k]||'k-a'}">${x.k}</span>${x.s}</div>
+         <div class="t amiri">${esc(x.t)}</div>
+         <div class="s"><span class="k ${kc[x.k]||'k-a'}">${esc(x.k)}</span>${esc(x.s)}</div>
        </div>`).join("");
     window.DUA=d.items; duaWrap.style.display="block";
   }catch(e){}
@@ -1063,16 +1063,16 @@ async function load(){
     fcAcc.textContent=(sc.n>=3)?`دقة تراكمية ${sc.acc}% · ${sc.n} مراجعة`
   :`سجل الدقة يُنشر بعد ${3-(sc.n||0)} دورات مراجعة`;
     sigs.innerHTML=(f.signals||[]).slice(0,4).map(s=>
-      `<div class="sig"><span class="w ${s.w==='عالٍ'?'hi':''}">${s.w||''}</span><span><b>${s.who||''}:</b> ${s.q||''}</span></div>`).join("");
+      `<div class="sig"><span class="w ${s.w==='عالٍ'?'hi':''}">${esc(s.w||'')}</span><span><b>${esc(s.who||'')}:</b> ${esc(s.q||'')}</span></div>`).join("");
     scns.innerHTML=(f.scenarios||[]).map(s=>`
       <div class="scn">
-        <div class="scn-t"><span>${s.s}</span><span class="scn-p">${s.p}%</span></div>
-        <div class="bar"><i style="width:${s.p}%"></i></div>
-        <div class="scn-w"><b>السابقة:</b> ${s.why||""}</div>
-        <div class="scn-w"><b>المؤشر:</b> ${s.watch||""}</div>
+        <div class="scn-t"><span>${esc(s.s)}</span><span class="scn-p">${+s.p||0}%</span></div>
+        <div class="bar"><i style="width:${+s.p||0}%"></i></div>
+        <div class="scn-w"><b>السابقة:</b> ${esc(s.why||"")}</div>
+        <div class="scn-w"><b>المؤشر:</b> ${esc(s.watch||"")}</div>
       </div>`).join("");
     rev.innerHTML=(f.review||[]).map(r=>
-      `<span class="${r.r==='وقع'?'y':r.r==='جزئيًا'?'p':''}">${r.r}: ${(r.s||'').slice(0,34)}…</span>`).join("");
+      `<span class="${r.r==='وقع'?'y':r.r==='جزئيًا'?'p':''}">${esc(r.r)}: ${esc((r.s||'').slice(0,34))}…</span>`).join("");
     fcCav.textContent="⚠️ "+(f.caveat||"استقراء احتمالي لا يقين.")+" — تُنشر النِسَب ويُحاسَب النظام عليها في الجولة التالية.";
     fcWrap.style.display="block";
     try{ const _p=document.getElementById("plr"), _a=document.getElementById("a");
@@ -1087,8 +1087,8 @@ async function load(){
     evoV.textContent=`⚙️ قواعد الفرز — الإصدار ${last.v}`;
     evoN.textContent=`${last.rules} نمط مُكتسَب · متوسط الاستبعاد ${e.trend} لكل جولة`;
     const mx=Math.max(...r.slice(-20).map(x=>x.removed),1);
-    spark.innerHTML=r.slice(-20).map(x=>`<i style="height:${Math.max(6,x.removed/mx*100)}%" title="${x.t}: استُبعد ${x.removed}"></i>`).join("");
-    lessons.innerHTML=(e.lessons||[]).map(l=>`<div class="lesson">${l}</div>`).join("");
+    spark.innerHTML=r.slice(-20).map(x=>`<i style="height:${Math.max(6,(+x.removed||0)/mx*100)}%" title="${esc(x.t)}: استُبعد ${esc(String(x.removed==null?"":x.removed))}"></i>`).join("");
+    lessons.innerHTML=(e.lessons||[]).map(l=>`<div class="lesson">${esc(l)}</div>`).join("");
     if(STUDIO) evoWrap.style.display="block";
   }catch(e){}
 }
@@ -1145,8 +1145,8 @@ async function aiRun(){
   aiRes.innerHTML=sc.length?sc.map(x=>{
     const d=AI.docs[x.i], pc=Math.round(100-((top-x.s)/0.05*40));
     return `<div class="ai-r">
-      <a href="${d.link||'#'}" ${d.link?'target="_blank" rel="noopener"':''}>${d.t}</a>
-      <div class="m"><span class="ai-pc">${Math.min(99,Math.max(55,pc))}% صلة</span><span>${d.c}</span><span>${d.src||""}</span></div>
+      <a href="${safeUrl(d.link||'#')}" ${d.link?'target="_blank" rel="noopener"':''}>${esc(d.t)}</a>
+      <div class="m"><span class="ai-pc">${Math.min(99,Math.max(55,pc))}% صلة</span><span>${esc(d.c)}</span><span>${esc(d.src||"")}</span></div>
     </div>`}).join(""):'<div class="ai-st">لا توجد مادة قريبة من سؤالك في نشرة اليوم.</div>';
 }
 async function openArc(e){
@@ -1181,7 +1181,7 @@ async function showArc(id){
     const all=Object.entries(s.cats||{});
     const tol=(s.intel&&s.intel.toll)?s.intel.toll:[];
     const tolHtml = tol.length?`<div class="card"><div class="arc-t" style="margin-bottom:8px;color:var(--seal-l)">الحصيلة وقتها</div>`+
-      tol.map(x=>`<div style="font-size:12px;color:var(--mut);line-height:2.1">${x.f||""} ${x.c}: <b style="color:#f87171">${x.d}</b> قتلى · ${x.w} جرحى</div>`).join("")+`</div>`:"";
+      tol.map(x=>`<div style="font-size:12px;color:var(--mut);line-height:2.1">${esc(x.f||"")} ${esc(x.c)}: <b style="color:#f87171">${esc(String(x.d==null?"":x.d))}</b> قتلى · ${esc(String(x.w==null?"":x.w))} جرحى</div>`).join("")+`</div>`:"";
     const cnt=Object.values(s.cats||{}).flat().length;
     arcBody.innerHTML=`<div class="sec-h">${id.slice(0,10)} — ${id.slice(11,13)}:${id.slice(13,15)} · ${cnt} خبرًا</div>`+tolHtml+
       all.map(([c,l])=>`<div class="card"><div class="arc-t" style="margin-bottom:8px;color:var(--gold-l)">${esc(c)}</div>`+
@@ -1267,7 +1267,7 @@ async function net3d(){
     const hit=ray.intersectObjects(nodes)[0];
     if(hit){
       const u=hit.object.userData;
-      tip.innerHTML=`<b>${u.name}</b>${u.t}: ${u.n} خبرًا${u.cats?"<br>"+u.cats:""}`;
+      tip.innerHTML=`<b>${esc(u.name)}</b>${esc(u.t)}: ${esc(String(u.n==null?"":u.n))} خبرًا${u.cats?"<br>"+esc(u.cats):""}`;
       tip.style.insetInlineStart=Math.min(r.width-260,e.clientX-r.left+14)+"px";
       tip.style.top=(e.clientY-r.top+14)+"px"; tip.classList.add("on");
     } else tip.classList.remove("on");
