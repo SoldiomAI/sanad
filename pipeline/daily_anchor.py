@@ -488,6 +488,17 @@ def intel_fresh(hours):
 
 @agent("rasid")
 def grok_intel():
+    # ⛔ مُعطَّل عمدًا. كانت هذه الدالة تولّد أرقامَ حربٍ (قتلى/جرحى/صواريخ/مسيّرات)
+    # عبر نموذجٍ لغويّ وتنسبها لجهاتٍ رسميّة لم تُعلنها (mil_u=«لم يُعلن»)، ثم تُسجّل
+    # اختلافَ كلّ تشغيلٍ عن سابقه في سجلّ التصحيحات كأنّه تصحيحٌ رسميّ. تلفيقٌ يخالف
+    # صميمَ منهج سَنَد: لا رقمَ بلا إسناد، والصمتُ أولى من رقمٍ غير مُسنَد.
+    # لا حصيلةَ حربٍ حتى تتوفّر أرقامٌ من بياناتٍ رسميّة حقيقيّة قابلةٍ للتحقّق.
+    j={"war":"","since":"","toll":[],"brk":[],"disabled":1,
+       "updated":datetime.now(timezone.utc).isoformat(timespec="minutes")}
+    try: json.dump(j,open(INTEL,"w"),ensure_ascii=False,indent=1)
+    except Exception: pass
+    return j
+    # ── ما يلي مُعطَّل (لا يُنفَّذ) ──
     old, _ = intel_fresh(99)
     try: _age=(datetime.now(timezone.utc)-datetime.fromisoformat((old or {}).get("updated","2000-01-01T00:00+00:00"))).total_seconds()/3600
     except Exception: _age=999
