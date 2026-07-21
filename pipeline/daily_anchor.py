@@ -170,13 +170,17 @@ SITE="https://isnad.news"
 # طزاجةُ القناة: لا يُبثُّ على تلغرام إلا خبرُ *يومِ اليوم* بتوقيت الكويت (UTC+3).
 # سببُ التشديد: طلبٌ صريح ألّا يُرسَل خبرُ الأمس (١٨) في اليوم التالي (١٩).
 _KW=timezone(timedelta(hours=3))
+_TG_GRACE_H=6   # سماحُ منتصفِ الليل: نسمحُ بخبرٍ طازجٍ جدًّا وإن حملَ تاريخَ أمسِ الكويت
 def _today_kw(at):
-    """صحيحٌ فقط إن كان الخبرُ من يومِ اليومِ نفسِه بتوقيت الكويت — لا خبرَ أمس."""
-    if not at: return False                      # بلا ختمٍ زمنيّ ⇒ لا نضمنُ يومَه
+    """صحيحٌ إن كان الخبرُ من يومِ الكويتِ نفسِه، أو طازجًا جدًّا (≤٦ س) عبرَ منتصفِ الليل —
+    كي لا تصمتَ القناةُ بعد منتصفِ الليل ولا يُحجَبَ عاجلٌ عمرُه دقائقُ عبرَ حدِّ اليوم."""
+    if not at: return False                      # بلا ختمٍ زمنيّ ⇒ لا نضمنُ حداثتَه
     try:
         t=datetime.fromisoformat(str(at).replace("Z","+00:00"))
         if t.tzinfo is None: t=t.replace(tzinfo=timezone.utc)
-        return t.astimezone(_KW).date()==datetime.now(_KW).date()
+        now=datetime.now(timezone.utc)
+        if t.astimezone(_KW).date()==now.astimezone(_KW).date(): return True   # خبرُ اليوم
+        return 0 <= (now-t).total_seconds() <= _TG_GRACE_H*3600                 # أو طازجٌ جدًّا
     except Exception: return False
 
 _AR_MON={"يناير":1,"فبراير":2,"مارس":3,"أبريل":4,"إبريل":4,"مايو":5,"يونيو":6,
