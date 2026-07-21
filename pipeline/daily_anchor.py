@@ -3,7 +3,7 @@
 """سَنَد — خط الإنتاج الآلي: RSS → إسناد → نص → صوت فهد → فيديو مذيع مُجزّأ
 LongCat 720p أساسي + EchoMimic احتياطي | افتتاحية/خاتمة مكاشة | يشتغل صفر تدخّل"""
 import os, re, sys, json, time, asyncio, shutil, subprocess, urllib.request, xml.etree.ElementTree as ET
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 GROK_KEY = os.environ.get("GROK_API_KEY",""); HF_TOKEN = os.environ.get("HF_TOKEN",""); GEMINI_KEY = os.environ.get("GEMINI_API_KEY",""); OUT="daily"; os.makedirs(OUT, exist_ok=True)
 TIER1=["centcom","kuna","كونا","mew_kwt","kff_kw","moi_bahrain","mofauae","mofaqatar","وكالة الأنباء الكويتية","reuters","رويترز","afp","فرانس برس","ap news","أسوشيتد","kuna","كونا","wam","وام","spa","واس","bna","qna","ona"]
@@ -19,7 +19,10 @@ FEEDS=[("الخليج","https://news.google.com/rss/search?q=%D8%A7%D9%84%D9%83%
        ("تقنية","https://blog.google/technology/ai/rss/"),
        ("اقتصاد","https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=ar&gl=KW&ceid=KW:ar"),
        ("إيران","https://feeds.bbci.co.uk/persian/rss.xml"),
-       ("إيران","https://www.iranintl.com/feed")]
+       ("إيران","https://www.iranintl.com/feed"),
+       # مصادرُ مباشرةٌ موثوقة بخدمةٍ عربيّة — تنويعٌ يعزّزُ المصداقية دون عناوينَ أجنبية
+       ("عالم","https://feeds.bbci.co.uk/arabic/rss.xml"),
+       ("عالم","https://www.france24.com/ar/rss")]
 
 # مصادر إيران: الاسم المعتمد وهوية الجهة — تُعرض للقارئ صراحةً
 EN_SRC={
@@ -41,6 +44,17 @@ def fa_meta(url):
     for k,v in FA_SRC.items():
         if k in url: return v
     return ("مصدر فارسي","غير محدد")
+
+# مصادرُ مباشرةٌ موثوقة (عربيّةٌ ودوليّة) — تنويعٌ يعزّزُ المصداقيّة، بهويّةٍ معروضةٍ للقارئ.
+# مفاتيحُها أكثرُ تخصيصًا من مفاتيحِ بي بي سي الفارسيّة فلا تتعارض.
+DIRECT_SRC={
+ "bbci.co.uk/arabic":("بي بي سي عربي","هيئة بث بريطانية عامة","حسن"),
+ "france24.com/ar":("فرانس ٢٤ عربي","قناة دولية فرنسية عامة","حسن"),
+}
+def direct_meta(url):
+    for k,v in DIRECT_SRC.items():
+        if k in url: return v
+    return (None,None,None)
 
 # ═══════════ طبقة الوكلاء — سجلٌّ ومراقبةٌ حيّة ═══════════
 AGENTS_F=f"{OUT}/agents.json"
@@ -153,14 +167,42 @@ def _fp(s):
 
 SITE="https://isnad.news"
 
+# طزاجةُ القناة: لا يُبثُّ على تلغرام إلا خبرُ *يومِ اليوم* بتوقيت الكويت (UTC+3).
+# سببُ التشديد: طلبٌ صريح ألّا يُرسَل خبرُ الأمس (١٨) في اليوم التالي (١٩).
+_KW=timezone(timedelta(hours=3))
+def _today_kw(at):
+    """صحيحٌ فقط إن كان الخبرُ من يومِ اليومِ نفسِه بتوقيت الكويت — لا خبرَ أمس."""
+    if not at: return False                      # بلا ختمٍ زمنيّ ⇒ لا نضمنُ يومَه
+    try:
+        t=datetime.fromisoformat(str(at).replace("Z","+00:00"))
+        if t.tzinfo is None: t=t.replace(tzinfo=timezone.utc)
+        return t.astimezone(_KW).date()==datetime.now(_KW).date()
+    except Exception: return False
+
+_AR_MON={"يناير":1,"فبراير":2,"مارس":3,"أبريل":4,"إبريل":4,"مايو":5,"يونيو":6,
+         "يوليو":7,"أغسطس":8,"اغسطس":8,"سبتمبر":9,"أكتوبر":10,"اكتوبر":10,
+         "نوفمبر":11,"ديسمبر":12}
+def _stmt_stale(t):
+    """صحيحٌ إن ذكرَ البيانُ تاريخًا صريحًا سابقًا لليومِ (بتوقيت الكويت) — فلا نبثُّه اليوم."""
+    import re as _re
+    m=_re.search(r"(\d{1,2})\s+([^\s0-9]+)\s+(\d{4})", str(t or ""))
+    if not m: return False                       # بلا تاريخٍ صريح ⇒ لا نحكمُ بقِدَمِه
+    mon=_AR_MON.get(m.group(2))
+    if not mon: return False
+    try:
+        d=datetime(int(m.group(3)),mon,int(m.group(1)),tzinfo=_KW).date()
+        return d < datetime.now(_KW).date()      # أيُّ تاريخٍ قبلَ اليوم = قديم
+    except Exception: return False
+
 def broadcast_news():
-    """يبثّ الأخبارَ الحصريّة فقط: عاجلٌ أو صحيحُ الإسناد — مرّةً واحدة أبدًا."""
+    """يبثّ الأخبارَ الحصريّة فقط: عاجلٌ أو صحيحُ الإسناد — أخبارَ اليومِ ومرّةً واحدة أبدًا."""
     try: d=json.load(open(f"{OUT}/news.json"))
     except Exception: return
     st=_tg_state(); seen=set(st.get("news",[]))
     pool=[]
     for cat,lst in (d.get("cats") or {}).items():
         for it in lst:
+            if not _today_kw(it.get("at")): continue    # خبرُ *يومِ اليوم* فقط (توقيت الكويت) — لا خبرَ أمس
             urgent = cat=="عاجل"
             strong = it.get("grade")=="صحيح"
             official= (it.get("score") or 0)>=6
@@ -201,6 +243,7 @@ def broadcast_official():
         ent=str(x.get("e","")); post=str(x.get("p",""))
         if not post: continue
         if not any(m in ent for m in MIL): continue     # عسكريٌّ أو أمنيٌّ فقط
+        if _stmt_stale(x.get("t")): continue             # لا نبثُّ بيانًا قديمًا كأنّه فوريّ
         f=_fp(ent+post)
         if f in seen: continue
         if sent>=4: break
@@ -238,6 +281,17 @@ def broadcast_alerts():
 
 def bundle():
     """يدمج كل ملفات العرض في ملف واحد — يقضي على خنق الطلبات المتوازية."""
+    # 🛡️ حارسٌ أحاديّ الاتجاه لنشرة اليوم: لا نُعيدها إلى تاريخٍ أقدم من المنشور.
+    # سبب العطل: تشغيلٌ يحمل latest.json قديمة كان يدهس النشرة الأحدث عند النشر.
+    try:
+        _lp=f"{OUT}/latest.json"
+        _loc=json.load(open(_lp)) if os.path.exists(_lp) else {}
+        _pub=json.load(urllib.request.urlopen(
+            "https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/latest.json",timeout=25))
+        if str(_pub.get("date","")) > str(_loc.get("date","")):
+            json.dump(_pub,open(_lp,"w"),ensure_ascii=False,indent=1)
+            print(f"🛡️ نشرةُ اليوم: أُبقيت الأحدث ({_pub.get('date')}) بدل الأقدم ({_loc.get('date')})")
+    except Exception as _e: print(f"guard_latest: {str(_e)[:80]}")
     keys=["news","intel","official","forecast","analyst","dua","verify",
           "alerts","corrections","latest","agents","cost","evolution","council","gpu"]
     b={"built":datetime.now(timezone.utc).isoformat(timespec="minutes")}
@@ -371,7 +425,9 @@ for label,url in FEEDS:
             is_fa = label=="إيران"
             _en_nm,_en_who = en_meta(url)
             is_en = bool(_en_nm)
-            g="حسن" if (is_fa or is_en) else grade(src_ or clean(it.findtext("source","")))
+            _dn,_dwho,_dg = direct_meta(url)
+            if _dn: head=title; src_=_dn      # مصدرٌ مباشرٌ معروف — لا نقصُّ العنوان على «-»
+            g=_dg if _dn else ("حسن" if (is_fa or is_en) else grade(src_ or clean(it.findtext("source",""))))
             key=head[:40]
             if g in ("صحيح","حسن") and len(head)>15 and key not in seen and not blocked(head):
                 seen.add(key)
@@ -391,6 +447,8 @@ for label,url in FEEDS:
                     nm,who=fa_meta(url); d["src"]=nm; d["via"]=who
                 elif is_en:
                     d["src"]=_en_nm; d["via"]=_en_who; d["en"]=True
+                elif _dn:
+                    d["via"]=_dwho
                 items.append(d); n+=1
                 if n>=6: break
     except Exception as e: print(f"feed {label}: {e}",file=sys.stderr)
@@ -488,6 +546,17 @@ def intel_fresh(hours):
 
 @agent("rasid")
 def grok_intel():
+    # ⛔ مُعطَّل عمدًا. كانت هذه الدالة تولّد أرقامَ حربٍ (قتلى/جرحى/صواريخ/مسيّرات)
+    # عبر نموذجٍ لغويّ وتنسبها لجهاتٍ رسميّة لم تُعلنها (mil_u=«لم يُعلن»)، ثم تُسجّل
+    # اختلافَ كلّ تشغيلٍ عن سابقه في سجلّ التصحيحات كأنّه تصحيحٌ رسميّ. تلفيقٌ يخالف
+    # صميمَ منهج سَنَد: لا رقمَ بلا إسناد، والصمتُ أولى من رقمٍ غير مُسنَد.
+    # لا حصيلةَ حربٍ حتى تتوفّر أرقامٌ من بياناتٍ رسميّة حقيقيّة قابلةٍ للتحقّق.
+    j={"war":"","since":"","toll":[],"brk":[],"disabled":1,
+       "updated":datetime.now(timezone.utc).isoformat(timespec="minutes")}
+    try: json.dump(j,open(INTEL,"w"),ensure_ascii=False,indent=1)
+    except Exception: pass
+    return j
+    # ── ما يلي مُعطَّل (لا يُنفَّذ) ──
     old, _ = intel_fresh(99)
     try: _age=(datetime.now(timezone.utc)-datetime.fromisoformat((old or {}).get("updated","2000-01-01T00:00+00:00"))).total_seconds()/3600
     except Exception: _age=999
