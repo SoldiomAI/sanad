@@ -19,6 +19,16 @@
 <meta name="twitter:description" content="لكلِّ خبرٍ درجةُ إسنادٍ ومصدرٌ معروض">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/og.jpg">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🛡️</text></svg>">
+<meta name="theme-color" content="#080B12">
+<meta name="keywords" content="أخبار مسندة, علم الإسناد, تحقق الأخبار, أخبار الخليج, أخبار الكويت, أخبار إيران, نشرة إخبارية, صحيح حسن ضعيف, التحقق من الأخبار, سند">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="SOLDIOM">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"NewsMediaOrganization","@id":"https://isnad.news/#org","name":"سَنَد","alternateName":"SANAD","url":"https://isnad.news","logo":{"@type":"ImageObject","url":"https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/og.jpg"},"description":"منصة إخبارية عربية تطبّق علم الإسناد من علم الحديث: لكلِّ خبرٍ درجةٌ (صحيح/حسن/ضعيف الإسناد) مبنيّة على خمسة معايير، ومصدرٌ معروض.","inLanguage":"ar","foundingLocation":{"@type":"Place","name":"الكويت"},"sameAs":["https://t.me/sanad_news","https://instagram.com/alialthowaikh"]},
+{"@type":"WebSite","@id":"https://isnad.news/#site","url":"https://isnad.news","name":"سَنَد | SANAD","publisher":{"@id":"https://isnad.news/#org"},"inLanguage":"ar"}
+]}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -480,6 +490,36 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .intro-ex-row .m{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .intro-ex-row .isn{margin-top:0}
 .intro-note{font-size:11.5px;color:var(--mut);margin-top:var(--s3);text-align:center;line-height:1.7}
+/* شارحُ المنهج — دائمُ الظهور كي يفهمَ الزائرُ الدرجاتِ بسرعة */
+.mx{background:linear-gradient(180deg,rgba(17,24,37,.92),rgba(11,16,24,.92));border:1px solid var(--border);border-radius:12px;margin:var(--s3) 0;overflow:hidden}
+.mx-s{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:14px var(--s4);min-height:44px;font-family:'Amiri',serif;font-size:18px;color:var(--gold-l)}
+.mx-s::-webkit-details-marker{display:none}
+.mx-s::after{content:"▾";font-size:12px;color:var(--dim);transition:transform .25s}
+.mx[open] .mx-s::after{transform:rotate(180deg)}
+.mx-hint{font-family:'Noto Kufi Arabic',sans-serif;font-size:10px;color:var(--dim);font-weight:400;margin-inline-start:auto}
+.mx-b{padding:0 var(--s4) var(--s4);border-top:1px solid var(--border)}
+.mx-lead{font-size:13.5px;line-height:1.95;color:var(--txt);margin:var(--s3) 0}
+.mx-lead b{color:var(--gold-l)}
+.mx-grades{display:flex;flex-direction:column;gap:10px;margin-bottom:var(--s3)}
+.mx-g{display:flex;gap:10px;align-items:flex-start}
+.mx-g .badge{flex:0 0 auto;margin-top:2px}
+.mx-gd{font-size:12.5px;line-height:1.8;color:var(--mut)}
+.mx-crit-h{font-family:'Noto Kufi Arabic',sans-serif;font-size:11px;color:var(--dim);margin-bottom:8px}
+.mx-crit{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:var(--s3)}
+.mx-crit span{font-family:'Noto Kufi Arabic',sans-serif;font-size:10.5px;color:var(--vellum);
+  border:1px solid var(--border);border-radius:20px;padding:6px 12px;cursor:help;background:rgba(201,162,39,.04)}
+.mx-crit span:hover{border-color:rgba(201,162,39,.4);color:var(--gold-l)}
+.mx-note{font-size:11.5px;line-height:1.85;color:var(--dim);border-top:1px dashed var(--border);padding-top:var(--s2)}
+/* لمساتُ الجوّال: أهدافُ لمسٍ أوسع وقراءةٌ أوضح للجمهور الإخباري */
+@media(max-width:640px){
+  .tab{min-height:38px;display:inline-flex;align-items:center}
+  .btn{min-height:46px;display:inline-flex;align-items:center;justify-content:center}
+  .method{gap:5px}
+  .pill{padding:6px 11px}
+  .mx-s{font-size:16px}
+  .mx-g{flex-direction:column;gap:3px}
+}
 </style></head>
 <body>
 <div class="sadu"></div>
@@ -501,6 +541,27 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
       <span class="pill">الاتصال</span><span class="pill">عدالة المصدر</span><span class="pill">الضبط</span><span class="pill">عدم الشذوذ</span><span class="pill">انتفاء العلة</span>
     </div>
   </div>
+
+  <details class="mx" open>
+    <summary class="mx-s"><span>◈ كيف نحكُم على الخبر؟</span><i class="mx-hint">منهجُ الإسناد في سطور</i></summary>
+    <div class="mx-b">
+      <p class="mx-lead">لا نُلخّصُ لك الخبر، بل نعرضُ <b>سلسلةَ إسناده</b>. نقيسُ كلَّ خبرٍ على خمسةِ معايير من علمِ الحديث، ثم نمنحُه درجةً من ٧ ونعرضُها كما هي — القويّةَ والضعيفةَ سواء.</p>
+      <div class="mx-grades">
+        <div class="mx-g"><span class="badge b-sahih">صحيح ✓</span><span class="mx-gd">سندٌ متّصل، ومصدرٌ موثّق، ومؤكَّدٌ بمصدرٍ ثانٍ مستقل. خبرٌ تطمئنُّ إليه.</span></div>
+        <div class="mx-g"><span class="badge b-hasan">حسن</span><span class="mx-gd">مصدرٌ معتبَر، لكنْ دون تأكيدٍ ثانٍ كاملٍ بعد. راجِحٌ يُؤخذُ به بتحفّظ.</span></div>
+        <div class="mx-g"><span class="badge b-daif">ضعيف الإسناد</span><span class="mx-gd">ناقلٌ واحد، أو انقطاعٌ في السند. نعرضُه ونُشيرُ إلى ضعفه — اقرأْه بحذر.</span></div>
+      </div>
+      <div class="mx-crit-h">نقيسُ عليها كلَّ خبر — مرِّرْ على كلِّ معيار:</div>
+      <div class="mx-crit">
+        <span title="اتّصالُ السند من الخبر إلى مصدره الأول دون انقطاع">① الاتصال</span>
+        <span title="ثقةُ المصدر وسِجِلُّه في الصدق والدقّة">② عدالة المصدر</span>
+        <span title="دقّةُ النقل: زمنٌ ومكانٌ وأرقامٌ مضبوطة">③ الضبط</span>
+        <span title="ألّا يُخالفَ الخبرُ ما هو أوثقُ منه">④ عدم الشذوذ</span>
+        <span title="خلوُّ الخبر من علّةٍ خفيّةٍ تقدحُ فيه">⑤ انتفاء العلة</span>
+      </div>
+      <p class="mx-note">الدرجةُ من ٧ تجمعُ المعايير الخمسة. نُظهرُ الشكَّ كما نُظهرُ الثقة — ولا نُبدّلُ رقمًا في صمت؛ كلُّ تعديلٍ يُنشَرُ في سجلِّ التصحيحات.</p>
+    </div>
+  </details>
 
   <div class="card">
     <div class="bdate">🎙️ <span id="blabel">نشرةُ المذيع</span> — <span id="bdate"></span></div>
