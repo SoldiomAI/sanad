@@ -457,6 +457,29 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .copied{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--gold);color:#05070B;font-size:12px;font-weight:600;padding:9px 18px;border-radius:20px;opacity:0;transition:.25s;pointer-events:none;z-index:60}
 .copied.on{opacity:1}
 .empty{text-align:center;color:var(--dim);padding:30px 0;font-size:13px}
+/* هيكلٌ عظميّ أثناء التحميل — يوحي بمادةٍ قادمة لا بفراغ */
+.sk-item{padding:var(--s3) 0;border-bottom:1px solid rgba(28,37,50,.7)}
+.sk{background:linear-gradient(90deg,rgba(142,153,169,.06) 25%,rgba(142,153,169,.15) 37%,rgba(142,153,169,.06) 63%);
+  background-size:400% 100%;animation:shim 1.4s ease infinite;border-radius:5px}
+@keyframes shim{0%{background-position:100% 0}100%{background-position:0 0}}
+.sk-line{height:15px;margin-bottom:9px}.sk-line.w80{width:80%}.sk-line.w55{width:55%}
+.sk-row{display:flex;gap:8px;align-items:center;margin-top:11px}
+.sk-chip{height:17px;width:54px;border-radius:3px}.sk-dots{height:9px;width:98px;border-radius:20px}
+/* بطاقةُ التعريف — تظهر حين لا مادة بعد، فتُعلِّم المنهج بدل الفراغ */
+.intro-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:var(--s4);margin:var(--s2) 0}
+.intro-h{font-family:'Amiri',serif;font-size:21px;color:var(--gold-l);margin-bottom:var(--s2)}
+.intro-p{font-size:13.5px;line-height:1.95;color:var(--txt);margin-bottom:var(--s3)}
+.intro-crit{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:var(--s3)}
+.intro-crit span{font-family:'Noto Kufi Arabic',sans-serif;font-size:10px;color:var(--dim);
+  border:1px solid var(--border);border-radius:20px;padding:4px 11px}
+.intro-ex{background:#05070B;border:1px solid var(--border);border-radius:9px;padding:var(--s3)}
+.intro-ex-h{font-size:10.5px;color:var(--dim);margin-bottom:var(--s2);font-family:'Noto Kufi Arabic',sans-serif;line-height:1.7}
+.intro-ex-row{padding:9px 0;border-bottom:1px dashed rgba(28,37,50,.85)}
+.intro-ex-row:last-child{border:none;padding-bottom:0}
+.intro-ex-row .h{font-size:13px;color:var(--vellum);line-height:1.7;margin-bottom:6px}
+.intro-ex-row .m{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.intro-ex-row .isn{margin-top:0}
+.intro-note{font-size:11.5px;color:var(--mut);margin-top:var(--s3);text-align:center;line-height:1.7}
 </style></head>
 <body>
 <div class="sadu"></div>
@@ -667,7 +690,11 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 
   <div class="sec-h">الأخبار</div>
   <div class="tabs" id="tabs"></div>
-  <div class="card" id="feed"><div class="empty">يجري تحميل الأخبار…</div></div>
+  <div class="card" id="feed">
+    <div class="sk-item"><div class="sk sk-line w80"></div><div class="sk sk-line w55"></div><div class="sk-row"><span class="sk sk-chip"></span><span class="sk sk-chip"></span><span class="sk sk-dots"></span></div></div>
+    <div class="sk-item"><div class="sk sk-line w80"></div><div class="sk sk-line w55"></div><div class="sk-row"><span class="sk sk-chip"></span><span class="sk sk-chip"></span><span class="sk sk-dots"></span></div></div>
+    <div class="sk-item"><div class="sk sk-line w80"></div><div class="sk sk-line w55"></div><div class="sk-row"><span class="sk sk-chip"></span><span class="sk sk-chip"></span><span class="sk sk-dots"></span></div></div>
+  </div>
   </div>
 
   <aside class="col-rail"><div class="rail" id="railHost"></div></aside>
@@ -774,6 +801,23 @@ function isnadBar(o,g){
   const tip=CRIT.map(k=>`${k}: ${(o[k]||0)>=2?"تامّ":(o[k]||0)===1?"جزئي":"غائب"}`).join(" ← ");
   return `<div class="isn${full?" done":""}" title="سلسلة الإسناد — ${tip}">${nodes}</div>`;
 }
+// حالةٌ ثريّة بدل «يجري التحميل»: تُعلِّم المنهج وتعرض مثالين على الحساب —
+// القويَّ والضعيفَ سواء، تجسيدًا لمبدأ عرضِ الشكِّ كما تُعرض الثقة.
+function introHTML(msg){
+  const row=(head,o,g,score)=>`<div class="intro-ex-row"><div class="h">${head}</div>`+
+    `<div class="m">${badge(g)}<span class="badge b-src">${score}/7</span>${isnadBar(o,g)}</div></div>`;
+  return `<div class="intro-card">
+    <div class="intro-h">◈ كيف يحكُم سَنَد على الخبر؟</div>
+    <p class="intro-p">لا نُلخّص لك الخبر، بل نعرض <b>سلسلةَ إسناده</b>. كلُّ خبرٍ يُدقَّق على خمسة معايير من علم الحديث، ثم يُعطى درجةً من ٧ تُعرَض كما هي — القويّةُ والضعيفةُ سواء.</p>
+    <div class="intro-crit"><span>الاتصال</span><span>عدالة المصدر</span><span>الضبط</span><span>عدم الشذوذ</span><span>انتفاء العلة</span></div>
+    <div class="intro-ex">
+      <div class="intro-ex-h">مثالان على الحساب — القويُّ والضعيفُ يُعرضان سواء:</div>
+      ${row("خبرٌ من وكالةٍ رسميّة، مؤكَّدٌ بمصدرٍ ثانٍ مستقل.",{"الاتصال":2,"عدالة المصدر":2,"الضبط":2,"عدم الشذوذ":1,"انتفاء العلة":1},"صحيح",6)}
+      ${row("خبرٌ من ناقلٍ واحد، دون توثيقٍ زمنيٍّ دقيق.",{"الاتصال":1,"عدالة المصدر":1,"الضبط":0,"عدم الشذوذ":1,"انتفاء العلة":0},"ضعيف الإسناد",3)}
+    </div>
+    <div class="intro-note">${msg||"تُجهَّز أخبارُ اليوم الآن — تظهر خلال دقائق، مُسنَدةً ومُقيَّمة."}</div>
+  </div>`;
+}
 function num(v){
   if(v===undefined||v===null||v==="") return "—";
   const s=String(v);
@@ -826,7 +870,7 @@ function render(){
     <div class="item rise${n===0&&cur==="الكل"?" lead":""}" style="animation-delay:${Math.min(n*45,540)}ms">
       <a href="${i.link||'#'}" target="_blank" rel="noopener">${i.head}</a>
       <div class="meta">${badge(i.grade)}${i.score!==undefined?`<span class="badge b-src">${i.score}/7</span>`:""}${i.fa?'<span class="badge b-fa">مترجم عن الفارسية</span>':''}${i.via?'<span class="badge b-x">'+i.via+'</span>':''}${i.x?'<span class="badge b-x">𝕏 مباشر</span>':''}${i.flag?'<span class="badge b-rev">⚖️ '+i.flag+'</span>':''}<span>نقلًا عن ${i.src||"المصدر"}</span>${i.at?`<span class="tstamp" title="${new Date(i.at).toLocaleString("ar-KW")}">🕐 ${stamp(i.at)}</span><span>· ${ago(i.at)}</span>`:'<span class="tstamp dim">وقتٌ غير معلن</span>'}</div>${isnadBar(i.isnad,i.grade)}
-    </div>`).join(""):'<div class="empty">لا أخبار في هذا القسم حاليًا</div>';
+    </div>`).join(""):(cur==="الكل"?introHTML():'<div class="empty">لا أخبار في هذا القسم حاليًا</div>');
 }
 function tabs(){
   const have=new Set(Object.keys(DATA.cats||{}));
@@ -855,7 +899,7 @@ async function load(){
     upd.textContent="آخر تحديث "+new Date(n.updated).toLocaleTimeString("ar-KW",{hour:"2-digit",minute:"2-digit"});
     const heads=Object.values(n.cats).flat().slice(0,10).map(i=>"◉ "+i.head).join("   ");
     ticker.textContent=heads; tabs(); render();
-  }catch(e){feed.innerHTML='<div class="empty">الأخبار قيد التجهيز الأول — دقائق وتظهر</div>'}
+  }catch(e){feed.innerHTML=introHTML()}
   try{
     const m=await grab("latest");
     // ختمٌ أمين: لا نَصِف نشرةَ أمس بأنها «اليوم» — بتوقيت الكويت (UTC+3)
