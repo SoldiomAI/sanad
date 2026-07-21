@@ -37,7 +37,8 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -m "🗞️ تحديث $(date -u +%H:%M)"
           for i in 1 2 3 4 5; do
-            git pull --rebase --autostash origin main && git push && exit 0
+            if git pull --rebase --autostash origin main; then git push && exit 0
+            else git rebase --abort 2>/dev/null || true; fi   # لا تُبقِ علامات تعارض في شجرة العمل
             echo "محاولة $i…"; sleep $((i*6))
           done
           exit 1
@@ -47,6 +48,9 @@ jobs:
           DATA_PUSH_TOKEN: ${{ secrets.DATA_PUSH_TOKEN }}
         run: |
           [ -z "$DATA_PUSH_TOKEN" ] && exit 0
+          # حارس: لا تُنشر ملفّات فيها علامات تعارض Git إلى المستودع العام
+          if grep -rlqE '^(<<<<<<<|=======|>>>>>>>)' daily/; then
+            echo "❌ daily/ يحوي علامات تعارض — أُلغي النشر حمايةً للموقع الحيّ"; exit 1; fi
           rm -rf /tmp/pub && git clone -q --depth 1 \
             "https://x-access-token:${DATA_PUSH_TOKEN}@github.com/Soldiom/sanad-data.git" /tmp/pub
           mkdir -p /tmp/pub/daily
@@ -56,4 +60,11 @@ jobs:
           git add -A
           git diff --cached --quiet && exit 0
           git commit -qm "📦 بيانات $(date -u +%F\ %H:%M)"
-          for i in 1 2 3; do git pull -q --rebase --autostash origin main && git push -q && exit 0; sleep 5; done
+          for i in 1 2 3 4 5; do
+            if git pull -q --rebase --autostash origin main; then
+              if grep -rlqE '^(<<<<<<<|=======|>>>>>>>)' daily/; then git rebase --abort 2>/dev/null || true
+              else git push -q && exit 0; fi
+            else git rebase --abort 2>/dev/null || true; fi
+            sleep $((i*4))
+          done
+          exit 1
