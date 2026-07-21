@@ -480,7 +480,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
   </div>
 
   <div class="card">
-    <div class="bdate">🎙️ نشرة اليوم — <span id="bdate"></span></div>
+    <div class="bdate">🎙️ <span id="blabel">نشرةُ المذيع</span> — <span id="bdate"></span></div>
     <video id="v" style="display:none" controls playsinline></video>
     <div class="player" id="plr" style="display:none">
       <button class="pl-btn" id="plBtn" aria-label="تشغيل">▶</button>
@@ -858,6 +858,11 @@ async function load(){
   }catch(e){feed.innerHTML='<div class="empty">الأخبار قيد التجهيز الأول — دقائق وتظهر</div>'}
   try{
     const m=await grab("latest");
+    // ختمٌ أمين: لا نَصِف نشرةَ أمس بأنها «اليوم» — بتوقيت الكويت (UTC+3)
+    const _kt=new Date(Date.now()+3*36e5).toISOString().slice(0,10);
+    const _ky=new Date(Date.now()+3*36e5-864e5).toISOString().slice(0,10);
+    const _lbl=document.getElementById("blabel");
+    if(_lbl) _lbl.textContent = m.date===_kt?"نشرةُ اليوم" : m.date===_ky?"نشرةُ أمس" : "آخرُ نشرة";
     bdate.textContent=m.date; s.textContent=m.script;
     if(m.video_date===m.date){v.src=RAW+m.video+"?t="+Date.now();v.style.display="block"}
     else{
