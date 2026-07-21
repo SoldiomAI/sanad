@@ -747,6 +747,9 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 </div></div>
 <script>
 const RAW="https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/";
+// حراسةٌ من الحقن: كلُّ نصٍّ من البيانات يُهرَّب قبل حقنه في DOM، وكلُّ رابطٍ يُقيَّد بـ http(s).
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function safeUrl(u){u=String(u==null?"":u).trim();return /^https?:\/\//i.test(u)?u.replace(/"/g,"%22"):"#";}
 const ORDER=["الكل","عاجل","الخليج","فلسطين","عالم","اقتصاد","تقنية","إيران"];
 let DATA=null, cur="الكل";
 const STUDIO = new URLSearchParams(location.search).has("studio");
@@ -868,8 +871,8 @@ function render(){
   let list=(cur==="الكل"?Object.values(cats).flat():(cats[cur]||[])).slice().sort(byTime);
   feed.innerHTML=list.length?list.map((i,n)=>`
     <div class="item rise${n===0&&cur==="الكل"?" lead":""}" style="animation-delay:${Math.min(n*45,540)}ms">
-      <a href="${i.link||'#'}" target="_blank" rel="noopener">${i.head}</a>
-      <div class="meta">${badge(i.grade)}${i.score!==undefined?`<span class="badge b-src">${i.score}/7</span>`:""}${i.fa?'<span class="badge b-fa">مترجم عن الفارسية</span>':''}${i.via?'<span class="badge b-x">'+i.via+'</span>':''}${i.x?'<span class="badge b-x">𝕏 مباشر</span>':''}${i.flag?'<span class="badge b-rev">⚖️ '+i.flag+'</span>':''}<span>نقلًا عن ${i.src||"المصدر"}</span>${i.at?`<span class="tstamp" title="${new Date(i.at).toLocaleString("ar-KW")}">🕐 ${stamp(i.at)}</span><span>· ${ago(i.at)}</span>`:'<span class="tstamp dim">وقتٌ غير معلن</span>'}</div>${isnadBar(i.isnad,i.grade)}
+      <a href="${safeUrl(i.link)}" target="_blank" rel="noopener">${esc(i.head)}</a>
+      <div class="meta">${badge(i.grade)}${i.score!==undefined?`<span class="badge b-src">${esc(i.score)}/7</span>`:""}${i.fa?'<span class="badge b-fa">مترجم عن الفارسية</span>':''}${i.via?'<span class="badge b-x">'+esc(i.via)+'</span>':''}${i.x?'<span class="badge b-x">𝕏 مباشر</span>':''}${i.flag?'<span class="badge b-rev">⚖️ '+esc(i.flag)+'</span>':''}<span>نقلًا عن ${esc(i.src||"المصدر")}</span>${i.at?`<span class="tstamp" title="${new Date(i.at).toLocaleString("ar-KW")}">🕐 ${stamp(i.at)}</span><span>· ${ago(i.at)}</span>`:'<span class="tstamp dim">وقتٌ غير معلن</span>'}</div>${isnadBar(i.isnad,i.grade)}
     </div>`).join(""):(cur==="الكل"?introHTML():'<div class="empty">لا أخبار في هذا القسم حاليًا</div>');
 }
 function tabs(){
@@ -1181,9 +1184,9 @@ async function showArc(id){
       tol.map(x=>`<div style="font-size:12px;color:var(--mut);line-height:2.1">${x.f||""} ${x.c}: <b style="color:#f87171">${x.d}</b> قتلى · ${x.w} جرحى</div>`).join("")+`</div>`:"";
     const cnt=Object.values(s.cats||{}).flat().length;
     arcBody.innerHTML=`<div class="sec-h">${id.slice(0,10)} — ${id.slice(11,13)}:${id.slice(13,15)} · ${cnt} خبرًا</div>`+tolHtml+
-      all.map(([c,l])=>`<div class="card"><div class="arc-t" style="margin-bottom:8px;color:var(--gold-l)">${c}</div>`+
-        l.slice().sort(byTime).map(i=>`<div class="item"><a href="${i.link||'#'}" ${i.link?'target="_blank" rel="noopener"':''}>${i.head}</a>
-          <div class="meta">${badge(i.grade)}${i.score!==undefined?`<span class="badge b-src">${i.score}/7</span>`:""}<span>نقلًا عن ${i.src||"المصدر"}</span>${i.at?`<span>· ${stamp(i.at)}</span>`:""}</div></div>`).join("")+`</div>`).join("");
+      all.map(([c,l])=>`<div class="card"><div class="arc-t" style="margin-bottom:8px;color:var(--gold-l)">${esc(c)}</div>`+
+        l.slice().sort(byTime).map(i=>`<div class="item"><a href="${safeUrl(i.link)}" ${i.link?'target="_blank" rel="noopener"':''}>${esc(i.head)}</a>
+          <div class="meta">${badge(i.grade)}${i.score!==undefined?`<span class="badge b-src">${esc(i.score)}/7</span>`:""}<span>نقلًا عن ${esc(i.src||"المصدر")}</span>${i.at?`<span>· ${stamp(i.at)}</span>`:""}</div></div>`).join("")+`</div>`).join("");
   }catch(e){ arcBody.innerHTML='<div class="arc-n">تعذّر فتح اللقطة.</div>'; return }
   try{ arcBody.scrollIntoView({behavior:"smooth",block:"start"}) }catch(e){}
 }
