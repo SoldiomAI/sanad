@@ -19,7 +19,10 @@ FEEDS=[("الخليج","https://news.google.com/rss/search?q=%D8%A7%D9%84%D9%83%
        ("تقنية","https://blog.google/technology/ai/rss/"),
        ("اقتصاد","https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=ar&gl=KW&ceid=KW:ar"),
        ("إيران","https://feeds.bbci.co.uk/persian/rss.xml"),
-       ("إيران","https://www.iranintl.com/feed")]
+       ("إيران","https://www.iranintl.com/feed"),
+       # مصادرُ مباشرةٌ موثوقة بخدمةٍ عربيّة — تنويعٌ يعزّزُ المصداقية دون عناوينَ أجنبية
+       ("عالم","https://feeds.bbci.co.uk/arabic/rss.xml"),
+       ("عالم","https://www.france24.com/ar/rss")]
 
 # مصادر إيران: الاسم المعتمد وهوية الجهة — تُعرض للقارئ صراحةً
 EN_SRC={
@@ -41,6 +44,17 @@ def fa_meta(url):
     for k,v in FA_SRC.items():
         if k in url: return v
     return ("مصدر فارسي","غير محدد")
+
+# مصادرُ مباشرةٌ موثوقة (عربيّةٌ ودوليّة) — تنويعٌ يعزّزُ المصداقيّة، بهويّةٍ معروضةٍ للقارئ.
+# مفاتيحُها أكثرُ تخصيصًا من مفاتيحِ بي بي سي الفارسيّة فلا تتعارض.
+DIRECT_SRC={
+ "bbci.co.uk/arabic":("بي بي سي عربي","هيئة بث بريطانية عامة","حسن"),
+ "france24.com/ar":("فرانس ٢٤ عربي","قناة دولية فرنسية عامة","حسن"),
+}
+def direct_meta(url):
+    for k,v in DIRECT_SRC.items():
+        if k in url: return v
+    return (None,None,None)
 
 # ═══════════ طبقة الوكلاء — سجلٌّ ومراقبةٌ حيّة ═══════════
 AGENTS_F=f"{OUT}/agents.json"
@@ -412,7 +426,9 @@ for label,url in FEEDS:
             is_fa = label=="إيران"
             _en_nm,_en_who = en_meta(url)
             is_en = bool(_en_nm)
-            g="حسن" if (is_fa or is_en) else grade(src_ or clean(it.findtext("source","")))
+            _dn,_dwho,_dg = direct_meta(url)
+            if _dn: head=title; src_=_dn      # مصدرٌ مباشرٌ معروف — لا نقصُّ العنوان على «-»
+            g=_dg if _dn else ("حسن" if (is_fa or is_en) else grade(src_ or clean(it.findtext("source",""))))
             key=head[:40]
             if g in ("صحيح","حسن") and len(head)>15 and key not in seen and not blocked(head):
                 seen.add(key)
@@ -432,6 +448,8 @@ for label,url in FEEDS:
                     nm,who=fa_meta(url); d["src"]=nm; d["via"]=who
                 elif is_en:
                     d["src"]=_en_nm; d["via"]=_en_who; d["en"]=True
+                elif _dn:
+                    d["via"]=_dwho
                 items.append(d); n+=1
                 if n>=6: break
     except Exception as e: print(f"feed {label}: {e}",file=sys.stderr)
