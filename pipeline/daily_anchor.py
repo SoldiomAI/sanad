@@ -238,6 +238,17 @@ def broadcast_alerts():
 
 def bundle():
     """يدمج كل ملفات العرض في ملف واحد — يقضي على خنق الطلبات المتوازية."""
+    # 🛡️ حارسٌ أحاديّ الاتجاه لنشرة اليوم: لا نُعيدها إلى تاريخٍ أقدم من المنشور.
+    # سبب العطل: تشغيلٌ يحمل latest.json قديمة كان يدهس النشرة الأحدث عند النشر.
+    try:
+        _lp=f"{OUT}/latest.json"
+        _loc=json.load(open(_lp)) if os.path.exists(_lp) else {}
+        _pub=json.load(urllib.request.urlopen(
+            "https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/latest.json",timeout=25))
+        if str(_pub.get("date","")) > str(_loc.get("date","")):
+            json.dump(_pub,open(_lp,"w"),ensure_ascii=False,indent=1)
+            print(f"🛡️ نشرةُ اليوم: أُبقيت الأحدث ({_pub.get('date')}) بدل الأقدم ({_loc.get('date')})")
+    except Exception as _e: print(f"guard_latest: {str(_e)[:80]}")
     keys=["news","intel","official","forecast","analyst","dua","verify",
           "alerts","corrections","latest","agents","cost","evolution","council","gpu"]
     b={"built":datetime.now(timezone.utc).isoformat(timespec="minutes")}
