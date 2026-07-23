@@ -198,6 +198,15 @@ def _stmt_stale(t):
         return d < datetime.now(_KW).date()      # أيُّ تاريخٍ قبلَ اليوم = قديم
     except Exception: return False
 
+def _ok_url(u):
+    """رابطٌ صالحٌ للتحقّق: http/https فعليّ لا نصٌّ مخترَع."""
+    u=str(u or "").strip()
+    return u.startswith("http://") or u.startswith("https://")
+
+# ألفاظُ الأحداثِ الصلبة: ادّعاؤها منسوبًا لجهةٍ يتطلّبُ مصدرًا يُتحقَّق منه، وإلّا أُسقط.
+_HARD_EVENT=("ضرب","استهد","قصف","اعترض","اعتراض","إطلاق","أطلق","قتلى","قتيل","جرحى",
+             "اقتحام","سقوط","أسقط","دمّر","دمر","تفجير","انفجار","غارة","صافرة")
+
 def _stmt_old_days(t, days):
     """صحيحٌ إن حملَ البيانُ تاريخًا صريحًا (بسنةٍ أو دونها) أقدمَ من (days) يومًا — نُسقطُه
     من «من المَنبع» كي لا يبقى بيانٌ عمرُه أيامٌ ظاهرًا كأنّه رسميٌّ راهن. «اليوم/أمس» يبقى."""
@@ -835,10 +844,13 @@ def mustaqri():
        "الأخبار الحالية:\n- "+"\n- ".join(heads)+"\n\nالحصيلة: "+toll+review+"\n\n"
        "ابحث عن آخر تصريحات ترامب والبيت الأبيض وإيران خلال ١٢ ساعة، ثم أخرج JSON فقط:\n"
        '{"horizon":"النافذة الزمنية",'
-       '"signals":[{"q":"التصريح أو الواقعة","who":"القائل","w":"عالٍ|متوسط|منخفض"}],'
+       '"signals":[{"q":"التصريح أو الواقعة","who":"القائل","w":"عالٍ|متوسط|منخفض","u":"رابط المصدر"}],'
        '"scenarios":[{"s":"السيناريو","p":نسبة_رقم,"why":"المبرر مع السابقة التاريخية","watch":"المؤشر المؤكد أو النافي"}],'
        '"review":[{"s":"السيناريو السابق","r":"وقع|جزئيًا|لم يقع","note":"بجملة"}],'
        '"caveat":"تحذير صريح بأن هذا استقراء احتمالي لا يقين"}\n'
+       "قاعدةُ إسنادٍ صارمة: كلُّ إشارةٍ تُنسَبُ لقائلها مع رابطٍ من مصدره. "
+       "لا تُقدّمْ حدثًا عسكريًّا غير مؤكّد (ضربٌ، اعتراضٌ، قتلى، صافرة) منسوبًا لجهةٍ رسميّةٍ "
+       "كأنّه واقعٌ مثبت؛ إمّا برابطٍ من مصدرِه أو صياغةً كاحتمالٍ لا كخبرٍ مؤكّد.\n"
        "٣ سيناريوهات كحد أقصى ومجموع نسبها ١٠٠. لا تستخدم علامة تنصيص مزدوجة داخل النصوص. "
        "لا تذكر أسماء نماذج أو شركات. لا شيء خارج JSON.")
     body={"model":os.environ.get("GROK_MODEL","grok-4.3"),"input":[{"role":"user","content":P}],
@@ -869,6 +881,12 @@ def mustaqri():
     j["history"]=hist
     j["score"]={"n":len(hist),"hit":hit,"partial":part,
         "acc":round((hit+part*0.5)/max(len(hist),1)*100)}
+    # حارسُ الإسناد للمؤشرات: ادّعاءُ حدثٍ عسكريٍّ صلبٍ منسوبًا لجهةٍ بلا مصدرٍ يُتحقَّق منه يُسقَط،
+    # كي لا نُقدّم «ضربَ أهدافٍ في الكويت» على عهدةِ نموذجٍ لغويّ كأنّه خبرٌ مؤكّد.
+    _sig=j.get("signals",[]) or []
+    _kept=[s for s in _sig if not (any(w in str(s.get("q","")) for w in _HARD_EVENT) and not _ok_url(s.get("u")))]
+    if len(_kept)!=len(_sig): print(f"🛡️ المُستقرِئ: أُسقط {len(_sig)-len(_kept)} مؤشرَ حدثٍ بلا مصدر")
+    j["signals"]=_kept
     j["updated"]=datetime.now(timezone.utc).isoformat(timespec="minutes")
     json.dump(j,open(FCAST,"w"),ensure_ascii=False,indent=1)
     bill(d,"المُستقرِئ")
@@ -1005,7 +1023,12 @@ def munabbih():
                     for c in o.get("content",[]))
         txt=txt.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
         lst=json.loads(txt[txt.find("["):txt.rfind("]")+1])
-        lst=[x for x in lst if x.get("body") and x.get("txt")][:6]
+        lst=[x for x in lst if x.get("body") and x.get("txt")]
+        # حارسُ الإسناد: تحذيرٌ رسميٌّ (إخلاء/صافرة/طوارئ) بلا رابطٍ يُتحقَّق منه لا يُنشَر —
+        # لا نُطلقُ إنذارًا باسمِ جهةٍ سياديّةٍ على عهدةِ نموذجٍ لغويّ. تنبيهُ الشائعاتِ إرشاديٌّ فيبقى.
+        _before=len(lst)
+        lst=[x for x in lst if x.get("kind")!="تحذير" or _ok_url(x.get("u"))][:6]
+        if _before!=len(lst): print(f"🛡️ المُنبِّه: أُسقط {_before-len(lst)} تحذيرًا بلا مصدرٍ موثّق")
         if not lst: raise ValueError("فارغة")
         bill(d,"المُنبِّه")
         json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"list":lst},

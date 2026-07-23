@@ -1124,7 +1124,7 @@ async function load(){
     fcAcc.textContent=(sc.n>=3)?`دقة تراكمية ${sc.acc}% · ${sc.n} مراجعة`
   :`سجل الدقة يُنشر بعد ${3-(sc.n||0)} دورات مراجعة`;
     sigs.innerHTML=(f.signals||[]).slice(0,4).map(s=>
-      `<div class="sig"><span class="w ${s.w==='عالٍ'?'hi':''}">${esc(s.w||'')}</span><span><b>${esc(s.who||'')}:</b> ${esc(s.q||'')}</span></div>`).join("");
+      `<div class="sig"><span class="w ${s.w==='عالٍ'?'hi':''}">${esc(s.w||'')}</span><span><b>${esc(s.who||'')}:</b> ${esc(s.q||'')}${s.u?` <a href="${safeUrl(s.u)}" target="_blank" rel="noopener" class="sig-src" title="المصدر">↗</a>`:''}</span></div>`).join("");
     scns.innerHTML=(f.scenarios||[]).map(s=>`
       <div class="scn">
         <div class="scn-t"><span>${esc(s.s)}</span><span class="scn-p">${+s.p||0}%</span></div>
