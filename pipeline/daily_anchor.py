@@ -1099,6 +1099,21 @@ merge_mod()
 mustaqri()
 
 # ═══ فقرة المحلل الاستراتيجي (وكيل — يُصرَّح بذلك) ═══
+def _analyst_fallback(f):
+    """قراءةٌ محسوبةٌ من الاستقراء نفسِه — تُبنى من أرقامٍ حقيقيّةٍ لا من تلفيق،
+    كي لا تجمُدَ قراءةُ المحلّل إن تعذّر التوليدُ اللغويّ."""
+    scs=sorted((f.get("scenarios") or []),key=lambda x:-(x.get("p") or 0))
+    if not scs: return ""
+    top=scs[0]
+    who=[x.get("who","") for x in (f.get("signals") or [])[:3] if x.get("who")]
+    zawaya="، ".join(who) if who else "المشهدُ الميدانيُّ والسياسيّ والدبلوماسيّ"
+    out=["شكرًا لك. المشهد اليوم يُقرأ من ثلاث زوايا: "+zawaya+"."]
+    out.append("السيناريو الأكثر ترجيحًا بنسبة %s%% هو %s."%(top.get("p"),str(top.get("s","")).strip()))
+    if top.get("why"): out.append("وتدعمه السابقة: "+str(top["why"]).strip()+".")
+    out.append("وتبقى هذه قراءةً احتمالية، والمؤشر الحاسم هو "
+        +(str(top.get("watch")).strip() if top.get("watch") else "مدى تبدّل مواقف الأطراف في الجولات القادمة")+".")
+    return " ".join(out)
+
 @agent("murtajil")
 def analyst_segment():
     """يحوّل الاستقراء إلى تحليل منطوق بأسلوب ضيف النشرات، بصوت مغاير للمذيع."""
@@ -1110,28 +1125,34 @@ def analyst_segment():
             print("⏱️ المُحلِّل: القراءة مواكبة لآخر استقراء")
             return {"skipped":1,"why":"القراءة مواكبة"}
     except Exception: pass
-    if not GEMINI_KEY: return
-
-    scn="\n".join("- (%s%%) %s | السابقة: %s"%(x.get("p"),x.get("s",""),x.get("why","")[:150])
+    scn="\n".join("- (%s%%) %s | السابقة: %s"%(x.get("p"),x.get("s",""),str(x.get("why",""))[:150])
                    for x in f.get("scenarios",[]))
-    sig="\n".join("- %s: %s"%(x.get("who",""),x.get("q","")[:120]) for x in f.get("signals",[])[:4])
+    sig="\n".join("- %s: %s"%(x.get("who",""),str(x.get("q",""))[:120]) for x in f.get("signals",[])[:4])
     P=("اكتب فقرة تحليل استراتيجي منطوقة، بأسلوب الضيف الخبير في النشرات الإخبارية العربية.\n\n"
        "الإشارات:\n"+sig+"\n\nالسيناريوهات:\n"+scn+"\n\n"
        "القواعد: ابدأ بـ«شكرًا لك. المشهد اليوم يُقرأ من ثلاث زوايا:». "
-       "٩٠ إلى ١٢٠ كلمة. عربية فصيحة رصينة بلا مبالغة. اذكر النسبة الأعلى صراحةً بالأرقام العربية. "
+       "٩٠ إلى ١٢٠ كلمة. عربية فصيحة رصينة بلا مبالغة. اذكر النسبة الأعلى صراحةً. "
        "استشهد بسابقة تاريخية واحدة. اختم بـ«وتبقى هذه قراءةً احتمالية، والمؤشر الحاسم هو» ثم اذكر المؤشر. "
        "أخرج النص فقط بلا عناوين ولا رموز ولا أسماء نماذج أو شركات.")
-    try:
-        body={"contents":[{"parts":[{"text":P}]}],
-            "generationConfig":{"maxOutputTokens":700,"temperature":0.55,
-                "thinkingConfig":{"thinkingBudget":0}}}
-        req=urllib.request.Request(
-            "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key="+GEMINI_KEY,
-            data=json.dumps(body).encode(),headers={"Content-Type":"application/json"})
-        d=json.load(urllib.request.urlopen(req,timeout=90))
-        txt=d["candidates"][0]["content"]["parts"][0]["text"].strip()
-    except Exception as e:
-        print("فقرة المحلل تخطّت: "+str(e)[:80]); return
+    txt=""
+    if GEMINI_KEY:
+        try:
+            body={"contents":[{"parts":[{"text":P}]}],
+                "generationConfig":{"maxOutputTokens":1400,"temperature":0.55,
+                    "thinkingConfig":{"thinkingBudget":0}}}
+            req=urllib.request.Request(
+                "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key="+GEMINI_KEY,
+                data=json.dumps(body).encode(),headers={"Content-Type":"application/json"})
+            d=json.load(urllib.request.urlopen(req,timeout=90))
+            cand=(d.get("candidates") or [{}])[0]
+            parts=((cand.get("content") or {}).get("parts") or [])
+            txt="".join(p.get("text","") for p in parts if isinstance(p,dict)).strip()
+            if not txt: print("فقرة المحلل: ردٌّ بلا نصّ (%s) — سنبني من الاستقراء"%cand.get("finishReason",""))
+        except Exception as e:
+            print("فقرة المحلل — تعذّر التوليد: "+str(e)[:70]+" — سنبني من الاستقراء")
+    if not txt:
+        txt=_analyst_fallback(f)          # لا تجمُدُ القراءةُ أبدًا: تُبنى من الاستقراء الحيّ
+    if not txt: return
 
     mp3=f"{OUT}/analyst.mp3"
     try:

@@ -19,6 +19,7 @@ jobs:
       - uses: actions/setup-node@v4
         with: {node-version: '22'}
       - run: npm i -g @google/gemini-cli@latest
+      - run: pip install -q edge-tts || true   # صوتُ فقرةِ المحلّل — غيرُ حاسمٍ فلا يُعطِّلُ الأخبار
       - name: تحديث الأخبار وتشغيل الوكلاء
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
