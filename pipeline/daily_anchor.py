@@ -198,6 +198,24 @@ def _stmt_stale(t):
         return d < datetime.now(_KW).date()      # أيُّ تاريخٍ قبلَ اليوم = قديم
     except Exception: return False
 
+def _stmt_old_days(t, days):
+    """صحيحٌ إن حملَ البيانُ تاريخًا صريحًا (بسنةٍ أو دونها) أقدمَ من (days) يومًا — نُسقطُه
+    من «من المَنبع» كي لا يبقى بيانٌ عمرُه أيامٌ ظاهرًا كأنّه رسميٌّ راهن. «اليوم/أمس» يبقى."""
+    import re as _re
+    today=datetime.now(_KW).date()
+    # نمسحُ كلَّ «رقم + كلمة [+ سنة]» ولا نحكمُ إلا على ما كلمتُه شهرٌ فعليّ،
+    # كي لا يخدعَنا وقتٌ مثل «١٣:٠٠ غرينتش» فيحجبَ التاريخَ الحقيقيَّ «١٨ يوليو».
+    for m in _re.finditer(r"(\d{1,2})\s+([^\s0-9]+)(?:\s+(\d{4}))?", str(t or "")):
+        mon=_AR_MON.get(m.group(2))
+        if not mon: continue
+        try:
+            yr=int(m.group(3)) if m.group(3) else today.year
+            d=datetime(yr,mon,int(m.group(1)),tzinfo=_KW).date()
+            if d>today: d=d.replace(year=d.year-1)   # لا تاريخَ مستقبليّ
+            if (today-d).days > days: return True
+        except Exception: continue
+    return False
+
 def broadcast_news():
     """يبثّ الأخبارَ الحصريّة فقط: عاجلٌ أو صحيحُ الإسناد — أخبارَ اليومِ ومرّةً واحدة أبدًا."""
     try: d=json.load(open(f"{OUT}/news.json"))
@@ -901,7 +919,8 @@ def manba():
         if not lst: raise ValueError("قائمة فارغة")
         keep={x["h"].lower():x for x in (old or {}).get("src",[])}
         for x in lst: keep[x["h"].lower()]=x
-        merged=list(keep.values())[-14:]
+        # نُسقطُ البياناتِ الأقدمَ من يومين كي لا يبدوَ القسمُ قديمًا بجهاتٍ صمتت
+        merged=[x for x in keep.values() if not _stmt_old_days(x.get("t"),2)][-14:]
         json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"src":merged},
             open(OFFI,"w"),ensure_ascii=False,indent=1)
         bill(d,"المَنبع")
