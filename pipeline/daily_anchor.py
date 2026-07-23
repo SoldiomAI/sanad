@@ -1003,7 +1003,15 @@ MODF=f"{OUT}/mod.json"
 
 @agent("mustaqsi")
 def mustaqsi():
-    """ينقل أعداد الصواريخ والمسيّرات عن الجهات العسكرية الرسمية نفسها."""
+    """⛔ مُعطَّل عمدًا: كان يُولّد أعدادَ صواريخَ ومسيّراتٍ عبرَ Grok وينسبُها إلى
+    جهاتٍ عسكريّةٍ رسميّة (رئاسة الأركان الكويتية ووزاراتِ دفاعِ الخليج) دون تحقّقٍ
+    ممكن — تلفيقٌ منسوبٌ زورًا لجهاتٍ سياديّة، كحصيلةِ الحرب التي عُطّلت سابقًا.
+    نُبقيه صامتًا: لا نَنشُر رقمًا عسكريًّا ما لم يُعلِنْه مصدرُه الأوّلُ صراحةً ويُتحقَّق منه."""
+    j={"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"list":[],"disabled":1}
+    try: json.dump(j,open(MODF,"w"),ensure_ascii=False,indent=1)
+    except Exception: pass
+    return {"skipped":1,"why":"مُعطَّل — لا تُنشَر أرقامٌ عسكريّةٌ غيرُ مُتحقَّقة"}
+    # ── ما يلي مُعطَّل (لا يُنفَّذ) ──
     try:
         old=json.load(open(MODF))
         age=(datetime.now(timezone.utc)-datetime.fromisoformat(old["updated"])).total_seconds()/3600
