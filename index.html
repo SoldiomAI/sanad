@@ -57,7 +57,9 @@ body{background:var(--ink);color:var(--txt);font-family:'IBM Plex Sans Arabic',s
 }
 ::selection{background:rgba(201,162,39,.28);color:#fff}
 a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:4px}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
+  /* بلا حركةٍ يبقى الشريطُ مقروءًا لا فارغًا: نُلغي دفعَه خارجَ الشاشة ونُتيحُ التمرير */
+  .ticker{padding-inline-start:0!important;overflow-x:auto;max-width:100%}}
 .amiri{font-family:'Amiri',serif}
 .sadu{height:4px;background-image:repeating-linear-gradient(90deg,#0d5c3f 0 16px,#c9a227 16px 20px,#7a1f2b 20px 36px,#0a0a0a 36px 40px)}
 .gold{background:linear-gradient(135deg,#e8c96a,#c9a227 45%,#f5e3a8);-webkit-background-clip:text;background-clip:text;color:transparent}
