@@ -3,6 +3,11 @@ on:
   schedule:
     - cron: '*/30 * * * *'
   workflow_dispatch:
+    inputs:
+      force_official:
+        description: "1 = تجاوز المهلة وأجبِر جلبَ البيانات الرسمية (المَنبع) الآن"
+        required: false
+        default: ""
 permissions:
   contents: write
 concurrency:
@@ -28,6 +33,7 @@ jobs:
           GROK_API_KEY: ${{ secrets.GROK_API_KEY }}
           GEMINI_CLI_TRUST_WORKSPACE: "true"
           NEWS_ONLY: "1"
+          FORCE_OFFICIAL: ${{ github.event.inputs.force_official }}
         run: python pipeline/daily_anchor.py
       - name: حفظ
         if: always()
