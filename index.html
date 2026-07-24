@@ -524,6 +524,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .mx-grades{display:flex;flex-direction:column;gap:10px;margin-bottom:var(--s3)}
 .mx-g{display:flex;gap:10px;align-items:flex-start}
 .mx-g .badge{flex:0 0 auto;margin-top:2px}
+.mx-g .mic-v{flex:0 0 auto;margin-top:1px;text-align:center;min-width:78px}
 .mx-gd{font-size:12.5px;line-height:1.8;color:var(--mut)}
 .mx-crit-h{font-family:'Noto Kufi Arabic',sans-serif;font-size:11px;color:var(--dim);margin-bottom:8px}
 .mx-crit{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:var(--s3)}
@@ -652,11 +653,11 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
     <details class="mx">
       <summary class="mx-s"><span>🔬 كيف نحكُم على الشائعة؟</span><i class="mx-hint">سلسلةُ إسنادٍ ثلاثيّة</i></summary>
       <div class="mx-b">
-        <p class="mx-lead">مسارٌ ثانٍ يرصدُ ما <b>يُتداوَل</b> لا ما يُنشَر: نلتقطُ الادعاءَ المنتشر، ونتحقّقُ منه، ونعرضُ حكمَنا صريحًا — <b>ولا يُنشَرُ حكمٌ قاطعٌ إلا بمصدرٍ فتحناه بأنفسِنا وتأكّدنا أنه حيٌّ ويسنده</b>.</p>
+        <p class="mx-lead">مسارٌ ثانٍ يرصدُ ما <b>يُتداوَل</b> لا ما يُنشَر. نلتقطُ الشائعةَ ونحقّقُ فيها ونُصدرُ حكمًا صريحًا — ولا نُثبّتُ حكمًا قاطعًا إلا بمصدرٍ <b>فتحناه بأنفسِنا</b>.</p>
         <div class="mx-grades">
-          <div class="mx-g"><span class="mic-v t-true">صحّ</span><span class="mx-gd">ثبتَ الادعاءُ بمصدرٍ موثوقٍ فتحناه وتحقّقنا أنه حيٌّ ويسنده.</span></div>
-          <div class="mx-g"><span class="mic-v t-false">لم يصحّ</span><span class="mx-gd">دحضَه مصدرٌ موثّقٌ فتحناه — شائعةٌ لا أصلَ لها.</span></div>
-          <div class="mx-g"><span class="mic-v t-open">قيد التحقق</span><span class="mx-gd">يُتداوَل ولمّا يُؤكَّدْ أو يُنفَ بمصدرٍ محقَّق. نعرضُه كما هو: مجهولًا.</span></div>
+          <div class="mx-g"><span class="mic-v t-true">صحّ</span><span class="mx-gd">مصدرٌ موثوقٌ فتحناه أثبتَ الادعاء.</span></div>
+          <div class="mx-g"><span class="mic-v t-false">لم يصحّ</span><span class="mx-gd">مصدرٌ موثوقٌ فتحناه دحضَه — شائعةٌ لا أصلَ لها.</span></div>
+          <div class="mx-g"><span class="mic-v t-open">قيد التحقق</span><span class="mx-gd">يُتداوَل ولمّا يُؤكَّدْ أو يُنفَ — نعرضُه مجهولًا كما هو.</span></div>
         </div>
         <div class="mx-crit-h">لا يمرُّ الحكمُ إلا باتّفاقِ ثلاثةِ وكلاء:</div>
         <div class="mx-crit">
@@ -1129,7 +1130,7 @@ async function load(){
         `<a href="${safeUrl(s.u)}" target="_blank" rel="noopener">${esc(s.t||"المصدر")}${s.ok?" ✓":""} ↗</a>`).join(" · ");
       const seen=x.first_seen?fdate(x.first_seen):"", done=x.resolved_at?fdate(x.resolved_at):"";
       return `<div class="mic ${vc} rise" style="animation-delay:${Math.min(n*55,440)}ms">
-        <div class="mic-h"><span class="mic-v ${vc}">${esc(v)}</span>${x.spread?`<span class="mic-chain">ينتشر: ${esc(x.spread)}</span>`:""}</div>
+        <div class="mic-h"><span class="mic-v ${vc}">${esc(v)}</span>${x.spread&&x.spread!=="التداول"?`<span class="mic-chain">ينتشر: ${esc(x.spread)}</span>`:""}${x.when?`<span class="mic-chain">ادُّعيَ: ${esc(x.when)}</span>`:""}</div>
         <div class="mic-claim">${esc(x.claim)}</div>
         ${x.why&&x.why!=="—"?`<div class="mic-why">${esc(x.why)}</div>`:""}
         <div class="mic-m">${srcs?`<span>${srcs}</span>`:'<span class="mic-chain">لا مصدرَ محقَّقًا بعد</span>'}${seen?`<span>رُصد: ${esc(seen)}</span>`:""}${done?`<span>حُسم: ${esc(done)}</span>`:""}</div>
