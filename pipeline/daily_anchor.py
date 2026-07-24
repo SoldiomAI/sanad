@@ -954,6 +954,9 @@ def mutabiq():
     """يتحقق من أرقام الحصيلة عبر بحث مستقل ويصنّفها: مطابق / متباين / غير موثّق."""
     try: t=json.load(open(INTEL))
     except Exception: return
+    # توفير: الحصيلة معطّلة (لا أرقام) — فلا داعيَ لإنفاقِ نداءِ Grok على مقابلةِ لا شيء.
+    if not (t.get("toll") or []):
+        return {"skipped":1,"why":"الحصيلةُ معطّلة — لا أرقامَ تُطابَق"}
     try:
         v=json.load(open(f"{OUT}/verify.json"))
         if v.get("src_updated")==t.get("updated"):
@@ -1000,9 +1003,9 @@ def munabbih():
         old=json.load(open(ALERTS))
         age=(datetime.now(timezone.utc)-datetime.fromisoformat(old["updated"])).total_seconds()/3600
     except Exception: old,age=None,999
-    if age<3 and not os.environ.get("FORCE_ALERTS"):
-        print(f"⏱️ المُنبِّه: يعمل بعد ~{max(0,round(3-age,1))}س")
-        return {"skipped":1,"why":f"يعمل بعد ~{max(0,round(3-age,1))}س"}
+    if age<5 and not os.environ.get("FORCE_ALERTS"):
+        print(f"⏱️ المُنبِّه: يعمل بعد ~{max(0,round(5-age,1))}س")
+        return {"skipped":1,"why":f"يعمل بعد ~{max(0,round(5-age,1))}س"}
     if not GROK_KEY: return
     P=("ابحث عن آخر التحذيرات والتوجيهات الرسمية الصادرة عن جهات الكويت والخليج بشأن الأزمة "
        "خلال ٤٨ ساعة: الداخلية، الدفاع، الإطفاء، الصحة، الكهرباء والماء، الطيران المدني، الدفاع المدني.\n"
@@ -1012,9 +1015,11 @@ def munabbih():
        'أخرج JSON فقط: [{"kind":"تحذير|تنبيه من شائعة","body":"الجهة",'
        '"txt":"نص التوجيه بإيجاز","act":"ما يفعله المواطن بجملة","u":"رابط","when":"الوقت"}]\n'
        "٦ عناصر كحد أقصى من جهات رسمية فقط. لا تنصيص مزدوج داخل النصوص. لا شيء خارج JSON.")
-    body={"model":os.environ.get("GROK_MODEL_HEAVY","grok-4.5"),"input":[{"role":"user","content":P}],
+    # توفير: النموذج الأخفّ (grok-4.3) وبحثٌ أقلّ يكفيان لالتقاطِ التحذيراتِ الرسميّة —
+    # كان «المُنبِّه» ٦٤٪ من الإنفاق على النموذجِ الثقيل. الجودةُ يحرسُها إسقاطُ التحذيرِ بلا مصدر.
+    body={"model":os.environ.get("GROK_MODEL","grok-4.3"),"input":[{"role":"user","content":P}],
         "tools":[{"type":"x_search"},{"type":"web_search"}],
-        "max_output_tokens":2600,"max_tool_calls":6}
+        "max_output_tokens":2000,"max_tool_calls":4}
     try:
         req=urllib.request.Request("https://api.x.ai/v1/responses",data=json.dumps(body).encode(),
             headers={"Authorization":"Bearer "+GROK_KEY,"Content-Type":"application/json"})
