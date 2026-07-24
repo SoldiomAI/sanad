@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """سَنَد — خط الإنتاج الآلي: RSS → إسناد → نص → صوت فهد → فيديو مذيع مُجزّأ
 LongCat 720p أساسي + EchoMimic احتياطي | افتتاحية/خاتمة مكاشة | يشتغل صفر تدخّل"""
-import os, re, sys, json, time, asyncio, shutil, subprocess, urllib.request, xml.etree.ElementTree as ET
+import os, re, sys, json, time, asyncio, shutil, subprocess, hashlib, urllib.request, xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
 
 GROK_KEY = os.environ.get("GROK_API_KEY",""); HF_TOKEN = os.environ.get("HF_TOKEN",""); GEMINI_KEY = os.environ.get("GEMINI_API_KEY",""); OUT="daily"; os.makedirs(OUT, exist_ok=True)
@@ -64,6 +64,9 @@ AGENTS=[
  ("mutabiq","المُطابِق","🔍","يقابل أرقام الحصيلة بمصادر مستقلة"),
  ("manba","المَنبع","📡","ينقل البيانات الرسمية عن الجهات مباشرة"),
  ("munabbih","المُنبِّه","⚠️","يجمع تحذيرات الجهات وتوجيهاتها للمواطن"),
+ ("multaqit","المُلتَقِط","🔍","يلتقط الادعاءات المنتشرة قبل أن تُنشر — سند تحت المجهر"),
+ ("fahis","الفاحِص","🔗","يفتح الرابط بنفسه ويتأكّد أنه حيّ ويحتوي الادعاء"),
+ ("mukharrij","المُخرِّج","📑","يبحث ويراجع المواقع ويُثبت المصدر ويحكم على الشائعة"),
  ("mustaqsi","المُستَقصي","🎯","ينقل أعداد الذخائر عن وزارات الدفاع مباشرة"),
  ("turjuman","التَّرْجُمَان","🗣️","ينقل الخبر الفارسي إلى العربية ترجمةً أمينة"),
  ("mudaqqiq","المُدقِّق","⚖️","يراجع المواد ويستبعد ما لا يصلح للنشر"),
@@ -325,7 +328,7 @@ def bundle():
             print(f"🛡️ نشرةُ اليوم: أُبقيت الأحدث ({_pub.get('date')}) بدل الأقدم ({_loc.get('date')})")
     except Exception as _e: print(f"guard_latest: {str(_e)[:80]}")
     keys=["news","intel","official","forecast","analyst","dua","verify",
-          "alerts","corrections","latest","agents","cost","evolution","council","gpu"]
+          "alerts","corrections","latest","agents","cost","evolution","council","gpu","rumors"]
     b={"built":datetime.now(timezone.utc).isoformat(timespec="minutes")}
     for k in keys:
         try: b[k]=json.load(open(f"{OUT}/{k}.json"))
@@ -1109,6 +1112,239 @@ def munabbih():
         print("المُنبِّه تخطّى: "+str(e)[:90])
 
 munabbih()
+
+# ═══════════════ سَنَد تحت المجهر: رصدُ الشائعات بسلسلة إسنادٍ ثلاثيّة ═══════════════
+# لا يُنشَر حكمٌ قاطعٌ إلا بما تتّفق عليه ثلاثةُ وكلاء: المُلتَقِط يجمع، والمُخرِّج يبحث
+# ويُثبت المصدر، والفاحِص يفتح كلَّ رابطٍ بنفسه ويتأكّد أنه حيٌّ ويحتوي الادعاء. ما لم
+# يُثبَتْ بمصدرٍ مفتوحٍ محقَّق يبقى «قيد التحقق» — الوفرةُ بلا هذه البوابة أسرعُ طريقٍ
+# لنشر مصدرٍ مهلوس، وهو الفشلُ الوحيد الذي لا رجعةَ منه.
+RUMORS_F=f"{OUT}/rumors.json"
+RUMOR_BACKFILL_DONE=f"{OUT}/rumors_backfill.done"
+_RUMOR_CAP=float(os.environ.get("RUMOR_DAILY_CAP_USD","0.30"))       # سقفٌ يوميٌّ صارمٌ للوكلاء المدفوعة
+_RUMOR_BACKFILL_CAP=float(os.environ.get("RUMOR_BACKFILL_CAP_USD","1.50"))
+_TIER2_ALERT=int(os.environ.get("RUMOR_TIER2_ALERT","3"))           # عتبةُ الحِمل: >٣ «قيد التحقق» باليوم = إشارةُ إجهاد
+_RUMOR_BILLED=("المُلتَقِط","المُخرِّج")                              # الفاحِصُ مجّانيٌّ بالكامل
+
+def _rumor_spent_today():
+    try:
+        c=json.load(open(f"{OUT}/cost.json"))
+        if c.get("day")!=datetime.now(timezone.utc).strftime("%Y-%m-%d"): return 0.0
+        return sum(c.get("by",{}).get(n,0) for n in _RUMOR_BILLED)
+    except Exception: return 0.0
+
+def _grok(P, max_tok=2500, max_calls=6, tools=True):
+    """نداءٌ واحدٌ لـGrok مع أدوات البحث — يعيد (الردّ، النصّ) للفوترة والتحليل."""
+    body={"model":os.environ.get("GROK_MODEL","grok-4.3"),
+          "input":[{"role":"user","content":P}],"max_output_tokens":max_tok}
+    if tools: body["tools"]=[{"type":"x_search"},{"type":"web_search"}]; body["max_tool_calls"]=max_calls
+    req=urllib.request.Request("https://api.x.ai/v1/responses",data=json.dumps(body).encode(),
+        headers={"Authorization":"Bearer "+GROK_KEY,"Content-Type":"application/json"})
+    d=json.load(urllib.request.urlopen(req,timeout=420))
+    txt="".join(c.get("text","") for o in d.get("output",[]) if o.get("type")=="message"
+                for c in o.get("content",[]))
+    txt=txt.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
+    return d, txt
+
+def _json_list(txt):
+    try: return json.loads(txt[txt.find("["):txt.rfind("]")+1])
+    except Exception: return []
+
+def _rid(claim):
+    return hashlib.md5(re.sub(r"\s+","",str(claim or "")).encode("utf-8")).hexdigest()[:10]
+
+def _fetch_body(u, timeout=15):
+    """يفتح الرابط ويقرأ جسمه نصًّا — مجّانًا عبر urllib، بلا أيّ مفتاح."""
+    try:
+        req=urllib.request.Request(u,headers={"User-Agent":"Mozilla/5.0"})
+        raw=urllib.request.urlopen(req,timeout=timeout).read()[:400000]
+        return clean(raw.decode("utf-8","ignore"))
+    except Exception: return ""
+
+def _claim_in_body(claim, body):
+    """مطابقةٌ تقريبيّة: هل تظهر كلماتُ الادعاء الدالّة في جسم الصفحة فعلًا؟"""
+    words=re.findall(r"[؀-ۿ]{4,}", str(claim or ""))[:10]
+    if not words: return False
+    hit=sum(1 for w in words if w in body)
+    return hit >= max(2, len(words)//2)
+
+def _fahis_check(u, claim):
+    """الفاحِص: يفتح الرابط، يتأكّد أنه حيّ، وأنه يحتوي الادعاء أو أنه من منفذٍ معتبَر."""
+    u=str(u or "")
+    if not _ok_url(u): return {"u":u,"ok":False,"live":False,"has":False,"t":"غير مُسند"}
+    body=_fetch_body(u); live=bool(body)
+    has=_claim_in_body(claim, body) if body else False
+    t=grade(u)                                     # درجةُ النطاقِ نفسِه من قوائم TIER
+    return {"u":u,"ok":bool(live and (has or t in ("صحيح","حسن"))),"live":live,"has":has,"t":t}
+
+@agent("multaqit")
+def _rumor_collect(paid_ok):
+    """المُلتَقِط: يجمع الادعاءات المنتشرة — مجّانًا من تنبيهات المُنبِّه، ثم بحثٌ مسقوف."""
+    cands=[]; now_iso=datetime.now(timezone.utc).isoformat(timespec="minutes")
+    # (أ) مجّانًا: إشاراتُ الشائعات التي رصدها المُنبِّه أصلًا
+    try:
+        for x in json.load(open(ALERTS)).get("list",[]):
+            if "شائعة" in (x.get("kind") or ""):
+                c=clean(x.get("txt") or x.get("body") or "")
+                if len(c)>12: cands.append({"claim":c,"spread":"تنبيه رسميّ","u":x.get("u",""),"first_seen":now_iso})
+    except Exception: pass
+    # (ب) مدفوعٌ مسقوف: ما يُتداول على منصّة إكس والويب
+    if paid_ok:
+        P=("ارصد أبرز الادعاءات والشائعات المنتشرة حاليًا في التداول (منصّة إكس، واتساب، المنتديات) "
+           "حول الكويت والخليج وإيران والمنطقة خلال ٢٤ ساعة — ما ينتشر بكثافةٍ ولم يُؤكَّد رسميًّا بعد، "
+           "خاصّةً ما يمسّ الأمنَ والسلامةَ والاقتصاد.\n"
+           'أخرج JSON فقط: [{"claim":"نصّ الادعاء كما يُتداول","spread":"أين ينتشر","u":"رابط المصدر المُدَّعى إن وُجد"}]\n'
+           "٦ ادعاءات كحد أقصى. لا تُلفّقْ ادعاءً لم يُتداول فعلًا. لا تنصيص مزدوج داخل النصوص. لا شيء خارج JSON.")
+        try:
+            d,txt=_grok(P,max_tok=2200,max_calls=5); bill(d,"المُلتَقِط")
+            for x in _json_list(txt):
+                c=clean(x.get("claim",""))
+                if len(c)>12: cands.append({"claim":c,"spread":clean(x.get("spread","التداول")),
+                    "u":x.get("u",""),"first_seen":now_iso})
+        except Exception as e: print("المُلتَقِط تخطّى البحث: "+str(e)[:80])
+    # إزالةُ التكرار بالبصمة
+    uniq={}
+    for c in cands: uniq.setdefault(_rid(c["claim"]), c)
+    out=list(uniq.values())
+    print(f"🔍 المُلتَقِط: {len(out)} ادعاءً مرشَّحًا")
+    return {"cands":out}
+
+@agent("mukharrij")
+def _rumor_takhrij(cands, paid_ok):
+    """المُخرِّج: يبحث كلَّ ادعاءٍ ويُثبت مصدرَه ويحكم — تخريجُ الخبرِ إلى أصلِه الموثَّق."""
+    now_iso=datetime.now(timezone.utc).isoformat(timespec="minutes")
+    # بلا بحثٍ مدفوعٍ متاح: يبقى كلُّ ادعاءٍ «قيد التحقق» بأمانة (لم يُؤكَّد ولم يُنفَ)
+    if not paid_ok:
+        return {"judged":[{"claim":c["claim"],"spread":c.get("spread","التداول"),
+            "verdict":"قيد التحقق","why":"لا يزال قيد التحقّق — لم يُؤكَّد أو يُنفَ بمصدرٍ موثّق بعد.",
+            "sources":([{"u":c["u"],"t":"المصدر المُدَّعى"}] if c.get("u") else []),
+            "first_seen":c.get("first_seen",now_iso)} for c in cands]}
+    numbered="\n".join("%d) %s"%(n,c["claim"]) for n,c in enumerate(cands))
+    P=("لكلّ ادعاءٍ مرقَّمٍ أدناه، ابحث في المصادر الرسميّة والوكالات الموثوقة وتحقّق: هل صحّ، "
+       "أم لم يصحّ، أم لا يزال مجهولًا؟ وأرفق روابط المصادر التي تؤكّد أو تنفي.\n\n"
+       "الادعاءات:\n"+numbered+"\n\n"
+       'أخرج JSON فقط: [{"n":الرقم,"verdict":"صحّ|لم يصحّ|قيد التحقق","why":"سببُ الحكم بجملة",'
+       '"sources":[{"u":"رابط","t":"اسم المصدر"}]}]\n'
+       "احكم «صحّ» فقط بتأكيدٍ من مصدرٍ موثوقٍ برابط، و«لم يصحّ» فقط بنفيٍ موثّقٍ برابط، وإلا «قيد التحقق». "
+       "لا تُصدِرْ حكمًا قاطعًا بلا رابطٍ يسنده. لا تنصيص مزدوج داخل النصوص. لا شيء خارج JSON.")
+    judged=[]
+    try:
+        d,txt=_grok(P,max_tok=3000,max_calls=8); bill(d,"المُخرِّج")
+        by_n={o.get("n"):o for o in _json_list(txt) if isinstance(o,dict)}
+        for n,c in enumerate(cands):
+            o=by_n.get(n) or {}
+            v=o.get("verdict") if o.get("verdict") in ("صحّ","لم يصحّ","قيد التحقق") else "قيد التحقق"
+            src=[s for s in (o.get("sources") or []) if isinstance(s,dict) and s.get("u")]
+            if not src and c.get("u"): src=[{"u":c["u"],"t":"المصدر المُدَّعى"}]
+            judged.append({"claim":c["claim"],"spread":c.get("spread","التداول"),"verdict":v,
+                "why":clean(o.get("why","")) or "—","sources":src,"first_seen":c.get("first_seen",now_iso)})
+    except Exception as e:
+        print("المُخرِّج تخطّى: "+str(e)[:80])
+        return {"judged":[{"claim":c["claim"],"spread":c.get("spread","التداول"),
+            "verdict":"قيد التحقق","why":"تعذّر البحثُ الآن — يبقى قيد التحقّق.",
+            "sources":([{"u":c["u"],"t":"المصدر المُدَّعى"}] if c.get("u") else []),
+            "first_seen":c.get("first_seen",now_iso)} for c in cands]}
+    print(f"📑 المُخرِّج: حكم على {len(judged)} ادعاءً")
+    return {"judged":judged}
+
+@agent("fahis")
+def _rumor_verify(judged):
+    """الفاحِص (البوابة): يفتح كلَّ رابطٍ بنفسه؛ الحكمُ القاطعُ لا يمرّ بلا مصدرٍ حيٍّ محقَّق."""
+    checked=0
+    for it in judged:
+        srcs=[]
+        for s in it.get("sources",[]):
+            r=_fahis_check(s.get("u"), it["claim"]); checked+=1
+            srcs.append({"u":s.get("u"),"t":s.get("t") or r.get("t"),"ok":r["ok"]})
+        it["sources"]=srcs
+        passing=[s for s in srcs if s.get("ok")]
+        it["_passing"]=len(passing)
+        # 🛡️ البوابة: حكمٌ قاطعٌ (صحّ/لم يصحّ) بلا مصدرٍ حيٍّ محقَّق يُخفَّض إلى «قيد التحقق»
+        if it["verdict"] in ("صحّ","لم يصحّ") and not passing:
+            it["verdict"]="قيد التحقق"
+            it["why"]=(it.get("why","")+" — لم يصمُدْ مصدرٌ حيٌّ عند الفحص، فأُبقيَ قيد التحقّق.").strip()
+        it["gate"]={"multaqit":True,"mukharrij":True,"fahis":bool(passing)}
+    print(f"🔗 الفاحِص: فحص {checked} رابطًا في {len(judged)} ادعاءً")
+    return {"judged":judged}
+
+def _rumor_backfill():
+    """الأرشيفُ الرجعيُّ (هجينٌ مسقوف): دفعةُ يوم-صفرٍ لمرّةٍ واحدة خلف علامةٍ وسقفٍ صارم."""
+    if os.path.exists(RUMOR_BACKFILL_DONE) or not GROK_KEY: return []
+    if _rumor_spent_today() >= _RUMOR_BACKFILL_CAP:
+        print("🗄️ الأرشيف الرجعي: بلغ السقف — يُؤجَّل"); return []
+    now_iso=datetime.now(timezone.utc).isoformat(timespec="minutes")
+    got=[]
+    P=("ابحث عن أبرز الشائعات والادعاءات التي انتشرت حول الكويت والخليج وإيران والمنطقة خلال آخر ٣٠ يومًا، "
+       "وتبيّن لاحقًا مصيرُها بمصادرَ موثّقة: أيُّها صحّ وأيُّها لم يصحّ.\n"
+       'أخرج JSON فقط: [{"claim":"نصّ الادعاء","when":"متى انتشر","verdict":"صحّ|لم يصحّ|قيد التحقق",'
+       '"why":"سببُ الحكم بجملة","sources":[{"u":"رابط","t":"اسم المصدر"}]}]\n'
+       "١٢ عنصرًا كحد أقصى. لكلّ حكمٍ قاطعٍ رابطٌ يسنده. لا تنصيص مزدوج. لا شيء خارج JSON.")
+    try:
+        d,txt=_grok(P,max_tok=4000,max_calls=12); bill(d,"المُخرِّج")
+        for x in _json_list(txt):
+            c=clean(x.get("claim",""))
+            if len(c)<12: continue
+            got.append({"claim":c,"spread":clean(x.get("when","")) or "التداول",
+                "verdict":x.get("verdict") if x.get("verdict") in ("صحّ","لم يصحّ","قيد التحقق") else "قيد التحقق",
+                "why":clean(x.get("why","")) or "—",
+                "sources":[s for s in (x.get("sources") or []) if isinstance(s,dict) and s.get("u")],
+                "first_seen":now_iso,"_backfill":True})
+        open(RUMOR_BACKFILL_DONE,"w").write(now_iso)
+        print(f"🗄️ الأرشيف الرجعي: التقط {len(got)} شائعةً من آخر ٣٠ يومًا")
+    except Exception as e: print("الأرشيف الرجعي تعذّر: "+str(e)[:80])
+    return got
+
+def _rumor_audit(items):
+    """مؤشّرُ الحِمل (>٣ قيد التحقق باليوم) وحارسُ الانجراف (ارتفاعُ «لم يصحّ» شذوذًا)."""
+    today=datetime.now(_KW).date().isoformat()
+    tier2_today=sum(1 for x in items if x.get("verdict")=="قيد التحقق"
+                    and str(x.get("first_seen","")).startswith(today))
+    dist={"صحّ":0,"لم يصحّ":0,"قيد التحقق":0}
+    for x in items: dist[x.get("verdict","قيد التحقق")]=dist.get(x.get("verdict","قيد التحقق"),0)+1
+    tot=sum(dist.values()) or 1
+    last10=items[:10]
+    recent_false=sum(1 for x in last10 if x.get("verdict")=="لم يصحّ")/(len(last10) or 1)
+    base_false=dist["لم يصحّ"]/tot
+    drift=bool(len(items)>=10 and recent_false>0.6 and recent_false>base_false*1.5)
+    return {"tier2_today":tier2_today,"overload":tier2_today>_TIER2_ALERT,
+            "dist":dist,"last10":[{"id":x["id"],"verdict":x["verdict"]} for x in last10],
+            "drift_flag":drift,
+            "note":("راجعْ آخر ١٠ أحكامٍ بحياد — ارتفعت نسبة «لم يصحّ»." if drift else
+                    ("تجاوزتَ ٣ حالاتٍ قيد التحقق اليوم — إشارةُ إجهادٍ في الحكم." if tier2_today>_TIER2_ALERT else ""))}
+
+def rumor_track():
+    """المنسِّق: يجمع، يخرّج، يفحص، ثم يدمج وينشر ما اجتاز البوابة — مع تدقيقِ الحِمل والانجراف."""
+    now=datetime.now(timezone.utc); now_iso=now.isoformat(timespec="minutes")
+    try: old=json.load(open(RUMORS_F))
+    except Exception: old=None
+    age=(now-datetime.fromisoformat(old["updated"])).total_seconds()/3600 if old else 999
+    paid_ok=bool(GROK_KEY) and (age>=6 or bool(os.environ.get("FORCE_RUMORS"))) and _rumor_spent_today()<_RUMOR_CAP
+    # ١) جمع  ٢) تخريج/حكم  ٣) فحص الروابط (البوابة)
+    cands=(_rumor_collect(paid_ok) or {}).get("cands",[])
+    seed=_rumor_backfill()
+    judged=(_rumor_takhrij(cands, paid_ok) or {}).get("judged",[]) if cands else []
+    judged+=seed
+    judged=(_rumor_verify(judged) or {}).get("judged",[]) if judged else []
+    # ٤) دمجٌ يحفظ «قال/صار»: أوّلُ ظهورٍ يبقى، ووقتُ الحسمِ يُثبَّت عند أوّل حكمٍ قاطع
+    keep={x["id"]:x for x in (old or {}).get("items",[])}
+    for it in judged:
+        rid=_rid(it["claim"]); prev=keep.get(rid,{})
+        first_seen=prev.get("first_seen") or it.get("first_seen") or now_iso
+        resolved_at=prev.get("resolved_at")
+        if it["verdict"] in ("صحّ","لم يصحّ") and not resolved_at: resolved_at=now_iso
+        keep[rid]={"id":rid,"claim":it["claim"],"verdict":it["verdict"],
+            "spread":it.get("spread","التداول"),"why":it.get("why","—"),
+            "sources":it.get("sources",[]),"tier2":it["verdict"]=="قيد التحقق",
+            "gate":it.get("gate",{"multaqit":True,"mukharrij":True,"fahis":bool(it.get("_passing"))}),
+            "first_seen":first_seen,"resolved_at":resolved_at,"updated":now_iso}
+    def _rank(x): return (x.get("resolved_at") or x.get("first_seen") or "")
+    merged=sorted(keep.values(), key=_rank, reverse=True)[:30]
+    audit=_rumor_audit(merged)
+    json.dump({"updated":now_iso,"items":merged,"audit":audit},
+        open(RUMORS_F,"w"),ensure_ascii=False,indent=1)
+    if audit["overload"] or audit["drift_flag"]: print("⚖️ سند تحت المجهر: "+audit["note"])
+    print(f"🔬 سند تحت المجهر: {len(merged)} شائعةً · {audit['dist']} · قيد التحقق اليوم {audit['tier2_today']}")
+
+rumor_track()
 
 # ═══ المُستَقصي: أعداد الذخائر نقلًا عن وزارات الدفاع مباشرة ═══
 MODF=f"{OUT}/mod.json"

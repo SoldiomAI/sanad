@@ -42,6 +42,10 @@
   .kpi .v{font-size:27px;font-weight:700;margin-top:5px;letter-spacing:-.02em}
   .kpi .v small{font-size:14px;color:var(--mut);font-weight:500}
   .kpi.accent .v{color:var(--gold)}
+  .kpi.bad{border-color:var(--bad);background:var(--bad-w)}
+  .mbar{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--line-2);border:1px solid var(--line)}
+  .mseg{display:block;height:100%}
+  .mseg.m-true{background:var(--ok)} .mseg.m-false{background:var(--bad)} .mseg.m-open{background:var(--warn)}
 
   h2{font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--gold);font-weight:700;margin:26px 0 12px;display:flex;align-items:center;gap:9px}
   h2 .c{color:var(--dim);font-weight:500;letter-spacing:0;text-transform:none;font-size:12px}
@@ -102,7 +106,7 @@
 <script>
 const RAW="https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/";
 // المهلةُ المتوقّعةُ لكلِّ قسمٍ بالساعات (للنبض) — أطولُ منها بكثيرٍ = صامت
-const CADENCE={news:.6,verify:.6,council:.6,evolution:.6,agents:.6,forecast:2.8,analyst:2.8,alerts:3.2,official:6.5,latest:26,dua:26};
+const CADENCE={news:.6,verify:.6,council:.6,evolution:.6,agents:.6,forecast:2.8,analyst:2.8,alerts:3.2,official:6.5,rumors:6.5,latest:26,dua:26};
 const DISABLED_INFO=[
   {k:"intel",t:"حصيلةُ الحرب (الرَّاصِد)",on:false,d:"مُعطَّلة — كانت تُلفّقُ أرقامَ ضحايا منسوبةً لجهاتٍ رسميّة."},
   {k:"ledger",t:"سجلُّ الذخائر (المُستَقصي)",on:false,d:"مُعطَّل — كان يَنسبُ صواريخَ للجيشِ الكويتيّ دون تحقّق."},
@@ -121,18 +125,18 @@ async function grab(name,bundle){
 async function load(){
   let B=null;
   try{ const r=await fetch(RAW+"bundle.json?t="+Date.now()); if(r.ok) B=await r.json(); }catch(e){}
-  const agents=await grab("agents",B), cost=await grab("cost",B);
+  const agents=await grab("agents",B), cost=await grab("cost",B), rumors=await grab("rumors",B);
   const sections={};
   for(const k of Object.keys(CADENCE)){
     const d=await grab(k,B);
     let u=null; if(d) u=d.updated||d.built||(d.date?d.date+"T00:00":null);
     sections[k]=u;
   }
-  render({agents,cost,sections,built:B?B.built:null});
+  render({agents,cost,sections,rumors,built:B?B.built:null});
   const t=new Date(); document.getElementById("live").textContent="آخر تحديث "+t.toLocaleTimeString("ar-KW",{hour:"2-digit",minute:"2-digit"});
 }
 
-function render({agents,cost,sections,built}){
+function render({agents,cost,sections,rumors,built}){
   const A=(agents&&agents.agents)||[];
   const healthy=agents?agents.healthy:0, total=agents?agents.total:0, ran=agents?agents.ran:0;
   const fails=A.filter(a=>a.status==="fail").length;
@@ -176,7 +180,7 @@ function render({agents,cost,sections,built}){
   </tbody></table></div>`;
 
   // ---- freshness heartbeat ----
-  const NM={news:"الأخبار",verify:"التدقيق",council:"المجلس",evolution:"التطوّر",agents:"الوكلاء",forecast:"الاستقراء",analyst:"المحلّل",alerts:"التحذيرات",official:"من المَنبع",latest:"نشرةُ المذيع",dua:"الدعاء"};
+  const NM={news:"الأخبار",verify:"التدقيق",council:"المجلس",evolution:"التطوّر",agents:"الوكلاء",forecast:"الاستقراء",analyst:"المحلّل",alerts:"التحذيرات",official:"من المَنبع",rumors:"تحت المجهر",latest:"نشرةُ المذيع",dua:"الدعاء"};
   const freshHtml=`<h2>نبضُ الطزاجة <span class="c">عمرُ كلِّ قسمٍ مقابلَ مهلتِه المتوقّعة</span></h2>
   <div class="panel tw"><table><thead><tr><th>القسم</th><th>آخر تحديث</th><th>المهلة</th><th>الحالة</th></tr></thead><tbody>
   ${secKeys.map(k=>{const h=agoH(sections[k]); const cad=CADENCE[k];
@@ -188,12 +192,33 @@ function render({agents,cost,sections,built}){
     <td class="${ac}">${st}</td></tr>`;}).join("")}
   </tbody></table></div>`;
 
+  // ---- سَنَد تحت المجهر: مؤشّرُ الحِمل وحارسُ الانجراف ----
+  let micHtml="";
+  if(rumors){
+    const au=rumors.audit||{}, it=rumors.items||[], d=au.dist||{"صحّ":0,"لم يصحّ":0,"قيد التحقق":0};
+    const tot=(d["صحّ"]||0)+(d["لم يصحّ"]||0)+(d["قيد التحقق"]||0)||1;
+    const seg=(v,cls)=>`<span class="mseg ${cls}" style="width:${Math.round((d[v]||0)/tot*100)}%" title="${v}: ${d[v]||0}"></span>`;
+    const t2=au.tier2_today||0, over=au.overload, drift=au.drift_flag;
+    micHtml=`<h2>سَنَد تحت المجهر <span class="c">رصدُ الشائعات · ${it.length} حكمًا · بوّابةٌ ثلاثيّة</span></h2>
+    <div class="kpis">
+      <div class="kpi ${over?'bad':''}"><div class="l">قيد التحقق اليوم</div><div class="v">${t2}<small>/ عتبة ٣</small>${over?' <small style="color:var(--bad-l)">· إجهاد</small>':''}</div></div>
+      <div class="kpi"><div class="l">صحّ</div><div class="v" style="color:var(--ok-l,#7FD2AC)">${d["صحّ"]||0}</div></div>
+      <div class="kpi"><div class="l">لم يصحّ</div><div class="v" style="color:var(--bad-l)">${d["لم يصحّ"]||0}</div></div>
+      <div class="kpi ${drift?'bad':''}"><div class="l">حارسُ الانجراف</div><div class="v">${drift?'⚠️ راجعْ':'سليم'}</div></div>
+    </div>
+    <div class="panel" style="padding:14px 16px">
+      <div class="mbar">${seg("صحّ","m-true")}${seg("لم يصحّ","m-false")}${seg("قيد التحقق","m-open")}</div>
+      <div class="foot" style="border:none;padding:9px 0 0">${au.note?esc(au.note):"التوزيعُ متّزن — لا انجراف. الأحكامُ تُسنَدُ للمصدرِ لا للانتشار."}</div>
+      ${(au.last10||[]).length?`<div class="foot" style="border-top:1px solid var(--line);margin-top:10px;padding-top:10px">آخرُ الأحكام (للمراجعةِ الأسبوعيّة بحياد): ${(au.last10||[]).map(x=>`<span class="pill ${x.verdict==='صحّ'?'p-ok':x.verdict==='لم يصحّ'?'p-fail':'p-skip'}" style="margin:0 2px">${esc(x.verdict)}</span>`).join("")}</div>`:""}
+    </div>`;
+  }
+
   // ---- integrity ----
   const igHtml=`<h2>حرّاسُ النزاهة <span class="c">ما عُطِّل ولماذا</span></h2>
   <div class="panel"><div class="integrity">${DISABLED_INFO.map(x=>
     `<div class="ig ${x.on?'on':'off'}"><div class="t">${x.on?'🛡️':'🛑'} ${x.t}</div><div class="d">${x.d}</div></div>`).join("")}</div></div>`;
 
-  document.getElementById("app").innerHTML=kpis+costHtml+agentHtml+freshHtml+igHtml
+  document.getElementById("app").innerHTML=kpis+costHtml+agentHtml+micHtml+freshHtml+igHtml
     + `<div class="foot" style="border:none;padding:16px 2px;color:var(--dim)">آخرُ تشغيلٍ للخطّ: <span class="mono">${built?agoTxt(built)+" مضت":"—"}</span> · تتحدّثُ اللوحةُ تلقائيًّا كلَّ دقيقة.</div>`;
 }
 

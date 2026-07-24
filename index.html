@@ -371,6 +371,24 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
   font-size:12.5px;color:var(--seal-l);line-height:1.9;display:flex;gap:7px}
 .alert.rumor .al-a{border-top-color:rgba(201,162,39,.3);color:var(--gold-l)}
 .al-a b{flex-shrink:0}
+/* سَنَد تحت المجهر — بطاقاتُ حكمِ الشائعات */
+.mic{background:linear-gradient(150deg,rgba(28,37,50,.5),var(--card));border:1px solid var(--border);
+  border-radius:8px;padding:13px 15px 12px;margin-bottom:11px;position:relative;overflow:hidden}
+.mic::before{content:"";position:absolute;inset-inline-start:0;top:0;bottom:0;width:3px;background:var(--dim)}
+.mic.t-true::before{background:var(--verify)}
+.mic.t-false::before{background:var(--seal)}
+.mic.t-open::before{background:var(--gold)}
+.mic-h{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:7px}
+.mic-v{font-family:'Noto Kufi Arabic',sans-serif;font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;border:1px solid}
+.mic-v.t-true{background:rgba(62,155,114,.16);border-color:rgba(62,155,114,.45);color:var(--verify-l)}
+.mic-v.t-false{background:rgba(158,43,55,.18);border-color:rgba(158,43,55,.45);color:var(--seal-l)}
+.mic-v.t-open{background:rgba(201,162,39,.16);border-color:rgba(201,162,39,.45);color:var(--gold-l)}
+.mic-claim{font-size:14.5px;line-height:1.75;color:var(--txt);font-weight:600}
+.mic-why{font-size:12.5px;color:var(--mut);margin-top:6px;line-height:1.7}
+.mic-m{display:flex;align-items:center;gap:13px;flex-wrap:wrap;margin-top:9px;font-size:11px;color:var(--dim)}
+.mic-m a{color:var(--lapis);text-decoration:none}
+.mic-m a:hover{text-decoration:underline}
+.mic-chain{font-size:10.5px;color:var(--dim);font-family:'Noto Kufi Arabic',sans-serif}
 .al-m{margin-top:7px;font-size:10px;color:var(--dim);display:flex;gap:9px;flex-wrap:wrap}
 .al-m a{color:var(--gold-l);text-decoration:none}
 /* ── دليل التحقق ── */
@@ -627,6 +645,30 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
     <div class="sec-h">تحذيراتٌ رسمية</div>
     <div id="alertL"></div>
     <div class="note">منقولٌ عن الجهات الرسمية مباشرةً — وهي المرجعُ الوحيدُ وقتَ الطوارئ.</div>
+  </div>
+
+  <div id="microWrap" style="display:none">
+    <div class="sec-h">سَنَد تحت المِجهر · رصدُ الشائعات</div>
+    <details class="mx">
+      <summary class="mx-s"><span>🔬 كيف نحكُم على الشائعة؟</span><i class="mx-hint">سلسلةُ إسنادٍ ثلاثيّة</i></summary>
+      <div class="mx-b">
+        <p class="mx-lead">مسارٌ ثانٍ يرصدُ ما <b>يُتداوَل</b> لا ما يُنشَر: نلتقطُ الادعاءَ المنتشر، ونتحقّقُ منه، ونعرضُ حكمَنا صريحًا — <b>ولا يُنشَرُ حكمٌ قاطعٌ إلا بمصدرٍ فتحناه بأنفسِنا وتأكّدنا أنه حيٌّ ويسنده</b>.</p>
+        <div class="mx-grades">
+          <div class="mx-g"><span class="mic-v t-true">صحّ</span><span class="mx-gd">ثبتَ الادعاءُ بمصدرٍ موثوقٍ فتحناه وتحقّقنا أنه حيٌّ ويسنده.</span></div>
+          <div class="mx-g"><span class="mic-v t-false">لم يصحّ</span><span class="mx-gd">دحضَه مصدرٌ موثّقٌ فتحناه — شائعةٌ لا أصلَ لها.</span></div>
+          <div class="mx-g"><span class="mic-v t-open">قيد التحقق</span><span class="mx-gd">يُتداوَل ولمّا يُؤكَّدْ أو يُنفَ بمصدرٍ محقَّق. نعرضُه كما هو: مجهولًا.</span></div>
+        </div>
+        <div class="mx-crit-h">لا يمرُّ الحكمُ إلا باتّفاقِ ثلاثةِ وكلاء:</div>
+        <div class="mx-crit">
+          <span title="يلتقط الادعاءَ المنتشرَ قبل أن يُنشَر">🔍 المُلتَقِط</span>
+          <span title="يبحث ويراجع المواقعَ ويُثبت المصدرَ ويحكم">📑 المُخرِّج</span>
+          <span title="يفتح كلَّ رابطٍ بنفسه ويتأكّد أنه حيٌّ ويحتوي الادعاء — البوّابة">🔗 الفاحِص</span>
+        </div>
+        <p class="mx-note">ما لم يجتَزِ البوابةَ يبقى «قيد التحقق». ولا نحكمُ «لم يصحّ» لأنَّ الادعاءَ ينتشرُ أكثر — الحكمُ للمصدرِ لا للانتشار.</p>
+      </div>
+    </details>
+    <div id="microL"></div>
+    <div class="note">مسارٌ مستقلٌّ عن النشرة. نرصدُ الشائعةَ ونحكمُ عليها، ونُثبّتُ متى رُصدتْ ومتى حُسمت — ولا نُبدّلُ حكمًا في صمت.</div>
   </div>
 
   <details class="meth" id="guideBox">
@@ -1074,6 +1116,25 @@ async function load(){
         <div class="al-m">${x.when?`<span>${esc(x.when)}</span>`:""}${x.u?`<a href="${safeUrl(x.u)}" target="_blank" rel="noopener">البيان ↗</a>`:""}</div>
       </div>`}).join("");
     alertWrap.style.display="block";
+  }catch(e){}
+  try{
+    const r=await grab("rumors");
+    const items=(r.items||[]);
+    if(!items.length) throw 0;
+    const fdate=s=>{try{return new Date(s).toLocaleDateString("ar-KW",{day:"numeric",month:"long"})}catch(e){return ""}};
+    microL.innerHTML=items.map((x,n)=>{
+      const v=x.verdict||"قيد التحقق";
+      const vc=v==="صحّ"?"t-true":v==="لم يصحّ"?"t-false":"t-open";
+      const srcs=(x.sources||[]).filter(s=>s&&s.u).map(s=>
+        `<a href="${safeUrl(s.u)}" target="_blank" rel="noopener">${esc(s.t||"المصدر")}${s.ok?" ✓":""} ↗</a>`).join(" · ");
+      const seen=x.first_seen?fdate(x.first_seen):"", done=x.resolved_at?fdate(x.resolved_at):"";
+      return `<div class="mic ${vc} rise" style="animation-delay:${Math.min(n*55,440)}ms">
+        <div class="mic-h"><span class="mic-v ${vc}">${esc(v)}</span>${x.spread?`<span class="mic-chain">ينتشر: ${esc(x.spread)}</span>`:""}</div>
+        <div class="mic-claim">${esc(x.claim)}</div>
+        ${x.why&&x.why!=="—"?`<div class="mic-why">${esc(x.why)}</div>`:""}
+        <div class="mic-m">${srcs?`<span>${srcs}</span>`:'<span class="mic-chain">لا مصدرَ محقَّقًا بعد</span>'}${seen?`<span>رُصد: ${esc(seen)}</span>`:""}${done?`<span>حُسم: ${esc(done)}</span>`:""}</div>
+      </div>`}).join("");
+    microWrap.style.display="block";
   }catch(e){}
   try{
     const o=await grab("official");
