@@ -59,6 +59,7 @@ def direct_meta(url):
 # ═══════════ طبقة الوكلاء — سجلٌّ ومراقبةٌ حيّة ═══════════
 AGENTS_F=f"{OUT}/agents.json"
 AGENTS=[
+ ("hurr","الوكيلُ الحرّ","🆓","يجلبُ من مصادرَ مجّانيّةٍ بلا مفاتيح — RSS رسميّ عبر أخبار غوغل"),
  ("rasid","الرَّاصِد","🛰️","يرصد المصادر الحيّة ويجمع الحصيلة والعاجل"),
  ("mutabiq","المُطابِق","🔍","يقابل أرقام الحصيلة بمصادر مستقلة"),
  ("manba","المَنبع","📡","ينقل البيانات الرسمية عن الجهات مباشرة"),
@@ -484,6 +485,50 @@ for label,url in FEEDS:
                 if n>=6: break
     except Exception as e: print(f"feed {label}: {e}",file=sys.stderr)
 print(f"جُمع {len(items)} خبرًا مُسندًا")
+
+# ═══ الوكيلُ الحرّ: بياناتٌ من مصادرَ مجّانيّةٍ بلا مفاتيح ولا كلفة ═══
+# استعلاماتٌ مُوجّهةٌ لجهاتٍ رسميّةٍ عبر «أخبار غوغل RSS» (مجّانيٌّ بلا مفتاح). لا تلفيق:
+# روابطُ مقالاتٍ حقيقيّةٍ من منافذَ معتبَرة (يُبقيها فلترُ الدرجات) تنقلُ بياناتِ المصدرِ الرسميّ.
+import urllib.parse as _up
+FREE_WIRE=[
+ ("عالم", 'CENTCOM OR "القيادة المركزية الأمريكية" إيران'),
+ ("عالم", '"الوكالة الدولية للطاقة الذرية" OR IAEA إيران نووي'),
+ ("الخليج", 'الكويت (بيان رسمي OR طوارئ OR إنذار OR مجال جوي)'),
+ ("الخليج", '(السعودية OR الإمارات OR قطر OR البحرين) وزارة الدفاع بيان'),
+ ("عالم", 'الأمم المتحدة OR "مجلس الأمن" إيران الخليج'),
+]
+@agent("hurr")
+def wire_hurr():
+    """يجلبُ أخبارَ الجهاتِ الرسميّةِ من «أخبار غوغل RSS» — بلا مفتاحٍ ولا كلفة، وبإسنادِ المنافذِ نفسِه."""
+    added=0
+    for cat,q in FREE_WIRE:
+        try:
+            url="https://news.google.com/rss/search?q="+_up.quote(q)+"&hl=ar&gl=KW&ceid=KW:ar"
+            req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0"})
+            root=ET.fromstring(urllib.request.urlopen(req,timeout=30).read())
+            n=0
+            for it in root.iter("item"):
+                title=clean(it.findtext("title",""))
+                src_=title.rsplit(" - ",1)[-1] if " - " in title else ""
+                head=title.rsplit(" - ",1)[0] if " - " in title else title
+                g=grade(src_ or clean(it.findtext("source","")))     # الإسنادُ بدرجةِ المنفذِ نفسِها
+                key=head[:40]
+                if g in ("صحيح","حسن") and len(head)>15 and key not in seen and not blocked(head):
+                    seen.add(key)
+                    _iso=""; _pd=clean(it.findtext("pubDate",""))
+                    if _pd:
+                        try:
+                            from email.utils import parsedate_to_datetime
+                            _iso=parsedate_to_datetime(_pd).astimezone(timezone.utc).isoformat(timespec="minutes")
+                        except Exception: pass
+                    items.append({"head":head,"src":src_,"grade":g,"cat":cat,"at":_iso,
+                        "link":clean(it.findtext("link","")),"fa":False,"free":True})
+                    n+=1; added+=1
+                    if n>=4: break
+        except Exception as e: print(f"الحرّ [{cat}]: {str(e)[:50]}",file=sys.stderr)
+    print(f"🆓 الوكيلُ الحرّ: +{added} خبرًا من مصادرَ مجّانيّةٍ بلا مفاتيح")
+    return {"added":added,"why":f"+{added} خبرًا مجّانيًّا"}
+wire_hurr()
 
 def gemini_json(prompt, max_tok=1500):
     body={"contents":[{"parts":[{"text":prompt}]}],
