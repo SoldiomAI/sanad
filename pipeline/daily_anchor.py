@@ -1176,6 +1176,12 @@ def _fahis_check(u, claim):
     t=grade(u)                                     # درجةُ النطاقِ نفسِه من قوائم TIER
     return {"u":u,"ok":bool(live and (has or t in ("صحيح","حسن"))),"live":live,"has":has,"t":t}
 
+# ألفاظُ الحدثِ العسكريِّ الجسيم — لا نُثبّتُها «صحّ» عبر مسارِ الشائعات (للأخبارِ أنبوبُها بمصادره)
+_WAR=("هجوم","هجمات","صاروخ","مسير","مسيّر","استهد","قصف","ضرب","اعتراض","غارة",
+      "قتلى","قتيل","جرحى","انفجار","تفجير","قاعدة","عدوان","جاسوس","جواسيس","احتلال","سيطرة")
+def _is_grave(claim): return any(w in str(claim or "") for w in _WAR)
+def _looks_dateish(s): return any(m in str(s or "") for m in _AR_MON)   # فيه اسمُ شهرٍ = عنصرُ أرشيفٍ مؤرَّخ
+
 @agent("multaqit")
 def _rumor_collect(paid_ok):
     """المُلتَقِط: يجمع الادعاءات المنتشرة — مجّانًا من تنبيهات المُنبِّه، ثم بحثٌ مسقوف."""
@@ -1262,12 +1268,22 @@ def _rumor_verify(judged):
         if it["verdict"] in ("صحّ","لم يصحّ") and not passing:
             it["verdict"]="قيد التحقق"
             it["why"]=(it.get("why","")+" — لم يصمُدْ مصدرٌ حيٌّ عند الفحص، فأُبقيَ قيد التحقّق.").strip()
+        # 🛡️ حارسُ النزاهة: لا نُثبّتُ حدثًا عسكريًّا جسيمًا كـ«صحّ» عبر مسارِ الشائعات —
+        # المسارُ لتتبّعِ المتنازَعِ عليه (خاصّةً «لم يصحّ»)، لا لسردِ أحداثِ الحرب المؤكَّدة.
+        if it["verdict"]=="صحّ" and _is_grave(it.get("claim","")):
+            it["verdict"]="قيد التحقق"
+            it["why"]=(it.get("why","")+" — حدثٌ عسكريٌّ جسيم لا يُثبَّت هنا كمؤكَّد؛ يبقى قيد التحقّق.").strip()
         it["gate"]={"multaqit":True,"mukharrij":True,"fahis":bool(passing)}
     print(f"🔗 الفاحِص: فحص {checked} رابطًا في {len(judged)} ادعاءً")
     return {"judged":judged}
 
 def _rumor_backfill():
-    """الأرشيفُ الرجعيُّ (هجينٌ مسقوف): دفعةُ يوم-صفرٍ لمرّةٍ واحدة خلف علامةٍ وسقفٍ صارم."""
+    """⛔ مُعطَّل عمدًا: كان يجلبُ «آخر ٣٠ يومًا» فيعيدُ نشرَ أحداثٍ عسكريّةٍ جسيمةٍ قديمةٍ
+    كبطاقاتِ «صحّ» ويختمُها بتاريخِ اليوم — أخبارٌ قديمةٌ تظهرُ كأنها الآن، وبابٌ خلفيٌّ
+    لصنفِ الادّعاءات التي عُطّلت سابقًا (grok_intel، mustaqsi). الأرشيفُ يتعمّقُ للأمام
+    طبيعيًّا من الشائعاتِ الجاريةِ بدل دفعةٍ رجعيّةٍ خطِرة."""
+    return []
+    # ── ما يلي مُعطَّل (لا يُنفَّذ) ──
     if os.path.exists(RUMOR_BACKFILL_DONE) or not GROK_KEY: return []
     if _rumor_spent_today() >= _RUMOR_BACKFILL_CAP:
         print("🗄️ الأرشيف الرجعي: بلغ السقف — يُؤجَّل"); return []
@@ -1328,16 +1344,25 @@ def rumor_track():
     keep={x["id"]:x for x in (old or {}).get("items",[])}
     for it in judged:
         rid=_rid(it["claim"]); prev=keep.get(rid,{})
+        # فصلُ التاريخِ عن مكانِ الانتشار: لا يُوضَعُ تاريخٌ في spread أبدًا
+        sp=str(it.get("spread","التداول") or "التداول"); wn=str(it.get("when","") or prev.get("when",""))
+        if _looks_dateish(sp): wn=wn or sp; sp="التداول"
         first_seen=prev.get("first_seen") or it.get("first_seen") or now_iso
         resolved_at=prev.get("resolved_at")
         if it["verdict"] in ("صحّ","لم يصحّ") and not resolved_at: resolved_at=now_iso
         keep[rid]={"id":rid,"claim":it["claim"],"verdict":it["verdict"],
-            "spread":it.get("spread","التداول"),"why":it.get("why","—"),
+            "spread":sp,"when":wn,"why":it.get("why","—"),
             "sources":it.get("sources",[]),"tier2":it["verdict"]=="قيد التحقق",
             "gate":it.get("gate",{"multaqit":True,"mukharrij":True,"fahis":bool(it.get("_passing"))}),
             "first_seen":first_seen,"resolved_at":resolved_at,"updated":now_iso}
+    # 🛡️ حارسُ الطزاجةِ والنزاهة (يُطبَّقُ على الكلِّ فيُنظّفُ المتراكمَ القديمَ أيضًا):
+    #   يُسقَطُ عنصرٌ مؤرَّخٌ (أرشيفٌ قديمٌ سرّب تاريخًا) أو حدثٌ عسكريٌّ جسيمٌ بحكمِ «صحّ».
+    def _drop(x):
+        if _looks_dateish(x.get("spread","")) or _looks_dateish(x.get("when","")): return True
+        if x.get("verdict")=="صحّ" and _is_grave(x.get("claim","")): return True
+        return False
     def _rank(x): return (x.get("resolved_at") or x.get("first_seen") or "")
-    merged=sorted(keep.values(), key=_rank, reverse=True)[:30]
+    merged=sorted([x for x in keep.values() if not _drop(x)], key=_rank, reverse=True)[:12]
     audit=_rumor_audit(merged)
     json.dump({"updated":now_iso,"items":merged,"audit":audit},
         open(RUMORS_F,"w"),ensure_ascii=False,indent=1)
