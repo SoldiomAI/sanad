@@ -980,10 +980,27 @@ def manba():
         lst=json.loads(txt[txt.find("["):txt.rfind("]")+1])
         lst=[x for x in lst if x.get("h","").startswith("@") and x.get("p")]
         if not lst: raise ValueError("قائمة فارغة")
+        # ختمُ الالتقاطِ الآليّ (cap): لا يُخدَعُ بتاريخٍ نصّيٍّ متيبّس مثل «اليوم» الذي يبقى
+        # «اليوم» بعد يوم. ونُحوّلُ «اليوم/أمس» إلى تاريخٍ مطلقٍ عند الالتقاطِ فلا يتعفّن العرض.
+        _now=datetime.now(timezone.utc); _now_iso=_now.isoformat(timespec="minutes")
+        _kd=(_now+timedelta(hours=3)).date()
+        _ARM=["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر"]
+        _abs=lambda d:f"{d.day} {_ARM[d.month-1]} {d.year}"
         keep={x["h"].lower():x for x in (old or {}).get("src",[])}
-        for x in lst: keep[x["h"].lower()]=x
-        # نُسقطُ البياناتِ الأقدمَ من يومين كي لا يبدوَ القسمُ قديمًا بجهاتٍ صمتت
-        merged=[x for x in keep.values() if not _stmt_old_days(x.get("t"),2)][-14:]
+        for x in lst:
+            x["cap"]=_now_iso
+            _t=str(x.get("t",""))
+            if "اليوم" in _t: x["t"]=_t.replace("اليوم",_abs(_kd))
+            elif "أمس" in _t: x["t"]=_t.replace("أمس",_abs(_kd-timedelta(days=1)))
+            keep[x["h"].lower()]=x
+        # الطزاجةُ بالختمِ الآليّ: يبقى بيانُ آخرِ ٣٠ ساعة فقط، والأحدثُ أوّلًا.
+        def _fresh_cap(x):
+            c=x.get("cap")
+            if not c: return False                 # بلا ختمٍ آليّ (قديمٌ سابقٌ للنظام) ⇒ يُطوى
+            try: return (_now-datetime.fromisoformat(c)).total_seconds()<=30*3600
+            except Exception: return False
+        merged=sorted([x for x in keep.values() if _fresh_cap(x)],
+                      key=lambda x:x.get("cap",""),reverse=True)[:14]
         json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"src":merged},
             open(OFFI,"w"),ensure_ascii=False,indent=1)
         bill(d,"المَنبع")
