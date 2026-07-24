@@ -993,12 +993,14 @@ def manba():
             if "اليوم" in _t: x["t"]=_t.replace("اليوم",_abs(_kd))
             elif "أمس" in _t: x["t"]=_t.replace("أمس",_abs(_kd-timedelta(days=1)))
             keep[x["h"].lower()]=x
-        # الطزاجةُ بالختمِ الآليّ: يبقى بيانُ آخرِ ٣٠ ساعة فقط، والأحدثُ أوّلًا.
+        # الطزاجة: يبقى بيانُ آخرِ ٣٠ ساعة (بالختمِ الآليّ)، أو ما تاريخُه اليومَ/أمسِ إن لم
+        # يكن له ختمٌ بعد — فلا يُفرَّغُ القسمُ عند الانتقال، ولا يبقى بيانٌ متعفّن. والأحدثُ أوّلًا.
         def _fresh_cap(x):
             c=x.get("cap")
-            if not c: return False                 # بلا ختمٍ آليّ (قديمٌ سابقٌ للنظام) ⇒ يُطوى
-            try: return (_now-datetime.fromisoformat(c)).total_seconds()<=30*3600
-            except Exception: return False
+            if c:
+                try: return (_now-datetime.fromisoformat(c)).total_seconds()<=30*3600
+                except Exception: pass
+            return not _stmt_old_days(x.get("t"),1)   # بلا ختم: يُبقى إن كان تاريخُه اليومَ أو أمس
         merged=sorted([x for x in keep.values() if _fresh_cap(x)],
                       key=lambda x:x.get("cap",""),reverse=True)[:14]
         json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"src":merged},
