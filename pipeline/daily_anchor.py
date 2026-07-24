@@ -387,11 +387,28 @@ def bill(d,who):
         c["usd"]=round(c.get("usd",0)+usd,4); c["calls"]=c.get("calls",0)+1
         c["by"][who]=round(c["by"].get(who,0)+usd,4)
         c["month_est"]=round(c["usd"]*30,2)
+        c["budget"]=float(os.environ.get("DAILY_BUDGET_USD","0.80"))
         json.dump(c,open(f"{OUT}/cost.json","w"),ensure_ascii=False,indent=1)
         print(f"💵 {who}: ${usd:.4f} · اليوم ${c['usd']:.3f} ({c['calls']} نداء) · الشهر ~${c['month_est']}")
         return usd
     except Exception as e:
         print(f"تسجيل التكلفة تعذّر: {str(e)[:60]}"); return 0
+
+# ═══ سقفُ الإنفاقِ اليوميّ الصارم: الضمانةُ الرياضيّةُ للفاتورة ═══
+# الخلاصةُ الإخباريّةُ نفسُها مجّانية (RSS + الوكيل الحرّ)؛ كلُّ النداءاتِ المدفوعةِ
+# لأقسامٍ مساندة — فإذا بلغَ إنفاقُ اليومِ السقفَ تتوقّفُ حتى الغد وتستمرُّ المجّانية.
+DAILY_BUDGET=float(os.environ.get("DAILY_BUDGET_USD","0.80"))
+def spent_today():
+    try:
+        c=json.load(open(f"{OUT}/cost.json"))
+        return c.get("usd",0) if c.get("day")==datetime.now(timezone.utc).strftime("%Y-%m-%d") else 0.0
+    except Exception: return 0.0
+def over_budget(who):
+    s=spent_today()
+    if s>=DAILY_BUDGET:
+        print(f"💰 {who}: بلغ سقفَ الإنفاق اليوميّ (${s:.2f}/${DAILY_BUDGET:.2f}) — يتوقّف حتى الغد")
+        return True
+    return False
 
 OFFICIAL_HANDLES=set()
 try:
@@ -412,7 +429,10 @@ def due(aid, age, hard):
     if age>=hard: return True, "تجاوز المهلة"
     if turn is not None and SLOT!=turn:
         return False, f"نوبته الجولة القادمة (~{3-(_H%3)}س)"
-    return (age>=3), (f"يعمل بعد ~{max(0,round(3-age,1))}س" if age<3 else "")
+    # مُهلةٌ أدنى لكلّ وكيل — المَنبعُ مرّتين يوميًّا يكفي: بياناتُه بتواريخَ مطلقةٍ
+    # لا تتعفّن، والوكيلُ الحرُّ يغطّي أخبارَ الجهاتِ الرسميّةِ مجّانًا بين التشغيلين.
+    mn={"manba":12}.get(aid,3)
+    return (age>=mn), (f"يعمل بعد ~{max(0,round(mn-age,1))}س" if age<mn else "")
 
 RULES=f"{OUT}/rules.json"
 PROTECT=["إيران","الكويت","السعودي","الإمارات","قطر","البحرين","عُمان","عمان","العراق","الخليج",
@@ -658,7 +678,7 @@ def grok_intel():
        "فاكتب في src: تقدير صحفي غير رسمي.\n"
        "٤ عناوين عاجلة كحد أقصى من حسابات موثقة خلال ٦ ساعات. أرقام موثقة فقط وإلا «غير مؤكد». "
        "لا تستخدم علامة تنصيص مزدوجة داخل النصوص. لا شيء خارج JSON.")
-    body={"model":os.environ.get("GROK_MODEL_HEAVY","grok-4.5"),"input":[{"role":"user","content":P}],
+    body={"model":os.environ.get("GROK_MODEL_HEAVY","grok-4.3"),"input":[{"role":"user","content":P}],
         "tools":[{"type":"web_search"},{"type":"x_search"}],
         "max_output_tokens":4200,"max_tool_calls":8}
     try:
@@ -875,10 +895,11 @@ def mustaqri():
         prev=json.load(open(FCAST))
         age=(datetime.now(timezone.utc)-datetime.fromisoformat(prev["updated"])).total_seconds()/3600
     except Exception: prev,age=None,999
-    if age<2.6:
-        print(f"⏱️ المُستقرِئ: يعمل بعد ~{max(0,round(2.6-age,1))}س")
-        return {"skipped":1,"why":f"يعمل بعد ~{max(0,round(2.6-age,1))}س"}
+    if age<6 and not os.environ.get("FORCE_FORECAST"):
+        print(f"⏱️ المُستقرِئ: يعمل بعد ~{max(0,round(6-age,1))}س")
+        return {"skipped":1,"why":f"يعمل بعد ~{max(0,round(6-age,1))}س"}
     if not GROK_KEY: return
+    if over_budget("المُستقرِئ"): return {"skipped":1,"why":"بلغ سقفَ الإنفاق اليوميّ"}
 
     heads=[i["head"] for l in cats.values() for i in l][:14]
     toll=", ".join(t.get("c","")+": "+str(t.get("d","")) for t in (INT or {}).get("toll",[]))
@@ -904,7 +925,7 @@ def mustaqri():
        "لا تذكر أسماء نماذج أو شركات. لا شيء خارج JSON.")
     body={"model":os.environ.get("GROK_MODEL","grok-4.3"),"input":[{"role":"user","content":P}],
         "tools":[{"type":"web_search"},{"type":"x_search"}],
-        "max_output_tokens":3000,"max_tool_calls":4}
+        "max_output_tokens":3000,"max_tool_calls":3}
     try:
         req=urllib.request.Request("https://api.x.ai/v1/responses",data=json.dumps(body).encode(),
             headers={"Authorization":"Bearer "+GROK_KEY,"Content-Type":"application/json"})
@@ -953,10 +974,11 @@ def manba():
         age=(datetime.now(timezone.utc)-datetime.fromisoformat(old["updated"])).total_seconds()/3600
     except Exception: old,age=None,999
     old=old or {}
-    go,why = due("manba",age,9)
+    go,why = due("manba",age,14)
     if not go and not os.environ.get("FORCE_OFFICIAL"):
         print(f"⏱️ المَنبع: {why}"); return {"skipped":1,"why":why}
     if not GROK_KEY: return
+    if over_budget("المَنبع"): return {"skipped":1,"why":"بلغ سقفَ الإنفاق اليوميّ"}
     B=[("القيادة المركزية الأمريكية CENTCOM، وزارة الكهرباء والماء الكويتية، "
         "قوة الإطفاء العام الكويتية، وكالة الأنباء الكويتية كونا، وزارة الداخلية الكويتية"),
        ("وزارة الصحة الكويتية، الداخلية أو الدفاع المدني السعودي، وزارة الخارجية الإماراتية، "
@@ -973,7 +995,7 @@ def manba():
        "لا تستخدم علامة تنصيص مزدوجة داخل النصوص. لا شيء خارج JSON.")
     body={"model":os.environ.get("GROK_MODEL","grok-4.3"),"input":[{"role":"user","content":P}],
         "tools":[{"type":"x_search"},{"type":"web_search"}],
-        "max_output_tokens":2600,"max_tool_calls":4}
+        "max_output_tokens":2600,"max_tool_calls":3}
     try:
         req=urllib.request.Request("https://api.x.ai/v1/responses",data=json.dumps(body).encode(),
             headers={"Authorization":"Bearer "+GROK_KEY,"Content-Type":"application/json"})
@@ -1032,6 +1054,7 @@ def mutabiq():
             return {"skipped":1,"why":"لا أرقام جديدة"}
     except Exception: pass
     if not GROK_KEY: return
+    if over_budget("المُطابِق"): return {"skipped":1,"why":"بلغ سقفَ الإنفاق اليوميّ"}
     rows="\n".join("- %s: قتلى %s، جرحى %s (المُعلن: %s)"%(x.get("c"),x.get("d"),x.get("w"),x.get("src","غير مذكور"))
                     for x in t.get("toll",[]))
     P=("تحقّق من هذه الأرقام عبر مصادر مستقلة (وكالات دولية، أمم متحدة، جهات رسمية) "
@@ -1071,10 +1094,11 @@ def munabbih():
         old=json.load(open(ALERTS))
         age=(datetime.now(timezone.utc)-datetime.fromisoformat(old["updated"])).total_seconds()/3600
     except Exception: old,age=None,999
-    if age<5 and not os.environ.get("FORCE_ALERTS"):
-        print(f"⏱️ المُنبِّه: يعمل بعد ~{max(0,round(5-age,1))}س")
-        return {"skipped":1,"why":f"يعمل بعد ~{max(0,round(5-age,1))}س"}
+    if age<8 and not os.environ.get("FORCE_ALERTS"):
+        print(f"⏱️ المُنبِّه: يعمل بعد ~{max(0,round(8-age,1))}س")
+        return {"skipped":1,"why":f"يعمل بعد ~{max(0,round(8-age,1))}س"}
     if not GROK_KEY: return
+    if over_budget("المُنبِّه"): return {"skipped":1,"why":"بلغ سقفَ الإنفاق اليوميّ"}
     P=("ابحث عن آخر التحذيرات والتوجيهات الرسمية الصادرة عن جهات الكويت والخليج بشأن الأزمة "
        "خلال ٤٨ ساعة: الداخلية، الدفاع، الإطفاء، الصحة، الكهرباء والماء، الطيران المدني، الدفاع المدني.\n"
        "ادرج نوعين:\n"
@@ -1120,7 +1144,7 @@ munabbih()
 # لنشر مصدرٍ مهلوس، وهو الفشلُ الوحيد الذي لا رجعةَ منه.
 RUMORS_F=f"{OUT}/rumors.json"
 RUMOR_BACKFILL_DONE=f"{OUT}/rumors_backfill.done"
-_RUMOR_CAP=float(os.environ.get("RUMOR_DAILY_CAP_USD","0.30"))       # سقفٌ يوميٌّ صارمٌ للوكلاء المدفوعة
+_RUMOR_CAP=float(os.environ.get("RUMOR_DAILY_CAP_USD","0.15"))       # سقفٌ يوميٌّ صارمٌ للوكلاء المدفوعة
 _RUMOR_BACKFILL_CAP=float(os.environ.get("RUMOR_BACKFILL_CAP_USD","1.50"))
 _TIER2_ALERT=int(os.environ.get("RUMOR_TIER2_ALERT","3"))           # عتبةُ الحِمل: >٣ «قيد التحقق» باليوم = إشارةُ إجهاد
 _RUMOR_BILLED=("المُلتَقِط","المُخرِّج")                              # الفاحِصُ مجّانيٌّ بالكامل
@@ -1333,7 +1357,7 @@ def rumor_track():
     try: old=json.load(open(RUMORS_F))
     except Exception: old=None
     age=(now-datetime.fromisoformat(old["updated"])).total_seconds()/3600 if old else 999
-    paid_ok=bool(GROK_KEY) and (age>=6 or bool(os.environ.get("FORCE_RUMORS"))) and _rumor_spent_today()<_RUMOR_CAP
+    paid_ok=bool(GROK_KEY) and (age>=8 or bool(os.environ.get("FORCE_RUMORS"))) and _rumor_spent_today()<_RUMOR_CAP and not over_budget("سند تحت المجهر")
     # ١) جمع  ٢) تخريج/حكم  ٣) فحص الروابط (البوابة)
     cands=(_rumor_collect(paid_ok) or {}).get("cands",[])
     seed=_rumor_backfill()
@@ -1413,7 +1437,7 @@ def mustaqsi():
        "قواعد صارمة: انقل الأرقام عن الجهة الرسمية نفسها فقط. "
        "إن لم تُعلن الجهة رقمًا فاكتب «لم تُعلن» ولا تنقل عن صحيفة أو ناشط. "
        "لا تنصيص مزدوج داخل النصوص. لا شيء خارج JSON.")
-    body={"model":os.environ.get("GROK_MODEL_HEAVY","grok-4.5"),"input":[{"role":"user","content":P}],
+    body={"model":os.environ.get("GROK_MODEL_HEAVY","grok-4.3"),"input":[{"role":"user","content":P}],
         "tools":[{"type":"x_search"},{"type":"web_search"}],
         "max_output_tokens":4000,"max_tool_calls":10}
     try:

@@ -106,7 +106,7 @@
 <script>
 const RAW="https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/";
 // المهلةُ المتوقّعةُ لكلِّ قسمٍ بالساعات (للنبض) — أطولُ منها بكثيرٍ = صامت
-const CADENCE={news:.6,verify:.6,council:.6,evolution:.6,agents:.6,forecast:2.8,analyst:2.8,alerts:3.2,official:6.5,rumors:6.5,latest:26,dua:26};
+const CADENCE={news:.6,verify:.6,council:.6,evolution:.6,agents:.6,forecast:6.5,analyst:6.5,alerts:8.5,official:13,rumors:8.5,latest:26,dua:26};
 const DISABLED_INFO=[
   {k:"intel",t:"حصيلةُ الحرب (الرَّاصِد)",on:false,d:"مُعطَّلة — كانت تُلفّقُ أرقامَ ضحايا منسوبةً لجهاتٍ رسميّة."},
   {k:"ledger",t:"سجلُّ الذخائر (المُستَقصي)",on:false,d:"مُعطَّل — كان يَنسبُ صواريخَ للجيشِ الكويتيّ دون تحقّق."},
@@ -146,7 +146,7 @@ function render({agents,cost,sections,rumors,built}){
   // ---- KPIs ----
   const kpis=`<div class="kpis">
     <div class="kpi"><div class="l">وكلاءُ سليمون</div><div class="v">${healthy}<small>/${total}</small>${fails?` <small style="color:var(--bad-l)">· ${fails} أخفق</small>`:""}</div></div>
-    <div class="kpi accent"><div class="l">تكلفةُ اليوم</div><div class="v">${cost?usd(cost.usd):"—"}</div></div>
+    <div class="kpi accent"><div class="l">تكلفةُ اليوم${cost&&cost.budget?` <small>/ سقف ${usd(cost.budget)}</small>`:""}</div><div class="v">${cost?usd(cost.usd):"—"}${cost&&cost.budget&&cost.usd>=cost.budget?' <small style="color:var(--bad-l)">· بلغ السقف</small>':""}</div></div>
     <div class="kpi"><div class="l">تقديرُ الشهر</div><div class="v">${cost?usd(cost.month_est):"—"}</div></div>
     <div class="kpi"><div class="l">نداءاتُ اليوم</div><div class="v">${cost?cost.calls:"—"}</div></div>
     <div class="kpi"><div class="l">أقسامٌ طازجة</div><div class="v">${fresh}<small>/${secKeys.length}</small></div></div>
