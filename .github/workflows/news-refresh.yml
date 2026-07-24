@@ -8,6 +8,14 @@ on:
         description: "1 = تجاوز المهلة وأجبِر جلبَ البيانات الرسمية (المَنبع) الآن"
         required: false
         default: ""
+      rumor_backfill:
+        description: "1 = دفعةُ الأرشيف الرجعي لسَنَد تحت المجهر (٣٠ يومًا) — لمرّةٍ واحدة، ضمن سقفٍ مسقوف"
+        required: false
+        default: ""
+      force_rumors:
+        description: "1 = أجبِر تشغيلَ رصد الشائعات الآن (تجاوز مهلة الـ٦س)"
+        required: false
+        default: ""
 permissions:
   contents: write
 concurrency:
@@ -34,6 +42,8 @@ jobs:
           GEMINI_CLI_TRUST_WORKSPACE: "true"
           NEWS_ONLY: "1"
           FORCE_OFFICIAL: ${{ github.event.inputs.force_official }}
+          RUMOR_BACKFILL: ${{ github.event.inputs.rumor_backfill }}
+          FORCE_RUMORS: ${{ github.event.inputs.force_rumors }}
         run: python pipeline/daily_anchor.py
       - name: حفظ
         if: always()
