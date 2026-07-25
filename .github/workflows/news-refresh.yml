@@ -47,7 +47,7 @@ jobs:
           git config user.email "bot@sanad.news"
           git add daily/
           git diff --cached --quiet && exit 0
-          git commit -m "🗞️ تحديث $(date -u +%H:%M)"
+          git commit -m "🗞️ تحديث $(date -u +%H:%M) [vercel skip]"
           for i in 1 2 3 4 5; do
             if git pull --rebase --autostash origin main; then git push && exit 0
             else git rebase --abort 2>/dev/null || true; fi   # لا تُبقِ علامات تعارض في شجرة العمل

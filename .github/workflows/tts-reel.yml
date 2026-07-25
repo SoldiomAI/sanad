@@ -30,7 +30,7 @@ jobs:
           mkdir -p daily/reel && mv reel.mp3 daily/reel/vo.mp3
           git config user.name sanad-bot; git config user.email bot@sanad.news
           git add daily/reel/vo.mp3
-          git commit -m "🎙️ صوت الريل [skip ci]" || exit 0
+          git commit -m "🎙️ صوت الريل [skip ci] [vercel skip]" || exit 0
           for i in 1 2 3 4 5; do
             if git pull -q --rebase --autostash origin main; then git push -q && exit 0
             else git rebase --abort 2>/dev/null || true; fi
