@@ -106,7 +106,7 @@
 <script>
 const RAW="https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/";
 // المهلةُ المتوقّعةُ لكلِّ قسمٍ بالساعات (للنبض) — أطولُ منها بكثيرٍ = صامت
-const CADENCE={news:.6,verify:.6,council:.6,evolution:.6,agents:.6,forecast:6.5,analyst:6.5,alerts:8.5,official:13,rumors:8.5,latest:26,dua:26};
+const CADENCE={news:.6,verify:.6,council:.6,evolution:.6,agents:.6,forecast:6.5,analyst:6.5,alerts:8.5,official:13,rumors:8.5,column:27,latest:26,dua:26};
 const DISABLED_INFO=[
   {k:"intel",t:"حصيلةُ الحرب (الرَّاصِد)",on:false,d:"مُعطَّلة — كانت تُلفّقُ أرقامَ ضحايا منسوبةً لجهاتٍ رسميّة."},
   {k:"ledger",t:"سجلُّ الذخائر (المُستَقصي)",on:false,d:"مُعطَّل — كان يَنسبُ صواريخَ للجيشِ الكويتيّ دون تحقّق."},
@@ -180,7 +180,7 @@ function render({agents,cost,sections,rumors,built}){
   </tbody></table></div>`;
 
   // ---- freshness heartbeat ----
-  const NM={news:"الأخبار",verify:"التدقيق",council:"المجلس",evolution:"التطوّر",agents:"الوكلاء",forecast:"الاستقراء",analyst:"المحلّل",alerts:"التحذيرات",official:"من المَنبع",rumors:"تحت المجهر",latest:"نشرةُ المذيع",dua:"الدعاء"};
+  const NM={news:"الأخبار",verify:"التدقيق",council:"المجلس",evolution:"التطوّر",agents:"الوكلاء",forecast:"الاستقراء",analyst:"المحلّل",alerts:"التحذيرات",official:"من المَنبع",rumors:"تحت المجهر",column:"عمودُ الجريدة",latest:"نشرةُ المذيع",dua:"الدعاء"};
   const freshHtml=`<h2>نبضُ الطزاجة <span class="c">عمرُ كلِّ قسمٍ مقابلَ مهلتِه المتوقّعة</span></h2>
   <div class="panel tw"><table><thead><tr><th>القسم</th><th>آخر تحديث</th><th>المهلة</th><th>الحالة</th></tr></thead><tbody>
   ${secKeys.map(k=>{const h=agoH(sections[k]); const cad=CADENCE[k];
