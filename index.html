@@ -10,6 +10,7 @@
 <meta property="og:image" content="https://www.isnad.news/og-card.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta property="og:locale" content="ar_AR">
+<meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="سَنَد — أخبارٌ مُسنَدةٌ تُدقَّق قبل النشر">
 <meta name="twitter:image" content="https://www.isnad.news/og-card.png">
@@ -411,6 +412,17 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .oped-au{width:100%;height:34px;margin:4px 0 10px}
 .thm{cursor:pointer;font-size:15px;color:var(--mut);padding:2px 7px;border-radius:6px;user-select:none}
 .thm:hover{color:var(--gold-l);background:rgba(201,162,39,.1)}
+html[data-lng=en] #corrWrap,html[data-lng=en] #methBox,html[data-lng=en] #guideBox,
+html[data-lng=en] #subscribe,html[data-lng=en] #ledWrap,html[data-lng=en] #alertWrap,
+html[data-lng=en] #microWrap,html[data-lng=en] #offWrap,html[data-lng=en] #tollWrap,
+html[data-lng=en] #councilWrap,html[data-lng=en] #duaWrap,html[data-lng=en] #gWrap,
+html[data-lng=en] #fcWrap,html[data-lng=en] .ai,html[data-lng=en] #enterprise,
+html[data-lng=en] details.mx,html[data-lng=en] .cta,html[data-lng=en] .net-c{display:none!important}
+html[data-lng=en] body,html[data-lng=en] .item a,html[data-lng=en] .nc-h{font-family:system-ui,-apple-system,'Segoe UI',sans-serif}
+html[data-lng=en] .hero-body h2,html[data-lng=en] .oped-h,html[data-lng=en] .oped-tx{font-family:Georgia,'Times New Roman',serif}
+.ennote{background:rgba(201,162,39,.08);border:1px solid rgba(201,162,39,.3);border-radius:9px;
+  padding:10px 14px;font-size:12.5px;color:var(--mut);margin:10px 0;line-height:1.8;display:none}
+html[data-lng=en] .ennote{display:block}
 /* بوّابةُ الأخبار: قصّةٌ رئيسيّةٌ + شبكةُ بطاقاتٍ مصوَّرة */
 .hero-story{display:block;background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;
   text-decoration:none;color:inherit;box-shadow:0 1px 3px rgba(31,36,46,.06);transition:.2s;margin-bottom:14px}
@@ -616,7 +628,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 <div class="sadu"></div>
 <div class="topbar"><div class="wrap topbar-in">
   <span class="brand">🛡️ <span class="gold">سَنَد</span></span>
-  <span class="thm" onclick="thmFlip()" title="الوضع الداكن/الفاتح">◐</span><span class="live"><span class="dot"></span> بث مُسنَد · <span id="upd">…</span></span>
+  <span class="thm" onclick="lngFlip()" title="English / العربية" id="lngBtn">EN</span><span class="thm" onclick="thmFlip()" title="الوضع الداكن/الفاتح">◐</span><span class="live"><span class="dot"></span> بث مُسنَد · <span id="upd">…</span></span>
 </div><div class="livebar"><i></i></div><div class="ticker-box"><div class="ticker" id="ticker">يجري تحميل آخر الأخبار…</div></div></div>
 
 <div class="wrap">
@@ -626,6 +638,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
     <div class="rule"></div>
   </div>
 
+  <div class="ennote">🌍 <b>International edition (beta)</b> — verified Gulf &amp; world news, machine-translated from our Arabic newsroom. Every story is graded on five criteria from the science of hadith transmission. Switch to <a href="#" onclick="lngFlip();return false" style="color:var(--gold-l)">العربية</a> for the full verification suite.</div>
   <div class="tabs" id="tabs"></div>
   <div id="feed">
     <div class="sk-item"><div class="sk sk-line w80"></div><div class="sk sk-line w55"></div><div class="sk-row"><span class="sk sk-chip"></span><span class="sk sk-chip"></span><span class="sk sk-dots"></span></div></div>
@@ -796,7 +809,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
   </div>
 
   <div id="colWrap" style="display:none">
-    <div class="sec-h">عمودُ الجريدة</div>
+    <div class="sec-h" id="colSecH">عمودُ الجريدة</div>
     <article class="oped">
       <div class="oped-by">
         <span class="oped-pen">🖋️</span>
@@ -806,7 +819,7 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
       <h2 class="oped-h" id="colHead"></h2>
       <audio id="colAu" class="oped-au" controls style="display:none"></audio>
       <div class="oped-tx" id="colTx"></div>
-      <div class="oped-ft">مبنيٌّ على أخبارِ اليومِ المُسنَدةِ وحدَها — الرأيُ قراءةٌ لا حُكم. 🤖 المُدوِّن مساعدُ ذكاءٍ اصطناعيّ وليس شخصًا حقيقيًّا.</div>
+      <div class="oped-ft" id="colFt">مبنيٌّ على أخبارِ اليومِ المُسنَدةِ وحدَها — الرأيُ قراءةٌ لا حُكم. 🤖 المُدوِّن مساعدُ ذكاءٍ اصطناعيّ وليس شخصًا حقيقيًّا.</div>
     </article>
   </div>
 
@@ -938,6 +951,18 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 <script>
 (function(){try{const t=localStorage.getItem("thm")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
 if(t==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}})();
+let LNG="ar";
+(function(){try{LNG=localStorage.getItem("lng")||"ar";
+if(LNG==="en"){const h=document.documentElement;h.setAttribute("lang","en");h.setAttribute("dir","ltr");h.setAttribute("data-lng","en")}}catch(e){}})();
+function lngFlip(){try{localStorage.setItem("lng",LNG==="en"?"ar":"en");location.reload()}catch(e){}}
+addEventListener("DOMContentLoaded",()=>{try{
+  const bb=document.getElementById("lngBtn"); if(bb) bb.textContent=(LNG==="en")?"ع":"EN";
+  if(LNG==="en"){const sub=document.querySelector(".hero .sub");
+    if(sub) sub.innerHTML="A self-evolving news platform — every story verified before publishing and graded on five criteria from the science of hadith transmission.<br>Live coverage · Iran news translated from Farsi · Daily AI column";}
+}catch(e){}});
+const EN=(localStorage.getItem("lng")||"ar")==="en";
+const CATN={"الكل":"All","عاجل":"Breaking","الخليج":"Gulf","فلسطين":"Palestine","عالم":"World","اقتصاد":"Economy","تقنية":"Tech","إيران":"Iran"};
+const hd=i=>EN?(i.he||i.head):i.head;
 function thmFlip(){try{const d=document.documentElement.getAttribute("data-theme")==="dark";
 if(d){document.documentElement.removeAttribute("data-theme");localStorage.setItem("thm","light")}
 else{document.documentElement.setAttribute("data-theme","dark");localStorage.setItem("thm","dark")}}catch(e){}}
@@ -961,7 +986,10 @@ if(STUDIO){
     cv.parentNode.appendChild(c.firstElementChild);}
 }
 
-function badge(g){return g==="صحيح"?'<span class="badge b-sahih">صحيح ✓</span>'
+function badge(g){
+  if(EN) return g==="صحيح"?'<span class="badge b-sahih">Verified ✓</span>'
+    :g==="ضعيف الإسناد"?'<span class="badge b-daif">Weak chain</span>':'<span class="badge b-hasan">Credible</span>';
+  return g==="صحيح"?'<span class="badge b-sahih">صحيح ✓</span>'
   :g==="ضعيف الإسناد"?'<span class="badge b-daif">ضعيف الإسناد</span>':'<span class="badge b-hasan">حسن</span>'}
 const AR=["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر"];
 function stamp(iso){
@@ -978,10 +1006,10 @@ function ago(iso){
   if(!iso) return "";
   const m=Math.floor((Date.now()-new Date(iso))/60000);
   if(m<0||m>20160) return "";
-  if(m<60) return `قبل ${m} د`;
+  if(m<60) return EN?`${m}m ago`:`قبل ${m} د`;
   const hh=Math.floor(m/60);
-  if(hh<24) return `قبل ${hh} س`;
-  return `قبل ${Math.floor(hh/24)} ي`;
+  if(hh<24) return EN?`${hh}h ago`:`قبل ${hh} س`;
+  return EN?`${Math.floor(hh/24)}d ago`:`قبل ${Math.floor(hh/24)} ي`;
 }
 function byTime(a,b){
   const ta=a.at?new Date(a.at).getTime():0, tb=b.at?new Date(b.at).getTime():0;
@@ -1061,8 +1089,8 @@ function tolls(t){
   tollWrap.style.display="block";
 }
 function metaRow(i){
-  const wchip=i.w>1?`<span class="badge b-w" title="${esc((i.wsrc||[]).join("، "))}">⛓ ${i.w===2?"يرويه منفذان":"يرويه "+i.w+" منافذ"}</span>`:"";
-  return `<div class="meta">${badge(i.grade)}${wchip}${i.score!==undefined?`<span class="badge b-src">${esc(i.score)}/7</span>`:""}${i.fa?'<span class="badge b-fa">مترجم عن الفارسية</span>':''}${i.via?'<span class="badge b-x">'+esc(i.via)+'</span>':''}${i.flag?'<span class="badge b-rev">⚖️ '+esc(i.flag)+'</span>':''}<span>نقلًا عن ${esc(i.src||"المصدر")}</span>${i.at?`<span>· ${ago(i.at)}</span>`:''}</div>`;
+  const wchip=i.w>1?`<span class="badge b-w" title="${esc((i.wsrc||[]).join("، "))}">⛓ ${EN?(i.w+" independent sources"):(i.w===2?"يرويه منفذان":"يرويه "+i.w+" منافذ")}</span>`:"";
+  return `<div class="meta">${badge(i.grade)}${wchip}${i.score!==undefined?`<span class="badge b-src">${esc(i.score)}/7</span>`:""}${i.fa?`<span class="badge b-fa">${EN?"from Farsi":"مترجم عن الفارسية"}</span>`:''}${i.via?'<span class="badge b-x">'+esc(i.via)+'</span>':''}${i.flag?'<span class="badge b-rev">⚖️ '+esc(i.flag)+'</span>':''}<span>${EN?"via":"نقلًا عن"} ${esc(i.src||(EN?"source":"المصدر"))}</span>${i.at?`<span>· ${ago(i.at)}</span>`:''}</div>`;
 }
 function imgTag(i){
   return i.img?`<img src="${safeUrl(i.img)}" alt="" loading="lazy" onerror="this.parentElement.parentElement.classList.add('noimg');this.remove()">`:"";
@@ -1080,21 +1108,21 @@ function render(){
   feed.innerHTML=`
     <a class="hero-story rise ${lead.img?'':'noimg'}" href="${safeUrl(lead.link)}" target="_blank" rel="noopener">
       <div class="imgbox hero-imgbox">${imgTag(lead)}</div>
-      <div class="hero-body"><h2>${esc(lead.head)}</h2>${metaRow(lead)}${isnadBar(lead.isnad,lead.grade)}</div>
+      <div class="hero-body"><h2>${esc(hd(lead))}</h2>${metaRow(lead)}${isnadBar(lead.isnad,lead.grade)}</div>
     </a>
     <div class="news-grid">${grid.map((i,n)=>`
       <a class="ncard rise ${i.img?'':'noimg'}" style="animation-delay:${Math.min(n*40,420)}ms" href="${safeUrl(i.link)}" target="_blank" rel="noopener">
         <div class="imgbox nc-imgbox">${imgTag(i)}</div>
-        <div class="nc-b"><div class="nc-h">${esc(i.head)}</div>${metaRow(i)}</div>
+        <div class="nc-b"><div class="nc-h">${esc(hd(i))}</div>${metaRow(i)}</div>
       </a>`).join("")}</div>
-    ${rest.length?`<div class="more-h">المزيدُ من الأخبار</div>${rest.map(i=>`
-      <div class="item"><a href="${safeUrl(i.link)}" target="_blank" rel="noopener">${esc(i.head)}</a>${metaRow(i)}${isnadBar(i.isnad,i.grade)}</div>`).join("")}`:""}`;
+    ${rest.length?`<div class="more-h">${EN?"More news":"المزيدُ من الأخبار"}</div>${rest.map(i=>`
+      <div class="item"><a href="${safeUrl(i.link)}" target="_blank" rel="noopener">${esc(hd(i))}</a>${metaRow(i)}${isnadBar(i.isnad,i.grade)}</div>`).join("")}`:""}`;
 }
 function tabs(){
   const have=new Set(Object.keys(DATA.cats||{}));
   tabsEl=document.getElementById("tabs");
   tabsEl.innerHTML=ORDER.filter(c=>c==="الكل"||have.has(c)).map(c=>
-    `<div class="tab ${c===cur?'on':''}" onclick="cur='${c}';tabs();render()">${c==='إيران'?'إيران 🔎':c}</div>`).join("");
+    `<div class="tab ${c===cur?'on':''}" onclick="cur='${c}';tabs();render()">${EN?(CATN[c]||c):(c==='إيران'?'إيران 🔎':c)}</div>`).join("");
 }
 let BUNDLE=null;
 async function grab(name){
@@ -1114,8 +1142,8 @@ async function load(){
   try{
     const n=await grab("news");
     DATA=n;
-    upd.textContent="آخر تحديث "+new Date(n.updated).toLocaleTimeString("ar-KW",{hour:"2-digit",minute:"2-digit"});
-    const heads=Object.values(n.cats).flat().slice(0,10).map(i=>"◉ "+i.head).join("   ");
+    upd.textContent=(EN?"Updated ":"آخر تحديث ")+new Date(n.updated).toLocaleTimeString(EN?"en-GB":"ar-KW",{hour:"2-digit",minute:"2-digit"});
+    const heads=Object.values(n.cats).flat().slice(0,10).map(i=>"◉ "+hd(i)).join("   ");
     ticker.textContent=heads; tabs(); render();
   }catch(e){feed.innerHTML=introHTML()}
   try{
@@ -1285,13 +1313,16 @@ async function load(){
   try{
     const c=await grab("column");
     if(!c||!c.text) throw 0;
-    colNm.textContent=c.name||"المُدوِّن"; colTi.textContent=c.title||"كاتبُ الجريدة";
+    colNm.textContent=EN?"Al-Mudawwin":(c.name||"المُدوِّن");
+    colTi.textContent=EN?"The Columnist · AI assistant":(c.title||"كاتبُ الجريدة");
     const mins=Math.max(1,Math.round((c.text.split(/\s+/).length)/180));
     const cd=c.date?new Date(c.date+"T12:00").toLocaleDateString("ar-KW",{day:"numeric",month:"long",year:"numeric"}):"";
-    colMeta.textContent=[cd,mins===1?"دقيقة قراءة":mins===2?"دقيقتا قراءة":mins+" دقائق قراءة"].filter(Boolean).join(" · ");
-    colHead.textContent=c.head||"";
+    colMeta.textContent=[cd,EN?(mins+" min read"):(mins===1?"دقيقة قراءة":mins===2?"دقيقتا قراءة":mins+" دقائق قراءة")].filter(Boolean).join(" · ");
+    colHead.textContent=(EN&&c.head_en)?c.head_en:(c.head||"");
     if(c.audio){colAu.src=RAW+c.audio+"?t="+Date.now();colAu.style.display="block"}
-    colTx.innerHTML=c.text.split(/\n{2,}|\n/).map(p=>p.trim()).filter(Boolean).map(p=>`<p>${esc(p)}</p>`).join("");
+    if(EN){const _h=document.getElementById("colSecH");if(_h)_h.textContent="Daily Column";
+      const _f=document.getElementById("colFt");if(_f)_f.textContent="Built solely from today's verified headlines — opinion as reading, not verdict. 🤖 Al-Mudawwin is an AI assistant, not a real person. Machine-translated from Arabic.";}
+    colTx.innerHTML=((EN&&c.text_en)?c.text_en:c.text).split(/\n{2,}|\n/).map(p=>p.trim()).filter(Boolean).map(p=>`<p>${esc(p)}</p>`).join("");
     colWrap.style.display="block";
   }catch(e){}
   try{
@@ -1432,7 +1463,7 @@ async function showArc(id){
     arcBody.innerHTML=`<div class="sec-h">${id.slice(0,10)} — ${id.slice(11,13)}:${id.slice(13,15)} · ${cnt} خبرًا</div>`+tolHtml+
       all.map(([c,l])=>`<div class="card"><div class="arc-t" style="margin-bottom:8px;color:var(--gold-l)">${esc(c)}</div>`+
         l.slice().sort(byTime).map(i=>`<div class="item"><a href="${safeUrl(i.link)}" ${i.link?'target="_blank" rel="noopener"':''}>${esc(i.head)}</a>
-          <div class="meta">${badge(i.grade)}${i.score!==undefined?`<span class="badge b-src">${esc(i.score)}/7</span>`:""}<span>نقلًا عن ${esc(i.src||"المصدر")}</span>${i.at?`<span>· ${stamp(i.at)}</span>`:""}</div></div>`).join("")+`</div>`).join("");
+          <div class="meta">${badge(i.grade)}${i.score!==undefined?`<span class="badge b-src">${esc(i.score)}/7</span>`:""}<span>${EN?"via":"نقلًا عن"} ${esc(i.src||(EN?"source":"المصدر"))}</span>${i.at?`<span>· ${stamp(i.at)}</span>`:""}</div></div>`).join("")+`</div>`).join("");
   }catch(e){ arcBody.innerHTML='<div class="arc-n">تعذّر فتح اللقطة.</div>'; return }
   try{ arcBody.scrollIntoView({behavior:"smooth",block:"start"}) }catch(e){}
 }
