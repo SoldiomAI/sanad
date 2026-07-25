@@ -73,6 +73,7 @@ AGENTS=[
  ("musannif","المُصنِّف","🧬","يطوّر قواعد الفرز بعد كل جولة"),
  ("mustaqri","المُستقرِئ","🔮","يستقرئ ما قد يقع من السوابق والتصريحات"),
  ("murtajil","المُحلِّل","🎤","يصوغ قراءة الساعة ويؤدّيها صوتًا"),
+ ("mudawwin","المُدوِّن","🖋️","يكتبُ عمودَ الجريدة اليوميّ من أخبار اليوم المُسنَدة"),
  ("rawi","الرَّاوِي","🎙️","يؤدّي النشرة اليومية بصوت المذيع"),
 ]
 _LOG={}
@@ -328,7 +329,7 @@ def bundle():
             print(f"🛡️ نشرةُ اليوم: أُبقيت الأحدث ({_pub.get('date')}) بدل الأقدم ({_loc.get('date')})")
     except Exception as _e: print(f"guard_latest: {str(_e)[:80]}")
     keys=["news","intel","official","forecast","analyst","dua","verify",
-          "alerts","corrections","latest","agents","cost","evolution","council","gpu","rumors"]
+          "alerts","corrections","latest","agents","cost","evolution","council","gpu","rumors","column"]
     b={"built":datetime.now(timezone.utc).isoformat(timespec="minutes")}
     for k in keys:
         try: b[k]=json.load(open(f"{OUT}/{k}.json"))
@@ -553,9 +554,9 @@ def wire_hurr():
     return {"added":added,"why":f"+{added} خبرًا مجّانيًّا"}
 wire_hurr()
 
-def gemini_json(prompt, max_tok=1500):
+def gemini_json(prompt, max_tok=1500, temp=0.2):
     body={"contents":[{"parts":[{"text":prompt}]}],
-        "generationConfig":{"maxOutputTokens":max_tok,"temperature":0.2,
+        "generationConfig":{"maxOutputTokens":max_tok,"temperature":temp,
             "thinkingConfig":{"thinkingBudget":0},"responseMimeType":"application/json"}}
     req=urllib.request.Request(
         f"https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key={GEMINI_KEY}",
@@ -1605,6 +1606,57 @@ def analyst_segment():
     print("🎤 فقرة المحلل: %d كلمة%s"%(len(txt.split())," + صوت" if ok else ""))
 
 analyst_segment()
+
+# ═══ المُدوِّن: كاتبُ عمودِ الجريدة اليوميّ — Gemini فقط، صفرُ كلفةِ Grok ═══
+COLF=f"{OUT}/column.json"
+
+@agent("mudawwin")
+def mudawwin():
+    """يكتبُ عمودَ رأيٍ يوميًّا واحدًا من أخبارِ اليومِ المُسنَدةِ وحدَها — رأيٌ يُصاغُ
+    كقراءةٍ لا كحقيقة، بإفصاحٍ صريحٍ أنّ الكاتبَ مساعدُ ذكاءٍ اصطناعيّ."""
+    kw_today=datetime.now(_KW).date().isoformat()
+    try:
+        old=json.load(open(COLF))
+        if old.get("date")==kw_today and not os.environ.get("FORCE_COLUMN"):
+            print("⏱️ المُدوِّن: عمودُ اليوم منشور")
+            return {"skipped":1,"why":"عمودُ اليوم منشور"}
+    except Exception: old=None
+    if not GEMINI_KEY: return {"skipped":1,"why":"لا مفتاح Gemini"}
+    feed=[i for i in items if i.get("grade") in ("صحيح","حسن")][:12]
+    if len(feed)<4:
+        print("⏱️ المُدوِّن: عناوينُ اليوم أقلُّ من أن تُبنى عليها قراءة")
+        return {"skipped":1,"why":"عناوينُ غيرُ كافية"}
+    heads="\n".join("- [%s] %s — نقلًا عن %s"%(i["grade"],i["head"],i.get("src") or "المصدر") for i in feed)
+    scn=""
+    try:
+        f=json.load(open(FCAST))
+        top=sorted(f.get("scenarios") or [],key=lambda x:-(x.get("p") or 0))
+        if top: scn="\n\nالسيناريو الأرجح لدى فريق الاستقراء (%s%%): %s"%(top[0].get("p"),top[0].get("s",""))
+    except Exception: pass
+    P=("اكتب عمودَ رأيٍ صحفيًّا واحدًا لجريدة «سَنَد» بالفصحى الرصينة، ٢٥٠ إلى ٣٥٠ كلمة، "
+       "بأسلوب كاتبِ عمودٍ خليجيٍّ متمرّس: مدخلٌ آسر، فكرةٌ ناظمةٌ واحدة، وخاتمةٌ تترك أثرًا.\n\n"
+       "أخبارُ اليوم المُسنَدة (مادّتُك الوحيدة):\n"+heads+scn+"\n\n"
+       "قواعدُ نزاهةٍ صارمة:\n"
+       "- لا تذكرْ أيَّ واقعةٍ غيرِ واردةٍ في العناوين أعلاه، وانسُبْ كلَّ واقعةٍ لمصدرها (نقلًا عن …).\n"
+       "- صُغِ الرأيَ كقراءةٍ واستنتاجٍ لا كحقيقةٍ مقطوعٍ بها؛ ولا تُهوّلْ ولا تُهوِّن.\n"
+       "- لا مقارنةَ بوسائلَ إعلامٍ أخرى، ولا أسماءَ نماذجَ أو شركاتِ تقنية.\n"
+       "- لا أرقامَ عسكريّةً أو حصائلَ إلا ما ورد حرفيًّا في العناوين.\n"
+       'أخرج JSON فقط: {"title":"عنوانُ العمود (٣-٧ كلمات)","text":"نصُّ العمود فقراتٍ يفصلُها سطرٌ فارغ"}')
+    try:
+        j=gemini_json(P, max_tok=2400, temp=0.6)
+        title=clean(j.get("title","")); text=str(j.get("text","")).strip()
+        if len(text.split())<120 or not title: raise ValueError("عمودٌ ناقص")
+    except Exception as e:
+        # لا قالبَ مُلفَّقًا: يبقى عمودُ الأمس حتى ينجحَ توليدُ اليوم
+        print("المُدوِّن — تعذّر التوليد: "+str(e)[:70]+(" — يبقى عمودُ الأمس" if old else ""))
+        return ({"skipped":1,"why":"تعذّر التوليد — بقي عمودُ الأمس"} if old else None)
+    json.dump({"name":"المُدوِّن","title":"كاتبُ الجريدة · مساعد ذكاء اصطناعي",
+        "head":title,"text":text,"date":kw_today,"src_n":len(feed),
+        "updated":datetime.now(timezone.utc).isoformat(timespec="minutes")},
+        open(COLF,"w"),ensure_ascii=False,indent=1)
+    print("🖋️ المُدوِّن: «%s» — %d كلمة من %d عنوانًا مُسنَدًا"%(title,len(text.split()),len(feed)))
+
+mudawwin()
 
 naqid()
 

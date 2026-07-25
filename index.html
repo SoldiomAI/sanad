@@ -99,8 +99,9 @@ video,audio{width:100%;border-radius:10px;background:#000}
 .item a{color:var(--vellum);text-decoration:none;font-size:15.5px;line-height:1.95;font-weight:500;
   display:block;text-wrap:balance}
 .item a:hover{color:var(--gold-l)}
-.item.lead a{font-family:'Amiri',serif;font-size:var(--f-lead);line-height:1.5;font-weight:700;color:#fff}
-.item.lead{padding:var(--s2) 0 var(--s4);border-bottom:1px solid rgba(201,162,39,.22)}
+.item.lead a{font-family:'Amiri',serif;font-size:clamp(24px,5.8vw,30px);line-height:1.55;font-weight:700;color:#fff}
+.item.lead{padding:var(--s2) 0 var(--s4);border-bottom:1px solid rgba(201,162,39,.3)}
+.item:not(.lead) a{line-height:2.05}
 .meta{margin-top:var(--s2);display:flex;flex-wrap:wrap;gap:var(--s1);align-items:center;
   font-family:'Noto Kufi Arabic',sans-serif;font-size:10.5px;color:var(--dim)}
 .badge{border-radius:3px;padding:3px 9px;font-size:9.5px;font-weight:600;font-family:'Noto Kufi Arabic',sans-serif}
@@ -114,6 +115,7 @@ video,audio{width:100%;border-radius:10px;background:#000}
 footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;line-height:2}
 .sec-h{display:flex;align-items:center;gap:10px;margin:var(--s5) 0 var(--s3);font-family:'Noto Kufi Arabic',sans-serif;
   font-size:13.5px;font-weight:700;color:var(--gold-l);letter-spacing:.01em}
+.sec-h::before{content:"";width:4px;height:15px;border-radius:2px;background:var(--gold);flex:0 0 auto}
 .sec-h::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(201,162,39,.4),rgba(201,162,39,.05) 60%,transparent)}
 .toll-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(162px,1fr));gap:10px}
 .toll{background:linear-gradient(160deg,rgba(127,29,29,.13),var(--card));border:1px solid rgba(127,29,29,.4);border-radius:12px;padding:13px}
@@ -389,6 +391,26 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .mic-m a{color:var(--lapis);text-decoration:none}
 .mic-m a:hover{text-decoration:underline}
 .mic-chain{font-size:10.5px;color:var(--dim);font-family:'Noto Kufi Arabic',sans-serif}
+/* عمودُ الجريدة — افتتاحيّةُ صحيفةٍ كلاسيكيّة فوق هويّة المخطوط */
+.oped{background:linear-gradient(180deg,rgba(17,24,37,.9),rgba(11,16,24,.94));border:1px solid var(--border);
+  border-radius:10px;padding:22px 24px 18px;position:relative;overflow:hidden}
+.oped::before{content:"";position:absolute;top:0;inset-inline:0;height:3px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.oped-by{display:flex;align-items:center;gap:9px;flex-wrap:wrap;font-family:'Noto Kufi Arabic',sans-serif;
+  font-size:11px;color:var(--mut);padding-bottom:12px;border-bottom:1px solid rgba(201,162,39,.18);margin-bottom:14px}
+.oped-pen{font-size:16px}
+.oped-who b{color:var(--gold-l);font-size:12.5px}
+.oped-who i{font-style:normal;color:var(--dim);margin-inline-start:7px}
+.oped-meta{margin-inline-start:auto;color:var(--dim);font-size:10.5px}
+.oped-h{font-family:'Amiri',serif;font-size:clamp(21px,4.6vw,27px);line-height:1.55;color:var(--vellum);
+  font-weight:700;margin-bottom:12px}
+.oped-tx{font-family:'Amiri',serif;font-size:16.5px;line-height:2.15;color:var(--txt)}
+.oped-tx p{margin-bottom:12px}
+.oped-tx p:first-of-type::first-letter{font-size:2.9em;line-height:1;float:right;color:var(--gold);
+  margin-inline-end:8px;margin-top:5px;font-weight:700}
+.oped-ft{margin-top:14px;padding-top:11px;border-top:1px dashed var(--border);
+  font-size:11px;line-height:1.9;color:var(--dim);font-family:'Noto Kufi Arabic',sans-serif}
+@media(max-width:640px){.oped{padding:17px 16px 14px}.oped-tx{font-size:15.5px;line-height:2.05}}
 .al-m{margin-top:7px;font-size:10px;color:var(--dim);display:flex;gap:9px;flex-wrap:wrap}
 .al-m a{color:var(--gold-l);text-decoration:none}
 /* ── دليل التحقق ── */
@@ -718,6 +740,20 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
       <div class="dua-list" id="duaL"></div>
       <div class="dua-ft" id="duaN" style="display:none"></div>
     </div>
+  </div>
+
+  <div id="colWrap" style="display:none">
+    <div class="sec-h">عمودُ الجريدة</div>
+    <article class="oped">
+      <div class="oped-by">
+        <span class="oped-pen">🖋️</span>
+        <span class="oped-who"><b id="colNm"></b><i id="colTi"></i></span>
+        <span class="oped-meta" id="colMeta"></span>
+      </div>
+      <h2 class="oped-h" id="colHead"></h2>
+      <div class="oped-tx" id="colTx"></div>
+      <div class="oped-ft">مبنيٌّ على أخبارِ اليومِ المُسنَدةِ وحدَها — الرأيُ قراءةٌ لا حُكم. 🤖 المُدوِّن مساعدُ ذكاءٍ اصطناعيّ وليس شخصًا حقيقيًّا.</div>
+    </article>
   </div>
 
   <div id="gWrap" style="display:none">
@@ -1172,6 +1208,17 @@ async function load(){
          <div class="s"><span class="k ${kc[x.k]||'k-a'}">${esc(x.k)}</span>${esc(x.s)}</div>
        </div>`).join("");
     window.DUA=d.items; duaWrap.style.display="block";
+  }catch(e){}
+  try{
+    const c=await grab("column");
+    if(!c||!c.text) throw 0;
+    colNm.textContent=c.name||"المُدوِّن"; colTi.textContent=c.title||"كاتبُ الجريدة";
+    const mins=Math.max(1,Math.round((c.text.split(/\s+/).length)/180));
+    const cd=c.date?new Date(c.date+"T12:00").toLocaleDateString("ar-KW",{day:"numeric",month:"long",year:"numeric"}):"";
+    colMeta.textContent=[cd,mins===1?"دقيقة قراءة":mins===2?"دقيقتا قراءة":mins+" دقائق قراءة"].filter(Boolean).join(" · ");
+    colHead.textContent=c.head||"";
+    colTx.innerHTML=c.text.split(/\n{2,}|\n/).map(p=>p.trim()).filter(Boolean).map(p=>`<p>${esc(p)}</p>`).join("");
+    colWrap.style.display="block";
   }catch(e){}
   try{
     const g=await grab("analyst");
