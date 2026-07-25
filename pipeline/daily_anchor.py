@@ -648,9 +648,40 @@ for i in items:
 items=[i for i in items if i["cat"]!="__drop__"]
 if _rr: print(f"🧭 أعاد النظام توجيه {_rr} خبرًا وفق قواعده المكتسبة")
 
+# ═══ صورُ المقالات مجّانًا: og:image من صفحةِ المقال نفسِها — للقصّة الرئيسيّة والشبكة ═══
+IMGCACHE=f"{OUT}/imgcache.json"
+def fetch_og_images(items, cap=24):
+    """يجلبُ og:image لأوّل العناصر بلا كلفةٍ (urllib متوازٍ + كاشٌ بالرابط) —
+    فشلُ أيّ جلبٍ صامتٌ: البطاقةُ بلا صورةٍ لها بديلُها في الواجهة."""
+    try: cache=json.load(open(IMGCACHE))
+    except Exception: cache={}
+    _rx=re.compile(r'<meta[^>]+(?:property|name)=["\'](?:og:image|twitter:image)["\'][^>]+content=["\']([^"\']+)',re.I)
+    _rx2=re.compile(r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+(?:property|name)=["\'](?:og:image|twitter:image)',re.I)
+    def one(it):
+        k=hashlib.md5(str(it.get("link","")).encode()).hexdigest()[:12]
+        if k in cache:
+            if cache[k]: it["img"]=cache[k]
+            return
+        try:
+            req=urllib.request.Request(it["link"],headers={"User-Agent":"Mozilla/5.0"})
+            html=urllib.request.urlopen(req,timeout=8).read(60000).decode("utf-8","ignore")
+            m=_rx.search(html) or _rx2.search(html)
+            u=(m.group(1) if m else "").strip()
+            cache[k]=u if u.startswith("https://") else ""
+            if cache[k]: it["img"]=cache[k]
+        except Exception: cache[k]=""
+    todo=[i for i in items if i.get("link","").startswith("http")][:cap]
+    from concurrent.futures import ThreadPoolExecutor
+    with ThreadPoolExecutor(max_workers=8) as ex: list(ex.map(one,todo))
+    try: json.dump(dict(list(cache.items())[-500:]),open(IMGCACHE,"w"))
+    except Exception: pass
+    n=sum(1 for i in items if i.get("img"))
+    print(f"🖼️ الصور: {n} خبرًا بصورةِ مقالِه الأصليّ (مجّانًا)")
+fetch_og_images(items)
+
 cats={}
 for i in items:
-    cats.setdefault(i["cat"],[]).append({k:i[k] for k in ("head","src","grade","link","fa","at","en") if k in i}
+    cats.setdefault(i["cat"],[]).append({k:i[k] for k in ("head","src","grade","link","fa","at","en","img") if k in i}
         | ({"via":i["via"]} if i.get("via") else {}))
 json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"cats":cats},
     open(f"{OUT}/news.json","w"),ensure_ascii=False,indent=1)
