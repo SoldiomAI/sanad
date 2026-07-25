@@ -7,7 +7,7 @@ from datetime import datetime, timezone, timedelta
 
 GROK_KEY = os.environ.get("GROK_API_KEY",""); HF_TOKEN = os.environ.get("HF_TOKEN",""); GEMINI_KEY = os.environ.get("GEMINI_API_KEY",""); OUT="daily"; os.makedirs(OUT, exist_ok=True)
 TIER1=["centcom","kuna","كونا","mew_kwt","kff_kw","moi_bahrain","mofauae","mofaqatar","وكالة الأنباء الكويتية","reuters","رويترز","afp","فرانس برس","ap news","أسوشيتد","kuna","كونا","wam","وام","spa","واس","bna","qna","ona"]
-TIER2=["aljazeera","الجزيرة","alarabiya","العربية","skynews","سكاي نيوز","bbc","france24","cnn","alqabas","القبس","aljarida","الجريدة","alrai","الراي","kuwaittimes","arabtimes","gulfnews","thenational","alkhaleej","الخليج","irna","ایرنا","إرنا","tasnim","تسنیم","تسنيم","mehr","مهر","fars","فارس","isna","ایسنا","العالم","press tv","khabaronline","خبرگزاری","iran international","ایران اینترنشنال","bbc persian","بی‌بی‌سی","همشهری","entekhab","اعتماد"]
+TIER2=["aljazeera","الجزيرة","alarabiya","العربية","skynews","سكاي نيوز","bbc","france24","cnn","alqabas","القبس","aljarida","الجريدة","alrai","الراي","kuwaittimes","arabtimes","gulfnews","thenational","alkhaleej","الخليج","aawsat","الشرق الأوسط","irna","ایرنا","إرنا","tasnim","تسنیم","تسنيم","mehr","مهر","fars","فارس","isna","ایسنا","العالم","press tv","khabaronline","خبرگزاری","iran international","ایران اینترنشنال","bbc persian","بی‌بی‌سی","همشهری","entekhab","اعتماد"]
 FEEDS=[("الخليج","https://news.google.com/rss/search?q=%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA+OR+%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9+OR+%D8%A7%D9%84%D8%A5%D9%85%D8%A7%D8%B1%D8%A7%D8%AA&hl=ar&gl=KW&ceid=KW:ar"),
        ("فلسطين","https://news.google.com/rss/search?q=%D8%BA%D8%B2%D8%A9+OR+%D9%81%D9%84%D8%B3%D8%B7%D9%8A%D9%86&hl=ar&gl=KW&ceid=KW:ar"),
        ("عالم","https://news.google.com/rss/headlines/section/topic/WORLD?hl=ar&gl=KW&ceid=KW:ar"),
@@ -22,7 +22,12 @@ FEEDS=[("الخليج","https://news.google.com/rss/search?q=%D8%A7%D9%84%D9%83%
        ("إيران","https://www.iranintl.com/feed"),
        # مصادرُ مباشرةٌ موثوقة بخدمةٍ عربيّة — تنويعٌ يعزّزُ المصداقية دون عناوينَ أجنبية
        ("عالم","https://feeds.bbci.co.uk/arabic/rss.xml"),
-       ("عالم","https://www.france24.com/ar/rss")]
+       ("عالم","https://www.france24.com/ar/rss"),
+       # منافذُ عربيّةٌ كبرى مباشرة — رواببُ مقالاتٍ حقيقيّةٌ بصورِها (لا وسيطَ غوغل)
+       ("عالم","https://www.aljazeera.net/aljazeerarss"),
+       ("الخليج","https://www.skynewsarabia.com/web/rss"),
+       ("عالم","https://arabic.cnn.com/rss"),
+       ("الخليج","https://aawsat.com/feed")]
 
 # مصادر إيران: الاسم المعتمد وهوية الجهة — تُعرض للقارئ صراحةً
 EN_SRC={
@@ -50,6 +55,10 @@ def fa_meta(url):
 DIRECT_SRC={
  "bbci.co.uk/arabic":("بي بي سي عربي","هيئة بث بريطانية عامة","حسن"),
  "france24.com/ar":("فرانس ٢٤ عربي","قناة دولية فرنسية عامة","حسن"),
+ "aljazeera.net":("الجزيرة نت","شبكة إخبارية قطرية","حسن"),
+ "skynewsarabia.com":("سكاي نيوز عربية","قناة إخبارية إماراتية بريطانية","حسن"),
+ "arabic.cnn.com":("CNN بالعربية","شبكة إخبارية أمريكية","حسن"),
+ "aawsat.com":("الشرق الأوسط","صحيفة عربية دولية","حسن"),
 }
 def direct_meta(url):
     for k,v in DIRECT_SRC.items():
@@ -469,6 +478,15 @@ def grade(s):
     return "صحيح" if any(t in s for t in TIER1) else ("حسن" if any(t in s for t in TIER2) else "غير مُسند")
 def clean(t): return re.sub(r"\s+"," ",re.sub(r"<[^>]+>","",t or "")).strip()
 
+def witness(desc, own_src=""):
+    """«الشاهدُ الثاني» مجّانًا: وصفُ خبرِ غوغل يسردُ المنافذَ الأخرى الراويةَ لنفس
+    الخبر — نعدُّها ونسمّيها، فيصيرُ التقاطعُ مرئيًّا للقارئ (w=عدد المنافذ)."""
+    if not desc or "<li>" not in desc: return 0,[]
+    names=[clean(x) for x in re.findall(r'<font[^>]*>([^<]+)</font>', desc)]
+    names=[n for n in dict.fromkeys(names) if n and n!=clean(own_src)][:5]
+    w=desc.count("<li>")
+    return (w if w>1 else 0), names
+
 items=[]; seen=set()
 for label,url in FEEDS:
     try:
@@ -499,6 +517,13 @@ for label,url in FEEDS:
                             except Exception: pass
                 d={"head":head,"src":src_,"grade":g,"cat":label,"at":_iso,
                    "link":clean(it.findtext("link","")),"fa":is_fa}
+                _w,_wsrc=witness(it.findtext("description",""),src_)
+                if _w: d["w"]=_w; d["wsrc"]=_wsrc
+                for _e in it.iter():
+                    _mu=str(_e.get("url","")); _mt=str(_e.get("type",""))+str(_e.get("medium",""))
+                    if (_e.tag=="enclosure" or _e.tag.endswith("}content")) and _mu.startswith("https://") \
+                       and ("image" in _mt or re.search(r'\.(?:jpe?g|png|webp|avif)(?:$|[?.])',_mu,re.I)):
+                        d["img"]=_mu; break
                 if is_fa:
                     nm,who=fa_meta(url); d["src"]=nm; d["via"]=who
                 elif is_en:
@@ -545,8 +570,11 @@ def wire_hurr():
                             from email.utils import parsedate_to_datetime
                             _iso=parsedate_to_datetime(_pd).astimezone(timezone.utc).isoformat(timespec="minutes")
                         except Exception: pass
-                    items.append({"head":head,"src":src_,"grade":g,"cat":cat,"at":_iso,
-                        "link":clean(it.findtext("link","")),"fa":False,"free":True})
+                    _d={"head":head,"src":src_,"grade":g,"cat":cat,"at":_iso,
+                        "link":clean(it.findtext("link","")),"fa":False,"free":True}
+                    _w,_wsrc=witness(it.findtext("description",""),src_)
+                    if _w: _d["w"]=_w; _d["wsrc"]=_wsrc
+                    items.append(_d)
                     n+=1; added+=1
                     if n>=4: break
         except Exception as e: print(f"الحرّ [{cat}]: {str(e)[:50]}",file=sys.stderr)
@@ -650,6 +678,22 @@ if _rr: print(f"🧭 أعاد النظام توجيه {_rr} خبرًا وفق ق
 
 # ═══ صورُ المقالات مجّانًا: og:image من صفحةِ المقال نفسِها — للقصّة الرئيسيّة والشبكة ═══
 IMGCACHE=f"{OUT}/imgcache.json"
+def _gnews_b64(u):
+    """الصيغةُ القديمةُ لروابط أخبار غوغل تحملُ رابطَ الناشرِ خامًا داخل base64 —
+    فكٌّ رخيصٌ بلا شبكة؛ الصيغةُ الأحدث (AU_yqL…) لا تحمله فنكتفي بصورةِ غوغل."""
+    try:
+        seg=u.split("/articles/")[1].split("?")[0]
+        import base64 as _b64
+        raw=_b64.urlsafe_b64decode(seg+"="*(-len(seg)%4))
+        m=re.search(rb'https?://[\x20-\x7e]+?(?=[\x00-\x1f\xd2\xd8]|$)',raw)
+        if m:
+            cand=m.group(0).decode("ascii","ignore").rstrip("\\'\"R")
+            if cand.startswith("https://") and "google" not in cand.split("/")[2]:
+                return cand
+    except Exception: pass
+    return ""
+
+
 def fetch_og_images(items, cap=24):
     """يجلبُ og:image لأوّل العناصر بلا كلفةٍ (urllib متوازٍ + كاشٌ بالرابط) —
     فشلُ أيّ جلبٍ صامتٌ: البطاقةُ بلا صورةٍ لها بديلُها في الواجهة."""
@@ -658,7 +702,16 @@ def fetch_og_images(items, cap=24):
     _rx=re.compile(r'<meta[^>]+(?:property|name)=["\'](?:og:image|twitter:image)["\'][^>]+content=["\']([^"\']+)',re.I)
     _rx2=re.compile(r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+(?:property|name)=["\'](?:og:image|twitter:image)',re.I)
     def one(it):
-        k=hashlib.md5(str(it.get("link","")).encode()).hexdigest()[:12]
+        L=str(it.get("link",""))
+        k=hashlib.md5(L.encode()).hexdigest()[:12]
+        if "news.google.com" in L:
+            # صفحةُ غوغل الوسيطة لا تحملُ صورةَ المقال (صورتُها ترويجيّةٌ عامّة) —
+            # فكٌّ رخيصٌ للرابط القديم فقط، وإن نجح تابعنا كمقالٍ مباشر
+            rk="r:"+k
+            if rk not in cache: cache[rk]=_gnews_b64(L)
+            if not cache[rk]: return
+            it["link"]=cache[rk]; L=cache[rk]
+            k=hashlib.md5(L.encode()).hexdigest()[:12]
         if k in cache:
             if cache[k]: it["img"]=cache[k]
             return
@@ -670,7 +723,7 @@ def fetch_og_images(items, cap=24):
             cache[k]=u if u.startswith("https://") else ""
             if cache[k]: it["img"]=cache[k]
         except Exception: cache[k]=""
-    todo=[i for i in items if i.get("link","").startswith("http")][:cap]
+    todo=[i for i in items if i.get("link","").startswith("http") and not i.get("img")][:cap]
     from concurrent.futures import ThreadPoolExecutor
     with ThreadPoolExecutor(max_workers=8) as ex: list(ex.map(one,todo))
     try: json.dump(dict(list(cache.items())[-500:]),open(IMGCACHE,"w"))
@@ -681,7 +734,7 @@ fetch_og_images(items)
 
 cats={}
 for i in items:
-    cats.setdefault(i["cat"],[]).append({k:i[k] for k in ("head","src","grade","link","fa","at","en","img") if k in i}
+    cats.setdefault(i["cat"],[]).append({k:i[k] for k in ("head","src","grade","link","fa","at","en","img","w","wsrc") if k in i}
         | ({"via":i["via"]} if i.get("via") else {}))
 json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"cats":cats},
     open(f"{OUT}/news.json","w"),ensure_ascii=False,indent=1)
@@ -972,6 +1025,7 @@ def mustaqri():
        '"review":[{"s":"السيناريو السابق","r":"وقع|جزئيًا|لم يقع","note":"بجملة"}],'
        '"caveat":"تحذير صريح بأن هذا استقراء احتمالي لا يقين"}\n'
        "نوّعْ قائلي الإشارات قدرَ الإمكان (أطرافٌ متمايزة لا قائلٌ واحدٌ مكرّر) كي تتّضحَ زوايا المشهد. "
+       "واجعل القائلين جهاتٍ مسمّاةً محدّدة (شخصٌ أو مؤسّسة) لا عباراتٍ عامّة كـ«تقارير إعلامية متعددة». "
        "قاعدةُ إسنادٍ صارمة: كلُّ إشارةٍ تُنسَبُ لقائلها مع رابطٍ من مصدره. "
        "لا تُقدّمْ حدثًا عسكريًّا غير مؤكّد (ضربٌ، اعتراضٌ، قتلى، صافرة) منسوبًا لجهةٍ رسميّةٍ "
        "كأنّه واقعٌ مثبت؛ إمّا برابطٍ من مصدرِه أو صياغةً كاحتمالٍ لا كخبرٍ مؤكّد.\n"
@@ -1701,11 +1755,25 @@ def mudawwin():
         print("المُدوِّن — تعذّر التوليد: "+str(e)[:70]+(" — يبقى عمودُ الأمس" if old else ""))
         if old: return {"skipped":1,"why":"تعذّر التوليد — بقي عمودُ الأمس"}
         raise            # بلا عمودٍ سابقٍ الفشلُ فشلٌ — لا يُعرَض «ok» زورًا في لوحة الإدارة
+    # 🎧 «اسمع العمود» — صوتٌ مجّانيّ بنمطِ فقرةِ المحلّل نفسِه
+    col_mp3=f"{OUT}/column.mp3"; aok=False
+    try:
+        import edge_tts, ssl as _s, asyncio as _a
+        import edge_tts.communicate as _c
+        _ctx=_s.create_default_context(); _ctx.check_hostname=False; _ctx.verify_mode=_s.CERT_NONE
+        try: _c._SSL_CTX=_ctx
+        except Exception: pass
+        async def _go():
+            await edge_tts.Communicate(title+". "+text,"ar-SA-HamedNeural",rate="-6%").save(col_mp3)
+        _a.run(_go())
+        aok=os.path.getsize(col_mp3)>4000
+    except Exception as e: print("صوت العمود تعذّر: "+str(e)[:60])
     json.dump({"name":"المُدوِّن","title":"كاتبُ الجريدة · مساعد ذكاء اصطناعي",
         "head":title,"text":text,"date":kw_today,"src_n":len(feed),
+        "audio":"column.mp3" if aok else "",
         "updated":datetime.now(timezone.utc).isoformat(timespec="minutes")},
         open(COLF,"w"),ensure_ascii=False,indent=1)
-    print("🖋️ المُدوِّن: «%s» — %d كلمة من %d عنوانًا مُسنَدًا"%(title,len(text.split()),len(feed)))
+    print("🖋️ المُدوِّن: «%s» — %d كلمة من %d عنوانًا مُسنَدًا%s"%(title,len(text.split()),len(feed)," + 🎧" if aok else ""))
 
 mudawwin()
 
