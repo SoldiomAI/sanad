@@ -412,6 +412,28 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .oped-au{width:100%;height:34px;margin:4px 0 10px}
 .thm{cursor:pointer;font-size:15px;color:var(--mut);padding:2px 7px;border-radius:6px;user-select:none}
 .thm:hover{color:var(--gold-l);background:rgba(201,162,39,.1)}
+.beta{font-size:9.5px;font-weight:700;color:var(--gold-l);border:1px solid rgba(201,162,39,.5);
+  border-radius:20px;padding:2px 9px;background:rgba(201,162,39,.08);letter-spacing:.02em}
+.ai-pulse{font-family:'Noto Kufi Arabic',sans-serif;font-size:11px;color:var(--mut);margin-top:9px;
+  display:inline-flex;align-items:center;gap:7px}
+.ai-pulse i{width:7px;height:7px;border-radius:50%;background:var(--verify);animation:pulse 2.4s infinite;font-style:normal}
+.crew-wrap{margin:4px 0 0}
+.crew-stats{display:flex;gap:14px;flex-wrap:wrap;font-family:'Noto Kufi Arabic',sans-serif;
+  font-size:11.5px;color:var(--mut);margin-bottom:10px}
+.crew-stats b{color:var(--gold-l);font-size:14px;margin-inline-end:3px}
+.crew{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}
+.cw{flex:0 0 auto;display:flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--border);
+  border-radius:22px;padding:7px 13px;font-size:11.5px;cursor:help;transition:.15s}
+.cw:hover{border-color:rgba(201,162,39,.5)}
+.cw .nm{font-weight:700;color:var(--vellum);font-family:'Noto Kufi Arabic',sans-serif}
+.cw .st{color:var(--dim);font-size:10.5px}
+.cw i{width:7px;height:7px;border-radius:50%;background:var(--dim);flex:0 0 auto;font-style:normal}
+.cw.ok i{background:var(--verify);animation:pulse 2.4s infinite}
+.cw.skip i{background:var(--gold)}
+.cw.fail i{background:var(--seal)}
+.aichip{font-size:9.5px;font-weight:700;color:var(--lapis);border:1px solid rgba(74,124,199,.35);
+  border-radius:20px;padding:2px 8px;background:rgba(74,124,199,.07);font-family:'Noto Kufi Arabic',sans-serif;white-space:nowrap}
+.typing::after{content:"▍";color:var(--gold);animation:pulse 1s infinite}
 html[data-lng=en] #corrWrap,html[data-lng=en] #methBox,html[data-lng=en] #guideBox,
 html[data-lng=en] #subscribe,html[data-lng=en] #ledWrap,html[data-lng=en] #alertWrap,
 html[data-lng=en] #microWrap,html[data-lng=en] #offWrap,html[data-lng=en] #tollWrap,
@@ -635,6 +657,7 @@ html[data-lng=en] .ennote{display:block}
   <div class="hero">
     <h1 class="amiri gold">سَنَد</h1>
     <div class="sub">منصة إخبارية ذاتية التطوّر — تُدقّق الخبر قبل نشره، وتستقرئ ما بعده، وحُكمُها مبنيٌّ على خمسة معايير من علم الحديث<br>نشرة مذيع يومية آلية · تغطية حية · أخبار إيران مترجمة عن الفارسية</div>
+    <div class="ai-pulse" id="aiPulse" style="display:none"><i></i><span id="aiPulseT"></span></div>
     <div class="rule"></div>
   </div>
 
@@ -649,6 +672,13 @@ html[data-lng=en] .ennote{display:block}
   <div class="cta" style="margin:18px 0 4px">
       <a class="btn btn-p" href="#subscribe">◉ اشترك في النشرة الصوتية</a>
       <a class="btn btn-s" href="#enterprise">للجهات والمؤسسات</a>
+  </div>
+
+  <div id="crewWrap" style="display:none" class="crew-wrap">
+    <div class="sec-h" id="crewH">غرفةُ عمليّات الذكاء <span class="beta" id="crewLive">حيّ</span></div>
+    <div class="crew-stats" id="crewStats"></div>
+    <div class="crew" id="crewL"></div>
+    <div class="note" id="crewNote">طاقمُ سَنَد من الوكلاء الأذكياء يعملُ على مدار الساعة — كلُّ ما تراه هنا حالاتُ تشغيلٍ حقيقيّةٌ من آخر دورة، لا عرضًا تمثيليًّا.</div>
   </div>
 
   <details class="mx" open>
@@ -737,7 +767,7 @@ html[data-lng=en] .ennote{display:block}
   </div>
 
   <div id="microWrap" style="display:none">
-    <div class="sec-h">سَنَد تحت المِجهر · رصدُ الشائعات</div>
+    <div class="sec-h">سَنَد تحت المِجهر · رصدُ الشائعات <span class="beta">تجريبي</span></div>
     <details class="mx">
       <summary class="mx-s"><span>🔬 كيف نحكُم على الشائعة؟</span><i class="mx-hint">سلسلةُ إسنادٍ ثلاثيّة</i></summary>
       <div class="mx-b">
@@ -813,7 +843,7 @@ html[data-lng=en] .ennote{display:block}
     <article class="oped">
       <div class="oped-by">
         <span class="oped-pen">🖋️</span>
-        <span class="oped-who"><b id="colNm"></b><i id="colTi"></i></span>
+        <span class="oped-who"><b id="colNm"></b><i id="colTi"></i></span><span class="aichip">✨ ذكاء سَنَد</span>
         <span class="oped-meta" id="colMeta"></span>
       </div>
       <h2 class="oped-h" id="colHead"></h2>
@@ -831,7 +861,7 @@ html[data-lng=en] .ennote{display:block}
         <div class="guest-id">
           <div class="guest-nm" id="gNm"></div>
           <div class="guest-ti" id="gTi"></div>
-          <span class="onair"><i></i> تحليل الساعة</span>
+          <span class="onair"><i></i> تحليل الساعة</span> <span class="aichip">✨ ذكاء سَنَد</span>
         </div>
       </div>
       <div class="guest-bd">
@@ -954,7 +984,7 @@ if(t==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e
 let LNG="ar";
 (function(){try{LNG=localStorage.getItem("lng")||"ar";
 if(LNG==="en"){const h=document.documentElement;h.setAttribute("lang","en");h.setAttribute("dir","ltr");h.setAttribute("data-lng","en")}}catch(e){}})();
-function lngFlip(){try{localStorage.setItem("lng",LNG==="en"?"ar":"en");location.reload()}catch(e){}}
+function lngFlip(){try{localStorage.setItem("lng",LNG==="en"?"ar":"en");location.href=location.pathname+"?l="+Date.now()}catch(e){}}
 addEventListener("DOMContentLoaded",()=>{try{
   const bb=document.getElementById("lngBtn"); if(bb) bb.textContent=(LNG==="en")?"ع":"EN";
   if(LNG==="en"){const sub=document.querySelector(".hero .sub");
@@ -963,6 +993,21 @@ addEventListener("DOMContentLoaded",()=>{try{
 const EN=(localStorage.getItem("lng")||"ar")==="en";
 const CATN={"الكل":"All","عاجل":"Breaking","الخليج":"Gulf","فلسطين":"Palestine","عالم":"World","اقتصاد":"Economy","تقنية":"Tech","إيران":"Iran"};
 const hd=i=>EN?(i.he||i.head):i.head;
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function typeIn(el){
+  if(RM||!el||el.dataset.typed||!el.textContent.trim()) return;
+  el.dataset.typed="1";
+  const full=el.textContent; 
+  const io=new IntersectionObserver(es=>{es.forEach(en=>{
+    if(!en.isIntersecting||el.dataset.run) return;
+    el.dataset.run="1"; io.disconnect();
+    el.textContent=""; el.classList.add("typing");
+    let i=0; const step=Math.max(2,Math.round(full.length/160));
+    const t=setInterval(()=>{i+=step;el.textContent=full.slice(0,i);
+      if(i>=full.length){el.textContent=full;el.classList.remove("typing");clearInterval(t)}},16);
+  })},{threshold:.25});
+  io.observe(el);
+}
 function thmFlip(){try{const d=document.documentElement.getAttribute("data-theme")==="dark";
 if(d){document.documentElement.removeAttribute("data-theme");localStorage.setItem("thm","light")}
 else{document.documentElement.setAttribute("data-theme","dark");localStorage.setItem("thm","dark")}}catch(e){}}
@@ -1199,6 +1244,35 @@ async function load(){
   }catch(e){}
   try{
     const a=await grab("agents");
+    // غرفةُ عمليّات الذكاء العامّة + نبضُ الترويسة — من حالات التشغيل الحقيقيّة وحدها
+    const AGEN={hurr:"Al-Hurr",rasid:"Ar-Rasid",mutabiq:"Al-Mutabiq",manba:"Al-Manba",munabbih:"Al-Munabbih",
+      multaqit:"Al-Multaqit",fahis:"Al-Fahis",mukharrij:"Al-Mukharrij",mustaqsi:"Al-Mustaqsi",turjuman:"At-Turjuman",
+      mudaqqiq:"Al-Mudaqqiq",musannif:"Al-Musannif",mustaqri:"Al-Mustaqri",murtajil:"Al-Muhallil",rawi:"Ar-Rawi",mudawwin:"Al-Mudawwin"};
+    const SLBL=EN?{ok:"active",skip:"scheduled",fail:"failed",idle:"idle"}:{ok:"عمل الآن",skip:"مجدول",fail:"أخفق",idle:"خامل"};
+    try{
+      const mago=Math.max(0,Math.round((Date.now()-new Date(a.updated))/60000));
+      const pt=document.getElementById("aiPulseT");
+      if(pt){pt.textContent=EN?`AI cycle ${mago}m ago · ${a.healthy}/${a.total} agents healthy`
+        :`🤖 آخرُ دورةِ ذكاء: قبل ${mago} د · ${a.healthy}/${a.total} وكيلًا سليمًا`;
+        document.getElementById("aiPulse").style.display="inline-flex";}
+      const newsN=DATA?Object.values(DATA.cats||{}).flat().length:0;
+      const heN=DATA?Object.values(DATA.cats||{}).flat().filter(x=>x.he).length:0;
+      const imgN=DATA?Object.values(DATA.cats||{}).flat().filter(x=>x.img).length:0;
+      document.getElementById("crewH").firstChild.textContent=EN?"AI Operations Room ":"غرفةُ عمليّات الذكاء ";
+      document.getElementById("crewLive").textContent=EN?"live":"حيّ";
+      document.getElementById("crewStats").innerHTML=[
+        [newsN,EN?"stories verified this cycle":"خبرًا مُسنَدًا هذه الدورة"],
+        [heN,EN?"headlines translated":"عنوانًا مُترجَمًا"],
+        [imgN,EN?"stories with source imagery":"خبرًا بصورةِ مصدره"],
+        [(a.ran!==undefined?a.ran:0),EN?"agents worked this round":"وكيلًا عمل هذه الجولة"]
+      ].map(x=>`<span><b>${esc(x[0])}</b>${esc(x[1])}</span>`).join("");
+      document.getElementById("crewL").innerHTML=(a.agents||[]).map(x=>`
+        <span class="cw ${esc(x.status)}" title="${esc(x.role||"")}${x.note?" — "+esc(x.note):""}">
+          <i></i>${esc(x.icon)} <span class="nm">${esc(EN?(AGEN[x.id]||x.id):x.name)}</span>
+          <span class="st">${esc(SLBL[x.status]||x.status)}</span></span>`).join("");
+      if(EN) document.getElementById("crewNote").textContent="Sanad's AI crew works around the clock — every status shown is a real run state from the latest cycle, not a simulation.";
+      crewWrap.style.display="block";
+    }catch(e){}
     const lbl={ok:"عمل الآن",skip:"مجدول",fail:"أخفق",idle:"خامل"};
     agH.textContent=`${a.ran!==undefined?a.ran:"—"} عملوا هذه الجولة · ${a.healthy}/${a.total} سليم`;
     agT.textContent="آخر تشغيل "+new Date(a.updated).toLocaleTimeString("ar-KW",{hour:"2-digit",minute:"2-digit"});
@@ -1323,12 +1397,12 @@ async function load(){
     if(EN){const _h=document.getElementById("colSecH");if(_h)_h.textContent="Daily Column";
       const _f=document.getElementById("colFt");if(_f)_f.textContent="Built solely from today's verified headlines — opinion as reading, not verdict. 🤖 Al-Mudawwin is an AI assistant, not a real person. Machine-translated from Arabic.";}
     colTx.innerHTML=((EN&&c.text_en)?c.text_en:c.text).split(/\n{2,}|\n/).map(p=>p.trim()).filter(Boolean).map(p=>`<p>${esc(p)}</p>`).join("");
-    colWrap.style.display="block";
+    colWrap.style.display="block"; try{typeIn(colTx.querySelector("p"))}catch(e){}
   }catch(e){}
   try{
     const g=await grab("analyst");
     gNm.textContent="🔮 "+(g.name||"المُستقرِئ"); gTi.textContent=g.title||"";
-    gTx.textContent=g.text||"";
+    gTx.textContent=g.text||""; typeIn(gTx);
     gAv.src=RAW+(g.avatar||"analyst.jpg");
     if(g.audio){gAu.src=RAW+g.audio+"?t="+Date.now();gAu.style.display="block"}
     gWrap.style.display="block";
