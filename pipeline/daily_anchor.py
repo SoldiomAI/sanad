@@ -567,7 +567,11 @@ def gemini_post(body, timeout=60):
     except _ue.HTTPError as e:
         gc=body.get("generationConfig",{})
         if e.code!=400 or "thinkingConfig" not in gc: raise
-        b2=dict(body); b2["generationConfig"]={k:v for k,v in gc.items() if k!="thinkingConfig"}
+        # بلا thinkingConfig يفكّرُ النموذجُ الأحدثُ افتراضيًّا فيأكلُ التفكيرُ ميزانيةَ
+        # الإخراج ويصلُ الردُّ مبتورًا — نرفعُ السقفَ ليتّسعَ للتفكيرِ والجوابِ معًا.
+        g2={k:v for k,v in gc.items() if k!="thinkingConfig"}
+        g2["maxOutputTokens"]=max(int(gc.get("maxOutputTokens",1500))*4, 8000)
+        b2=dict(body); b2["generationConfig"]=g2
         req=urllib.request.Request(url,data=json.dumps(b2).encode(),
             headers={"Content-Type":"application/json"})
         return json.load(urllib.request.urlopen(req,timeout=timeout))
@@ -576,8 +580,11 @@ def gemini_json(prompt, max_tok=1500, temp=0.2):
     body={"contents":[{"parts":[{"text":prompt}]}],
         "generationConfig":{"maxOutputTokens":max_tok,"temperature":temp,
             "thinkingConfig":{"thinkingBudget":0},"responseMimeType":"application/json"}}
-    d=gemini_post(body, timeout=60)
-    return json.loads(d["candidates"][0]["content"]["parts"][0]["text"])
+    d=gemini_post(body, timeout=90)
+    parts=((d.get("candidates") or [{}])[0].get("content") or {}).get("parts") or []
+    txt="".join(p.get("text","") for p in parts if isinstance(p,dict)).strip()
+    txt=txt.removeprefix("```json").removeprefix("```").removesuffix("```").strip()
+    return json.loads(txt)
 
 fa_items=[i for i in items if i.get("fa")]
 if fa_items and GEMINI_KEY:
