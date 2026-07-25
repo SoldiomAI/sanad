@@ -732,9 +732,31 @@ def fetch_og_images(items, cap=24):
     print(f"🖼️ الصور: {n} خبرًا بصورةِ مقالِه الأصليّ (مجّانًا)")
 fetch_og_images(items)
 
+# ═══ النسخةُ العالميّة: ترجمةُ العناوين إلى الإنجليزيّة (Gemini مجّانًا) ═══
+# حقل «he» على كلِّ عنصر — الواجهةُ تعرضه في وضع EN وتعود للعربيّة عند غيابه.
+def translate_heads_en(items, cap=60):
+    todo=[(n,i) for n,i in enumerate(items[:cap]) if not i.get("he")]
+    if not todo or not GEMINI_KEY: return 0
+    lst="\n".join("%d| %s"%(n,i["head"]) for n,i in todo)
+    try:
+        out=gemini_json("Translate these Arabic news headlines to concise, professional English "
+            "news-wire style. Faithful translation — no additions, no exaggeration, keep numbers "
+            "and proper names accurate.\n"
+            'Return JSON only: [{"n":number,"e":"English headline"}]\n'+lst, max_tok=4000)
+        ok=0
+        by={o.get("n"):o.get("e","") for o in out if isinstance(o,dict)}
+        for n,i in todo:
+            e=clean(str(by.get(n,"")))
+            if len(e)>8: i["he"]=e; ok+=1
+        print(f"🌍 النسخة العالميّة: تُرجم {ok}/{len(todo)} عنوانًا إلى الإنجليزيّة")
+        return ok
+    except Exception as e:
+        print("الترجمة العالميّة تخطّت: "+str(e)[:60]); return 0
+translate_heads_en(items)
+
 cats={}
 for i in items:
-    cats.setdefault(i["cat"],[]).append({k:i[k] for k in ("head","src","grade","link","fa","at","en","img","w","wsrc") if k in i}
+    cats.setdefault(i["cat"],[]).append({k:i[k] for k in ("head","src","grade","link","fa","at","en","img","w","wsrc","he") if k in i}
         | ({"via":i["via"]} if i.get("via") else {}))
 json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"cats":cats},
     open(f"{OUT}/news.json","w"),ensure_ascii=False,indent=1)
@@ -1755,6 +1777,15 @@ def mudawwin():
         print("المُدوِّن — تعذّر التوليد: "+str(e)[:70]+(" — يبقى عمودُ الأمس" if old else ""))
         if old: return {"skipped":1,"why":"تعذّر التوليد — بقي عمودُ الأمس"}
         raise            # بلا عمودٍ سابقٍ الفشلُ فشلٌ — لا يُعرَض «ok» زورًا في لوحة الإدارة
+    # 🌍 نسخةُ العمود الإنجليزيّة — نداءٌ مجّانيّ واحد، وغيابُها لا يعطّل شيئًا
+    he_t,he_x="",""
+    try:
+        jt=gemini_json("Translate this Arabic opinion column to elegant journalistic English. "
+            "Faithful translation, keep attributions (according to ...) intact.\n"
+            'Return JSON only: {"title":"...","text":"..."}\n'
+            "TITLE: "+title+"\nTEXT:\n"+text, max_tok=4000, temp=0.3)
+        he_t=clean(jt.get("title","")); he_x=str(jt.get("text","")).strip()
+    except Exception as e: print("ترجمة العمود تخطّت: "+str(e)[:50])
     # 🎧 «اسمع العمود» — صوتٌ مجّانيّ بنمطِ فقرةِ المحلّل نفسِه
     col_mp3=f"{OUT}/column.mp3"; aok=False
     try:
@@ -1770,6 +1801,7 @@ def mudawwin():
     except Exception as e: print("صوت العمود تعذّر: "+str(e)[:60])
     json.dump({"name":"المُدوِّن","title":"كاتبُ الجريدة · مساعد ذكاء اصطناعي",
         "head":title,"text":text,"date":kw_today,"src_n":len(feed),
+        "head_en":he_t,"text_en":he_x,
         "audio":"column.mp3" if aok else "",
         "updated":datetime.now(timezone.utc).isoformat(timespec="minutes")},
         open(COLF,"w"),ensure_ascii=False,indent=1)
