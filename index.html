@@ -769,7 +769,7 @@ html[data-lng=en] .ennote{display:block}
   <div id="microWrap" style="display:none">
     <div class="sec-h">سَنَد تحت المِجهر · رصدُ الشائعات <span class="beta">تجريبي</span></div>
     <details class="mx">
-      <summary class="mx-s"><span>🔬 كيف نحكُم على الشائعة؟</span><i class="mx-hint">سلسلةُ إسنادٍ ثلاثيّة</i></summary>
+      <summary class="mx-s"><span>🔬 كيف نحكُم على الشائعة؟</span><i class="mx-hint">سلسلةُ إسنادٍ رباعيّة</i></summary>
       <div class="mx-b">
         <p class="mx-lead">مسارٌ ثانٍ يرصدُ ما <b>يُتداوَل</b> لا ما يُنشَر. نلتقطُ الشائعةَ ونحقّقُ فيها ونُصدرُ حكمًا صريحًا — ولا نُثبّتُ حكمًا قاطعًا إلا بمصدرٍ <b>فتحناه بأنفسِنا</b>.</p>
         <div class="mx-grades">
@@ -777,13 +777,14 @@ html[data-lng=en] .ennote{display:block}
           <div class="mx-g"><span class="mic-v t-false">لم يصحّ</span><span class="mx-gd">مصدرٌ موثوقٌ فتحناه دحضَه — شائعةٌ لا أصلَ لها.</span></div>
           <div class="mx-g"><span class="mic-v t-open">قيد التحقق</span><span class="mx-gd">يُتداوَل ولمّا يُؤكَّدْ أو يُنفَ — نعرضُه مجهولًا كما هو.</span></div>
         </div>
-        <div class="mx-crit-h">لا يمرُّ الحكمُ إلا باتّفاقِ ثلاثةِ وكلاء:</div>
+        <div class="mx-crit-h">لا يمرُّ الحكمُ إلا عبر أربعةِ وكلاء:</div>
         <div class="mx-crit">
-          <span title="يلتقط الادعاءَ المنتشرَ قبل أن يُنشَر">🔍 المُلتَقِط</span>
+          <span title="يلتقط الادعاءَ المنتشرَ قبل أن يُنشَر ويرصدُ قائلَه">🔍 المُلتَقِط</span>
           <span title="يبحث ويراجع المواقعَ ويُثبت المصدرَ ويحكم">📑 المُخرِّج</span>
           <span title="يفتح كلَّ رابطٍ بنفسه ويتأكّد أنه حيٌّ ويحتوي الادعاء — البوّابة">🔗 الفاحِص</span>
+          <span title="يراجعُ المعروضَ كلَّ دورة: يطوي القديمَ ويعيدُ الفحصَ ويُثبتُ قائلَ الشائعة">🔁 المُنقِّح</span>
         </div>
-        <p class="mx-note">ما لم يجتَزِ البوابةَ يبقى «قيد التحقق». ولا نحكمُ «لم يصحّ» لأنَّ الادعاءَ ينتشرُ أكثر — الحكمُ للمصدرِ لا للانتشار.</p>
+        <p class="mx-note">ما لم يجتَزِ البوابةَ يبقى «قيد التحقق»، وما بقيَ عالقًا يطويه المُنقِّحُ فيبقى الرصدُ جاريًا. ولا نحكمُ «لم يصحّ» لأنَّ الادعاءَ ينتشرُ أكثر — الحكمُ للمصدرِ لا للانتشار.</p>
       </div>
     </details>
     <div id="microL"></div>
@@ -1246,7 +1247,7 @@ async function load(){
     const a=await grab("agents");
     // غرفةُ عمليّات الذكاء العامّة + نبضُ الترويسة — من حالات التشغيل الحقيقيّة وحدها
     const AGEN={hurr:"Al-Hurr",rasid:"Ar-Rasid",mutabiq:"Al-Mutabiq",manba:"Al-Manba",munabbih:"Al-Munabbih",
-      multaqit:"Al-Multaqit",fahis:"Al-Fahis",mukharrij:"Al-Mukharrij",mustaqsi:"Al-Mustaqsi",turjuman:"At-Turjuman",
+      multaqit:"Al-Multaqit",fahis:"Al-Fahis",mukharrij:"Al-Mukharrij",munaqqih:"Al-Munaqqih",mustaqsi:"Al-Mustaqsi",turjuman:"At-Turjuman",
       mudaqqiq:"Al-Mudaqqiq",musannif:"Al-Musannif",mustaqri:"Al-Mustaqri",murtajil:"Al-Muhallil",rawi:"Ar-Rawi",mudawwin:"Al-Mudawwin"};
     const SLBL=EN?{ok:"active",skip:"scheduled",fail:"failed",idle:"idle"}:{ok:"عمل الآن",skip:"مجدول",fail:"أخفق",idle:"خامل"};
     try{
@@ -1341,7 +1342,7 @@ async function load(){
         `<a href="${safeUrl(s.u)}" target="_blank" rel="noopener">${esc(s.t||"المصدر")}${s.ok?" ✓":""} ↗</a>`).join(" · ");
       const seen=x.first_seen?fdate(x.first_seen):"", done=x.resolved_at?fdate(x.resolved_at):"";
       return `<div class="mic ${vc} rise" style="animation-delay:${Math.min(n*55,440)}ms">
-        <div class="mic-h"><span class="mic-v ${vc}">${esc(v)}</span>${x.spread&&x.spread!=="التداول"?`<span class="mic-chain">ينتشر: ${esc(x.spread)}</span>`:""}${x.when?`<span class="mic-chain">ادُّعيَ: ${esc(x.when)}</span>`:""}</div>
+        <div class="mic-h"><span class="mic-v ${vc}">${esc(v)}</span>${x.qail?`<span class="mic-chain">🗣 قائلُها: ${esc(x.qail)}</span>`:""}${x.spread&&x.spread!=="التداول"?`<span class="mic-chain">ينتشر: ${esc(x.spread)}</span>`:""}${x.when?`<span class="mic-chain">ادُّعيَ: ${esc(x.when)}</span>`:""}</div>
         <div class="mic-claim">${esc(x.claim)}</div>
         ${x.why&&x.why!=="—"?`<div class="mic-why">${esc(x.why)}</div>`:""}
         <div class="mic-m">${srcs?`<span>${srcs}</span>`:'<span class="mic-chain">لا مصدرَ محقَّقًا بعد</span>'}${seen?`<span>رُصد: ${esc(seen)}</span>`:""}${done?`<span>حُسم: ${esc(done)}</span>`:""}</div>
