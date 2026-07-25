@@ -554,14 +554,29 @@ def wire_hurr():
     return {"added":added,"why":f"+{added} خبرًا مجّانيًّا"}
 wire_hurr()
 
+GEM_MODEL=os.environ.get("GEMINI_MODEL","gemini-flash-latest")
+def gemini_post(body, timeout=60):
+    """نداءُ Gemini متحمِّلًا تغيُّرَ الحقول: النماذجُ الأحدثُ ترفض thinkingBudget
+    بـ400 (تعطّلت به الترجمةُ والعمود) — عند 400 نعيدُ المحاولةَ دون thinkingConfig."""
+    import urllib.error as _ue
+    url=f"https://generativelanguage.googleapis.com/v1beta/models/{GEM_MODEL}:generateContent?key={GEMINI_KEY}"
+    try:
+        req=urllib.request.Request(url,data=json.dumps(body).encode(),
+            headers={"Content-Type":"application/json"})
+        return json.load(urllib.request.urlopen(req,timeout=timeout))
+    except _ue.HTTPError as e:
+        gc=body.get("generationConfig",{})
+        if e.code!=400 or "thinkingConfig" not in gc: raise
+        b2=dict(body); b2["generationConfig"]={k:v for k,v in gc.items() if k!="thinkingConfig"}
+        req=urllib.request.Request(url,data=json.dumps(b2).encode(),
+            headers={"Content-Type":"application/json"})
+        return json.load(urllib.request.urlopen(req,timeout=timeout))
+
 def gemini_json(prompt, max_tok=1500, temp=0.2):
     body={"contents":[{"parts":[{"text":prompt}]}],
         "generationConfig":{"maxOutputTokens":max_tok,"temperature":temp,
             "thinkingConfig":{"thinkingBudget":0},"responseMimeType":"application/json"}}
-    req=urllib.request.Request(
-        f"https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key={GEMINI_KEY}",
-        data=json.dumps(body).encode(),headers={"Content-Type":"application/json"})
-    d=json.load(urllib.request.urlopen(req,timeout=60))
+    d=gemini_post(body, timeout=60)
     return json.loads(d["candidates"][0]["content"]["parts"][0]["text"])
 
 fa_items=[i for i in items if i.get("fa")]
@@ -1570,10 +1585,7 @@ def analyst_segment():
             body={"contents":[{"parts":[{"text":P}]}],
                 "generationConfig":{"maxOutputTokens":1400,"temperature":0.55,
                     "thinkingConfig":{"thinkingBudget":0}}}
-            req=urllib.request.Request(
-                "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key="+GEMINI_KEY,
-                data=json.dumps(body).encode(),headers={"Content-Type":"application/json"})
-            d=json.load(urllib.request.urlopen(req,timeout=90))
+            d=gemini_post(body, timeout=90)
             cand=(d.get("candidates") or [{}])[0]
             parts=((cand.get("content") or {}).get("parts") or [])
             txt="".join(p.get("text","") for p in parts if isinstance(p,dict)).strip()
@@ -1649,7 +1661,8 @@ def mudawwin():
     except Exception as e:
         # لا قالبَ مُلفَّقًا: يبقى عمودُ الأمس حتى ينجحَ توليدُ اليوم
         print("المُدوِّن — تعذّر التوليد: "+str(e)[:70]+(" — يبقى عمودُ الأمس" if old else ""))
-        return ({"skipped":1,"why":"تعذّر التوليد — بقي عمودُ الأمس"} if old else None)
+        if old: return {"skipped":1,"why":"تعذّر التوليد — بقي عمودُ الأمس"}
+        raise            # بلا عمودٍ سابقٍ الفشلُ فشلٌ — لا يُعرَض «ok» زورًا في لوحة الإدارة
     json.dump({"name":"المُدوِّن","title":"كاتبُ الجريدة · مساعد ذكاء اصطناعي",
         "head":title,"text":text,"date":kw_today,"src_n":len(feed),
         "updated":datetime.now(timezone.utc).isoformat(timespec="minutes")},
@@ -1708,10 +1721,7 @@ def gemini_script():
     body={"contents":[{"parts":[{"text":prompt}]}],
           "generationConfig":{"maxOutputTokens":2600,"temperature":0.4,"thinkingConfig":{"thinkingBudget":0}}}
     try:
-        req=urllib.request.Request(
-            f"https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key={GEMINI_KEY}",
-            data=json.dumps(body).encode(),headers={"Content-Type":"application/json"})
-        d=json.load(urllib.request.urlopen(req,timeout=60))
+        d=gemini_post(body, timeout=60)
         txt=d["candidates"][0]["content"]["parts"][0]["text"].strip()
         txt=re.sub(r"[\*#`]","",txt)
         if OPEN_L.split(".")[0] in txt and len(txt)>80:
