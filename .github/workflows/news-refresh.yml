@@ -12,6 +12,10 @@ on:
         description: "1 = أجبِر تشغيلَ رصد الشائعات الآن (تجاوز مهلة الـ٦س)"
         required: false
         default: ""
+      force_alerts:
+        description: "1 = أجبِر جمعَ التحذيرات الرسمية (المُنبِّه) الآن"
+        required: false
+        default: ""
 permissions:
   contents: write
 concurrency:
@@ -39,6 +43,7 @@ jobs:
           NEWS_ONLY: "1"
           FORCE_OFFICIAL: ${{ github.event.inputs.force_official }}
           FORCE_RUMORS: ${{ github.event.inputs.force_rumors }}
+          FORCE_ALERTS: ${{ github.event.inputs.force_alerts }}
         run: python pipeline/daily_anchor.py
       - name: حفظ
         if: always()
