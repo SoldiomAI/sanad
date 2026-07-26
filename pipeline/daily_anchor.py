@@ -1278,6 +1278,24 @@ mutabiq()
 # ═══ التحذيرات الرسمية: ما يحتاجه المواطن الآن ═══
 ALERTS=f"{OUT}/alerts.json"
 
+def _vague_when(s):
+    """تاريخٌ غامض: اسمُ شهرٍ عربيٍّ بلا يومٍ محدَّد («يوليو 2026») — علامةُ توجيهٍ
+    قديمٍ قائمٍ يُعادُ بيعُه كأنّه اليوم، فلا يُقبَل في قسمٍ سياديّ."""
+    s=str(s or "")
+    if not any(m in s for m in _AR_MON): return False
+    return not any(_AR_MON.get(m.group(2)) for m in re.finditer(r"(\d{1,2})\s+([^\s0-9]+)",s))
+
+def _alert_stale(x, now=None):
+    """يُسقِطُ التحذيرَ غيرَ الحديث: تاريخُه الصريحُ أقدمُ من يومين، أو تاريخُه غامضٌ
+    شهريّ، أو ختمُ التقاطِه (cap) أقدمُ من ٤٨ ساعة."""
+    w=x.get("when")
+    if _vague_when(w) or _stmt_old_days(w,2): return True
+    try:
+        now=now or datetime.now(timezone.utc)
+        if (now-datetime.fromisoformat(x["cap"])).total_seconds()>48*3600: return True
+    except Exception: pass
+    return False
+
 @agent("munabbih")
 def munabbih():
     """يجمع التحذيرات والتوجيهات الرسمية العملية + تنبيهات الجهات من الشائعات."""
@@ -1291,13 +1309,16 @@ def munabbih():
     if not GROK_KEY: return
     if over_budget("المُنبِّه"): return {"skipped":1,"why":"بلغ سقفَ الإنفاق اليوميّ"}
     P=("ابحث عن آخر التحذيرات والتوجيهات الرسمية الصادرة عن جهات الكويت والخليج بشأن الأزمة "
-       "خلال ٤٨ ساعة: الداخلية، الدفاع، الإطفاء، الصحة، الكهرباء والماء، الطيران المدني، الدفاع المدني.\n"
+       "خلال ٢٤ ساعة فقط: الداخلية، الدفاع، الإطفاء، الصحة، الكهرباء والماء، الطيران المدني، الدفاع المدني.\n"
        "ادرج نوعين:\n"
        "أ) تحذير أو توجيه عملي للمواطنين (إخلاء، ملاجئ، مجال جوي، مياه، كهرباء، طوارئ).\n"
        "ب) تنبيه رسمي من تداول أخبار غير موثوقة أو شائعات أو حسابات مجهولة.\n"
        'أخرج JSON فقط: [{"kind":"تحذير|تنبيه من شائعة","body":"الجهة",'
-       '"txt":"نص التوجيه بإيجاز","act":"ما يفعله المواطن بجملة","u":"رابط","when":"الوقت"}]\n'
-       "٦ عناصر كحد أقصى من جهات رسمية فقط. لا تنصيص مزدوج داخل النصوص. لا شيء خارج JSON.")
+       '"txt":"نص التوجيه بإيجاز","act":"ما يفعله المواطن بجملة","u":"رابط",'
+       '"when":"تاريخ الصدور المحدد: يوم شهر سنة وساعة إن عُرفت، مثل 26 يوليو 2026 14:00"}]\n'
+       "٦ عناصر كحد أقصى من جهات رسمية فقط. لا تُدرِجْ توجيهًا قائمًا منذ أيامٍ أو أسابيع "
+       "وإن ظلّ ساريًا — الأحدثَ فقط، وما جهلتَ تاريخَ صدورِه المحدَّد فلا تُدرِجْه أصلًا. "
+       "لا تنصيص مزدوج داخل النصوص. لا شيء خارج JSON.")
     # توفير: النموذج الأخفّ (grok-4.3) وبحثٌ أقلّ يكفيان لالتقاطِ التحذيراتِ الرسميّة —
     # كان «المُنبِّه» ٦٤٪ من الإنفاق على النموذجِ الثقيل. الجودةُ يحرسُها إسقاطُ التحذيرِ بلا مصدر.
     body={"model":os.environ.get("GROK_MODEL","grok-4.3"),"input":[{"role":"user","content":P}],
@@ -1317,6 +1338,12 @@ def munabbih():
         _before=len(lst)
         lst=[x for x in lst if x.get("kind")!="تحذير" or _ok_url(x.get("u"))][:6]
         if _before!=len(lst): print(f"🛡️ المُنبِّه: أُسقط {_before-len(lst)} تحذيرًا بلا مصدرٍ موثّق")
+        # 🛡️ حارسُ الطزاجة: توجيهٌ بتاريخٍ غامضٍ شهريٍّ أو أقدمَ من يومين لا يُنشَر —
+        # ختمُ الملفِّ طازجٌ لكن لا نسمحُ للمضمونِ القديمِ أن يتخفّى وراءه.
+        _now_iso=datetime.now(timezone.utc).isoformat(timespec="minutes")
+        for x in lst: x["cap"]=_now_iso
+        _b2=len(lst); lst=[x for x in lst if not _alert_stale(x)]
+        if _b2!=len(lst): print(f"🛡️ المُنبِّه: أُسقط {_b2-len(lst)} توجيهًا قديمًا أو غامضَ التاريخ")
         if not lst: raise ValueError("فارغة")
         bill(d,"المُنبِّه")
         json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"list":lst},
@@ -1327,6 +1354,57 @@ def munabbih():
         print("المُنبِّه تخطّى: "+str(e)[:90])
 
 munabbih()
+
+# ═══ سلكُ التحذيرات الحرّ: «تحذيراتٌ رسمية» حديثةٌ كلَّ دورةٍ بلا كلفة ═══
+# بين نوباتِ المُنبِّه المدفوعةِ (كلّ ٨ ساعات) يجلبُ عناوينَ تحذيراتِ الدفاعِ المدنيّ
+# والداخليّةِ والطيرانِ المدنيِّ من «أخبار غوغل RSS» — من منافذَ بدرجةِ «صحيح/حسن»
+# فقط، وبتاريخِ نشرٍ خلال ٤٨ ساعة — ويُطهِّرُ الملفَّ من القديمِ كلَّ دورةٍ أيضًا.
+_ALERT_WIRE_Q=[
+ '"الدفاع المدني" OR "وزارة الداخلية" (تحذير OR تنبيه OR إخلاء OR صافرات OR طوارئ) الكويت',
+ '(الكويت OR السعودية OR البحرين) ("الدفاع المدني" OR "الطيران المدني") (تعليق OR تحذير OR إغلاق OR استئناف)',
+]
+def alerts_wire():
+    from email.utils import parsedate_to_datetime
+    try: j=json.load(open(ALERTS))
+    except Exception: j=None
+    now=datetime.now(timezone.utc); now_iso=now.isoformat(timespec="minutes")
+    _ARM=["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر"]
+    cur=(j or {}).get("list",[])
+    for x in cur: x.setdefault("cap",now_iso)          # ختمُ التقاطٍ لعناصرِ المُنبِّه عند أوّل مرور
+    keep={_rid(x.get("txt","")):x for x in cur}
+    added=0
+    for q in _ALERT_WIRE_Q:
+        try:
+            url="https://news.google.com/rss/search?q="+_up.quote(q)+"&hl=ar&gl=KW&ceid=KW:ar"
+            req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0"})
+            root=ET.fromstring(urllib.request.urlopen(req,timeout=25).read())
+            n=0
+            for it in root.iter("item"):
+                title=clean(it.findtext("title","")); head=title.rsplit(" - ",1)[0]
+                src_=title.rsplit(" - ",1)[-1] if " - " in title else ""
+                if grade(src_) not in ("صحيح","حسن"): continue   # منافذُ معتبَرةٌ فقط في قسمٍ سياديّ
+                try: dt=parsedate_to_datetime(clean(it.findtext("pubDate",""))).astimezone(timezone.utc)
+                except Exception: continue
+                if (now-dt).total_seconds()>48*3600 or len(head)<20 or blocked(head): continue
+                rid=_rid(head)
+                if rid in keep: continue
+                if any(_tok_sim(head,x.get("txt",""))>0.6 for x in keep.values()): continue
+                kd=dt+timedelta(hours=3)
+                keep[rid]={"kind":"تحذير","body":src_,"txt":head,"u":clean(it.findtext("link","")),
+                    "when":f"{kd.day} {_ARM[kd.month-1]} {kd.year}","cap":now_iso,"wire":True}
+                added+=1; n+=1
+                if n>=3: break
+        except Exception: continue
+    merged=sorted([x for x in keep.values() if not _alert_stale(x,now)],
+                  key=lambda x:x.get("cap",""),reverse=True)[:8]
+    purged=len(keep)-len(merged)
+    if added or purged or j is None or merged!=cur:
+        json.dump({"updated":(j or {}).get("updated") or now_iso,"wired":now_iso,"list":merged},
+            open(ALERTS,"w"),ensure_ascii=False,indent=1)
+    print(f"🧵 سلكُ التحذيرات الحرّ: +{added} · طُهّر {purged} قديمًا (المجموع {len(merged)})")
+
+try: alerts_wire()
+except Exception as e: print("سلكُ التحذيرات تخطّى: "+str(e)[:80])
 
 # ═══════════════ سَنَد تحت المجهر: رصدُ الشائعات بسلسلة إسنادٍ ثلاثيّة ═══════════════
 # لا يُنشَر حكمٌ قاطعٌ إلا بما تتّفق عليه ثلاثةُ وكلاء: المُلتَقِط يجمع، والمُخرِّج يبحث
