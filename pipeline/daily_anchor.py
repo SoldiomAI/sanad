@@ -1369,9 +1369,11 @@ def alerts_wire():
     except Exception: j=None
     now=datetime.now(timezone.utc); now_iso=now.isoformat(timespec="minutes")
     _ARM=["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر"]
+    # بصمةٌ محليّة (_rid تُعرَّف لاحقًا في قسمِ الشائعات — السكربتُ تسلسليّ)
+    _h=lambda c: hashlib.md5(re.sub(r"\s+","",str(c or "")).encode("utf-8")).hexdigest()[:10]
     cur=(j or {}).get("list",[])
     for x in cur: x.setdefault("cap",now_iso)          # ختمُ التقاطٍ لعناصرِ المُنبِّه عند أوّل مرور
-    keep={_rid(x.get("txt","")):x for x in cur}
+    keep={_h(x.get("txt","")):x for x in cur}
     added=0
     for q in _ALERT_WIRE_Q:
         try:
@@ -1386,7 +1388,7 @@ def alerts_wire():
                 try: dt=parsedate_to_datetime(clean(it.findtext("pubDate",""))).astimezone(timezone.utc)
                 except Exception: continue
                 if (now-dt).total_seconds()>48*3600 or len(head)<20 or blocked(head): continue
-                rid=_rid(head)
+                rid=_h(head)
                 if rid in keep: continue
                 if any(_tok_sim(head,x.get("txt",""))>0.6 for x in keep.values()): continue
                 kd=dt+timedelta(hours=3)
