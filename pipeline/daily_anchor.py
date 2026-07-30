@@ -7,7 +7,7 @@ from datetime import datetime, timezone, timedelta
 
 GROK_KEY = os.environ.get("GROK_API_KEY",""); HF_TOKEN = os.environ.get("HF_TOKEN",""); GEMINI_KEY = os.environ.get("GEMINI_API_KEY",""); OUT="daily"; os.makedirs(OUT, exist_ok=True)
 TIER1=["centcom","kuna","كونا","mew_kwt","kff_kw","moi_bahrain","mofauae","mofaqatar","وكالة الأنباء الكويتية","reuters","رويترز","afp","فرانس برس","ap news","أسوشيتد","kuna","كونا","wam","وام","spa","واس","bna","qna","ona"]
-TIER2=["aljazeera","الجزيرة","alarabiya","العربية","skynews","سكاي نيوز","bbc","france24","cnn","alqabas","القبس","aljarida","الجريدة","alrai","الراي","kuwaittimes","arabtimes","gulfnews","thenational","alkhaleej","الخليج","aawsat","الشرق الأوسط","irna","ایرنا","إرنا","tasnim","تسنیم","تسنيم","mehr","مهر","fars","فارس","isna","ایسنا","العالم","press tv","khabaronline","خبرگزاری","iran international","ایران اینترنشنال","bbc persian","بی‌بی‌سی","همشهری","entekhab","اعتماد"]
+TIER2=["aljazeera","الجزيرة","alarabiya","العربية","skynews","سكاي نيوز","bbc","france24","cnn","alqabas","القبس","aljarida","الجريدة","alrai","الراي","kuwaittimes","arabtimes","gulfnews","thenational","alkhaleej","الخليج","aawsat","الشرق الأوسط","independentarabia","اندبندنت","إندبندنت","irna","ایرنا","إرنا","tasnim","تسنیم","تسنيم","mehr","مهر","fars","فارس","isna","ایسنا","العالم","press tv","khabaronline","خبرگزاری","iran international","ایران اینترنشنال","bbc persian","بی‌بی‌سی","همشهری","entekhab","اعتماد"]
 FEEDS=[("الخليج","https://news.google.com/rss/search?q=%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA+OR+%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9+OR+%D8%A7%D9%84%D8%A5%D9%85%D8%A7%D8%B1%D8%A7%D8%AA&hl=ar&gl=KW&ceid=KW:ar"),
        ("فلسطين","https://news.google.com/rss/search?q=%D8%BA%D8%B2%D8%A9+OR+%D9%81%D9%84%D8%B3%D8%B7%D9%8A%D9%86&hl=ar&gl=KW&ceid=KW:ar"),
        ("عالم","https://news.google.com/rss/headlines/section/topic/WORLD?hl=ar&gl=KW&ceid=KW:ar"),
@@ -27,7 +27,11 @@ FEEDS=[("الخليج","https://news.google.com/rss/search?q=%D8%A7%D9%84%D9%83%
        ("عالم","https://www.aljazeera.net/aljazeerarss"),
        ("الخليج","https://www.skynewsarabia.com/web/rss"),
        ("عالم","https://arabic.cnn.com/rss"),
-       ("الخليج","https://aawsat.com/feed")]
+       ("الخليج","https://aawsat.com/feed"),
+       ("عالم","https://www.independentarabia.com/rss.xml"),
+       # تعميقُ تغطيةِ الخليجِ عبر «أخبار غوغل» (تُصنَّف بدرجةِ المنفذِ الراوي نفسِه)
+       ("الخليج","https://news.google.com/rss/search?q=%D9%82%D8%B7%D8%B1%20OR%20%D8%A7%D9%84%D8%A8%D8%AD%D8%B1%D9%8A%D9%86%20OR%20%D8%B3%D9%84%D8%B7%D9%86%D8%A9%20%D8%B9%D9%85%D8%A7%D9%86&hl=ar&gl=KW&ceid=KW:ar"),
+       ("الخليج","https://news.google.com/rss/search?q=%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA%20%28%D9%85%D8%AC%D9%84%D8%B3%20%D8%A7%D9%84%D9%88%D8%B2%D8%B1%D8%A7%D8%A1%20OR%20%D9%88%D8%B2%D8%A7%D8%B1%D8%A9%20OR%20%D8%A7%D9%84%D8%AF%D9%8A%D9%88%D8%A7%D9%86%20%D8%A7%D9%84%D8%A3%D9%85%D9%8A%D8%B1%D9%8A%20OR%20%D8%A5%D8%B9%D8%B5%D8%A7%D8%B1%20OR%20%D8%B7%D9%88%D8%A7%D8%B1%D8%A6%29&hl=ar&gl=KW&ceid=KW:ar")]
 
 # مصادر إيران: الاسم المعتمد وهوية الجهة — تُعرض للقارئ صراحةً
 EN_SRC={
@@ -59,6 +63,7 @@ DIRECT_SRC={
  "skynewsarabia.com":("سكاي نيوز عربية","قناة إخبارية إماراتية بريطانية","حسن"),
  "arabic.cnn.com":("CNN بالعربية","شبكة إخبارية أمريكية","حسن"),
  "aawsat.com":("الشرق الأوسط","صحيفة عربية دولية","حسن"),
+ "independentarabia.com":("اندبندنت عربية","نسخة عربية من الإندبندنت البريطانية","حسن"),
 }
 def direct_meta(url):
     for k,v in DIRECT_SRC.items():
