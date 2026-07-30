@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>سَنَد للمؤسسات · مِرصادُ التوتّر — دخول</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0A0E16">
+<link rel="icon" href="/icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A0E16;--bg2:#101624;--card:#141B2B;--line:#232C40;--txt:#E9E4D8;--mut:#9AA3B5;--dim:#6B7488;
+ --gold:#C9A227;--gold-l:#E3C55C;--seal:#C34250;--verify:#3E9B72;--tense:#D07A2E;--lapis:#5B84C4;
+ --kufi:'Noto Kufi Arabic',system-ui,sans-serif;--amiri:'Amiri',serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:radial-gradient(130% 120% at 50% -10%,#141C2B,var(--bg));color:var(--txt);font-family:var(--kufi);font-size:14px;min-height:100vh}
+a{color:var(--gold-l)}
+#gate{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.card{width:100%;max-width:420px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px 26px;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+.brand{display:flex;align-items:center;gap:10px;font-size:20px;margin-bottom:4px}
+.brand b{color:var(--gold-l)}
+.ent{font-size:11px;font-weight:700;color:var(--gold-l);border:1px solid var(--gold);border-radius:20px;padding:1px 9px}
+.sub{color:var(--mut);font-size:12.5px;line-height:1.8;margin:10px 0 22px}
+label{display:block;font-size:12px;color:var(--mut);margin:14px 0 6px}
+input[type=email]{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:11px 13px;color:var(--txt);font-family:var(--kufi);font-size:14px}
+input:focus{outline:none;border-color:var(--gold)}
+.btn{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--gold);color:#1A1206;border:none;border-radius:10px;padding:12px;font-family:var(--kufi);font-size:14px;font-weight:700;cursor:pointer;margin-top:12px}
+.btn:hover{background:var(--gold-l)}
+.btn.ghost{background:var(--bg2);color:var(--txt);border:1px solid var(--line)}
+.btn.ghost:hover{border-color:var(--gold)}
+.btn:disabled{opacity:.5;cursor:default}
+.or{display:flex;align-items:center;gap:10px;color:var(--dim);font-size:11px;margin:18px 0}
+.or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
+.msg{margin-top:14px;font-size:12.5px;line-height:1.8;padding:10px 12px;border-radius:10px;display:none}
+.msg.ok{display:block;background:rgba(62,155,114,.12);border:1px solid rgba(62,155,114,.4);color:#9Fe0be}
+.msg.err{display:block;background:rgba(195,66,80,.12);border:1px solid rgba(195,66,80,.4);color:#e79ba4}
+.msg.info{display:block;background:rgba(201,162,39,.1);border:1px solid rgba(201,162,39,.35);color:var(--gold-l)}
+.foot{margin-top:20px;font-size:10.5px;color:var(--dim);line-height:1.8;text-align:center}
+.foot a{color:var(--dim)}
+
+/* dashboard */
+#app{display:none;min-height:100vh;flex-direction:column}
+#top{display:flex;align-items:center;gap:14px;padding:11px 20px;background:linear-gradient(180deg,var(--bg2),var(--bg));border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+#top .who{margin-inline-start:auto;font-size:12px;color:var(--mut)}
+#top .who b{color:var(--gold-l)}
+.lo{background:var(--card);border:1px solid var(--line);border-radius:8px;color:var(--txt);padding:6px 12px;font-family:var(--kufi);font-size:12px;cursor:pointer}
+.lo:hover{border-color:var(--seal)}
+main{padding:18px 20px;max-width:1180px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.panel.wide{grid-column:1/-1}
+.panel h3{font-size:13.5px;color:var(--gold-l);margin-bottom:12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.panel h3 .tag{font-size:10px;font-weight:700;color:var(--dim);border:1px solid var(--line);border-radius:20px;padding:1px 8px}
+.note{font-size:10.5px;color:var(--dim);line-height:1.8;margin-top:12px}
+.trow{display:flex;align-items:center;gap:9px;padding:6px 4px}
+.trow .tn{width:96px;flex:none;font-size:13px;font-weight:600}
+.trow .tb{flex:1;height:8px;background:var(--bg);border-radius:6px;overflow:hidden}
+.trow .tb i{display:block;height:100%;border-radius:6px;font-style:normal}
+.trow .ts{width:30px;text-align:center;font-size:13px;font-weight:700}
+.trow .spark{width:110px;height:22px;flex:none}
+.hbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.hbar button{background:var(--bg2);border:1px solid var(--line);color:var(--mut);border-radius:8px;padding:5px 11px;font-family:var(--kufi);font-size:12px;cursor:pointer}
+.hbar button.on{border-color:var(--gold);color:var(--gold-l)}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th,td{text-align:start;padding:7px 8px;border-bottom:1px solid var(--line)}
+th{color:var(--dim);font-weight:600;font-size:11px}
+.kchip{font-family:ui-monospace,monospace;font-size:11.5px;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:2px 7px}
+.revoke{background:none;border:1px solid rgba(195,66,80,.4);color:#e79ba4;border-radius:6px;padding:3px 9px;font-size:11px;cursor:pointer;font-family:var(--kufi)}
+.mini{background:var(--bg2);border:1px solid var(--line);color:var(--txt);border-radius:8px;padding:7px 12px;font-family:var(--kufi);font-size:12.5px;cursor:pointer}
+.mini:hover{border-color:var(--gold)}
+.reveal{margin-top:10px;font-family:ui-monospace,monospace;font-size:12px;background:var(--bg);border:1px dashed var(--gold);border-radius:8px;padding:10px;word-break:break-all;color:var(--gold-l)}
+@media (max-width:820px){main{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="card">
+    <div class="brand">🛡️ <span>سَنَد <b>للمؤسسات</b></span> <span class="ent">Enterprise</span></div>
+    <p class="sub">بوّابةٌ محميّةٌ لطبقةِ <b style="color:var(--txt)">مِرصادِ التوتّر</b>: تاريخُ المؤشر، التصدير، مفاتيحُ API، وسجلُّ التدقيق. الوصولُ <b style="color:var(--txt)">بدعوةٍ فقط</b>.</p>
+
+    <label for="em">البريدُ المؤسّسي</label>
+    <input id="em" type="email" placeholder="you@organization.gov" autocomplete="email">
+    <button class="btn" id="magic">✉️ أرسِلْ رابطَ الدخول</button>
+
+    <div class="or">أو</div>
+    <button class="btn ghost" id="google">الدخول عبر Google</button>
+    <button class="btn ghost" id="ms">الدخول عبر Microsoft</button>
+
+    <div class="msg" id="msg"></div>
+    <div class="foot">محميٌّ بمصادقةِ سَنَد. لا تُخزَّن كلماتُ مرور.<br><a href="https://www.isnad.news">← العودة إلى سَنَد</a></div>
+  </div>
+</div>
+
+<div id="app">
+  <header id="top">
+    <span class="brand" style="font-size:16px">🛡️ سَنَد <b>للمؤسسات</b></span>
+    <span class="ent">مِرصادُ التوتّر</span>
+    <span class="who" id="who"></span>
+    <button class="lo" id="logout">خروج</button>
+  </header>
+  <main>
+    <section class="panel wide">
+      <h3>مؤشّرُ عدم الاستقرار الإقليميّ <span class="tag" id="liveTag">حيّ</span></h3>
+      <div id="idx"></div>
+      <div class="note">مؤشرٌ حسابيٌّ شفّافٌ من كثافةِ الموادِّ المُسنَدة — الرقمُ الحاليُّ حيٌّ من سَنَد، والخطُّ المصغّرُ تاريخُ آخرِ القياسات. ليس تقييمًا استخباراتيًّا رسميًّا.</div>
+    </section>
+
+    <section class="panel">
+      <h3>التصدير</h3>
+      <p class="note" style="margin-top:0">صدِّرْ تاريخَ المؤشرِ لمؤسستك.</p>
+      <div style="display:flex;gap:9px;margin-top:12px">
+        <button class="mini" id="expCsv">⬇︎ CSV</button>
+        <button class="mini" id="expJson">⬇︎ JSON</button>
+      </div>
+      <div class="note" id="expInfo"></div>
+    </section>
+
+    <section class="panel">
+      <h3>مفاتيح API <span class="tag">للأنظمة</span></h3>
+      <p class="note" style="margin-top:0">لاستعلامِ المؤشرِ برمجيًّا عبر نقطةِ سَنَد.</p>
+      <div style="display:flex;gap:8px;margin-top:10px">
+        <input id="keyName" type="email" placeholder="اسمُ المفتاح (مثال: نظام العمليات)" style="flex:1">
+        <button class="mini" id="genKey">توليد</button>
+      </div>
+      <div class="reveal" id="keyReveal" style="display:none"></div>
+      <table id="keysTbl" style="margin-top:12px"><thead><tr><th>الاسم</th><th>البادئة</th><th></th></tr></thead><tbody></tbody></table>
+    </section>
+
+    <section class="panel wide">
+      <h3>سجلُّ التدقيق <span class="tag">آخر ٢٥</span></h3>
+      <table id="auditTbl"><thead><tr><th>الوقت</th><th>الإجراء</th><th>الهدف</th><th>المستخدم</th></tr></thead><tbody></tbody></table>
+    </section>
+  </main>
+</div>
+
+<script type="module">
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+const SB_URL = "https://uewqsczvyglahnqjhuvx.supabase.co";
+const SB_KEY = "sb_publishable_vkQkzJ5s86bWd7lxPSeGTA_xNoahNaV";
+const API_FN = SB_URL + "/functions/v1/sanad-enterprise-api";
+const RAW = "https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/";
+const sb = createClient(SB_URL, SB_KEY);
+
+const esc = s => String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const $ = id => document.getElementById(id);
+const band = s => s>=75?"#9E2B37":s>=50?"#D07A2E":s>=25?"#C9A227":"#3E9B72";
+function showMsg(t,cls){ const m=$("msg"); m.className="msg "+cls; m.textContent=t; }
+
+// ── auth screen ──
+$("magic").onclick = async () => {
+  const email = $("em").value.trim();
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ showMsg("أدخِلْ بريدًا صحيحًا.","err"); return; }
+  $("magic").disabled=true;
+  const { error } = await sb.auth.signInWithOtp({ email, options:{ emailRedirectTo: location.origin + "/enterprise" } });
+  $("magic").disabled=false;
+  if(error) showMsg("تعذّر الإرسال: "+error.message,"err");
+  else showMsg("أرسلنا رابطَ الدخول إلى بريدك. افتحه من هذا الجهاز.","ok");
+};
+$("google").onclick = () => sb.auth.signInWithOAuth({ provider:"google", options:{ redirectTo: location.origin + "/enterprise" } });
+$("ms").onclick     = () => sb.auth.signInWithOAuth({ provider:"azure", options:{ scopes:"email", redirectTo: location.origin + "/enterprise" } });
+
+let ORG=null, ROLE=null, USER=null;
+
+async function boot(){
+  const { data:{ session } } = await sb.auth.getSession();
+  if(!session){ $("gate").style.display="flex"; $("app").style.display="none"; return; }
+  USER = session.user;
+  // membership check → invite-only gate
+  const { data: orgs } = await sb.from("sanad_orgs").select("id,name").limit(1);
+  if(!orgs || !orgs.length){
+    $("gate").style.display="flex"; $("app").style.display="none";
+    showMsg("هذا الحسابُ ("+esc(USER.email)+") ليس مدعوًّا بعد. الوصولُ بدعوةٍ فقط — تواصلْ مع مؤسستك أو مسؤولِ سَنَد.","info");
+    return;
+  }
+  ORG = orgs[0];
+  const { data: mem } = await sb.from("sanad_members").select("role").eq("org_id",ORG.id).eq("user_id",USER.id).maybeSingle();
+  ROLE = mem?.role || "viewer";
+  $("gate").style.display="none"; $("app").style.display="flex";
+  $("who").innerHTML = esc(USER.email)+" · <b>"+esc(ORG.name)+"</b> · "+esc(ROLE);
+  await sb.from("sanad_audit_log").insert({ org_id:ORG.id, user_id:USER.id, action:"portal_view", target:"dashboard", meta:{} });
+  await Promise.all([renderIndex(), renderKeys(), renderAudit()]);
+}
+$("logout").onclick = async () => { await sb.auth.signOut(); location.reload(); };
+
+// ── instability index: live number (public bundle) + sparkline (Supabase history) ──
+let LIVE=[], HISTORY={};
+async function renderIndex(){
+  try{ const r=await fetch(RAW+"tension.json?t="+Date.now()); LIVE=(await r.json()).countries||[]; }catch(e){ LIVE=[]; }
+  const { data: hist } = await sb.from("sanad_tension_history")
+    .select("country_id,score,ts").order("ts",{ascending:false}).limit(600);
+  HISTORY={}; (hist||[]).forEach(h=>{ (HISTORY[h.country_id]=HISTORY[h.country_id]||[]).push(h.score); });
+  $("idx").innerHTML = LIVE.map(c=>{
+    const hs=(HISTORY[c.id]||[]).slice(0,40).reverse();
+    return `<div class="trow"><span class="tn">${esc(c.name)}</span>
+      <span class="tb"><i style="width:${Math.max(3,c.score)}%;background:${band(c.score)}"></i></span>
+      <span class="ts" style="color:${band(c.score)}">${c.score}</span>
+      <span class="spark">${spark(hs)}</span></div>`;
+  }).join("") || '<div class="note">لا بيانات.</div>';
+}
+function spark(vals){
+  if(!vals.length) return '<svg viewBox="0 0 110 22"></svg>';
+  const w=110,h=22,mx=100,pts=vals.map((v,i)=>[(i/(Math.max(1,vals.length-1)))*w, h-2-(Math.max(0,Math.min(mx,v))/mx)*(h-4)]);
+  const d="M"+pts.map(p=>p[0].toFixed(1)+","+p[1].toFixed(1)).join(" L");
+  const last=vals[vals.length-1];
+  return `<svg viewBox="0 0 ${w} ${h}"><path d="${d}" fill="none" stroke="${band(last)}" stroke-width="1.4"/></svg>`;
+}
+
+// ── export ──
+async function fetchHistory(){
+  const { data } = await sb.from("sanad_tension_history")
+    .select("ts,country_id,score,level,parts").order("ts",{ascending:false}).limit(5000);
+  return data||[];
+}
+function dl(name, text, mime){
+  const b=new Blob([text],{type:mime}); const u=URL.createObjectURL(b);
+  const a=document.createElement("a"); a.href=u; a.download=name; a.click(); URL.revokeObjectURL(u);
+}
+$("expJson").onclick = async () => {
+  const rows=await fetchHistory(); dl("sanad-tension.json", JSON.stringify(rows,null,1), "application/json");
+  $("expInfo").textContent = rows.length+" صفًّا صُدِّر (JSON).";
+  await sb.from("sanad_audit_log").insert({org_id:ORG.id,user_id:USER.id,action:"export",target:"json",meta:{rows:rows.length}});
+};
+$("expCsv").onclick = async () => {
+  const rows=await fetchHistory();
+  const head="ts,country_id,score,level\n";
+  const body=rows.map(r=>[r.ts,r.country_id,r.score,r.level].map(x=>`"${String(x==null?"":x).replace(/"/g,'""')}"`).join(",")).join("\n");
+  dl("sanad-tension.csv", head+body, "text/csv");
+  $("expInfo").textContent = rows.length+" صفًّا صُدِّر (CSV).";
+  await sb.from("sanad_audit_log").insert({org_id:ORG.id,user_id:USER.id,action:"export",target:"csv",meta:{rows:rows.length}});
+};
+
+// ── API keys ──
+async function sha256hex(s){ const d=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));
+  return [...new Uint8Array(d)].map(b=>b.toString(16).padStart(2,"0")).join(""); }
+async function renderKeys(){
+  const admin = ROLE==="owner"||ROLE==="admin";
+  $("genKey").disabled=!admin; $("keyName").disabled=!admin;
+  const { data } = await sb.from("sanad_api_keys").select("id,name,prefix,revoked,last_used").order("created_at",{ascending:false});
+  $("keysTbl").querySelector("tbody").innerHTML = (data||[]).map(k=>
+    `<tr style="${k.revoked?'opacity:.45':''}"><td>${esc(k.name||"—")}</td><td><span class="kchip">${esc(k.prefix)}…</span></td>
+     <td>${k.revoked?'<span class="note">مُبطَل</span>':(admin?`<button class="revoke" data-id="${esc(k.id)}">إبطال</button>`:'')}</td></tr>`).join("")
+     || '<tr><td colspan="3" class="note">لا مفاتيح بعد.</td></tr>';
+  $("keysTbl").querySelectorAll(".revoke").forEach(b=>b.onclick=async()=>{
+    await sb.from("sanad_api_keys").update({revoked:true}).eq("id",b.dataset.id);
+    await sb.from("sanad_audit_log").insert({org_id:ORG.id,user_id:USER.id,action:"api_key_revoke",target:b.dataset.id,meta:{}});
+    renderKeys();
+  });
+}
+$("genKey").onclick = async () => {
+  const raw="sk_"+[...crypto.getRandomValues(new Uint8Array(24))].map(b=>b.toString(16).padStart(2,"0")).join("");
+  const hash=await sha256hex(raw), prefix=raw.slice(0,10);
+  const { error } = await sb.from("sanad_api_keys").insert({org_id:ORG.id,hash,prefix,name:$("keyName").value.trim()||"مفتاح",created_by:USER.id});
+  if(error){ alert("تعذّر التوليد: "+error.message); return; }
+  const rev=$("keyReveal"); rev.style.display="block";
+  rev.innerHTML="مفتاحُك (يُعرَض مرّةً واحدة — انسخه الآن):<br>"+esc(raw)+
+    `<br><span class="note">الاستعلام: curl -H "x-api-key: ${esc(raw)}" ${esc(API_FN)}</span>`;
+  $("keyName").value="";
+  await sb.from("sanad_audit_log").insert({org_id:ORG.id,user_id:USER.id,action:"api_key_create",target:prefix,meta:{}});
+  renderKeys();
+};
+
+// ── audit ──
+async function renderAudit(){
+  const { data } = await sb.from("sanad_audit_log").select("at,action,target,user_id").order("at",{ascending:false}).limit(25);
+  const fmt=t=>{try{return new Date(t).toLocaleString("ar-KW",{dateStyle:"short",timeStyle:"short"})}catch(e){return""}};
+  $("auditTbl").querySelector("tbody").innerHTML=(data||[]).map(a=>
+    `<tr><td>${esc(fmt(a.at))}</td><td>${esc(a.action)}</td><td>${esc(a.target||"")}</td><td class="note">${esc((a.user_id||"—").slice(0,8))}</td></tr>`).join("")
+    || '<tr><td colspan="4" class="note">لا سجلّ بعد (للمدراء فقط).</td></tr>';
+}
+
+sb.auth.onAuthStateChange((_e,_s)=>{ boot(); });
+boot();
+</script>
+</body>
+</html>
