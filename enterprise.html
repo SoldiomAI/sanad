@@ -130,6 +130,19 @@ th{color:var(--dim);font-weight:600;font-size:11px}
     </section>
 
     <section class="panel wide">
+      <h3>قوائمُ المتابعة <span class="tag">تنبيهُ التجاوز</span></h3>
+      <p class="note" style="margin-top:0">تابِعْ دولًا بعتبةِ توتّرٍ محدَّدة — تُبرَزُ الدولُ المتجاوزةُ الآن، وتُسجَّلُ للتنبيهِ الآليّ (قيدُ التفعيل).</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;align-items:center">
+        <input id="wlName" type="email" placeholder="اسمُ القائمة (مثال: جوارُ الكويت)" style="flex:1;min-width:160px">
+        <input id="wlCountries" type="email" placeholder="رموزُ الدول: kw,ir,iq" style="flex:1;min-width:140px">
+        <input id="wlThresh" type="email" inputmode="numeric" placeholder="العتبة ٥٠" style="width:90px">
+        <button class="mini" id="wlAdd">إضافة</button>
+      </div>
+      <div class="note" id="wlHint">الرموز: kw السعودية=sa الإمارات=ae قطر=qa البحرين=bh عُمان=om العراق=iq إيران=ir اليمن=ye فلسطين=ps</div>
+      <table id="wlTbl" style="margin-top:10px"><thead><tr><th>القائمة</th><th>الدول</th><th>العتبة</th><th>الحالة الآن</th><th></th></tr></thead><tbody></tbody></table>
+    </section>
+
+    <section class="panel wide">
       <h3>سجلُّ التدقيق <span class="tag">آخر ٢٥</span></h3>
       <table id="auditTbl"><thead><tr><th>الوقت</th><th>الإجراء</th><th>الهدف</th><th>المستخدم</th></tr></thead><tbody></tbody></table>
     </section>
@@ -182,7 +195,8 @@ async function boot(){
   $("gate").style.display="none"; $("app").style.display="flex";
   $("who").innerHTML = esc(USER.email)+" · <b>"+esc(ORG.name)+"</b> · "+esc(ROLE);
   await sb.from("sanad_audit_log").insert({ org_id:ORG.id, user_id:USER.id, action:"portal_view", target:"dashboard", meta:{} });
-  await Promise.all([renderIndex(), renderKeys(), renderAudit()]);
+  await renderIndex();
+  await Promise.all([renderKeys(), renderWatch(), renderAudit()]);
 }
 $("logout").onclick = async () => { await sb.auth.signOut(); location.reload(); };
 
@@ -261,6 +275,39 @@ $("genKey").onclick = async () => {
   $("keyName").value="";
   await sb.from("sanad_audit_log").insert({org_id:ORG.id,user_id:USER.id,action:"api_key_create",target:prefix,meta:{}});
   renderKeys();
+};
+
+// ── watchlists: CRUD + live threshold-breach status ──
+function liveScore(id){ const c=LIVE.find(x=>x.id===id); return c?c.score:null; }
+async function renderWatch(){
+  const canWrite = ROLE==="owner"||ROLE==="admin"||ROLE==="analyst";
+  $("wlAdd").disabled=!canWrite; $("wlName").disabled=!canWrite;
+  const { data } = await sb.from("sanad_watchlists").select("id,name,countries,threshold").order("created_at",{ascending:false});
+  $("wlTbl").querySelector("tbody").innerHTML = (data||[]).map(w=>{
+    const breach=(w.countries||[]).filter(id=>{const s=liveScore(id);return s!=null&&s>=w.threshold;});
+    const status = breach.length
+      ? `<span style="color:var(--tense);font-weight:700">⚠ تجاوزت: ${esc(breach.map(id=>{const c=LIVE.find(x=>x.id===id);return c?c.name:id;}).join("، "))}</span>`
+      : `<span style="color:var(--verify)">ضمن العتبة</span>`;
+    return `<tr><td>${esc(w.name)}</td><td class="note">${esc((w.countries||[]).join(", "))}</td>
+      <td>${esc(w.threshold)}</td><td>${status}</td>
+      <td>${canWrite?`<button class="revoke" data-wl="${esc(w.id)}">حذف</button>`:''}</td></tr>`;
+  }).join("") || '<tr><td colspan="5" class="note">لا قوائمَ بعد.</td></tr>';
+  $("wlTbl").querySelectorAll("[data-wl]").forEach(b=>b.onclick=async()=>{
+    await sb.from("sanad_watchlists").delete().eq("id",b.dataset.wl);
+    await sb.from("sanad_audit_log").insert({org_id:ORG.id,user_id:USER.id,action:"watchlist_delete",target:b.dataset.wl,meta:{}});
+    renderWatch();
+  });
+}
+$("wlAdd").onclick = async () => {
+  const name=$("wlName").value.trim();
+  const countries=$("wlCountries").value.split(",").map(s=>s.trim().toLowerCase()).filter(Boolean);
+  const threshold=Math.max(1,Math.min(100,parseInt($("wlThresh").value,10)||50));
+  if(!name||!countries.length){ alert("أدخِلْ اسمًا ورموزَ دولٍ (kw,ir,…)."); return; }
+  const { error } = await sb.from("sanad_watchlists").insert({org_id:ORG.id,owner:USER.id,name,countries,keywords:[],threshold});
+  if(error){ alert("تعذّر: "+error.message); return; }
+  $("wlName").value=""; $("wlCountries").value=""; $("wlThresh").value="";
+  await sb.from("sanad_audit_log").insert({org_id:ORG.id,user_id:USER.id,action:"watchlist_create",target:name,meta:{countries,threshold}});
+  renderWatch();
 };
 
 // ── audit ──
