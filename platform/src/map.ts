@@ -3,6 +3,7 @@
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import type { Tension, CountryTension } from "./data";
+import { WORLD_URL } from "./data";
 import { esc } from "./esc";
 
 // ربطُ دولِ المِقياس بأكواد Natural Earth (adm0_a3)
@@ -25,7 +26,7 @@ export function initFlat(el: HTMLElement, tension: Tension | null,
     style: {
       version: 8,
       glyphs: "https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf",
-      sources: { world: { type: "geojson", data: "./world.geojson" } },
+      sources: { world: { type: "geojson", data: WORLD_URL } },
       layers: [
         { id: "bg", type: "background", paint: { "background-color": "#0A0E16" } },
         {

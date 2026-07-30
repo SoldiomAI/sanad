@@ -2,6 +2,7 @@
 // تُلوَّن مضلّعاتُ دولِ المِقياس بمستوياتها، والنقاطُ أعمدةُ ضوءٍ بالمؤشر.
 import Globe from "globe.gl";
 import type { Tension, CountryTension } from "./data";
+import { WORLD_URL } from "./data";
 import { BAND } from "./map";
 
 const A3: Record<string, string> = {
@@ -13,7 +14,7 @@ export interface GlobeApi { start(): void; stop(): void }
 
 export async function initGlobe(el: HTMLElement, tension: Tension | null,
   onPick: (c: CountryTension) => void): Promise<GlobeApi> {
-  const world = await fetch("./world.geojson").then((r) => r.json());
+  const world = await fetch(WORLD_URL).then((r) => r.json());
   const byA3 = new Map<string, CountryTension>();
   for (const c of tension?.countries || []) byA3.set(A3[c.id] || "", c);
 
