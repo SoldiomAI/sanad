@@ -412,6 +412,9 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .oped-au{width:100%;height:34px;margin:4px 0 10px}
 .thm{cursor:pointer;font-size:15px;color:var(--mut);padding:2px 7px;border-radius:6px;user-select:none}
 .thm:hover{color:var(--gold-l);background:rgba(201,162,39,.1)}
+.mirsad{display:inline-flex;align-items:center;gap:4px;text-decoration:none;font-size:12px;font-weight:600;color:var(--gold-l);border:1px solid var(--gold);border-radius:20px;padding:2px 10px;margin-inline-end:4px}
+.mirsad:hover{background:rgba(201,162,39,.14)}
+.mirsad b{font-size:9px;font-weight:700;opacity:.75;border-inline-start:1px solid var(--gold);padding-inline-start:4px}
 .beta{font-size:9.5px;font-weight:700;color:var(--gold-l);border:1px solid rgba(201,162,39,.5);
   border-radius:20px;padding:2px 9px;background:rgba(201,162,39,.08);letter-spacing:.02em}
 .ai-pulse{font-family:'Noto Kufi Arabic',sans-serif;font-size:11px;color:var(--mut);margin-top:9px;
@@ -650,7 +653,7 @@ html[data-lng=en] .ennote{display:block}
 <div class="sadu"></div>
 <div class="topbar"><div class="wrap topbar-in">
   <span class="brand">🛡️ <span class="gold">سَنَد</span></span>
-  <span class="thm" onclick="lngFlip()" title="English / العربية" id="lngBtn">EN</span><span class="thm" onclick="thmFlip()" title="الوضع الداكن/الفاتح">◐</span><span class="live"><span class="dot"></span> بث مُسنَد · <span id="upd">…</span></span>
+  <a class="mirsad" href="https://sanad-mirsad.vercel.app" target="_blank" rel="noopener" title="مِرصاد سَنَد — منصة الوعي الموقفي">🛰️ المِرصاد <b>تجريبي</b></a><span class="thm" onclick="lngFlip()" title="English / العربية" id="lngBtn">EN</span><span class="thm" onclick="thmFlip()" title="الوضع الداكن/الفاتح">◐</span><span class="live"><span class="dot"></span> بث مُسنَد · <span id="upd">…</span></span>
 </div><div class="livebar"><i></i></div><div class="ticker-box"><div class="ticker" id="ticker">يجري تحميل آخر الأخبار…</div></div></div>
 
 <div class="wrap">
