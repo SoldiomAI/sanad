@@ -82,8 +82,9 @@ body{background:var(--ink);color:var(--txt);font-family:'IBM Plex Sans Arabic',s
   .rail>div{margin-bottom:var(--s4)}
 }
 ::selection{background:rgba(201,162,39,.3);color:#1F242E}
-a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:4px}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,.trow:focus-visible,.crow:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:4px}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}
   /* بلا حركةٍ يبقى الشريطُ مقروءًا لا فارغًا: نُلغي دفعَه خارجَ الشاشة ونُتيحُ التمرير */
   .ticker{padding-inline-start:0!important;overflow-x:auto;max-width:100%}}
 .amiri{font-family:'Amiri',serif}
@@ -683,7 +684,9 @@ html[data-lng=en] .ennote{display:block}
 .mx-note{font-size:11.5px;line-height:1.85;color:var(--dim);border-top:1px dashed var(--border);padding-top:var(--s2)}
 /* لمساتُ الجوّال: أهدافُ لمسٍ أوسع وقراءةٌ أوضح للجمهور الإخباري */
 @media(max-width:640px){
-  .tab{min-height:38px;display:inline-flex;align-items:center}
+  .tab{min-height:44px;display:inline-flex;align-items:center}
+  .tens-lead{font-size:12px}
+  .trow{padding:8px 6px}
   .btn{min-height:46px;display:inline-flex;align-items:center;justify-content:center}
   .method{gap:5px}
   .pill{padding:6px 11px}
@@ -1280,15 +1283,17 @@ function renderTensionRows(){
   const L=document.getElementById("tensL"); if(!TDATA) return;
   L.innerHTML=(TDATA.countries||[]).map(c=>{
     const d=c.delta||0, nm=EN?(c.en||c.name):c.name;
-    return `<div class="trow ${TSEL===c.id?"on":""}" data-tid="${esc(c.id)}">
+    return `<div class="trow ${TSEL===c.id?"on":""}" data-tid="${esc(c.id)}" tabindex="0" role="button" aria-label="${esc(nm)} ${c.score}">
       <span class="tn">${esc(nm)}</span>
       <span class="tb"><i style="width:${Math.max(3,c.score)}%;background:${tBand(c.score)}"></i></span>
       <span class="ts" style="color:${tBand(c.score)}">${c.score}</span>
       <span class="td ${d>0?"up":d<0?"dn":""}">${d>0?"▲"+d:d<0?"▼"+(-d):"–"}</span></div>`;
   }).join("");
-  L.querySelectorAll(".trow").forEach(r=>r.onclick=()=>{
-    const c=(TDATA.countries||[]).find(x=>x.id===r.dataset.tid);
-    if(c) renderTensionDetail(TSEL===c.id?null:c);
+  L.querySelectorAll(".trow").forEach(r=>{
+    const pick=()=>{const c=(TDATA.countries||[]).find(x=>x.id===r.dataset.tid);
+      if(c) renderTensionDetail(TSEL===c.id?null:c);};
+    r.onclick=pick;
+    r.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();pick();}};
   });
 }
 async function renderTension(){
