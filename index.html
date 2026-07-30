@@ -846,15 +846,8 @@ html[data-lng=en] .ennote{display:block}
     <div class="note">مسارٌ مستقلٌّ عن النشرة. نرصدُ الشائعةَ ونحكمُ عليها، ونُثبّتُ متى رُصدتْ ومتى حُسمت — ولا نُبدّلُ حكمًا في صمت.</div>
   </div>
 
-  <div id="tensWrap" style="display:none">
-    <div class="sec-h">مِرصادُ التوتّر · طبقةُ الاستخبارات <span class="beta">تجريبي</span></div>
-    <div class="tens-lead"><span class="aichip">✨ ذكاء سَنَد</span> مؤشرٌ حسابيٌّ شفّافٌ يُقرأ من <b>كثافةِ الموادِّ المُسنَدةِ</b> وحدَها — لكلِّ رقمٍ تفكيكُه المعلَن. ليس تقييمًا رسميًّا.</div>
-    <div class="tens-map"><svg id="tensSvg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" role="img" aria-label="خريطةُ التوتّر الإقليمي"></svg></div>
-    <div class="tens-legend" id="tensLeg"></div>
-    <div id="tensL"></div>
-    <div id="tensDetail" class="tens-detail" style="display:none"></div>
-    <div class="note">من <b>المِقياس 🌡️</b>: عاجل × ٤ + ألفاظ تصعيد × ٣ + تحذيرات رسمية × ٨ + شائعات × ٤ + بقيّة الأخبار × ٢ + بيانات رسمية — بحدٍّ أقصى ١٠٠. الأرقامُ ترتفعُ وتنخفضُ مع طزاجةِ الرصد.</div>
-  </div>
+  <!-- مِرصادُ التوتّر (طبقةُ الاستخبارات) نُقِل إلى بوّابةِ المؤسسات فقط (/enterprise) —
+       الاستخباراتُ للمؤسسات لا للعامّة. القارئُ العامُّ يرى الأخبارَ المُسنَدةَ ومسارَ المِجهر. -->
 
   <details class="meth" id="guideBox">
     <summary style="cursor:pointer;font-size:13px;font-weight:700;color:var(--gold-l)">🛡️ كيف تتحقّق قبل أن تنشُر؟</summary>
@@ -1503,7 +1496,7 @@ async function load(){
       </div>`}).join("");
     microWrap.style.display="block";
   }catch(e){}
-  try{ await renderTension(); }catch(e){}
+  // مِرصادُ التوتّر (طبقةُ الاستخبارات) للمؤسسات فقط — لا يُعرَض في الصفحةِ العامّة.
   try{
     const o=await grab("official");
     if(!(o.src||[]).length) throw 0;
