@@ -479,6 +479,13 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .tg{font-size:9px;font-weight:700;border-radius:20px;padding:1px 6px;border:1px solid}
 .tg.s{color:var(--verify-l);border-color:rgba(62,155,114,.5)} .tg.h{color:var(--gold-l);border-color:rgba(201,162,39,.5)}
 .tg.d{color:var(--seal-l);border-color:rgba(158,43,55,.4)}
+.sigh{color:var(--lapis)}
+.signote{font-size:10px;color:var(--dim);margin:4px 0 6px;line-height:1.6}
+.sigrow{padding:6px 0;border-bottom:1px dashed var(--border);font-size:12px;line-height:1.7;display:flex;flex-wrap:wrap;gap:4px 8px;align-items:baseline}
+.sigrow:last-child{border-bottom:none}
+.sigrow .sk{font-size:9.5px;font-weight:700;color:var(--lapis);border:1px solid rgba(74,124,199,.3);border-radius:20px;padding:1px 7px;white-space:nowrap}
+.sigrow a{color:var(--txt);text-decoration:none}.sigrow a:hover{color:var(--gold-l)}
+.sigrow .sm{font-size:10px;color:var(--dim)}
 @media (max-width:640px){.trow .tn{width:66px;font-size:12px}.tens-map svg{max-height:260px}}
 html[data-lng=en] #corrWrap,html[data-lng=en] #methBox,html[data-lng=en] #guideBox,
 html[data-lng=en] #subscribe,html[data-lng=en] #ledWrap,html[data-lng=en] #alertWrap,
@@ -1264,6 +1271,7 @@ async function tGetWorld(){
 let TSEL=null, TDATA=null;
 function tGrade(g){return g==="صحيح"?"s":g==="حسن"?"h":"d"}
 function tGradeTxt(g){return EN?(g==="صحيح"?"Verified ✓":g==="حسن"?"Credible":"Weak chain"):g}
+function tSig(k){return ({quake:["〰️","زلزال","Seismic"],flight:["✈️","طيران","Aviation"],fire:["🔥","بؤرة حراريّة","Thermal"],conflict:["💥","نزاع","Conflict"]})[k]||["🛰️",k,k]}
 function renderTensionDetail(c){
   const D=document.getElementById("tensDetail");
   if(!c){D.style.display="none";TSEL=null;renderTensionRows();return;}
@@ -1273,9 +1281,14 @@ function renderTensionDetail(c){
     [EN?"rumors":"شائعات",p.r],[EN?"news":"أخبار",p.n],[EN?"official":"بيانات رسمية",p.o]];
   const evs=(c.events||[]).map(e=>`<div class="tev"><a href="${safeUrl(e.u)}" target="_blank" rel="noopener">${esc(EN?(e.he||e.h):e.h)}</a>
      <div class="m"><span class="tg ${tGrade(e.g)}">${esc(tGradeTxt(e.g))}</span><span>${esc(e.src||"")}</span></div></div>`).join("");
+  const sgs=(c.signals||[]).map(s=>{const m=tSig(s.kind);return `<div class="sigrow"><span class="sk">${esc(m[0])} ${esc(EN?m[2]:m[1])}</span>`
+    +(s.url?`<a href="${safeUrl(s.url)}" target="_blank" rel="noopener">${esc(s.detail||"")}</a>`:`<span>${esc(s.detail||"")}</span>`)
+    +`<span class="sm">${esc(s.src||"")}${s.at?" · "+esc(s.at):""}</span></div>`}).join("");
   D.innerHTML=`<h4>${esc(nm)}<span class="lv" style="color:${tBand(c.score)}">${c.score}/100 · ${esc(tLevel(c.score))}</span></h4>
     <div class="td-parts">${parts.map(([k,v])=>`<span class="p">${esc(k)}<b>${v||0}</b></span>`).join("")}</div>
-    ${evs?`<div class="td-evh">${esc(EN?"Today's verified items":"موادُّ اليومِ المُسنَدة")}</div>${evs}`:""}`;
+    ${evs?`<div class="td-evh">${esc(EN?"Today's verified items":"موادُّ اليومِ المُسنَدة")}</div>${evs}`:""}
+    ${sgs?`<div class="td-evh sigh">🛰️ ${esc(EN?"Open field signals":"إشاراتٌ ميدانيّةٌ مفتوحة")} <span class="beta">${esc(EN?"beta":"تجريبي")}</span></div>
+      <div class="signote">${esc(EN?"Attributed open data (source · time) — not a verdict, not in the score.":"بياناتٌ مفتوحةٌ منسوبةٌ لمصدرِها ووقتِها — ليست حكمًا ولا تدخلُ رقمَ المؤشّر.")}</div>${sgs}`:""}`;
   D.style.display="block";
   renderTensionRows();
 }

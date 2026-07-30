@@ -83,6 +83,7 @@ AGENTS=[
  ("mukharrij","المُخرِّج","📑","يبحث ويراجع المواقع ويُثبت المصدر ويحكم على الشائعة"),
  ("munaqqih","المُنقِّح","🔁","يراجعُ الشائعاتِ كلَّ دورة: يطوي القديمَ ويعيدُ الفحصَ ويُثبتُ قائلَها"),
  ("miqyas","المِقياس","🌡️","يحسبُ مؤشّرَ عدم الاستقرار الإقليميّ حسابًا شفّافًا من كثافة المواد المُسنَدة"),
+ ("shahid","الشاهدُ الميدانيّ","🛰️","يرصدُ إشاراتٍ ميدانيّةً مفتوحةً (زلازل/طيران/حرائق) وينسبُها لمصدرِها ووقتِها — بياناتٌ لا أحكام"),
  ("mustaqsi","المُستَقصي","🎯","ينقل أعداد الذخائر عن وزارات الدفاع مباشرة"),
  ("turjuman","التَّرْجُمَان","🗣️","ينقل الخبر الفارسي إلى العربية ترجمةً أمينة"),
  ("mudaqqiq","المُدقِّق","⚖️","يراجع المواد ويستبعد ما لا يصلح للنشر"),
@@ -1814,6 +1815,189 @@ def miqyas():
 
 try: miqyas()
 except Exception as e: print("المِقياس تخطّى: "+str(e)[:80])
+
+# ═══ الشاهدُ الميدانيّ: طبقةُ الإشاراتِ المفتوحة (OSINT) — بياناتٌ منسوبةٌ لا أحكام ═══
+# يُجلَبُ خادميًّا داخلَ الأنبوب (لا في المتصفّح، فلا مساسَ بـCSP)، ويُلحَقُ signals
+# لكلِّ دولةٍ في tension.json دونَ مساسٍ بـscore/parts/events. المصدران الحيّان الآن
+# بلا مفاتيح (USGS زلازل، OpenSky طيران)؛ المِفتاحيّةُ (FIRMS حرائق، ACLED نزاعات)
+# خامدةٌ حتى يُضبَطَ سرُّها فتخطٍّ صامت. الإشاراتُ لا تدخلُ رقمَ المؤشّر — طبقةٌ
+# موازيةٌ منسوبةٌ لمصدرِها ووقتِها (إسنادُ المستشعِرِ نفسِه: اسمُ المصدر + الزمن + الرابط).
+_SIG_BOX=(32.0,62.0,11.0,40.0)   # (lon0,lon1,lat0,lat1) — صندوقُ المنطقة، مطابقٌ لخريطةِ الواجهة
+_SIG_RADIUS=6.0                  # نصفُ قطرٍ أقصى (درجات) لنسبِ الإشارةِ لأقربِ دولةٍ وإلّا تُسقَط
+_SIG_CAP=6                       # أقصى إشاراتٍ معروضةٍ لكلِّ دولة
+
+def _sig_json(u, timeout=25):
+    try:
+        req=urllib.request.Request(u,headers={"User-Agent":"Mozilla/5.0 (isnad.news signals)"})
+        return json.load(urllib.request.urlopen(req,timeout=timeout))
+    except Exception: return None
+
+def _sig_text(u, timeout=25):
+    try:
+        req=urllib.request.Request(u,headers={"User-Agent":"Mozilla/5.0 (isnad.news signals)"})
+        return urllib.request.urlopen(req,timeout=timeout).read().decode("utf-8","ignore")
+    except Exception: return ""
+
+def _sig_in_box(lat,lon):
+    lo0,lo1,la0,la1=_SIG_BOX
+    return (lo0<=lon<=lo1) and (la0<=lat<=la1)
+
+def _sig_country(lat,lon):
+    """أقربُ مركزِ دولةٍ ضمنَ نصفِ القطرِ الأقصى، وإلّا None (إسقاطٌ شفّاف)."""
+    best=None; bd=1e9
+    for cid,nm,en,al,clat,clon in _CTRY:
+        d=((lat-clat)**2+(lon-clon)**2)**0.5
+        if d<bd: bd=d; best=cid
+    return best if bd<=_SIG_RADIUS else None
+
+def _sig_quakes():
+    """USGS — زلازلُ آخرِ يومٍ (M2.5+)، مجّانيّ بلا مفتاح."""
+    d=_sig_json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson")
+    out=[]
+    for f in ((d or {}).get("features") or []):
+        try:
+            c=(f.get("geometry") or {}).get("coordinates") or []
+            lon=float(c[0]); lat=float(c[1])
+            if not _sig_in_box(lat,lon): continue
+            p=f.get("properties") or {}
+            mag=p.get("mag"); place=p.get("place") or ""
+            at=(datetime.fromtimestamp((p.get("time") or 0)/1000,timezone.utc).isoformat(timespec="minutes")
+                if p.get("time") else "")
+            out.append({"kind":"quake","src":"USGS","lat":lat,"lon":lon,
+                "detail":(f"زلزال M{mag} — {place}" if mag is not None else f"زلزال — {place}"),
+                "url":p.get("url") or "","at":at})
+        except Exception: continue
+    return out
+
+def _sig_flights():
+    """OpenSky — لقطةُ الطائراتِ في صندوقِ المنطقةِ الآن (مجهولٌ بلا مفتاح، نداءٌ واحد/دورة).
+    يُرجِعُ قائمةَ (lat,lon) أو None عند الفشل (فلا يُعَدُّ المصدرُ حيًّا)."""
+    d=_sig_json("https://opensky-network.org/api/states/all?lamin=11&lomin=32&lamax=40&lomax=62")
+    if not d or not isinstance(d.get("states"),list): return None
+    pts=[]
+    for s in d["states"]:
+        try:
+            lon=s[5]; lat=s[6]
+            if lon is None or lat is None or s[8]: continue   # s[8]=على الأرض
+            lat=float(lat); lon=float(lon)
+            if _sig_in_box(lat,lon): pts.append((lat,lon))
+        except Exception: continue
+    return pts
+
+def _sig_fires():
+    """NASA FIRMS — بؤرٌ حراريّةٌ (VIIRS) في صندوقِ المنطقة. مِفتاحيّ: FIRMS_MAP_KEY."""
+    k=os.environ.get("FIRMS_MAP_KEY")
+    if not k: return []
+    lo0,lo1,la0,la1=_SIG_BOX
+    # الترتيب: west,south,east,north
+    body=_sig_text(f"https://firms.modaps.eosdis.nasa.gov/api/area/csv/{k}/VIIRS_SNPP_NRT/"
+                   f"{lo0},{la0},{lo1},{la1}/1")
+    lines=[l for l in body.splitlines() if l.strip()]
+    if len(lines)<2 or "," not in lines[0]: return []
+    hdr=lines[0].split(","); idx={h.strip():i for i,h in enumerate(hdr)}
+    def _g(r,key):
+        i=idx.get(key); return (r[i].strip() if (i is not None and i<len(r)) else "")
+    out=[]
+    for ln in lines[1:3000]:
+        r=ln.split(",")
+        try:
+            lat=float(_g(r,"latitude")); lon=float(_g(r,"longitude"))
+        except Exception: continue
+        if not _sig_in_box(lat,lon): continue
+        conf=_g(r,"confidence").lower()
+        if conf in ("l","low"): continue   # نُبقي المتوسّطةَ والعالية فقط (تقليلُ ضجيجِ الشُّعَل)
+        frp=_g(r,"frp"); at=(_g(r,"acq_date")+" "+_g(r,"acq_time")).strip()
+        out.append({"kind":"fire","src":"NASA FIRMS","lat":lat,"lon":lon,
+            "detail":"بؤرةٌ حراريّةٌ (VIIRS)"+(f" · ثقة {conf}" if conf else "")+(f" · FRP {frp}" if frp else ""),
+            "url":"https://firms.modaps.eosdis.nasa.gov/map/","at":at})
+    return out
+
+def _sig_acled():
+    """ACLED — أحداثُ نزاعٍ حديثةٌ (آخرَ ١٠ أيام) في صندوقِ المنطقة. مِفتاحيّ:
+    ACLED_EMAIL + ACLED_PASSWORD (تدفّقُ OAuth password)."""
+    email=os.environ.get("ACLED_EMAIL"); pw=os.environ.get("ACLED_PASSWORD")
+    if not (email and pw): return []
+    try:
+        data=_up.urlencode({"username":email,"password":pw,"grant_type":"password",
+                            "client_id":"acled","scope":"authenticated"}).encode()
+        req=urllib.request.Request("https://acleddata.com/oauth/token",data=data,
+            headers={"Content-Type":"application/x-www-form-urlencoded",
+                     "User-Agent":"Mozilla/5.0 (isnad.news signals)"},method="POST")
+        tok=(json.load(urllib.request.urlopen(req,timeout=25)) or {}).get("access_token")
+    except Exception: return []
+    if not tok: return []
+    since=(datetime.now(timezone.utc)-timedelta(days=10)).strftime("%Y-%m-%d")
+    q=("https://acleddata.com/api/acled/read?_format=json&limit=500"
+       "&fields=event_date|event_type|latitude|longitude|country|notes"
+       f"&event_date={since}&event_date_where=%3E%3D")
+    try:
+        req=urllib.request.Request(q,headers={"Authorization":"Bearer "+tok,
+            "User-Agent":"Mozilla/5.0 (isnad.news signals)"})
+        d=json.load(urllib.request.urlopen(req,timeout=30))
+    except Exception: return []
+    out=[]
+    for r in ((d or {}).get("data") or []):
+        try:
+            lat=float(r.get("latitude")); lon=float(r.get("longitude"))
+        except Exception: continue
+        if not _sig_in_box(lat,lon): continue
+        et=str(r.get("event_type") or ""); note=str(r.get("notes") or "")
+        out.append({"kind":"conflict","src":"ACLED","lat":lat,"lon":lon,
+            "detail":(et+((" — "+note[:90]) if note else "")).strip() or "حدثُ نزاع",
+            "url":"https://acleddata.com/","at":str(r.get("event_date") or "")})
+    return out
+
+@agent("shahid")
+def shahid():
+    try: t=json.load(open(TENSION_F))
+    except Exception: return {"skipped":1,"why":"لا مقياسَ بعد"}
+    live=[]
+    buckets={c[0]:[] for c in _CTRY}
+    cen={c[0]:(c[4],c[5]) for c in _CTRY}
+    # نقاطُ الأحداث (زلازل + حرائق + نزاعات) — كلٌّ يُنسَبُ لأقربِ دولةٍ ضمنَ نصفِ القطر
+    points=[]
+    q=_sig_quakes()
+    if q: live.append("USGS")
+    points+=q
+    fire=_sig_fires()
+    if fire: live.append("NASA FIRMS")
+    points+=fire
+    conf=_sig_acled()
+    if conf: live.append("ACLED")
+    points+=conf
+    for s in points:
+        cid=_sig_country(s["lat"],s["lon"])
+        if cid: buckets[cid].append(s)
+    # كثافةُ الطيران (OpenSky) — تجميعُ عددِ الطائراتِ لكلِّ دولةٍ في إشارةٍ واحدة
+    fl=_sig_flights()
+    if fl is not None:
+        live.append("OpenSky")
+        cnt={}
+        for lat,lon in fl:
+            cid=_sig_country(lat,lon)
+            if cid: cnt[cid]=cnt.get(cid,0)+1
+        nowz=datetime.now(timezone.utc).isoformat(timespec="minutes")
+        for cid,n in cnt.items():
+            clat,clon=cen.get(cid,(0,0))
+            buckets[cid].append({"kind":"flight","src":"OpenSky","lat":clat,"lon":clon,
+                "detail":f"{n} طائرةً في المجالِ الجوّيِّ الآن","url":"https://opensky-network.org/","at":nowz})
+    # فرزٌ بالأحدثِ وسقفٌ لكلِّ دولة — الإشاراتُ لا تمسُّ score
+    total=0
+    for c in t.get("countries",[]):
+        b=buckets.get(c.get("id"),[])
+        b.sort(key=lambda s:str(s.get("at","")),reverse=True)
+        c["signals"]=b[:_SIG_CAP]
+        total+=len(c["signals"])
+    src=sorted(set(live))
+    t["signals_sources"]=src
+    t["signals_note"]=("إشاراتٌ ميدانيّةٌ مفتوحةٌ منسوبةٌ لمصدرِها ووقتِها — "
+                       "بياناتٌ لا أحكام، ولا تدخلُ رقمَ المؤشّر")
+    json.dump(t, open(TENSION_F,"w"),ensure_ascii=False,indent=1)
+    print(f"🛰️ الشاهد: {total} إشارةً · مصادرُ حيّةٌ: {'، '.join(src) or 'لا شيء'}")
+    return {"why":f"{total} إشارةً · {', '.join(src) or 'صامت'}"}
+
+try: shahid()
+except Exception as e: print("الشاهدُ الميدانيّ تخطّى: "+str(e)[:80])
 
 # ═══ تغذيةُ تاريخِ المؤشرِ لبوّابةِ المؤسسات (Supabase) — اختياريّةٌ وصامتة ═══
 # إن توفّر SUPABASE_URL + SUPABASE_SERVICE_KEY (سرّان في Actions) دُفعت لقطةُ
