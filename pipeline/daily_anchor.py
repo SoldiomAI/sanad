@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*-
 """سَنَد — خط الإنتاج الآلي: RSS → إسناد → نص → صوت فهد → فيديو مذيع مُجزّأ
 LongCat 720p أساسي + EchoMimic احتياطي | افتتاحية/خاتمة مكاشة | يشتغل صفر تدخّل"""
-import os, re, sys, json, time, asyncio, shutil, subprocess, urllib.request, xml.etree.ElementTree as ET
-from datetime import datetime, timezone
+import os, re, sys, json, time, asyncio, shutil, subprocess, hashlib, urllib.request, xml.etree.ElementTree as ET
+from datetime import datetime, timezone, timedelta
 
 GROK_KEY = os.environ.get("GROK_API_KEY",""); HF_TOKEN = os.environ.get("HF_TOKEN",""); GEMINI_KEY = os.environ.get("GEMINI_API_KEY",""); OUT="daily"; os.makedirs(OUT, exist_ok=True)
 TIER1=["centcom","kuna","كونا","mew_kwt","kff_kw","moi_bahrain","mofauae","mofaqatar","وكالة الأنباء الكويتية","reuters","رويترز","afp","فرانس برس","ap news","أسوشيتد","kuna","كونا","wam","وام","spa","واس","bna","qna","ona"]
-TIER2=["aljazeera","الجزيرة","alarabiya","العربية","skynews","سكاي نيوز","bbc","france24","cnn","alqabas","القبس","aljarida","الجريدة","alrai","الراي","kuwaittimes","arabtimes","gulfnews","thenational","alkhaleej","الخليج","irna","ایرنا","إرنا","tasnim","تسنیم","تسنيم","mehr","مهر","fars","فارس","isna","ایسنا","العالم","press tv","khabaronline","خبرگزاری","iran international","ایران اینترنشنال","bbc persian","بی‌بی‌سی","همشهری","entekhab","اعتماد"]
+TIER2=["aljazeera","الجزيرة","alarabiya","العربية","skynews","سكاي نيوز","bbc","france24","cnn","alqabas","القبس","aljarida","الجريدة","alrai","الراي","kuwaittimes","arabtimes","gulfnews","thenational","alkhaleej","الخليج","aawsat","الشرق الأوسط","independentarabia","اندبندنت","إندبندنت","irna","ایرنا","إرنا","tasnim","تسنیم","تسنيم","mehr","مهر","fars","فارس","isna","ایسنا","العالم","press tv","khabaronline","خبرگزاری","iran international","ایران اینترنشنال","bbc persian","بی‌بی‌سی","همشهری","entekhab","اعتماد"]
 FEEDS=[("الخليج","https://news.google.com/rss/search?q=%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA+OR+%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9+OR+%D8%A7%D9%84%D8%A5%D9%85%D8%A7%D8%B1%D8%A7%D8%AA&hl=ar&gl=KW&ceid=KW:ar"),
        ("فلسطين","https://news.google.com/rss/search?q=%D8%BA%D8%B2%D8%A9+OR+%D9%81%D9%84%D8%B3%D8%B7%D9%8A%D9%86&hl=ar&gl=KW&ceid=KW:ar"),
        ("عالم","https://news.google.com/rss/headlines/section/topic/WORLD?hl=ar&gl=KW&ceid=KW:ar"),
@@ -19,7 +19,19 @@ FEEDS=[("الخليج","https://news.google.com/rss/search?q=%D8%A7%D9%84%D9%83%
        ("تقنية","https://blog.google/technology/ai/rss/"),
        ("اقتصاد","https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=ar&gl=KW&ceid=KW:ar"),
        ("إيران","https://feeds.bbci.co.uk/persian/rss.xml"),
-       ("إيران","https://www.iranintl.com/feed")]
+       ("إيران","https://www.iranintl.com/feed"),
+       # مصادرُ مباشرةٌ موثوقة بخدمةٍ عربيّة — تنويعٌ يعزّزُ المصداقية دون عناوينَ أجنبية
+       ("عالم","https://feeds.bbci.co.uk/arabic/rss.xml"),
+       ("عالم","https://www.france24.com/ar/rss"),
+       # منافذُ عربيّةٌ كبرى مباشرة — رواببُ مقالاتٍ حقيقيّةٌ بصورِها (لا وسيطَ غوغل)
+       ("عالم","https://www.aljazeera.net/aljazeerarss"),
+       ("الخليج","https://www.skynewsarabia.com/web/rss"),
+       ("عالم","https://arabic.cnn.com/rss"),
+       ("الخليج","https://aawsat.com/feed"),
+       ("عالم","https://www.independentarabia.com/rss.xml"),
+       # تعميقُ تغطيةِ الخليجِ عبر «أخبار غوغل» (تُصنَّف بدرجةِ المنفذِ الراوي نفسِه)
+       ("الخليج","https://news.google.com/rss/search?q=%D9%82%D8%B7%D8%B1%20OR%20%D8%A7%D9%84%D8%A8%D8%AD%D8%B1%D9%8A%D9%86%20OR%20%D8%B3%D9%84%D8%B7%D9%86%D8%A9%20%D8%B9%D9%85%D8%A7%D9%86&hl=ar&gl=KW&ceid=KW:ar"),
+       ("الخليج","https://news.google.com/rss/search?q=%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA%20%28%D9%85%D8%AC%D9%84%D8%B3%20%D8%A7%D9%84%D9%88%D8%B2%D8%B1%D8%A7%D8%A1%20OR%20%D9%88%D8%B2%D8%A7%D8%B1%D8%A9%20OR%20%D8%A7%D9%84%D8%AF%D9%8A%D9%88%D8%A7%D9%86%20%D8%A7%D9%84%D8%A3%D9%85%D9%8A%D8%B1%D9%8A%20OR%20%D8%A5%D8%B9%D8%B5%D8%A7%D8%B1%20OR%20%D8%B7%D9%88%D8%A7%D8%B1%D8%A6%29&hl=ar&gl=KW&ceid=KW:ar")]
 
 # مصادر إيران: الاسم المعتمد وهوية الجهة — تُعرض للقارئ صراحةً
 EN_SRC={
@@ -42,19 +54,42 @@ def fa_meta(url):
         if k in url: return v
     return ("مصدر فارسي","غير محدد")
 
+# مصادرُ مباشرةٌ موثوقة (عربيّةٌ ودوليّة) — تنويعٌ يعزّزُ المصداقيّة، بهويّةٍ معروضةٍ للقارئ.
+# مفاتيحُها أكثرُ تخصيصًا من مفاتيحِ بي بي سي الفارسيّة فلا تتعارض.
+DIRECT_SRC={
+ "bbci.co.uk/arabic":("بي بي سي عربي","هيئة بث بريطانية عامة","حسن"),
+ "france24.com/ar":("فرانس ٢٤ عربي","قناة دولية فرنسية عامة","حسن"),
+ "aljazeera.net":("الجزيرة نت","شبكة إخبارية قطرية","حسن"),
+ "skynewsarabia.com":("سكاي نيوز عربية","قناة إخبارية إماراتية بريطانية","حسن"),
+ "arabic.cnn.com":("CNN بالعربية","شبكة إخبارية أمريكية","حسن"),
+ "aawsat.com":("الشرق الأوسط","صحيفة عربية دولية","حسن"),
+ "independentarabia.com":("اندبندنت عربية","نسخة عربية من الإندبندنت البريطانية","حسن"),
+}
+def direct_meta(url):
+    for k,v in DIRECT_SRC.items():
+        if k in url: return v
+    return (None,None,None)
+
 # ═══════════ طبقة الوكلاء — سجلٌّ ومراقبةٌ حيّة ═══════════
 AGENTS_F=f"{OUT}/agents.json"
 AGENTS=[
+ ("hurr","الوكيلُ الحرّ","🆓","يجلبُ من مصادرَ مجّانيّةٍ بلا مفاتيح — RSS رسميّ عبر أخبار غوغل"),
  ("rasid","الرَّاصِد","🛰️","يرصد المصادر الحيّة ويجمع الحصيلة والعاجل"),
  ("mutabiq","المُطابِق","🔍","يقابل أرقام الحصيلة بمصادر مستقلة"),
  ("manba","المَنبع","📡","ينقل البيانات الرسمية عن الجهات مباشرة"),
  ("munabbih","المُنبِّه","⚠️","يجمع تحذيرات الجهات وتوجيهاتها للمواطن"),
- ("muhsi","المُحصي","🎯","ينقل أعداد الذخائر عن وزارات الدفاع مباشرة"),
+ ("multaqit","المُلتَقِط","🔍","يلتقط الادعاءات المنتشرة قبل أن تُنشر — سند تحت المجهر"),
+ ("fahis","الفاحِص","🔗","يفتح الرابط بنفسه ويتأكّد أنه حيّ ويحتوي الادعاء"),
+ ("mukharrij","المُخرِّج","📑","يبحث ويراجع المواقع ويُثبت المصدر ويحكم على الشائعة"),
+ ("munaqqih","المُنقِّح","🔁","يراجعُ الشائعاتِ كلَّ دورة: يطوي القديمَ ويعيدُ الفحصَ ويُثبتُ قائلَها"),
+ ("miqyas","المِقياس","🌡️","يحسبُ مؤشّرَ عدم الاستقرار الإقليميّ حسابًا شفّافًا من كثافة المواد المُسنَدة"),
+ ("mustaqsi","المُستَقصي","🎯","ينقل أعداد الذخائر عن وزارات الدفاع مباشرة"),
  ("turjuman","التَّرْجُمَان","🗣️","ينقل الخبر الفارسي إلى العربية ترجمةً أمينة"),
  ("mudaqqiq","المُدقِّق","⚖️","يراجع المواد ويستبعد ما لا يصلح للنشر"),
  ("musannif","المُصنِّف","🧬","يطوّر قواعد الفرز بعد كل جولة"),
  ("mustaqri","المُستقرِئ","🔮","يستقرئ ما قد يقع من السوابق والتصريحات"),
  ("murtajil","المُحلِّل","🎤","يصوغ قراءة الساعة ويؤدّيها صوتًا"),
+ ("mudawwin","المُدوِّن","🖋️","يكتبُ عمودَ الجريدة اليوميّ من أخبار اليوم المُسنَدة"),
  ("rawi","الرَّاوِي","🎙️","يؤدّي النشرة اليومية بصوت المذيع"),
 ]
 _LOG={}
@@ -153,14 +188,73 @@ def _fp(s):
 
 SITE="https://isnad.news"
 
+# طزاجةُ القناة: لا يُبثُّ على تلغرام إلا خبرُ *يومِ اليوم* بتوقيت الكويت (UTC+3).
+# سببُ التشديد: طلبٌ صريح ألّا يُرسَل خبرُ الأمس (١٨) في اليوم التالي (١٩).
+_KW=timezone(timedelta(hours=3))
+_TG_GRACE_H=6   # سماحُ منتصفِ الليل: نسمحُ بخبرٍ طازجٍ جدًّا وإن حملَ تاريخَ أمسِ الكويت
+def _today_kw(at):
+    """صحيحٌ إن كان الخبرُ من يومِ الكويتِ نفسِه، أو طازجًا جدًّا (≤٦ س) عبرَ منتصفِ الليل —
+    كي لا تصمتَ القناةُ بعد منتصفِ الليل ولا يُحجَبَ عاجلٌ عمرُه دقائقُ عبرَ حدِّ اليوم."""
+    if not at: return False                      # بلا ختمٍ زمنيّ ⇒ لا نضمنُ حداثتَه
+    try:
+        t=datetime.fromisoformat(str(at).replace("Z","+00:00"))
+        if t.tzinfo is None: t=t.replace(tzinfo=timezone.utc)
+        now=datetime.now(timezone.utc)
+        if t.astimezone(_KW).date()==now.astimezone(_KW).date(): return True   # خبرُ اليوم
+        return 0 <= (now-t).total_seconds() <= _TG_GRACE_H*3600                 # أو طازجٌ جدًّا
+    except Exception: return False
+
+_AR_MON={"يناير":1,"فبراير":2,"مارس":3,"أبريل":4,"إبريل":4,"مايو":5,"يونيو":6,
+         "يوليو":7,"أغسطس":8,"اغسطس":8,"سبتمبر":9,"أكتوبر":10,"اكتوبر":10,
+         "نوفمبر":11,"ديسمبر":12}
+def _stmt_stale(t):
+    """صحيحٌ إن ذكرَ البيانُ تاريخًا صريحًا سابقًا لليومِ (بتوقيت الكويت) — فلا نبثُّه اليوم."""
+    import re as _re
+    m=_re.search(r"(\d{1,2})\s+([^\s0-9]+)\s+(\d{4})", str(t or ""))
+    if not m: return False                       # بلا تاريخٍ صريح ⇒ لا نحكمُ بقِدَمِه
+    mon=_AR_MON.get(m.group(2))
+    if not mon: return False
+    try:
+        d=datetime(int(m.group(3)),mon,int(m.group(1)),tzinfo=_KW).date()
+        return d < datetime.now(_KW).date()      # أيُّ تاريخٍ قبلَ اليوم = قديم
+    except Exception: return False
+
+def _ok_url(u):
+    """رابطٌ صالحٌ للتحقّق: http/https فعليّ لا نصٌّ مخترَع."""
+    u=str(u or "").strip()
+    return u.startswith("http://") or u.startswith("https://")
+
+# ألفاظُ الأحداثِ الصلبة: ادّعاؤها منسوبًا لجهةٍ يتطلّبُ مصدرًا يُتحقَّق منه، وإلّا أُسقط.
+_HARD_EVENT=("ضرب","استهد","قصف","اعترض","اعتراض","إطلاق","أطلق","قتلى","قتيل","جرحى",
+             "اقتحام","سقوط","أسقط","دمّر","دمر","تفجير","انفجار","غارة","صافرة")
+
+def _stmt_old_days(t, days):
+    """صحيحٌ إن حملَ البيانُ تاريخًا صريحًا (بسنةٍ أو دونها) أقدمَ من (days) يومًا — نُسقطُه
+    من «من المَنبع» كي لا يبقى بيانٌ عمرُه أيامٌ ظاهرًا كأنّه رسميٌّ راهن. «اليوم/أمس» يبقى."""
+    import re as _re
+    today=datetime.now(_KW).date()
+    # نمسحُ كلَّ «رقم + كلمة [+ سنة]» ولا نحكمُ إلا على ما كلمتُه شهرٌ فعليّ،
+    # كي لا يخدعَنا وقتٌ مثل «١٣:٠٠ غرينتش» فيحجبَ التاريخَ الحقيقيَّ «١٨ يوليو».
+    for m in _re.finditer(r"(\d{1,2})\s+([^\s0-9]+)(?:\s+(\d{4}))?", str(t or "")):
+        mon=_AR_MON.get(m.group(2))
+        if not mon: continue
+        try:
+            yr=int(m.group(3)) if m.group(3) else today.year
+            d=datetime(yr,mon,int(m.group(1)),tzinfo=_KW).date()
+            if d>today: d=d.replace(year=d.year-1)   # لا تاريخَ مستقبليّ
+            if (today-d).days > days: return True
+        except Exception: continue
+    return False
+
 def broadcast_news():
-    """يبثّ الأخبارَ الحصريّة فقط: عاجلٌ أو صحيحُ الإسناد — مرّةً واحدة أبدًا."""
+    """يبثّ الأخبارَ الحصريّة فقط: عاجلٌ أو صحيحُ الإسناد — أخبارَ اليومِ ومرّةً واحدة أبدًا."""
     try: d=json.load(open(f"{OUT}/news.json"))
     except Exception: return
     st=_tg_state(); seen=set(st.get("news",[]))
     pool=[]
     for cat,lst in (d.get("cats") or {}).items():
         for it in lst:
+            if not _today_kw(it.get("at")): continue    # خبرُ *يومِ اليوم* فقط (توقيت الكويت) — لا خبرَ أمس
             urgent = cat=="عاجل"
             strong = it.get("grade")=="صحيح"
             official= (it.get("score") or 0)>=6
@@ -201,6 +295,7 @@ def broadcast_official():
         ent=str(x.get("e","")); post=str(x.get("p",""))
         if not post: continue
         if not any(m in ent for m in MIL): continue     # عسكريٌّ أو أمنيٌّ فقط
+        if _stmt_stale(x.get("t")): continue             # لا نبثُّ بيانًا قديمًا كأنّه فوريّ
         f=_fp(ent+post)
         if f in seen: continue
         if sent>=4: break
@@ -238,8 +333,19 @@ def broadcast_alerts():
 
 def bundle():
     """يدمج كل ملفات العرض في ملف واحد — يقضي على خنق الطلبات المتوازية."""
+    # 🛡️ حارسٌ أحاديّ الاتجاه لنشرة اليوم: لا نُعيدها إلى تاريخٍ أقدم من المنشور.
+    # سبب العطل: تشغيلٌ يحمل latest.json قديمة كان يدهس النشرة الأحدث عند النشر.
+    try:
+        _lp=f"{OUT}/latest.json"
+        _loc=json.load(open(_lp)) if os.path.exists(_lp) else {}
+        _pub=json.load(urllib.request.urlopen(
+            "https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/latest.json",timeout=25))
+        if str(_pub.get("date","")) > str(_loc.get("date","")):
+            json.dump(_pub,open(_lp,"w"),ensure_ascii=False,indent=1)
+            print(f"🛡️ نشرةُ اليوم: أُبقيت الأحدث ({_pub.get('date')}) بدل الأقدم ({_loc.get('date')})")
+    except Exception as _e: print(f"guard_latest: {str(_e)[:80]}")
     keys=["news","intel","official","forecast","analyst","dua","verify",
-          "alerts","corrections","latest","agents","cost","evolution","council","gpu"]
+          "alerts","corrections","latest","agents","cost","evolution","council","gpu","rumors","column","tension"]
     b={"built":datetime.now(timezone.utc).isoformat(timespec="minutes")}
     for k in keys:
         try: b[k]=json.load(open(f"{OUT}/{k}.json"))
@@ -298,11 +404,28 @@ def bill(d,who):
         c["usd"]=round(c.get("usd",0)+usd,4); c["calls"]=c.get("calls",0)+1
         c["by"][who]=round(c["by"].get(who,0)+usd,4)
         c["month_est"]=round(c["usd"]*30,2)
+        c["budget"]=float(os.environ.get("DAILY_BUDGET_USD","0.80"))
         json.dump(c,open(f"{OUT}/cost.json","w"),ensure_ascii=False,indent=1)
         print(f"💵 {who}: ${usd:.4f} · اليوم ${c['usd']:.3f} ({c['calls']} نداء) · الشهر ~${c['month_est']}")
         return usd
     except Exception as e:
         print(f"تسجيل التكلفة تعذّر: {str(e)[:60]}"); return 0
+
+# ═══ سقفُ الإنفاقِ اليوميّ الصارم: الضمانةُ الرياضيّةُ للفاتورة ═══
+# الخلاصةُ الإخباريّةُ نفسُها مجّانية (RSS + الوكيل الحرّ)؛ كلُّ النداءاتِ المدفوعةِ
+# لأقسامٍ مساندة — فإذا بلغَ إنفاقُ اليومِ السقفَ تتوقّفُ حتى الغد وتستمرُّ المجّانية.
+DAILY_BUDGET=float(os.environ.get("DAILY_BUDGET_USD","0.80"))
+def spent_today():
+    try:
+        c=json.load(open(f"{OUT}/cost.json"))
+        return c.get("usd",0) if c.get("day")==datetime.now(timezone.utc).strftime("%Y-%m-%d") else 0.0
+    except Exception: return 0.0
+def over_budget(who):
+    s=spent_today()
+    if s>=DAILY_BUDGET:
+        print(f"💰 {who}: بلغ سقفَ الإنفاق اليوميّ (${s:.2f}/${DAILY_BUDGET:.2f}) — يتوقّف حتى الغد")
+        return True
+    return False
 
 OFFICIAL_HANDLES=set()
 try:
@@ -323,7 +446,10 @@ def due(aid, age, hard):
     if age>=hard: return True, "تجاوز المهلة"
     if turn is not None and SLOT!=turn:
         return False, f"نوبته الجولة القادمة (~{3-(_H%3)}س)"
-    return (age>=3), (f"يعمل بعد ~{max(0,round(3-age,1))}س" if age<3 else "")
+    # مُهلةٌ أدنى لكلّ وكيل — المَنبعُ مرّتين يوميًّا يكفي: بياناتُه بتواريخَ مطلقةٍ
+    # لا تتعفّن، والوكيلُ الحرُّ يغطّي أخبارَ الجهاتِ الرسميّةِ مجّانًا بين التشغيلين.
+    mn={"manba":12}.get(aid,3)
+    return (age>=mn), (f"يعمل بعد ~{max(0,round(mn-age,1))}س" if age<mn else "")
 
 RULES=f"{OUT}/rules.json"
 PROTECT=["إيران","الكويت","السعودي","الإمارات","قطر","البحرين","عُمان","عمان","العراق","الخليج",
@@ -359,6 +485,15 @@ def grade(s):
     return "صحيح" if any(t in s for t in TIER1) else ("حسن" if any(t in s for t in TIER2) else "غير مُسند")
 def clean(t): return re.sub(r"\s+"," ",re.sub(r"<[^>]+>","",t or "")).strip()
 
+def witness(desc, own_src=""):
+    """«الشاهدُ الثاني» مجّانًا: وصفُ خبرِ غوغل يسردُ المنافذَ الأخرى الراويةَ لنفس
+    الخبر — نعدُّها ونسمّيها، فيصيرُ التقاطعُ مرئيًّا للقارئ (w=عدد المنافذ)."""
+    if not desc or "<li>" not in desc: return 0,[]
+    names=[clean(x) for x in re.findall(r'<font[^>]*>([^<]+)</font>', desc)]
+    names=[n for n in dict.fromkeys(names) if n and n!=clean(own_src)][:5]
+    w=desc.count("<li>")
+    return (w if w>1 else 0), names
+
 items=[]; seen=set()
 for label,url in FEEDS:
     try:
@@ -371,7 +506,9 @@ for label,url in FEEDS:
             is_fa = label=="إيران"
             _en_nm,_en_who = en_meta(url)
             is_en = bool(_en_nm)
-            g="حسن" if (is_fa or is_en) else grade(src_ or clean(it.findtext("source","")))
+            _dn,_dwho,_dg = direct_meta(url)
+            if _dn: head=title; src_=_dn      # مصدرٌ مباشرٌ معروف — لا نقصُّ العنوان على «-»
+            g=_dg if _dn else ("حسن" if (is_fa or is_en) else grade(src_ or clean(it.findtext("source",""))))
             key=head[:40]
             if g in ("صحيح","حسن") and len(head)>15 and key not in seen and not blocked(head):
                 seen.add(key)
@@ -387,24 +524,102 @@ for label,url in FEEDS:
                             except Exception: pass
                 d={"head":head,"src":src_,"grade":g,"cat":label,"at":_iso,
                    "link":clean(it.findtext("link","")),"fa":is_fa}
+                _w,_wsrc=witness(it.findtext("description",""),src_)
+                if _w: d["w"]=_w; d["wsrc"]=_wsrc
+                for _e in it.iter():
+                    _mu=str(_e.get("url","")); _mt=str(_e.get("type",""))+str(_e.get("medium",""))
+                    if (_e.tag=="enclosure" or _e.tag.endswith("}content")) and _mu.startswith("https://") \
+                       and ("image" in _mt or re.search(r'\.(?:jpe?g|png|webp|avif)(?:$|[?.])',_mu,re.I)):
+                        d["img"]=_mu; break
                 if is_fa:
                     nm,who=fa_meta(url); d["src"]=nm; d["via"]=who
                 elif is_en:
                     d["src"]=_en_nm; d["via"]=_en_who; d["en"]=True
+                elif _dn:
+                    d["via"]=_dwho
                 items.append(d); n+=1
                 if n>=6: break
     except Exception as e: print(f"feed {label}: {e}",file=sys.stderr)
 print(f"جُمع {len(items)} خبرًا مُسندًا")
 
-def gemini_json(prompt, max_tok=1500):
+# ═══ الوكيلُ الحرّ: بياناتٌ من مصادرَ مجّانيّةٍ بلا مفاتيح ولا كلفة ═══
+# استعلاماتٌ مُوجّهةٌ لجهاتٍ رسميّةٍ عبر «أخبار غوغل RSS» (مجّانيٌّ بلا مفتاح). لا تلفيق:
+# روابطُ مقالاتٍ حقيقيّةٍ من منافذَ معتبَرة (يُبقيها فلترُ الدرجات) تنقلُ بياناتِ المصدرِ الرسميّ.
+import urllib.parse as _up
+FREE_WIRE=[
+ ("عالم", 'CENTCOM OR "القيادة المركزية الأمريكية" إيران'),
+ ("عالم", '"الوكالة الدولية للطاقة الذرية" OR IAEA إيران نووي'),
+ ("الخليج", 'الكويت (بيان رسمي OR طوارئ OR إنذار OR مجال جوي)'),
+ ("الخليج", '(السعودية OR الإمارات OR قطر OR البحرين) وزارة الدفاع بيان'),
+ ("عالم", 'الأمم المتحدة OR "مجلس الأمن" إيران الخليج'),
+]
+@agent("hurr")
+def wire_hurr():
+    """يجلبُ أخبارَ الجهاتِ الرسميّةِ من «أخبار غوغل RSS» — بلا مفتاحٍ ولا كلفة، وبإسنادِ المنافذِ نفسِه."""
+    added=0
+    for cat,q in FREE_WIRE:
+        try:
+            url="https://news.google.com/rss/search?q="+_up.quote(q)+"&hl=ar&gl=KW&ceid=KW:ar"
+            req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0"})
+            root=ET.fromstring(urllib.request.urlopen(req,timeout=30).read())
+            n=0
+            for it in root.iter("item"):
+                title=clean(it.findtext("title",""))
+                src_=title.rsplit(" - ",1)[-1] if " - " in title else ""
+                head=title.rsplit(" - ",1)[0] if " - " in title else title
+                g=grade(src_ or clean(it.findtext("source","")))     # الإسنادُ بدرجةِ المنفذِ نفسِها
+                key=head[:40]
+                if g in ("صحيح","حسن") and len(head)>15 and key not in seen and not blocked(head):
+                    seen.add(key)
+                    _iso=""; _pd=clean(it.findtext("pubDate",""))
+                    if _pd:
+                        try:
+                            from email.utils import parsedate_to_datetime
+                            _iso=parsedate_to_datetime(_pd).astimezone(timezone.utc).isoformat(timespec="minutes")
+                        except Exception: pass
+                    _d={"head":head,"src":src_,"grade":g,"cat":cat,"at":_iso,
+                        "link":clean(it.findtext("link","")),"fa":False,"free":True}
+                    _w,_wsrc=witness(it.findtext("description",""),src_)
+                    if _w: _d["w"]=_w; _d["wsrc"]=_wsrc
+                    items.append(_d)
+                    n+=1; added+=1
+                    if n>=4: break
+        except Exception as e: print(f"الحرّ [{cat}]: {str(e)[:50]}",file=sys.stderr)
+    print(f"🆓 الوكيلُ الحرّ: +{added} خبرًا من مصادرَ مجّانيّةٍ بلا مفاتيح")
+    return {"added":added,"why":f"+{added} خبرًا مجّانيًّا"}
+wire_hurr()
+
+GEM_MODEL=os.environ.get("GEMINI_MODEL","gemini-flash-latest")
+def gemini_post(body, timeout=60):
+    """نداءُ Gemini متحمِّلًا تغيُّرَ الحقول: النماذجُ الأحدثُ ترفض thinkingBudget
+    بـ400 (تعطّلت به الترجمةُ والعمود) — عند 400 نعيدُ المحاولةَ دون thinkingConfig."""
+    import urllib.error as _ue
+    url=f"https://generativelanguage.googleapis.com/v1beta/models/{GEM_MODEL}:generateContent?key={GEMINI_KEY}"
+    try:
+        req=urllib.request.Request(url,data=json.dumps(body).encode(),
+            headers={"Content-Type":"application/json"})
+        return json.load(urllib.request.urlopen(req,timeout=timeout))
+    except _ue.HTTPError as e:
+        gc=body.get("generationConfig",{})
+        if e.code!=400 or "thinkingConfig" not in gc: raise
+        # بلا thinkingConfig يفكّرُ النموذجُ الأحدثُ افتراضيًّا فيأكلُ التفكيرُ ميزانيةَ
+        # الإخراج ويصلُ الردُّ مبتورًا — نرفعُ السقفَ ليتّسعَ للتفكيرِ والجوابِ معًا.
+        g2={k:v for k,v in gc.items() if k!="thinkingConfig"}
+        g2["maxOutputTokens"]=max(int(gc.get("maxOutputTokens",1500))*4, 8000)
+        b2=dict(body); b2["generationConfig"]=g2
+        req=urllib.request.Request(url,data=json.dumps(b2).encode(),
+            headers={"Content-Type":"application/json"})
+        return json.load(urllib.request.urlopen(req,timeout=timeout))
+
+def gemini_json(prompt, max_tok=1500, temp=0.2):
     body={"contents":[{"parts":[{"text":prompt}]}],
-        "generationConfig":{"maxOutputTokens":max_tok,"temperature":0.2,
+        "generationConfig":{"maxOutputTokens":max_tok,"temperature":temp,
             "thinkingConfig":{"thinkingBudget":0},"responseMimeType":"application/json"}}
-    req=urllib.request.Request(
-        f"https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key={GEMINI_KEY}",
-        data=json.dumps(body).encode(),headers={"Content-Type":"application/json"})
-    d=json.load(urllib.request.urlopen(req,timeout=60))
-    return json.loads(d["candidates"][0]["content"]["parts"][0]["text"])
+    d=gemini_post(body, timeout=90)
+    parts=((d.get("candidates") or [{}])[0].get("content") or {}).get("parts") or []
+    txt="".join(p.get("text","") for p in parts if isinstance(p,dict)).strip()
+    txt=txt.removeprefix("```json").removeprefix("```").removesuffix("```").strip()
+    return json.loads(txt)
 
 fa_items=[i for i in items if i.get("fa")]
 if fa_items and GEMINI_KEY:
@@ -468,9 +683,87 @@ for i in items:
 items=[i for i in items if i["cat"]!="__drop__"]
 if _rr: print(f"🧭 أعاد النظام توجيه {_rr} خبرًا وفق قواعده المكتسبة")
 
+# ═══ صورُ المقالات مجّانًا: og:image من صفحةِ المقال نفسِها — للقصّة الرئيسيّة والشبكة ═══
+IMGCACHE=f"{OUT}/imgcache.json"
+def _gnews_b64(u):
+    """الصيغةُ القديمةُ لروابط أخبار غوغل تحملُ رابطَ الناشرِ خامًا داخل base64 —
+    فكٌّ رخيصٌ بلا شبكة؛ الصيغةُ الأحدث (AU_yqL…) لا تحمله فنكتفي بصورةِ غوغل."""
+    try:
+        seg=u.split("/articles/")[1].split("?")[0]
+        import base64 as _b64
+        raw=_b64.urlsafe_b64decode(seg+"="*(-len(seg)%4))
+        m=re.search(rb'https?://[\x20-\x7e]+?(?=[\x00-\x1f\xd2\xd8]|$)',raw)
+        if m:
+            cand=m.group(0).decode("ascii","ignore").rstrip("\\'\"R")
+            if cand.startswith("https://") and "google" not in cand.split("/")[2]:
+                return cand
+    except Exception: pass
+    return ""
+
+
+def fetch_og_images(items, cap=24):
+    """يجلبُ og:image لأوّل العناصر بلا كلفةٍ (urllib متوازٍ + كاشٌ بالرابط) —
+    فشلُ أيّ جلبٍ صامتٌ: البطاقةُ بلا صورةٍ لها بديلُها في الواجهة."""
+    try: cache=json.load(open(IMGCACHE))
+    except Exception: cache={}
+    _rx=re.compile(r'<meta[^>]+(?:property|name)=["\'](?:og:image|twitter:image)["\'][^>]+content=["\']([^"\']+)',re.I)
+    _rx2=re.compile(r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+(?:property|name)=["\'](?:og:image|twitter:image)',re.I)
+    def one(it):
+        L=str(it.get("link",""))
+        k=hashlib.md5(L.encode()).hexdigest()[:12]
+        if "news.google.com" in L:
+            # صفحةُ غوغل الوسيطة لا تحملُ صورةَ المقال (صورتُها ترويجيّةٌ عامّة) —
+            # فكٌّ رخيصٌ للرابط القديم فقط، وإن نجح تابعنا كمقالٍ مباشر
+            rk="r:"+k
+            if rk not in cache: cache[rk]=_gnews_b64(L)
+            if not cache[rk]: return
+            it["link"]=cache[rk]; L=cache[rk]
+            k=hashlib.md5(L.encode()).hexdigest()[:12]
+        if k in cache:
+            if cache[k]: it["img"]=cache[k]
+            return
+        try:
+            req=urllib.request.Request(it["link"],headers={"User-Agent":"Mozilla/5.0"})
+            html=urllib.request.urlopen(req,timeout=8).read(60000).decode("utf-8","ignore")
+            m=_rx.search(html) or _rx2.search(html)
+            u=(m.group(1) if m else "").strip()
+            cache[k]=u if u.startswith("https://") else ""
+            if cache[k]: it["img"]=cache[k]
+        except Exception: cache[k]=""
+    todo=[i for i in items if i.get("link","").startswith("http") and not i.get("img")][:cap]
+    from concurrent.futures import ThreadPoolExecutor
+    with ThreadPoolExecutor(max_workers=8) as ex: list(ex.map(one,todo))
+    try: json.dump(dict(list(cache.items())[-500:]),open(IMGCACHE,"w"))
+    except Exception: pass
+    n=sum(1 for i in items if i.get("img"))
+    print(f"🖼️ الصور: {n} خبرًا بصورةِ مقالِه الأصليّ (مجّانًا)")
+fetch_og_images(items)
+
+# ═══ النسخةُ العالميّة: ترجمةُ العناوين إلى الإنجليزيّة (Gemini مجّانًا) ═══
+# حقل «he» على كلِّ عنصر — الواجهةُ تعرضه في وضع EN وتعود للعربيّة عند غيابه.
+def translate_heads_en(items, cap=60):
+    todo=[(n,i) for n,i in enumerate(items[:cap]) if not i.get("he")]
+    if not todo or not GEMINI_KEY: return 0
+    lst="\n".join("%d| %s"%(n,i["head"]) for n,i in todo)
+    try:
+        out=gemini_json("Translate these Arabic news headlines to concise, professional English "
+            "news-wire style. Faithful translation — no additions, no exaggeration, keep numbers "
+            "and proper names accurate.\n"
+            'Return JSON only: [{"n":number,"e":"English headline"}]\n'+lst, max_tok=4000)
+        ok=0
+        by={o.get("n"):o.get("e","") for o in out if isinstance(o,dict)}
+        for n,i in todo:
+            e=clean(str(by.get(n,"")))
+            if len(e)>8: i["he"]=e; ok+=1
+        print(f"🌍 النسخة العالميّة: تُرجم {ok}/{len(todo)} عنوانًا إلى الإنجليزيّة")
+        return ok
+    except Exception as e:
+        print("الترجمة العالميّة تخطّت: "+str(e)[:60]); return 0
+translate_heads_en(items)
+
 cats={}
 for i in items:
-    cats.setdefault(i["cat"],[]).append({k:i[k] for k in ("head","src","grade","link","fa","at","en") if k in i}
+    cats.setdefault(i["cat"],[]).append({k:i[k] for k in ("head","src","grade","link","fa","at","en","img","w","wsrc","he") if k in i}
         | ({"via":i["via"]} if i.get("via") else {}))
 json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"cats":cats},
     open(f"{OUT}/news.json","w"),ensure_ascii=False,indent=1)
@@ -488,6 +781,17 @@ def intel_fresh(hours):
 
 @agent("rasid")
 def grok_intel():
+    # ⛔ مُعطَّل عمدًا. كانت هذه الدالة تولّد أرقامَ حربٍ (قتلى/جرحى/صواريخ/مسيّرات)
+    # عبر نموذجٍ لغويّ وتنسبها لجهاتٍ رسميّة لم تُعلنها (mil_u=«لم يُعلن»)، ثم تُسجّل
+    # اختلافَ كلّ تشغيلٍ عن سابقه في سجلّ التصحيحات كأنّه تصحيحٌ رسميّ. تلفيقٌ يخالف
+    # صميمَ منهج سَنَد: لا رقمَ بلا إسناد، والصمتُ أولى من رقمٍ غير مُسنَد.
+    # لا حصيلةَ حربٍ حتى تتوفّر أرقامٌ من بياناتٍ رسميّة حقيقيّة قابلةٍ للتحقّق.
+    j={"war":"","since":"","toll":[],"brk":[],"disabled":1,
+       "updated":datetime.now(timezone.utc).isoformat(timespec="minutes")}
+    try: json.dump(j,open(INTEL,"w"),ensure_ascii=False,indent=1)
+    except Exception: pass
+    return j
+    # ── ما يلي مُعطَّل (لا يُنفَّذ) ──
     old, _ = intel_fresh(99)
     try: _age=(datetime.now(timezone.utc)-datetime.fromisoformat((old or {}).get("updated","2000-01-01T00:00+00:00"))).total_seconds()/3600
     except Exception: _age=999
@@ -510,7 +814,7 @@ def grok_intel():
        "فاكتب في src: تقدير صحفي غير رسمي.\n"
        "٤ عناوين عاجلة كحد أقصى من حسابات موثقة خلال ٦ ساعات. أرقام موثقة فقط وإلا «غير مؤكد». "
        "لا تستخدم علامة تنصيص مزدوجة داخل النصوص. لا شيء خارج JSON.")
-    body={"model":os.environ.get("GROK_MODEL_HEAVY","grok-4.5"),"input":[{"role":"user","content":P}],
+    body={"model":os.environ.get("GROK_MODEL_HEAVY","grok-4.3"),"input":[{"role":"user","content":P}],
         "tools":[{"type":"web_search"},{"type":"x_search"}],
         "max_output_tokens":4200,"max_tool_calls":8}
     try:
@@ -727,10 +1031,11 @@ def mustaqri():
         prev=json.load(open(FCAST))
         age=(datetime.now(timezone.utc)-datetime.fromisoformat(prev["updated"])).total_seconds()/3600
     except Exception: prev,age=None,999
-    if age<2.6:
-        print(f"⏱️ المُستقرِئ: يعمل بعد ~{max(0,round(2.6-age,1))}س")
-        return {"skipped":1,"why":f"يعمل بعد ~{max(0,round(2.6-age,1))}س"}
+    if age<6 and not os.environ.get("FORCE_FORECAST"):
+        print(f"⏱️ المُستقرِئ: يعمل بعد ~{max(0,round(6-age,1))}س")
+        return {"skipped":1,"why":f"يعمل بعد ~{max(0,round(6-age,1))}س"}
     if not GROK_KEY: return
+    if over_budget("المُستقرِئ"): return {"skipped":1,"why":"بلغ سقفَ الإنفاق اليوميّ"}
 
     heads=[i["head"] for l in cats.values() for i in l][:14]
     toll=", ".join(t.get("c","")+": "+str(t.get("d","")) for t in (INT or {}).get("toll",[]))
@@ -744,15 +1049,20 @@ def mustaqri():
        "الأخبار الحالية:\n- "+"\n- ".join(heads)+"\n\nالحصيلة: "+toll+review+"\n\n"
        "ابحث عن آخر تصريحات ترامب والبيت الأبيض وإيران خلال ١٢ ساعة، ثم أخرج JSON فقط:\n"
        '{"horizon":"النافذة الزمنية",'
-       '"signals":[{"q":"التصريح أو الواقعة","who":"القائل","w":"عالٍ|متوسط|منخفض"}],'
+       '"signals":[{"q":"التصريح أو الواقعة","who":"القائل","w":"عالٍ|متوسط|منخفض","u":"رابط المصدر"}],'
        '"scenarios":[{"s":"السيناريو","p":نسبة_رقم,"why":"المبرر مع السابقة التاريخية","watch":"المؤشر المؤكد أو النافي"}],'
        '"review":[{"s":"السيناريو السابق","r":"وقع|جزئيًا|لم يقع","note":"بجملة"}],'
        '"caveat":"تحذير صريح بأن هذا استقراء احتمالي لا يقين"}\n'
+       "نوّعْ قائلي الإشارات قدرَ الإمكان (أطرافٌ متمايزة لا قائلٌ واحدٌ مكرّر) كي تتّضحَ زوايا المشهد. "
+       "واجعل القائلين جهاتٍ مسمّاةً محدّدة (شخصٌ أو مؤسّسة) لا عباراتٍ عامّة كـ«تقارير إعلامية متعددة». "
+       "قاعدةُ إسنادٍ صارمة: كلُّ إشارةٍ تُنسَبُ لقائلها مع رابطٍ من مصدره. "
+       "لا تُقدّمْ حدثًا عسكريًّا غير مؤكّد (ضربٌ، اعتراضٌ، قتلى، صافرة) منسوبًا لجهةٍ رسميّةٍ "
+       "كأنّه واقعٌ مثبت؛ إمّا برابطٍ من مصدرِه أو صياغةً كاحتمالٍ لا كخبرٍ مؤكّد.\n"
        "٣ سيناريوهات كحد أقصى ومجموع نسبها ١٠٠. لا تستخدم علامة تنصيص مزدوجة داخل النصوص. "
        "لا تذكر أسماء نماذج أو شركات. لا شيء خارج JSON.")
     body={"model":os.environ.get("GROK_MODEL","grok-4.3"),"input":[{"role":"user","content":P}],
         "tools":[{"type":"web_search"},{"type":"x_search"}],
-        "max_output_tokens":3000,"max_tool_calls":4}
+        "max_output_tokens":3000,"max_tool_calls":3}
     try:
         req=urllib.request.Request("https://api.x.ai/v1/responses",data=json.dumps(body).encode(),
             headers={"Authorization":"Bearer "+GROK_KEY,"Content-Type":"application/json"})
@@ -778,6 +1088,12 @@ def mustaqri():
     j["history"]=hist
     j["score"]={"n":len(hist),"hit":hit,"partial":part,
         "acc":round((hit+part*0.5)/max(len(hist),1)*100)}
+    # حارسُ الإسناد للمؤشرات: ادّعاءُ حدثٍ عسكريٍّ صلبٍ منسوبًا لجهةٍ بلا مصدرٍ يُتحقَّق منه يُسقَط،
+    # كي لا نُقدّم «ضربَ أهدافٍ في الكويت» على عهدةِ نموذجٍ لغويّ كأنّه خبرٌ مؤكّد.
+    _sig=j.get("signals",[]) or []
+    _kept=[s for s in _sig if not (any(w in str(s.get("q","")) for w in _HARD_EVENT) and not _ok_url(s.get("u")))]
+    if len(_kept)!=len(_sig): print(f"🛡️ المُستقرِئ: أُسقط {len(_sig)-len(_kept)} مؤشرَ حدثٍ بلا مصدر")
+    j["signals"]=_kept
     j["updated"]=datetime.now(timezone.utc).isoformat(timespec="minutes")
     json.dump(j,open(FCAST,"w"),ensure_ascii=False,indent=1)
     bill(d,"المُستقرِئ")
@@ -795,10 +1111,11 @@ def manba():
         age=(datetime.now(timezone.utc)-datetime.fromisoformat(old["updated"])).total_seconds()/3600
     except Exception: old,age=None,999
     old=old or {}
-    go,why = due("manba",age,9)
+    go,why = due("manba",age,14)
     if not go and not os.environ.get("FORCE_OFFICIAL"):
         print(f"⏱️ المَنبع: {why}"); return {"skipped":1,"why":why}
     if not GROK_KEY: return
+    if over_budget("المَنبع"): return {"skipped":1,"why":"بلغ سقفَ الإنفاق اليوميّ"}
     B=[("القيادة المركزية الأمريكية CENTCOM، وزارة الكهرباء والماء الكويتية، "
         "قوة الإطفاء العام الكويتية، وكالة الأنباء الكويتية كونا، وزارة الداخلية الكويتية"),
        ("وزارة الصحة الكويتية، الداخلية أو الدفاع المدني السعودي، وزارة الخارجية الإماراتية، "
@@ -815,7 +1132,7 @@ def manba():
        "لا تستخدم علامة تنصيص مزدوجة داخل النصوص. لا شيء خارج JSON.")
     body={"model":os.environ.get("GROK_MODEL","grok-4.3"),"input":[{"role":"user","content":P}],
         "tools":[{"type":"x_search"},{"type":"web_search"}],
-        "max_output_tokens":2600,"max_tool_calls":4}
+        "max_output_tokens":2600,"max_tool_calls":3}
     try:
         req=urllib.request.Request("https://api.x.ai/v1/responses",data=json.dumps(body).encode(),
             headers={"Authorization":"Bearer "+GROK_KEY,"Content-Type":"application/json"})
@@ -826,9 +1143,30 @@ def manba():
         lst=json.loads(txt[txt.find("["):txt.rfind("]")+1])
         lst=[x for x in lst if x.get("h","").startswith("@") and x.get("p")]
         if not lst: raise ValueError("قائمة فارغة")
-        keep={x["h"].lower():x for x in (old or {}).get("src",[])}
-        for x in lst: keep[x["h"].lower()]=x
-        merged=list(keep.values())[-14:]
+        # ختمُ الالتقاطِ الآليّ (cap): لا يُخدَعُ بتاريخٍ نصّيٍّ متيبّس مثل «اليوم» الذي يبقى
+        # «اليوم» بعد يوم. ونُحوّلُ «اليوم/أمس» إلى تاريخٍ مطلقٍ عند الالتقاطِ فلا يتعفّن العرض.
+        _now=datetime.now(timezone.utc); _now_iso=_now.isoformat(timespec="minutes")
+        _kd=(_now+timedelta(hours=3)).date()
+        _ARM=["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر"]
+        _abs=lambda d:f"{d.day} {_ARM[d.month-1]} {d.year}"
+        keep={((x.get("h") or "").lower() or "w:"+str(x.get("e",""))):x
+              for x in (old or {}).get("src",[])}
+        for x in lst:
+            x["cap"]=_now_iso
+            _t=str(x.get("t",""))
+            if "اليوم" in _t: x["t"]=_t.replace("اليوم",_abs(_kd))
+            elif "أمس" in _t: x["t"]=_t.replace("أمس",_abs(_kd-timedelta(days=1)))
+            keep[x["h"].lower()]=x
+        # الطزاجة: يبقى بيانُ آخرِ ٣٠ ساعة (بالختمِ الآليّ)، أو ما تاريخُه اليومَ/أمسِ إن لم
+        # يكن له ختمٌ بعد — فلا يُفرَّغُ القسمُ عند الانتقال، ولا يبقى بيانٌ متعفّن. والأحدثُ أوّلًا.
+        def _fresh_cap(x):
+            c=x.get("cap")
+            if c:
+                try: return (_now-datetime.fromisoformat(c)).total_seconds()<=30*3600
+                except Exception: pass
+            return not _stmt_old_days(x.get("t"),1)   # بلا ختم: يُبقى إن كان تاريخُه اليومَ أو أمس
+        merged=sorted([x for x in keep.values() if _fresh_cap(x)],
+                      key=lambda x:x.get("cap",""),reverse=True)[:14]
         json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"src":merged},
             open(OFFI,"w"),ensure_ascii=False,indent=1)
         bill(d,"المَنبع")
@@ -838,12 +1176,74 @@ def manba():
 
 manba()
 
+# ═══ سلكُ المَنبع الحرّ: يُبقي «من المَنبع» محدَّثًا كلَّ دورةٍ بلا كلفة ═══
+# بين تشغيلَي المَنبع المدفوعَين (كلّ ١٢ ساعة) نجلبُ آخرَ ما نشرته وكالاتُ الأنباء
+# الرسميّةُ نفسُها عبر «أخبار غوغل RSS» — عناوينُ حقيقيّةٌ من موقع الوكالة الرسميّ،
+# لا تأليفَ ولا مفتاح. لا يمسُّ ختمَ updated (مدارَ نوبةِ المَنبع) بل يضيفُ wired.
+_WIRE_AG=[("الكويت","🇰🇼","وكالة الأنباء الكويتية (كونا)","site:kuna.net.kw"),
+          ("السعودية","🇸🇦","وكالة الأنباء السعودية (واس)","site:spa.gov.sa"),
+          ("الإمارات","🇦🇪","وكالة أنباء الإمارات (وام)","site:wam.ae"),
+          ("قطر","🇶🇦","وكالة الأنباء القطرية (قنا)","site:qna.org.qa"),
+          ("البحرين","🇧🇭","وكالة أنباء البحرين (بنا)","site:bna.bh")]
+
+def _tok_sim(a,b):
+    A=set(re.findall(r"[؀-ۿ]{3,}",str(a or ""))); B=set(re.findall(r"[؀-ۿ]{3,}",str(b or "")))
+    return len(A&B)/max(1,min(len(A) or 1,len(B) or 1))
+
+def manba_wire():
+    from email.utils import parsedate_to_datetime
+    try: j=json.load(open(OFFI))
+    except Exception: j={"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"src":[]}
+    now=datetime.now(timezone.utc); now_iso=now.isoformat(timespec="minutes")
+    _ARM=["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر"]
+    keep={((x.get("h") or "").lower() or "w:"+str(x.get("e",""))):x for x in j.get("src",[])}
+    added=0
+    for c,f,e,q in _WIRE_AG:
+        try:
+            url="https://news.google.com/rss/search?q="+_up.quote(q)+"&hl=ar&gl=KW&ceid=KW:ar"
+            req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0"})
+            root=ET.fromstring(urllib.request.urlopen(req,timeout=25).read())
+            best=None
+            for it in root.iter("item"):
+                title=clean(it.findtext("title","")); head=title.rsplit(" - ",1)[0]
+                head=re.sub(r"^(?:Kuna|KUNA|كونا|واس|وام|قنا|بنا|عام|سياسي|اقتصادي|رياضي|ثقافي|أخبار)\s*[/:：\-]\s*","",head).strip()
+                try: dt=parsedate_to_datetime(clean(it.findtext("pubDate",""))).astimezone(timezone.utc)
+                except Exception: continue
+                if (now-dt).total_seconds()>36*3600 or len(head)<15 or blocked(head): continue
+                if best is None or dt>best[0]: best=(dt,head,clean(it.findtext("link","")))
+            if not best: continue
+            dt,head,link=best
+            prev=keep.get("w:"+e)
+            if prev and prev.get("p")==head: continue          # لا جديدَ لدى الجهة
+            # لا نُكرّرُ بيانًا جلبه المَنبعُ المدفوعُ نفسُه لنفس المضمون
+            if any(_tok_sim(head,x.get("p",""))>0.6 for x in keep.values()): continue
+            kd=(dt+timedelta(hours=3))                         # عرضُ التاريخ بيوم الكويت
+            keep["w:"+e]={"c":c,"f":f,"e":e,"h":"","p":head,
+                "t":f"{kd.day} {_ARM[kd.month-1]} {kd.year}","u":link,"cap":now_iso,"wire":True}
+            added+=1
+        except Exception: continue
+    def _fresh(x):
+        try: return (now-datetime.fromisoformat(x.get("cap",""))).total_seconds()<=30*3600
+        except Exception: return not _stmt_old_days(x.get("t"),1)
+    merged=sorted([x for x in keep.values() if _fresh(x)],
+                  key=lambda x:x.get("cap",""),reverse=True)[:14]
+    if added or merged!=j.get("src"):
+        json.dump({"updated":j.get("updated") or now_iso,"wired":now_iso,"src":merged},
+            open(OFFI,"w"),ensure_ascii=False,indent=1)
+    print(f"🧵 سلكُ المَنبع الحرّ: +{added} وكالة (المجموع {len(merged)})")
+
+try: manba_wire()
+except Exception as e: print("سلكُ المَنبع تخطّى: "+str(e)[:80])
+
 # ═══ المُطابِق: يقابل أرقام الحصيلة بمصدر مستقل ═══
 @agent("mutabiq")
 def mutabiq():
     """يتحقق من أرقام الحصيلة عبر بحث مستقل ويصنّفها: مطابق / متباين / غير موثّق."""
     try: t=json.load(open(INTEL))
     except Exception: return
+    # توفير: الحصيلة معطّلة (لا أرقام) — فلا داعيَ لإنفاقِ نداءِ Grok على مقابلةِ لا شيء.
+    if not (t.get("toll") or []):
+        return {"skipped":1,"why":"الحصيلةُ معطّلة — لا أرقامَ تُطابَق"}
     try:
         v=json.load(open(f"{OUT}/verify.json"))
         if v.get("src_updated")==t.get("updated"):
@@ -851,6 +1251,7 @@ def mutabiq():
             return {"skipped":1,"why":"لا أرقام جديدة"}
     except Exception: pass
     if not GROK_KEY: return
+    if over_budget("المُطابِق"): return {"skipped":1,"why":"بلغ سقفَ الإنفاق اليوميّ"}
     rows="\n".join("- %s: قتلى %s، جرحى %s (المُعلن: %s)"%(x.get("c"),x.get("d"),x.get("w"),x.get("src","غير مذكور"))
                     for x in t.get("toll",[]))
     P=("تحقّق من هذه الأرقام عبر مصادر مستقلة (وكالات دولية، أمم متحدة، جهات رسمية) "
@@ -883,6 +1284,24 @@ mutabiq()
 # ═══ التحذيرات الرسمية: ما يحتاجه المواطن الآن ═══
 ALERTS=f"{OUT}/alerts.json"
 
+def _vague_when(s):
+    """تاريخٌ غامض: اسمُ شهرٍ عربيٍّ بلا يومٍ محدَّد («يوليو 2026») — علامةُ توجيهٍ
+    قديمٍ قائمٍ يُعادُ بيعُه كأنّه اليوم، فلا يُقبَل في قسمٍ سياديّ."""
+    s=str(s or "")
+    if not any(m in s for m in _AR_MON): return False
+    return not any(_AR_MON.get(m.group(2)) for m in re.finditer(r"(\d{1,2})\s+([^\s0-9]+)",s))
+
+def _alert_stale(x, now=None):
+    """يُسقِطُ التحذيرَ غيرَ الحديث: تاريخُه الصريحُ أقدمُ من يومين، أو تاريخُه غامضٌ
+    شهريّ، أو ختمُ التقاطِه (cap) أقدمُ من ٤٨ ساعة."""
+    w=x.get("when")
+    if _vague_when(w) or _stmt_old_days(w,2): return True
+    try:
+        now=now or datetime.now(timezone.utc)
+        if (now-datetime.fromisoformat(x["cap"])).total_seconds()>48*3600: return True
+    except Exception: pass
+    return False
+
 @agent("munabbih")
 def munabbih():
     """يجمع التحذيرات والتوجيهات الرسمية العملية + تنبيهات الجهات من الشائعات."""
@@ -890,21 +1309,27 @@ def munabbih():
         old=json.load(open(ALERTS))
         age=(datetime.now(timezone.utc)-datetime.fromisoformat(old["updated"])).total_seconds()/3600
     except Exception: old,age=None,999
-    if age<3 and not os.environ.get("FORCE_ALERTS"):
-        print(f"⏱️ المُنبِّه: يعمل بعد ~{max(0,round(3-age,1))}س")
-        return {"skipped":1,"why":f"يعمل بعد ~{max(0,round(3-age,1))}س"}
+    if age<8 and not os.environ.get("FORCE_ALERTS"):
+        print(f"⏱️ المُنبِّه: يعمل بعد ~{max(0,round(8-age,1))}س")
+        return {"skipped":1,"why":f"يعمل بعد ~{max(0,round(8-age,1))}س"}
     if not GROK_KEY: return
+    if over_budget("المُنبِّه"): return {"skipped":1,"why":"بلغ سقفَ الإنفاق اليوميّ"}
     P=("ابحث عن آخر التحذيرات والتوجيهات الرسمية الصادرة عن جهات الكويت والخليج بشأن الأزمة "
-       "خلال ٤٨ ساعة: الداخلية، الدفاع، الإطفاء، الصحة، الكهرباء والماء، الطيران المدني، الدفاع المدني.\n"
+       "خلال ٢٤ ساعة فقط: الداخلية، الدفاع، الإطفاء، الصحة، الكهرباء والماء، الطيران المدني، الدفاع المدني.\n"
        "ادرج نوعين:\n"
        "أ) تحذير أو توجيه عملي للمواطنين (إخلاء، ملاجئ، مجال جوي، مياه، كهرباء، طوارئ).\n"
        "ب) تنبيه رسمي من تداول أخبار غير موثوقة أو شائعات أو حسابات مجهولة.\n"
        'أخرج JSON فقط: [{"kind":"تحذير|تنبيه من شائعة","body":"الجهة",'
-       '"txt":"نص التوجيه بإيجاز","act":"ما يفعله المواطن بجملة","u":"رابط","when":"الوقت"}]\n'
-       "٦ عناصر كحد أقصى من جهات رسمية فقط. لا تنصيص مزدوج داخل النصوص. لا شيء خارج JSON.")
-    body={"model":os.environ.get("GROK_MODEL_HEAVY","grok-4.5"),"input":[{"role":"user","content":P}],
+       '"txt":"نص التوجيه بإيجاز","act":"ما يفعله المواطن بجملة","u":"رابط",'
+       '"when":"تاريخ الصدور المحدد: يوم شهر سنة وساعة إن عُرفت، مثل 26 يوليو 2026 14:00"}]\n'
+       "٦ عناصر كحد أقصى من جهات رسمية فقط. لا تُدرِجْ توجيهًا قائمًا منذ أيامٍ أو أسابيع "
+       "وإن ظلّ ساريًا — الأحدثَ فقط، وما جهلتَ تاريخَ صدورِه المحدَّد فلا تُدرِجْه أصلًا. "
+       "لا تنصيص مزدوج داخل النصوص. لا شيء خارج JSON.")
+    # توفير: النموذج الأخفّ (grok-4.3) وبحثٌ أقلّ يكفيان لالتقاطِ التحذيراتِ الرسميّة —
+    # كان «المُنبِّه» ٦٤٪ من الإنفاق على النموذجِ الثقيل. الجودةُ يحرسُها إسقاطُ التحذيرِ بلا مصدر.
+    body={"model":os.environ.get("GROK_MODEL","grok-4.3"),"input":[{"role":"user","content":P}],
         "tools":[{"type":"x_search"},{"type":"web_search"}],
-        "max_output_tokens":2600,"max_tool_calls":6}
+        "max_output_tokens":2000,"max_tool_calls":4}
     try:
         req=urllib.request.Request("https://api.x.ai/v1/responses",data=json.dumps(body).encode(),
             headers={"Authorization":"Bearer "+GROK_KEY,"Content-Type":"application/json"})
@@ -913,7 +1338,18 @@ def munabbih():
                     for c in o.get("content",[]))
         txt=txt.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
         lst=json.loads(txt[txt.find("["):txt.rfind("]")+1])
-        lst=[x for x in lst if x.get("body") and x.get("txt")][:6]
+        lst=[x for x in lst if x.get("body") and x.get("txt")]
+        # حارسُ الإسناد: تحذيرٌ رسميٌّ (إخلاء/صافرة/طوارئ) بلا رابطٍ يُتحقَّق منه لا يُنشَر —
+        # لا نُطلقُ إنذارًا باسمِ جهةٍ سياديّةٍ على عهدةِ نموذجٍ لغويّ. تنبيهُ الشائعاتِ إرشاديٌّ فيبقى.
+        _before=len(lst)
+        lst=[x for x in lst if x.get("kind")!="تحذير" or _ok_url(x.get("u"))][:6]
+        if _before!=len(lst): print(f"🛡️ المُنبِّه: أُسقط {_before-len(lst)} تحذيرًا بلا مصدرٍ موثّق")
+        # 🛡️ حارسُ الطزاجة: توجيهٌ بتاريخٍ غامضٍ شهريٍّ أو أقدمَ من يومين لا يُنشَر —
+        # ختمُ الملفِّ طازجٌ لكن لا نسمحُ للمضمونِ القديمِ أن يتخفّى وراءه.
+        _now_iso=datetime.now(timezone.utc).isoformat(timespec="minutes")
+        for x in lst: x["cap"]=_now_iso
+        _b2=len(lst); lst=[x for x in lst if not _alert_stale(x)]
+        if _b2!=len(lst): print(f"🛡️ المُنبِّه: أُسقط {_b2-len(lst)} توجيهًا قديمًا أو غامضَ التاريخ")
         if not lst: raise ValueError("فارغة")
         bill(d,"المُنبِّه")
         json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"list":lst},
@@ -925,18 +1361,509 @@ def munabbih():
 
 munabbih()
 
-# ═══ المُحصي: أعداد الذخائر نقلًا عن وزارات الدفاع مباشرة ═══
+# ═══ سلكُ التحذيرات الحرّ: «تحذيراتٌ رسمية» حديثةٌ كلَّ دورةٍ بلا كلفة ═══
+# بين نوباتِ المُنبِّه المدفوعةِ (كلّ ٨ ساعات) يجلبُ عناوينَ تحذيراتِ الدفاعِ المدنيّ
+# والداخليّةِ والطيرانِ المدنيِّ من «أخبار غوغل RSS» — من منافذَ بدرجةِ «صحيح/حسن»
+# فقط، وبتاريخِ نشرٍ خلال ٤٨ ساعة — ويُطهِّرُ الملفَّ من القديمِ كلَّ دورةٍ أيضًا.
+_ALERT_WIRE_Q=[
+ '"الدفاع المدني" OR "وزارة الداخلية" (تحذير OR تنبيه OR إخلاء OR صافرات OR طوارئ) الكويت',
+ '(الكويت OR السعودية OR البحرين) ("الدفاع المدني" OR "الطيران المدني") (تعليق OR تحذير OR إغلاق OR استئناف)',
+]
+def alerts_wire():
+    from email.utils import parsedate_to_datetime
+    try: j=json.load(open(ALERTS))
+    except Exception: j=None
+    now=datetime.now(timezone.utc); now_iso=now.isoformat(timespec="minutes")
+    _ARM=["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر"]
+    # بصمةٌ محليّة (_rid تُعرَّف لاحقًا في قسمِ الشائعات — السكربتُ تسلسليّ)
+    _h=lambda c: hashlib.md5(re.sub(r"\s+","",str(c or "")).encode("utf-8")).hexdigest()[:10]
+    cur=(j or {}).get("list",[])
+    for x in cur: x.setdefault("cap",now_iso)          # ختمُ التقاطٍ لعناصرِ المُنبِّه عند أوّل مرور
+    keep={_h(x.get("txt","")):x for x in cur}
+    added=0
+    for q in _ALERT_WIRE_Q:
+        try:
+            url="https://news.google.com/rss/search?q="+_up.quote(q)+"&hl=ar&gl=KW&ceid=KW:ar"
+            req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0"})
+            root=ET.fromstring(urllib.request.urlopen(req,timeout=25).read())
+            n=0
+            for it in root.iter("item"):
+                title=clean(it.findtext("title","")); head=title.rsplit(" - ",1)[0]
+                src_=title.rsplit(" - ",1)[-1] if " - " in title else ""
+                if grade(src_) not in ("صحيح","حسن"): continue   # منافذُ معتبَرةٌ فقط في قسمٍ سياديّ
+                try: dt=parsedate_to_datetime(clean(it.findtext("pubDate",""))).astimezone(timezone.utc)
+                except Exception: continue
+                if (now-dt).total_seconds()>48*3600 or len(head)<20 or blocked(head): continue
+                rid=_h(head)
+                if rid in keep: continue
+                if any(_tok_sim(head,x.get("txt",""))>0.6 for x in keep.values()): continue
+                kd=dt+timedelta(hours=3)
+                keep[rid]={"kind":"تحذير","body":src_,"txt":head,"u":clean(it.findtext("link","")),
+                    "when":f"{kd.day} {_ARM[kd.month-1]} {kd.year}","cap":now_iso,"wire":True}
+                added+=1; n+=1
+                if n>=3: break
+        except Exception: continue
+    merged=sorted([x for x in keep.values() if not _alert_stale(x,now)],
+                  key=lambda x:x.get("cap",""),reverse=True)[:8]
+    purged=len(keep)-len(merged)
+    if added or purged or j is None or merged!=cur:
+        json.dump({"updated":(j or {}).get("updated") or now_iso,"wired":now_iso,"list":merged},
+            open(ALERTS,"w"),ensure_ascii=False,indent=1)
+    print(f"🧵 سلكُ التحذيرات الحرّ: +{added} · طُهّر {purged} قديمًا (المجموع {len(merged)})")
+
+try: alerts_wire()
+except Exception as e: print("سلكُ التحذيرات تخطّى: "+str(e)[:80])
+
+# ═══════════════ سَنَد تحت المجهر: رصدُ الشائعات بسلسلة إسنادٍ ثلاثيّة ═══════════════
+# لا يُنشَر حكمٌ قاطعٌ إلا بما تتّفق عليه ثلاثةُ وكلاء: المُلتَقِط يجمع، والمُخرِّج يبحث
+# ويُثبت المصدر، والفاحِص يفتح كلَّ رابطٍ بنفسه ويتأكّد أنه حيٌّ ويحتوي الادعاء. ما لم
+# يُثبَتْ بمصدرٍ مفتوحٍ محقَّق يبقى «قيد التحقق» — الوفرةُ بلا هذه البوابة أسرعُ طريقٍ
+# لنشر مصدرٍ مهلوس، وهو الفشلُ الوحيد الذي لا رجعةَ منه.
+RUMORS_F=f"{OUT}/rumors.json"
+RUMOR_BACKFILL_DONE=f"{OUT}/rumors_backfill.done"
+_RUMOR_CAP=float(os.environ.get("RUMOR_DAILY_CAP_USD","0.15"))       # سقفٌ يوميٌّ صارمٌ للوكلاء المدفوعة
+_RUMOR_BACKFILL_CAP=float(os.environ.get("RUMOR_BACKFILL_CAP_USD","1.50"))
+_TIER2_ALERT=int(os.environ.get("RUMOR_TIER2_ALERT","3"))           # عتبةُ الحِمل: >٣ «قيد التحقق» باليوم = إشارةُ إجهاد
+_RUMOR_BILLED=("المُلتَقِط","المُخرِّج","المُنقِّح")                  # الفاحِصُ مجّانيٌّ بالكامل
+
+def _rumor_spent_today():
+    try:
+        c=json.load(open(f"{OUT}/cost.json"))
+        if c.get("day")!=datetime.now(timezone.utc).strftime("%Y-%m-%d"): return 0.0
+        return sum(c.get("by",{}).get(n,0) for n in _RUMOR_BILLED)
+    except Exception: return 0.0
+
+def _grok(P, max_tok=2500, max_calls=6, tools=True):
+    """نداءٌ واحدٌ لـGrok مع أدوات البحث — يعيد (الردّ، النصّ) للفوترة والتحليل."""
+    body={"model":os.environ.get("GROK_MODEL","grok-4.3"),
+          "input":[{"role":"user","content":P}],"max_output_tokens":max_tok}
+    if tools: body["tools"]=[{"type":"x_search"},{"type":"web_search"}]; body["max_tool_calls"]=max_calls
+    req=urllib.request.Request("https://api.x.ai/v1/responses",data=json.dumps(body).encode(),
+        headers={"Authorization":"Bearer "+GROK_KEY,"Content-Type":"application/json"})
+    d=json.load(urllib.request.urlopen(req,timeout=420))
+    txt="".join(c.get("text","") for o in d.get("output",[]) if o.get("type")=="message"
+                for c in o.get("content",[]))
+    txt=txt.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
+    return d, txt
+
+def _json_list(txt):
+    try: return json.loads(txt[txt.find("["):txt.rfind("]")+1])
+    except Exception: return []
+
+def _rid(claim):
+    return hashlib.md5(re.sub(r"\s+","",str(claim or "")).encode("utf-8")).hexdigest()[:10]
+
+def _fetch_body(u, timeout=15):
+    """يفتح الرابط ويقرأ جسمه نصًّا — مجّانًا عبر urllib، بلا أيّ مفتاح."""
+    try:
+        req=urllib.request.Request(u,headers={"User-Agent":"Mozilla/5.0"})
+        raw=urllib.request.urlopen(req,timeout=timeout).read()[:400000]
+        return clean(raw.decode("utf-8","ignore"))
+    except Exception: return ""
+
+def _claim_in_body(claim, body):
+    """مطابقةٌ تقريبيّة: هل تظهر كلماتُ الادعاء الدالّة في جسم الصفحة فعلًا؟"""
+    words=re.findall(r"[؀-ۿ]{4,}", str(claim or ""))[:10]
+    if not words: return False
+    hit=sum(1 for w in words if w in body)
+    return hit >= max(2, len(words)//2)
+
+def _fahis_check(u, claim):
+    """الفاحِص: يفتح الرابط، يتأكّد أنه حيّ، وأنه يحتوي الادعاء أو أنه من منفذٍ معتبَر."""
+    u=str(u or "")
+    if not _ok_url(u): return {"u":u,"ok":False,"live":False,"has":False,"t":"غير مُسند"}
+    body=_fetch_body(u); live=bool(body)
+    has=_claim_in_body(claim, body) if body else False
+    t=grade(u)                                     # درجةُ النطاقِ نفسِه من قوائم TIER
+    return {"u":u,"ok":bool(live and (has or t in ("صحيح","حسن"))),"live":live,"has":has,"t":t}
+
+# ألفاظُ الحدثِ العسكريِّ الجسيم — لا نُثبّتُها «صحّ» عبر مسارِ الشائعات (للأخبارِ أنبوبُها بمصادره)
+_WAR=("هجوم","هجمات","صاروخ","مسير","مسيّر","استهد","قصف","ضرب","اعتراض","غارة",
+      "قتلى","قتيل","جرحى","انفجار","تفجير","قاعدة","عدوان","جاسوس","جواسيس","احتلال","سيطرة")
+def _is_grave(claim): return any(w in str(claim or "") for w in _WAR)
+def _looks_dateish(s): return any(m in str(s or "") for m in _AR_MON)   # فيه اسمُ شهرٍ = عنصرُ أرشيفٍ مؤرَّخ
+
+@agent("multaqit")
+def _rumor_collect(paid_ok):
+    """المُلتَقِط: يجمع الادعاءات المنتشرة — مجّانًا من تنبيهات المُنبِّه، ثم بحثٌ مسقوف."""
+    cands=[]; now_iso=datetime.now(timezone.utc).isoformat(timespec="minutes")
+    # (أ) مجّانًا: إشاراتُ الشائعات التي رصدها المُنبِّه أصلًا
+    try:
+        for x in json.load(open(ALERTS)).get("list",[]):
+            if "شائعة" in (x.get("kind") or ""):
+                c=clean(x.get("txt") or x.get("body") or "")
+                if len(c)>12: cands.append({"claim":c,"spread":"تنبيه رسميّ","u":x.get("u",""),"first_seen":now_iso})
+    except Exception: pass
+    # (ب) مدفوعٌ مسقوف: ما يُتداول على منصّة إكس والويب
+    if paid_ok:
+        P=("ارصد أبرز الادعاءات والشائعات المنتشرة حاليًا في التداول (منصّة إكس، واتساب، المنتديات) "
+           "حول الكويت والخليج وإيران والمنطقة خلال ٢٤ ساعة — ما ينتشر بكثافةٍ ولم يُؤكَّد رسميًّا بعد، "
+           "خاصّةً ما يمسّ الأمنَ والسلامةَ والاقتصاد.\n"
+           'أخرج JSON فقط: [{"claim":"نصّ الادعاء كما يُتداول","spread":"أين ينتشر",'
+           '"qail":"من أطلقَ الادعاءَ أو أبرزُ من تداوله — شخصٌ أو جهةٌ مسمّاةٌ كما وردت، وإلا فاتركه فارغًا",'
+           '"u":"رابط المصدر المُدَّعى إن وُجد"}]\n'
+           "٦ ادعاءات كحد أقصى. لا تُلفّقْ ادعاءً لم يُتداول فعلًا، ولا تُخمّنْ قائلًا لم يثبُت. "
+           "لا تنصيص مزدوج داخل النصوص. لا شيء خارج JSON.")
+        try:
+            d,txt=_grok(P,max_tok=2200,max_calls=5); bill(d,"المُلتَقِط")
+            for x in _json_list(txt):
+                c=clean(x.get("claim",""))
+                if len(c)>12: cands.append({"claim":c,"spread":clean(x.get("spread","التداول")),
+                    "qail":clean(x.get("qail",""))[:60],"u":x.get("u",""),"first_seen":now_iso})
+        except Exception as e: print("المُلتَقِط تخطّى البحث: "+str(e)[:80])
+    # إزالةُ التكرار بالبصمة
+    uniq={}
+    for c in cands: uniq.setdefault(_rid(c["claim"]), c)
+    out=list(uniq.values())
+    print(f"🔍 المُلتَقِط: {len(out)} ادعاءً مرشَّحًا")
+    return {"cands":out}
+
+@agent("mukharrij")
+def _rumor_takhrij(cands, paid_ok):
+    """المُخرِّج: يبحث كلَّ ادعاءٍ ويُثبت مصدرَه ويحكم — تخريجُ الخبرِ إلى أصلِه الموثَّق."""
+    now_iso=datetime.now(timezone.utc).isoformat(timespec="minutes")
+    # بلا بحثٍ مدفوعٍ متاح: يبقى كلُّ ادعاءٍ «قيد التحقق» بأمانة (لم يُؤكَّد ولم يُنفَ)
+    if not paid_ok:
+        return {"judged":[{"claim":c["claim"],"spread":c.get("spread","التداول"),
+            "qail":c.get("qail",""),
+            "verdict":"قيد التحقق","why":"لا يزال قيد التحقّق — لم يُؤكَّد أو يُنفَ بمصدرٍ موثّق بعد.",
+            "sources":([{"u":c["u"],"t":"المصدر المُدَّعى"}] if c.get("u") else []),
+            "first_seen":c.get("first_seen",now_iso)} for c in cands]}
+    numbered="\n".join("%d) %s"%(n,c["claim"]) for n,c in enumerate(cands))
+    P=("لكلّ ادعاءٍ مرقَّمٍ أدناه، ابحث في المصادر الرسميّة والوكالات الموثوقة وتحقّق: هل صحّ، "
+       "أم لم يصحّ، أم لا يزال مجهولًا؟ وأرفق روابط المصادر التي تؤكّد أو تنفي، "
+       "وسمِّ من أطلقَ الادعاءَ أو أبرزَ من تداوله إن ثبتَ لديك — ولا تُخمّن.\n\n"
+       "الادعاءات:\n"+numbered+"\n\n"
+       'أخرج JSON فقط: [{"n":الرقم,"verdict":"صحّ|لم يصحّ|قيد التحقق","qail":"القائل أو فارغ",'
+       '"why":"سببُ الحكم بجملة","sources":[{"u":"رابط","t":"اسم المصدر"}]}]\n'
+       "احكم «صحّ» فقط بتأكيدٍ من مصدرٍ موثوقٍ برابط، و«لم يصحّ» فقط بنفيٍ موثّقٍ برابط، وإلا «قيد التحقق». "
+       "لا تُصدِرْ حكمًا قاطعًا بلا رابطٍ يسنده. لا تنصيص مزدوج داخل النصوص. لا شيء خارج JSON.")
+    judged=[]
+    try:
+        d,txt=_grok(P,max_tok=3000,max_calls=8); bill(d,"المُخرِّج")
+        by_n={o.get("n"):o for o in _json_list(txt) if isinstance(o,dict)}
+        for n,c in enumerate(cands):
+            o=by_n.get(n) or {}
+            v=o.get("verdict") if o.get("verdict") in ("صحّ","لم يصحّ","قيد التحقق") else "قيد التحقق"
+            src=[s for s in (o.get("sources") or []) if isinstance(s,dict) and s.get("u")]
+            if not src and c.get("u"): src=[{"u":c["u"],"t":"المصدر المُدَّعى"}]
+            judged.append({"claim":c["claim"],"spread":c.get("spread","التداول"),"verdict":v,
+                "qail":clean(o.get("qail",""))[:60] or c.get("qail",""),
+                "why":clean(o.get("why","")) or "—","sources":src,"first_seen":c.get("first_seen",now_iso)})
+    except Exception as e:
+        print("المُخرِّج تخطّى: "+str(e)[:80])
+        return {"judged":[{"claim":c["claim"],"spread":c.get("spread","التداول"),
+            "qail":c.get("qail",""),
+            "verdict":"قيد التحقق","why":"تعذّر البحثُ الآن — يبقى قيد التحقّق.",
+            "sources":([{"u":c["u"],"t":"المصدر المُدَّعى"}] if c.get("u") else []),
+            "first_seen":c.get("first_seen",now_iso)} for c in cands]}
+    print(f"📑 المُخرِّج: حكم على {len(judged)} ادعاءً")
+    return {"judged":judged}
+
+@agent("fahis")
+def _rumor_verify(judged):
+    """الفاحِص (البوابة): يفتح كلَّ رابطٍ بنفسه؛ الحكمُ القاطعُ لا يمرّ بلا مصدرٍ حيٍّ محقَّق."""
+    checked=0
+    for it in judged:
+        srcs=[]
+        for s in it.get("sources",[]):
+            r=_fahis_check(s.get("u"), it["claim"]); checked+=1
+            srcs.append({"u":s.get("u"),"t":s.get("t") or r.get("t"),"ok":r["ok"]})
+        it["sources"]=srcs
+        passing=[s for s in srcs if s.get("ok")]
+        it["_passing"]=len(passing)
+        # 🛡️ البوابة: حكمٌ قاطعٌ (صحّ/لم يصحّ) بلا مصدرٍ حيٍّ محقَّق يُخفَّض إلى «قيد التحقق»
+        if it["verdict"] in ("صحّ","لم يصحّ") and not passing:
+            it["verdict"]="قيد التحقق"
+            it["why"]=(it.get("why","")+" — لم يصمُدْ مصدرٌ حيٌّ عند الفحص، فأُبقيَ قيد التحقّق.").strip()
+        # 🛡️ حارسُ النزاهة: لا نُثبّتُ حدثًا عسكريًّا جسيمًا كـ«صحّ» عبر مسارِ الشائعات —
+        # المسارُ لتتبّعِ المتنازَعِ عليه (خاصّةً «لم يصحّ»)، لا لسردِ أحداثِ الحرب المؤكَّدة.
+        if it["verdict"]=="صحّ" and _is_grave(it.get("claim","")):
+            it["verdict"]="قيد التحقق"
+            it["why"]=(it.get("why","")+" — حدثٌ عسكريٌّ جسيم لا يُثبَّت هنا كمؤكَّد؛ يبقى قيد التحقّق.").strip()
+        it["gate"]={"multaqit":True,"mukharrij":True,"fahis":bool(passing)}
+    print(f"🔗 الفاحِص: فحص {checked} رابطًا في {len(judged)} ادعاءً")
+    return {"judged":judged}
+
+@agent("munaqqih")
+def _rumor_review(items, paid_ok):
+    """المُنقِّح: مراجعٌ رابعٌ مستقلٌّ يمرُّ على المعروضِ كلَّ دورة — يطوي العالقَ القديمَ
+    فيبقى القسمُ جاريًا، يعيدُ فحصَ مصادرِ الأحكامِ القاطعةِ مجّانًا، ويُثبتُ قائلَ
+    الشائعةِ ويحاولُ حسمَ العالقِ ببحثٍ مسقوفٍ ضمن سقفِ المسار."""
+    now=datetime.now(timezone.utc)
+    out=[]; folded=0; rechecked=0
+    for x in items:
+        # (أ) طيُّ العالق: «قيد التحقق» بلا حسمٍ لأكثر من ٤٨ ساعة يُطوى من العرض
+        if x.get("verdict")=="قيد التحقق" and not x.get("resolved_at"):
+            try:
+                if (now-datetime.fromisoformat(x["first_seen"])).total_seconds()>48*3600:
+                    folded+=1; continue
+            except Exception: pass
+        out.append(x)
+    # (ب) إعادةُ الفحصِ مجّانًا (سقف ٨ روابط بالدورة): حكمٌ قاطعٌ فقدَ كلَّ مصادرِه الحيّةِ
+    # يعودُ «قيد التحقق» — فلا يبقى حكمٌ معلَّقًا على مصدرٍ ماتَ رابطُه.
+    fuel=8
+    for x in out:
+        if fuel<=0: break
+        if x.get("verdict") not in ("صحّ","لم يصحّ") or not x.get("sources"): continue
+        srcs=[]; alive=0
+        for s in x["sources"]:
+            if fuel<=0: srcs.append(s); continue
+            r=_fahis_check(s.get("u"), x.get("claim")); fuel-=1; rechecked+=1
+            ok=bool(r["ok"]); alive+=ok
+            srcs.append({"u":s.get("u"),"t":s.get("t"),"ok":ok})
+        x["sources"]=srcs
+        if not alive:
+            x["verdict"]="قيد التحقق"; x["tier2"]=True; x["resolved_at"]=None
+            x["why"]=(str(x.get("why",""))+" — أعادَ المُنقِّحُ الفحصَ فلم يصمُدْ مصدرٌ حيّ؛ أُعيدَ قيدَ التحقّق.").strip(" —")
+    # (ج) قائلُ الشائعةِ ومحاولةُ حسمِ العالق — بحثٌ مدفوعٌ على نوبةِ المسارِ وسقفِه فقط
+    need=[x for x in out if not x.get("qail") or x.get("verdict")=="قيد التحقق"][:5]
+    if need and paid_ok and GROK_KEY and _rumor_spent_today()<_RUMOR_CAP and not over_budget("المُنقِّح"):
+        numbered="\n".join("%d) %s"%(n,x["claim"]) for n,x in enumerate(need))
+        P=("لكلّ ادعاءٍ مرقَّمٍ أدناه: (١) من أوّلُ من أطلقه أو أبرزُ من تداوله؟ سمِّ شخصًا أو "
+           "جهةً محدّدةً كما وردت في التداول فعلًا — إن جُهل فاتركه فارغًا ولا تُخمّن. "
+           "(٢) هل حُسم الآن بمصدرٍ موثوقٍ برابط؟\n\nالادعاءات:\n"+numbered+"\n\n"
+           'أخرج JSON فقط: [{"n":الرقم,"qail":"القائل أو فارغ","verdict":"صحّ|لم يصحّ|قيد التحقق",'
+           '"why":"سببُ الحكم بجملة","sources":[{"u":"رابط","t":"اسم المصدر"}]}]\n'
+           "حكمٌ قاطعٌ يلزمه رابطٌ يسنده وإلا «قيد التحقق». لا تنصيص مزدوج داخل النصوص. لا شيء خارج JSON.")
+        try:
+            d,txt=_grok(P,max_tok=2200,max_calls=5); bill(d,"المُنقِّح")
+            by_n={o.get("n"):o for o in _json_list(txt) if isinstance(o,dict)}
+            for n,x in enumerate(need):
+                o=by_n.get(n) or {}
+                q=clean(o.get("qail",""))[:60]
+                if q and not _looks_dateish(q): x["qail"]=q
+                v=o.get("verdict")
+                if v in ("صحّ","لم يصحّ") and x.get("verdict")=="قيد التحقق":
+                    # بوّابةُ الفاحِص تسري على المُنقِّح أيضًا: لا حسمَ بلا مصدرٍ حيٍّ محقَّق،
+                    # ولا «صحّ» لحدثٍ عسكريٍّ جسيمٍ عبر هذا المسار.
+                    ns=[]
+                    for s in (o.get("sources") or []):
+                        if isinstance(s,dict) and s.get("u"):
+                            r=_fahis_check(s["u"], x["claim"])
+                            ns.append({"u":s["u"],"t":s.get("t") or r.get("t"),"ok":r["ok"]})
+                    if any(s["ok"] for s in ns) and not (v=="صحّ" and _is_grave(x["claim"])):
+                        x["verdict"]=v; x["tier2"]=False
+                        x["why"]=clean(o.get("why","")) or x.get("why","—")
+                        x["sources"]=(x.get("sources") or [])+ns
+                        x["resolved_at"]=now.isoformat(timespec="minutes")
+        except Exception as e: print("المُنقِّح تخطّى البحث: "+str(e)[:80])
+    print(f"🔁 المُنقِّح: طوى {folded} عالقًا · أعاد فحص {rechecked} رابطًا · راجع {len(need)} قائلًا")
+    return {"items":out,"folded":folded,"why":f"طوى {folded} · فحص {rechecked} رابطًا"}
+
+def _rumor_backfill():
+    """⛔ مُعطَّل عمدًا: كان يجلبُ «آخر ٣٠ يومًا» فيعيدُ نشرَ أحداثٍ عسكريّةٍ جسيمةٍ قديمةٍ
+    كبطاقاتِ «صحّ» ويختمُها بتاريخِ اليوم — أخبارٌ قديمةٌ تظهرُ كأنها الآن، وبابٌ خلفيٌّ
+    لصنفِ الادّعاءات التي عُطّلت سابقًا (grok_intel، mustaqsi). الأرشيفُ يتعمّقُ للأمام
+    طبيعيًّا من الشائعاتِ الجاريةِ بدل دفعةٍ رجعيّةٍ خطِرة."""
+    return []
+    # ── ما يلي مُعطَّل (لا يُنفَّذ) ──
+    if os.path.exists(RUMOR_BACKFILL_DONE) or not GROK_KEY: return []
+    if _rumor_spent_today() >= _RUMOR_BACKFILL_CAP:
+        print("🗄️ الأرشيف الرجعي: بلغ السقف — يُؤجَّل"); return []
+    now_iso=datetime.now(timezone.utc).isoformat(timespec="minutes")
+    got=[]
+    P=("ابحث عن أبرز الشائعات والادعاءات التي انتشرت حول الكويت والخليج وإيران والمنطقة خلال آخر ٣٠ يومًا، "
+       "وتبيّن لاحقًا مصيرُها بمصادرَ موثّقة: أيُّها صحّ وأيُّها لم يصحّ.\n"
+       'أخرج JSON فقط: [{"claim":"نصّ الادعاء","when":"متى انتشر","verdict":"صحّ|لم يصحّ|قيد التحقق",'
+       '"why":"سببُ الحكم بجملة","sources":[{"u":"رابط","t":"اسم المصدر"}]}]\n'
+       "١٢ عنصرًا كحد أقصى. لكلّ حكمٍ قاطعٍ رابطٌ يسنده. لا تنصيص مزدوج. لا شيء خارج JSON.")
+    try:
+        d,txt=_grok(P,max_tok=4000,max_calls=12); bill(d,"المُخرِّج")
+        for x in _json_list(txt):
+            c=clean(x.get("claim",""))
+            if len(c)<12: continue
+            got.append({"claim":c,"spread":clean(x.get("when","")) or "التداول",
+                "verdict":x.get("verdict") if x.get("verdict") in ("صحّ","لم يصحّ","قيد التحقق") else "قيد التحقق",
+                "why":clean(x.get("why","")) or "—",
+                "sources":[s for s in (x.get("sources") or []) if isinstance(s,dict) and s.get("u")],
+                "first_seen":now_iso,"_backfill":True})
+        open(RUMOR_BACKFILL_DONE,"w").write(now_iso)
+        print(f"🗄️ الأرشيف الرجعي: التقط {len(got)} شائعةً من آخر ٣٠ يومًا")
+    except Exception as e: print("الأرشيف الرجعي تعذّر: "+str(e)[:80])
+    return got
+
+def _rumor_audit(items):
+    """مؤشّرُ الحِمل (>٣ قيد التحقق باليوم) وحارسُ الانجراف (ارتفاعُ «لم يصحّ» شذوذًا)."""
+    today=datetime.now(_KW).date().isoformat()
+    tier2_today=sum(1 for x in items if x.get("verdict")=="قيد التحقق"
+                    and str(x.get("first_seen","")).startswith(today))
+    dist={"صحّ":0,"لم يصحّ":0,"قيد التحقق":0}
+    for x in items: dist[x.get("verdict","قيد التحقق")]=dist.get(x.get("verdict","قيد التحقق"),0)+1
+    tot=sum(dist.values()) or 1
+    last10=items[:10]
+    recent_false=sum(1 for x in last10 if x.get("verdict")=="لم يصحّ")/(len(last10) or 1)
+    base_false=dist["لم يصحّ"]/tot
+    drift=bool(len(items)>=10 and recent_false>0.6 and recent_false>base_false*1.5)
+    return {"tier2_today":tier2_today,"overload":tier2_today>_TIER2_ALERT,
+            "dist":dist,"last10":[{"id":x["id"],"verdict":x["verdict"]} for x in last10],
+            "drift_flag":drift,
+            "note":("راجعْ آخر ١٠ أحكامٍ بحياد — ارتفعت نسبة «لم يصحّ»." if drift else
+                    ("تجاوزتَ ٣ حالاتٍ قيد التحقق اليوم — إشارةُ إجهادٍ في الحكم." if tier2_today>_TIER2_ALERT else ""))}
+
+def rumor_track():
+    """المنسِّق: يجمع، يخرّج، يفحص، ثم يدمج وينشر ما اجتاز البوابة — مع تدقيقِ الحِمل والانجراف."""
+    now=datetime.now(timezone.utc); now_iso=now.isoformat(timespec="minutes")
+    try: old=json.load(open(RUMORS_F))
+    except Exception: old=None
+    age=(now-datetime.fromisoformat(old["updated"])).total_seconds()/3600 if old else 999
+    paid_ok=bool(GROK_KEY) and (age>=8 or bool(os.environ.get("FORCE_RUMORS"))) and _rumor_spent_today()<_RUMOR_CAP and not over_budget("سند تحت المجهر")
+    # ١) جمع  ٢) تخريج/حكم  ٣) فحص الروابط (البوابة)
+    cands=(_rumor_collect(paid_ok) or {}).get("cands",[])
+    seed=_rumor_backfill()
+    judged=(_rumor_takhrij(cands, paid_ok) or {}).get("judged",[]) if cands else []
+    judged+=seed
+    judged=(_rumor_verify(judged) or {}).get("judged",[]) if judged else []
+    # ٤) دمجٌ يحفظ «قال/صار»: أوّلُ ظهورٍ يبقى، ووقتُ الحسمِ يُثبَّت عند أوّل حكمٍ قاطع
+    keep={x["id"]:x for x in (old or {}).get("items",[])}
+    for it in judged:
+        rid=_rid(it["claim"]); prev=keep.get(rid,{})
+        # فصلُ التاريخِ عن مكانِ الانتشار: لا يُوضَعُ تاريخٌ في spread أبدًا
+        sp=str(it.get("spread","التداول") or "التداول"); wn=str(it.get("when","") or prev.get("when",""))
+        if _looks_dateish(sp): wn=wn or sp; sp="التداول"
+        first_seen=prev.get("first_seen") or it.get("first_seen") or now_iso
+        resolved_at=prev.get("resolved_at")
+        if it["verdict"] in ("صحّ","لم يصحّ") and not resolved_at: resolved_at=now_iso
+        q=clean(str(it.get("qail","")))[:60]
+        if _looks_dateish(q): q=""
+        keep[rid]={"id":rid,"claim":it["claim"],"verdict":it["verdict"],
+            "qail":q or prev.get("qail",""),
+            "spread":sp,"when":wn,"why":it.get("why","—"),
+            "sources":it.get("sources",[]),"tier2":it["verdict"]=="قيد التحقق",
+            "gate":it.get("gate",{"multaqit":True,"mukharrij":True,"fahis":bool(it.get("_passing"))}),
+            "first_seen":first_seen,"resolved_at":resolved_at,"updated":now_iso}
+    # 🛡️ حارسُ الطزاجةِ والنزاهة (يُطبَّقُ على الكلِّ فيُنظّفُ المتراكمَ القديمَ أيضًا):
+    #   يُسقَطُ عنصرٌ مؤرَّخٌ (أرشيفٌ قديمٌ سرّب تاريخًا) أو حدثٌ عسكريٌّ جسيمٌ بحكمِ «صحّ».
+    def _drop(x):
+        if _looks_dateish(x.get("spread","")) or _looks_dateish(x.get("when","")): return True
+        if x.get("verdict")=="صحّ" and _is_grave(x.get("claim","")): return True
+        return False
+    def _rank(x): return (x.get("resolved_at") or x.get("first_seen") or "")
+    merged=sorted([x for x in keep.values() if not _drop(x)], key=_rank, reverse=True)[:12]
+    # ٥) المُنقِّح (المراجعُ الرابع): يطوي العالقَ القديمَ ويعيدُ الفحصَ ويُثبتُ القائل
+    merged=(_rumor_review(merged, paid_ok) or {}).get("items", merged)
+    audit=_rumor_audit(merged)
+    json.dump({"updated":now_iso,"items":merged,"audit":audit},
+        open(RUMORS_F,"w"),ensure_ascii=False,indent=1)
+    if audit["overload"] or audit["drift_flag"]: print("⚖️ سند تحت المجهر: "+audit["note"])
+    print(f"🔬 سند تحت المجهر: {len(merged)} شائعةً · {audit['dist']} · قيد التحقق اليوم {audit['tier2_today']}")
+
+rumor_track()
+
+# ═══════════ المِقياس: مؤشّرُ عدم الاستقرار الإقليميّ — حسابٌ شفّافٌ صِرف ═══════════
+# نظيرُ «Country Instability Index» بروحِ الإسناد: لا نموذجَ لغويًّا ولا تخمين —
+# عدٌّ حتميٌّ لكثافةِ الموادِّ المُسنَدةِ التي جمعها الأنبوبُ في هذه الدورةِ نفسِها،
+# والصيغةُ معلنةٌ والمكوّناتُ تُحفَظُ خامًا لكلّ دولة (إسنادُ المؤشّرِ نفسِه).
+TENSION_F=f"{OUT}/tension.json"
+_CTRY=[
+ # (id, الاسم, EN, [مرادفات المطابقة], lat, lon)
+ ("kw","الكويت","Kuwait",["الكويت","كويتي","الكويتية","الكويتي"],29.3,47.8),
+ ("sa","السعودية","Saudi Arabia",["السعودية","سعودي","السعودي","الرياض","جازان","ينبع","جدة"],24.0,45.0),
+ ("ae","الإمارات","UAE",["الإمارات","إماراتي","الإماراتية","أبوظبي","دبي"],24.2,54.3),
+ ("qa","قطر","Qatar",["قطر","قطري","القطرية","الدوحة"],25.3,51.2),
+ ("bh","البحرين","Bahrain",["البحرين","بحريني","البحرينية","المنامة"],26.0,50.5),
+ ("om","عُمان","Oman",["عمان","عُمان","عماني","العمانية","مسقط"],21.0,57.0),
+ ("iq","العراق","Iraq",["العراق","عراقي","العراقية","بغداد","أربيل","البصرة"],33.0,44.0),
+ ("ir","إيران","Iran",["إيران","إيراني","الإيرانية","طهران","أصفهان","بوشهر","هرمز"],32.0,53.0),
+ ("ye","اليمن","Yemen",["اليمن","يمني","اليمنية","صنعاء","الحوثي","الحوثيين","الحديدة"],15.5,47.5),
+ ("ps","فلسطين","Palestine",["فلسطين","فلسطيني","الفلسطينية","غزة","القدس","الضفة","رفح","إسرائيل","الإسرائيلي","الاحتلال"],31.9,35.2),
+]
+def _tension_level(s):
+    return "حرج" if s>=75 else ("متوتّر" if s>=50 else ("مترقّب" if s>=25 else "هادئ"))
+
+@agent("miqyas")
+def miqyas():
+    def _load(p, key):
+        try: return json.load(open(p)).get(key) or []
+        except Exception: return []
+    news=[]
+    try:
+        for _c,_l in (json.load(open(f"{OUT}/news.json")).get("cats") or {}).items():
+            for it in _l: news.append({**it,"_cat":_c})
+    except Exception: pass
+    alerts=_load(ALERTS,"list"); rums=_load(RUMORS_F,"items"); offi=_load(OFFI,"src")
+    try: prev={c["id"]:c.get("score",0) for c in json.load(open(TENSION_F)).get("countries",[])}
+    except Exception: prev={}
+    def _hit(txt, aliases): return any(a in str(txt or "") for a in aliases)
+    out=[]
+    for cid,nm,en,al,lat,lon in _CTRY:
+        m=[x for x in news if _hit(x.get("head"),al)]
+        n=len(m)
+        u=sum(1 for x in m if x.get("_cat")=="عاجل")
+        w=sum(1 for x in m if _is_grave(x.get("head")))
+        a=sum(1 for x in alerts if _hit(str(x.get("txt",""))+" "+str(x.get("body","")),al))
+        r=sum(1 for x in rums if x.get("verdict") in ("قيد التحقق","لم يصحّ") and _hit(x.get("claim"),al))
+        o=sum(1 for x in offi if _hit(str(x.get("p",""))+" "+str(x.get("e","")),al))
+        score=min(100, 4*u + 3*w + 8*a + 4*r + 2*max(0,n-u) + o)
+        # عيّنةُ أحداثِ اليوم (وقودُ طبقاتِ الخريطة) — أحدثُ ٥ موادَّ مُسنَدةً بروابطها
+        ev=sorted(m, key=lambda x:str(x.get("at","")), reverse=True)[:5]
+        out.append({"id":cid,"name":nm,"en":en,"lat":lat,"lon":lon,
+            "score":score,"level":_tension_level(score),
+            "delta":score-prev.get(cid,score),
+            "parts":{"n":n,"u":u,"w":w,"a":a,"r":r,"o":o},
+            "events":[{"h":x.get("head",""),"g":x.get("grade",""),"u":x.get("link",""),
+                       "at":x.get("at",""),"src":x.get("src","")} for x in ev]})
+    out.sort(key=lambda c:-c["score"])
+    json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),
+        "note":"مؤشرٌ حسابيٌّ شفّافٌ من كثافة المواد المُسنَدة وحدَها — ليس تقييمًا استخباراتيًّا رسميًّا",
+        "formula":"score = min(100, 4·عاجل + 3·ألفاظ تصعيد + 8·تحذيرات + 4·شائعات + 2·أخبار أخرى + بيانات رسمية)",
+        "countries":out}, open(TENSION_F,"w"),ensure_ascii=False,indent=1)
+    top=out[0] if out else {}
+    print(f"🌡️ المِقياس: {len(out)} دولةً · الأعلى {top.get('name','—')} {top.get('score',0)}/100 ({top.get('level','')})")
+    return {"why":f"الأعلى {top.get('name','—')} {top.get('score',0)}/100"}
+
+try: miqyas()
+except Exception as e: print("المِقياس تخطّى: "+str(e)[:80])
+
+# ═══ تغذيةُ تاريخِ المؤشرِ لبوّابةِ المؤسسات (Supabase) — اختياريّةٌ وصامتة ═══
+# إن توفّر SUPABASE_URL + SUPABASE_SERVICE_KEY (سرّان في Actions) دُفعت لقطةُ
+# الدورة إلى sanad_tension_history عبر REST (upsert على country_id+ts). بلا
+# الأسرار: تخطٍّ صامت — لا كسرَ ولا كلفة. مفتاحُ الخدمة لا يُطبَع ولا يُخزَّن.
+def push_tension_history():
+    su=os.environ.get("SUPABASE_URL"); sk=os.environ.get("SUPABASE_SERVICE_KEY")
+    if not su or not sk: return
+    try: t=json.load(open(TENSION_F))
+    except Exception: return
+    ts=t.get("updated"); rows=[]
+    for c in t.get("countries",[]):
+        rows.append({"ts":ts,"country_id":c.get("id"),"score":c.get("score"),
+                     "level":c.get("level"),"parts":c.get("parts")})
+    if not rows: return
+    try:
+        req=urllib.request.Request(
+            su.rstrip("/")+"/rest/v1/sanad_tension_history",
+            data=json.dumps(rows).encode(),
+            headers={"apikey":sk,"Authorization":"Bearer "+sk,"Content-Type":"application/json",
+                     "Prefer":"resolution=merge-duplicates,return=minimal"},
+            method="POST")
+        urllib.request.urlopen(req,timeout=25)
+        print(f"🏛️ تاريخُ المؤشر: دُفعت {len(rows)} صفوفٍ إلى بوّابة المؤسسات")
+    except Exception as e:
+        print("تاريخُ المؤشر تخطّى: "+str(e)[:80])
+
+try: push_tension_history()
+except Exception as e: print("تاريخُ المؤشر تخطّى: "+str(e)[:80])
+
+# ═══ المُستَقصي: أعداد الذخائر نقلًا عن وزارات الدفاع مباشرة ═══
 MODF=f"{OUT}/mod.json"
 
-@agent("muhsi")
-def muhsi():
-    """ينقل أعداد الصواريخ والمسيّرات عن الجهات العسكرية الرسمية نفسها."""
+@agent("mustaqsi")
+def mustaqsi():
+    """⛔ مُعطَّل عمدًا: كان يُولّد أعدادَ صواريخَ ومسيّراتٍ عبرَ Grok وينسبُها إلى
+    جهاتٍ عسكريّةٍ رسميّة (رئاسة الأركان الكويتية ووزاراتِ دفاعِ الخليج) دون تحقّقٍ
+    ممكن — تلفيقٌ منسوبٌ زورًا لجهاتٍ سياديّة، كحصيلةِ الحرب التي عُطّلت سابقًا.
+    نُبقيه صامتًا: لا نَنشُر رقمًا عسكريًّا ما لم يُعلِنْه مصدرُه الأوّلُ صراحةً ويُتحقَّق منه."""
+    j={"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"list":[],"disabled":1}
+    try: json.dump(j,open(MODF,"w"),ensure_ascii=False,indent=1)
+    except Exception: pass
+    return {"skipped":1,"why":"مُعطَّل — لا تُنشَر أرقامٌ عسكريّةٌ غيرُ مُتحقَّقة"}
+    # ── ما يلي مُعطَّل (لا يُنفَّذ) ──
     try:
         old=json.load(open(MODF))
         age=(datetime.now(timezone.utc)-datetime.fromisoformat(old["updated"])).total_seconds()/3600
     except Exception: old,age=None,999
     if age<6 and not os.environ.get("FORCE_MOD"):
-        print(f"⏱️ المُحصي: يعمل بعد ~{max(0,round(6-age,1))}س")
+        print(f"⏱️ المُستَقصي: يعمل بعد ~{max(0,round(6-age,1))}س")
         return {"skipped":1,"why":f"يعمل بعد ~{max(0,round(6-age,1))}س"}
     if not GROK_KEY: return
     P=("ابحث في الحسابات والمواقع الرسمية لوزارات الدفاع والأركان في كل بلد أدناه، "
@@ -959,7 +1886,7 @@ def muhsi():
        "قواعد صارمة: انقل الأرقام عن الجهة الرسمية نفسها فقط. "
        "إن لم تُعلن الجهة رقمًا فاكتب «لم تُعلن» ولا تنقل عن صحيفة أو ناشط. "
        "لا تنصيص مزدوج داخل النصوص. لا شيء خارج JSON.")
-    body={"model":os.environ.get("GROK_MODEL_HEAVY","grok-4.5"),"input":[{"role":"user","content":P}],
+    body={"model":os.environ.get("GROK_MODEL_HEAVY","grok-4.3"),"input":[{"role":"user","content":P}],
         "tools":[{"type":"x_search"},{"type":"web_search"}],
         "max_output_tokens":4000,"max_tool_calls":10}
     try:
@@ -981,17 +1908,17 @@ def muhsi():
         good=sum(1 for x in lst if str(x.get("mis","")) not in NA or str(x.get("drn","")) not in NA)
         if old and good < len([1 for x in old.get("list",[])
                    if str(x.get("mis","")) not in NA or str(x.get("drn","")) not in NA])*0.7:
-            print("🛡️ بيانات المُحصي أضعف — أُبقيت السابقة"); return old
-        bill(d,"المُحصي")
+            print("🛡️ بيانات المُستَقصي أضعف — أُبقيت السابقة"); return old
+        bill(d,"المُستَقصي")
         json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"list":lst},
             open(MODF,"w"),ensure_ascii=False,indent=1)
-        print(f"🎯 المُحصي: {good}/{len(lst)} جهة أعلنت أرقامًا رسميًا")
+        print(f"🎯 المُستَقصي: {good}/{len(lst)} جهة أعلنت أرقامًا رسميًا")
         return {"list":lst}
     except Exception as e:
-        print("المُحصي تخطّى: "+str(e)[:90])
+        print("المُستَقصي تخطّى: "+str(e)[:90])
         return old
 
-muhsi()
+mustaqsi()
 
 # ═══ دمج الأرقام الرسمية في الحصيلة (تسبق المجمَّعة) ═══
 def merge_mod():
@@ -1026,6 +1953,35 @@ merge_mod()
 mustaqri()
 
 # ═══ فقرة المحلل الاستراتيجي (وكيل — يُصرَّح بذلك) ═══
+def _distinct_who(f,n=3):
+    """قائلون متمايزون بلا تكرار، بترتيب ورودهم — كي لا تُهيمن جهةٌ واحدة على
+    الزوايا (كان يظهر «ترامب، ترامب» حين يتكرّر القائل في أوّل الإشارات)."""
+    seen=set(); out=[]
+    for x in (f.get("signals") or []):
+        w=str(x.get("who","")).strip()
+        if w and w not in seen:
+            seen.add(w); out.append(w)
+        if len(out)>=n: break
+    return out
+
+def _analyst_fallback(f):
+    """قراءةٌ محسوبةٌ من الاستقراء نفسِه — تُبنى من أرقامٍ حقيقيّةٍ لا من تلفيق،
+    كي لا تجمُدَ قراءةُ المحلّل إن تعذّر التوليدُ اللغويّ."""
+    scs=sorted((f.get("scenarios") or []),key=lambda x:-(x.get("p") or 0))
+    if not scs: return ""
+    top=scs[0]
+    who=_distinct_who(f,3)
+    if   len(who)>=3: lead="من ثلاث زوايا: "+"، ".join(who[:3])
+    elif len(who)==2: lead="من زاويتين: "+" و".join(who)
+    elif len(who)==1: lead="من زاويةٍ محوريّة: "+who[0]
+    else:             lead="من المشهد الميدانيّ والسياسيّ والدبلوماسيّ"
+    out=["شكرًا لك. المشهد اليوم يُقرأ "+lead+"."]
+    out.append("السيناريو الأكثر ترجيحًا بنسبة %s%% هو %s."%(top.get("p"),str(top.get("s","")).strip()))
+    if top.get("why"): out.append("وتدعمه السابقة: "+str(top["why"]).strip()+".")
+    out.append("وتبقى هذه قراءةً احتمالية، والمؤشر الحاسم هو "
+        +(str(top.get("watch")).strip() if top.get("watch") else "مدى تبدّل مواقف الأطراف في الجولات القادمة")+".")
+    return " ".join(out)
+
 @agent("murtajil")
 def analyst_segment():
     """يحوّل الاستقراء إلى تحليل منطوق بأسلوب ضيف النشرات، بصوت مغاير للمذيع."""
@@ -1037,28 +1993,41 @@ def analyst_segment():
             print("⏱️ المُحلِّل: القراءة مواكبة لآخر استقراء")
             return {"skipped":1,"why":"القراءة مواكبة"}
     except Exception: pass
-    if not GEMINI_KEY: return
-
-    scn="\n".join("- (%s%%) %s | السابقة: %s"%(x.get("p"),x.get("s",""),x.get("why","")[:150])
+    _scs=sorted((f.get("scenarios") or []),key=lambda x:-(x.get("p") or 0))
+    _watch=str((_scs[0].get("watch") if _scs else "") or "").strip()
+    scn="\n".join("- (%s%%) %s | السابقة: %s"%(x.get("p"),x.get("s",""),str(x.get("why",""))[:150])
                    for x in f.get("scenarios",[]))
-    sig="\n".join("- %s: %s"%(x.get("who",""),x.get("q","")[:120]) for x in f.get("signals",[])[:4])
-    P=("اكتب فقرة تحليل استراتيجي منطوقة، بأسلوب الضيف الخبير في النشرات الإخبارية العربية.\n\n"
-       "الإشارات:\n"+sig+"\n\nالسيناريوهات:\n"+scn+"\n\n"
-       "القواعد: ابدأ بـ«شكرًا لك. المشهد اليوم يُقرأ من ثلاث زوايا:». "
-       "٩٠ إلى ١٢٠ كلمة. عربية فصيحة رصينة بلا مبالغة. اذكر النسبة الأعلى صراحةً بالأرقام العربية. "
-       "استشهد بسابقة تاريخية واحدة. اختم بـ«وتبقى هذه قراءةً احتمالية، والمؤشر الحاسم هو» ثم اذكر المؤشر. "
+    sig="\n".join("- %s: %s"%(x.get("who",""),str(x.get("q",""))[:120]) for x in f.get("signals",[])[:4])
+    _ang=_distinct_who(f,3)
+    _ang_line=("الزوايا المتمايزة (أطّر المشهد حولها ولا تكرّر أيّ قائل): "+"، ".join(_ang)) \
+        if _ang else "أطّر المشهد من زواياه الميدانيّة والسياسيّة والدبلوماسيّة"
+    _watch_line=("المؤشّر الحاسم المُسنَد: "+_watch) if _watch else \
+        "اجعل المؤشّر الحاسم حدثًا واحدًا قابلًا للرصد ومنسوبًا لمصدرٍ رسميّ (بيانٌ أو تصريحٌ موثَّق)"
+    P=("اكتب فقرة تحليل استراتيجي منطوقة، بأسلوب الضيف الخبير الرصين في النشرات الإخبارية العربية.\n\n"
+       "الإشارات:\n"+sig+"\n\n"+_ang_line+"\n\nالسيناريوهات:\n"+scn+"\n"+_watch_line+"\n\n"
+       "القواعد: ابدأ بـ«شكرًا لك. المشهد اليوم يُقرأ من» ثم أطّره حول الزوايا المتمايزة أعلاه "
+       "بعددها الفعليّ دون تكرار أيّ قائل (زاويتان تُذكران زاويتين لا ثلاثًا). "
+       "٩٠ إلى ١٢٠ كلمة. عربية فصيحة رصينة، دقيقةٌ لا تُبالغ ولا تحشو؛ انسُب كلَّ قولٍ لقائله. "
+       "اذكر النسبة الأعلى صراحةً، واستشهد بسابقة تاريخية واحدة دقيقة ومتّصلة بالسيناريو. "
+       "اختم بـ«وتبقى هذه قراءةً احتمالية، والمؤشر الحاسم هو» ثم اذكر مؤشّرًا واحدًا قابلًا للرصد "
+       "ومُسنَدًا لمصدرٍ رسميّ لا عبارةً عامّة. "
        "أخرج النص فقط بلا عناوين ولا رموز ولا أسماء نماذج أو شركات.")
-    try:
-        body={"contents":[{"parts":[{"text":P}]}],
-            "generationConfig":{"maxOutputTokens":700,"temperature":0.55,
-                "thinkingConfig":{"thinkingBudget":0}}}
-        req=urllib.request.Request(
-            "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key="+GEMINI_KEY,
-            data=json.dumps(body).encode(),headers={"Content-Type":"application/json"})
-        d=json.load(urllib.request.urlopen(req,timeout=90))
-        txt=d["candidates"][0]["content"]["parts"][0]["text"].strip()
-    except Exception as e:
-        print("فقرة المحلل تخطّت: "+str(e)[:80]); return
+    txt=""
+    if GEMINI_KEY:
+        try:
+            body={"contents":[{"parts":[{"text":P}]}],
+                "generationConfig":{"maxOutputTokens":1400,"temperature":0.55,
+                    "thinkingConfig":{"thinkingBudget":0}}}
+            d=gemini_post(body, timeout=90)
+            cand=(d.get("candidates") or [{}])[0]
+            parts=((cand.get("content") or {}).get("parts") or [])
+            txt="".join(p.get("text","") for p in parts if isinstance(p,dict)).strip()
+            if not txt: print("فقرة المحلل: ردٌّ بلا نصّ (%s) — سنبني من الاستقراء"%cand.get("finishReason",""))
+        except Exception as e:
+            print("فقرة المحلل — تعذّر التوليد: "+str(e)[:70]+" — سنبني من الاستقراء")
+    if not txt:
+        txt=_analyst_fallback(f)          # لا تجمُدُ القراءةُ أبدًا: تُبنى من الاستقراء الحيّ
+    if not txt: return
 
     mp3=f"{OUT}/analyst.mp3"
     try:
@@ -1082,6 +2051,82 @@ def analyst_segment():
     print("🎤 فقرة المحلل: %d كلمة%s"%(len(txt.split())," + صوت" if ok else ""))
 
 analyst_segment()
+
+# ═══ المُدوِّن: كاتبُ عمودِ الجريدة اليوميّ — Gemini فقط، صفرُ كلفةِ Grok ═══
+COLF=f"{OUT}/column.json"
+
+@agent("mudawwin")
+def mudawwin():
+    """يكتبُ عمودَ رأيٍ يوميًّا واحدًا من أخبارِ اليومِ المُسنَدةِ وحدَها — رأيٌ يُصاغُ
+    كقراءةٍ لا كحقيقة، بإفصاحٍ صريحٍ أنّ الكاتبَ مساعدُ ذكاءٍ اصطناعيّ."""
+    kw_today=datetime.now(_KW).date().isoformat()
+    try:
+        old=json.load(open(COLF))
+        if old.get("date")==kw_today and not os.environ.get("FORCE_COLUMN"):
+            print("⏱️ المُدوِّن: عمودُ اليوم منشور")
+            return {"skipped":1,"why":"عمودُ اليوم منشور"}
+    except Exception: old=None
+    if not GEMINI_KEY: return {"skipped":1,"why":"لا مفتاح Gemini"}
+    feed=[i for i in items if i.get("grade") in ("صحيح","حسن")][:12]
+    if len(feed)<4:
+        print("⏱️ المُدوِّن: عناوينُ اليوم أقلُّ من أن تُبنى عليها قراءة")
+        return {"skipped":1,"why":"عناوينُ غيرُ كافية"}
+    heads="\n".join("- [%s] %s — نقلًا عن %s"%(i["grade"],i["head"],i.get("src") or "المصدر") for i in feed)
+    scn=""
+    try:
+        f=json.load(open(FCAST))
+        top=sorted(f.get("scenarios") or [],key=lambda x:-(x.get("p") or 0))
+        if top: scn="\n\nالسيناريو الأرجح لدى فريق الاستقراء (%s%%): %s"%(top[0].get("p"),top[0].get("s",""))
+    except Exception: pass
+    P=("اكتب عمودَ رأيٍ صحفيًّا واحدًا لجريدة «سَنَد» بالفصحى الرصينة، ٢٥٠ إلى ٣٥٠ كلمة، "
+       "بأسلوب كاتبِ عمودٍ خليجيٍّ متمرّس: مدخلٌ آسر، فكرةٌ ناظمةٌ واحدة، وخاتمةٌ تترك أثرًا.\n\n"
+       "أخبارُ اليوم المُسنَدة (مادّتُك الوحيدة):\n"+heads+scn+"\n\n"
+       "قواعدُ نزاهةٍ صارمة:\n"
+       "- لا تذكرْ أيَّ واقعةٍ غيرِ واردةٍ في العناوين أعلاه، وانسُبْ كلَّ واقعةٍ لمصدرها (نقلًا عن …).\n"
+       "- صُغِ الرأيَ كقراءةٍ واستنتاجٍ لا كحقيقةٍ مقطوعٍ بها؛ ولا تُهوّلْ ولا تُهوِّن.\n"
+       "- لا مقارنةَ بوسائلَ إعلامٍ أخرى، ولا أسماءَ نماذجَ أو شركاتِ تقنية.\n"
+       "- لا أرقامَ عسكريّةً أو حصائلَ إلا ما ورد حرفيًّا في العناوين.\n"
+       'أخرج JSON فقط: {"title":"عنوانُ العمود (٣-٧ كلمات)","text":"نصُّ العمود فقراتٍ يفصلُها سطرٌ فارغ"}')
+    try:
+        j=gemini_json(P, max_tok=2400, temp=0.6)
+        title=clean(j.get("title","")); text=str(j.get("text","")).strip()
+        if len(text.split())<120 or not title: raise ValueError("عمودٌ ناقص")
+    except Exception as e:
+        # لا قالبَ مُلفَّقًا: يبقى عمودُ الأمس حتى ينجحَ توليدُ اليوم
+        print("المُدوِّن — تعذّر التوليد: "+str(e)[:70]+(" — يبقى عمودُ الأمس" if old else ""))
+        if old: return {"skipped":1,"why":"تعذّر التوليد — بقي عمودُ الأمس"}
+        raise            # بلا عمودٍ سابقٍ الفشلُ فشلٌ — لا يُعرَض «ok» زورًا في لوحة الإدارة
+    # 🌍 نسخةُ العمود الإنجليزيّة — نداءٌ مجّانيّ واحد، وغيابُها لا يعطّل شيئًا
+    he_t,he_x="",""
+    try:
+        jt=gemini_json("Translate this Arabic opinion column to elegant journalistic English. "
+            "Faithful translation, keep attributions (according to ...) intact.\n"
+            'Return JSON only: {"title":"...","text":"..."}\n'
+            "TITLE: "+title+"\nTEXT:\n"+text, max_tok=4000, temp=0.3)
+        he_t=clean(jt.get("title","")); he_x=str(jt.get("text","")).strip()
+    except Exception as e: print("ترجمة العمود تخطّت: "+str(e)[:50])
+    # 🎧 «اسمع العمود» — صوتٌ مجّانيّ بنمطِ فقرةِ المحلّل نفسِه
+    col_mp3=f"{OUT}/column.mp3"; aok=False
+    try:
+        import edge_tts, ssl as _s, asyncio as _a
+        import edge_tts.communicate as _c
+        _ctx=_s.create_default_context(); _ctx.check_hostname=False; _ctx.verify_mode=_s.CERT_NONE
+        try: _c._SSL_CTX=_ctx
+        except Exception: pass
+        async def _go():
+            await edge_tts.Communicate(title+". "+text,"ar-SA-HamedNeural",rate="-6%").save(col_mp3)
+        _a.run(_go())
+        aok=os.path.getsize(col_mp3)>4000
+    except Exception as e: print("صوت العمود تعذّر: "+str(e)[:60])
+    json.dump({"name":"المُدوِّن","title":"كاتبُ الجريدة · مساعد ذكاء اصطناعي",
+        "head":title,"text":text,"date":kw_today,"src_n":len(feed),
+        "head_en":he_t,"text_en":he_x,
+        "audio":"column.mp3" if aok else "",
+        "updated":datetime.now(timezone.utc).isoformat(timespec="minutes")},
+        open(COLF,"w"),ensure_ascii=False,indent=1)
+    print("🖋️ المُدوِّن: «%s» — %d كلمة من %d عنوانًا مُسنَدًا%s"%(title,len(text.split()),len(feed)," + 🎧" if aok else ""))
+
+mudawwin()
 
 naqid()
 
@@ -1133,10 +2178,7 @@ def gemini_script():
     body={"contents":[{"parts":[{"text":prompt}]}],
           "generationConfig":{"maxOutputTokens":2600,"temperature":0.4,"thinkingConfig":{"thinkingBudget":0}}}
     try:
-        req=urllib.request.Request(
-            f"https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key={GEMINI_KEY}",
-            data=json.dumps(body).encode(),headers={"Content-Type":"application/json"})
-        d=json.load(urllib.request.urlopen(req,timeout=60))
+        d=gemini_post(body, timeout=60)
         txt=d["candidates"][0]["content"]["parts"][0]["text"].strip()
         txt=re.sub(r"[\*#`]","",txt)
         if OPEN_L.split(".")[0] in txt and len(txt)>80:

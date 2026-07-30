@@ -1,70 +1,44 @@
-/* سَنَد — عامل خدمة خفيف: قِشرة تعمل دون شبكة + بيانات آخِر حالة معروفة.
-   الهدف: قارئٌ عائدٌ أثناء انقطاعٍ يرى آخر ما وصله — دائمًا مختومًا بعُمره. */
-const SHELL = 'sanad-shell-v1';
-const DATA  = 'sanad-data-v1';
-const SHELL_ASSETS = [
-  '/', '/index.html',
-  '/fonts/sanad-text.woff2',
-  '/fonts/sanad-display.woff2'
-];
-const DATA_HOST = 'raw.githubusercontent.com';
+/* سَنَد — عاملُ خدمةٍ محافِظ: يجعلُ الموقعَ قابلًا للتثبيت ويعملُ غلافُه دون شبكة،
+   دون المساسِ بطزاجةِ البيانات — بياناتُ الأخبارِ تمرُّ للشبكةِ دائمًا. */
+const SHELL = "sanad-shell-v1";
+const PRECACHE = ["/", "/index.html", "/manifest.webmanifest",
+  "/icons/icon-192.png", "/icons/icon-512.png", "/og-card.png"];
 
-self.addEventListener('install', e => {
+self.addEventListener("install", (e) => {
+  e.waitUntil(caches.open(SHELL).then((c) => c.addAll(PRECACHE)).then(() => self.skipWaiting()).catch(() => {}));
+});
+
+self.addEventListener("activate", (e) => {
   e.waitUntil(
-    caches.open(SHELL).then(c => c.addAll(SHELL_ASSETS)).then(() => self.skipWaiting())
+    caches.keys().then((ks) => Promise.all(ks.filter((k) => k !== SHELL).map((k) => caches.delete(k))))
+      .then(() => self.clients.claim()),
   );
 });
 
-self.addEventListener('activate', e => {
-  e.waitUntil(
-    caches.keys().then(keys => Promise.all(
-      keys.filter(k => k !== SHELL && k !== DATA).map(k => caches.delete(k))
-    )).then(() => self.clients.claim())
-  );
-});
-
-self.addEventListener('fetch', e => {
+self.addEventListener("fetch", (e) => {
   const req = e.request;
-  if (req.method !== 'GET') return;
-  let url;
-  try { url = new URL(req.url); } catch { return; }
+  if (req.method !== "GET") return;
+  const url = new URL(req.url);
 
-  // تنقّل بين الصفحات: الشبكة أولًا، فإن غابت فآخر قِشرة محفوظة
-  if (req.mode === 'navigate') {
-    e.respondWith(
-      fetch(req).then(r => {
-        const copy = r.clone();
-        caches.open(SHELL).then(c => c.put('/index.html', copy)).catch(() => {});
-        return r;
-      }).catch(() => caches.match('/index.html', { ignoreSearch: true }))
-    );
+  // بياناتٌ حيّة (bundle/json من مستودع البيانات) وأيُّ مصدرٍ خارجيّ: الشبكةُ أولًا دائمًا،
+  // كي لا تتعفّنَ الأخبارُ في الكاش. لا نتدخّل — نتركُها للمتصفّح.
+  if (url.origin !== self.location.origin) return;
+  if (url.pathname.endsWith(".json")) return;
+
+  // تنقّلُ الصفحة: الشبكةُ أولًا، والغلافُ المخبّأُ احتياطًا عند انقطاعها.
+  if (req.mode === "navigate") {
+    e.respondWith(fetch(req).catch(() => caches.match("/index.html").then((r) => r || caches.match("/"))));
     return;
   }
 
-  // الخطوط وأصول نفس الأصل: المخزَّن أولًا
-  if (url.origin === self.location.origin) {
-    e.respondWith(
-      caches.match(req).then(hit => hit || fetch(req).then(r => {
-        if (r.ok) { const copy = r.clone(); caches.open(SHELL).then(c => c.put(req, copy)).catch(() => {}); }
-        return r;
-      }).catch(() => hit))
-    );
-    return;
-  }
-
-  // بيانات سَنَد (JSON): قديمٌ-أثناء-التحديث، مع تجاهل مُبطِّل التخزين ?t=
-  if (url.hostname === DATA_HOST && url.pathname.endsWith('.json')) {
-    e.respondWith(
-      caches.open(DATA).then(cache =>
-        cache.match(req, { ignoreSearch: true }).then(cached => {
-          const net = fetch(req).then(r => {
-            if (r && r.ok) cache.put(req, r.clone());
-            return r;
-          }).catch(() => cached);
-          return cached || net;
-        })
-      )
-    );
-    return;
-  }
+  // أصولٌ ساكنةٌ من أصلِنا (أيقونات/بطاقة/manifest): الكاشُ أولًا ثم الشبكة.
+  e.respondWith(
+    caches.match(req).then((hit) => hit || fetch(req).then((res) => {
+      if (res && res.ok && res.type === "basic") {
+        const copy = res.clone();
+        caches.open(SHELL).then((c) => c.put(req, copy)).catch(() => {});
+      }
+      return res;
+    }).catch(() => hit)),
+  );
 });

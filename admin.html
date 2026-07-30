@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>سَنَد · لوحة التشغيل</title>
+<style>
+  :root{
+    --bg:#0A0E15; --panel:#111826; --raise:#161F2E; --line:#1E2734; --line-2:#161d28;
+    --ink:#DEE4ED; --mut:#8B96A6; --dim:#5C6675;
+    --gold:#E4C766; --gold-2:#C9A227;
+    --ok:#3E9B72; --ok-l:#7FD2AC; --warn:#C9A227; --warn-l:#E4C766;
+    --bad:#9E2B37; --bad-l:#E08792; --info:#4A7CC7; --info-l:#7DA8E4;
+    --ok-w:rgba(62,155,114,.13); --warn-w:rgba(201,162,39,.12); --bad-w:rgba(158,43,55,.15); --info-w:rgba(74,124,199,.12);
+  }
+  @media(prefers-color-scheme:light){
+    :root{--bg:#F1EADB;--panel:#FBF8F0;--raise:#fff;--line:#E4D9C2;--line-2:#EFE7D5;
+      --ink:#1C1E24;--mut:#6E6555;--dim:#95917F;--gold:#9A7714;
+      --ok:#2E7A54;--ok-l:#2E7A54;--warn:#9A7714;--warn-l:#9A7714;--bad:#9E2B37;--bad-l:#9E2B37;--info:#3A66A8;--info-l:#3A66A8;}
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:"SF Pro Text",system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:15px;line-height:1.5;padding:0 0 60px;
+    background-image:radial-gradient(1000px 460px at 50% -10%,rgba(201,162,39,.06),transparent 70%)}
+  .mono{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-variant-numeric:tabular-nums}
+  .sadu{height:4px;background-image:repeating-linear-gradient(90deg,#0d5c3f 0 16px,#c9a227 16px 20px,#7a1f2b 20px 36px,#0a0a0a 36px 40px)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+  header{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 18px;padding:26px 0 18px;border-bottom:1px solid var(--line)}
+  header h1{font-size:22px;font-weight:700;letter-spacing:-.01em}
+  header h1 .g{background:linear-gradient(135deg,#e8c96a,#c9a227 55%,#f5e3a8);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{color:var(--mut);font-size:13px}
+  .live{margin-inline-start:auto;display:flex;align-items:center;gap:7px;font-size:12px;color:var(--mut)}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 var(--ok);animation:pulse 2.4s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(62,155,114,.5)}70%{box-shadow:0 0 0 7px rgba(62,155,114,0)}100%{box-shadow:0 0 0 0 rgba(62,155,114,0)}}
+  @media(prefers-reduced-motion:reduce){.dot{animation:none}}
+
+  /* KPI tiles */
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:20px 0}
+  .kpi{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:15px 16px}
+  .kpi .l{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);font-weight:600}
+  .kpi .v{font-size:27px;font-weight:700;margin-top:5px;letter-spacing:-.02em}
+  .kpi .v small{font-size:14px;color:var(--mut);font-weight:500}
+  .kpi.accent .v{color:var(--gold)}
+  .kpi.bad{border-color:var(--bad);background:var(--bad-w)}
+  .mbar{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--line-2);border:1px solid var(--line)}
+  .mseg{display:block;height:100%}
+  .mseg.m-true{background:var(--ok)} .mseg.m-false{background:var(--bad)} .mseg.m-open{background:var(--warn)}
+
+  h2{font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--gold);font-weight:700;margin:26px 0 12px;display:flex;align-items:center;gap:9px}
+  h2 .c{color:var(--dim);font-weight:500;letter-spacing:0;text-transform:none;font-size:12px}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+
+  /* cost bars */
+  .cost{padding:16px 18px;display:flex;flex-direction:column;gap:11px}
+  .cbar .top{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:5px}
+  .cbar .top b{font-weight:600}.cbar .top s{text-decoration:none;color:var(--mut)}
+  .track{height:8px;background:var(--line-2);border-radius:6px;overflow:hidden}
+  .track i{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,var(--gold-2),var(--gold))}
+  .cbar.off .top b{color:var(--bad-l)} .cbar.off .track i{background:var(--bad)}
+  .foot{padding:12px 18px;border-top:1px solid var(--line);font-size:12.5px;color:var(--mut);line-height:1.7}
+
+  /* tables */
+  .tw{overflow-x:auto}
+  table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px}
+  th{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--dim);font-weight:600;text-align:start;padding:11px 14px;border-bottom:1px solid var(--line)}
+  td{padding:11px 14px;border-bottom:1px solid var(--line-2);vertical-align:middle}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:rgba(201,162,39,.05)}
+  .ag-n{font-weight:600}.ag-r{color:var(--dim);font-size:12px}
+  .pill{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:20px;white-space:nowrap}
+  .p-ok{color:var(--ok-l);background:var(--ok-w)} .p-skip{color:var(--warn-l);background:var(--warn-w)}
+  .p-fail{color:var(--bad-l);background:var(--bad-w)} .p-idle{color:var(--dim);background:var(--line-2)}
+  td .n{color:var(--mut);font-size:12.5px}
+  .age-ok{color:var(--ok-l)} .age-late{color:var(--warn-l)} .age-stale{color:var(--bad-l);font-weight:700}
+  .strip{display:inline-block;width:8px;height:8px;border-radius:2px;margin-inline-end:7px;vertical-align:middle}
+  .s-ok{background:var(--ok)}.s-late{background:var(--warn)}.s-stale{background:var(--bad)}.s-off{background:var(--dim)}
+
+  .integrity{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:11px;padding:16px 18px}
+  .ig{border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:13px}
+  .ig .t{font-weight:700;display:flex;align-items:center;gap:7px;margin-bottom:5px}
+  .ig .d{color:var(--mut);font-size:12px;line-height:1.6}
+  .ig.on .t{color:var(--ok-l)} .ig.off .t{color:var(--bad-l)}
+
+  .note{max-width:1080px;margin:26px auto 0;padding:14px 18px;background:var(--warn-w);border:1px solid rgba(201,162,39,.3);
+    border-radius:11px;font-size:13px;color:var(--mut);line-height:1.7}
+  .note b{color:var(--ink)}
+  .err{padding:20px;color:var(--bad-l);font-size:14px}
+  a{color:var(--gold);text-decoration:none} a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="sadu"></div>
+<div class="wrap">
+  <header>
+    <h1>🛡️ <span class="g">سَنَد</span> · لوحة التشغيل</h1>
+    <span class="sub">مراقبةُ الوكلاء · التكلفة · طزاجةُ الأقسام</span>
+    <span class="live"><span class="dot"></span><span id="live">يُحدَّث…</span></span>
+  </header>
+  <div id="app"><div class="err" style="color:var(--mut)">جارٍ تحميل حالة النظام…</div></div>
+</div>
+<div class="note">
+  <b>ملاحظةُ خصوصيّة.</b> هذه اللوحةُ تقرأُ بياناتٍ منشورةٌ أصلًا في مستودعِ البيانات العام، فهي <b>غيرُ محميّةٍ بكلمةِ مرور</b> — من يعرفُ الرابطَ يراها. إن أردتَها خاصّةً حقًّا: فعِّلْ حمايةَ Vercel بكلمةِ مرور، أو انقلْ ملفَّ التكلفة خارجَ المستودعِ العام.
+</div>
+
+<script>
+const RAW="https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/";
+// المهلةُ المتوقّعةُ لكلِّ قسمٍ بالساعات (للنبض) — أطولُ منها بكثيرٍ = صامت
+const CADENCE={news:.6,verify:.6,council:.6,evolution:.6,agents:.6,forecast:6.5,analyst:6.5,alerts:8.5,official:13,rumors:8.5,column:27,latest:26,dua:26};
+const DISABLED_INFO=[
+  {k:"intel",t:"حصيلةُ الحرب (الرَّاصِد)",on:false,d:"مُعطَّلة — كانت تُلفّقُ أرقامَ ضحايا منسوبةً لجهاتٍ رسميّة."},
+  {k:"ledger",t:"سجلُّ الذخائر (المُستَقصي)",on:false,d:"مُعطَّل — كان يَنسبُ صواريخَ للجيشِ الكويتيّ دون تحقّق."},
+  {k:"provenance",t:"حارسُ الإسناد الذاتيّ",on:true,d:"فعّال — يُسقطُ كلَّ حدثٍ عسكريٍّ منسوبٍ بلا مصدرٍ يُتحقَّق منه."},
+];
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const usd=n=>"$"+Number(n||0).toFixed(2);
+function agoH(iso){ if(!iso)return null; const h=(Date.now()-new Date(iso))/36e5; return isNaN(h)?null:h; }
+function agoTxt(iso){ const h=agoH(iso); if(h==null)return "—";
+  if(h<1)return Math.max(0,Math.round(h*60))+" د"; if(h<48)return h.toFixed(1)+" س"; return Math.round(h/24)+" ي"; }
+
+async function grab(name,bundle){
+  if(bundle && bundle[name]!==undefined) return bundle[name];
+  try{ const r=await fetch(RAW+name+".json?t="+Date.now()); return r.ok? await r.json():null; }catch(e){ return null; }
+}
+async function load(){
+  let B=null;
+  try{ const r=await fetch(RAW+"bundle.json?t="+Date.now()); if(r.ok) B=await r.json(); }catch(e){}
+  const agents=await grab("agents",B), cost=await grab("cost",B), rumors=await grab("rumors",B);
+  const sections={};
+  for(const k of Object.keys(CADENCE)){
+    const d=await grab(k,B);
+    let u=null; if(d) u=d.updated||d.built||(d.date?d.date+"T00:00":null);
+    sections[k]=u;
+  }
+  render({agents,cost,sections,rumors,built:B?B.built:null});
+  const t=new Date(); document.getElementById("live").textContent="آخر تحديث "+t.toLocaleTimeString("ar-KW",{hour:"2-digit",minute:"2-digit"});
+}
+
+function render({agents,cost,sections,rumors,built}){
+  const A=(agents&&agents.agents)||[];
+  const healthy=agents?agents.healthy:0, total=agents?agents.total:0, ran=agents?agents.ran:0;
+  const fails=A.filter(a=>a.status==="fail").length;
+  const secKeys=Object.keys(CADENCE);
+  const fresh=secKeys.filter(k=>{const h=agoH(sections[k]); return h!=null && h<=CADENCE[k]*1.5;}).length;
+
+  // ---- KPIs ----
+  const kpis=`<div class="kpis">
+    <div class="kpi"><div class="l">وكلاءُ سليمون</div><div class="v">${healthy}<small>/${total}</small>${fails?` <small style="color:var(--bad-l)">· ${fails} أخفق</small>`:""}</div></div>
+    <div class="kpi accent"><div class="l">تكلفةُ اليوم${cost&&cost.budget?` <small>/ سقف ${usd(cost.budget)}</small>`:""}</div><div class="v">${cost?usd(cost.usd):"—"}${cost&&cost.budget&&cost.usd>=cost.budget?' <small style="color:var(--bad-l)">· بلغ السقف</small>':""}</div></div>
+    <div class="kpi"><div class="l">تقديرُ الشهر</div><div class="v">${cost?usd(cost.month_est):"—"}</div></div>
+    <div class="kpi"><div class="l">نداءاتُ اليوم</div><div class="v">${cost?cost.calls:"—"}</div></div>
+    <div class="kpi"><div class="l">أقسامٌ طازجة</div><div class="v">${fresh}<small>/${secKeys.length}</small></div></div>
+  </div>`;
+
+  // ---- cost breakdown ----
+  let costHtml="";
+  if(cost){
+    const by=Object.entries(cost.by||{}).sort((a,b)=>b[1]-a[1]);
+    const mx=by.length?by[0][1]:1;
+    const yr=(cost.month_est||0)*12;
+    costHtml=`<h2>التكلفة <span class="c">حسب الوكيل · اليوم</span></h2>
+    <div class="panel"><div class="cost">${by.map(([k,v])=>{
+      const off=(k.includes("المُستَقصي")||k.includes("الرَّاصِد"));
+      return `<div class="cbar ${off?'off':''}"><div class="top"><b>${esc(k)}${off?' · مُعطَّل':''}</b><s class="mono">${usd(v)} · ${Math.round(v/(cost.usd||1)*100)}%</s></div>
+      <div class="track"><i style="width:${Math.max(3,v/mx*100)}%"></i></div></div>`;}).join("")}</div>
+      <div class="foot">بمعدّلِ اليوم تُقدَّرُ السنةُ بـ<b class="mono" style="color:var(--gold)">${usd(yr)}</b> · تُحتسَبُ من ردودِ المزوّدِ لا من تقدير.
+      ${by.some(([k])=>k.includes("المُستَقصي"))?'<br>⚠️ «المُستَقصي» عُطِّل اليوم — تكلفتُه من نداءاتٍ سبقت التعطيل، وتزولُ غدًا.':''}</div></div>`;
+  }
+
+  // ---- agent table ----
+  const lbl={ok:["p-ok","عمل"],skip:["p-skip","مجدول"],fail:["p-fail","أخفق"],idle:["p-idle","خامل"]};
+  const agentHtml=`<h2>طبقةُ الوكلاء <span class="c">${ran} عملوا هذه الجولة · النوبة ${agents?agents.slot:"—"}</span></h2>
+  <div class="panel tw"><table><thead><tr><th>الوكيل</th><th>الحالة</th><th>آخر تشغيل</th><th>الزمن</th><th>الملاحظة</th></tr></thead><tbody>
+  ${A.map(a=>{const L=lbl[a.status]||["p-idle",a.status];
+    return `<tr><td><div class="ag-n">${esc(a.icon)} ${esc(a.name)}</div><div class="ag-r">${esc(a.role)}</div></td>
+    <td><span class="pill ${L[0]}">${L[1]}</span></td>
+    <td class="n mono">${agoTxt(a.at)}</td>
+    <td class="n mono">${a.status==="ok"&&a.ms?(a.ms>999?(a.ms/1000).toFixed(1)+"s":a.ms+"ms"):"—"}</td>
+    <td class="n">${esc((a.note||"").slice(0,46))||"—"}</td></tr>`;}).join("")}
+  </tbody></table></div>`;
+
+  // ---- freshness heartbeat ----
+  const NM={news:"الأخبار",verify:"التدقيق",council:"المجلس",evolution:"التطوّر",agents:"الوكلاء",forecast:"الاستقراء",analyst:"المحلّل",alerts:"التحذيرات",official:"من المَنبع",rumors:"تحت المجهر",column:"عمودُ الجريدة",latest:"نشرةُ المذيع",dua:"الدعاء"};
+  const freshHtml=`<h2>نبضُ الطزاجة <span class="c">عمرُ كلِّ قسمٍ مقابلَ مهلتِه المتوقّعة</span></h2>
+  <div class="panel tw"><table><thead><tr><th>القسم</th><th>آخر تحديث</th><th>المهلة</th><th>الحالة</th></tr></thead><tbody>
+  ${secKeys.map(k=>{const h=agoH(sections[k]); const cad=CADENCE[k];
+    let cls="s-off",ac="",st="لا بيانات";
+    if(h!=null){ if(h<=cad*1.5){cls="s-ok";ac="age-ok";st="طازج";} else if(h<=cad*3){cls="s-late";ac="age-late";st="متأخّر";} else {cls="s-stale";ac="age-stale";st="متجمّد";} }
+    return `<tr><td><span class="strip ${cls}"></span>${NM[k]||k}</td>
+    <td class="n mono ${ac}">${sections[k]?agoTxt(sections[k])+" مضت":"—"}</td>
+    <td class="n mono">~${cad<1?Math.round(cad*60)+"د":cad+"س"}</td>
+    <td class="${ac}">${st}</td></tr>`;}).join("")}
+  </tbody></table></div>`;
+
+  // ---- سَنَد تحت المجهر: مؤشّرُ الحِمل وحارسُ الانجراف ----
+  let micHtml="";
+  if(rumors){
+    const au=rumors.audit||{}, it=rumors.items||[], d=au.dist||{"صحّ":0,"لم يصحّ":0,"قيد التحقق":0};
+    const tot=(d["صحّ"]||0)+(d["لم يصحّ"]||0)+(d["قيد التحقق"]||0)||1;
+    const seg=(v,cls)=>`<span class="mseg ${cls}" style="width:${Math.round((d[v]||0)/tot*100)}%" title="${v}: ${d[v]||0}"></span>`;
+    const t2=au.tier2_today||0, over=au.overload, drift=au.drift_flag;
+    micHtml=`<h2>سَنَد تحت المجهر <span class="c">رصدُ الشائعات · ${it.length} حكمًا · بوّابةٌ ثلاثيّة</span></h2>
+    <div class="kpis">
+      <div class="kpi ${over?'bad':''}"><div class="l">قيد التحقق اليوم</div><div class="v">${t2}<small>/ عتبة ٣</small>${over?' <small style="color:var(--bad-l)">· إجهاد</small>':''}</div></div>
+      <div class="kpi"><div class="l">صحّ</div><div class="v" style="color:var(--ok-l,#7FD2AC)">${d["صحّ"]||0}</div></div>
+      <div class="kpi"><div class="l">لم يصحّ</div><div class="v" style="color:var(--bad-l)">${d["لم يصحّ"]||0}</div></div>
+      <div class="kpi ${drift?'bad':''}"><div class="l">حارسُ الانجراف</div><div class="v">${drift?'⚠️ راجعْ':'سليم'}</div></div>
+    </div>
+    <div class="panel" style="padding:14px 16px">
+      <div class="mbar">${seg("صحّ","m-true")}${seg("لم يصحّ","m-false")}${seg("قيد التحقق","m-open")}</div>
+      <div class="foot" style="border:none;padding:9px 0 0">${au.note?esc(au.note):"التوزيعُ متّزن — لا انجراف. الأحكامُ تُسنَدُ للمصدرِ لا للانتشار."}</div>
+      ${(au.last10||[]).length?`<div class="foot" style="border-top:1px solid var(--line);margin-top:10px;padding-top:10px">آخرُ الأحكام (للمراجعةِ الأسبوعيّة بحياد): ${(au.last10||[]).map(x=>`<span class="pill ${x.verdict==='صحّ'?'p-ok':x.verdict==='لم يصحّ'?'p-fail':'p-skip'}" style="margin:0 2px">${esc(x.verdict)}</span>`).join("")}</div>`:""}
+    </div>`;
+  }
+
+  // ---- integrity ----
+  const igHtml=`<h2>حرّاسُ النزاهة <span class="c">ما عُطِّل ولماذا</span></h2>
+  <div class="panel"><div class="integrity">${DISABLED_INFO.map(x=>
+    `<div class="ig ${x.on?'on':'off'}"><div class="t">${x.on?'🛡️':'🛑'} ${x.t}</div><div class="d">${x.d}</div></div>`).join("")}</div></div>`;
+
+  document.getElementById("app").innerHTML=kpis+costHtml+agentHtml+micHtml+freshHtml+igHtml
+    + `<div class="foot" style="border:none;padding:16px 2px;color:var(--dim)">آخرُ تشغيلٍ للخطّ: <span class="mono">${built?agoTxt(built)+" مضت":"—"}</span> · تتحدّثُ اللوحةُ تلقائيًّا كلَّ دقيقة.</div>`;
+}
+
+load();
+setInterval(load,60000);
+</script>
+</body>
+</html>
