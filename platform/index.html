@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مِرصاد سَنَد | SANAD Mirsad — وعيٌ موقفيٌّ بمنهج الإسناد</title>
+<meta name="description" content="منصة وعي موقفي عربية: خرائط حية، مؤشر عدم استقرار شفاف، وأخبار مُسنَدة بدرجات علم الحديث — كل رقم له إسناده.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🛰️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="app">
+  <header id="topbar">
+    <div class="brand">
+      <span class="logo">🛰️</span>
+      <span class="ttl">مِرصاد <b>سَنَد</b></span>
+      <span class="beta" data-i="beta">تجريبي</span>
+    </div>
+    <div class="pulse" id="pulse"></div>
+    <div class="ctl">
+      <button id="viewBtn" class="btn" title="تبديل الخريطة/الكرة">🌍</button>
+      <button id="lngBtn" class="btn">EN</button>
+      <a class="btn home" href="https://www.isnad.news" target="_blank" rel="noopener">سَنَد ↗</a>
+    </div>
+  </header>
+  <main id="lay">
+    <section id="mapWrap">
+      <div id="flat"></div>
+      <div id="globe" style="display:none"></div>
+      <div id="legend"></div>
+      <div id="detail" style="display:none"></div>
+    </section>
+    <aside id="side">
+      <div class="panel" id="pIndex"><h3 data-i="idx">مؤشّرُ عدم الاستقرار</h3><div id="idxL"></div>
+        <div class="note" id="idxNote"></div></div>
+      <div class="panel" id="pAlerts"><h3 data-i="alr">تحذيراتٌ رسمية</h3><div id="alrL"></div></div>
+      <div class="panel" id="pFeed"><h3 data-i="feed">الخلاصةُ المُسنَدة</h3><div id="feedL"></div></div>
+      <div class="panel" id="pRumor"><h3 data-i="rum">تحت المِجهر</h3><div id="rumL"></div></div>
+      <div class="panel" id="pFresh"><h3 data-i="frs">مرقابُ الطزاجة</h3><div id="frsL"></div></div>
+    </aside>
+  </main>
+  <footer id="foot">
+    <span data-i="disc">مؤشرٌ حسابيٌّ شفّافٌ من موادَّ مُسنَدةٍ وحدَها — ليس تقييمًا استخباراتيًّا رسميًّا. الأحكامُ للمصادر لا للانتشار.</span>
+  </footer>
+</div>
+<script type="module" src="./src/main.ts"></script>
+</body>
+</html>
