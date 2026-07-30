@@ -434,6 +434,42 @@ footer{text-align:center;color:var(--dim);font-size:11px;padding:26px 0 34px;lin
 .aichip{font-size:9.5px;font-weight:700;color:var(--lapis);border:1px solid rgba(74,124,199,.35);
   border-radius:20px;padding:2px 8px;background:rgba(74,124,199,.07);font-family:'Noto Kufi Arabic',sans-serif;white-space:nowrap}
 .typing::after{content:"▍";color:var(--gold);animation:pulse 1s infinite}
+.tens-lead{font-size:12.5px;line-height:1.85;color:var(--mut);margin:2px 0 12px;display:flex;gap:8px;flex-wrap:wrap;align-items:baseline}
+.tens-lead b{color:var(--vellum)}
+.tens-map{background:linear-gradient(150deg,rgba(240,237,228,.5),var(--card));border:1px solid var(--border);border-radius:14px;padding:6px;margin-bottom:9px}
+.tens-map svg{width:100%;height:auto;display:block;max-height:340px}
+.tens-map .cty{cursor:pointer;transition:opacity .15s;stroke:var(--card);stroke-width:.4}
+.tens-map .cty:hover{opacity:.82}
+.tens-map .cdot{cursor:pointer}
+.tens-map .clbl{font:600 2.4px 'Noto Kufi Arabic',sans-serif;fill:var(--vellum);pointer-events:none;text-anchor:middle}
+.tens-legend{display:flex;gap:12px;flex-wrap:wrap;font-size:10.5px;color:var(--dim);margin-bottom:12px;padding-inline-start:2px}
+.tens-legend span{display:inline-flex;align-items:center;gap:5px}
+.tens-legend i{width:11px;height:11px;border-radius:3px;font-style:normal}
+.trow{display:flex;align-items:center;gap:9px;padding:6px 7px;cursor:pointer;border-radius:9px;transition:background .15s}
+.trow:hover{background:rgba(201,162,39,.07)}
+.trow.on{background:rgba(201,162,39,.12)}
+.trow .tn{width:82px;flex:none;font-size:13px;font-weight:600;color:var(--vellum)}
+.trow .tb{flex:1;height:8px;background:var(--ink);border-radius:6px;overflow:hidden}
+.trow .tb i{display:block;height:100%;border-radius:6px;font-style:normal}
+.trow .ts{width:30px;text-align:center;font-size:13px;font-weight:700}
+.trow .td{width:38px;text-align:center;font-size:10.5px;color:var(--dim)}
+.trow .td.up{color:var(--seal)} .trow .td.dn{color:var(--verify)}
+.tens-detail{background:var(--card);border:1px solid rgba(201,162,39,.4);border-radius:12px;padding:13px;margin-top:10px}
+.tens-detail h4{font-family:'Amiri',serif;font-size:19px;color:var(--gold-l);margin-bottom:3px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.tens-detail h4 .lv{font-family:'Noto Kufi Arabic',sans-serif;font-size:13px;font-weight:700}
+.tens-detail .tx{position:absolute}
+.td-parts{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.td-parts .p{font-size:10.5px;border:1px solid var(--border);border-radius:20px;padding:2px 9px;color:var(--mut)}
+.td-parts .p b{color:var(--vellum);margin-inline-start:3px}
+.td-evh{font-size:11px;color:var(--dim);border-top:1px dashed var(--border);padding-top:8px;margin-top:6px}
+.tev{padding:6px 0;border-bottom:1px dashed var(--border);font-size:12.5px;line-height:1.7}
+.tev:last-child{border-bottom:none}
+.tev a{color:var(--txt);text-decoration:none}.tev a:hover{color:var(--gold-l)}
+.tev .m{font-size:10px;color:var(--dim);display:flex;gap:7px;margin-top:2px;flex-wrap:wrap;align-items:center}
+.tg{font-size:9px;font-weight:700;border-radius:20px;padding:1px 6px;border:1px solid}
+.tg.s{color:var(--verify-l);border-color:rgba(62,155,114,.5)} .tg.h{color:var(--gold-l);border-color:rgba(201,162,39,.5)}
+.tg.d{color:var(--seal-l);border-color:rgba(158,43,55,.4)}
+@media (max-width:640px){.trow .tn{width:66px;font-size:12px}.tens-map svg{max-height:260px}}
 html[data-lng=en] #corrWrap,html[data-lng=en] #methBox,html[data-lng=en] #guideBox,
 html[data-lng=en] #subscribe,html[data-lng=en] #ledWrap,html[data-lng=en] #alertWrap,
 html[data-lng=en] #microWrap,html[data-lng=en] #offWrap,html[data-lng=en] #tollWrap,
@@ -789,6 +825,16 @@ html[data-lng=en] .ennote{display:block}
     </details>
     <div id="microL"></div>
     <div class="note">مسارٌ مستقلٌّ عن النشرة. نرصدُ الشائعةَ ونحكمُ عليها، ونُثبّتُ متى رُصدتْ ومتى حُسمت — ولا نُبدّلُ حكمًا في صمت.</div>
+  </div>
+
+  <div id="tensWrap" style="display:none">
+    <div class="sec-h">مِرصادُ التوتّر · طبقةُ الاستخبارات <span class="beta">تجريبي</span></div>
+    <div class="tens-lead"><span class="aichip">✨ ذكاء سَنَد</span> مؤشرٌ حسابيٌّ شفّافٌ يُقرأ من <b>كثافةِ الموادِّ المُسنَدةِ</b> وحدَها — لكلِّ رقمٍ تفكيكُه المعلَن. ليس تقييمًا رسميًّا.</div>
+    <div class="tens-map"><svg id="tensSvg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" role="img" aria-label="خريطةُ التوتّر الإقليمي"></svg></div>
+    <div class="tens-legend" id="tensLeg"></div>
+    <div id="tensL"></div>
+    <div id="tensDetail" class="tens-detail" style="display:none"></div>
+    <div class="note">من <b>المِقياس 🌡️</b>: عاجل × ٤ + ألفاظ تصعيد × ٣ + تحذيرات رسمية × ٨ + شائعات × ٤ + بقيّة الأخبار × ٢ + بيانات رسمية — بحدٍّ أقصى ١٠٠. الأرقامُ ترتفعُ وتنخفضُ مع طزاجةِ الرصد.</div>
   </div>
 
   <details class="meth" id="guideBox">
@@ -1183,6 +1229,87 @@ async function loadBundle(){
     BUNDLE=await r.json();
   }catch(e){ BUNDLE=null }
 }
+// ═══ مِرصادُ التوتّر: خريطةٌ + مؤشّرٌ من tension.json (بياناتٌ حيّةٌ من المِقياس) ═══
+const TWORLD="https://raw.githubusercontent.com/Soldiom/sanad/main/platform/public/world.geojson";
+const TA3={kw:"KWT",sa:"SAU",ae:"ARE",qa:"QAT",bh:"BHR",om:"OMN",iq:"IRQ",ir:"IRN",ye:"YEM",ps:"PSX"};
+function tBand(s){return s>=75?"#9E2B37":s>=50?"#D07A2E":s>=25?"#C9A227":"#3E9B72"}
+function tLevel(s){return s>=75?(EN?"critical":"حرج"):s>=50?(EN?"tense":"متوتّر"):s>=25?(EN?"watchful":"مترقّب"):(EN?"calm":"هادئ")}
+const TLON0=32,TLON1=62,TLAT0=11,TLAT1=40;
+const tX=lon=>((lon-TLON0)/(TLON1-TLON0))*100, tY=lat=>((TLAT1-lat)/(TLAT1-TLAT0))*100;
+function tRing(r){return "M"+r.map(p=>tX(p[0]).toFixed(2)+","+tY(p[1]).toFixed(2)).join("L")+"Z"}
+function tGeomPath(g){
+  if(g.type==="Polygon") return g.coordinates.map(tRing).join(" ");
+  if(g.type==="MultiPolygon") return g.coordinates.map(rs=>rs.map(tRing).join(" ")).join(" ");
+  return "";
+}
+let TWORLD_CACHE=null;
+async function tGetWorld(){
+  if(TWORLD_CACHE!==null) return TWORLD_CACHE;
+  try{ const r=await fetch(TWORLD); TWORLD_CACHE=r.ok?await r.json():{features:[]} }
+  catch(e){ TWORLD_CACHE={features:[]} }
+  return TWORLD_CACHE;
+}
+let TSEL=null, TDATA=null;
+function tGrade(g){return g==="صحيح"?"s":g==="حسن"?"h":"d"}
+function tGradeTxt(g){return EN?(g==="صحيح"?"Verified ✓":g==="حسن"?"Credible":"Weak chain"):g}
+function renderTensionDetail(c){
+  const D=document.getElementById("tensDetail");
+  if(!c){D.style.display="none";TSEL=null;renderTensionRows();return;}
+  TSEL=c.id;
+  const p=c.parts||{}, nm=EN?(c.en||c.name):c.name;
+  const parts=[[EN?"urgent":"عاجل",p.u],[EN?"escalation":"ألفاظ تصعيد",p.w],[EN?"warnings":"تحذيرات",p.a],
+    [EN?"rumors":"شائعات",p.r],[EN?"news":"أخبار",p.n],[EN?"official":"بيانات رسمية",p.o]];
+  const evs=(c.events||[]).map(e=>`<div class="tev"><a href="${safeUrl(e.u)}" target="_blank" rel="noopener">${esc(EN?(e.he||e.h):e.h)}</a>
+     <div class="m"><span class="tg ${tGrade(e.g)}">${esc(tGradeTxt(e.g))}</span><span>${esc(e.src||"")}</span></div></div>`).join("");
+  D.innerHTML=`<h4>${esc(nm)}<span class="lv" style="color:${tBand(c.score)}">${c.score}/100 · ${esc(tLevel(c.score))}</span></h4>
+    <div class="td-parts">${parts.map(([k,v])=>`<span class="p">${esc(k)}<b>${v||0}</b></span>`).join("")}</div>
+    ${evs?`<div class="td-evh">${esc(EN?"Today's verified items":"موادُّ اليومِ المُسنَدة")}</div>${evs}`:""}`;
+  D.style.display="block";
+  renderTensionRows();
+}
+function renderTensionRows(){
+  const L=document.getElementById("tensL"); if(!TDATA) return;
+  L.innerHTML=(TDATA.countries||[]).map(c=>{
+    const d=c.delta||0, nm=EN?(c.en||c.name):c.name;
+    return `<div class="trow ${TSEL===c.id?"on":""}" data-tid="${esc(c.id)}">
+      <span class="tn">${esc(nm)}</span>
+      <span class="tb"><i style="width:${Math.max(3,c.score)}%;background:${tBand(c.score)}"></i></span>
+      <span class="ts" style="color:${tBand(c.score)}">${c.score}</span>
+      <span class="td ${d>0?"up":d<0?"dn":""}">${d>0?"▲"+d:d<0?"▼"+(-d):"–"}</span></div>`;
+  }).join("");
+  L.querySelectorAll(".trow").forEach(r=>r.onclick=()=>{
+    const c=(TDATA.countries||[]).find(x=>x.id===r.dataset.tid);
+    if(c) renderTensionDetail(TSEL===c.id?null:c);
+  });
+}
+async function renderTension(){
+  const t=await grab("tension");
+  if(!t||!(t.countries||[]).length) return;
+  TDATA=t;
+  const world=await tGetWorld();
+  const byA3={}; (t.countries||[]).forEach(c=>{byA3[TA3[c.id]]=c});
+  const paths=(world.features||[]).map(f=>{
+    const a3=f.properties&&f.properties.adm0_a3, c=byA3[a3];
+    const fill=c?tBand(c.score):"rgba(130,130,140,.14)";
+    const d=tGeomPath(f.geometry); if(!d) return "";
+    return `<path class="cty" d="${d}" fill="${fill}"${c?` data-tid="${esc(c.id)}" style="cursor:pointer"`:""}></path>`;
+  }).join("");
+  const marks=(t.countries||[]).map(c=>{
+    const x=tX(c.lon).toFixed(2), y=tY(c.lat).toFixed(2);
+    return `<circle class="cdot" data-tid="${esc(c.id)}" cx="${x}" cy="${y}" r="1.5" fill="#0A0E16" stroke="${tBand(c.score)}" stroke-width="1"></circle>
+      <text class="clbl" x="${x}" y="${(+y+4).toFixed(2)}">${esc(EN?(c.en||c.name):c.name)} ${c.score}</text>`;
+  }).join("");
+  const svg=document.getElementById("tensSvg");
+  svg.innerHTML=`<rect x="0" y="0" width="100" height="100" fill="transparent"></rect>${paths}${marks}`;
+  svg.querySelectorAll("[data-tid]").forEach(el=>el.addEventListener("click",()=>{
+    const c=(TDATA.countries||[]).find(x=>x.id===el.getAttribute("data-tid"));
+    if(c) renderTensionDetail(TSEL===c.id?null:c);
+  }));
+  const bands=EN?[["calm",0],["watchful",25],["tense",50],["critical",75]]:[["هادئ",0],["مترقّب",25],["متوتّر",50],["حرج",75]];
+  document.getElementById("tensLeg").innerHTML=bands.map(([k,v])=>`<span><i style="background:${tBand(v)}"></i>${esc(k)}</span>`).join("");
+  renderTensionRows();
+  document.getElementById("tensWrap").style.display="block";
+}
 async function load(){
   await loadBundle();
   try{
@@ -1349,6 +1476,7 @@ async function load(){
       </div>`}).join("");
     microWrap.style.display="block";
   }catch(e){}
+  try{ await renderTension(); }catch(e){}
   try{
     const o=await grab("official");
     if(!(o.src||[]).length) throw 0;
