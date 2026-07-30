@@ -77,6 +77,7 @@ AGENTS=[
  ("fahis","الفاحِص","🔗","يفتح الرابط بنفسه ويتأكّد أنه حيّ ويحتوي الادعاء"),
  ("mukharrij","المُخرِّج","📑","يبحث ويراجع المواقع ويُثبت المصدر ويحكم على الشائعة"),
  ("munaqqih","المُنقِّح","🔁","يراجعُ الشائعاتِ كلَّ دورة: يطوي القديمَ ويعيدُ الفحصَ ويُثبتُ قائلَها"),
+ ("miqyas","المِقياس","🌡️","يحسبُ مؤشّرَ عدم الاستقرار الإقليميّ حسابًا شفّافًا من كثافة المواد المُسنَدة"),
  ("mustaqsi","المُستَقصي","🎯","ينقل أعداد الذخائر عن وزارات الدفاع مباشرة"),
  ("turjuman","التَّرْجُمَان","🗣️","ينقل الخبر الفارسي إلى العربية ترجمةً أمينة"),
  ("mudaqqiq","المُدقِّق","⚖️","يراجع المواد ويستبعد ما لا يصلح للنشر"),
@@ -339,7 +340,7 @@ def bundle():
             print(f"🛡️ نشرةُ اليوم: أُبقيت الأحدث ({_pub.get('date')}) بدل الأقدم ({_loc.get('date')})")
     except Exception as _e: print(f"guard_latest: {str(_e)[:80]}")
     keys=["news","intel","official","forecast","analyst","dua","verify",
-          "alerts","corrections","latest","agents","cost","evolution","council","gpu","rumors","column"]
+          "alerts","corrections","latest","agents","cost","evolution","council","gpu","rumors","column","tension"]
     b={"built":datetime.now(timezone.utc).isoformat(timespec="minutes")}
     for k in keys:
         try: b[k]=json.load(open(f"{OUT}/{k}.json"))
@@ -1743,6 +1744,71 @@ def rumor_track():
     print(f"🔬 سند تحت المجهر: {len(merged)} شائعةً · {audit['dist']} · قيد التحقق اليوم {audit['tier2_today']}")
 
 rumor_track()
+
+# ═══════════ المِقياس: مؤشّرُ عدم الاستقرار الإقليميّ — حسابٌ شفّافٌ صِرف ═══════════
+# نظيرُ «Country Instability Index» بروحِ الإسناد: لا نموذجَ لغويًّا ولا تخمين —
+# عدٌّ حتميٌّ لكثافةِ الموادِّ المُسنَدةِ التي جمعها الأنبوبُ في هذه الدورةِ نفسِها،
+# والصيغةُ معلنةٌ والمكوّناتُ تُحفَظُ خامًا لكلّ دولة (إسنادُ المؤشّرِ نفسِه).
+TENSION_F=f"{OUT}/tension.json"
+_CTRY=[
+ # (id, الاسم, EN, [مرادفات المطابقة], lat, lon)
+ ("kw","الكويت","Kuwait",["الكويت","كويتي","الكويتية","الكويتي"],29.3,47.8),
+ ("sa","السعودية","Saudi Arabia",["السعودية","سعودي","السعودي","الرياض","جازان","ينبع","جدة"],24.0,45.0),
+ ("ae","الإمارات","UAE",["الإمارات","إماراتي","الإماراتية","أبوظبي","دبي"],24.2,54.3),
+ ("qa","قطر","Qatar",["قطر","قطري","القطرية","الدوحة"],25.3,51.2),
+ ("bh","البحرين","Bahrain",["البحرين","بحريني","البحرينية","المنامة"],26.0,50.5),
+ ("om","عُمان","Oman",["عمان","عُمان","عماني","العمانية","مسقط"],21.0,57.0),
+ ("iq","العراق","Iraq",["العراق","عراقي","العراقية","بغداد","أربيل","البصرة"],33.0,44.0),
+ ("ir","إيران","Iran",["إيران","إيراني","الإيرانية","طهران","أصفهان","بوشهر","هرمز"],32.0,53.0),
+ ("ye","اليمن","Yemen",["اليمن","يمني","اليمنية","صنعاء","الحوثي","الحوثيين","الحديدة"],15.5,47.5),
+ ("ps","فلسطين","Palestine",["فلسطين","فلسطيني","الفلسطينية","غزة","القدس","الضفة","رفح","إسرائيل","الإسرائيلي","الاحتلال"],31.9,35.2),
+]
+def _tension_level(s):
+    return "حرج" if s>=75 else ("متوتّر" if s>=50 else ("مترقّب" if s>=25 else "هادئ"))
+
+@agent("miqyas")
+def miqyas():
+    def _load(p, key):
+        try: return json.load(open(p)).get(key) or []
+        except Exception: return []
+    news=[]
+    try:
+        for _c,_l in (json.load(open(f"{OUT}/news.json")).get("cats") or {}).items():
+            for it in _l: news.append({**it,"_cat":_c})
+    except Exception: pass
+    alerts=_load(ALERTS,"list"); rums=_load(RUMORS_F,"items"); offi=_load(OFFI,"src")
+    try: prev={c["id"]:c.get("score",0) for c in json.load(open(TENSION_F)).get("countries",[])}
+    except Exception: prev={}
+    def _hit(txt, aliases): return any(a in str(txt or "") for a in aliases)
+    out=[]
+    for cid,nm,en,al,lat,lon in _CTRY:
+        m=[x for x in news if _hit(x.get("head"),al)]
+        n=len(m)
+        u=sum(1 for x in m if x.get("_cat")=="عاجل")
+        w=sum(1 for x in m if _is_grave(x.get("head")))
+        a=sum(1 for x in alerts if _hit(str(x.get("txt",""))+" "+str(x.get("body","")),al))
+        r=sum(1 for x in rums if x.get("verdict") in ("قيد التحقق","لم يصحّ") and _hit(x.get("claim"),al))
+        o=sum(1 for x in offi if _hit(str(x.get("p",""))+" "+str(x.get("e","")),al))
+        score=min(100, 4*u + 3*w + 8*a + 4*r + 2*max(0,n-u) + o)
+        # عيّنةُ أحداثِ اليوم (وقودُ طبقاتِ الخريطة) — أحدثُ ٥ موادَّ مُسنَدةً بروابطها
+        ev=sorted(m, key=lambda x:str(x.get("at","")), reverse=True)[:5]
+        out.append({"id":cid,"name":nm,"en":en,"lat":lat,"lon":lon,
+            "score":score,"level":_tension_level(score),
+            "delta":score-prev.get(cid,score),
+            "parts":{"n":n,"u":u,"w":w,"a":a,"r":r,"o":o},
+            "events":[{"h":x.get("head",""),"g":x.get("grade",""),"u":x.get("link",""),
+                       "at":x.get("at",""),"src":x.get("src","")} for x in ev]})
+    out.sort(key=lambda c:-c["score"])
+    json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),
+        "note":"مؤشرٌ حسابيٌّ شفّافٌ من كثافة المواد المُسنَدة وحدَها — ليس تقييمًا استخباراتيًّا رسميًّا",
+        "formula":"score = min(100, 4·عاجل + 3·ألفاظ تصعيد + 8·تحذيرات + 4·شائعات + 2·أخبار أخرى + بيانات رسمية)",
+        "countries":out}, open(TENSION_F,"w"),ensure_ascii=False,indent=1)
+    top=out[0] if out else {}
+    print(f"🌡️ المِقياس: {len(out)} دولةً · الأعلى {top.get('name','—')} {top.get('score',0)}/100 ({top.get('level','')})")
+    return {"why":f"الأعلى {top.get('name','—')} {top.get('score',0)}/100"}
+
+try: miqyas()
+except Exception as e: print("المِقياس تخطّى: "+str(e)[:80])
 
 # ═══ المُستَقصي: أعداد الذخائر نقلًا عن وزارات الدفاع مباشرة ═══
 MODF=f"{OUT}/mod.json"
