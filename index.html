@@ -32,17 +32,26 @@
 <meta name="twitter:description" content="لكلِّ خبرٍ درجةُ إسنادٍ ومصدرٌ معروض">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/og.jpg">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🛡️</text></svg>">
-<meta name="theme-color" content="#080B12">
+<link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
+<link rel="apple-touch-icon" href="/icons/icon-192.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="سَنَد">
+<meta name="theme-color" content="#F6F4EE" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0A0E16" media="(prefers-color-scheme: dark)">
 <meta name="keywords" content="أخبار مسندة, علم الإسناد, تحقق الأخبار, أخبار الخليج, أخبار الكويت, أخبار إيران, نشرة إخبارية, صحيح حسن ضعيف, التحقق من الأخبار, سند">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="author" content="SOLDIOM">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":"NewsMediaOrganization","@id":"https://isnad.news/#org","name":"سَنَد","alternateName":"SANAD","url":"https://isnad.news","logo":{"@type":"ImageObject","url":"https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/og.jpg"},"description":"منصة إخبارية عربية تطبّق علم الإسناد من علم الحديث: لكلِّ خبرٍ درجةٌ (صحيح/حسن/ضعيف الإسناد) مبنيّة على خمسة معايير، ومصدرٌ معروض.","inLanguage":"ar","foundingLocation":{"@type":"Place","name":"الكويت"},"sameAs":["https://t.me/sanad_news","https://instagram.com/alialthowaikh"]},
-{"@type":"WebSite","@id":"https://isnad.news/#site","url":"https://isnad.news","name":"سَنَد | SANAD","publisher":{"@id":"https://isnad.news/#org"},"inLanguage":"ar"}
+{"@type":"WebSite","@id":"https://isnad.news/#site","url":"https://isnad.news","name":"سَنَد | SANAD","publisher":{"@id":"https://isnad.news/#org"},"inLanguage":"ar","potentialAction":{"@type":"ReadAction","target":"https://www.isnad.news/"}},
+{"@type":"BreadcrumbList","@id":"https://isnad.news/#crumbs","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://www.isnad.news/"}]}
 ]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap">
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -1185,7 +1194,7 @@ function metaRow(i){
   return `<div class="meta">${badge(i.grade)}${wchip}${i.score!==undefined?`<span class="badge b-src">${esc(i.score)}/7</span>`:""}${i.fa?`<span class="badge b-fa">${EN?"from Farsi":"مترجم عن الفارسية"}</span>`:''}${i.via?'<span class="badge b-x">'+esc(i.via)+'</span>':''}${i.flag?'<span class="badge b-rev">⚖️ '+esc(i.flag)+'</span>':''}<span>${EN?"via":"نقلًا عن"} ${esc(i.src||(EN?"source":"المصدر"))}</span>${i.at?`<span>· ${ago(i.at)}</span>`:''}</div>`;
 }
 function imgTag(i){
-  return i.img?`<img src="${safeUrl(i.img)}" alt="" loading="lazy" onerror="this.parentElement.parentElement.classList.add('noimg');this.remove()">`:"";
+  return i.img?`<img src="${safeUrl(i.img)}" alt="" loading="lazy" decoding="async" onerror="this.parentElement.parentElement.classList.add('noimg');this.remove()">`:"";
 }
 function render(){
   if(!DATA) return;
@@ -1820,5 +1829,8 @@ function layout(){
 }
 window.addEventListener("resize",()=>{clearTimeout(window._lt);window._lt=setTimeout(layout,180)});
 load(); setInterval(load, 10*60*1000);
+// PWA: تسجيلُ عاملِ الخدمة — قابليّةُ التثبيتِ وغلافٌ يعملُ دون شبكة، بحارسِ فشلٍ صامت.
+if("serviceWorker" in navigator){window.addEventListener("load",()=>{
+  navigator.serviceWorker.register("/sw.js").catch(()=>{});});}
 </script>
 </body></html>
