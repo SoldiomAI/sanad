@@ -1815,6 +1815,35 @@ def miqyas():
 try: miqyas()
 except Exception as e: print("المِقياس تخطّى: "+str(e)[:80])
 
+# ═══ تغذيةُ تاريخِ المؤشرِ لبوّابةِ المؤسسات (Supabase) — اختياريّةٌ وصامتة ═══
+# إن توفّر SUPABASE_URL + SUPABASE_SERVICE_KEY (سرّان في Actions) دُفعت لقطةُ
+# الدورة إلى sanad_tension_history عبر REST (upsert على country_id+ts). بلا
+# الأسرار: تخطٍّ صامت — لا كسرَ ولا كلفة. مفتاحُ الخدمة لا يُطبَع ولا يُخزَّن.
+def push_tension_history():
+    su=os.environ.get("SUPABASE_URL"); sk=os.environ.get("SUPABASE_SERVICE_KEY")
+    if not su or not sk: return
+    try: t=json.load(open(TENSION_F))
+    except Exception: return
+    ts=t.get("updated"); rows=[]
+    for c in t.get("countries",[]):
+        rows.append({"ts":ts,"country_id":c.get("id"),"score":c.get("score"),
+                     "level":c.get("level"),"parts":c.get("parts")})
+    if not rows: return
+    try:
+        req=urllib.request.Request(
+            su.rstrip("/")+"/rest/v1/sanad_tension_history",
+            data=json.dumps(rows).encode(),
+            headers={"apikey":sk,"Authorization":"Bearer "+sk,"Content-Type":"application/json",
+                     "Prefer":"resolution=merge-duplicates,return=minimal"},
+            method="POST")
+        urllib.request.urlopen(req,timeout=25)
+        print(f"🏛️ تاريخُ المؤشر: دُفعت {len(rows)} صفوفٍ إلى بوّابة المؤسسات")
+    except Exception as e:
+        print("تاريخُ المؤشر تخطّى: "+str(e)[:80])
+
+try: push_tension_history()
+except Exception as e: print("تاريخُ المؤشر تخطّى: "+str(e)[:80])
+
 # ═══ المُستَقصي: أعداد الذخائر نقلًا عن وزارات الدفاع مباشرة ═══
 MODF=f"{OUT}/mod.json"
 
