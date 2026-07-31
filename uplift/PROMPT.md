@@ -29,7 +29,7 @@ scoring logic or prompts crosses into the public repo — ever.
 Not preferences. Breaking one is a bug no matter how good the rest of the
 change is.
 
-1. **Terminology.** Never `الأركان الخمسة`. Always
+1. **Terminology.** Never `الأركان الخمسة`. Always <!-- guard-allow: brief quotes the forbidden term on purpose -->
    `خمسة معايير من علم الحديث`. The five: الاتصال · عدالة المصدر · الضبط ·
    عدم الشذوذ · انتفاء العلة.
 2. **No comparison.** Never position SANAD against other outlets. State the

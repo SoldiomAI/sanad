@@ -59,6 +59,11 @@ main{padding:18px 20px;max-width:1180px;margin:0 auto;width:100%;display:grid;gr
 .trow .tb i{display:block;height:100%;border-radius:6px;font-style:normal}
 .trow .ts{width:30px;text-align:center;font-size:13px;font-weight:700}
 .trow .spark{width:110px;height:22px;flex:none}
+.esigs{margin:0 0 10px 0;padding:0 4px 6px 4px;border-bottom:1px dashed var(--line)}
+.esig{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:baseline;padding:4px 0;font-size:12px;line-height:1.7}
+.esig .ek{font-size:9.5px;font-weight:700;color:var(--gold-l);border:1px solid var(--line);border-radius:20px;padding:1px 7px;white-space:nowrap}
+.esig a{color:var(--txt);text-decoration:none}.esig a:hover{color:var(--gold-l)}
+.esig .em{font-size:10px;color:var(--mut)}
 .hbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
 .hbar button{background:var(--bg2);border:1px solid var(--line);color:var(--mut);border-radius:8px;padding:5px 11px;font-family:var(--kufi);font-size:12px;cursor:pointer}
 .hbar button.on{border-color:var(--gold);color:var(--gold-l)}
@@ -105,6 +110,7 @@ th{color:var(--dim);font-weight:600;font-size:11px}
     <section class="panel wide">
       <h3>مؤشّرُ عدم الاستقرار الإقليميّ <span class="tag" id="liveTag">حيّ</span></h3>
       <div id="idx"></div>
+      <div id="sigNote" class="note"></div>
       <div class="note">مؤشرٌ حسابيٌّ شفّافٌ من كثافةِ الموادِّ المُسنَدة — الرقمُ الحاليُّ حيٌّ من سَنَد، والخطُّ المصغّرُ تاريخُ آخرِ القياسات. ليس تقييمًا استخباراتيًّا رسميًّا.</div>
     </section>
 
@@ -159,6 +165,8 @@ const RAW = "https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/";
 const sb = createClient(SB_URL, SB_KEY);
 
 const esc = s => String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const safeUrl = u => { u=String(u==null?"":u).trim(); return /^https?:\/\//i.test(u)?u.replace(/"/g,"%22"):"#"; };
+const tSig = k => ({quake:["〰️","زلزال"],flight:["✈️","طيران"],fire:["🔥","بؤرة حراريّة"],conflict:["💥","نزاع"]})[k]||["🛰️",k];
 const $ = id => document.getElementById(id);
 const band = s => s>=75?"#9E2B37":s>=50?"#D07A2E":s>=25?"#C9A227":"#3E9B72";
 function showMsg(t,cls){ const m=$("msg"); m.className="msg "+cls; m.textContent=t; }
@@ -201,19 +209,26 @@ async function boot(){
 $("logout").onclick = async () => { await sb.auth.signOut(); location.reload(); };
 
 // ── instability index: live number (public bundle) + sparkline (Supabase history) ──
-let LIVE=[], HISTORY={};
+let LIVE=[], HISTORY={}, LIVE_SRC=[];
 async function renderIndex(){
-  try{ const r=await fetch(RAW+"tension.json?t="+Date.now()); LIVE=(await r.json()).countries||[]; }catch(e){ LIVE=[]; }
+  try{ const r=await fetch(RAW+"tension.json?t="+Date.now()); const j=await r.json(); LIVE=j.countries||[]; LIVE_SRC=j.signals_sources||[]; }catch(e){ LIVE=[]; LIVE_SRC=[]; }
   const { data: hist } = await sb.from("sanad_tension_history")
     .select("country_id,score,ts").order("ts",{ascending:false}).limit(600);
   HISTORY={}; (hist||[]).forEach(h=>{ (HISTORY[h.country_id]=HISTORY[h.country_id]||[]).push(h.score); });
   $("idx").innerHTML = LIVE.map(c=>{
     const hs=(HISTORY[c.id]||[]).slice(0,40).reverse();
+    const sg=(c.signals||[]).map(s=>{const m=tSig(s.kind);
+      return `<div class="esig"><span class="ek">${esc(m[0])} ${esc(m[1])}</span>`
+        +(s.url?`<a href="${safeUrl(s.url)}" target="_blank" rel="noopener">${esc(s.detail||"")}</a>`:`<span>${esc(s.detail||"")}</span>`)
+        +`<span class="em">${esc(s.src||"")}${s.at?" · "+esc(s.at):""}</span></div>`;}).join("");
     return `<div class="trow"><span class="tn">${esc(c.name)}</span>
       <span class="tb"><i style="width:${Math.max(3,c.score)}%;background:${band(c.score)}"></i></span>
       <span class="ts" style="color:${band(c.score)}">${c.score}</span>
-      <span class="spark">${spark(hs)}</span></div>`;
+      <span class="spark">${spark(hs)}</span></div>${sg?`<div class="esigs">${sg}</div>`:""}`;
   }).join("") || '<div class="note">لا بيانات.</div>';
+  const src=(LIVE_SRC&&LIVE_SRC.length)?LIVE_SRC:[];
+  $("sigNote").innerHTML = '🛰️ إشاراتٌ ميدانيّةٌ مفتوحةٌ منسوبةٌ لمصدرِها ووقتِها — بياناتٌ لا أحكام، ولا تدخلُ رقمَ المؤشّر.'
+    + (src.length?' · مصادرُ حيّة: '+esc(src.join('، ')):'');
 }
 function spark(vals){
   if(!vals.length) return '<svg viewBox="0 0 110 22"></svg>';

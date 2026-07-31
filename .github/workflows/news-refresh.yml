@@ -44,6 +44,14 @@ jobs:
           FORCE_OFFICIAL: ${{ github.event.inputs.force_official }}
           FORCE_RUMORS: ${{ github.event.inputs.force_rumors }}
           FORCE_ALERTS: ${{ github.event.inputs.force_alerts }}
+          # الشاهدُ الميدانيّ (OSINT) — مصادرُ مِفتاحيّةٌ اختياريّةٌ مجّانيّةُ التسجيل؛
+          # إن لم تُضبَط بقيتْ فارغةً فتخطّى الشاهدُ مصدرَها صامتًا (USGS/OpenSky يعملان بلا مفتاح).
+          FIRMS_MAP_KEY: ${{ secrets.FIRMS_MAP_KEY }}
+          ACLED_EMAIL: ${{ secrets.ACLED_EMAIL }}
+          ACLED_PASSWORD: ${{ secrets.ACLED_PASSWORD }}
+          # بوّابةُ المؤسسات — تغذيةُ تاريخِ المؤشّر (اختياريّةٌ، تخطٍّ صامتٌ بلا الأسرار)
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
         run: python pipeline/daily_anchor.py
       - name: حفظ
         if: always()
