@@ -30,6 +30,7 @@ jobs:
           SKIP_COUNCIL: "1"
         run: python pipeline/daily_anchor.py
       - name: حفظ
+        id: save
         if: always()
         run: |
           git config user.name "sanad-bot"
@@ -44,18 +45,29 @@ jobs:
           done
           exit 1
       - name: نشر البيانات للمستودع العام
-        if: always()
+        if: always() && steps.save.outcome == 'success'
         env:
           DATA_PUSH_TOKEN: ${{ secrets.DATA_PUSH_TOKEN }}
         run: |
           [ -z "$DATA_PUSH_TOKEN" ] && exit 0
-          # حارس: لا تُنشر ملفّات فيها علامات تعارض Git إلى المستودع العام
           if grep -rlqE '^(<<<<<<<|=======|>>>>>>>)' daily/; then
             echo "❌ daily/ يحوي علامات تعارض — أُلغي النشر حمايةً للموقع الحيّ"; exit 1; fi
+          # VIDEO_ONLY قد لا يُعيد بناء المنشورات — لا تدهس sanad-data إن كانت سيئة
+          set +e
+          python3 .github/scripts/guard-social-publish.py --soft
+          GUARD=$?
+          set -e
           rm -rf /tmp/pub && git clone -q --depth 1 \
             "https://x-access-token:${DATA_PUSH_TOKEN}@github.com/Soldiom/sanad-data.git" /tmp/pub
           mkdir -p /tmp/pub/daily
           cp -r daily/* /tmp/pub/daily/ 2>/dev/null || true
+          if [ "$GUARD" = "2" ]; then
+            echo "⚠️ keeping remote posts/comments/bundle"
+            cd /tmp/pub && git checkout HEAD -- daily/posts.json daily/comments.json daily/bundle.json 2>/dev/null || true
+            cd - >/dev/null
+          elif [ "$GUARD" != "0" ]; then
+            echo "❌ social guard failed"; exit 1
+          fi
           cd /tmp/pub
           git config user.name "SANAD Bot"; git config user.email "soldiom@gmail.com"
           git add -A

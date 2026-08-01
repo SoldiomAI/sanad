@@ -361,8 +361,9 @@ details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--m
   font-weight:700;background:var(--card2);border:1px solid var(--border);flex:0 0 auto;color:var(--gold-l)}
 .ig-post .ig-who b{display:block;font-size:13px}
 .ig-post .ig-who span{font-size:11px;color:var(--dim)}
-.ig-post .ig-media{display:block;width:100%;border:0;padding:0;cursor:pointer;color:inherit;
+.ig-post .ig-media{display:block;width:100%;border:0;padding:0;margin:0;cursor:pointer;color:inherit;font:inherit;text-align:inherit;
   aspect-ratio:1;background:linear-gradient(160deg,var(--card2),var(--ink-2));overflow:hidden;position:relative}
+.sheet .ig-post .ig-media{cursor:default}
 .ig-post .ig-media img{width:100%;height:100%;object-fit:cover;display:block}
 .ig-post .ig-media .seal{width:100%;height:100%;display:grid;place-items:center;font-family:'Amiri',serif;font-size:40px;color:var(--gold);opacity:.85}
 .ig-post .ig-media .pct-badge{position:absolute;top:12px;inset-inline-end:12px;background:rgba(8,11,18,.65);color:var(--gold-l);
@@ -579,7 +580,14 @@ function enText(s, fallback){ if(!EN) return s||""; if(!s) return fallback||""; 
 
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
 function safeUrl(u){u=String(u==null?"":u).trim();return /^https?:\/\//i.test(u)?u.replace(/"/g,"%22"):"#"}
-const hd=i=>EN?(i.he||i.head):i.head;
+function mediaUrl(u){
+  u=String(u==null?"":u).trim(); if(!u) return "";
+  if(/^https?:\/\//i.test(u)) return u.replace(/"/g,"%22");
+  if(u.startsWith("//")) return "https:"+u.replace(/"/g,"%22");
+  /* relative daily asset from sanad-data (e.g. analyst.jpg) */
+  return RAW+u.replace(/^\.\//,"").replace(/^\//,"");
+}
+const hd=i=>EN?(enText(i.he,i.head)||i.head):i.head;
 
 function badge(g){
   if(EN) return g==="صحيح"?'<span class="badge b-sahih">Verified ✓</span>'
@@ -851,7 +859,7 @@ function agentNewsPool(id, all){
   if(id==="turjuman") return all.filter(i=>i.fa);
   if(id==="mudaqqiq") return all.filter(i=>i.grade&&i.isnad);
   if(id==="rasid") return all.filter(i=>i.grade||(i.score!=null&&i.score>=4));
-  if(id==="multaqit") return all.filter(i=>!i.grade||i.grade==="ضعيف"||(i.score!=null&&i.score<=3));
+  if(id==="multaqit") return all.filter(i=>!i.grade||/ضعيف/.test(i.grade||"")||(i.score!=null&&i.score<=3));
   if(id==="munabbih") return all.filter(i=>/تحذير|عاجل|إنذار|إخلاء|alert|warning/i.test(blob(i)));
   if(id==="shahid") return all.filter(i=>/زلزال|طيران|حرائق|ميدان|قصف|صاروخ|غارة|earthquake|fire|flight|strike/i.test(blob(i)));
   if(id==="mustaqsi") return all.filter(i=>/ذخيرة|دفاع|صاروخ|مسيرة|وزارة الدفاع|military|missile|drone/i.test(blob(i)));
@@ -877,14 +885,45 @@ function collectorPosts(id, who){
 function packToPosts(pack){
   if(!pack||!(pack.posts||[]).length) return null;
   return pack.posts.map(p=>{
-    const title=EN?(p.title_en||p.title||""):(p.title||"");
-    const caption=EN?(p.caption_en||p.caption||""):(p.caption||"");
+    const arTitle=p.title||p.head||"";
+    const enTitle=enText(p.title_en, p.he)||enText(p.he, arTitle)||arTitle;
+    const title=EN?enTitle:arTitle;
+    let caption=EN?(enText(p.caption_en, "")||""):(p.caption||"");
+    if(EN && !caption){
+      caption = p.kind==="news"
+        ? `Automated spot via ${p.src||"source"}. ${title}`
+        : (title||"");
+    }
+    if(!EN && !caption) caption=p.caption||arTitle;
+    const rawImg=p.img||"";
     const item=p.kind==="news"?{
       head:p.head||p.title, he:p.he||p.title_en, link:p.link, src:p.src, grade:p.grade,
-      score:p.score, isnad:p.isnad, img:p.img, at:p.at, fa:p.fa
+      score:p.score, isnad:p.isnad, img:rawImg, at:p.at, fa:p.fa
     }:null;
-    return {...p, title, caption, item:item||p.item, auto:true};
+    return {...p, title, caption, img:rawImg?mediaUrl(rawImg):"", item:item||p.item, auto:true};
   });
+}
+function postsLookShared(id, news){
+  if(!news||!news.length) return false;
+  if(news.length>=18) return true;
+  if(!APOSTS||!APOSTS.agents) return false;
+  const keys=new Set(news.map(p=>p.link||p.title||""));
+  for(const oid of ["hurr","rasid","multaqit","shahid"]){
+    if(oid===id) continue;
+    const on=((APOSTS.agents[oid]||{}).posts||[]).filter(p=>!p.kind||p.kind==="news");
+    if(on.length<6) continue;
+    let hit=0; for(const p of on){ if(keys.has(p.link||p.title||"")) hit++; }
+    if(hit/Math.min(keys.size, on.length) > 0.65) return true;
+  }
+  return false;
+}
+function localEvoPosts(who, n){
+  return ((EVOLUTION&&EVOLUTION.runs)||[]).slice().reverse().slice(0,n||6).map(r=>({
+    kind:"evo", title:`v${r.v||"—"}`, img:"", link:"", at:r.t,
+    caption: EN
+      ? `${who} · Cycle v${r.v||"—"}: checked ${r.checked||0}, removed ${r.removed||0}, downgraded ${r.downgraded||0}.`
+      : `${who} · دورة v${r.v||"—"}: راجع ${r.checked||0}، استبعد ${r.removed||0}، خفّض ${r.downgraded||0}.`
+  }));
 }
 const COLLECTOR_IDS=new Set(["hurr","rasid","multaqit","munabbih","shahid","mustaqsi","mutabiq","mukharrij","munaqqih","turjuman"]);
 function buildProfilePosts(kind, id){
@@ -897,19 +936,31 @@ function buildProfilePosts(kind, id){
         const news=ready.filter(p=>p.kind==="news");
         const other=ready.filter(p=>p.kind!=="news");
         if(news.length){
-          /* shared dumps (≥18 news) → rebuild from role pool; else daily shard */
-          if(news.length>=18) return collectorPosts(id, who).concat(other).slice(0,24);
+          if(postsLookShared(id, news)) return collectorPosts(id, who).concat(other).slice(0,24);
           return shardItems(id, news, 12).concat(other).slice(0,24);
         }
       }
     }
     return collectorPosts(id, who);
   }
+  /* المدقّق: graded news + evolution — never swallow evo under a shared dump */
+  if(kind==="agent" && id==="mudaqqiq"){
+    const ready=packToPosts(APOSTS&&APOSTS.agents&&APOSTS.agents.mudaqqiq);
+    const news=(ready||[]).filter(p=>p.kind==="news");
+    const evo=(ready||[]).filter(p=>p.kind==="evo");
+    const graded=(!news.length||postsLookShared("mudaqqiq", news))
+      ? collectorPosts("mudaqqiq", who)
+      : shardItems("mudaqqiq", news, 12);
+    return graded.concat(evo.length?evo:localEvoPosts(who, 6)).slice(0,18);
+  }
   /* Prefer pipeline-published automated posts for specialist desks */
   if(APOSTS){
     const pack=kind==="desk"?(APOSTS.desks||{})[id]:(APOSTS.agents||{})[id];
     const ready=packToPosts(pack);
-    if(ready&&ready.length) return ready;
+    if(ready&&ready.length){
+      /* resolve relative images even when pack is trusted */
+      return ready.map(p=>p.img&&!/^https?:/i.test(p.img)?{...p,img:mediaUrl(p.img)}:p);
+    }
   }
   if(kind==="desk"){
     const prev=deskFilter; deskFilter=id;
@@ -943,25 +994,12 @@ function buildProfilePosts(kind, id){
     }));
     return out;
   }
-  if(id==="musannif"){
-    const runs=((EVOLUTION&&EVOLUTION.runs)||[]).slice().reverse().slice(0,12);
-    return runs.map(r=>({
-      kind:"evo", title:`v${r.v||"—"}`, img:"", link:"", at:r.t,
-      caption: EN
-        ? `${who} · Cycle v${r.v||"—"}: checked ${r.checked||0}, removed ${r.removed||0}, downgraded ${r.downgraded||0}. The desk got sharper.`
-        : `${who} · دورة v${r.v||"—"}: راجع ${r.checked||0}، استبعد ${r.removed||0}، خفّض ${r.downgraded||0}. الغرفة أصبحت أحدّ.`
-    }));
-  }
-  if(id==="mudaqqiq"){
-    const graded=collectorPosts("mudaqqiq", who);
-    const runs=((EVOLUTION&&EVOLUTION.runs)||[]).slice().reverse().slice(0,6).map(r=>({
-      kind:"evo", title:`v${r.v||"—"}`, img:"", link:"", at:r.t,
-      caption: EN
-        ? `${who} · Cycle v${r.v||"—"}: checked ${r.checked||0}, removed ${r.removed||0}, downgraded ${r.downgraded||0}.`
-        : `${who} · دورة v${r.v||"—"}: راجع ${r.checked||0}، استبعد ${r.removed||0}، خفّض ${r.downgraded||0}.`
-    }));
-    return graded.concat(runs).slice(0,18);
-  }
+  if(id==="musannif") return localEvoPosts(who, 12).map(p=>({
+    ...p,
+    caption: EN
+      ? p.caption.replace(/\.$/, ". The desk got sharper.")
+      : p.caption.replace(/\.$/, ". الغرفة أصبحت أحدّ.")
+  }));
   if(id==="miqyas"){
     return [...((TENSION&&TENSION.countries)||[])].sort((a,b)=>(b.score||0)-(a.score||0)).slice(0,12).map(c=>({
       kind:"tension", title:EN?(c.en||c.name):c.name, pct:c.score, img:"", link:"",
@@ -973,7 +1011,7 @@ function buildProfilePosts(kind, id){
   if(id==="rawi"||id==="mudawwin"){
     const tx=ANALYST&&(EN&&ANALYST.text_en?ANALYST.text_en:ANALYST.text);
     if(tx) return [{
-      kind:"brief", title:EN?"Hour’s reading":"قراءة الساعة", img:ANALYST.avatar?RAW+ANALYST.avatar:"", link:"",
+      kind:"brief", title:EN?"Hour’s reading":"قراءة الساعة", img:ANALYST.avatar?mediaUrl(ANALYST.avatar):"", link:"",
       caption: `${who} · ${tx.slice(0,280)}${tx.length>280?"…":""}`
     }];
     return [];
@@ -989,15 +1027,27 @@ function buildProfilePosts(kind, id){
   return collectorPosts(id, who);
 }
 function openProfile(kind, id, tab){
-  PROFILE={kind,id,tab:tab||"grid"};
+  const from=(VIEW&&VIEW!=="profile")?VIEW:((PROFILE&&PROFILE.from)||"team");
+  PROFILE={kind,id,tab:tab||"grid",from};
   closeSheet();
   setView("profile");
   renderProfile();
   try{window.scrollTo({top:0,behavior:"smooth"})}catch(e){window.scrollTo(0,0)}
 }
 function closeProfile(){
+  const back=(PROFILE&&PROFILE.from)||"team";
   PROFILE=null;
-  setView("team");
+  setView(back);
+}
+function goLiveDesk(id){
+  deskFilter=id;
+  markSeen(id);
+  updateFilterChip();
+  const d=DESKS.find(x=>x.id===id);
+  deskStatus.textContent=d?regionOf(d):"";
+  PROFILE=null;
+  renderDesks(); renderFeed();
+  setView("live");
 }
 function setProfileTab(tab){
   if(!PROFILE) return;
@@ -1005,7 +1055,8 @@ function setProfileTab(tab){
   renderProfile();
 }
 function profileMedia(p){
-  if(p.img) return `<img src="${safeUrl(p.img)}" alt="" loading="lazy" decoding="async" onerror="this.parentElement.innerHTML='<div class=\'ph\'>سَنَد</div>'">`;
+  const src=p.img?mediaUrl(p.img):"";
+  if(src) return `<img src="${src}" alt="" loading="lazy" decoding="async" onerror="this.parentElement.innerHTML='<div class=\'ph\'>سَنَد</div>'">`;
   if(p.kind==="scenario"||p.kind==="tension") return `<div class="ph">${esc(p.pct!=null?p.pct+"%":"◈")}</div>`;
   if(p.kind==="evo") return `<div class="ph">🧬</div>`;
   if(p.kind==="signal") return `<div class="ph">📡</div>`;
@@ -1017,8 +1068,9 @@ function profileMedia(p){
 function igPostHTML(p, n, person){
   const cap=p.caption||p.title||"";
   const short=cap.length>160?cap.slice(0,160)+"…":cap;
-  const mediaInner=p.img
-    ? `<img src="${safeUrl(p.img)}" alt="" loading="lazy" onerror="this.outerHTML='<div class=\\'seal\\'>سَنَد</div>'">`
+  const src=p.img?mediaUrl(p.img):"";
+  const mediaInner=src
+    ? `<img src="${src}" alt="" loading="lazy" onerror="this.outerHTML='<div class=\\'seal\\'>سَنَد</div>'">`
     : `<div class="seal">${p.pct!=null?esc(p.pct)+"%":esc(person.icon||"سَنَد")}</div>`;
   const cmts=commentsForItem(p.item||p, person.id);
   return `<article class="ig-post" data-pi="${n}">
@@ -1028,11 +1080,11 @@ function igPostHTML(p, n, person){
     </div>
     <button type="button" class="ig-media" data-act="post" aria-label="${EN?"Open post":"افتح المنشور"}">${mediaInner}${p.pct!=null&&p.kind==="scenario"?`<span class="pct-badge">${esc(p.pct)}%</span>`:""}</button>
     <div class="ig-acts">
-      <button type="button" data-act="share" aria-label="share">↗</button>
-      <button type="button" data-act="open" aria-label="open">⧉</button>
-      ${p.item?`<button type="button" data-act="isnad" aria-label="isnad">☰</button>`:""}
-      ${p.item?`<button type="button" data-act="save" aria-label="save">${isSaved(p.item)?"♥":"♡"}</button>`:""}
-      <button type="button" data-act="post" aria-label="comments">💬 ${cmts.length||""}</button>
+      <button type="button" data-act="share" aria-label="${EN?"Share":"مشاركة"}">↗</button>
+      <button type="button" data-act="open" aria-label="${EN?"Open":"فتح"}">⧉</button>
+      ${p.item?`<button type="button" data-act="isnad" aria-label="${EN?"Attribution":"الإسناد"}">☰</button>`:""}
+      ${p.item?`<button type="button" data-act="save" aria-label="${EN?"Save":"حفظ"}">${isSaved(p.item)?"♥":"♡"}</button>`:""}
+      <button type="button" data-act="post" aria-label="${EN?"Comments":"تعليقات"}">💬 ${cmts.length||""}</button>
     </div>
     <button type="button" class="ig-cap" data-act="post" style="width:100%;border:0;background:transparent;cursor:pointer;color:inherit;font:inherit;text-align:start">
       <span class="by">${esc(person.handle)}</span><span class="cap-t">${esc(short)}</span>
@@ -1048,8 +1100,9 @@ function openProfilePost(n){
   if(!person||!p) return;
   const cap=p.caption||p.title||"";
   const cmts=commentsForItem(p.item||p, person.id);
-  const mediaInner=p.img
-    ? `<img src="${safeUrl(p.img)}" alt="" loading="lazy" onerror="this.outerHTML='<div class=\\'seal\\'>سَنَد</div>'">`
+  const src=p.img?mediaUrl(p.img):"";
+  const mediaInner=src
+    ? `<img src="${src}" alt="" loading="lazy" onerror="this.outerHTML='<div class=\\'seal\\'>سَنَد</div>'">`
     : `<div class="seal">${p.pct!=null?esc(p.pct)+"%":esc(person.icon||"سَنَد")}</div>`;
   openSheet(`<article class="ig-post" style="border:0;margin:0">
     <div class="ig-hd">
@@ -1118,7 +1171,7 @@ function renderProfile(){
   AGENT_POSTS=posts;
   const stMap=EN?{ok:"On duty",skip:"Scheduled",fail:"Unavailable",idle:"Quiet"}:{ok:"على رأس عمله",skip:"في وردية لاحقة",fail:"غير متاح",idle:"صامت"};
   const st=person.status?stMap[person.status]||person.status:"";
-  const followers=PROFILE.kind==="desk"?"—":(AGENTS&&AGENTS.healthy!=null?AGENTS.healthy:"—");
+  const duty=PROFILE.kind==="desk"?"—":(st?st:(person.ran===true?(EN?"Active":"نشط"):"—"));
   const tab=PROFILE.tab||"grid";
   let body="";
   if(tab==="grid"){
@@ -1138,11 +1191,11 @@ function renderProfile(){
         : (person.id==="rawi"||person.id==="mudawwin")
           ? `<button type="button" class="primary" onclick="setView('brief')">${EN?"Brief":"النشرة"}</button>`
           : (PROFILE.kind==="desk")
-            ? `<button type="button" class="primary" onclick="closeSheet();pickDesk('${person.id}')">${EN?"Live desk":"الحيّ"}</button>`
+            ? `<button type="button" class="primary" onclick="closeSheet();goLiveDesk('${person.id}')">${EN?"Live desk":"الحيّ"}</button>`
             : `<button type="button" class="primary" onclick="setProfileTab('feed')">${EN?"Posts":"المنشورات"}</button>`;
   root.innerHTML=`
     <div class="prof-top">
-      <button type="button" class="back" onclick="closeProfile()" aria-label="back">‹</button>
+      <button type="button" class="back" onclick="closeProfile()" aria-label="${EN?"Back":"رجوع"}">‹</button>
       <div class="ttl"><b>${esc(person.name)}</b><span>${esc(person.handle)}</span></div>
     </div>
     <div class="prof-hd">
@@ -1150,8 +1203,8 @@ function renderProfile(){
         <div class="prof-av" style="${person.color?`color:${person.color}`:""}">${esc(person.icon||"•")}</div>
         <div class="prof-stats">
           <div><b>${posts.length}</b><span>${EN?"posts":"منشور"}</span></div>
-          <div><b>${esc(String(followers))}</b><span>${EN?"on desk":"على الرأس"}</span></div>
-          <div><b>${person.ran===true?"✓":person.ran===false?"–":(st?st.slice(0,4):"—")}</b><span>${EN?"cycle":"دورة"}</span></div>
+          <div><b title="${esc(duty)}">${person.ran===true?"✓":person.ran===false?"–":"·"}</b><span>${EN?"status":"الحالة"}</span></div>
+          <div><b>${person.at?esc((ago(person.at)||"—").split(" ")[0]):"—"}</b><span>${EN?"active":"نشاط"}</span></div>
         </div>
       </div>
       <div class="prof-name">${esc(person.name)}</div>
@@ -1167,8 +1220,8 @@ function renderProfile(){
       </div>
     </div>
     <div class="prof-tabs">
-      <button type="button" class="${tab==="grid"?"on":""}" onclick="setProfileTab('grid')" aria-label="grid">⊞</button>
-      <button type="button" class="${tab==="feed"?"on":""}" onclick="setProfileTab('feed')" aria-label="posts">▤</button>
+      <button type="button" class="${tab==="grid"?"on":""}" onclick="setProfileTab('grid')" aria-label="${EN?"Grid":"شبكة"}">⊞</button>
+      <button type="button" class="${tab==="feed"?"on":""}" onclick="setProfileTab('feed')" aria-label="${EN?"Posts":"منشورات"}">▤</button>
     </div>
     ${body}`;
   if(tab==="feed") bindIgPosts(root, posts, person);
@@ -1187,9 +1240,12 @@ function saveSaved(arr){localStorage.setItem(SAVE_KEY,JSON.stringify(arr.slice(0
 function isSaved(i){return loadSaved().some(x=>x.id===itemId(i))}
 function toggleSave(i){
   const id=itemId(i); let arr=loadSaved();
-  if(arr.some(x=>x.id===id)) arr=arr.filter(x=>x.id!==id);
+  const had=arr.some(x=>x.id===id);
+  if(had) arr=arr.filter(x=>x.id!==id);
   else arr.unshift({id,head:hd(i),he:i.he,link:i.link,src:i.src,grade:i.grade,score:i.score,isnad:i.isnad,img:i.img,at:i.at,desk:deskFor(i).id});
-  saveSaved(arr); toast(EN?"Saved":"حُفظ"); renderFeed(); renderSaved();
+  saveSaved(arr);
+  toast(had?(EN?"Removed":"أُزيل"):(EN?"Saved":"حُفظ"));
+  if(VIEW==="profile") renderProfile(); else { renderFeed(); renderSaved(); }
 }
 function seenMap(){try{return JSON.parse(sessionStorage.getItem(SEEN_KEY)||"{}")}catch(e){return{}}}
 function markSeen(id){const m=seenMap(); m[id]=Date.now(); sessionStorage.setItem(SEEN_KEY,JSON.stringify(m))}
@@ -1297,7 +1353,7 @@ function showIsnad(i){
     <div style="margin:10px 0">${badge(i.grade)} ${i.score!==undefined?`<span class="badge b-src">${esc(i.score)}/7</span>`:""} ${isnadBar(i.isnad,i.grade)}</div>
     <div class="row"><b>${EN?"Source":"المصدر"}</b><span>${esc(i.src||"—")}</span></div>
     <p style="font-size:12px;color:var(--dim);line-height:1.8;margin-top:12px">${EN?"Graded by Sanad’s newsroom. Internal method stays private.":"حكمٌ من غرفة تحرير سَنَد. تفاصيل المنهج تبقى داخل الغرفة."}</p>
-    <button type="button" class="sheet-x" onclick="closeSheet()">إغلاق</button>`);
+    <button type="button" class="sheet-x" onclick="closeSheet()">${EN?"Close":"إغلاق"}</button>`);
 }
 
 let POSTS=[];
@@ -1325,7 +1381,7 @@ function postHTML(i,n,bucket){
       <p class="ig-cap-line"><span class="by">${esc(regionOf(d))}</span> ${EN?`Automated spot via ${i.src||"source"}.`:`رصد آلي من ${i.src||"مصدر"}.`}</p>
     </div>
     <div class="post-meta">${badge(i.grade)}${i.score!==undefined?`<span class="badge b-src">${esc(i.score)}/7</span>`:""}${isnadBar(i.isnad,i.grade)}</div>
-    ${commentsHTML(commentsForItem(i, deskFor(i).id), true)}
+    ${commentsHTML(commentsForItem(i), true)}
   </article>`;
 }
 function bindPosts(root, list, bucket){
@@ -1385,7 +1441,7 @@ function openOfficial(i){
     <p style="font-size:14px;line-height:1.9;margin:12px 0;color:var(--vellum)">${esc(x.p||"")}</p>
     <div class="row"><b>${EN?"When":"التوقيت"}</b><span>${esc(x.t||"—")}</span></div>
     ${x.u?`<a class="sheet-x" style="display:block;text-align:center;text-decoration:none;background:var(--gold);color:#1A1206;margin-top:12px" href="${safeUrl(x.u)}" target="_blank" rel="noopener">${EN?"Open source":"افتح المصدر"}</a>`:""}
-    <button type="button" class="sheet-x" onclick="closeSheet()">إغلاق</button>`);
+    <button type="button" class="sheet-x" onclick="closeSheet()">${EN?"Close":"إغلاق"}</button>`);
 }
 function renderBriefOfficial(){
   const el=document.getElementById("briefOfficial"); if(!el) return;
@@ -1483,9 +1539,16 @@ async function runVerify(){
 let BUNDLE=null, ARC_IX=null, ARC_CACHE={}, searchTimer=null, SEARCH_HITS=[];
 async function grab(name){
   if(BUNDLE && BUNDLE[name]!=null) return BUNDLE[name];
-  const r=await fetch(RAW+name+".json?t="+Date.now());
-  if(!r.ok) throw new Error(name+" "+r.status);
-  return r.json();
+  try{
+    const r=await fetch(RAW+name+".json?t="+Date.now());
+    if(r.ok) return await r.json();
+  }catch(e){}
+  /* local fallback when sanad-data is missing a key (or offline) */
+  try{
+    const r2=await fetch("/daily/"+name+".json?t="+Date.now());
+    if(r2.ok) return await r2.json();
+  }catch(e){}
+  throw new Error(name+" unavailable");
 }
 function toggleSearch(force){
   const bar=document.getElementById("searchBar");
@@ -1531,7 +1594,7 @@ function openSearchHit(idx){
     <div class="row"><b>${EN?"From":"من"}</b><span>${esc(h.where||"—")}</span></div>
     <div class="row"><b>${EN?"Source":"المصدر"}</b><span>${esc(h.src||"—")}</span></div>
     ${h.grade?`<div style="margin:10px 0">${badge(h.grade)}</div>`:""}
-    <button type="button" class="sheet-x" onclick="closeSheet()">إغلاق</button>`);
+    <button type="button" class="sheet-x" onclick="closeSheet()">${EN?"Close":"إغلاق"}</button>`);
 }
 async function runSearch(q){
   const box=document.getElementById("searchRes");

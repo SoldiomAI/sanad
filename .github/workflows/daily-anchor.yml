@@ -33,6 +33,7 @@ jobs:
           GEMINI_CLI_TRUST_WORKSPACE: "true"
         run: python pipeline/daily_anchor.py
       - name: حفظ في الريبو
+        id: save
         if: always()
         run: |
           git config user.name "SANAD Bot"
@@ -47,7 +48,7 @@ jobs:
           done
           exit 1
       - name: نشر البيانات للمستودع العام
-        if: always()
+        if: always() && steps.save.outcome == 'success'
         env:
           DATA_PUSH_TOKEN: ${{ secrets.DATA_PUSH_TOKEN }}
         run: |
@@ -55,6 +56,7 @@ jobs:
           # حارس: لا تُنشر ملفّات فيها علامات تعارض Git إلى المستودع العام
           if grep -rlqE '^(<<<<<<<|=======|>>>>>>>)' daily/; then
             echo "❌ daily/ يحوي علامات تعارض — أُلغي النشر حمايةً للموقع الحيّ"; exit 1; fi
+          python3 .github/scripts/guard-social-publish.py
           rm -rf /tmp/pub && git clone -q --depth 1 \
             "https://x-access-token:${DATA_PUSH_TOKEN}@github.com/Soldiom/sanad-data.git" /tmp/pub
           mkdir -p /tmp/pub/daily

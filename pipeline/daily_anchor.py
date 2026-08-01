@@ -603,7 +603,7 @@ def _agent_news_pool(aid, feed):
     if aid=="turjuman": return [i for i in feed if i.get("fa")]
     if aid=="mudaqqiq": return [i for i in feed if i.get("grade") and i.get("isnad")]
     if aid=="rasid": return [i for i in feed if i.get("grade") or (i.get("score") is not None and i.get("score")>=4)]
-    if aid=="multaqit": return [i for i in feed if (not i.get("grade")) or i.get("grade")=="ضعيف" or (i.get("score") is not None and i.get("score")<=3)]
+    if aid=="multaqit": return [i for i in feed if (not i.get("grade")) or ("ضعيف" in str(i.get("grade") or "")) or (i.get("score") is not None and i.get("score")<=3)]
     if aid=="munabbih": return [i for i in feed if re.search(r"تحذير|عاجل|إنذار|إخلاء|alert|warning", blob(i), re.I)]
     if aid=="shahid": return [i for i in feed if re.search(r"زلزال|طيران|حرائق|ميدان|قصف|صاروخ|غارة|earthquake|fire|flight|strike", blob(i), re.I)]
     if aid=="mustaqsi": return [i for i in feed if re.search(r"ذخيرة|دفاع|صاروخ|مسيرة|وزارة الدفاع|military|missile|drone", blob(i), re.I)]
@@ -761,9 +761,15 @@ def bundle():
     """يدمج كل ملفات العرض في ملف واحد — يقضي على خنق الطلبات المتوازية."""
     # تعليقات ومنشورات مجّانية قبل الحزمة — من مخرجات الدورة فقط
     try: social_comments()
-    except Exception as _e: print("comments: "+str(_e)[:80])
+    except Exception as _e:
+        print("comments: "+str(_e)[:120])
+        if not os.path.exists(f"{OUT}/comments.json"):
+            raise
     try: social_posts()
-    except Exception as _e: print("posts: "+str(_e)[:80])
+    except Exception as _e:
+        print("posts: "+str(_e)[:120])
+        if not os.path.exists(f"{OUT}/posts.json"):
+            raise
     # 🛡️ حارسٌ أحاديّ الاتجاه لنشرة اليوم: لا نُعيدها إلى تاريخٍ أقدم من المنشور.
     # سبب العطل: تشغيلٌ يحمل latest.json قديمة كان يدهس النشرة الأحدث عند النشر.
     try:
@@ -783,6 +789,19 @@ def bundle():
         except Exception: pass
     try: b["archive_index"]=json.load(open(f"{OUT}/archive/index.json"))
     except Exception: pass
+    if "posts" not in b or "comments" not in b:
+        raise RuntimeError("bundle missing posts/comments — refusing to publish a hollow package")
+    # حارس ضد رجوع منشورات متطابقة لكل الجامعين (عطل سبق أن نُشر للمستودع العام)
+    try:
+        _ag=(b.get("posts") or {}).get("agents") or {}
+        _h=[(p.get("link") or p.get("title")) for p in (_ag.get("hurr") or {}).get("posts") or [] if (p.get("kind") or "news")=="news"]
+        _r=[(p.get("link") or p.get("title")) for p in (_ag.get("rasid") or {}).get("posts") or [] if (p.get("kind") or "news")=="news"]
+        if len(_h)>=10 and _h==_r:
+            raise RuntimeError("identical collector dumps (hurr==rasid) — refuse bundle")
+    except RuntimeError:
+        raise
+    except Exception as _e:
+        print("posts_guard: "+str(_e)[:80])
     json.dump(b,open(f"{OUT}/bundle.json","w"),ensure_ascii=False,separators=(",",":"))
     sz=os.path.getsize(f"{OUT}/bundle.json")
     print(f"📦 الحزمة: {len(b)-1} قسمًا · {sz//1024} ك.ب في طلبٍ واحد")
