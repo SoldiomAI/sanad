@@ -258,6 +258,28 @@ details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--m
 .ennote{display:none;padding:10px 14px;font-size:12.5px;line-height:1.7;color:var(--mut);border-bottom:1px solid var(--border)}
 [data-lng=en] .ennote{display:block}
 .script{white-space:pre-wrap;font-size:14px;line-height:2;margin-top:10px;display:none}
+/* Official rail + analyst */
+.off-rail{display:flex;gap:10px;overflow-x:auto;padding:10px 14px;scrollbar-width:none;border-bottom:1px solid var(--border);background:var(--card)}
+.off-rail::-webkit-scrollbar{display:none}
+.off-chip{flex:0 0 auto;max-width:260px;border:1px solid rgba(62,155,114,.35);background:rgba(62,155,114,.07);
+  border-radius:14px;padding:10px 12px;text-align:start;cursor:pointer;color:inherit;font:inherit}
+.off-chip:active{transform:scale(.98)}
+.off-chip .k{font-size:10.5px;font-family:'Noto Kufi Arabic',sans-serif;font-weight:700;color:var(--verify-l);margin-bottom:4px}
+.off-chip .p{font-size:12.5px;line-height:1.7;color:var(--vellum);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.off-chip .m{font-size:10.5px;color:var(--dim);margin-top:6px}
+.rail-h{display:flex;justify-content:space-between;align-items:center;padding:10px 14px 0;font-family:'Noto Kufi Arabic',sans-serif;font-size:11.5px;font-weight:700;color:var(--gold-l)}
+.rail-h button{border:0;background:transparent;color:var(--mut);font:inherit;cursor:pointer;font-size:11px}
+.analyst{margin:12px 14px;border:1px solid rgba(201,162,39,.35);border-radius:16px;padding:14px;background:linear-gradient(160deg,rgba(201,162,39,.08),var(--card))}
+.analyst .who{display:flex;gap:10px;align-items:center;margin-bottom:10px}
+.analyst .av{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid rgba(201,162,39,.45);background:var(--card2)}
+.analyst .who b{display:block;font-size:14px}
+.analyst .who span{font-size:11px;color:var(--mut)}
+.analyst .tx{font-size:13.5px;line-height:1.9;color:var(--vellum);max-height:7.8em;overflow:hidden;position:relative}
+.analyst .tx.open{max-height:none}
+.analyst .morebtn{margin-top:8px;border:0;background:transparent;color:var(--gold-l);font-weight:700;font-size:12px;cursor:pointer;font-family:'Noto Kufi Arabic',sans-serif}
+.filter-chip{margin:8px 14px 0;display:none;align-items:center;gap:8px}
+.filter-chip.on{display:flex}
+.filter-chip button{border:1px solid var(--border);background:var(--card);border-radius:20px;padding:6px 12px;font-size:11.5px;cursor:pointer;color:var(--txt);font-family:'Noto Kufi Arabic',sans-serif}
 </style></head>
 
 <body>
@@ -288,6 +310,11 @@ details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--m
   <div class="ennote">🌍 International edition — verified Gulf &amp; world news. Switch to <a href="#" onclick="lngFlip();return false">العربية</a> for the full suite.</div>
 
   <section class="view on" id="view-live" data-view="live">
+    <div class="filter-chip" id="filterChip"><button type="button" onclick="clearDesk()">✕ عرض الكل</button><span id="filterLbl" style="font-size:12px;color:var(--mut)"></span></div>
+    <div id="offBlock" style="display:none">
+      <div class="rail-h"><span>من المَنبع · رسمي</span><button type="button" onclick="setView('brief')">المزيد</button></div>
+      <div class="off-rail" id="offRail"></div>
+    </div>
     <div id="feed">
       <div class="sk media"></div><div class="sk" style="width:70%"></div><div class="sk" style="width:40%"></div>
       <div class="sk media" style="margin-top:16px"></div><div class="sk" style="width:60%"></div>
@@ -313,15 +340,17 @@ details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--m
         <button type="button" class="sheet-x" style="margin-top:10px" onclick="document.getElementById('s').style.display=document.getElementById('s').style.display==='block'?'none':'block'">📜 نص النشرة</button>
         <div class="script" id="s"></div>
       </div>
+      <div id="briefAnalyst"></div>
+      <div id="briefOfficial"></div>
       <div id="briefHero"></div>
-      <details class="more"><summary>◈ كيف نحكُم على الخبر؟</summary>
-        <div class="body">نقيس كلَّ خبرٍ على خمسة معايير من علم الحديث: الاتصال، عدالة المصدر، الضبط، عدم الشذوذ، انتفاء العلة — ونمنح درجةً من ٧ نعرضها كما هي.</div>
+      <details class="more"><summary>ما معنى درجة الإسناد؟</summary>
+        <div class="body">كلُّ خبرٍ يحمل حكمًا ظاهرًا (صحيح / حسن / ضعيف الإسناد) بناءً على موثوقية مصدره. التفاصيل الداخليّة تبقى داخل غرفة التحرير.</div>
       </details>
       <details class="more"><summary>اشترك في النشرة</summary>
         <div class="body"><a href="https://t.me/sanad_news" target="_blank" rel="noopener">t.me/sanad_news</a> — مجّانًا وبلا إعلانات.</div>
       </details>
       <details class="more"><summary>للمؤسسات</summary>
-        <div class="body"><a href="/enterprise">بوّابة سَنَد للمؤسسات</a> — مِرصاد التوتّر وقوائم الرصد.</div>
+        <div class="body"><a href="/enterprise">بوّابة سَنَد للمؤسسات</a>.</div>
       </details>
     </div>
   </section>
@@ -329,7 +358,7 @@ details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--m
   <section class="view" id="view-verify" data-view="verify">
     <div class="panel">
       <h2 class="amiri gold">تحقّق</h2>
-      <p class="lead">الصق رابط خبر أو صورة أو فيديو — <b>الفاحِص</b> يفتحه، و<b>الحاكم</b> يزن الإسناد. نبدأ بالمجّاني قبل أي نداء مدفوع.</p>
+      <p class="lead">الصق رابط خبر أو صورة أو فيديو — نراجعُه ونُصدر حكمًا واضحًا دون أن نكشف أدوات الغرفة.</p>
       <div class="v-box">
         <input id="vUrl" type="url" inputmode="url" placeholder="https://…" autocomplete="off">
         <button type="button" id="vGo" onclick="runVerify()">افحص</button>
@@ -341,10 +370,10 @@ details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--m
   <section class="view" id="view-team" data-view="team">
     <div class="panel">
       <h2 class="amiri gold">الفريق</h2>
-      <p class="lead">وكلاء سَنَد يعملون كأشخاصٍ ذوي أدوار — مكاتب الرصد أولًا، ثم فريق التحقّق.</p>
+      <p class="lead">أسماءٌ وأدوارٌ قصيرة — بلا كشفٍ لطريقة العمل.</p>
       <div class="team-sec">مكاتب الرصد</div>
       <div id="teamDesks"></div>
-      <div class="team-sec">فريق التحقّق</div>
+      <div class="team-sec">فريق التحرير</div>
       <div id="teamCrew"></div>
     </div>
   </section>
@@ -391,12 +420,39 @@ const SAVE_KEY="sanad_saved_v1";
 const SEEN_KEY="sanad_desk_seen_v1";
 
 const DESKS=[
-  {id:"noura",name:"نورة",en:"Noura",role:"مكتب الخليج",cat:"الخليج",letter:"ن",color:"#0d5c3f"},
-  {id:"samir",name:"سامر",en:"Samir",role:"مكتب فلسطين",cat:"فلسطين",letter:"س",color:"#9E2B37"},
-  {id:"laith",name:"ليث",en:"Laith",role:"مكتب المشرق",cat:"إيران",letter:"ل",color:"#C9A227"},
-  {id:"huda",name:"هدى",en:"Huda",role:"مكتب الأمّة",cat:"عالم",letter:"ه",color:"#3A66A8"},
-  {id:"hakim",name:"الحاكم",en:"Al-Hakim",role:"حاكم الإسناد",cat:"__grade__",letter:"ح",color:"#8A6F1B"},
+  {id:"noura",name:"نورة",en:"Noura",role:"مكتب الخليج",blurb:"تغطي أخبار الخليج لحظة بلحظة.",cat:"الخليج",letter:"ن",color:"#0d5c3f"},
+  {id:"samir",name:"سامر",en:"Samir",role:"مكتب فلسطين",blurb:"يتابع فلسطين وما حولها.",cat:"فلسطين",letter:"س",color:"#9E2B37"},
+  {id:"laith",name:"ليث",en:"Laith",role:"مكتب المشرق",blurb:"يرصد المشرق وما يُترجم عنه.",cat:"إيران",letter:"ل",color:"#C9A227"},
+  {id:"huda",name:"هدى",en:"Huda",role:"مكتب الأمّة",blurb:"تجمع أهم ما يهمّ القارئ العربي من العالم.",cat:"عالم",letter:"ه",color:"#3A66A8"},
+  {id:"hakim",name:"الحاكم",en:"Al-Hakim",role:"حاكم الإسناد",blurb:"يمنح كلَّ خبرٍ حكمَ إسناده الظاهر.",cat:"__grade__",letter:"ح",color:"#8A6F1B"},
 ];
+/* نبذٌ قصيرة للعامة — بلا أدوات ولا خطوات قابلة للاستنساخ */
+const TEAM_BLURB={
+  hurr:{ar:"يجمع موادَّ من مصادر مفتوحة.",en:"Collects open-source items."},
+  rasid:{ar:"يتابع العاجل أوّلًا بأوّل.",en:"Watches breaking developments."},
+  mutabiq:{ar:"يراجع الأرقام قبل عرضها.",en:"Cross-checks figures before display."},
+  manba:{ar:"ينقل عن الجهات الرسمية.",en:"Carries official statements."},
+  munabbih:{ar:"يبلّغ التحذيرات للمواطن.",en:"Surfaces public warnings."},
+  multaqit:{ar:"يرصد ما يُتداوَل من ادّعاءات.",en:"Flags circulating claims."},
+  fahis:{ar:"يفحص الروابط قبل الحكم.",en:"Checks links before a verdict."},
+  mukharrij:{ar:"يردّ الادّعاء إلى أصله.",en:"Traces claims to their origin."},
+  munaqqih:{ar:"يُبقي ملفّ الشائعات نظيفًا.",en:"Keeps the rumor file tidy."},
+  miqyas:{ar:"يلخّص حرارة المشهد الإقليمي.",en:"Summarizes regional tension."},
+  shahid:{ar:"يرصد إشاراتٍ ميدانية مفتوحة.",en:"Notes open field signals."},
+  mustaqsi:{ar:"يتابع البيانات العسكرية الرسمية.",en:"Follows official military releases."},
+  turjuman:{ar:"ينقل عن الفارسية بأمانة.",en:"Translates from Persian faithfully."},
+  mudaqqiq:{ar:"يمنع ما لا يصلح للنشر.",en:"Stops what should not publish."},
+  musannif:{ar:"يحسّن فرز المواد مع الوقت.",en:"Improves sorting over time."},
+  mustaqri:{ar:"يقرأ المشهد ويقدّم خلاصة.",en:"Reads the scene and briefs you."},
+  murtajil:{ar:"يصوغ قراءة الساعة صوتًا.",en:"Delivers the hour’s reading aloud."},
+  mudawwin:{ar:"يكتب عمود اليوم.",en:"Writes today’s column."},
+  rawi:{ar:"يؤدّي النشرة اليومية.",en:"Hosts the daily bulletin."},
+};
+function teamBlurb(id, fallback){
+  const b=TEAM_BLURB[id];
+  if(b) return EN?b.en:b.ar;
+  return EN?"Member of the Sanad desk.":(fallback&&fallback.length<48?fallback:"عضو في فريق سَنَد.");
+}
 
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
 function safeUrl(u){u=String(u==null?"":u).trim();return /^https?:\/\//i.test(u)?u.replace(/"/g,"%22"):"#"}
@@ -421,15 +477,16 @@ function byTime(a,b){
   if(tb!==ta) return tb-ta;
   return (b.score||0)-(a.score||0);
 }
-const CRIT=["الاتصال","عدالة المصدر","الضبط","عدم الشذوذ","انتفاء العلة"];
 function isnadBar(o,g){
   if(!o) return "";
+  const vals=Object.values(o).map(Number);
+  if(!vals.length) return "";
   const full=g==="صحيح";
-  const nodes=CRIT.map((k,n)=>{
-    const v=o[k]||0, cls=v>=2?"on":v===1?"half":"";
+  const nodes=vals.slice(0,5).map((v,n)=>{
+    const cls=v>=2?"on":v===1?"half":"";
     return (n?"<u></u>":"")+`<i class="${cls}"></i>`;
   }).join("");
-  return `<div class="isn${full?" done":""}" title="سلسلة الإسناد">${nodes}</div>`;
+  return `<div class="isn${full?" done":""}" title="${EN?"Chain strength":"قوة الإسناد"}">${nodes}</div>`;
 }
 function toast(msg){
   const t=document.getElementById("toast"); t.textContent=msg; t.classList.add("on");
@@ -438,7 +495,7 @@ function toast(msg){
 function openSheet(html){sheetC.innerHTML=html; sheet.classList.add("on"); document.body.style.overflow="hidden"}
 function closeSheet(){sheet.classList.remove("on"); document.body.style.overflow=""}
 
-let DATA=null, AGENTS=null, CONTROL=null, deskFilter=null, VIEW="live";
+let DATA=null, AGENTS=null, CONTROL=null, OFFICIAL=null, ANALYST=null, deskFilter=null, VIEW="live";
 
 function itemId(i){return (i.link||i.head||"").slice(0,180)}
 function loadSaved(){try{return JSON.parse(localStorage.getItem(SAVE_KEY)||"[]")}catch(e){return[]}}
@@ -496,16 +553,24 @@ function renderDesks(){
 function pickDesk(id){
   deskFilter = deskFilter===id ? null : id;
   markSeen(id);
+  updateFilterChip();
   const d=DESKS.find(x=>x.id===id);
-  deskStatus.textContent = deskFilter
-    ? (EN?`${d.en} · ${d.role}`:`${d.name} · ${d.role} — تعرض أخبار مكتبها`)
-    : "";
   if(d && deskFilter){
-    const lines={noura:"نورة راصدة الآن",samir:"سامر يتابع الميدان",laith:"ليث يترجم ويغربل",huda:"هدى توسّع الدائرة",hakim:"الحاكم يزن الأسانيد"};
-    deskStatus.textContent = EN?`${d.en} desk`:(lines[id]||deskStatus.textContent);
-  }
+    deskStatus.textContent = EN?`${d.en} · ${d.blurb}`:`${d.name} · ${d.blurb}`;
+  } else deskStatus.textContent="";
   renderDesks(); renderFeed();
   setView("live");
+}
+function clearDesk(){
+  deskFilter=null; deskStatus.textContent=""; updateFilterChip(); renderDesks(); renderFeed();
+}
+function updateFilterChip(){
+  const chip=document.getElementById("filterChip"), lbl=document.getElementById("filterLbl");
+  if(!chip) return;
+  if(!deskFilter){ chip.classList.remove("on"); return; }
+  const d=DESKS.find(x=>x.id===deskFilter);
+  chip.classList.add("on");
+  if(lbl) lbl.textContent=d?(EN?d.en:d.name):"";
 }
 
 function setView(v){
@@ -515,6 +580,7 @@ function setView(v){
   if(v==="team") renderTeam();
   if(v==="saved") renderSaved();
   if(v==="brief") renderBrief();
+  if(v==="live"){ renderOfficialRail(); }
 }
 document.getElementById("bnav").addEventListener("click",e=>{
   const b=e.target.closest("button[data-view]"); if(b) setView(b.dataset.view);
@@ -536,16 +602,11 @@ function cpy(t){
       try{document.execCommand("copy")}catch(e){}a.remove();toast(EN?"Copied":"نُسخ")});
 }
 function showIsnad(i){
-  const o=i.isnad||{};
-  const rows=CRIT.map(k=>{
-    const v=o[k]||0; const lab=v>=2?"تامّ":v===1?"جزئي":"غائب";
-    return `<div class="row"><b>${esc(k)}</b><span>${lab} (${v})</span></div>`;
-  }).join("");
-  openSheet(`<h3 class="amiri">سلسلة الإسناد</h3>
+  openSheet(`<h3 class="amiri">${EN?"Attribution":"حكم الإسناد"}</h3>
     <p style="color:var(--mut);font-size:13px;line-height:1.8;margin-bottom:10px">${esc(hd(i))}</p>
-    ${badge(i.grade)} ${i.score!==undefined?`<span class="badge b-src">${esc(i.score)}/7</span>`:""}
-    <div style="margin-top:12px">${rows}</div>
-    <div class="row"><b>المصدر</b><span>${esc(i.src||"—")}</span></div>
+    <div style="margin:10px 0">${badge(i.grade)} ${i.score!==undefined?`<span class="badge b-src">${esc(i.score)}/7</span>`:""} ${isnadBar(i.isnad,i.grade)}</div>
+    <div class="row"><b>${EN?"Source":"المصدر"}</b><span>${esc(i.src||"—")}</span></div>
+    <p style="font-size:12px;color:var(--dim);line-height:1.8;margin-top:12px">${EN?"Graded by Sanad’s newsroom. Internal method stays private.":"حكمٌ من غرفة تحرير سَنَد. تفاصيل المنهج تبقى داخل الغرفة."}</p>
     <button type="button" class="sheet-x" onclick="closeSheet()">إغلاق</button>`);
 }
 
@@ -588,22 +649,81 @@ function bindPosts(root, list, bucket){
   });
 }
 
+function analystCardHTML(compact){
+  if(!ANALYST||!(ANALYST.text||ANALYST.text_en)) return "";
+  const tx=EN&&ANALYST.text_en?ANALYST.text_en:ANALYST.text;
+  const nm=EN?"Al-Mustaqri":(ANALYST.name||"المُستقرِئ");
+  const ti=EN?"Strategic brief · AI aide":(ANALYST.title||"خلاصة المشهد");
+  const av=ANALYST.avatar?RAW+ANALYST.avatar:"";
+  return `<div class="analyst" id="${compact?"feedAnalyst":"briefAnalystCard"}">
+    <div class="who">
+      ${av?`<img class="av" src="${safeUrl(av)}" alt="" loading="lazy">`:`<div class="av" style="display:grid;place-items:center;font-family:Amiri,serif;font-weight:700;color:var(--gold-l)">م</div>`}
+      <div><b>${esc(nm)}</b><span>${esc(ti)}</span></div>
+    </div>
+    <div class="tx" id="${compact?"feedAnTx":"briefAnTx"}">${esc(tx)}</div>
+    <button type="button" class="morebtn" onclick="(function(b){const t=b.previousElementSibling;t.classList.toggle('open');b.textContent=t.classList.contains('open')?(EN?'Less':'أقل'):(EN?'Read more':'اقرأ المزيد')})(this)">${EN?"Read more":"اقرأ المزيد"}</button>
+    ${ANALYST.audio?`<audio controls style="width:100%;margin-top:10px" src="${safeUrl(RAW+ANALYST.audio+"?t="+Date.now())}"></audio>`:""}
+  </div>`;
+}
+function renderOfficialRail(){
+  const block=document.getElementById("offBlock"), rail=document.getElementById("offRail");
+  if(!block||!rail) return;
+  const L=(OFFICIAL&&OFFICIAL.src)||[];
+  if(!L.length||deskFilter){ block.style.display="none"; return; }
+  block.style.display="block";
+  rail.innerHTML=L.slice(0,12).map((x,i)=>`<button type="button" class="off-chip" onclick="openOfficial(${i})">
+    <div class="k">${esc(x.f||"🏛️")} ${EN?"Official":"رسمي"} · ${esc(x.e||x.c||"")}</div>
+    <div class="p">${esc(x.p||"")}</div>
+    <div class="m">${esc(x.t||"")}</div>
+  </button>`).join("");
+}
+function openOfficial(i){
+  const x=((OFFICIAL&&OFFICIAL.src)||[])[i]; if(!x) return;
+  openSheet(`<h3 class="amiri">${EN?"Official":"من المَنبع"}</h3>
+    <div class="row"><b>${EN?"Agency":"الجهة"}</b><span>${esc(x.e||"—")}</span></div>
+    <div class="row"><b>${EN?"Country":"البلد"}</b><span>${esc((x.f||"")+" "+(x.c||""))}</span></div>
+    <p style="font-size:14px;line-height:1.9;margin:12px 0;color:var(--vellum)">${esc(x.p||"")}</p>
+    <div class="row"><b>${EN?"When":"التوقيت"}</b><span>${esc(x.t||"—")}</span></div>
+    ${x.u?`<a class="sheet-x" style="display:block;text-align:center;text-decoration:none;background:var(--gold);color:#1A1206;margin-top:12px" href="${safeUrl(x.u)}" target="_blank" rel="noopener">${EN?"Open source":"افتح المصدر"}</a>`:""}
+    <button type="button" class="sheet-x" onclick="closeSheet()">إغلاق</button>`);
+}
+function renderBriefOfficial(){
+  const el=document.getElementById("briefOfficial"); if(!el) return;
+  const L=(OFFICIAL&&OFFICIAL.src)||[];
+  if(!L.length){ el.innerHTML=""; return; }
+  el.innerHTML=`<div class="team-sec" style="margin-top:8px">${EN?"Official wire":"من المَنبع · بيانات رسمية"}</div>`+
+    L.slice(0,8).map((x,i)=>`<button type="button" class="tcard" onclick="openOfficial(${i})">
+      <div class="av">${esc(x.f||"🏛")}</div>
+      <div class="b"><b>${esc(x.e||x.c||"رسمي")}</b><div class="role">${esc((x.p||"").slice(0,110))}${(x.p||"").length>110?"…":""}</div></div>
+      <span class="st st-ok">${EN?"Official":"رسمي"}</span>
+    </button>`).join("");
+}
+
 function renderFeed(){
   const list=filtered().slice(0,40);
   POSTS=list;
+  renderOfficialRail();
   if(!list.length){
-    feed.innerHTML=`<div class="empty">${EN?"No stories in this desk yet.":"لا أخبار في هذا المكتب حاليًا — جرّب مكتبًا آخر أو امسح التصفية."}<br><button class="sheet-x" style="margin-top:14px" onclick="deskFilter=null;renderDesks();renderFeed()">عرض الكل</button></div>`;
+    feed.innerHTML=`<div class="empty">${EN?"No stories in this desk yet.":"لا أخبار في هذا المكتب حاليًا."}<br><button class="sheet-x" style="margin-top:14px" onclick="clearDesk()">عرض الكل</button></div>`;
     return;
   }
-  feed.innerHTML=list.map((i,n)=>postHTML(i,n,"feed")).join("");
+  let html="";
+  list.forEach((i,n)=>{
+    html+=postHTML(i,n,"feed");
+    if(n===1 && !deskFilter) html+=analystCardHTML(true);
+  });
+  feed.innerHTML=html;
   bindPosts(feed, list, "feed");
 }
 
 function renderBrief(){
   const lead=allItems()[0];
-  if(lead){ briefHero.innerHTML=postHTML(lead,0,"brief"); bindPosts(briefHero,[lead],"brief"); }
+  const ba=document.getElementById("briefAnalyst");
+  if(ba) ba.innerHTML=analystCardHTML(false);
+  renderBriefOfficial();
+  if(lead){ briefHero.innerHTML=`<div class="team-sec">${EN?"Lead story":"أبرز خبر"}</div>`+postHTML(lead,0,"brief"); bindPosts(briefHero,[lead],"brief"); }
   else briefHero.innerHTML="";
-  briefLead.textContent=EN?"Daily verified bulletin — audio and text.":"نشرةٌ يومية مُسنَدة — تصلُك صوتًا ونصًّا.";
+  briefLead.textContent=EN?"Daily bulletin, official wire, and Al-Mustaqri’s brief.":"النشرة الصوتية · المَنبع الرسمي · خلاصة المستقرئ.";
 }
 function renderSaved(){
   const arr=loadSaved();
@@ -615,7 +735,7 @@ function renderTeam(){
   const paused=new Set((CONTROL&&CONTROL.paused_agents)||[]);
   teamDesks.innerHTML=DESKS.map(d=>`<button type="button" class="tcard" onclick="pickDesk('${d.id}')">
     <div class="av" style="color:${d.color}">${esc(d.letter)}</div>
-    <div class="b"><b>${esc(EN?d.en:d.name)}</b><div class="role">${esc(d.role)}</div></div>
+    <div class="b"><b>${esc(EN?d.en:d.name)}</b><div class="role">${esc(d.blurb)}</div></div>
     <span class="st st-desk">${EN?"Desk":"مكتب"}</span></button>`).join("");
   const A=(AGENTS&&AGENTS.agents)||[];
   if(!A.length){teamCrew.innerHTML=`<div class="empty">${EN?"Crew status loading…":"تُحمَّل حالات الفريق…"}</div>`;return}
@@ -625,20 +745,19 @@ function renderTeam(){
     const st=paused.has(x.id)?"idle":(x.status||"idle");
     return `<button type="button" class="tcard" onclick="openAgent(${idx})">
       <div class="av">${esc((x.icon||"•").slice(0,2))}</div>
-      <div class="b"><b>${esc(x.name)}</b><div class="role">${esc(x.role||"")}</div></div>
-      <span class="st st-${esc(st)}">${paused.has(x.id)?(EN?"paused":"متوقف"):esc(SLBL[x.status]||x.status)}</span>
+      <div class="b"><b>${esc(x.name)}</b><div class="role">${esc(teamBlurb(x.id))}</div></div>
+      <span class="st st-${esc(st)}">${paused.has(x.id)?(EN?"away":"صامت"):esc(SLBL[x.status]||x.status)}</span>
     </button>`;
   }).join("");
 }
 let AGENT_CACHE=[];
 function openAgent(idx){
   const x=AGENT_CACHE[idx]; if(!x) return;
+  const stMap=EN?{ok:"On duty",skip:"Scheduled",fail:"Unavailable",idle:"Quiet"}:{ok:"على رأس عمله",skip:"في وردية لاحقة",fail:"غير متاح",idle:"صامت"};
   openSheet(`<h3 class="amiri">${esc(x.icon||"")} ${esc(x.name)}</h3>
-    <p style="color:var(--mut);line-height:1.85;font-size:13.5px;margin:8px 0 12px">${esc(x.role||"")}</p>
-    <div class="row"><b>الحالة</b><span>${esc(x.status||"—")}</span></div>
-    <div class="row"><b>آخر ملاحظة</b><span>${esc(x.note||"—")}</span></div>
-    <div class="row"><b>الزمن</b><span>${x.ms?x.ms+"ms":"—"}</span></div>
-    ${x.id==="fahis"||x.id==="mudaqqiq"?`<button type="button" class="sheet-x" onclick="closeSheet();setView('verify')">افتح تحقّق</button>`:""}
+    <p style="color:var(--mut);line-height:1.85;font-size:13.5px;margin:8px 0 12px">${esc(teamBlurb(x.id))}</p>
+    <div class="row"><b>${EN?"Status":"الحالة"}</b><span>${esc(stMap[x.status]||x.status||"—")}</span></div>
+    ${x.id==="fahis"||x.id==="mustaqri"||x.id==="manba"?`<button type="button" class="sheet-x" onclick="closeSheet();setView('${x.id==="fahis"?"verify":"brief"}')">${x.id==="fahis"?(EN?"Open Verify":"افتح تحقّق"):(EN?"Open Brief":"إلى النشرة")}</button>`:""}
     <button type="button" class="sheet-x" onclick="closeSheet()">إغلاق</button>`);
 }
 
@@ -689,8 +808,11 @@ async function load(){
   try{
     const n=await grab("news"); DATA=n;
     upd.textContent=(EN?"Updated ":"")+new Date(n.updated).toLocaleTimeString(EN?"en-GB":"ar-KW",{hour:"2-digit",minute:"2-digit"});
-    renderDesks(); renderFeed();
+    renderDesks();
   }catch(e){feed.innerHTML=`<div class="empty">${EN?"Preparing today's feed…":"تُجهَّز أخبارُ اليوم…"}</div>`}
+  try{ OFFICIAL=await grab("official"); }catch(e){ OFFICIAL=null }
+  try{ ANALYST=await grab("analyst"); }catch(e){ ANALYST=null }
+  try{ renderFeed(); if(VIEW==="brief") renderBrief(); }catch(e){}
   try{
     const m=await grab("latest");
     const _kt=new Date(Date.now()+3*36e5).toISOString().slice(0,10);
@@ -701,9 +823,9 @@ async function load(){
     else if(m.audio){a.src=RAW+m.audio+"?t="+Date.now();plr.style.display="flex"}
   }catch(e){bdate.textContent="قيد التجهيز"}
   try{ AGENTS=await grab("agents"); if(VIEW==="team") renderTeam();
-    const a=AGENTS; if(a&&a.healthy!=null){
+    const a=AGENTS; if(a&&a.healthy!=null && !deskFilter){
       const mago=Math.max(0,Math.round((Date.now()-new Date(a.updated))/60000));
-      if(!deskFilter) deskStatus.textContent=EN?`Crew ${a.healthy}/${a.total} · ${mago}m`:`الفريق ${a.healthy}/${a.total} سليم · قبل ${mago} د`;
+      deskStatus.textContent=EN?`${a.healthy}/${a.total} on desk · ${mago}m`:`${a.healthy}/${a.total} على رأس العمل · قبل ${mago} د`;
     }
   }catch(e){}
 }
