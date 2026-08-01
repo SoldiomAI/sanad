@@ -495,7 +495,9 @@ def social_comments():
             snip=clean(it.get("head") or "")[:42]
             if snip and (h+j)%3==0:
                 ar=ar+" · «"+snip+("…" if len(clean(it.get("head") or ""))>42 else "")+"»"
-                en=en+" · “"+(it.get("he") or snip)[:42]+"”"
+                he_snip=clean(it.get("he") or "")[:42]
+                if he_snip:
+                    en=en+" · “"+he_snip+("…" if len(clean(it.get("he") or ""))>42 else "")+"”"
             m=meta.get(aid,{"name":aid,"icon":"•"})
             comments.append({
                 "by":aid,"name":m["name"],"icon":m.get("icon","•"),

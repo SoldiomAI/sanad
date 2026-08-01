@@ -671,8 +671,6 @@ function commentsForKey(key, extraSeed){
 }
 function commentsForItem(it){
   if(!it) return [];
-  const key=it.pid || (it.link? null : null);
-  /* prefer pipeline pid match via link/head */
   const threads=(COMMENTS&&COMMENTS.threads)||[];
   if(threads.length){
     const hit=threads.find(t=>(it.link&&t.link&&t.link===it.link) || (it.head&&t.head===it.head) || (it.title&&t.head===it.title) || (it.s&&t.head===it.s));
