@@ -553,21 +553,39 @@ function lngFlip(){try{localStorage.setItem("lng",LNG==="en"?"ar":"en");location
 function thmFlip(){try{const d=document.documentElement.getAttribute("data-theme")==="dark";
 if(d){document.documentElement.removeAttribute("data-theme");localStorage.setItem("thm","light")}
 else{document.documentElement.setAttribute("data-theme","dark");localStorage.setItem("thm","dark")}}catch(e){}}
-addEventListener("DOMContentLoaded",()=>{const bb=document.getElementById("lngBtn"); if(bb) bb.textContent=(LNG==="en")?"ع":"EN"});
-
 const EN=(localStorage.getItem("lng")||"ar")==="en";
+addEventListener("DOMContentLoaded",()=>{
+  const bb=document.getElementById("lngBtn"); if(bb) bb.textContent=EN?"ع":"EN";
+  applyChromeI18n();
+});
 const RAW="https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/";
 const SAVE_KEY="sanad_saved_v1";
 const SEEN_KEY="sanad_desk_seen_v1";
 
 const DESKS=[
-  {id:"noura",name:"نورة",en:"Noura",region:"الخليج",regionEn:"Gulf",role:"مكتب الخليج",blurb:"تغطي أخبار الخليج لحظة بلحظة.",cat:"الخليج",letter:"خ",color:"#0d5c3f"},
-  {id:"samir",name:"سامر",en:"Samir",region:"فلسطين",regionEn:"Palestine",role:"مكتب فلسطين",blurb:"يتابع فلسطين وما حولها.",cat:"فلسطين",letter:"ف",color:"#9E2B37"},
-  {id:"laith",name:"ليث",en:"Laith",region:"المشرق",regionEn:"Mashreq",role:"مكتب المشرق",blurb:"يرصد المشرق وما يُترجم عنه.",cat:"إيران",letter:"م",color:"#C9A227"},
-  {id:"huda",name:"هدى",en:"Huda",region:"العالم",regionEn:"World",role:"مكتب الأمّة",blurb:"تجمع أهم ما يهمّ القارئ العربي من العالم.",cat:"عالم",letter:"ع",color:"#3A66A8"},
-  {id:"hakim",name:"الحاكم",en:"Al-Hakim",region:"مُسنَد",regionEn:"Graded",role:"حاكم الإسناد",blurb:"يمنح كلَّ خبرٍ حكمَ إسناده الظاهر.",cat:"__grade__",letter:"س",color:"#8A6F1B"},
+  {id:"noura",name:"نورة",en:"Noura",region:"الخليج",regionEn:"Gulf",role:"مكتب الخليج",blurb:"تغطي أخبار الخليج لحظة بلحظة.",blurbEn:"Covers Gulf news as it breaks.",cat:"الخليج",letter:"خ",color:"#0d5c3f"},
+  {id:"samir",name:"سامر",en:"Samir",region:"فلسطين",regionEn:"Palestine",role:"مكتب فلسطين",blurb:"يتابع فلسطين وما حولها.",blurbEn:"Follows Palestine and the surrounding file.",cat:"فلسطين",letter:"ف",color:"#9E2B37"},
+  {id:"laith",name:"ليث",en:"Laith",region:"المشرق",regionEn:"Mashreq",role:"مكتب المشرق",blurb:"يرصد المشرق وما يُترجم عنه.",blurbEn:"Tracks the Mashreq and translations from it.",cat:"إيران",letter:"م",color:"#C9A227"},
+  {id:"huda",name:"هدى",en:"Huda",region:"العالم",regionEn:"World",role:"مكتب الأمّة",blurb:"تجمع أهم ما يهمّ القارئ العربي من العالم.",blurbEn:"Surfaces world stories that matter to readers.",cat:"عالم",letter:"ع",color:"#3A66A8"},
+  {id:"hakim",name:"الحاكم",en:"Al-Hakim",region:"مُسنَد",regionEn:"Graded",role:"حاكم الإسناد",blurb:"يمنح كلَّ خبرٍ حكمَ إسناده الظاهر.",blurbEn:"Issues the visible attribution grade on each story.",cat:"__grade__",letter:"س",color:"#8A6F1B"},
 ];
 function regionOf(d){return EN?(d.regionEn||d.en):(d.region||d.name)}
+function deskBlurb(d){return EN?(d.blurbEn||d.blurb):(d.blurb||"")}
+const AGENT_NAME={
+  hurr:["الوكيلُ الحرّ","Al-Hurr"], rasid:["الرَّاصِد","Al-Rasid"], mutabiq:["المُطابِق","Al-Mutabiq"],
+  manba:["المَنبع","Al-Manba"], munabbih:["المُنبِّه","Al-Munabbih"], multaqit:["المُلتَقِط","Al-Multaqit"],
+  fahis:["الفاحِص","Al-Fahis"], mukharrij:["المُخرِّج","Al-Mukharrij"], munaqqih:["المُنقِّح","Al-Munaqqih"],
+  miqyas:["المِقياس","Al-Miqyas"], shahid:["الشاهد","Al-Shahid"], mustaqsi:["المُستَقصي","Al-Mustaqsi"],
+  turjuman:["التَّرْجُمَان","Al-Turjuman"], mudaqqiq:["المُدقِّق","Al-Mudaqqiq"], musannif:["المُصنِّف","Al-Musannif"],
+  mustaqri:["المُستقرِئ","Al-Mustaqri"], murtajil:["المُحلِّل","Al-Murtajil"], mudawwin:["المُدوِّن","Al-Mudawwin"],
+  rawi:["الرَّاوِي","Al-Rawi"],
+};
+function agentName(id, fallback){
+  const row=AGENT_NAME[id];
+  if(row) return EN?row[1]:row[0];
+  if(EN && hasAr(fallback)) return id;
+  return fallback||id;
+}
 /* نبذٌ قصيرة للعامة — بلا أدوات ولا خطوات قابلة للاستنساخ */
 const TEAM_BLURB={
   hurr:{ar:"يجمع موادَّ من مصادر مفتوحة.",en:"Collects open-source items."},
@@ -597,6 +615,55 @@ function teamBlurb(id, fallback){
 }
 function hasAr(s){return /[\u0600-\u06FF]/.test(String(s||""))}
 function enText(s, fallback){ if(!EN) return s||""; if(!s) return fallback||""; return hasAr(s)?(fallback||""):s }
+/** Rewrite static Arabic chrome when EN is on — no Arabic leftovers in shell UI */
+function applyChromeI18n(){
+  if(!EN) return;
+  const nav={live:"Live",brief:"Brief",verify:"Verify",team:"Agents",saved:"Saved"};
+  document.querySelectorAll("#deskNav [data-view], #bnav [data-view]").forEach(b=>{
+    const lab=nav[b.dataset.view]; if(!lab) return;
+    const ic=b.querySelector("i");
+    b.textContent="";
+    if(ic) b.appendChild(ic);
+    b.appendChild(document.createTextNode(lab));
+  });
+  const q=document.getElementById("qIn"); if(q) q.placeholder="Search news & archives…";
+  const sx=document.querySelector("#searchBar .x"); if(sx) sx.setAttribute("aria-label","Close");
+  const sBtn=document.getElementById("searchBtn"); if(sBtn){ sBtn.title="Search"; sBtn.setAttribute("aria-label","Search"); }
+  const th=document.querySelector('.icon-btn[onclick="thmFlip()"]'); if(th) th.title="Theme";
+  const dn=document.getElementById("deskNav"); if(dn) dn.setAttribute("aria-label","Navigation");
+  const ds=document.getElementById("desks"); if(ds) ds.setAttribute("aria-label","Regions");
+  const bn=document.getElementById("bnav"); if(bn) bn.setAttribute("aria-label","Menu");
+  const fc=document.querySelector("#filterChip button"); if(fc) fc.textContent="✕ Show all";
+  const rail=document.querySelector("#offBlock .rail-h span"); if(rail) rail.textContent="Official wire";
+  const railMore=document.querySelector("#offBlock .rail-h button"); if(railMore) railMore.textContent="More";
+  const sr=document.getElementById("searchRes"); if(sr&&/اكتب|ابحث/.test(sr.textContent||"")) sr.innerHTML=`<div class="empty">Type a keyword to search today’s news and the archive.</div>`;
+  const setH2=(view,title,lead)=>{
+    const root=document.getElementById("view-"+view); if(!root) return;
+    const h=root.querySelector("h2"); if(h) h.textContent=title;
+    const p=root.querySelector("p.lead:not([id])"); if(p&&lead) p.textContent=lead;
+  };
+  setH2("brief","Sanad bulletin");
+  setH2("verify","Verify","Paste a news, image, or video link — clear verdict, no tools exposed.");
+  setH2("team","Team");
+  setH2("saved","Saved","Stories you save stay on this device only.");
+  const bl=document.getElementById("blabel"); if(bl) bl.textContent="Anchor bulletin";
+  const plTop=document.querySelector(".pl-top b"); if(plTop) plTop.textContent="Audio bulletin";
+  const plBtn=document.getElementById("plBtn"); if(plBtn) plBtn.setAttribute("aria-label","Play");
+  const scriptBtn=document.querySelector("#view-brief .card > button.sheet-x"); if(scriptBtn) scriptBtn.textContent="📜 Bulletin script";
+  const vGo=document.getElementById("vGo"); if(vGo) vGo.textContent="Check";
+  const secs=document.querySelectorAll("#view-team .team-sec");
+  if(secs[0]) secs[0].textContent="Story desks";
+  if(secs[1]) secs[1].textContent="Newsroom crew";
+  document.querySelectorAll("#view-brief details.more").forEach((d,i)=>{
+    const s=d.querySelector("summary"), b=d.querySelector(".body");
+    if(i===0){ if(s) s.textContent="What does the attribution grade mean?"; if(b) b.textContent="Each story carries a visible grade (Verified / Credible / Weak chain) based on source strength. Internal method stays in the newsroom."; }
+    else if(i===1){ if(s) s.textContent="Subscribe to the bulletin"; if(b) b.innerHTML=`<a href="https://t.me/sanad_news" target="_blank" rel="noopener">t.me/sanad_news</a> — free, no ads.`; }
+    else if(i===2){ if(s) s.textContent="For institutions"; if(b) b.innerHTML=`<a href="/enterprise">Sanad Enterprise</a>.`; }
+  });
+  const foot=document.querySelector(".foot-mini");
+  if(foot) foot.innerHTML=`Sanad · SOLDIOM · Kuwait<br><a href="/admin" style="color:var(--dim)">Ops console</a>`;
+  document.title="Sanad | Graded news intelligence";
+}
 
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
 function safeUrl(u){u=String(u==null?"":u).trim();return /^https?:\/\//i.test(u)?u.replace(/"/g,"%22"):"#"}
@@ -607,7 +674,17 @@ function mediaUrl(u){
   /* relative daily asset from sanad-data (e.g. analyst.jpg) */
   return RAW+u.replace(/^\.\//,"").replace(/^\//,"");
 }
-const hd=i=>EN?(enText(i.he,i.head)||i.head):i.head;
+function hasEnHead(i){ return !!(i && enText(i.he,"")) }
+function isAuthItem(i){ return !!(i && i.isnad && (i.grade==="صحيح"||i.grade==="حسن")) }
+function gradeRank(g){ return ({صحيح:3,حسن:2,"ضعيف الإسناد":1}[g]||0) }
+function hd(i){
+  if(!i) return "";
+  if(!EN) return i.head||"";
+  const en=enText(i.he,"");
+  if(en) return en;
+  /* never leak Arabic headlines into EN UI */
+  return (i.src?`${i.src} · `:"")+"Verified story";
+}
 
 function badge(g){
   if(EN) return g==="صحيح"?'<span class="badge b-sahih">Verified ✓</span>'
@@ -688,8 +765,8 @@ function postPid(it){
 }
 function agentMeta(id){
   const a=((AGENTS&&AGENTS.agents)||[]).find(x=>x.id===id);
-  if(a) return {id,name:a.name,icon:(a.icon||"•").slice(0,2)};
-  return {id,name:id,icon:"•"};
+  if(a) return {id,name:agentName(id,a.name),icon:(a.icon||"•").slice(0,2)};
+  return {id,name:agentName(id,id),icon:"•"};
 }
 function commentsForKey(key, extraSeed, ownerId){
   const day=kwDay();
@@ -851,11 +928,11 @@ function profilePerson(kind,id){
   if(kind==="desk"){
     const d=DESKS.find(x=>x.id===id); if(!d) return null;
     return {kind:"desk",id,name:regionOf(d),handle:"@"+(EN?(d.en||d.id).toLowerCase().replace(/\s+/g,"_"):d.id),
-      icon:d.letter,color:d.color,bio:d.blurb,raw:d};
+      icon:d.letter,color:d.color,bio:deskBlurb(d),raw:d};
   }
   const a=((AGENTS&&AGENTS.agents)||[]).find(x=>x.id===id) || {id,name:id,icon:"•",status:"idle"};
-  return {kind:"agent",id,name:a.name,handle:"@"+id,icon:(a.icon||"•").slice(0,2),color:"",bio:teamBlurb(id),
-    note:a.note||"",status:a.status||"idle",at:a.at,ran:a.ran,raw:a};
+  return {kind:"agent",id,name:agentName(id,a.name),handle:"@"+id,icon:(a.icon||"•").slice(0,2),color:"",bio:teamBlurb(id),
+    note:enText(a.note,"")||(EN?"":(a.note||"")),status:a.status||"idle",at:a.at,ran:a.ran,raw:a};
 }
 function newsAsPosts(items, who){
   return items.map(i=>({
@@ -1306,6 +1383,27 @@ function filtered(){
   if(d.id==="laith") return list.filter(i=>i.cat==="إيران"||i.fa);
   return list.filter(i=>i.cat===d.cat);
 }
+/** First-page / Live: top authenticated stories, language-aware */
+function liveList(limit){
+  const n=limit||40;
+  let list=filtered();
+  let auth=list.filter(isAuthItem);
+  if(!auth.length) auth=list.filter(i=>i.grade&&i.isnad);
+  if(!auth.length) auth=list;
+  if(EN){
+    const enReady=auth.filter(hasEnHead);
+    if(enReady.length>=6) auth=enReady;
+  }
+  return auth.slice().sort((a,b)=>{
+    const dg=gradeRank(b.grade)-gradeRank(a.grade);
+    if(dg) return dg;
+    if(EN){
+      const ae=hasEnHead(a)?1:0, be=hasEnHead(b)?1:0;
+      if(be!==ae) return be-ae;
+    }
+    return byTime(a,b);
+  }).slice(0,n);
+}
 
 function renderDesks(){
   const enabled=(CONTROL&&CONTROL.desks_enabled)||DESKS.map(d=>d.id);
@@ -1472,14 +1570,7 @@ function cpy(t, viral){
 
 /* —— بطاقة اليوم / Daily share card —— */
 function pickDailyStory(){
-  const list=allItems();
-  if(!list.length) return null;
-  const rank=g=>({صحيح:3,حسن:2,"ضعيف الإسناد":1}[g]||0);
-  return list.slice().sort((a,b)=>{
-    const dg=rank(b.grade)-rank(a.grade);
-    if(dg) return dg;
-    return (b.score||0)-(a.score||0);
-  })[0];
+  return liveList(1)[0]||null;
 }
 function renderViralStrip(){
   const el=document.getElementById("viralStrip"); if(!el) return;
@@ -1592,11 +1683,11 @@ function postHTML(i,n,bucket){
     </button>
     ${media}
     <div class="post-actions">
-      <button type="button" data-act="share" aria-label="مشاركة">↗</button>
-      <button type="button" data-act="source" aria-label="المصدر">⧉</button>
-      <button type="button" data-act="isnad" aria-label="الإسناد">☰</button>
-      <button type="button" data-act="save" class="${saved?"saved":""}" aria-label="حفظ">${saved?"♥":"♡"}</button>
-      <button type="button" data-act="comments" aria-label="تعليقات">💬</button>
+      <button type="button" data-act="share" aria-label="${EN?"Share":"مشاركة"}">↗</button>
+      <button type="button" data-act="source" aria-label="${EN?"Source":"المصدر"}">⧉</button>
+      <button type="button" data-act="isnad" aria-label="${EN?"Attribution":"الإسناد"}">☰</button>
+      <button type="button" data-act="save" class="${saved?"saved":""}" aria-label="${EN?"Save":"حفظ"}">${saved?"♥":"♡"}</button>
+      <button type="button" data-act="comments" aria-label="${EN?"Comments":"تعليقات"}">💬</button>
     </div>
     <div class="post-cap"><h2>${esc(hd(i))}</h2>
       <p class="ig-cap-line"><span class="by">${esc(regionOf(d))}</span> ${EN?`Automated spot via ${i.src||"source"}.`:`رصد آلي من ${i.src||"مصدر"}.`}</p>
@@ -1677,15 +1768,18 @@ function renderBriefOfficial(){
 }
 
 function renderFeed(){
-  const list=filtered().slice(0,40);
+  const list=liveList(40);
   POSTS=list;
   renderOfficialRail();
   renderInsight();
   if(!list.length){
-    feed.innerHTML=`<div class="empty">${EN?"No stories in this desk yet.":"لا أخبار في هذا المكتب حاليًا."}<br><button class="sheet-x" style="margin-top:14px" onclick="clearDesk()">عرض الكل</button></div>`;
+    feed.innerHTML=`<div class="empty">${EN?"No authenticated stories in this desk yet.":"لا أخبار مُسنَدة في هذا المكتب حاليًا."}<br><button class="sheet-x" style="margin-top:14px" onclick="clearDesk()">${EN?"Show all":"عرض الكل"}</button></div>`;
     return;
   }
   let html="";
+  if(!deskFilter){
+    html+=`<div class="rail-h" style="border:0;padding:8px 14px 0"><span>${EN?"Live · authenticated sources":"حيّ · مصادر موثوقة"}</span><span style="font-size:11px;color:var(--dim)">${EN?"Verified & Credible only":"صحيح وحسن فقط"}</span></div>`;
+  }
   list.forEach((i,n)=>{
     html+=postHTML(i,n,"feed");
     if(n===1 && !deskFilter) html+=analystCardHTML(true);
@@ -1696,7 +1790,7 @@ function renderFeed(){
 }
 
 function renderBrief(){
-  const lead=allItems()[0];
+  const lead=liveList(1)[0]||allItems().filter(isAuthItem)[0]||allItems()[0];
   renderInsight();
   const ba=document.getElementById("briefAnalyst");
   if(ba) ba.innerHTML=analystCardHTML(false);
@@ -1707,7 +1801,7 @@ function renderBrief(){
 }
 function renderSaved(){
   const arr=loadSaved();
-  if(!arr.length){savedL.innerHTML=`<div class="empty">${EN?"Nothing saved yet.":"لا محفوظات بعد."}<br><button class="sheet-x" style="margin-top:12px" onclick="setView('live')">إلى الحيّ</button></div>`;return}
+  if(!arr.length){savedL.innerHTML=`<div class="empty">${EN?"Nothing saved yet.":"لا محفوظات بعد."}<br><button class="sheet-x" style="margin-top:12px" onclick="setView('live')">${EN?"Go to Live":"إلى الحيّ"}</button></div>`;return}
   savedL.innerHTML=arr.map((i,n)=>postHTML(i,n,"saved")).join("");
   bindPosts(savedL, arr, "saved");
 }
@@ -1715,7 +1809,7 @@ function renderTeam(){
   const paused=new Set((CONTROL&&CONTROL.paused_agents)||[]);
   teamDesks.innerHTML=DESKS.map(d=>`<button type="button" class="tcard" onclick="openProfile('desk','${d.id}')">
     <div class="av" style="color:${d.color}">${esc(d.letter)}</div>
-    <div class="b"><b>${esc(regionOf(d))}</b><div class="role">${esc(EN?d.en+" · ":"")}${esc(d.blurb)}</div></div>
+    <div class="b"><b>${esc(regionOf(d))}</b><div class="role">${esc(EN?d.en+" · ":"")}${esc(deskBlurb(d))}</div></div>
     <span class="st st-desk">${esc(EN?d.en:d.name)}</span></button>`).join("");
   const A=(AGENTS&&AGENTS.agents)||[];
   if(!A.length){teamCrew.innerHTML=`<div class="empty">${EN?"Crew status loading…":"تُحمَّل حالات الفريق…"}</div>`;return}
@@ -1726,7 +1820,7 @@ function renderTeam(){
     const did=enText(x.note,"")||"";
     return `<button type="button" class="tcard" onclick="openProfile('agent','${x.id}')">
       <div class="av">${esc((x.icon||"•").slice(0,2))}</div>
-      <div class="b"><b>${esc(x.name)}</b><div class="role">${esc(teamBlurb(x.id))}${did?`<br><span style="color:var(--dim)">${esc(did)}</span>`:""}</div></div>
+      <div class="b"><b>${esc(agentName(x.id,x.name))}</b><div class="role">${esc(teamBlurb(x.id))}${did?`<br><span style="color:var(--dim)">${esc(did)}</span>`:""}</div></div>
       <span class="st st-${esc(st)}">${paused.has(x.id)?(EN?"away":"صامت"):esc(SLBL[x.status]||x.status)}</span>
     </button>`;
   }).join("");
@@ -1742,19 +1836,21 @@ async function runVerify(){
   const url=(vUrl.value||"").trim();
   if(!/^https?:\/\//i.test(url)){toast(EN?"Paste a valid link":"الصق رابطًا صالحًا");return}
   vGo.disabled=true; vGo.textContent="…";
-  vOut.innerHTML=`<div class="v-steps"><div class="v-step"><b>الفاحِص</b><p>${EN?"Opening the link…":"يفتح الرابط الآن…"}</p></div></div>`;
+  vOut.innerHTML=`<div class="v-steps"><div class="v-step"><b>${EN?"Al-Fahis":"الفاحِص"}</b><p>${EN?"Opening the link…":"يفتح الرابط الآن…"}</p></div></div>`;
   try{
     const r=await fetch("/api/verify",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({url})});
     const j=await r.json();
-    if(!r.ok){vOut.innerHTML=`<div class="v-step"><b>تعذّر</b><p>${esc(j.error||j.message||r.status)}</p></div>`;return}
+    if(!r.ok){vOut.innerHTML=`<div class="v-step"><b>${EN?"Couldn’t verify":"تعذّر"}</b><p>${esc(j.error||j.message||r.status)}</p></div>`;return}
     const n=j.news||{}, m=j.media||{}, s=j.source||{};
+    const why=EN?(enText(n.why, j.claim)||enText(j.claim,"")||n.why||j.claim||""):(n.why||j.claim||"");
+    const note=EN?(enText(m.note,"")||m.note||""):(m.note||"");
     vOut.innerHTML=`<div class="v-steps">
-      <div class="v-step"><b>المصدر · ${esc(j.agent||"الفاحِص")}</b><p>${esc(s.name||"—")} · ${esc(s.rank||"")} · ${s.live?(EN?"live":"حيّ"):(EN?"unreachable":"غير متاح")}</p></div>
-      <div class="v-step"><b>المتن</b><p>${esc(n.verdict||"قيد التحقق")} — ${esc(n.why||j.claim||"")}</p></div>
-      <div class="v-step"><b>الوسائط</b><p>${esc(m.kind||"none")} · خطر التزييف: ${esc(m.deepfake_risk||"غير مقيّم")}<br>${esc(m.note||"")}</p></div>
-      <div class="v-step"><b>الحاكم · الحكم</b><p>${badge(j.grade||"—")} <span class="badge b-src">${esc(j.cost_tier||j.tier||"")}</span></p></div>
+      <div class="v-step"><b>${EN?"Source":"المصدر"} · ${esc(agentName("fahis", j.agent||"الفاحِص"))}</b><p>${esc(s.name||"—")} · ${esc(s.rank||"")} · ${s.live?(EN?"live":"حيّ"):(EN?"unreachable":"غير متاح")}</p></div>
+      <div class="v-step"><b>${EN?"Claim":"المتن"}</b><p>${esc(n.verdict||(EN?"Under review":"قيد التحقق"))} — ${esc(why)}</p></div>
+      <div class="v-step"><b>${EN?"Media":"الوسائط"}</b><p>${esc(m.kind||"none")} · ${EN?"Deepfake risk":"خطر التزييف"}: ${esc(m.deepfake_risk||(EN?"unrated":"غير مقيّم"))}<br>${esc(note)}</p></div>
+      <div class="v-step"><b>${EN?"Verdict":"الحاكم · الحكم"}</b><p>${badge(j.grade||"—")} <span class="badge b-src">${esc(j.cost_tier||j.tier||"")}</span></p></div>
     </div>`;
-  }catch(e){vOut.innerHTML=`<div class="v-step"><b>خطأ</b><p>${esc(String(e).slice(0,120))}</p></div>`}
+  }catch(e){vOut.innerHTML=`<div class="v-step"><b>${EN?"Error":"خطأ"}</b><p>${esc(String(e).slice(0,120))}</p></div>`}
   finally{vGo.disabled=false; vGo.textContent=EN?"Check":"افحص"}
 }
 
@@ -1847,7 +1943,7 @@ async function runSearch(q){
       const day=sn.id.slice(0,10);
       Object.entries(s.cats||{}).forEach(([cat,list])=>(list||[]).forEach(i=>{
         if(matchQ(q, i.head, i.he, i.src, cat)) arch.push({
-          kind:"archive", title:EN?(i.he||i.head):i.head, src:i.src, grade:i.grade,
+          kind:"archive", title:hd(i), src:i.src, grade:i.grade,
           link:i.link, where:(EN?"Archive":"أرشيف")+" · "+day, when:day
         });
       }));
@@ -1911,25 +2007,31 @@ async function load(){
     const m=await grab("latest");
     const _kt=new Date(Date.now()+3*36e5).toISOString().slice(0,10);
     const _ky=new Date(Date.now()+3*36e5-864e5).toISOString().slice(0,10);
-    blabel.textContent = m.date===_kt?"نشرةُ اليوم":m.date===_ky?"نشرةُ أمس":"آخرُ نشرة";
-    bdate.textContent=m.date; s.textContent=m.script||"";
+    blabel.textContent = m.date===_kt?(EN?"Today’s bulletin":"نشرةُ اليوم"):m.date===_ky?(EN?"Yesterday’s bulletin":"نشرةُ أمس"):(EN?"Latest bulletin":"آخرُ نشرة");
+    bdate.textContent=m.date;
+    const script=EN?(enText(m.script_en,"")||enText(m.script,"")||(EN?"Arabic audio bulletin — open Live for English headlines.":"")):(m.script||"");
+    s.textContent=script;
     if(m.video_date===m.date && m.video){v.src=RAW+m.video+"?t="+Date.now();v.style.display="block";plr.style.display="none"}
     else if(m.audio){a.src=RAW+m.audio+"?t="+Date.now();plr.style.display="flex"}
-  }catch(e){bdate.textContent="قيد التجهيز"}
+  }catch(e){bdate.textContent=EN?"Preparing…":"قيد التجهيز"}
   try{ AGENTS=await grab("agents"); if(VIEW==="team") renderTeam();
     const a=AGENTS; if(a&&a.healthy!=null && !deskFilter){
       const mago=Math.max(0,Math.round((Date.now()-new Date(a.updated))/60000));
       deskStatus.textContent=EN?`${a.healthy}/${a.total} on desk · ${mago}m`:`${a.healthy}/${a.total} على رأس العمل · قبل ${mago} د`;
     }
   }catch(e){}
+  try{ applyChromeI18n(); }catch(e){}
   /* deep links after data is ready */
   try{ applyRoute(); syncRoute(); }catch(e){}
 }
 
 (function player(){
   const A=()=>document.getElementById("a");
-  const two=n=>String(Math.floor(n)).padStart(2,"0").replace(/[0-9]/g,d=>"٠١٢٣٤٥٦٧٨٩"[d]);
-  const fmt=s=>isNaN(s)?"٠٠:٠٠":two(s/60)+":"+two(s%60);
+  const two=n=>{
+    const s=String(Math.floor(n)).padStart(2,"0");
+    return EN?s:s.replace(/[0-9]/g,d=>"٠١٢٣٤٥٦٧٨٩"[d]);
+  };
+  const fmt=s=>isNaN(s)?(EN?"00:00":"٠٠:٠٠"):two(s/60)+":"+two(s%60);
   document.addEventListener("click",e=>{
     if(e.target.closest("#plBtn")){const a=A(); if(!a||!a.src) return; a.paused?a.play():a.pause()}
     const bar=e.target.closest("#plBar");
@@ -1956,6 +2058,7 @@ document.addEventListener("keydown",e=>{
 });
 document.getElementById("qIn").addEventListener("keydown",e=>{if(e.key==="Enter"){clearTimeout(searchTimer);runSearch(qIn.value.trim())}});
 window.addEventListener("hashchange",()=>{ try{ applyRoute() }catch(e){} });
+try{ applyChromeI18n(); }catch(e){}
 load(); setInterval(load,10*60*1000);
 setupInstallNudge();
 if("serviceWorker" in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("/sw.js").catch(()=>{})});}
