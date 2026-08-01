@@ -312,6 +312,61 @@ details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--m
 .s-hit .m{font-size:11px;color:var(--dim);margin-top:4px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .s-sec{padding:10px 14px 4px;font-family:'Noto Kufi Arabic',sans-serif;font-size:11.5px;font-weight:700;color:var(--gold-l)}
 .desk .nm{font-size:10px}
+.post-cap .ig-cap-line{font-size:12.5px;line-height:1.75;color:var(--mut);margin-top:6px;font-family:'IBM Plex Sans Arabic',sans-serif}
+.post-cap .ig-cap-line .by{font-weight:700;color:var(--vellum);font-family:'Noto Kufi Arabic',sans-serif;margin-inline-end:4px}
+.post-hd[data-act=profile]{display:flex;align-items:center;gap:10px;padding:12px 14px 8px}
+/* Instagram-style agent profile */
+.prof-top{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--border);background:var(--card);position:sticky;top:0;z-index:5}
+.prof-top .back{border:0;background:transparent;color:var(--vellum);font-size:22px;cursor:pointer;min-width:40px;min-height:40px;line-height:1}
+.prof-top .ttl{flex:1;min-width:0}
+.prof-top .ttl b{display:block;font-size:15px;font-family:'Noto Kufi Arabic',sans-serif}
+.prof-top .ttl span{font-size:11px;color:var(--dim)}
+.prof-hd{padding:16px 14px 12px;background:var(--card)}
+.prof-row{display:flex;gap:16px;align-items:center}
+.prof-av{width:86px;height:86px;border-radius:50%;display:grid;place-items:center;font-family:'Amiri',serif;
+  font-size:34px;font-weight:700;background:linear-gradient(145deg,var(--card2),rgba(201,162,39,.18));
+  border:2px solid rgba(201,162,39,.45);flex:0 0 auto;color:var(--gold-l)}
+.prof-stats{flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;text-align:center}
+.prof-stats b{display:block;font-size:17px;font-family:'Noto Kufi Arabic',sans-serif;color:var(--vellum)}
+.prof-stats span{font-size:10.5px;color:var(--dim)}
+.prof-name{margin-top:12px;font-size:14px;font-weight:700;font-family:'Noto Kufi Arabic',sans-serif}
+.prof-handle{font-size:12px;color:var(--gold-l);margin-top:2px}
+.prof-bio{font-size:13px;line-height:1.8;color:var(--mut);margin-top:8px}
+.prof-note{font-size:12px;line-height:1.7;color:var(--dim);margin-top:6px}
+.prof-actions{display:flex;gap:8px;margin-top:12px}
+.prof-actions button{flex:1;border:1px solid var(--border);background:var(--card2);border-radius:10px;padding:10px;
+  font-weight:700;font-size:12px;cursor:pointer;color:var(--txt);font-family:'Noto Kufi Arabic',sans-serif}
+.prof-actions button.primary{background:var(--gold);color:#1A1206;border-color:transparent}
+.prof-tabs{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--card)}
+.prof-tabs button{border:0;background:transparent;padding:12px;cursor:pointer;color:var(--dim);font-size:18px;border-bottom:2px solid transparent}
+.prof-tabs button.on{color:var(--vellum);border-bottom-color:var(--gold)}
+.prof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border)}
+.prof-cell{aspect-ratio:1;background:var(--card2);border:0;padding:0;cursor:pointer;position:relative;overflow:hidden;color:inherit}
+.prof-cell:active{opacity:.9}
+.prof-cell img{width:100%;height:100%;object-fit:cover;display:block}
+.prof-cell .ph{width:100%;height:100%;display:grid;place-items:center;background:linear-gradient(160deg,var(--card2),var(--ink-2));
+  font-family:'Amiri',serif;font-size:22px;color:var(--gold);font-weight:700}
+.prof-cell .tag{position:absolute;inset-inline-start:6px;bottom:6px;font-size:9px;font-weight:700;padding:2px 6px;
+  border-radius:4px;background:rgba(8,11,18,.55);color:#fff}
+.prof-feed{padding-bottom:20px}
+.ig-post{border-bottom:1px solid var(--border);background:var(--card);animation:rise .4s ease both}
+.ig-post .ig-hd{display:flex;align-items:center;gap:10px;padding:12px 14px 8px}
+.ig-post .ig-av{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-family:'Amiri',serif;
+  font-weight:700;background:var(--card2);border:1px solid var(--border);flex:0 0 auto;color:var(--gold-l)}
+.ig-post .ig-who b{display:block;font-size:13px}
+.ig-post .ig-who span{font-size:11px;color:var(--dim)}
+.ig-post .ig-media{aspect-ratio:1;background:linear-gradient(160deg,var(--card2),var(--ink-2));overflow:hidden;position:relative}
+.ig-post .ig-media img{width:100%;height:100%;object-fit:cover;display:block}
+.ig-post .ig-media .seal{width:100%;height:100%;display:grid;place-items:center;font-family:'Amiri',serif;font-size:40px;color:var(--gold);opacity:.85}
+.ig-post .ig-media .pct-badge{position:absolute;top:12px;inset-inline-end:12px;background:rgba(8,11,18,.65);color:var(--gold-l);
+  font-weight:700;font-size:13px;padding:6px 10px;border-radius:20px}
+.ig-post .ig-acts{display:flex;gap:4px;padding:6px 8px}
+.ig-post .ig-acts button{flex:1;border:0;background:transparent;color:var(--vellum);min-height:40px;cursor:pointer;font-size:18px;border-radius:10px}
+.ig-post .ig-cap{padding:0 14px 14px;font-size:13.5px;line-height:1.85;color:var(--vellum)}
+.ig-post .ig-cap .by{font-weight:700;font-family:'Noto Kufi Arabic',sans-serif;margin-inline-end:6px}
+.ig-post .ig-cap .more{color:var(--dim);cursor:pointer;border:0;background:transparent;font:inherit;padding:0}
+.ig-post .ig-meta{padding:0 14px 12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+body.prof-mode .desks,body.prof-mode .desk-status,body.prof-mode .ennote,body.prof-mode .search-bar{display:none!important}
 </style></head>
 
 <body>
@@ -429,6 +484,10 @@ details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--m
     </div>
   </section>
 
+  <section class="view" id="view-profile" data-view="profile">
+    <div id="profRoot"></div>
+  </section>
+
   <div class="foot-mini">سَنَد · SOLDIOM · الكويت<br><a href="/admin" style="color:var(--dim)">لوحة التشغيل</a></div>
 </main>
 
@@ -543,6 +602,7 @@ function closeSheet(){sheet.classList.remove("on"); document.body.style.overflow
 
 let DATA=null, AGENTS=null, CONTROL=null, OFFICIAL=null, ANALYST=null, FORECAST=null, EVOLUTION=null, TENSION=null, deskFilter=null, VIEW="live";
 let AGENT_POSTS=[];
+let PROFILE=null; /* {kind:'agent'|'desk', id, tab:'grid'|'feed'} */
 
 function trReview(r){
   if(!EN) return r||"";
@@ -653,73 +713,240 @@ function openEvolutionSheet(){
   html+=`<button type="button" class="sheet-x" onclick="closeSheet()">${EN?"Close":"إغلاق"}</button>`;
   openSheet(html);
 }
-function postsForAgent(id){
-  const items=allItems();
-  if(id==="turjuman") return items.filter(i=>i.fa).slice(0,10);
-  if(id==="mudaqqiq"||id==="hakim") return items.filter(i=>i.grade&&i.isnad).slice(0,10);
-  if(id==="manba") return [];
-  if(id==="mustaqri"||id==="murtajil"||id==="musannif"||id==="miqyas"||id==="rawi"||id==="mudawwin"||id==="fahis") return [];
-  return items.slice(0,10);
+function profilePerson(kind,id){
+  if(kind==="desk"){
+    const d=DESKS.find(x=>x.id===id); if(!d) return null;
+    return {kind:"desk",id,name:regionOf(d),handle:"@"+(EN?(d.en||d.id).toLowerCase().replace(/\s+/g,"_"):d.id),
+      icon:d.letter,color:d.color,bio:d.blurb,raw:d};
+  }
+  const a=((AGENTS&&AGENTS.agents)||[]).find(x=>x.id===id) || {id,name:id,icon:"•",status:"idle"};
+  return {kind:"agent",id,name:a.name,handle:"@"+id,icon:(a.icon||"•").slice(0,2),color:"",bio:teamBlurb(id),
+    note:a.note||"",status:a.status||"idle",at:a.at,ran:a.ran,raw:a};
 }
-function officialPosts(){
-  return ((OFFICIAL&&OFFICIAL.src)||[]).slice(0,10).map((x,i)=>({
-    kind:"official", oi:i, title:x.p||x.e||"", src:x.e||"", at:x.cap||"", link:x.u||"", grade:null
+function newsAsPosts(items, who){
+  return items.map(i=>({
+    kind:"news", title:hd(i), img:i.img||"", link:i.link||"", src:i.src||"", grade:i.grade, score:i.score,
+    isnad:i.isnad, at:i.at, item:i,
+    caption: EN
+      ? `${who} · Spotted via ${i.src||"source"}. ${hd(i)}`
+      : `${who} · رصد من ${i.src||"مصدر"}. ${hd(i)}`
   }));
 }
-function agentPostRows(list){
-  AGENT_POSTS=list;
-  if(!list.length) return `<p style="font-size:13px;color:var(--mut);line-height:1.8">${EN?"No linked posts in this cycle yet.":"لا منشورات مرتبطة في هذه الدورة بعد."}</p>`;
-  return list.map((i,n)=>{
-    if(i.kind==="official"){
-      return `<button type="button" class="agent-post" onclick="closeSheet();openOfficial(${i.oi})">
-        <b>${esc((i.title||"").slice(0,140))}</b>
-        <div class="m"><span>${EN?"Official":"رسمي"}</span><span>${esc(i.src||"")}</span></div></button>`;
-    }
-    return `<button type="button" class="agent-post" onclick="openAgentPost(${n})">
-      <b>${esc(hd(i))}</b>
-      <div class="m">${i.grade?badge(i.grade):""}<span>${esc(i.src||"")}</span>${i.at?`<span>${esc(ago(i.at))}</span>`:""}</div></button>`;
-  }).join("");
+function buildProfilePosts(kind, id){
+  const who=(profilePerson(kind,id)||{}).name||id;
+  if(kind==="desk"){
+    const prev=deskFilter; deskFilter=id;
+    const list=filtered().slice(0,24);
+    deskFilter=prev;
+    return newsAsPosts(list, who);
+  }
+  if(id==="manba"){
+    return ((OFFICIAL&&OFFICIAL.src)||[]).slice(0,24).map((x,i)=>({
+      kind:"official", oi:i, title:x.p||x.e||"", img:"", link:x.u||"", src:x.e||"", at:x.cap||"",
+      caption: EN
+        ? `${who} · Official wire — ${x.e||x.c||"agency"}. ${x.p||""}`
+        : `${who} · من المَنبع — ${x.e||x.c||"جهة"}. ${x.p||""}`
+    }));
+  }
+  if(id==="mustaqri"||id==="murtajil"){
+    const sc=((FORECAST&&FORECAST.scenarios)||[]).slice().sort((a,b)=>(b.p||0)-(a.p||0));
+    const sigs=((FORECAST&&FORECAST.signals)||[]).slice(0,8);
+    const out=sc.map(s=>({
+      kind:"scenario", title:s.s||"", pct:s.p||0, img:"", link:"",
+      caption: EN
+        ? `${who} · Forecast ${s.p||0}% — ${s.s||""}${s.watch?" · Watch: "+s.watch:""}`
+        : `${who} · استقراء ${s.p||0}% — ${s.s||""}${s.watch?" · راقب: "+s.watch:""}`,
+      why:s.why||"", watch:s.watch||""
+    }));
+    sigs.forEach(g=>out.push({
+      kind:"signal", title:g.q||"", img:"", link:g.u||"", src:g.who||"",
+      caption: EN
+        ? `${who} · Signal (${trWeight(g.w)}) — ${g.q||""} · ${g.who||""}`
+        : `${who} · إشارة (${g.w||""}) — ${g.q||""} · ${g.who||""}`
+    }));
+    return out;
+  }
+  if(id==="musannif"||id==="mudaqqiq"){
+    const runs=((EVOLUTION&&EVOLUTION.runs)||[]).slice().reverse().slice(0,12);
+    return runs.map(r=>({
+      kind:"evo", title:`v${r.v||"—"}`, img:"", link:"", at:r.t,
+      caption: EN
+        ? `${who} · Cycle v${r.v||"—"}: checked ${r.checked||0}, removed ${r.removed||0}, downgraded ${r.downgraded||0}. The desk got sharper.`
+        : `${who} · دورة v${r.v||"—"}: راجع ${r.checked||0}، استبعد ${r.removed||0}، خفّض ${r.downgraded||0}. الغرفة أصبحت أحدّ.`
+    }));
+  }
+  if(id==="miqyas"){
+    return [...((TENSION&&TENSION.countries)||[])].sort((a,b)=>(b.score||0)-(a.score||0)).slice(0,12).map(c=>({
+      kind:"tension", title:EN?(c.en||c.name):c.name, pct:c.score, img:"", link:"",
+      caption: EN
+        ? `${who} · ${c.en||c.name} at ${c.score} (${trLevel(c.level)})${c.delta?` · ${c.delta>0?"+":""}${c.delta}`:""}`
+        : `${who} · ${c.name} عند ${c.score} (${c.level||""})${c.delta?` · ${c.delta>0?"+":""}${c.delta}`:""}`
+    }));
+  }
+  if(id==="rawi"||id==="mudawwin"){
+    const tx=ANALYST&&(EN&&ANALYST.text_en?ANALYST.text_en:ANALYST.text);
+    if(tx) return [{
+      kind:"brief", title:EN?"Hour’s reading":"قراءة الساعة", img:ANALYST.avatar?RAW+ANALYST.avatar:"", link:"",
+      caption: `${who} · ${tx.slice(0,280)}${tx.length>280?"…":""}`
+    }];
+    return [];
+  }
+  if(id==="fahis"){
+    return [{
+      kind:"action", title:EN?"Verify a link":"افحص رابطًا", img:"", link:"",
+      caption: EN
+        ? `${who} · Paste a news, image, or video link — clear verdict, no tools exposed.`
+        : `${who} · الصق رابط خبر أو صورة أو فيديو — حكم واضح بلا كشف للأدوات.`
+    }];
+  }
+  if(id==="turjuman") return newsAsPosts(allItems().filter(i=>i.fa).slice(0,24), who);
+  if(id==="mudaqqiq") return newsAsPosts(allItems().filter(i=>i.grade&&i.isnad).slice(0,24), who);
+  return newsAsPosts(allItems().slice(0,24), who);
 }
-function openAgentPost(n){
-  const i=AGENT_POSTS[n]; if(!i||i.kind==="official") return;
-  const u=safeUrl(i.link);
-  openSheet(`<h3 class="amiri">${esc(hd(i))}</h3>
-    <div class="row"><b>${EN?"Source":"المصدر"}</b><span>${esc(i.src||"—")}</span></div>
-    <div style="margin:10px 0">${badge(i.grade)} ${i.score!==undefined?`<span class="badge b-src">${esc(i.score)}/7</span>`:""}</div>
-    ${u!=="#"?`<a class="sheet-x" style="display:block;text-align:center;text-decoration:none;background:var(--gold);color:#1A1206" href="${u}" target="_blank" rel="noopener">${EN?"Open source":"افتح المصدر"}</a>`:""}
-    <button type="button" class="sheet-x" onclick="closeSheet()">${EN?"Close":"إغلاق"}</button>`);
+function openProfile(kind, id, tab){
+  PROFILE={kind,id,tab:tab||"grid"};
+  closeSheet();
+  setView("profile");
+  renderProfile();
+  try{window.scrollTo({top:0,behavior:"smooth"})}catch(e){window.scrollTo(0,0)}
 }
-function agentSpecialHTML(x){
-  if(x.id==="mustaqri"||x.id==="murtajil"){
-    if(!FORECAST) return `<p style="font-size:13px;color:var(--mut)">${EN?"Forecast loading…":"يُحمَّل الاستقراء…"}</p>`;
-    const top=((FORECAST.scenarios)||[]).slice().sort((a,b)=>(b.p||0)-(a.p||0))[0];
-    return `${top?`<div class="scen"><div class="pbar"><span class="pct">${esc(top.p||0)}%</span><i><u style="width:${Math.min(100,top.p||0)}%"></u></i></div>
-      <div class="st">${esc(top.s||"")}</div></div>`:""}
-      <button type="button" class="sheet-x" onclick="openForecastSheet()">${EN?"Open full forecast":"افتح الاستقراء كاملًا"}</button>`;
+function closeProfile(){
+  PROFILE=null;
+  setView("team");
+}
+function setProfileTab(tab){
+  if(!PROFILE) return;
+  PROFILE.tab=tab;
+  renderProfile();
+}
+function profileMedia(p){
+  if(p.img) return `<img src="${safeUrl(p.img)}" alt="" loading="lazy" decoding="async" onerror="this.parentElement.innerHTML='<div class=\'ph\'>سَنَد</div>'">`;
+  if(p.kind==="scenario"||p.kind==="tension") return `<div class="ph">${esc(p.pct!=null?p.pct+"%":"◈")}</div>`;
+  if(p.kind==="evo") return `<div class="ph">🧬</div>`;
+  if(p.kind==="signal") return `<div class="ph">📡</div>`;
+  if(p.kind==="official") return `<div class="ph">🏛</div>`;
+  if(p.kind==="brief") return `<div class="ph">م</div>`;
+  if(p.kind==="action") return `<div class="ph">🔗</div>`;
+  return `<div class="ph">سَنَد</div>`;
+}
+function igPostHTML(p, n, person){
+  const cap=p.caption||p.title||"";
+  const short=cap.length>160?cap.slice(0,160)+"…":cap;
+  const mediaInner=p.img
+    ? `<img src="${safeUrl(p.img)}" alt="" loading="lazy" onerror="this.outerHTML='<div class=\\'seal\\'>سَنَد</div>'">`
+    : `<div class="seal">${p.pct!=null?esc(p.pct)+"%":esc(person.icon||"سَنَد")}</div>`;
+  return `<article class="ig-post" data-pi="${n}">
+    <div class="ig-hd">
+      <div class="ig-av" style="${person.color?`color:${person.color}`:""}">${esc(person.icon||"•")}</div>
+      <div class="ig-who"><b>${esc(person.name)}</b><span>${esc(person.handle)}${p.at?" · "+ago(p.at):""}</span></div>
+    </div>
+    <div class="ig-media">${mediaInner}${p.pct!=null&&p.kind==="scenario"?`<span class="pct-badge">${esc(p.pct)}%</span>`:""}</div>
+    <div class="ig-acts">
+      <button type="button" data-act="share" aria-label="share">↗</button>
+      <button type="button" data-act="open" aria-label="open">⧉</button>
+      ${p.item?`<button type="button" data-act="isnad" aria-label="isnad">☰</button>`:""}
+      ${p.item?`<button type="button" data-act="save" aria-label="save">${isSaved(p.item)?"♥":"♡"}</button>`:""}
+    </div>
+    <div class="ig-cap"><span class="by">${esc(person.handle)}</span><span class="cap-t">${esc(short)}</span>
+      ${cap.length>160?`<button type="button" class="more" data-act="more">${EN?"more":"المزيد"}</button>`:""}</div>
+    <div class="ig-meta">${p.grade?badge(p.grade):""}${p.src?`<span class="badge b-src">${esc(p.src)}</span>`:""}</div>
+  </article>`;
+}
+function bindIgPosts(root, list, person){
+  root.querySelectorAll(".ig-post").forEach(el=>{
+    const p=list[+el.dataset.pi]; if(!p) return;
+    el.querySelectorAll("[data-act]").forEach(btn=>{
+      btn.onclick=()=>{
+        const a=btn.dataset.act;
+        if(a==="more"){
+          const t=el.querySelector(".cap-t"); if(t) t.textContent=p.caption||p.title||"";
+          btn.remove();
+        } else if(a==="share"){
+          const text=(p.caption||p.title||"")+"\n\nسَنَد | isnad.news";
+          if(navigator.share) navigator.share({title:person.name,text,url:p.link||location.href}).catch(()=>cpy(text));
+          else cpy(text+(p.link?"\n"+p.link:""));
+        } else if(a==="open"){
+          if(p.kind==="official") openOfficial(p.oi);
+          else if(p.kind==="action") setView("verify");
+          else if(p.kind==="brief") setView("brief");
+          else if(p.kind==="scenario"||p.kind==="signal") openForecastSheet();
+          else if(p.kind==="evo") openEvolutionSheet();
+          else if(p.link){ const u=safeUrl(p.link); if(u!=="#") window.open(u,"_blank","noopener") }
+          else if(p.item) showIsnad(p.item);
+        } else if(a==="isnad"&&p.item) showIsnad(p.item);
+        else if(a==="save"&&p.item){ toggleSave(p.item); renderProfile(); }
+      };
+    });
+  });
+}
+function renderProfile(){
+  const root=document.getElementById("profRoot");
+  if(!root||!PROFILE) return;
+  const person=profilePerson(PROFILE.kind, PROFILE.id);
+  if(!person){ root.innerHTML=`<div class="empty">${EN?"Profile not found.":"الملف غير موجود."}</div>`; return; }
+  const posts=buildProfilePosts(PROFILE.kind, PROFILE.id);
+  AGENT_POSTS=posts;
+  const stMap=EN?{ok:"On duty",skip:"Scheduled",fail:"Unavailable",idle:"Quiet"}:{ok:"على رأس عمله",skip:"في وردية لاحقة",fail:"غير متاح",idle:"صامت"};
+  const st=person.status?stMap[person.status]||person.status:"";
+  const followers=PROFILE.kind==="desk"?"—":(AGENTS&&AGENTS.healthy!=null?AGENTS.healthy:"—");
+  const tab=PROFILE.tab||"grid";
+  let body="";
+  if(tab==="grid"){
+    if(!posts.length) body=`<div class="empty">${EN?"No posts yet.":"لا منشورات بعد."}</div>`;
+    else body=`<div class="prof-grid">${posts.map((p,n)=>`<button type="button" class="prof-cell" onclick="setProfileTab('feed');setTimeout(()=>{const el=document.querySelector('.ig-post[data-pi=\"${n}\"]');if(el)el.scrollIntoView({behavior:'smooth',block:'start'})},40)">
+      ${profileMedia(p)}${p.pct!=null?`<span class="tag">${esc(p.pct)}%</span>`:""}</button>`).join("")}</div>`;
+  } else {
+    if(!posts.length) body=`<div class="empty">${EN?"No posts yet.":"لا منشورات بعد."}</div>`;
+    else body=`<div class="prof-feed" id="profFeed">${posts.map((p,n)=>igPostHTML(p,n,person)).join("")}</div>`;
   }
-  if(x.id==="musannif"||x.id==="mudaqqiq"){
-    const runs=(EVOLUTION&&EVOLUTION.runs)||[];
-    const last=runs[runs.length-1];
-    if(!last) return `<p style="font-size:13px;color:var(--mut)">${EN?"Learning log loading…":"يُحمَّل سجلّ التعلّم…"}</p>`;
-    return `<div class="scen"><div class="st">v${esc(last.v||"—")}</div>
-      <div class="wh">${EN
-        ?`Checked ${last.checked||0} · removed ${last.removed||0} · downgraded ${last.downgraded||0}`
-        :`راجع ${last.checked||0} · استبعد ${last.removed||0} · خفّض ${last.downgraded||0}`}</div></div>
-      <button type="button" class="sheet-x" onclick="openEvolutionSheet()">${EN?"Learning history":"سجلّ التعلّم"}</button>`;
-  }
-  if(x.id==="miqyas"&&TENSION&&TENSION.countries){
-    const cs=[...(TENSION.countries||[])].sort((a,b)=>(b.score||0)-(a.score||0)).slice(0,5);
-    return cs.map(c=>`<div class="sig-row"><b style="color:var(--vellum)">${esc(EN?(c.en||c.name):c.name)}</b>
-      · ${esc(c.score)} · ${esc(trLevel(c.level))}${c.delta?` · ${c.delta>0?"+":""}${esc(c.delta)}`:""}</div>`).join("");
-  }
-  if(x.id==="manba") return agentPostRows(officialPosts());
-  if(x.id==="rawi"||x.id==="mudawwin"){
-    return `<button type="button" class="sheet-x" onclick="closeSheet();setView('brief')">${EN?"Open Brief":"إلى النشرة"}</button>`;
-  }
-  if(x.id==="fahis"){
-    return `<button type="button" class="sheet-x" onclick="closeSheet();setView('verify')">${EN?"Open Verify":"افتح تحقّق"}</button>`;
-  }
-  return agentPostRows(postsForAgent(x.id));
+  const extraBtn = person.id==="fahis"
+    ? `<button type="button" class="primary" onclick="setView('verify')">${EN?"Verify":"تحقّق"}</button>`
+    : (person.id==="mustaqri"||person.id==="murtajil")
+      ? `<button type="button" class="primary" onclick="openForecastSheet()">${EN?"Forecast":"الاستقراء"}</button>`
+      : (person.id==="musannif"||person.id==="mudaqqiq")
+        ? `<button type="button" class="primary" onclick="openEvolutionSheet()">${EN?"Learning":"التعلّم"}</button>`
+        : (person.id==="rawi"||person.id==="mudawwin")
+          ? `<button type="button" class="primary" onclick="setView('brief')">${EN?"Brief":"النشرة"}</button>`
+          : (PROFILE.kind==="desk")
+            ? `<button type="button" class="primary" onclick="closeSheet();pickDesk('${person.id}')">${EN?"Live desk":"الحيّ"}</button>`
+            : `<button type="button" class="primary" onclick="setProfileTab('feed')">${EN?"Posts":"المنشورات"}</button>`;
+  root.innerHTML=`
+    <div class="prof-top">
+      <button type="button" class="back" onclick="closeProfile()" aria-label="back">‹</button>
+      <div class="ttl"><b>${esc(person.name)}</b><span>${esc(person.handle)}</span></div>
+    </div>
+    <div class="prof-hd">
+      <div class="prof-row">
+        <div class="prof-av" style="${person.color?`color:${person.color}`:""}">${esc(person.icon||"•")}</div>
+        <div class="prof-stats">
+          <div><b>${posts.length}</b><span>${EN?"posts":"منشور"}</span></div>
+          <div><b>${esc(String(followers))}</b><span>${EN?"on desk":"على الرأس"}</span></div>
+          <div><b>${person.ran===true?"✓":person.ran===false?"–":(st?st.slice(0,4):"—")}</b><span>${EN?"cycle":"دورة"}</span></div>
+        </div>
+      </div>
+      <div class="prof-name">${esc(person.name)}</div>
+      <div class="prof-handle">${esc(person.handle)} · ${EN?"Sanad desk":"غرفة سَنَد"}</div>
+      <div class="prof-bio">${esc(person.bio||"")}</div>
+      ${person.note?`<div class="prof-note">${EN?"This cycle":"هذه الدورة"}: ${esc(person.note)}</div>`:""}
+      ${person.at?`<div class="prof-note">${EN?"Last active":"آخر نشاط"}: ${esc(ago(person.at)||person.at)}</div>`:""}
+      <div class="prof-actions">
+        ${extraBtn}
+        <button type="button" onclick="shareProfile()">${EN?"Share":"مشاركة"}</button>
+      </div>
+    </div>
+    <div class="prof-tabs">
+      <button type="button" class="${tab==="grid"?"on":""}" onclick="setProfileTab('grid')" aria-label="grid">⊞</button>
+      <button type="button" class="${tab==="feed"?"on":""}" onclick="setProfileTab('feed')" aria-label="posts">▤</button>
+    </div>
+    ${body}`;
+  if(tab==="feed") bindIgPosts(root, posts, person);
+}
+function shareProfile(){
+  if(!PROFILE) return;
+  const p=profilePerson(PROFILE.kind, PROFILE.id); if(!p) return;
+  const t=`${p.name} ${p.handle}\n${p.bio||""}\n\nسَنَد | isnad.news`;
+  if(navigator.share) navigator.share({title:p.name,text:t,url:location.href}).catch(()=>cpy(t));
+  else cpy(t);
 }
 
 function itemId(i){return (i.link||i.head||"").slice(0,180)}
@@ -797,21 +1024,27 @@ function updateFilterChip(){
 }
 
 function setView(v){
+  if(v!=="profile") PROFILE=null;
   VIEW=v;
+  document.body.classList.toggle("prof-mode", v==="profile");
   document.querySelectorAll(".view").forEach(el=>el.classList.toggle("on",el.dataset.view===v));
-  document.querySelectorAll(".bnav button, .desk-nav button").forEach(b=>b.classList.toggle("on",b.dataset.view===v));
+  document.querySelectorAll(".bnav button, .desk-nav button").forEach(b=>{
+    const bv=b.dataset.view;
+    b.classList.toggle("on", bv===v || (v==="profile" && bv==="team"));
+  });
   if(v!=="search") document.getElementById("searchBar").classList.remove("on");
   if(v==="team") renderTeam();
   if(v==="saved") renderSaved();
   if(v==="brief") renderBrief();
   if(v==="live"){ renderOfficialRail(); }
+  if(v==="profile") renderProfile();
   if(v==="search"){ document.getElementById("searchBar").classList.add("on"); try{qIn.focus()}catch(e){} }
 }
 document.getElementById("bnav").addEventListener("click",e=>{
-  const b=e.target.closest("button[data-view]"); if(b) setView(b.dataset.view);
+  const b=e.target.closest("button[data-view]"); if(b){ PROFILE=null; setView(b.dataset.view); }
 });
 document.getElementById("deskNav").addEventListener("click",e=>{
-  const b=e.target.closest("button[data-view]"); if(b) setView(b.dataset.view);
+  const b=e.target.closest("button[data-view]"); if(b){ PROFILE=null; setView(b.dataset.view); }
 });
 
 function shareItem(i){
@@ -843,11 +1076,11 @@ function postHTML(i,n,bucket){
     ? `<div class="post-media"><img src="${safeUrl(i.img)}" alt="" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('seal');this.outerHTML='<div class=\\'seal-mark\\'>سَنَد</div>'"></div>`
     : `<div class="post-media seal"><div class="seal-mark">سَنَد</div></div>`;
   return `<article class="post" style="animation-delay:${Math.min(n*40,360)}ms" data-pi="${n}" data-bucket="${esc(bucket||"feed")}">
-    <div class="post-hd">
+    <button type="button" class="post-hd" data-act="profile" style="width:100%;border:0;background:transparent;cursor:pointer;color:inherit;font:inherit;text-align:start">
       <div class="post-av" style="color:${d.color}">${esc(d.letter)}</div>
       <div class="post-who"><b>${esc(regionOf(d))}</b>
         <span>${esc(i.src||(EN?"source":"مصدر"))}${i.at?" · "+ago(i.at):""}</span></div>
-    </div>
+    </button>
     ${media}
     <div class="post-actions">
       <button type="button" data-act="share" aria-label="مشاركة">↗</button>
@@ -855,7 +1088,9 @@ function postHTML(i,n,bucket){
       <button type="button" data-act="isnad" aria-label="الإسناد">☰</button>
       <button type="button" data-act="save" class="${saved?"saved":""}" aria-label="حفظ">${saved?"♥":"♡"}</button>
     </div>
-    <div class="post-cap"><h2>${esc(hd(i))}</h2></div>
+    <div class="post-cap"><h2>${esc(hd(i))}</h2>
+      <p class="ig-cap-line"><span class="by">${esc(regionOf(d))}</span> ${EN?`Spotted via ${i.src||"source"}.`:`رصد من ${i.src||"مصدر"}.`}</p>
+    </div>
     <div class="post-meta">${badge(i.grade)}${i.score!==undefined?`<span class="badge b-src">${esc(i.score)}/7</span>`:""}${isnadBar(i.isnad,i.grade)}</div>
   </article>`;
 }
@@ -865,7 +1100,8 @@ function bindPosts(root, list, bucket){
     el.querySelectorAll("[data-act]").forEach(btn=>{
       btn.onclick=()=>{
         const a=btn.dataset.act;
-        if(a==="share") shareItem(i);
+        if(a==="profile") openProfile("desk", deskFor(i).id);
+        else if(a==="share") shareItem(i);
         else if(a==="source"){ const u=safeUrl(i.link); if(u!=="#") window.open(u,"_blank","noopener") }
         else if(a==="isnad") showIsnad(i);
         else if(a==="save"){ toggleSave(i); }
@@ -961,7 +1197,7 @@ function renderSaved(){
 }
 function renderTeam(){
   const paused=new Set((CONTROL&&CONTROL.paused_agents)||[]);
-  teamDesks.innerHTML=DESKS.map(d=>`<button type="button" class="tcard" onclick="openDeskSheet('${d.id}')">
+  teamDesks.innerHTML=DESKS.map(d=>`<button type="button" class="tcard" onclick="openProfile('desk','${d.id}')">
     <div class="av" style="color:${d.color}">${esc(d.letter)}</div>
     <div class="b"><b>${esc(regionOf(d))}</b><div class="role">${esc(EN?d.en+" · ":"")}${esc(d.blurb)}</div></div>
     <span class="st st-desk">${esc(EN?d.en:d.name)}</span></button>`).join("");
@@ -972,7 +1208,7 @@ function renderTeam(){
   teamCrew.innerHTML=A.map((x,idx)=>{
     const st=paused.has(x.id)?"idle":(x.status||"idle");
     const did=enText(x.note,"")||"";
-    return `<button type="button" class="tcard" onclick="openAgent(${idx})">
+    return `<button type="button" class="tcard" onclick="openProfile('agent','${x.id}')">
       <div class="av">${esc((x.icon||"•").slice(0,2))}</div>
       <div class="b"><b>${esc(x.name)}</b><div class="role">${esc(teamBlurb(x.id))}${did?`<br><span style="color:var(--dim)">${esc(did)}</span>`:""}</div></div>
       <span class="st st-${esc(st)}">${paused.has(x.id)?(EN?"away":"صامت"):esc(SLBL[x.status]||x.status)}</span>
@@ -980,40 +1216,10 @@ function renderTeam(){
   }).join("");
 }
 let AGENT_CACHE=[];
-function openDeskSheet(id){
-  const d=DESKS.find(x=>x.id===id); if(!d) return;
-  const prev=deskFilter; deskFilter=id;
-  const list=filtered().slice(0,12);
-  deskFilter=prev;
-  AGENT_POSTS=list;
-  openSheet(`<h3 class="amiri">${esc(regionOf(d))}</h3>
-    <p style="color:var(--mut);line-height:1.85;font-size:13.5px;margin:8px 0 4px">${esc(EN?d.en+" · ":"")}${esc(d.blurb)}</p>
-    <div class="sheet-sec">${EN?"Desk posts":"منشورات المكتب"} · ${list.length}</div>
-    ${agentPostRows(list)}
-    <button type="button" class="sheet-x" style="background:var(--gold);color:#1A1206" onclick="closeSheet();pickDesk('${d.id}')">${EN?"Show in Live":"عرض في الحيّ"}</button>
-    <button type="button" class="sheet-x" onclick="closeSheet()">${EN?"Close":"إغلاق"}</button>`);
-}
+function openDeskSheet(id){ openProfile("desk", id); }
 function openAgent(idx){
   const x=AGENT_CACHE[idx]; if(!x) return;
-  const stMap=EN?{ok:"On duty",skip:"Scheduled",fail:"Unavailable",idle:"Quiet"}:{ok:"على رأس عمله",skip:"في وردية لاحقة",fail:"غير متاح",idle:"صامت"};
-  const note=x.note?`<div class="row"><b>${EN?"This cycle":"هذه الدورة"}</b><span>${esc(x.note)}</span></div>`:"";
-  const when=x.at?`<div class="row"><b>${EN?"Last active":"آخر نشاط"}</b><span>${esc(ago(x.at)||x.at)}</span></div>`:"";
-  const ran=x.ran!=null?`<div class="row"><b>${EN?"Ran now":"اشتغل الآن"}</b><span>${x.ran?(EN?"Yes":"نعم"):(EN?"No":"لا")}</span></div>`:"";
-  const specialIds=["mustaqri","murtajil","musannif","mudaqqiq","miqyas","manba","rawi","mudawwin","fahis"];
-  const postsTitle=specialIds.includes(x.id)
-    ?(x.id==="mustaqri"||x.id==="murtajil"?(EN?"Forecast & signals":"الاستقراء والإشارات")
-      :x.id==="musannif"||x.id==="mudaqqiq"?(EN?"Learning outcomes":"نتائج التعلّم")
-      :x.id==="miqyas"?(EN?"Regional heat":"حرارة المشهد")
-      :x.id==="manba"?(EN?"Official posts":"منشورات رسمية")
-      :(EN?"Actions":"إجراءاته"))
-    :(EN?"Posts this cycle":"منشورات هذه الدورة");
-  openSheet(`<h3 class="amiri">${esc(x.icon||"")} ${esc(x.name)}</h3>
-    <p style="color:var(--mut);line-height:1.85;font-size:13.5px;margin:8px 0 12px">${esc(teamBlurb(x.id))}</p>
-    <div class="row"><b>${EN?"Status":"الحالة"}</b><span>${esc(stMap[x.status]||x.status||"—")}</span></div>
-    ${note}${when}${ran}
-    <div class="sheet-sec">${postsTitle}</div>
-    ${agentSpecialHTML(x)}
-    <button type="button" class="sheet-x" onclick="closeSheet()">${EN?"Close":"إغلاق"}</button>`);
+  openProfile("agent", x.id);
 }
 
 async function runVerify(){
@@ -1204,7 +1410,11 @@ async function load(){
 })();
 
 document.addEventListener("keydown",e=>{
-  if(e.key==="Escape"){ closeSheet(); if(VIEW==="search") toggleSearch(false); }
+  if(e.key==="Escape"){
+    closeSheet();
+    if(VIEW==="profile") closeProfile();
+    else if(VIEW==="search") toggleSearch(false);
+  }
   if((e.key==="/"||(e.key==="k"&&(e.metaKey||e.ctrlKey))) && !/input|textarea/i.test((e.target||{}).tagName||"")){
     e.preventDefault(); toggleSearch(true);
   }
