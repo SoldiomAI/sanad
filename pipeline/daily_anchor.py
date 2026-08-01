@@ -99,10 +99,33 @@ def _load_log():
     except Exception: return {}
 _PREV=_load_log()
 
+def _load_control():
+    """لوحة التحكّم: paused_agents + سقف إنفاق اختياري من control.json."""
+    for path in (f"{OUT}/control.json", "daily/control.json"):
+        try:
+            return json.load(open(path))
+        except Exception:
+            pass
+    return {}
+
+CONTROL=_load_control()
+PAUSED=set(CONTROL.get("paused_agents") or [])
+if CONTROL.get("pipeline_daily_budget_usd") is not None:
+    try:
+        os.environ.setdefault("DAILY_BUDGET_USD", str(float(CONTROL["pipeline_daily_budget_usd"])))
+    except Exception:
+        pass
+if CONTROL.get("paid_kill_switch"):
+    print("🛑 paid_kill_switch من لوحة التحكّم — النداءات المدفوعة تُقيَّد حيث يُحترَم السقف")
+
 def agent(aid):
     """يغلّف الوكيل: يقيس الزمن، يلتقط الأعطال، ويسجّل الحالة."""
     def deco(fn):
         def wrap(*a,**k):
+            if aid in PAUSED:
+                mark(aid,"skip","متوقف من لوحة التحكّم")
+                print(f"⏸️ {aid}: متوقف من لوحة التحكّم")
+                return {"skipped":1,"why":"متوقف من لوحة التحكّم"}
             t0=time.time(); st="ok"; note=""
             try:
                 r=fn(*a,**k)
