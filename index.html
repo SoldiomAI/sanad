@@ -333,6 +333,12 @@ details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--m
 .prof-handle{font-size:12px;color:var(--gold-l);margin-top:2px}
 .prof-bio{font-size:13px;line-height:1.8;color:var(--mut);margin-top:8px}
 .prof-note{font-size:12px;line-height:1.7;color:var(--dim);margin-top:6px}
+.auto-pill{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:4px 10px;border-radius:20px;
+  font-size:11px;font-weight:700;font-family:'Noto Kufi Arabic',sans-serif;
+  background:rgba(62,155,114,.12);color:var(--verify-l);border:1px solid rgba(62,155,114,.28)}
+.team-auto{margin:0 0 14px;padding:10px 12px;border-radius:12px;border:1px solid rgba(62,155,114,.28);
+  background:rgba(62,155,114,.07);font-size:12.5px;line-height:1.75;color:var(--mut)}
+.team-auto b{color:var(--verify-l);font-family:'Noto Kufi Arabic',sans-serif}
 .prof-actions{display:flex;gap:8px;margin-top:12px}
 .prof-actions button{flex:1;border:1px solid var(--border);background:var(--card2);border-radius:10px;padding:10px;
   font-weight:700;font-size:12px;cursor:pointer;color:var(--txt);font-family:'Noto Kufi Arabic',sans-serif}
@@ -478,7 +484,8 @@ body.prof-mode .desks,body.prof-mode .desk-status,body.prof-mode .ennote,body.pr
   <section class="view" id="view-team" data-view="team">
     <div class="panel">
       <h2 class="amiri gold">الفريق</h2>
-      <p class="lead">أسماءٌ وأدوارٌ قصيرة — بلا كشفٍ لطريقة العمل.</p>
+      <p class="lead" id="teamLead">وكلاء يعملون آليًّا — منشوراتهم ودُوراتهم بلا تدخّل يدوي.</p>
+      <div class="team-auto" id="teamAuto"><b>آلي بالكامل</b> — الرصد، الإسناد، الاستقراء، التعلّم، التعليقات، والمنشورات تُحدَّث من خط الإنتاج.</div>
       <div class="team-sec">مكاتب الرصد</div>
       <div id="teamDesks"></div>
       <div class="team-sec">فريق التحرير</div>
@@ -610,7 +617,7 @@ function toast(msg){
 function openSheet(html){sheetC.innerHTML=html; sheet.classList.add("on"); document.body.style.overflow="hidden"}
 function closeSheet(){sheet.classList.remove("on"); document.body.style.overflow=""}
 
-let DATA=null, AGENTS=null, CONTROL=null, OFFICIAL=null, ANALYST=null, FORECAST=null, EVOLUTION=null, TENSION=null, COMMENTS=null, deskFilter=null, VIEW="live";
+let DATA=null, AGENTS=null, CONTROL=null, OFFICIAL=null, ANALYST=null, FORECAST=null, EVOLUTION=null, TENSION=null, COMMENTS=null, APOSTS=null, deskFilter=null, VIEW="live";
 let AGENT_POSTS=[];
 let PROFILE=null; /* {kind:'agent'|'desk', id, tab:'grid'|'feed'} */
 
@@ -812,13 +819,31 @@ function profilePerson(kind,id){
 function newsAsPosts(items, who){
   return items.map(i=>({
     kind:"news", title:hd(i), img:i.img||"", link:i.link||"", src:i.src||"", grade:i.grade, score:i.score,
-    isnad:i.isnad, at:i.at, item:i,
+    isnad:i.isnad, at:i.at, item:i, auto:true,
     caption: EN
-      ? `${who} · Spotted via ${i.src||"source"}. ${hd(i)}`
-      : `${who} · رصد من ${i.src||"مصدر"}. ${hd(i)}`
+      ? `${who} · Automated spot via ${i.src||"source"}. ${hd(i)}`
+      : `${who} · رصد آلي من ${i.src||"مصدر"}. ${hd(i)}`
   }));
 }
+function packToPosts(pack){
+  if(!pack||!(pack.posts||[]).length) return null;
+  return pack.posts.map(p=>{
+    const title=EN?(p.title_en||p.title||""):(p.title||"");
+    const caption=EN?(p.caption_en||p.caption||""):(p.caption||"");
+    const item=p.kind==="news"?{
+      head:p.head||p.title, he:p.he||p.title_en, link:p.link, src:p.src, grade:p.grade,
+      score:p.score, isnad:p.isnad, img:p.img, at:p.at, fa:p.fa
+    }:null;
+    return {...p, title, caption, item:item||p.item, auto:true};
+  });
+}
 function buildProfilePosts(kind, id){
+  /* Prefer pipeline-published automated posts */
+  if(APOSTS){
+    const pack=kind==="desk"?(APOSTS.desks||{})[id]:(APOSTS.agents||{})[id];
+    const ready=packToPosts(pack);
+    if(ready&&ready.length) return ready;
+  }
   const who=(profilePerson(kind,id)||{}).name||id;
   if(kind==="desk"){
     const prev=deskFilter; deskFilter=id;
@@ -1018,9 +1043,11 @@ function renderProfile(){
       </div>
       <div class="prof-name">${esc(person.name)}</div>
       <div class="prof-handle">${esc(person.handle)} · ${EN?"Sanad desk":"غرفة سَنَد"}</div>
+      <div class="auto-pill">⚡ ${EN?"Fully automated · posts & work from the pipeline":"آلي بالكامل · المنشورات والعمل من خط الإنتاج"}</div>
       <div class="prof-bio">${esc(person.bio||"")}</div>
       ${person.note?`<div class="prof-note">${EN?"This cycle":"هذه الدورة"}: ${esc(person.note)}</div>`:""}
       ${person.at?`<div class="prof-note">${EN?"Last active":"آخر نشاط"}: ${esc(ago(person.at)||person.at)}</div>`:""}
+      ${APOSTS&&APOSTS.updated?`<div class="prof-note">${EN?"Posts auto-built":"المنشورات بُنيت آليًّا"}: ${esc(ago(APOSTS.updated)||APOSTS.updated)}</div>`:""}
       <div class="prof-actions">
         ${extraBtn}
         <button type="button" onclick="shareProfile()">${EN?"Share":"مشاركة"}</button>
@@ -1472,6 +1499,14 @@ async function load(){
   try{ EVOLUTION=await grab("evolution"); }catch(e){ EVOLUTION=null }
   try{ TENSION=await grab("tension"); }catch(e){ TENSION=null }
   try{ COMMENTS=await grab("comments"); }catch(e){ COMMENTS=null }
+  try{ APOSTS=await grab("posts"); }catch(e){ APOSTS=null }
+  try{
+    const ta=document.getElementById("teamAuto"), tl=document.getElementById("teamLead");
+    if(tl) tl.textContent=EN?"Agents run on their own — posts and cycles without hand edits.":"وكلاء يعملون آليًّا — منشوراتهم ودُوراتهم بلا تدخّل يدوي.";
+    if(ta) ta.innerHTML=EN
+      ?`<b>Fully automated</b> — intake, grading, forecast, learning, comments, and posts refresh from the pipeline${APOSTS&&APOSTS.n?` · ${APOSTS.n} posts`:"."}`
+      :`<b>آلي بالكامل</b> — الرصد، الإسناد، الاستقراء، التعلّم، التعليقات، والمنشورات تُحدَّث من خط الإنتاج${APOSTS&&APOSTS.n?` · ${APOSTS.n} منشورًا`:""}.`;
+  }catch(e){}
   try{ renderFeed(); if(VIEW==="brief") renderBrief(); if(VIEW==="team") renderTeam(); if(VIEW==="profile") renderProfile(); }catch(e){}
   try{
     const m=await grab("latest");

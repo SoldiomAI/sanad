@@ -544,11 +544,184 @@ def social_comments():
     print(f"💬 تعليقات الوكلاء: {out['n']} تعليقًا على {len(threads)} منشورًا · صفر API · يوم {day}")
     return out
 
+def _load_daily(name, default=None):
+    try: return json.load(open(f"{OUT}/{name}.json"))
+    except Exception: return default if default is not None else {}
+
+def _news_feed():
+    feed=[]
+    n=_load_daily("news", {})
+    for cat,lst in (n.get("cats") or {}).items():
+        for it in (lst or []):
+            feed.append({**it,"cat":cat})
+    if not feed:
+        for it in (globals().get("items") or []):
+            feed.append(it)
+    return sorted(feed, key=lambda x:x.get("at") or "", reverse=True)
+
+def _auto_news_posts(items, who_ar, who_en, cap=24):
+    out=[]
+    for it in items[:cap]:
+        head=it.get("head") or ""
+        he=it.get("he") or head
+        src=it.get("src") or ""
+        out.append({
+            "kind":"news","auto":True,
+            "title":head,"title_en":he,
+            "caption":f"{who_ar} · رصد آلي من {src or 'مصدر'}. {head}",
+            "caption_en":f"{who_en} · Automated spot via {src or 'source'}. {he}",
+            "link":it.get("link") or "","src":src,"grade":it.get("grade") or "",
+            "score":it.get("score"),"isnad":it.get("isnad"),
+            "img":it.get("img") or "","at":it.get("at") or "",
+            "head":head,"he":he,"fa":bool(it.get("fa")),
+        })
+    return out
+
+def social_posts():
+    """منشورات كل وكيل/مكتب — تُبنى آليًّا من مخرجات الدورة بلا أي استدعاء API إضافي."""
+    path=f"{OUT}/posts.json"
+    feed=_news_feed()
+    agents_meta={a[0]:{"name":a[1],"icon":a[2],"en":a[0]} for a in AGENTS}
+    try:
+        for a in (_load_daily("agents",{}).get("agents") or []):
+            agents_meta.setdefault(a["id"],{"name":a.get("name",a["id"]),"icon":a.get("icon","•"),"en":a["id"]})
+    except Exception:
+        pass
+
+    desks={
+        "noura":{"name":"الخليج","en":"Gulf","cats":{"الخليج"}},
+        "samir":{"name":"فلسطين","en":"Palestine","cats":{"فلسطين"}},
+        "laith":{"name":"المشرق","en":"Mashreq","cats":{"إيران"}},
+        "huda":{"name":"العالم","en":"World","cats":{"عالم","اقتصاد","تقنية"}},
+        "hakim":{"name":"مُسنَد","en":"Graded","cats":set()},
+    }
+    desk_posts={}
+    for did,d in desks.items():
+        if did=="hakim":
+            items=[i for i in feed if i.get("grade") and i.get("isnad")]
+        elif did=="laith":
+            items=[i for i in feed if i.get("cat")=="إيران" or i.get("fa")]
+        else:
+            items=[i for i in feed if i.get("cat") in d["cats"]]
+        desk_posts[did]={"auto":True,"posts":_auto_news_posts(items,d["name"],d["en"])}
+
+    agent_posts={}
+    # جامعون / رصد — منشورات من حصيلة الأخبار الآلية
+    for aid in ("hurr","rasid","multaqit","munabbih","shahid","mustaqsi","mutabiq","mukharrij","munaqqih"):
+        m=agents_meta.get(aid,{"name":aid,"en":aid})
+        agent_posts[aid]={"auto":True,"posts":_auto_news_posts(feed, m["name"], m.get("en",aid))}
+
+    m=agents_meta.get("turjuman",{"name":"التَّرْجُمَان","en":"Turjuman"})
+    agent_posts["turjuman"]={"auto":True,"posts":_auto_news_posts([i for i in feed if i.get("fa")], m["name"], "Al-Turjuman")}
+    graded=[i for i in feed if i.get("grade") and i.get("isnad")]
+
+    # رسمي
+    off=(_load_daily("official",{}).get("src") or [])[:24]
+    m=agents_meta.get("manba",{"name":"المَنبع","en":"Manba"})
+    agent_posts["manba"]={"auto":True,"posts":[{
+        "kind":"official","auto":True,"oi":i,
+        "title":x.get("p") or x.get("e") or "",
+        "title_en":x.get("p") or x.get("e") or "",
+        "caption":f"{m['name']} · من المَنبع — {x.get('e') or x.get('c') or 'جهة'}. {x.get('p') or ''}",
+        "caption_en":f"Al-Manba · Official wire — {x.get('e') or x.get('c') or 'agency'}. {x.get('p') or ''}",
+        "link":x.get("u") or "","src":x.get("e") or "","at":x.get("cap") or x.get("t") or "",
+        "img":"","grade":"",
+    } for i,x in enumerate(off)]}
+
+    # استقراء
+    f=_load_daily("forecast",{})
+    sc=sorted(f.get("scenarios") or [], key=lambda x:-(x.get("p") or 0))
+    sigs=(f.get("signals") or [])[:8]
+    fc_posts=[]
+    for s in sc:
+        fc_posts.append({
+            "kind":"scenario","auto":True,"pct":s.get("p") or 0,
+            "title":s.get("s") or "","title_en":s.get("s") or "",
+            "caption":f"المُستقرِئ · استقراء آلي {s.get('p') or 0}% — {s.get('s') or ''}{(' · راقب: '+s['watch']) if s.get('watch') else ''}",
+            "caption_en":f"Al-Mustaqri · Auto forecast {s.get('p') or 0}% — {s.get('s') or ''}{(' · Watch: '+s['watch']) if s.get('watch') else ''}",
+            "why":s.get("why") or "","watch":s.get("watch") or "","link":"","img":"","at":f.get("updated") or "",
+        })
+    for g in sigs:
+        fc_posts.append({
+            "kind":"signal","auto":True,
+            "title":g.get("q") or "","title_en":g.get("q") or "",
+            "caption":f"المُستقرِئ · إشارة — {g.get('q') or ''} · {g.get('who') or ''}",
+            "caption_en":f"Al-Mustaqri · Signal — {g.get('q') or ''} · {g.get('who') or ''}",
+            "link":g.get("u") or "","src":g.get("who") or "","img":"","at":f.get("updated") or "",
+        })
+    agent_posts["mustaqri"]={"auto":True,"posts":fc_posts}
+    agent_posts["murtajil"]={"auto":True,"posts":list(fc_posts)}
+
+    # تعلّم ذاتي
+    runs=list((_load_daily("evolution",{}).get("runs") or []))[-12:]
+    runs=list(reversed(runs))
+    evo=[{
+        "kind":"evo","auto":True,"title":f"v{r.get('v') or '—'}",
+        "title_en":f"v{r.get('v') or '—'}",
+        "caption":f"المُصنِّف · دورة آلية v{r.get('v') or '—'}: راجع {r.get('checked') or 0}، استبعد {r.get('removed') or 0}، خفّض {r.get('downgraded') or 0}.",
+        "caption_en":f"Al-Musannif · Auto cycle v{r.get('v') or '—'}: checked {r.get('checked') or 0}, removed {r.get('removed') or 0}, downgraded {r.get('downgraded') or 0}.",
+        "at":r.get("t") or "","link":"","img":"",
+    } for r in runs]
+    agent_posts["musannif"]={"auto":True,"posts":evo}
+    agent_posts["mudaqqiq"]={"auto":True,"posts":(_auto_news_posts(graded, "المُدقِّق", "Al-Mudaqqiq") + evo)[:24]}
+
+    # حرارة
+    countries=sorted((_load_daily("tension",{}).get("countries") or []), key=lambda c:-(c.get("score") or 0))[:12]
+    agent_posts["miqyas"]={"auto":True,"posts":[{
+        "kind":"tension","auto":True,"pct":c.get("score"),
+        "title":c.get("name") or "","title_en":c.get("en") or c.get("name") or "",
+        "caption":f"المِقياس · {c.get('name')} عند {c.get('score')} ({c.get('level') or ''})",
+        "caption_en":f"Al-Miqyas · {c.get('en') or c.get('name')} at {c.get('score')} ({c.get('level') or ''})",
+        "link":"","img":"","at":_load_daily("tension",{}).get("updated") or "",
+    } for c in countries]}
+
+    # نشرة / عمود / تحقّق
+    an=_load_daily("analyst",{})
+    tx=an.get("text") or ""
+    agent_posts["rawi"]={"auto":True,"posts":([{
+        "kind":"brief","auto":True,
+        "title":"قراءة الساعة","title_en":"Hour’s reading",
+        "caption":f"الرَّاوِي · نشرة آلية — {(tx[:280]+('…' if len(tx)>280 else '')) if tx else 'بانتظار النشرة'}",
+        "caption_en":f"Al-Rawi · Automated bulletin — {(tx[:280]+('…' if len(tx)>280 else '')) if tx else 'Bulletin pending'}",
+        "img":("analyst.jpg" if an.get("avatar") else ""),"link":"","at":an.get("updated") or "",
+    }] if True else [])}
+    agent_posts["mudawwin"]={"auto":True,"posts":list(agent_posts["rawi"]["posts"])}
+    col=_load_daily("column",{})
+    if col.get("text"):
+        agent_posts["mudawwin"]={"auto":True,"posts":[{
+            "kind":"brief","auto":True,
+            "title":col.get("title") or "عمود اليوم","title_en":col.get("title") or "Today’s column",
+            "caption":f"المُدوِّن · عمود آلي — {clean(col.get('text'))[:280]}",
+            "caption_en":f"Al-Mudawwin · Automated column — {clean(col.get('text'))[:280]}",
+            "link":"","img":"","at":col.get("updated") or col.get("date") or "",
+        }]}
+    agent_posts["fahis"]={"auto":True,"posts":[{
+        "kind":"action","auto":True,
+        "title":"افحص رابطًا","title_en":"Verify a link",
+        "caption":"الفاحِص · جاهز آليًّا — الصق رابط خبر أو صورة أو فيديو.",
+        "caption_en":"Al-Fahis · Always on — paste a news, image, or video link.",
+        "link":"","img":"","at":datetime.now(timezone.utc).isoformat(timespec="minutes"),
+    }]}
+
+    total=sum(len(v.get("posts") or []) for v in list(agent_posts.values())+list(desk_posts.values()))
+    out={
+        "updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),
+        "automated":True,"api":"none","cost":0,
+        "engine":"pipeline-outputs","n":total,
+        "note":"كل المنشورات تُبنى من مخرجات الوكلاء الآليين — بلا توليد مدفوع إضافي",
+        "agents":agent_posts,"desks":desk_posts,
+    }
+    json.dump(out,open(path,"w"),ensure_ascii=False,indent=1)
+    print(f"📸 منشورات آلية: {total} منشورًا عبر {len(agent_posts)} وكيلًا + {len(desk_posts)} مكتبًا · صفر API إضافي")
+    return out
+
 def bundle():
     """يدمج كل ملفات العرض في ملف واحد — يقضي على خنق الطلبات المتوازية."""
-    # تعليقات يومية مجّانية قبل الحزمة
+    # تعليقات ومنشورات مجّانية قبل الحزمة — من مخرجات الدورة فقط
     try: social_comments()
     except Exception as _e: print("comments: "+str(_e)[:80])
+    try: social_posts()
+    except Exception as _e: print("posts: "+str(_e)[:80])
     # 🛡️ حارسٌ أحاديّ الاتجاه لنشرة اليوم: لا نُعيدها إلى تاريخٍ أقدم من المنشور.
     # سبب العطل: تشغيلٌ يحمل latest.json قديمة كان يدهس النشرة الأحدث عند النشر.
     try:
@@ -561,7 +734,7 @@ def bundle():
             print(f"🛡️ نشرةُ اليوم: أُبقيت الأحدث ({_pub.get('date')}) بدل الأقدم ({_loc.get('date')})")
     except Exception as _e: print(f"guard_latest: {str(_e)[:80]}")
     keys=["news","intel","official","forecast","analyst","dua","verify",
-          "alerts","corrections","latest","agents","cost","evolution","council","gpu","rumors","column","tension","comments"]
+          "alerts","corrections","latest","agents","cost","evolution","council","gpu","rumors","column","tension","comments","posts"]
     b={"built":datetime.now(timezone.utc).isoformat(timespec="minutes")}
     for k in keys:
         try: b[k]=json.load(open(f"{OUT}/{k}.json"))
