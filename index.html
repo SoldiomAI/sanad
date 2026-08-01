@@ -297,19 +297,19 @@ details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--m
 <div id="maint" class="maint"></div>
 <header class="topbar">
   <div class="topbar-in">
-    <span class="brand">🛡️ <span class="gold">سَنَد</span></span>
-    <nav class="desk-nav" id="deskNav" aria-label="التنقّل">
-      <button type="button" data-view="live" class="on">حيّ</button>
-      <button type="button" data-view="brief">نشرة</button>
-      <button type="button" data-view="verify" id="navVerifyD">تحقّق</button>
-      <button type="button" data-view="team">وكلاء</button>
-      <button type="button" data-view="saved">محفوظ</button>
+    <span class="brand">🛡️ <span class="gold" data-i18n="brand">سَنَد</span></span>
+    <nav class="desk-nav" id="deskNav" aria-label="Navigation" data-i18n-aria="nav">
+      <button type="button" data-view="live" class="on" data-i18n="nav.live">حيّ</button>
+      <button type="button" data-view="brief" data-i18n="nav.brief">نشرة</button>
+      <button type="button" data-view="verify" id="navVerifyD" data-i18n="nav.verify">تحقّق</button>
+      <button type="button" data-view="team" data-i18n="nav.team">وكلاء</button>
+      <button type="button" data-view="saved" data-i18n="nav.saved">محفوظ</button>
     </nav>
     <div class="top-actions">
-      <button type="button" class="icon-btn" id="searchBtn" onclick="toggleSearch()" title="بحث" aria-label="بحث">⌕</button>
-      <a class="ent-lnk" href="/enterprise" title="المؤسسات">🔐</a>
+      <button type="button" class="icon-btn" id="searchBtn" onclick="toggleSearch()" title="Search" aria-label="Search" data-i18n-title="search" data-i18n-aria="search">⌕</button>
+      <a class="ent-lnk" href="/enterprise" title="Institutions" data-i18n-title="enterprise">🔐</a>
       <button type="button" class="icon-btn" id="lngBtn" onclick="lngFlip()" title="English / العربية">EN</button>
-      <button type="button" class="icon-btn" onclick="thmFlip()" title="الوضع">◐</button>
+      <button type="button" class="icon-btn" id="thmBtn" onclick="thmFlip()" title="Theme" data-i18n-title="theme">◐</button>
       <span class="live"><span class="dot"></span><span id="upd">…</span></span>
     </div>
   </div>
@@ -317,21 +317,21 @@ details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--m
 
 <main class="app">
   <div class="search-bar" id="searchBar">
-    <input id="qIn" type="search" enterkeyhint="search" placeholder="ابحث في الأخبار والأرشيف…" autocomplete="off" oninput="onSearchInput()">
-    <button type="button" class="x" onclick="toggleSearch(false)" aria-label="إغلاق">✕</button>
+    <input id="qIn" type="search" enterkeyhint="search" placeholder="ابحث في الأخبار والأرشيف…" autocomplete="off" oninput="onSearchInput()" data-i18n-ph="search.ph">
+    <button type="button" class="x" onclick="toggleSearch(false)" aria-label="Close" data-i18n-aria="close">✕</button>
   </div>
   <div class="desk-status" id="deskStatus"></div>
-  <div class="desks" id="desks" aria-label="المناطق"></div>
+  <div class="desks" id="desks" aria-label="Regions" data-i18n-aria="regions"></div>
   <div class="ennote">🌍 International edition — verified Gulf &amp; world news. Switch to <a href="#" onclick="lngFlip();return false">العربية</a> for the full suite.</div>
 
   <section class="view" id="view-search" data-view="search">
-    <div id="searchRes"><div class="empty">اكتب كلمةً للبحث في أخبار اليوم والأرشيف.</div></div>
+    <div id="searchRes"><div class="empty" data-i18n="search.empty">اكتب كلمةً للبحث في أخبار اليوم والأرشيف.</div></div>
   </section>
 
   <section class="view on" id="view-live" data-view="live">
-    <div class="filter-chip" id="filterChip"><button type="button" onclick="clearDesk()">✕ عرض الكل</button><span id="filterLbl" style="font-size:12px;color:var(--mut)"></span></div>
+    <div class="filter-chip" id="filterChip"><button type="button" onclick="clearDesk()" data-i18n="filter.clear">✕ عرض الكل</button><span id="filterLbl" style="font-size:12px;color:var(--mut)"></span></div>
     <div id="offBlock" style="display:none">
-      <div class="rail-h"><span>من المَنبع · رسمي</span><button type="button" onclick="setView('brief')">المزيد</button></div>
+      <div class="rail-h"><span data-i18n="off.rail">من المَنبع · رسمي</span><button type="button" onclick="setView('brief')" data-i18n="more">المزيد</button></div>
       <div class="off-rail" id="offRail"></div>
     </div>
     <div id="feed">
@@ -342,45 +342,45 @@ details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--m
 
   <section class="view" id="view-brief" data-view="brief">
     <div class="panel">
-      <h2 class="amiri gold">نشرةُ سَنَد</h2>
-      <p class="lead" id="briefLead">نشرةٌ يومية مُسنَدة — صوتٌ ونصّ.</p>
+      <h2 class="amiri gold" data-i18n="brief.title">نشرةُ سَنَد</h2>
+      <p class="lead" id="briefLead" data-i18n="brief.lead">نشرةٌ يومية مُسنَدة — صوتٌ ونصّ.</p>
       <div class="card">
-        <div style="font-size:13px;font-weight:700;color:var(--gold-l)" id="blabel">نشرةُ المذيع</div>
+        <div style="font-size:13px;font-weight:700;color:var(--gold-l)" id="blabel" data-i18n="brief.blabel">نشرةُ المذيع</div>
         <div style="font-size:12px;color:var(--mut);margin:4px 0 8px" id="bdate">…</div>
         <video id="v" style="display:none;width:100%;border-radius:10px;background:#000" controls playsinline></video>
         <div class="player" id="plr">
-          <button class="pl-btn" id="plBtn" aria-label="تشغيل">▶</button>
+          <button class="pl-btn" id="plBtn" aria-label="Play" data-i18n-aria="play">▶</button>
           <div class="pl-mid">
-            <div class="pl-top"><b>النشرة الصوتية</b><span id="plTime">٠٠:٠٠</span></div>
+            <div class="pl-top"><b data-i18n="brief.audio">النشرة الصوتية</b><span id="plTime">00:00</span></div>
             <div class="pl-bar" id="plBar"><i id="plFill"></i></div>
           </div>
         </div>
         <audio id="a" style="display:none"></audio>
-        <button type="button" class="sheet-x" style="margin-top:10px" onclick="document.getElementById('s').style.display=document.getElementById('s').style.display==='block'?'none':'block'">📜 نص النشرة</button>
+        <button type="button" class="sheet-x" style="margin-top:10px" id="scriptToggle" onclick="document.getElementById('s').style.display=document.getElementById('s').style.display==='block'?'none':'block'" data-i18n="brief.script">📜 نص النشرة</button>
         <div class="script" id="s"></div>
       </div>
       <div id="briefAnalyst"></div>
       <div id="briefOfficial"></div>
       <div id="briefHero"></div>
-      <details class="more"><summary>ما معنى درجة الإسناد؟</summary>
-        <div class="body">كلُّ خبرٍ يحمل حكمًا ظاهرًا (صحيح / حسن / ضعيف الإسناد) بناءً على موثوقية مصدره. التفاصيل الداخليّة تبقى داخل غرفة التحرير.</div>
+      <details class="more"><summary data-i18n="brief.faq1s">ما معنى درجة الإسناد؟</summary>
+        <div class="body" data-i18n="brief.faq1b">كلُّ خبرٍ يحمل حكمًا ظاهرًا (صحيح / حسن / ضعيف الإسناد) بناءً على موثوقية مصدره. التفاصيل الداخليّة تبقى داخل غرفة التحرير.</div>
       </details>
-      <details class="more"><summary>اشترك في النشرة</summary>
-        <div class="body"><a href="https://t.me/sanad_news" target="_blank" rel="noopener">t.me/sanad_news</a> — مجّانًا وبلا إعلانات.</div>
+      <details class="more"><summary data-i18n="brief.faq2s">اشترك في النشرة</summary>
+        <div class="body" data-i18n-html="brief.faq2b"><a href="https://t.me/sanad_news" target="_blank" rel="noopener">t.me/sanad_news</a> — مجّانًا وبلا إعلانات.</div>
       </details>
-      <details class="more"><summary>للمؤسسات</summary>
-        <div class="body"><a href="/enterprise">بوّابة سَنَد للمؤسسات</a>.</div>
+      <details class="more"><summary data-i18n="brief.faq3s">للمؤسسات</summary>
+        <div class="body" data-i18n-html="brief.faq3b"><a href="/enterprise">بوّابة سَنَد للمؤسسات</a>.</div>
       </details>
     </div>
   </section>
 
   <section class="view" id="view-verify" data-view="verify">
     <div class="panel">
-      <h2 class="amiri gold">تحقّق</h2>
-      <p class="lead">الصق رابط خبر أو صورة أو فيديو — نراجعُه ونُصدر حكمًا واضحًا دون أن نكشف أدوات الغرفة.</p>
+      <h2 class="amiri gold" data-i18n="verify.title">تحقّق</h2>
+      <p class="lead" data-i18n="verify.lead">الصق رابط خبر أو صورة أو فيديو — نراجعُه ونُصدر حكمًا واضحًا دون أن نكشف أدوات الغرفة.</p>
       <div class="v-box">
         <input id="vUrl" type="url" inputmode="url" placeholder="https://…" autocomplete="off">
-        <button type="button" id="vGo" onclick="runVerify()">افحص</button>
+        <button type="button" id="vGo" onclick="runVerify()" data-i18n="verify.go">افحص</button>
       </div>
       <div id="vOut"></div>
     </div>
@@ -388,38 +388,38 @@ details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--m
 
   <section class="view" id="view-team" data-view="team">
     <div class="panel">
-      <h2 class="amiri gold">الفريق</h2>
-      <p class="lead">أسماءٌ وأدوارٌ قصيرة — بلا كشفٍ لطريقة العمل.</p>
-      <div class="team-sec">مكاتب الرصد</div>
+      <h2 class="amiri gold" data-i18n="team.title">الفريق</h2>
+      <p class="lead" data-i18n="team.lead">أسماءٌ وأدوارٌ قصيرة — بلا كشفٍ لطريقة العمل.</p>
+      <div class="team-sec" data-i18n="team.desks">مكاتب الرصد</div>
       <div id="teamDesks"></div>
-      <div class="team-sec">فريق التحرير</div>
+      <div class="team-sec" data-i18n="team.crew">فريق التحرير</div>
       <div id="teamCrew"></div>
     </div>
   </section>
 
   <section class="view" id="view-saved" data-view="saved">
     <div class="panel">
-      <h2 class="amiri gold">محفوظ</h2>
-      <p class="lead">أخبارك المحفوظة على هذا الجهاز فقط.</p>
+      <h2 class="amiri gold" data-i18n="saved.title">محفوظ</h2>
+      <p class="lead" data-i18n="saved.lead">أخبارك المحفوظة على هذا الجهاز فقط.</p>
       <div id="savedL"></div>
     </div>
   </section>
 
-  <div class="foot-mini">سَنَد · SOLDIOM · الكويت<br><a href="/admin" style="color:var(--dim)">لوحة التشغيل</a></div>
+  <div class="foot-mini" data-i18n-html="footer">سَنَد · SOLDIOM · الكويت<br><a href="/admin" style="color:var(--dim)">لوحة التشغيل</a></div>
 </main>
 
-<nav class="bnav" id="bnav" aria-label="القائمة">
-  <button type="button" data-view="live" class="on"><i>◎</i>حيّ</button>
-  <button type="button" data-view="brief"><i>◈</i>نشرة</button>
-  <button type="button" data-view="verify" id="navVerifyM"><i>✓</i>تحقّق</button>
-  <button type="button" data-view="team"><i>◉</i>وكلاء</button>
-  <button type="button" data-view="saved"><i>♡</i>محفوظ</button>
+<nav class="bnav" id="bnav" aria-label="Menu" data-i18n-aria="menu">
+  <button type="button" data-view="live" class="on"><i>◎</i><span data-i18n="nav.live">حيّ</span></button>
+  <button type="button" data-view="brief"><i>◈</i><span data-i18n="nav.brief">نشرة</span></button>
+  <button type="button" data-view="verify" id="navVerifyM"><i>✓</i><span data-i18n="nav.verify">تحقّق</span></button>
+  <button type="button" data-view="team"><i>◉</i><span data-i18n="nav.team">وكلاء</span></button>
+  <button type="button" data-view="saved"><i>♡</i><span data-i18n="nav.saved">محفوظ</span></button>
 </nav>
 
 <div class="sheet" id="sheet" onclick="if(event.target===this)closeSheet()">
   <div class="sheet-c" id="sheetC"></div>
 </div>
-<div class="toast" id="toast">تم</div>
+<div class="toast" id="toast" data-i18n="toast.done">تم</div>
 
 <script>
 (function(){try{const t=localStorage.getItem("thm")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
@@ -438,15 +438,64 @@ const RAW="https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/";
 const SAVE_KEY="sanad_saved_v1";
 const SEEN_KEY="sanad_desk_seen_v1";
 
+const STR={
+  brand:"SANAD",
+  "nav.live":"Live","nav.brief":"Brief","nav.verify":"Verify","nav.team":"Team","nav.saved":"Saved",
+  search:"Search",enterprise:"Institutions",theme:"Theme",close:"Close",play:"Play",
+  nav:"Navigation",menu:"Menu",regions:"Regions",
+  "search.ph":"Search news and archives…","search.empty":"Type a word to search today’s news and the archive.",
+  "filter.clear":"✕ Show all",more:"More","off.rail":"From the source · Official",
+  "brief.title":"SANAD Brief","brief.lead":"A daily verified bulletin — audio and text.",
+  "brief.blabel":"Anchor bulletin","brief.audio":"Audio bulletin","brief.script":"📜 Bulletin script",
+  "brief.faq1s":"What does the attribution grade mean?",
+  "brief.faq1b":"Every story carries a clear grade (Verified / Credible / Weak chain) based on source reliability. Internal method stays in the newsroom.",
+  "brief.faq2s":"Subscribe to the bulletin",
+  "brief.faq2b":'<a href="https://t.me/sanad_news" target="_blank" rel="noopener">t.me/sanad_news</a> — free, no ads.',
+  "brief.faq3s":"For institutions",
+  "brief.faq3b":'<a href="/enterprise">SANAD for institutions</a>.',
+  "verify.title":"Verify","verify.lead":"Paste a news, image, or video link — we review it and issue a clear verdict without exposing newsroom tools.",
+  "verify.go":"Check","team.title":"Team","team.lead":"Names and short roles — no method details.",
+  "team.desks":"Regional desks","team.crew":"Newsroom crew",
+  "saved.title":"Saved","saved.lead":"Your saved stories on this device only.",
+  footer:'SANAD · SOLDIOM · Kuwait<br><a href="/admin" style="color:var(--dim)">Ops console</a>',
+  "toast.done":"Done",
+};
+function applyI18n(){
+  if(!EN) return;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.getAttribute("data-i18n"); if(STR[k]!=null) el.textContent=STR[k]});
+  document.querySelectorAll("[data-i18n-html]").forEach(el=>{const k=el.getAttribute("data-i18n-html"); if(STR[k]!=null) el.innerHTML=STR[k]});
+  document.querySelectorAll("[data-i18n-title]").forEach(el=>{const k=el.getAttribute("data-i18n-title"); if(STR[k]!=null) el.title=STR[k]});
+  document.querySelectorAll("[data-i18n-aria]").forEach(el=>{const k=el.getAttribute("data-i18n-aria"); if(STR[k]!=null) el.setAttribute("aria-label",STR[k])});
+  document.querySelectorAll("[data-i18n-ph]").forEach(el=>{const k=el.getAttribute("data-i18n-ph"); if(STR[k]!=null) el.placeholder=STR[k]});
+  document.title="SANAD — Verified news";
+}
+function hasAr(s){return /[\u0600-\u06FF]/.test(String(s||""))}
+function enText(s, fallback){ if(!EN) return s||""; if(!s) return fallback||""; return hasAr(s)?(fallback||""):s }
+applyI18n();
+addEventListener("DOMContentLoaded",applyI18n);
+
 const DESKS=[
-  {id:"noura",name:"نورة",en:"Noura",region:"الخليج",regionEn:"Gulf",role:"مكتب الخليج",blurb:"تغطي أخبار الخليج لحظة بلحظة.",cat:"الخليج",letter:"خ",color:"#0d5c3f"},
-  {id:"samir",name:"سامر",en:"Samir",region:"فلسطين",regionEn:"Palestine",role:"مكتب فلسطين",blurb:"يتابع فلسطين وما حولها.",cat:"فلسطين",letter:"ف",color:"#9E2B37"},
-  {id:"laith",name:"ليث",en:"Laith",region:"المشرق",regionEn:"Mashreq",role:"مكتب المشرق",blurb:"يرصد المشرق وما يُترجم عنه.",cat:"إيران",letter:"م",color:"#C9A227"},
-  {id:"huda",name:"هدى",en:"Huda",region:"العالم",regionEn:"World",role:"مكتب الأمّة",blurb:"تجمع أهم ما يهمّ القارئ العربي من العالم.",cat:"عالم",letter:"ع",color:"#3A66A8"},
-  {id:"hakim",name:"الحاكم",en:"Al-Hakim",region:"مُسنَد",regionEn:"Graded",role:"حاكم الإسناد",blurb:"يمنح كلَّ خبرٍ حكمَ إسناده الظاهر.",cat:"__grade__",letter:"س",color:"#8A6F1B"},
+  {id:"noura",name:"نورة",en:"Noura",region:"الخليج",regionEn:"Gulf",role:"مكتب الخليج",roleEn:"Gulf desk",blurb:"تغطي أخبار الخليج لحظة بلحظة.",blurbEn:"Covers Gulf news as it breaks.",cat:"الخليج",letter:"خ",letterEn:"G",color:"#0d5c3f"},
+  {id:"samir",name:"سامر",en:"Samir",region:"فلسطين",regionEn:"Palestine",role:"مكتب فلسطين",roleEn:"Palestine desk",blurb:"يتابع فلسطين وما حولها.",blurbEn:"Follows Palestine and its region.",cat:"فلسطين",letter:"ف",letterEn:"P",color:"#9E2B37"},
+  {id:"laith",name:"ليث",en:"Laith",region:"المشرق",regionEn:"Mashreq",role:"مكتب المشرق",roleEn:"Mashreq desk",blurb:"يرصد المشرق وما يُترجم عنه.",blurbEn:"Monitors the Mashreq and translations.",cat:"إيران",letter:"م",letterEn:"M",color:"#C9A227"},
+  {id:"huda",name:"هدى",en:"Huda",region:"العالم",regionEn:"World",role:"مكتب الأمّة",roleEn:"World desk",blurb:"تجمع أهم ما يهمّ القارئ العربي من العالم.",blurbEn:"Surfaces what matters from the world.",cat:"عالم",letter:"ع",letterEn:"W",color:"#3A66A8"},
+  {id:"hakim",name:"الحاكم",en:"Al-Hakim",region:"مُسنَد",regionEn:"Graded",role:"حاكم الإسناد",roleEn:"Attribution judge",blurb:"يمنح كلَّ خبرٍ حكمَ إسناده الظاهر.",blurbEn:"Grades each story’s visible chain.",cat:"__grade__",letter:"س",letterEn:"S",color:"#8A6F1B"},
 ];
 function regionOf(d){return EN?(d.regionEn||d.en):(d.region||d.name)}
+function letterOf(d){return EN?(d.letterEn||d.letter):d.letter}
+function deskBlurb(d){return EN?(d.blurbEn||d.blurb):d.blurb}
+function closeLbl(){return EN?"Close":"إغلاق"}
+function sealMark(){return EN?"SANAD":"سَنَد"}
+function brandName(){return EN?"SANAD":"سَنَد"}
+
 /* نبذٌ قصيرة للعامة — بلا أدوات ولا خطوات قابلة للاستنساخ */
+const TEAM_NAME={
+  hurr:"Al-Hurr",rasid:"Al-Rasid",mutabiq:"Al-Mutabiq",manba:"Al-Manba",munabbih:"Al-Munabbih",
+  multaqit:"Al-Multaqit",fahis:"Al-Fahis",mukharrij:"Al-Mukharrij",munaqqih:"Al-Munaqqih",
+  miqyas:"Al-Miqyas",shahid:"Al-Shahid",mustaqsi:"Al-Mustaqsi",turjuman:"Al-Turjuman",
+  mudaqqiq:"Al-Mudaqqiq",musannif:"Al-Musannif",mustaqri:"Al-Mustaqri",murtajil:"Al-Murtajil",
+  mudawwin:"Al-Mudawwin",rawi:"Al-Rawi",
+};
 const TEAM_BLURB={
   hurr:{ar:"يجمع موادَّ من مصادر مفتوحة.",en:"Collects open-source items."},
   rasid:{ar:"يتابع العاجل أوّلًا بأوّل.",en:"Watches breaking developments."},
@@ -468,19 +517,34 @@ const TEAM_BLURB={
   mudawwin:{ar:"يكتب عمود اليوم.",en:"Writes today’s column."},
   rawi:{ar:"يؤدّي النشرة اليومية.",en:"Hosts the daily bulletin."},
 };
+function teamName(x){return EN?(TEAM_NAME[x.id]||x.name):x.name}
 function teamBlurb(id, fallback){
   const b=TEAM_BLURB[id];
   if(b) return EN?b.en:b.ar;
   return EN?"Member of the Sanad desk.":(fallback&&fallback.length<48?fallback:"عضو في فريق سَنَد.");
 }
+const COUNTRY_EN={"السعودية":"Saudi Arabia","الإمارات":"UAE","الكويت":"Kuwait","قطر":"Qatar","البحرين":"Bahrain","عمان":"Oman","عُمان":"Oman","مصر":"Egypt","الأردن":"Jordan","العراق":"Iraq","سوريا":"Syria","لبنان":"Lebanon","فلسطين":"Palestine","اليمن":"Yemen","إيران":"Iran","تركيا":"Turkey","المغرب":"Morocco","تونس":"Tunisia","الجزائر":"Algeria","ليبيا":"Libya","السودان":"Sudan","أمريكا":"USA","الولايات المتحدة":"USA","بريطانيا":"UK","فرنسا":"France","ألمانيا":"Germany","روسيا":"Russia","الصين":"China","الهند":"India","باكستان":"Pakistan","أفغانستان":"Afghanistan","إسرائيل":"Israel"};
+const AGENCY_EN={"وكالة الأنباء السعودية (واس)":"Saudi Press Agency (SPA)","وكالة أنباء الإمارات (وام)":"Emirates News Agency (WAM)","وكالة الأنباء الكويتية (كونا)":"Kuwait News Agency (KUNA)","وكالة الأنباء القطرية (قنا)":"Qatar News Agency (QNA)","وكالة أنباء البحرين (بنا)":"Bahrain News Agency (BNA)","وكالة الأنباء العمانية (العمانية)":"Oman News Agency","وكالة أنباء الشرق الأوسط (أ ش أ)":"Middle East News Agency (MENA)"};
+function countryOf(c){return EN?(COUNTRY_EN[c]||c):c}
+function agencyOf(e){return EN?(AGENCY_EN[e]||e):e}
+function trRank(r){if(!EN||!r)return r||"";return({رسمي:"Official",وكالة:"Wire",قناة:"Channel",مجهول:"Unknown"})[r]||r}
+function trVerdict(v){if(!EN||!v)return v||"";return({"صحّ":"Confirmed","لم يصحّ":"Not confirmed","قيد التحقق":"Under review"})[v]||v}
+function trRisk(r){if(!EN||!r)return r||"";return({"غير مقيّم":"Not assessed",منخفض:"Low",متوسط:"Medium",مرتفع:"High",عالي:"High",منعدم:"None"})[r]||r}
+function trKind(k){if(!EN||!k)return k||"";return({none:"none",image:"image",video:"video",audio:"audio",page:"page",unknown:"unknown"})[k]||k}
 
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
 function safeUrl(u){u=String(u==null?"":u).trim();return /^https?:\/\//i.test(u)?u.replace(/"/g,"%22"):"#"}
-const hd=i=>EN?(i.he||i.head):i.head;
+const hd=i=>{
+  if(!EN) return i.head;
+  if(i.he) return i.he;
+  return i.head||"";
+};
 
 function badge(g){
+  if(!g || g==="—") return '<span class="badge b-src">—</span>';
   if(EN) return g==="صحيح"?'<span class="badge b-sahih">Verified ✓</span>'
-    :g==="ضعيف الإسناد"?'<span class="badge b-daif">Weak chain</span>':'<span class="badge b-hasan">Credible</span>';
+    :g==="ضعيف الإسناد"?'<span class="badge b-daif">Weak chain</span>'
+    :g==="حسن"?'<span class="badge b-hasan">Credible</span>':'<span class="badge b-src">'+esc(g)+'</span>';
   return g==="صحيح"?'<span class="badge b-sahih">صحيح ✓</span>'
   :g==="ضعيف الإسناد"?'<span class="badge b-daif">ضعيف الإسناد</span>':'<span class="badge b-hasan">حسن</span>'}
 function ago(iso){
@@ -548,12 +612,20 @@ function allItems(){
 }
 function filtered(){
   let list=allItems();
-  if(!deskFilter) return list;
-  const d=DESKS.find(x=>x.id===deskFilter);
-  if(!d) return list;
-  if(d.cat==="__grade__") return list.filter(i=>i.grade && i.isnad);
-  if(d.id==="laith") return list.filter(i=>i.cat==="إيران"||i.fa);
-  return list.filter(i=>i.cat===d.cat);
+  if(deskFilter){
+    const d=DESKS.find(x=>x.id===deskFilter);
+    if(d){
+      if(d.cat==="__grade__") list=list.filter(i=>i.grade && i.isnad);
+      else if(d.id==="laith") list=list.filter(i=>i.cat==="إيران"||i.fa);
+      else list=list.filter(i=>i.cat===d.cat);
+    }
+  }
+  /* EN edition: prefer English headlines so the UI stays English */
+  if(EN){
+    const en=list.filter(i=>i.he && String(i.he).trim());
+    if(en.length) list=en;
+  }
+  return list;
 }
 
 function renderDesks(){
@@ -565,7 +637,7 @@ function renderDesks(){
     const fresh=!seen[d.id] && (counts[d.id]||0)>0;
     const on=deskFilter===d.id;
     return `<button type="button" class="desk ${fresh?"fresh":""} ${on?"on":""}" data-id="${d.id}" onclick="pickDesk('${d.id}')">
-      <div class="ring"><div class="av">${esc(d.letter)}</div></div>
+      <div class="ring"><div class="av">${esc(letterOf(d))}</div></div>
       <span class="nm">${esc(regionOf(d))}</span>
     </button>`;
   }).join("");
@@ -610,9 +682,9 @@ document.getElementById("deskNav").addEventListener("click",e=>{
 });
 
 function shareItem(i){
-  const t=(hd(i)||"")+"\n\n— "+(i.src||"")+"\n\nسَنَد | isnad.news";
+  const t=(hd(i)||"")+"\n\n— "+(i.src||"")+"\n\n"+brandName()+" | isnad.news";
   const url=i.link||location.href;
-  if(navigator.share){navigator.share({title:"سَنَد",text:t,url}).catch(()=>cpy(t));}
+  if(navigator.share){navigator.share({title:brandName(),text:t,url}).catch(()=>cpy(t));}
   else cpy(t+"\n"+url);
 }
 function cpy(t){
@@ -627,28 +699,29 @@ function showIsnad(i){
     <div style="margin:10px 0">${badge(i.grade)} ${i.score!==undefined?`<span class="badge b-src">${esc(i.score)}/7</span>`:""} ${isnadBar(i.isnad,i.grade)}</div>
     <div class="row"><b>${EN?"Source":"المصدر"}</b><span>${esc(i.src||"—")}</span></div>
     <p style="font-size:12px;color:var(--dim);line-height:1.8;margin-top:12px">${EN?"Graded by Sanad’s newsroom. Internal method stays private.":"حكمٌ من غرفة تحرير سَنَد. تفاصيل المنهج تبقى داخل الغرفة."}</p>
-    <button type="button" class="sheet-x" onclick="closeSheet()">إغلاق</button>`);
+    <button type="button" class="sheet-x" onclick="closeSheet()">${closeLbl()}</button>`);
 }
 
 let POSTS=[];
 function postHTML(i,n,bucket){
   const d=deskFor(i);
   const saved=isSaved(i);
+  const seal=sealMark();
   const media=i.img
-    ? `<div class="post-media"><img src="${safeUrl(i.img)}" alt="" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('seal');this.outerHTML='<div class=\\'seal-mark\\'>سَنَد</div>'"></div>`
-    : `<div class="post-media seal"><div class="seal-mark">سَنَد</div></div>`;
+    ? `<div class="post-media"><img src="${safeUrl(i.img)}" alt="" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('seal');this.outerHTML='<div class=\\'seal-mark\\'>${seal}</div>'"></div>`
+    : `<div class="post-media seal"><div class="seal-mark">${seal}</div></div>`;
   return `<article class="post" style="animation-delay:${Math.min(n*40,360)}ms" data-pi="${n}" data-bucket="${esc(bucket||"feed")}">
     <div class="post-hd">
-      <div class="post-av" style="color:${d.color}">${esc(d.letter)}</div>
+      <div class="post-av" style="color:${d.color}">${esc(letterOf(d))}</div>
       <div class="post-who"><b>${esc(regionOf(d))}</b>
         <span>${esc(i.src||(EN?"source":"مصدر"))}${i.at?" · "+ago(i.at):""}</span></div>
     </div>
     ${media}
     <div class="post-actions">
-      <button type="button" data-act="share" aria-label="مشاركة">↗</button>
-      <button type="button" data-act="source" aria-label="المصدر">⧉</button>
-      <button type="button" data-act="isnad" aria-label="الإسناد">☰</button>
-      <button type="button" data-act="save" class="${saved?"saved":""}" aria-label="حفظ">${saved?"♥":"♡"}</button>
+      <button type="button" data-act="share" aria-label="${EN?"Share":"مشاركة"}">↗</button>
+      <button type="button" data-act="source" aria-label="${EN?"Source":"المصدر"}">⧉</button>
+      <button type="button" data-act="isnad" aria-label="${EN?"Attribution":"الإسناد"}">☰</button>
+      <button type="button" data-act="save" class="${saved?"saved":""}" aria-label="${EN?"Save":"حفظ"}">${saved?"♥":"♡"}</button>
     </div>
     <div class="post-cap"><h2>${esc(hd(i))}</h2></div>
     <div class="post-meta">${badge(i.grade)}${i.score!==undefined?`<span class="badge b-src">${esc(i.score)}/7</span>`:""}${isnadBar(i.isnad,i.grade)}</div>
@@ -677,7 +750,7 @@ function analystCardHTML(compact){
   const av=ANALYST.avatar?RAW+ANALYST.avatar:"";
   return `<div class="analyst" id="${compact?"feedAnalyst":"briefAnalystCard"}">
     <div class="who">
-      ${av?`<img class="av" src="${safeUrl(av)}" alt="" loading="lazy">`:`<div class="av" style="display:grid;place-items:center;font-family:Amiri,serif;font-weight:700;color:var(--gold-l)">م</div>`}
+      ${av?`<img class="av" src="${safeUrl(av)}" alt="" loading="lazy">`:`<div class="av" style="display:grid;place-items:center;font-family:Amiri,serif;font-weight:700;color:var(--gold-l)">${EN?"A":"م"}</div>`}
       <div><b>${esc(nm)}</b><span>${esc(ti)}</span></div>
     </div>
     <div class="tx" id="${compact?"feedAnTx":"briefAnTx"}">${esc(tx)}</div>
@@ -692,20 +765,23 @@ function renderOfficialRail(){
   if(!L.length||deskFilter){ block.style.display="none"; return; }
   block.style.display="block";
   rail.innerHTML=L.slice(0,12).map((x,i)=>`<button type="button" class="off-chip" onclick="openOfficial(${i})">
-    <div class="k">${esc(x.f||"🏛️")} ${EN?"Official":"رسمي"} · ${esc(x.e||x.c||"")}</div>
-    <div class="p">${esc(x.p||"")}</div>
-    <div class="m">${esc(x.t||"")}</div>
+    <div class="k">${esc(x.f||"🏛️")} ${EN?"Official":"رسمي"} · ${esc(agencyOf(x.e)||countryOf(x.c)||"")}</div>
+    <div class="p">${esc(EN?"Official statement — tap for source":(x.p||""))}</div>
+    <div class="m">${esc(enText(x.t, countryOf(x.c)||""))}</div>
   </button>`).join("");
 }
 function openOfficial(i){
   const x=((OFFICIAL&&OFFICIAL.src)||[])[i]; if(!x) return;
+  const body=EN
+    ? (hasAr(x.p)?`<p style="font-size:13px;line-height:1.8;margin:12px 0;color:var(--mut)">Original statement is in Arabic. Open the source for the full text.</p>`:`<p style="font-size:14px;line-height:1.9;margin:12px 0;color:var(--vellum)">${esc(x.p||"")}</p>`)
+    : `<p style="font-size:14px;line-height:1.9;margin:12px 0;color:var(--vellum)">${esc(x.p||"")}</p>`;
   openSheet(`<h3 class="amiri">${EN?"Official":"من المَنبع"}</h3>
-    <div class="row"><b>${EN?"Agency":"الجهة"}</b><span>${esc(x.e||"—")}</span></div>
-    <div class="row"><b>${EN?"Country":"البلد"}</b><span>${esc((x.f||"")+" "+(x.c||""))}</span></div>
-    <p style="font-size:14px;line-height:1.9;margin:12px 0;color:var(--vellum)">${esc(x.p||"")}</p>
-    <div class="row"><b>${EN?"When":"التوقيت"}</b><span>${esc(x.t||"—")}</span></div>
+    <div class="row"><b>${EN?"Agency":"الجهة"}</b><span>${esc(agencyOf(x.e)||"—")}</span></div>
+    <div class="row"><b>${EN?"Country":"البلد"}</b><span>${esc((x.f||"")+" "+(countryOf(x.c)||""))}</span></div>
+    ${body}
+    <div class="row"><b>${EN?"When":"التوقيت"}</b><span>${esc(enText(x.t,"—")||"—")}</span></div>
     ${x.u?`<a class="sheet-x" style="display:block;text-align:center;text-decoration:none;background:var(--gold);color:#1A1206;margin-top:12px" href="${safeUrl(x.u)}" target="_blank" rel="noopener">${EN?"Open source":"افتح المصدر"}</a>`:""}
-    <button type="button" class="sheet-x" onclick="closeSheet()">إغلاق</button>`);
+    <button type="button" class="sheet-x" onclick="closeSheet()">${closeLbl()}</button>`);
 }
 function renderBriefOfficial(){
   const el=document.getElementById("briefOfficial"); if(!el) return;
@@ -714,7 +790,7 @@ function renderBriefOfficial(){
   el.innerHTML=`<div class="team-sec" style="margin-top:8px">${EN?"Official wire":"من المَنبع · بيانات رسمية"}</div>`+
     L.slice(0,8).map((x,i)=>`<button type="button" class="tcard" onclick="openOfficial(${i})">
       <div class="av">${esc(x.f||"🏛")}</div>
-      <div class="b"><b>${esc(x.e||x.c||"رسمي")}</b><div class="role">${esc((x.p||"").slice(0,110))}${(x.p||"").length>110?"…":""}</div></div>
+      <div class="b"><b>${esc(agencyOf(x.e)||countryOf(x.c)||(EN?"Official":"رسمي"))}</b><div class="role">${esc(EN?"Official statement — open source":((x.p||"").slice(0,110)+((x.p||"").length>110?"…":"")))}</div></div>
       <span class="st st-ok">${EN?"Official":"رسمي"}</span>
     </button>`).join("");
 }
@@ -724,7 +800,7 @@ function renderFeed(){
   POSTS=list;
   renderOfficialRail();
   if(!list.length){
-    feed.innerHTML=`<div class="empty">${EN?"No stories in this desk yet.":"لا أخبار في هذا المكتب حاليًا."}<br><button class="sheet-x" style="margin-top:14px" onclick="clearDesk()">عرض الكل</button></div>`;
+    feed.innerHTML=`<div class="empty">${EN?"No stories in this desk yet.":"لا أخبار في هذا المكتب حاليًا."}<br><button class="sheet-x" style="margin-top:14px" onclick="clearDesk()">${EN?"Show all":"عرض الكل"}</button></div>`;
     return;
   }
   let html="";
@@ -737,7 +813,8 @@ function renderFeed(){
 }
 
 function renderBrief(){
-  const lead=allItems()[0];
+  const pool=EN?allItems().filter(i=>i.he&&String(i.he).trim()):allItems();
+  const lead=(pool.length?pool:allItems())[0];
   const ba=document.getElementById("briefAnalyst");
   if(ba) ba.innerHTML=analystCardHTML(false);
   renderBriefOfficial();
@@ -747,15 +824,15 @@ function renderBrief(){
 }
 function renderSaved(){
   const arr=loadSaved();
-  if(!arr.length){savedL.innerHTML=`<div class="empty">${EN?"Nothing saved yet.":"لا محفوظات بعد."}<br><button class="sheet-x" style="margin-top:12px" onclick="setView('live')">إلى الحيّ</button></div>`;return}
+  if(!arr.length){savedL.innerHTML=`<div class="empty">${EN?"Nothing saved yet.":"لا محفوظات بعد."}<br><button class="sheet-x" style="margin-top:12px" onclick="setView('live')">${EN?"Go to Live":"إلى الحيّ"}</button></div>`;return}
   savedL.innerHTML=arr.map((i,n)=>postHTML(i,n,"saved")).join("");
   bindPosts(savedL, arr, "saved");
 }
 function renderTeam(){
   const paused=new Set((CONTROL&&CONTROL.paused_agents)||[]);
   teamDesks.innerHTML=DESKS.map(d=>`<button type="button" class="tcard" onclick="pickDesk('${d.id}')">
-    <div class="av" style="color:${d.color}">${esc(d.letter)}</div>
-    <div class="b"><b>${esc(regionOf(d))}</b><div class="role">${esc(EN?d.en+" · ":"")}${esc(d.blurb)}</div></div>
+    <div class="av" style="color:${d.color}">${esc(letterOf(d))}</div>
+    <div class="b"><b>${esc(regionOf(d))}</b><div class="role">${esc(EN?d.en+" · ":"")}${esc(deskBlurb(d))}</div></div>
     <span class="st st-desk">${esc(EN?d.en:d.name)}</span></button>`).join("");
   const A=(AGENTS&&AGENTS.agents)||[];
   if(!A.length){teamCrew.innerHTML=`<div class="empty">${EN?"Crew status loading…":"تُحمَّل حالات الفريق…"}</div>`;return}
@@ -765,7 +842,7 @@ function renderTeam(){
     const st=paused.has(x.id)?"idle":(x.status||"idle");
     return `<button type="button" class="tcard" onclick="openAgent(${idx})">
       <div class="av">${esc((x.icon||"•").slice(0,2))}</div>
-      <div class="b"><b>${esc(x.name)}</b><div class="role">${esc(teamBlurb(x.id))}</div></div>
+      <div class="b"><b>${esc(teamName(x))}</b><div class="role">${esc(teamBlurb(x.id))}</div></div>
       <span class="st st-${esc(st)}">${paused.has(x.id)?(EN?"away":"صامت"):esc(SLBL[x.status]||x.status)}</span>
     </button>`;
   }).join("");
@@ -774,30 +851,32 @@ let AGENT_CACHE=[];
 function openAgent(idx){
   const x=AGENT_CACHE[idx]; if(!x) return;
   const stMap=EN?{ok:"On duty",skip:"Scheduled",fail:"Unavailable",idle:"Quiet"}:{ok:"على رأس عمله",skip:"في وردية لاحقة",fail:"غير متاح",idle:"صامت"};
-  openSheet(`<h3 class="amiri">${esc(x.icon||"")} ${esc(x.name)}</h3>
+  openSheet(`<h3 class="amiri">${esc(x.icon||"")} ${esc(teamName(x))}</h3>
     <p style="color:var(--mut);line-height:1.85;font-size:13.5px;margin:8px 0 12px">${esc(teamBlurb(x.id))}</p>
     <div class="row"><b>${EN?"Status":"الحالة"}</b><span>${esc(stMap[x.status]||x.status||"—")}</span></div>
     ${x.id==="fahis"||x.id==="mustaqri"||x.id==="manba"?`<button type="button" class="sheet-x" onclick="closeSheet();setView('${x.id==="fahis"?"verify":"brief"}')">${x.id==="fahis"?(EN?"Open Verify":"افتح تحقّق"):(EN?"Open Brief":"إلى النشرة")}</button>`:""}
-    <button type="button" class="sheet-x" onclick="closeSheet()">إغلاق</button>`);
+    <button type="button" class="sheet-x" onclick="closeSheet()">${closeLbl()}</button>`);
 }
 
 async function runVerify(){
   const url=(vUrl.value||"").trim();
   if(!/^https?:\/\//i.test(url)){toast(EN?"Paste a valid link":"الصق رابطًا صالحًا");return}
   vGo.disabled=true; vGo.textContent="…";
-  vOut.innerHTML=`<div class="v-steps"><div class="v-step"><b>الفاحِص</b><p>${EN?"Opening the link…":"يفتح الرابط الآن…"}</p></div></div>`;
+  const fahis=EN?"Al-Fahis":"الفاحِص";
+  vOut.innerHTML=`<div class="v-steps"><div class="v-step"><b>${fahis}</b><p>${EN?"Opening the link…":"يفتح الرابط الآن…"}</p></div></div>`;
   try{
     const r=await fetch("/api/verify",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({url})});
     const j=await r.json();
-    if(!r.ok){vOut.innerHTML=`<div class="v-step"><b>تعذّر</b><p>${esc(j.error||j.message||r.status)}</p></div>`;return}
+    if(!r.ok){vOut.innerHTML=`<div class="v-step"><b>${EN?"Failed":"تعذّر"}</b><p>${esc(j.error||j.message||r.status)}</p></div>`;return}
     const n=j.news||{}, m=j.media||{}, s=j.source||{};
+    const agentLbl=EN?(TEAM_NAME[(j.agent||"").toLowerCase()]||(j.agent==="الفاحِص"||!j.agent?"Al-Fahis":j.agent)): (j.agent||"الفاحِص");
     vOut.innerHTML=`<div class="v-steps">
-      <div class="v-step"><b>المصدر · ${esc(j.agent||"الفاحِص")}</b><p>${esc(s.name||"—")} · ${esc(s.rank||"")} · ${s.live?(EN?"live":"حيّ"):(EN?"unreachable":"غير متاح")}</p></div>
-      <div class="v-step"><b>المتن</b><p>${esc(n.verdict||"قيد التحقق")} — ${esc(n.why||j.claim||"")}</p></div>
-      <div class="v-step"><b>الوسائط</b><p>${esc(m.kind||"none")} · خطر التزييف: ${esc(m.deepfake_risk||"غير مقيّم")}<br>${esc(m.note||"")}</p></div>
-      <div class="v-step"><b>الحاكم · الحكم</b><p>${badge(j.grade||"—")} <span class="badge b-src">${esc(j.cost_tier||j.tier||"")}</span></p></div>
+      <div class="v-step"><b>${EN?"Source":"المصدر"} · ${esc(agentLbl)}</b><p>${esc(s.name||"—")} · ${esc(trRank(s.rank)||"")} · ${s.live?(EN?"live":"حيّ"):(EN?"unreachable":"غير متاح")}</p></div>
+      <div class="v-step"><b>${EN?"Claim":"المتن"}</b><p>${esc(trVerdict(n.verdict)||(EN?"Under review":"قيد التحقق"))}${n.why||j.claim?" — "+esc(enText(n.why||j.claim, EN?"Reviewed by the Sanad desk.":"")):""}</p></div>
+      <div class="v-step"><b>${EN?"Media":"الوسائط"}</b><p>${esc(trKind(m.kind||"none"))} · ${EN?"Deepfake risk":"خطر التزييف"}: ${esc(trRisk(m.deepfake_risk||(EN?"Not assessed":"غير مقيّم")))}<br>${esc(enText(m.note,""))}</p></div>
+      <div class="v-step"><b>${EN?"Al-Hakim · Verdict":"الحاكم · الحكم"}</b><p>${badge(j.grade||"—")} <span class="badge b-src">${esc(j.cost_tier||j.tier||"")}</span></p></div>
     </div>`;
-  }catch(e){vOut.innerHTML=`<div class="v-step"><b>خطأ</b><p>${esc(String(e).slice(0,120))}</p></div>`}
+  }catch(e){vOut.innerHTML=`<div class="v-step"><b>${EN?"Error":"خطأ"}</b><p>${esc(String(e).slice(0,120))}</p></div>`}
   finally{vGo.disabled=false; vGo.textContent=EN?"Check":"افحص"}
 }
 
@@ -851,7 +930,7 @@ function openSearchHit(idx){
     <div class="row"><b>${EN?"From":"من"}</b><span>${esc(h.where||"—")}</span></div>
     <div class="row"><b>${EN?"Source":"المصدر"}</b><span>${esc(h.src||"—")}</span></div>
     ${h.grade?`<div style="margin:10px 0">${badge(h.grade)}</div>`:""}
-    <button type="button" class="sheet-x" onclick="closeSheet()">إغلاق</button>`);
+    <button type="button" class="sheet-x" onclick="closeSheet()">${closeLbl()}</button>`);
 }
 async function runSearch(q){
   const box=document.getElementById("searchRes");
@@ -869,8 +948,10 @@ async function runSearch(q){
   });
   ((OFFICIAL&&OFFICIAL.src)||[]).forEach((x,oi)=>{
     if(matchQ(q, x.p, x.e, x.c)) off.push({
-      kind:"official", title:x.p, src:x.e, where:EN?"Official":"من المَنبع",
-      when:x.t||"", link:x.u||"", oi
+      kind:"official",
+      title:EN?"Official statement":x.p,
+      src:agencyOf(x.e), where:EN?"Official":"من المَنبع",
+      when:enText(x.t,""), link:x.u||"", oi
     });
   });
   // archives: scan newest snaps (cap) for headline matches
@@ -917,7 +998,10 @@ async function loadControl(){
   if(!CONTROL) CONTROL={verify_enabled:true,verify_tab:true,desks_enabled:DESKS.map(d=>d.id),maintenance:""};
   const show=CONTROL.verify_tab!==false && CONTROL.verify_enabled!==false;
   ["navVerifyM","navVerifyD"].forEach(id=>{const el=document.getElementById(id); if(el) el.style.display=show?"":"none"});
-  if(CONTROL.maintenance){maint.style.display="block"; maint.textContent=CONTROL.maintenance} else maint.style.display="none";
+  if(CONTROL.maintenance){
+    const mtxt=enText(CONTROL.maintenance, EN?"Maintenance in progress — please check back shortly.":CONTROL.maintenance);
+    if(mtxt){maint.style.display="block"; maint.textContent=mtxt} else maint.style.display="none";
+  } else maint.style.display="none";
 }
 
 async function load(){
@@ -934,11 +1018,13 @@ async function load(){
     const m=await grab("latest");
     const _kt=new Date(Date.now()+3*36e5).toISOString().slice(0,10);
     const _ky=new Date(Date.now()+3*36e5-864e5).toISOString().slice(0,10);
-    blabel.textContent = m.date===_kt?"نشرةُ اليوم":m.date===_ky?"نشرةُ أمس":"آخرُ نشرة";
-    bdate.textContent=m.date; s.textContent=m.script||"";
+    blabel.textContent = m.date===_kt?(EN?"Today’s bulletin":"نشرةُ اليوم"):m.date===_ky?(EN?"Yesterday’s bulletin":"نشرةُ أمس"):(EN?"Latest bulletin":"آخرُ نشرة");
+    bdate.textContent=m.date;
+    if(EN && hasAr(m.script)) s.textContent="Bulletin script is available in Arabic. Switch language to read it.";
+    else s.textContent=m.script||"";
     if(m.video_date===m.date && m.video){v.src=RAW+m.video+"?t="+Date.now();v.style.display="block";plr.style.display="none"}
     else if(m.audio){a.src=RAW+m.audio+"?t="+Date.now();plr.style.display="flex"}
-  }catch(e){bdate.textContent="قيد التجهيز"}
+  }catch(e){bdate.textContent=EN?"Preparing…":"قيد التجهيز"}
   try{ AGENTS=await grab("agents"); if(VIEW==="team") renderTeam();
     const a=AGENTS; if(a&&a.healthy!=null && !deskFilter){
       const mago=Math.max(0,Math.round((Date.now()-new Date(a.updated))/60000));
@@ -949,8 +1035,11 @@ async function load(){
 
 (function player(){
   const A=()=>document.getElementById("a");
-  const two=n=>String(Math.floor(n)).padStart(2,"0").replace(/[0-9]/g,d=>"٠١٢٣٤٥٦٧٨٩"[d]);
-  const fmt=s=>isNaN(s)?"٠٠:٠٠":two(s/60)+":"+two(s%60);
+  const two=n=>{
+    const s=String(Math.floor(n)).padStart(2,"0");
+    return EN?s:s.replace(/[0-9]/g,d=>"٠١٢٣٤٥٦٧٨٩"[d]);
+  };
+  const fmt=s=>isNaN(s)?(EN?"00:00":"٠٠:٠٠"):two(s/60)+":"+two(s%60);
   document.addEventListener("click",e=>{
     if(e.target.closest("#plBtn")){const a=A(); if(!a||!a.src) return; a.paused?a.play():a.pause()}
     const bar=e.target.closest("#plBar");
