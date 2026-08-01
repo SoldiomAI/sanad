@@ -280,6 +280,16 @@ details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--m
 .filter-chip{margin:8px 14px 0;display:none;align-items:center;gap:8px}
 .filter-chip.on{display:flex}
 .filter-chip button{border:1px solid var(--border);background:var(--card);border-radius:20px;padding:6px 12px;font-size:11.5px;cursor:pointer;color:var(--txt);font-family:'Noto Kufi Arabic',sans-serif}
+.search-bar{display:none;padding:8px 14px 10px;border-bottom:1px solid var(--border);background:var(--card);gap:8px;align-items:center}
+.search-bar.on{display:flex}
+.search-bar input{flex:1;border:1px solid var(--border);border-radius:12px;padding:10px 12px;background:var(--ink);color:var(--txt);font:inherit;font-size:14px;min-height:42px}
+.search-bar .x{border:0;background:var(--card2);border-radius:10px;min-width:42px;min-height:42px;cursor:pointer;color:var(--mut);font-size:16px}
+.s-hit{border-bottom:1px solid var(--border);padding:12px 14px;text-align:start;width:100%;background:var(--card);border-inline:0;border-top:0;cursor:pointer;color:inherit;font:inherit}
+.s-hit:active{background:rgba(201,162,39,.08)}
+.s-hit b{display:block;font-size:14px;line-height:1.7;font-weight:600;color:var(--vellum)}
+.s-hit .m{font-size:11px;color:var(--dim);margin-top:4px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.s-sec{padding:10px 14px 4px;font-family:'Noto Kufi Arabic',sans-serif;font-size:11.5px;font-weight:700;color:var(--gold-l)}
+.desk .nm{font-size:10px}
 </style></head>
 
 <body>
@@ -296,6 +306,7 @@ details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--m
       <button type="button" data-view="saved">محفوظ</button>
     </nav>
     <div class="top-actions">
+      <button type="button" class="icon-btn" id="searchBtn" onclick="toggleSearch()" title="بحث" aria-label="بحث">⌕</button>
       <a class="ent-lnk" href="/enterprise" title="المؤسسات">🔐</a>
       <button type="button" class="icon-btn" id="lngBtn" onclick="lngFlip()" title="English / العربية">EN</button>
       <button type="button" class="icon-btn" onclick="thmFlip()" title="الوضع">◐</button>
@@ -305,9 +316,17 @@ details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--m
 </header>
 
 <main class="app">
+  <div class="search-bar" id="searchBar">
+    <input id="qIn" type="search" enterkeyhint="search" placeholder="ابحث في الأخبار والأرشيف…" autocomplete="off" oninput="onSearchInput()">
+    <button type="button" class="x" onclick="toggleSearch(false)" aria-label="إغلاق">✕</button>
+  </div>
   <div class="desk-status" id="deskStatus"></div>
-  <div class="desks" id="desks" aria-label="مكاتب الرصد"></div>
+  <div class="desks" id="desks" aria-label="المناطق"></div>
   <div class="ennote">🌍 International edition — verified Gulf &amp; world news. Switch to <a href="#" onclick="lngFlip();return false">العربية</a> for the full suite.</div>
+
+  <section class="view" id="view-search" data-view="search">
+    <div id="searchRes"><div class="empty">اكتب كلمةً للبحث في أخبار اليوم والأرشيف.</div></div>
+  </section>
 
   <section class="view on" id="view-live" data-view="live">
     <div class="filter-chip" id="filterChip"><button type="button" onclick="clearDesk()">✕ عرض الكل</button><span id="filterLbl" style="font-size:12px;color:var(--mut)"></span></div>
@@ -420,12 +439,13 @@ const SAVE_KEY="sanad_saved_v1";
 const SEEN_KEY="sanad_desk_seen_v1";
 
 const DESKS=[
-  {id:"noura",name:"نورة",en:"Noura",role:"مكتب الخليج",blurb:"تغطي أخبار الخليج لحظة بلحظة.",cat:"الخليج",letter:"ن",color:"#0d5c3f"},
-  {id:"samir",name:"سامر",en:"Samir",role:"مكتب فلسطين",blurb:"يتابع فلسطين وما حولها.",cat:"فلسطين",letter:"س",color:"#9E2B37"},
-  {id:"laith",name:"ليث",en:"Laith",role:"مكتب المشرق",blurb:"يرصد المشرق وما يُترجم عنه.",cat:"إيران",letter:"ل",color:"#C9A227"},
-  {id:"huda",name:"هدى",en:"Huda",role:"مكتب الأمّة",blurb:"تجمع أهم ما يهمّ القارئ العربي من العالم.",cat:"عالم",letter:"ه",color:"#3A66A8"},
-  {id:"hakim",name:"الحاكم",en:"Al-Hakim",role:"حاكم الإسناد",blurb:"يمنح كلَّ خبرٍ حكمَ إسناده الظاهر.",cat:"__grade__",letter:"ح",color:"#8A6F1B"},
+  {id:"noura",name:"نورة",en:"Noura",region:"الخليج",regionEn:"Gulf",role:"مكتب الخليج",blurb:"تغطي أخبار الخليج لحظة بلحظة.",cat:"الخليج",letter:"خ",color:"#0d5c3f"},
+  {id:"samir",name:"سامر",en:"Samir",region:"فلسطين",regionEn:"Palestine",role:"مكتب فلسطين",blurb:"يتابع فلسطين وما حولها.",cat:"فلسطين",letter:"ف",color:"#9E2B37"},
+  {id:"laith",name:"ليث",en:"Laith",region:"المشرق",regionEn:"Mashreq",role:"مكتب المشرق",blurb:"يرصد المشرق وما يُترجم عنه.",cat:"إيران",letter:"م",color:"#C9A227"},
+  {id:"huda",name:"هدى",en:"Huda",region:"العالم",regionEn:"World",role:"مكتب الأمّة",blurb:"تجمع أهم ما يهمّ القارئ العربي من العالم.",cat:"عالم",letter:"ع",color:"#3A66A8"},
+  {id:"hakim",name:"الحاكم",en:"Al-Hakim",region:"مُسنَد",regionEn:"Graded",role:"حاكم الإسناد",blurb:"يمنح كلَّ خبرٍ حكمَ إسناده الظاهر.",cat:"__grade__",letter:"س",color:"#8A6F1B"},
 ];
+function regionOf(d){return EN?(d.regionEn||d.en):(d.region||d.name)}
 /* نبذٌ قصيرة للعامة — بلا أدوات ولا خطوات قابلة للاستنساخ */
 const TEAM_BLURB={
   hurr:{ar:"يجمع موادَّ من مصادر مفتوحة.",en:"Collects open-source items."},
@@ -546,7 +566,7 @@ function renderDesks(){
     const on=deskFilter===d.id;
     return `<button type="button" class="desk ${fresh?"fresh":""} ${on?"on":""}" data-id="${d.id}" onclick="pickDesk('${d.id}')">
       <div class="ring"><div class="av">${esc(d.letter)}</div></div>
-      <span class="nm">${esc(EN?d.en:d.name)}</span>
+      <span class="nm">${esc(regionOf(d))}</span>
     </button>`;
   }).join("");
 }
@@ -555,9 +575,7 @@ function pickDesk(id){
   markSeen(id);
   updateFilterChip();
   const d=DESKS.find(x=>x.id===id);
-  if(d && deskFilter){
-    deskStatus.textContent = EN?`${d.en} · ${d.blurb}`:`${d.name} · ${d.blurb}`;
-  } else deskStatus.textContent="";
+  deskStatus.textContent = (d && deskFilter) ? regionOf(d) : "";
   renderDesks(); renderFeed();
   setView("live");
 }
@@ -570,17 +588,19 @@ function updateFilterChip(){
   if(!deskFilter){ chip.classList.remove("on"); return; }
   const d=DESKS.find(x=>x.id===deskFilter);
   chip.classList.add("on");
-  if(lbl) lbl.textContent=d?(EN?d.en:d.name):"";
+  if(lbl) lbl.textContent=d?regionOf(d):"";
 }
 
 function setView(v){
   VIEW=v;
   document.querySelectorAll(".view").forEach(el=>el.classList.toggle("on",el.dataset.view===v));
   document.querySelectorAll(".bnav button, .desk-nav button").forEach(b=>b.classList.toggle("on",b.dataset.view===v));
+  if(v!=="search") document.getElementById("searchBar").classList.remove("on");
   if(v==="team") renderTeam();
   if(v==="saved") renderSaved();
   if(v==="brief") renderBrief();
   if(v==="live"){ renderOfficialRail(); }
+  if(v==="search"){ document.getElementById("searchBar").classList.add("on"); try{qIn.focus()}catch(e){} }
 }
 document.getElementById("bnav").addEventListener("click",e=>{
   const b=e.target.closest("button[data-view]"); if(b) setView(b.dataset.view);
@@ -620,7 +640,7 @@ function postHTML(i,n,bucket){
   return `<article class="post" style="animation-delay:${Math.min(n*40,360)}ms" data-pi="${n}" data-bucket="${esc(bucket||"feed")}">
     <div class="post-hd">
       <div class="post-av" style="color:${d.color}">${esc(d.letter)}</div>
-      <div class="post-who"><b>${esc(EN?d.en:d.name)} · ${esc(d.role)}</b>
+      <div class="post-who"><b>${esc(regionOf(d))}</b>
         <span>${esc(i.src||(EN?"source":"مصدر"))}${i.at?" · "+ago(i.at):""}</span></div>
     </div>
     ${media}
@@ -735,8 +755,8 @@ function renderTeam(){
   const paused=new Set((CONTROL&&CONTROL.paused_agents)||[]);
   teamDesks.innerHTML=DESKS.map(d=>`<button type="button" class="tcard" onclick="pickDesk('${d.id}')">
     <div class="av" style="color:${d.color}">${esc(d.letter)}</div>
-    <div class="b"><b>${esc(EN?d.en:d.name)}</b><div class="role">${esc(d.blurb)}</div></div>
-    <span class="st st-desk">${EN?"Desk":"مكتب"}</span></button>`).join("");
+    <div class="b"><b>${esc(regionOf(d))}</b><div class="role">${esc(EN?d.en+" · ":"")}${esc(d.blurb)}</div></div>
+    <span class="st st-desk">${esc(EN?d.en:d.name)}</span></button>`).join("");
   const A=(AGENTS&&AGENTS.agents)||[];
   if(!A.length){teamCrew.innerHTML=`<div class="empty">${EN?"Crew status loading…":"تُحمَّل حالات الفريق…"}</div>`;return}
   const SLBL=EN?{ok:"active",skip:"scheduled",fail:"failed",idle:"idle"}:{ok:"نشط",skip:"مجدول",fail:"فشل",idle:"صامت"};
@@ -781,11 +801,108 @@ async function runVerify(){
   finally{vGo.disabled=false; vGo.textContent=EN?"Check":"افحص"}
 }
 
-let BUNDLE=null;
+let BUNDLE=null, ARC_IX=null, ARC_CACHE={}, searchTimer=null, SEARCH_HITS=[];
 async function grab(name){
   if(BUNDLE && BUNDLE[name]) return BUNDLE[name];
   const r=await fetch(RAW+name+".json?t="+Date.now());
   return r.json();
+}
+function toggleSearch(force){
+  const bar=document.getElementById("searchBar");
+  const on = force===false ? false : force===true ? true : !bar.classList.contains("on");
+  if(on){ setView("search"); bar.classList.add("on"); try{qIn.focus()}catch(e){} onSearchInput(); }
+  else { bar.classList.remove("on"); qIn.value=""; if(VIEW==="search") setView("live"); }
+}
+function onSearchInput(){
+  clearTimeout(searchTimer);
+  searchTimer=setTimeout(()=>runSearch(qIn.value.trim()), 220);
+}
+function norm(s){return String(s||"").toLowerCase().replace(/[أإآ]/g,"ا").replace(/ة/g,"ه").replace(/ى/g,"ي")}
+function matchQ(q, ...parts){
+  const n=norm(q); if(n.length<2) return false;
+  return parts.some(p=>norm(p).includes(n));
+}
+async function loadArcIndex(){
+  if(ARC_IX) return ARC_IX;
+  try{
+    if(BUNDLE&&BUNDLE.archive_index) ARC_IX=BUNDLE.archive_index;
+    else ARC_IX=await (await fetch(RAW+"archive/index.json?t="+Date.now())).json();
+  }catch(e){ ARC_IX={snaps:[]} }
+  return ARC_IX;
+}
+async function loadArcSnap(id){
+  if(ARC_CACHE[id]) return ARC_CACHE[id];
+  try{
+    const s=await (await fetch(RAW+"archive/"+id+".json")).json();
+    ARC_CACHE[id]=s; return s;
+  }catch(e){ return null }
+}
+function hitHTML(h, idx){
+  return `<button type="button" class="s-hit" onclick="openSearchHit(${idx})">
+    <b>${esc(h.title)}</b>
+    <div class="m">${h.grade?badge(h.grade):""}<span>${esc(h.where||"")}</span><span>${esc(h.src||"")}</span>${h.when?`<span>${esc(h.when)}</span>`:""}</div>
+  </button>`;
+}
+function openSearchHit(idx){
+  const h=SEARCH_HITS[idx]; if(!h) return;
+  if(h.link && h.link!=="#"){ window.open(safeUrl(h.link),"_blank","noopener"); return; }
+  if(h.kind==="official"){ openOfficial(h.oi); return; }
+  openSheet(`<h3 class="amiri">${esc(h.title)}</h3>
+    <div class="row"><b>${EN?"From":"من"}</b><span>${esc(h.where||"—")}</span></div>
+    <div class="row"><b>${EN?"Source":"المصدر"}</b><span>${esc(h.src||"—")}</span></div>
+    ${h.grade?`<div style="margin:10px 0">${badge(h.grade)}</div>`:""}
+    <button type="button" class="sheet-x" onclick="closeSheet()">إغلاق</button>`);
+}
+async function runSearch(q){
+  const box=document.getElementById("searchRes");
+  if(!q || q.length<2){
+    box.innerHTML=`<div class="empty">${EN?"Type at least 2 characters.":"اكتب حرفين على الأقل — نبحث في أخبار اليوم والأرشيف."}</div>`;
+    return;
+  }
+  box.innerHTML=`<div class="empty">${EN?"Searching…":"جارٍ البحث…"}</div>`;
+  const live=[], off=[], arch=[];
+  allItems().forEach(i=>{
+    if(matchQ(q, i.head, i.he, i.src, i.cat)) live.push({
+      kind:"live", title:hd(i), src:i.src, grade:i.grade, link:i.link,
+      where:regionOf(deskFor(i)), when:ago(i.at)
+    });
+  });
+  ((OFFICIAL&&OFFICIAL.src)||[]).forEach((x,oi)=>{
+    if(matchQ(q, x.p, x.e, x.c)) off.push({
+      kind:"official", title:x.p, src:x.e, where:EN?"Official":"من المَنبع",
+      when:x.t||"", link:x.u||"", oi
+    });
+  });
+  // archives: scan newest snaps (cap) for headline matches
+  try{
+    const ix=await loadArcIndex();
+    const snaps=(ix.snaps||[]).slice().reverse().slice(0,14);
+    await Promise.all(snaps.map(async sn=>{
+      const s=await loadArcSnap(sn.id); if(!s) return;
+      const day=sn.id.slice(0,10);
+      Object.entries(s.cats||{}).forEach(([cat,list])=>(list||[]).forEach(i=>{
+        if(matchQ(q, i.head, i.he, i.src, cat)) arch.push({
+          kind:"archive", title:EN?(i.he||i.head):i.head, src:i.src, grade:i.grade,
+          link:i.link, where:(EN?"Archive":"أرشيف")+" · "+day, when:day
+        });
+      }));
+    }));
+  }catch(e){}
+  // dedupe by title+link
+  const seen=new Set();
+  const uniq=arr=>arr.filter(h=>{
+    const k=(h.link||"")+"|"+norm(h.title).slice(0,80);
+    if(seen.has(k)) return false; seen.add(k); return true;
+  });
+  const L=uniq(live).slice(0,30), O=uniq(off).slice(0,12), A=uniq(arch).slice(0,40);
+  SEARCH_HITS=[...L,...O,...A];
+  let html="";
+  let idx=0;
+  if(L.length){ html+=`<div class="s-sec">${EN?"Today":"اليوم"} · ${L.length}</div>`; L.forEach(h=>{html+=hitHTML(h,idx++);}); }
+  if(O.length){ html+=`<div class="s-sec">${EN?"Official":"رسمي"} · ${O.length}</div>`; O.forEach(h=>{html+=hitHTML(h,idx++);}); }
+  if(A.length){ html+=`<div class="s-sec">${EN?"Archive":"الأرشيف"} · ${A.length}</div>`; A.forEach(h=>{html+=hitHTML(h,idx++);}); }
+  if(!html) html=`<div class="empty">${EN?"No matches.":"لا نتائج مطابقة."}</div>`;
+  box.innerHTML=html;
 }
 async function loadBundle(){
   try{const r=await fetch(RAW+"bundle.json?t="+Math.floor(Date.now()/60000)); if(r.ok) BUNDLE=await r.json(); else BUNDLE=null}
@@ -848,7 +965,13 @@ async function load(){
   },200);
 })();
 
-document.addEventListener("keydown",e=>{if(e.key==="Escape")closeSheet()});
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"){ closeSheet(); if(VIEW==="search") toggleSearch(false); }
+  if((e.key==="/"||(e.key==="k"&&(e.metaKey||e.ctrlKey))) && !/input|textarea/i.test((e.target||{}).tagName||"")){
+    e.preventDefault(); toggleSearch(true);
+  }
+});
+document.getElementById("qIn").addEventListener("keydown",e=>{if(e.key==="Enter"){clearTimeout(searchTimer);runSearch(qIn.value.trim())}});
 load(); setInterval(load,10*60*1000);
 if("serviceWorker" in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("/sw.js").catch(()=>{})});}
 </script>
