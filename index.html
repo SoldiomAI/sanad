@@ -1209,7 +1209,7 @@ function postHTML(i,n,bucket){
       <button type="button" data-act="comments" aria-label="تعليقات">💬</button>
     </div>
     <div class="post-cap"><h2>${esc(hd(i))}</h2>
-      <p class="ig-cap-line"><span class="by">${esc(regionOf(d))}</span> ${EN?`Spotted via ${i.src||"source"}.`:`رصد من ${i.src||"مصدر"}.`}</p>
+      <p class="ig-cap-line"><span class="by">${esc(regionOf(d))}</span> ${EN?`Automated spot via ${i.src||"source"}.`:`رصد آلي من ${i.src||"مصدر"}.`}</p>
     </div>
     <div class="post-meta">${badge(i.grade)}${i.score!==undefined?`<span class="badge b-src">${esc(i.score)}/7</span>`:""}${isnadBar(i.isnad,i.grade)}</div>
     ${commentsHTML(commentsForItem(i), false)}
