@@ -190,7 +190,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .sheet{position:fixed;inset:0;z-index:60;background:rgba(8,11,18,.45);display:none;align-items:flex-end;justify-content:center}
 .sheet.on{display:flex}
 .sheet-c{background:var(--card);border:1px solid var(--border);border-radius:18px 18px 0 0;width:100%;max-width:520px;
-  max-height:78vh;overflow:auto;padding:18px 16px 28px;animation:up .25s ease}
+  max-height:86vh;overflow:auto;padding:18px 16px 28px;animation:up .25s ease}
 @keyframes up{from{transform:translateY(24px)}to{transform:none}}
 .sheet-c h3{font-family:'Amiri',serif;font-size:22px;margin-bottom:8px}
 .sheet-c .row{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px}
@@ -277,6 +277,28 @@ details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--m
 .analyst .tx{font-size:13.5px;line-height:1.9;color:var(--vellum);max-height:7.8em;overflow:hidden;position:relative}
 .analyst .tx.open{max-height:none}
 .analyst .morebtn{margin-top:8px;border:0;background:transparent;color:var(--gold-l);font-weight:700;font-size:12px;cursor:pointer;font-family:'Noto Kufi Arabic',sans-serif}
+.insight{margin:12px 14px;border:1px solid rgba(201,162,39,.35);border-radius:16px;padding:14px;background:linear-gradient(165deg,rgba(201,162,39,.1),var(--card))}
+.insight.evo{border-color:rgba(62,155,114,.35);background:linear-gradient(165deg,rgba(62,155,114,.08),var(--card))}
+.insight .ih{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px}
+.insight .ih b{display:block;font-size:14px;font-family:'Noto Kufi Arabic',sans-serif}
+.insight .ih span{font-size:11px;color:var(--mut);line-height:1.5}
+.insight .chip{font-size:11px;font-weight:700;padding:4px 9px;border-radius:20px;background:rgba(201,162,39,.15);color:var(--gold-l);white-space:nowrap}
+.insight.evo .chip{background:rgba(62,155,114,.14);color:var(--verify-l)}
+.scen{border:1px solid var(--border);border-radius:12px;padding:10px 12px;margin-top:8px;background:var(--card2)}
+.scen .pbar{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.scen .pbar i{flex:1;height:4px;border-radius:4px;background:var(--border);overflow:hidden;display:block}
+.scen .pbar i u{display:block;height:100%;background:var(--gold);border-radius:4px}
+.scen .pct{font-size:12px;font-weight:700;color:var(--gold-l);min-width:2.5em}
+.scen .st{font-size:13px;line-height:1.75;color:var(--vellum)}
+.scen .wh{font-size:11.5px;color:var(--mut);margin-top:4px;line-height:1.6}
+.sig-row{font-size:12px;line-height:1.7;color:var(--mut);padding:6px 0;border-bottom:1px solid var(--border)}
+.sig-row:last-child{border-bottom:0}
+.sig-row a{color:var(--gold-l);text-decoration:none;font-weight:600}
+.agent-post{display:block;width:100%;text-align:start;border:1px solid var(--border);border-radius:12px;padding:10px 12px;margin:8px 0 0;background:var(--card2);color:inherit;font:inherit;cursor:pointer}
+.agent-post:active{transform:scale(.99)}
+.agent-post b{display:block;font-size:13px;line-height:1.7;color:var(--vellum);font-family:'Amiri',serif;font-weight:700}
+.agent-post .m{font-size:11px;color:var(--dim);margin-top:4px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.sheet-sec{font-family:'Noto Kufi Arabic',sans-serif;font-size:12px;font-weight:700;color:var(--gold-l);margin:16px 0 6px}
 .filter-chip{margin:8px 14px 0;display:none;align-items:center;gap:8px}
 .filter-chip.on{display:flex}
 .filter-chip button{border:1px solid var(--border);background:var(--card);border-radius:20px;padding:6px 12px;font-size:11.5px;cursor:pointer;color:var(--txt);font-family:'Noto Kufi Arabic',sans-serif}
@@ -290,6 +312,77 @@ details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--m
 .s-hit .m{font-size:11px;color:var(--dim);margin-top:4px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .s-sec{padding:10px 14px 4px;font-family:'Noto Kufi Arabic',sans-serif;font-size:11.5px;font-weight:700;color:var(--gold-l)}
 .desk .nm{font-size:10px}
+.post-cap .ig-cap-line{font-size:12.5px;line-height:1.75;color:var(--mut);margin-top:6px;font-family:'IBM Plex Sans Arabic',sans-serif}
+.post-cap .ig-cap-line .by{font-weight:700;color:var(--vellum);font-family:'Noto Kufi Arabic',sans-serif;margin-inline-end:4px}
+.post-hd[data-act=profile]{display:flex;align-items:center;gap:10px;padding:12px 14px 8px}
+/* Instagram-style agent profile */
+.prof-top{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--border);background:var(--card);position:sticky;top:0;z-index:5}
+.prof-top .back{border:0;background:transparent;color:var(--vellum);font-size:22px;cursor:pointer;min-width:40px;min-height:40px;line-height:1}
+.prof-top .ttl{flex:1;min-width:0}
+.prof-top .ttl b{display:block;font-size:15px;font-family:'Noto Kufi Arabic',sans-serif}
+.prof-top .ttl span{font-size:11px;color:var(--dim)}
+.prof-hd{padding:16px 14px 12px;background:var(--card)}
+.prof-row{display:flex;gap:16px;align-items:center}
+.prof-av{width:86px;height:86px;border-radius:50%;display:grid;place-items:center;font-family:'Amiri',serif;
+  font-size:34px;font-weight:700;background:linear-gradient(145deg,var(--card2),rgba(201,162,39,.18));
+  border:2px solid rgba(201,162,39,.45);flex:0 0 auto;color:var(--gold-l)}
+.prof-stats{flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;text-align:center}
+.prof-stats b{display:block;font-size:17px;font-family:'Noto Kufi Arabic',sans-serif;color:var(--vellum)}
+.prof-stats span{font-size:10.5px;color:var(--dim)}
+.prof-name{margin-top:12px;font-size:14px;font-weight:700;font-family:'Noto Kufi Arabic',sans-serif}
+.prof-handle{font-size:12px;color:var(--gold-l);margin-top:2px}
+.prof-bio{font-size:13px;line-height:1.8;color:var(--mut);margin-top:8px}
+.prof-note{font-size:12px;line-height:1.7;color:var(--dim);margin-top:6px}
+.auto-pill{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:4px 10px;border-radius:20px;
+  font-size:11px;font-weight:700;font-family:'Noto Kufi Arabic',sans-serif;
+  background:rgba(62,155,114,.12);color:var(--verify-l);border:1px solid rgba(62,155,114,.28)}
+.team-auto{margin:0 0 14px;padding:10px 12px;border-radius:12px;border:1px solid rgba(62,155,114,.28);
+  background:rgba(62,155,114,.07);font-size:12.5px;line-height:1.75;color:var(--mut)}
+.team-auto b{color:var(--verify-l);font-family:'Noto Kufi Arabic',sans-serif}
+.prof-actions{display:flex;gap:8px;margin-top:12px}
+.prof-actions button{flex:1;border:1px solid var(--border);background:var(--card2);border-radius:10px;padding:10px;
+  font-weight:700;font-size:12px;cursor:pointer;color:var(--txt);font-family:'Noto Kufi Arabic',sans-serif}
+.prof-actions button.primary{background:var(--gold);color:#1A1206;border-color:transparent}
+.prof-tabs{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--card)}
+.prof-tabs button{border:0;background:transparent;padding:12px;cursor:pointer;color:var(--dim);font-size:18px;border-bottom:2px solid transparent}
+.prof-tabs button.on{color:var(--vellum);border-bottom-color:var(--gold)}
+.prof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border)}
+.prof-cell{aspect-ratio:1;background:var(--card2);border:0;padding:0;cursor:pointer;position:relative;overflow:hidden;color:inherit}
+.prof-cell:active{opacity:.9}
+.prof-cell img{width:100%;height:100%;object-fit:cover;display:block}
+.prof-cell .ph{width:100%;height:100%;display:grid;place-items:center;background:linear-gradient(160deg,var(--card2),var(--ink-2));
+  font-family:'Amiri',serif;font-size:22px;color:var(--gold);font-weight:700}
+.prof-cell .tag{position:absolute;inset-inline-start:6px;bottom:6px;font-size:9px;font-weight:700;padding:2px 6px;
+  border-radius:4px;background:rgba(8,11,18,.55);color:#fff}
+.prof-feed{padding-bottom:20px}
+.ig-post{border-bottom:1px solid var(--border);background:var(--card);animation:rise .4s ease both}
+.ig-post .ig-hd{display:flex;align-items:center;gap:10px;padding:12px 14px 8px}
+.ig-post .ig-av{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-family:'Amiri',serif;
+  font-weight:700;background:var(--card2);border:1px solid var(--border);flex:0 0 auto;color:var(--gold-l)}
+.ig-post .ig-who b{display:block;font-size:13px}
+.ig-post .ig-who span{font-size:11px;color:var(--dim)}
+.ig-post .ig-media{aspect-ratio:1;background:linear-gradient(160deg,var(--card2),var(--ink-2));overflow:hidden;position:relative}
+.ig-post .ig-media img{width:100%;height:100%;object-fit:cover;display:block}
+.ig-post .ig-media .seal{width:100%;height:100%;display:grid;place-items:center;font-family:'Amiri',serif;font-size:40px;color:var(--gold);opacity:.85}
+.ig-post .ig-media .pct-badge{position:absolute;top:12px;inset-inline-end:12px;background:rgba(8,11,18,.65);color:var(--gold-l);
+  font-weight:700;font-size:13px;padding:6px 10px;border-radius:20px}
+.ig-post .ig-acts{display:flex;gap:4px;padding:6px 8px}
+.ig-post .ig-acts button{flex:1;border:0;background:transparent;color:var(--vellum);min-height:40px;cursor:pointer;font-size:18px;border-radius:10px}
+.ig-post .ig-cap{padding:0 14px 14px;font-size:13.5px;line-height:1.85;color:var(--vellum)}
+.ig-post .ig-cap .by{font-weight:700;font-family:'Noto Kufi Arabic',sans-serif;margin-inline-end:6px}
+.ig-post .ig-cap .more{color:var(--dim);cursor:pointer;border:0;background:transparent;font:inherit;padding:0}
+.ig-post .ig-meta{padding:0 14px 12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+body.prof-mode .desks,body.prof-mode .desk-status,body.prof-mode .ennote,body.prof-mode .search-bar{display:none!important}
+.ig-comments{padding:0 14px 14px}
+.ig-comments .c-h{font-size:11.5px;font-weight:700;color:var(--gold-l);font-family:'Noto Kufi Arabic',sans-serif;margin-bottom:8px}
+.ig-cmt{display:flex;gap:8px;align-items:flex-start;padding:6px 0;border-top:1px solid var(--border)}
+.ig-cmt .c-av{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:13px;background:var(--card2);border:1px solid var(--border);flex:0 0 auto;cursor:pointer}
+.ig-cmt .c-b{flex:1;min-width:0;font-size:12.5px;line-height:1.7;color:var(--vellum)}
+.ig-cmt .c-b .by{font-weight:700;font-family:'Noto Kufi Arabic',sans-serif;cursor:pointer;margin-inline-end:4px}
+.ig-cmt .c-b .when{display:block;font-size:10.5px;color:var(--dim);margin-top:2px}
+.post .ig-comments{padding:0 14px 12px;background:var(--card)}
+.cmt-toggle{border:0;background:transparent;color:var(--mut);font-size:12px;font-weight:700;cursor:pointer;padding:4px 14px 10px;font-family:'Noto Kufi Arabic',sans-serif}
+.cmt-toggle:hover{color:var(--gold-l)}
 </style></head>
 
 <body>
@@ -334,6 +427,7 @@ details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--m
       <div class="rail-h"><span>من المَنبع · رسمي</span><button type="button" onclick="setView('brief')">المزيد</button></div>
       <div class="off-rail" id="offRail"></div>
     </div>
+    <div id="insightLive"></div>
     <div id="feed">
       <div class="sk media"></div><div class="sk" style="width:70%"></div><div class="sk" style="width:40%"></div>
       <div class="sk media" style="margin-top:16px"></div><div class="sk" style="width:60%"></div>
@@ -359,6 +453,7 @@ details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--m
         <button type="button" class="sheet-x" style="margin-top:10px" onclick="document.getElementById('s').style.display=document.getElementById('s').style.display==='block'?'none':'block'">📜 نص النشرة</button>
         <div class="script" id="s"></div>
       </div>
+      <div id="briefInsight"></div>
       <div id="briefAnalyst"></div>
       <div id="briefOfficial"></div>
       <div id="briefHero"></div>
@@ -389,7 +484,8 @@ details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--m
   <section class="view" id="view-team" data-view="team">
     <div class="panel">
       <h2 class="amiri gold">الفريق</h2>
-      <p class="lead">أسماءٌ وأدوارٌ قصيرة — بلا كشفٍ لطريقة العمل.</p>
+      <p class="lead" id="teamLead">وكلاء يعملون آليًّا — منشوراتهم ودُوراتهم بلا تدخّل يدوي.</p>
+      <div class="team-auto" id="teamAuto"><b>آلي بالكامل</b> — الرصد، الإسناد، الاستقراء، التعلّم، التعليقات، والمنشورات تُحدَّث من خط الإنتاج.</div>
       <div class="team-sec">مكاتب الرصد</div>
       <div id="teamDesks"></div>
       <div class="team-sec">فريق التحرير</div>
@@ -403,6 +499,10 @@ details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--m
       <p class="lead">أخبارك المحفوظة على هذا الجهاز فقط.</p>
       <div id="savedL"></div>
     </div>
+  </section>
+
+  <section class="view" id="view-profile" data-view="profile">
+    <div id="profRoot"></div>
   </section>
 
   <div class="foot-mini">سَنَد · SOLDIOM · الكويت<br><a href="/admin" style="color:var(--dim)">لوحة التشغيل</a></div>
@@ -461,10 +561,10 @@ const TEAM_BLURB={
   shahid:{ar:"يرصد إشاراتٍ ميدانية مفتوحة.",en:"Notes open field signals."},
   mustaqsi:{ar:"يتابع البيانات العسكرية الرسمية.",en:"Follows official military releases."},
   turjuman:{ar:"ينقل عن الفارسية بأمانة.",en:"Translates from Persian faithfully."},
-  mudaqqiq:{ar:"يمنع ما لا يصلح للنشر.",en:"Stops what should not publish."},
-  musannif:{ar:"يحسّن فرز المواد مع الوقت.",en:"Improves sorting over time."},
-  mustaqri:{ar:"يقرأ المشهد ويقدّم خلاصة.",en:"Reads the scene and briefs you."},
-  murtajil:{ar:"يصوغ قراءة الساعة صوتًا.",en:"Delivers the hour’s reading aloud."},
+  mudaqqiq:{ar:"يراجع الحصيلة ويتعلّم مع المُصنِّف.",en:"Reviews the batch; evolves filters with Al-Musannif."},
+  musannif:{ar:"يتعلّم من كل دورة ويُحسّن الفرز.",en:"Learns each cycle and improves sorting."},
+  mustaqri:{ar:"يستقرئ ما بعد الخبر ويراجع توقعاته.",en:"Forecasts what follows the news and scores past calls."},
+  murtajil:{ar:"يصوغ قراءة المستقرئ صوتًا.",en:"Voices Al-Mustaqri’s reading aloud."},
   mudawwin:{ar:"يكتب عمود اليوم.",en:"Writes today’s column."},
   rawi:{ar:"يؤدّي النشرة اليومية.",en:"Hosts the daily bulletin."},
 };
@@ -473,6 +573,8 @@ function teamBlurb(id, fallback){
   if(b) return EN?b.en:b.ar;
   return EN?"Member of the Sanad desk.":(fallback&&fallback.length<48?fallback:"عضو في فريق سَنَد.");
 }
+function hasAr(s){return /[\u0600-\u06FF]/.test(String(s||""))}
+function enText(s, fallback){ if(!EN) return s||""; if(!s) return fallback||""; return hasAr(s)?(fallback||""):s }
 
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
 function safeUrl(u){u=String(u==null?"":u).trim();return /^https?:\/\//i.test(u)?u.replace(/"/g,"%22"):"#"}
@@ -515,7 +617,456 @@ function toast(msg){
 function openSheet(html){sheetC.innerHTML=html; sheet.classList.add("on"); document.body.style.overflow="hidden"}
 function closeSheet(){sheet.classList.remove("on"); document.body.style.overflow=""}
 
-let DATA=null, AGENTS=null, CONTROL=null, OFFICIAL=null, ANALYST=null, deskFilter=null, VIEW="live";
+let DATA=null, AGENTS=null, CONTROL=null, OFFICIAL=null, ANALYST=null, FORECAST=null, EVOLUTION=null, TENSION=null, COMMENTS=null, APOSTS=null, deskFilter=null, VIEW="live";
+let AGENT_POSTS=[];
+let PROFILE=null; /* {kind:'agent'|'desk', id, tab:'grid'|'feed'} */
+
+/* Agent cross-comments: templates only — never call paid APIs from the client */
+const CMT_LINES={
+  mustaqri:[["أضع هذا في سيناريو اليوم وأراقب المؤشّر.","Parking this in today’s scenario — watching the indicator."],["يتوافق مع الإشارة الأرجح في الاستقراء.","Lines up with the leading forecast signal."]],
+  murtajil:[["سأنسُجه في قراءة الساعة إن بقي في المقدّمة.","I’ll weave this into the hour’s reading if it stays on top."]],
+  mudaqqiq:[["مرّ على المراجعة — الدرجة ظاهرة للقارئ.","Reviewed — the grade is visible to the reader."],["أبقيته لأنّ إسناده يحتمل العرض.","Kept it: the chain can stand public view."]],
+  musannif:[["تعلّمنا من دورة اليوم: فرزٌ أدقّ لمثل هذا.","Learned this cycle: sharper sorting for items like this."]],
+  rasid:[["التقطتُه حيًّا — المصدر يتحدّث الآن.","Caught it live — the source is speaking now."]],
+  hurr:[["من مصدرٍ مفتوحٍ ظاهر — بلا مفاتيح.","From an open visible source — no keys needed."]],
+  manba:[["إن وُجد بيانٌ رسميّ سأرفقه من المَنبع.","If an official release lands, I’ll attach it from the wire."]],
+  miqyas:[["يرفع حرارة الخريطة في هذا المحور.","Raises the heat map on this axis."]],
+  turjuman:[["نقلٌ أمين عن الفارسية إن لزم.","Faithful from Persian where needed."]],
+  fahis:[["الرابط حيّ — يمكن فحصه من تحقّق.","Link is live — Verify can open it."]],
+  rawi:[["إن ثبت في المقدّمة يدخل النشرة.","If it holds the lead, it enters the bulletin."]],
+  mudawwin:[["قد يفتح باب العمود إن اتّسق مع الفكرة الناظمة.","May open the column if it fits the through-line."]],
+  multaqit:[["أفرّق بين ادّعاءٍ متداولٍ وخبرٍ مُسنَد.","Separating a circulating claim from a graded story."]],
+  shahid:[["إشارةٌ ميدانية مفتوحة — بلا تهويل.","An open field signal — no hype."]],
+  mutabiq:[["الأرقام تُراجع قبل أن تُعرض.","Figures get checked before display."]],
+  munabbih:[["إن تحوّل إلى تحذيرٍ للمواطن سأرفعه.","If it becomes a public warning, I’ll surface it."]],
+  mukharrij:[["أرجع الادّعاء إلى أصله إن لزم.","Tracing the claim to its origin if needed."]],
+  munaqqih:[["أُبقي الملفّ نظيفًا من التكرار.","Keeping the file clear of duplicates."]],
+  mustaqsi:[["لا أنشر رقمًا عسكريًّا غير مُتحقَّق.","No unverified military figures."]],
+};
+function kwDay(){return new Date(Date.now()+3*36e5).toISOString().slice(0,10)}
+function cmtHash(s){let h=2166136261; const t=String(s||""); for(let i=0;i<t.length;i++){h^=t.charCodeAt(i); h=Math.imul(h,16777619)} return h>>>0}
+function postPid(it){
+  const raw=(it&&(it.link||it.head||it.title||it.s||""))+"";
+  return cmtHash(raw).toString(16).padStart(8,"0");
+}
+function agentMeta(id){
+  const a=((AGENTS&&AGENTS.agents)||[]).find(x=>x.id===id);
+  if(a) return {id,name:a.name,icon:(a.icon||"•").slice(0,2)};
+  return {id,name:id,icon:"•"};
+}
+function commentsForKey(key, extraSeed){
+  const day=kwDay();
+  const threads=(COMMENTS&&COMMENTS.threads)||[];
+  if(threads.length){
+    const hit=threads.find(t=>t.pid===key || t.link && key && (t.link===key) ||
+      (extraSeed && (t.head===extraSeed || t.he===extraSeed)));
+    if(hit) return (hit.comments||[]).map(c=>({...c, text:EN?(c.text_en||c.text):c.text}));
+  }
+  /* local fallback — same day seed, templates only, $0 */
+  const h=cmtHash(day+"|"+key+"|"+(extraSeed||""));
+  const roster=Object.keys(CMT_LINES);
+  const n=2+(h%2); const out=[];
+  for(let k=0,j=0;j<n && k<roster.length*3;k++){
+    const aid=roster[(h+k*7)%roster.length];
+    if(out.some(c=>c.by===aid)) continue;
+    const lines=CMT_LINES[aid]; const [ar,en]=lines[(h>>(j*3))%lines.length];
+    const m=agentMeta(aid);
+    out.push({by:aid,name:m.name,icon:m.icon,text:EN?en:ar,at:day});
+    j++;
+  }
+  return out;
+}
+function commentsForItem(it){
+  if(!it) return [];
+  const threads=(COMMENTS&&COMMENTS.threads)||[];
+  if(threads.length){
+    const hit=threads.find(t=>(it.link&&t.link&&t.link===it.link) || (it.head&&t.head===it.head) || (it.title&&t.head===it.title) || (it.s&&t.head===it.s));
+    if(hit) return (hit.comments||[]).map(c=>({...c, text:EN?(c.text_en||c.text):c.text}));
+  }
+  return commentsForKey(postPid(it), it.head||it.title||it.s||"");
+}
+function commentsHTML(list, open){
+  if(!list||!list.length) return "";
+  const body=list.map(c=>`<div class="ig-cmt">
+    <button type="button" class="c-av" onclick="openProfile('agent','${esc(c.by)}')" aria-label="${esc(c.name)}">${esc((c.icon||"•").slice(0,2))}</button>
+    <div class="c-b"><span class="by" onclick="openProfile('agent','${esc(c.by)}')">${esc(c.name||c.by)}</span>${esc(c.text||"")}
+      <span class="when">${EN?"once today · free desk chat":"مرّة اليوم · حوار الغرفة مجّانًا"}</span></div>
+  </div>`).join("");
+  if(open) return `<div class="ig-comments"><div class="c-h">${EN?"Desk comments":"تعليقات الغرفة"} · ${list.length}</div>${body}</div>`;
+  return `<button type="button" class="cmt-toggle" data-act="comments">${EN?`View ${list.length} comments`:`عرض ${list.length} تعليقات`}</button>
+    <div class="ig-comments" hidden><div class="c-h">${EN?"Desk comments":"تعليقات الغرفة"} · ${list.length}</div>${body}</div>`;
+}
+
+function trReview(r){
+  if(!EN) return r||"";
+  return({وقع:"Hit","لم يقع":"Miss",جزئي:"Partial",جزئيًا:"Partial"})[r]||r||"";
+}
+function trWeight(w){
+  if(!EN) return w||"";
+  return({عالٍ:"High",عالي:"High",متوسط:"Medium",منخفض:"Low"})[w]||w||"";
+}
+function trLevel(l){
+  if(!EN) return l||"";
+  return({حرج:"Critical",مرتفع:"Elevated","مترقّب":"Watch",هادئ:"Calm",منخفض:"Low"})[l]||l||"";
+}
+function softLesson(s){
+  const t=String(s||"");
+  if(!t) return "";
+  /* keep outcome, drop cloneable filter/route language */
+  if(EN) return "Learned from this cycle: cleaner intake and better routing of desk coverage.";
+  return "درس من هذه الدورة: فرزٌ أنظف وتوجيهٌ أفضل بين المكاتب.";
+}
+function forecastAccChip(){
+  const sc=FORECAST&&FORECAST.score; if(!sc||sc.n==null) return "";
+  const acc=sc.acc!=null?sc.acc:Math.round(100*(sc.hit||0)/Math.max(1,sc.n));
+  return EN?`Self-score ${acc}% · ${sc.n} calls`:`دقة ذاتية ${acc}% · ${sc.n} توقّع`;
+}
+function insightHTML(compact){
+  const bits=[];
+  if(FORECAST&&(FORECAST.scenarios||[]).length){
+    const sc=FORECAST.scenarios.slice().sort((a,b)=>(b.p||0)-(a.p||0));
+    const top=sc[0];
+    const acc=forecastAccChip();
+    const hz=EN?"Next 12 hours":(FORECAST.horizon||"الـ12 ساعة القادمة");
+    bits.push(`<div class="insight" id="${compact?"liveFc":"briefFc"}">
+      <div class="ih"><div><b>${EN?"Al-Mustaqri · Forecast":"المُستقرِئ · استقراء"}</b><span>${esc(hz)}${FORECAST.caveat?" · "+esc(EN?"Probabilistic — not certainty":"احتمالي لا يقين"):""}</span></div>
+        ${acc?`<span class="chip">${esc(acc)}</span>`:""}</div>
+      <div class="scen"><div class="pbar"><span class="pct">${esc(top.p||0)}%</span><i><u style="width:${Math.min(100,top.p||0)}%"></u></i></div>
+        <div class="st">${esc(top.s||"")}</div>
+        ${top.watch?`<div class="wh">${EN?"Watch":"راقب"}: ${esc(top.watch)}</div>`:""}</div>
+      ${sc.length>1?`<button type="button" class="morebtn" onclick="openForecastSheet()">${EN?"All scenarios & scorecard":"كل السيناريوهات ومراجعة التوقعات"}</button>`:""}
+    </div>`);
+  }
+  const runs=(EVOLUTION&&EVOLUTION.runs)||[];
+  if(runs.length){
+    const last=runs[runs.length-1];
+    const lesson=softLesson(((EVOLUTION.lessons)||[])[0]);
+    bits.push(`<div class="insight evo" id="${compact?"liveEvo":"briefEvo"}">
+      <div class="ih"><div><b>${EN?"Al-Musannif · Self-learning":"المُصنِّف · تعلّم ذاتي"}</b><span>${EN?"Evolves each cycle with Al-Mudaqqiq":"يتطوّر كل دورة مع المدقّق"}</span></div>
+        <span class="chip">v${esc(last.v||"—")}</span></div>
+      <div style="font-size:13px;line-height:1.8;color:var(--vellum)">${EN
+        ?`Checked ${last.checked||0} · removed ${last.removed||0} · downgraded ${last.downgraded||0} · ${last.rules||0} patterns`
+        :`راجع ${last.checked||0} · استبعد ${last.removed||0} · خفّض ${last.downgraded||0} · ${last.rules||0} نمط`}</div>
+      ${lesson?`<div class="wh" style="margin-top:8px">${esc(lesson)}</div>`:""}
+      <button type="button" class="morebtn" onclick="openEvolutionSheet()">${EN?"Learning history":"سجلّ التعلّم"}</button>
+    </div>`);
+  }
+  return bits.join("");
+}
+function renderInsight(){
+  const live=document.getElementById("insightLive");
+  if(live) live.innerHTML=deskFilter?"":insightHTML(true);
+  const br=document.getElementById("briefInsight");
+  if(br) br.innerHTML=insightHTML(false);
+}
+function openForecastSheet(){
+  if(!FORECAST) return;
+  const sc=(FORECAST.scenarios||[]).slice().sort((a,b)=>(b.p||0)-(a.p||0));
+  const sigs=(FORECAST.signals||[]).slice(0,6);
+  const rev=(FORECAST.review||[]).slice(0,6);
+  const acc=forecastAccChip();
+  let html=`<h3 class="amiri">${EN?"Forecast":"الاستقراء"}</h3>
+    <p style="color:var(--mut);font-size:13px;line-height:1.8;margin-bottom:8px">${esc(EN?"What may follow today’s verified news — scored against prior calls.":"ما قد يلي أخبارَ اليوم المُسنَدة — يُراجَع على ضوء التوقعات السابقة.")}</p>
+    ${acc?`<div class="row"><b>${EN?"Self-score":"الدقة الذاتية"}</b><span>${esc(acc)}</span></div>`:""}
+    <div class="sheet-sec">${EN?"Scenarios":"السيناريوهات"}</div>`+
+    sc.map(s=>`<div class="scen"><div class="pbar"><span class="pct">${esc(s.p||0)}%</span><i><u style="width:${Math.min(100,s.p||0)}%"></u></i></div>
+      <div class="st">${esc(s.s||"")}</div>
+      ${s.why?`<div class="wh">${esc(s.why)}</div>`:""}
+      ${s.watch?`<div class="wh">${EN?"Watch":"راقب"}: ${esc(s.watch)}</div>`:""}</div>`).join("");
+  if(sigs.length){
+    html+=`<div class="sheet-sec">${EN?"Signals from the news":"إشارات من الأخبار"}</div>`+
+      sigs.map(g=>`<div class="sig-row"><b style="color:var(--vellum)">${esc(g.q||"")}</b><br>${esc(g.who||"")} · ${esc(trWeight(g.w))}
+        ${g.u?` · <a href="${safeUrl(g.u)}" target="_blank" rel="noopener">${EN?"source":"مصدر"}</a>`:""}</div>`).join("");
+  }
+  if(rev.length){
+    html+=`<div class="sheet-sec">${EN?"Scorecard (prior calls)":"مراجعة التوقعات السابقة"}</div>`+
+      rev.map(r=>`<div class="sig-row"><b style="color:var(--vellum)">${esc(r.s||"")}</b><br>${esc(trReview(r.r))}${r.note?" — "+esc(r.note):""}</div>`).join("");
+  }
+  if(FORECAST.caveat) html+=`<p style="font-size:12px;color:var(--dim);line-height:1.7;margin-top:12px">${esc(FORECAST.caveat)}</p>`;
+  html+=`<button type="button" class="sheet-x" onclick="closeSheet()">${EN?"Close":"إغلاق"}</button>`;
+  openSheet(html);
+}
+function openEvolutionSheet(){
+  const runs=((EVOLUTION&&EVOLUTION.runs)||[]).slice().reverse().slice(0,8);
+  if(!runs.length) return;
+  let html=`<h3 class="amiri">${EN?"Self-learning":"التعلّم الذاتي"}</h3>
+    <p style="color:var(--mut);font-size:13px;line-height:1.8;margin-bottom:8px">${esc(EN?"Al-Musannif and Al-Mudaqqiq evolve the desk each cycle. Method details stay private — outcomes are public.":"المُصنِّف والمدقّق يطوّران الغرفة كل دورة. تفاصيل المنهج داخل الغرفة — النتائج للعامة.")}</p>
+    <div class="sheet-sec">${EN?"Recent cycles":"آخر الدورات"}</div>`+
+    runs.map(r=>`<div class="scen">
+      <div class="st">v${esc(r.v||"—")} · ${esc(ago(r.t)||(r.t||"").slice(0,16))}</div>
+      <div class="wh">${EN
+        ?`Checked ${r.checked||0} · removed ${r.removed||0} · downgraded ${r.downgraded||0} · ${r.rules||0} patterns`
+        :`راجع ${r.checked||0} · استبعد ${r.removed||0} · خفّض ${r.downgraded||0} · ${r.rules||0} نمط`}</div>
+    </div>`).join("");
+  const lessons=((EVOLUTION&&EVOLUTION.lessons)||[]).slice(0,3).map(softLesson).filter(Boolean);
+  if(lessons.length){
+    html+=`<div class="sheet-sec">${EN?"What changed":"ماذا تغيّر"}</div>`+
+      lessons.map(l=>`<div class="sig-row">${esc(l)}</div>`).join("");
+  }
+  html+=`<button type="button" class="sheet-x" onclick="closeSheet()">${EN?"Close":"إغلاق"}</button>`;
+  openSheet(html);
+}
+function profilePerson(kind,id){
+  if(kind==="desk"){
+    const d=DESKS.find(x=>x.id===id); if(!d) return null;
+    return {kind:"desk",id,name:regionOf(d),handle:"@"+(EN?(d.en||d.id).toLowerCase().replace(/\s+/g,"_"):d.id),
+      icon:d.letter,color:d.color,bio:d.blurb,raw:d};
+  }
+  const a=((AGENTS&&AGENTS.agents)||[]).find(x=>x.id===id) || {id,name:id,icon:"•",status:"idle"};
+  return {kind:"agent",id,name:a.name,handle:"@"+id,icon:(a.icon||"•").slice(0,2),color:"",bio:teamBlurb(id),
+    note:a.note||"",status:a.status||"idle",at:a.at,ran:a.ran,raw:a};
+}
+function newsAsPosts(items, who){
+  return items.map(i=>({
+    kind:"news", title:hd(i), img:i.img||"", link:i.link||"", src:i.src||"", grade:i.grade, score:i.score,
+    isnad:i.isnad, at:i.at, item:i, auto:true,
+    caption: EN
+      ? `${who} · Automated spot via ${i.src||"source"}. ${hd(i)}`
+      : `${who} · رصد آلي من ${i.src||"مصدر"}. ${hd(i)}`
+  }));
+}
+function packToPosts(pack){
+  if(!pack||!(pack.posts||[]).length) return null;
+  return pack.posts.map(p=>{
+    const title=EN?(p.title_en||p.title||""):(p.title||"");
+    const caption=EN?(p.caption_en||p.caption||""):(p.caption||"");
+    const item=p.kind==="news"?{
+      head:p.head||p.title, he:p.he||p.title_en, link:p.link, src:p.src, grade:p.grade,
+      score:p.score, isnad:p.isnad, img:p.img, at:p.at, fa:p.fa
+    }:null;
+    return {...p, title, caption, item:item||p.item, auto:true};
+  });
+}
+function buildProfilePosts(kind, id){
+  /* Prefer pipeline-published automated posts */
+  if(APOSTS){
+    const pack=kind==="desk"?(APOSTS.desks||{})[id]:(APOSTS.agents||{})[id];
+    const ready=packToPosts(pack);
+    if(ready&&ready.length) return ready;
+  }
+  const who=(profilePerson(kind,id)||{}).name||id;
+  if(kind==="desk"){
+    const prev=deskFilter; deskFilter=id;
+    const list=filtered().slice(0,24);
+    deskFilter=prev;
+    return newsAsPosts(list, who);
+  }
+  if(id==="manba"){
+    return ((OFFICIAL&&OFFICIAL.src)||[]).slice(0,24).map((x,i)=>({
+      kind:"official", oi:i, title:x.p||x.e||"", img:"", link:x.u||"", src:x.e||"", at:x.cap||"",
+      caption: EN
+        ? `${who} · Official wire — ${x.e||x.c||"agency"}. ${x.p||""}`
+        : `${who} · من المَنبع — ${x.e||x.c||"جهة"}. ${x.p||""}`
+    }));
+  }
+  if(id==="mustaqri"||id==="murtajil"){
+    const sc=((FORECAST&&FORECAST.scenarios)||[]).slice().sort((a,b)=>(b.p||0)-(a.p||0));
+    const sigs=((FORECAST&&FORECAST.signals)||[]).slice(0,8);
+    const out=sc.map(s=>({
+      kind:"scenario", title:s.s||"", pct:s.p||0, img:"", link:"",
+      caption: EN
+        ? `${who} · Forecast ${s.p||0}% — ${s.s||""}${s.watch?" · Watch: "+s.watch:""}`
+        : `${who} · استقراء ${s.p||0}% — ${s.s||""}${s.watch?" · راقب: "+s.watch:""}`,
+      why:s.why||"", watch:s.watch||""
+    }));
+    sigs.forEach(g=>out.push({
+      kind:"signal", title:g.q||"", img:"", link:g.u||"", src:g.who||"",
+      caption: EN
+        ? `${who} · Signal (${trWeight(g.w)}) — ${g.q||""} · ${g.who||""}`
+        : `${who} · إشارة (${g.w||""}) — ${g.q||""} · ${g.who||""}`
+    }));
+    return out;
+  }
+  if(id==="musannif"||id==="mudaqqiq"){
+    const runs=((EVOLUTION&&EVOLUTION.runs)||[]).slice().reverse().slice(0,12);
+    return runs.map(r=>({
+      kind:"evo", title:`v${r.v||"—"}`, img:"", link:"", at:r.t,
+      caption: EN
+        ? `${who} · Cycle v${r.v||"—"}: checked ${r.checked||0}, removed ${r.removed||0}, downgraded ${r.downgraded||0}. The desk got sharper.`
+        : `${who} · دورة v${r.v||"—"}: راجع ${r.checked||0}، استبعد ${r.removed||0}، خفّض ${r.downgraded||0}. الغرفة أصبحت أحدّ.`
+    }));
+  }
+  if(id==="miqyas"){
+    return [...((TENSION&&TENSION.countries)||[])].sort((a,b)=>(b.score||0)-(a.score||0)).slice(0,12).map(c=>({
+      kind:"tension", title:EN?(c.en||c.name):c.name, pct:c.score, img:"", link:"",
+      caption: EN
+        ? `${who} · ${c.en||c.name} at ${c.score} (${trLevel(c.level)})${c.delta?` · ${c.delta>0?"+":""}${c.delta}`:""}`
+        : `${who} · ${c.name} عند ${c.score} (${c.level||""})${c.delta?` · ${c.delta>0?"+":""}${c.delta}`:""}`
+    }));
+  }
+  if(id==="rawi"||id==="mudawwin"){
+    const tx=ANALYST&&(EN&&ANALYST.text_en?ANALYST.text_en:ANALYST.text);
+    if(tx) return [{
+      kind:"brief", title:EN?"Hour’s reading":"قراءة الساعة", img:ANALYST.avatar?RAW+ANALYST.avatar:"", link:"",
+      caption: `${who} · ${tx.slice(0,280)}${tx.length>280?"…":""}`
+    }];
+    return [];
+  }
+  if(id==="fahis"){
+    return [{
+      kind:"action", title:EN?"Verify a link":"افحص رابطًا", img:"", link:"",
+      caption: EN
+        ? `${who} · Paste a news, image, or video link — clear verdict, no tools exposed.`
+        : `${who} · الصق رابط خبر أو صورة أو فيديو — حكم واضح بلا كشف للأدوات.`
+    }];
+  }
+  if(id==="turjuman") return newsAsPosts(allItems().filter(i=>i.fa).slice(0,24), who);
+  if(id==="mudaqqiq") return newsAsPosts(allItems().filter(i=>i.grade&&i.isnad).slice(0,24), who);
+  return newsAsPosts(allItems().slice(0,24), who);
+}
+function openProfile(kind, id, tab){
+  PROFILE={kind,id,tab:tab||"grid"};
+  closeSheet();
+  setView("profile");
+  renderProfile();
+  try{window.scrollTo({top:0,behavior:"smooth"})}catch(e){window.scrollTo(0,0)}
+}
+function closeProfile(){
+  PROFILE=null;
+  setView("team");
+}
+function setProfileTab(tab){
+  if(!PROFILE) return;
+  PROFILE.tab=tab;
+  renderProfile();
+}
+function profileMedia(p){
+  if(p.img) return `<img src="${safeUrl(p.img)}" alt="" loading="lazy" decoding="async" onerror="this.parentElement.innerHTML='<div class=\'ph\'>سَنَد</div>'">`;
+  if(p.kind==="scenario"||p.kind==="tension") return `<div class="ph">${esc(p.pct!=null?p.pct+"%":"◈")}</div>`;
+  if(p.kind==="evo") return `<div class="ph">🧬</div>`;
+  if(p.kind==="signal") return `<div class="ph">📡</div>`;
+  if(p.kind==="official") return `<div class="ph">🏛</div>`;
+  if(p.kind==="brief") return `<div class="ph">م</div>`;
+  if(p.kind==="action") return `<div class="ph">🔗</div>`;
+  return `<div class="ph">سَنَد</div>`;
+}
+function igPostHTML(p, n, person){
+  const cap=p.caption||p.title||"";
+  const short=cap.length>160?cap.slice(0,160)+"…":cap;
+  const mediaInner=p.img
+    ? `<img src="${safeUrl(p.img)}" alt="" loading="lazy" onerror="this.outerHTML='<div class=\\'seal\\'>سَنَد</div>'">`
+    : `<div class="seal">${p.pct!=null?esc(p.pct)+"%":esc(person.icon||"سَنَد")}</div>`;
+  const cmts=commentsForItem(p.item||p);
+  return `<article class="ig-post" data-pi="${n}">
+    <div class="ig-hd">
+      <div class="ig-av" style="${person.color?`color:${person.color}`:""}">${esc(person.icon||"•")}</div>
+      <div class="ig-who"><b>${esc(person.name)}</b><span>${esc(person.handle)}${p.at?" · "+ago(p.at):""}</span></div>
+    </div>
+    <div class="ig-media">${mediaInner}${p.pct!=null&&p.kind==="scenario"?`<span class="pct-badge">${esc(p.pct)}%</span>`:""}</div>
+    <div class="ig-acts">
+      <button type="button" data-act="share" aria-label="share">↗</button>
+      <button type="button" data-act="open" aria-label="open">⧉</button>
+      ${p.item?`<button type="button" data-act="isnad" aria-label="isnad">☰</button>`:""}
+      ${p.item?`<button type="button" data-act="save" aria-label="save">${isSaved(p.item)?"♥":"♡"}</button>`:""}
+      ${cmts.length?`<button type="button" data-act="comments" aria-label="comments">💬</button>`:""}
+    </div>
+    <div class="ig-cap"><span class="by">${esc(person.handle)}</span><span class="cap-t">${esc(short)}</span>
+      ${cap.length>160?`<button type="button" class="more" data-act="more">${EN?"more":"المزيد"}</button>`:""}</div>
+    <div class="ig-meta">${p.grade?badge(p.grade):""}${p.src?`<span class="badge b-src">${esc(p.src)}</span>`:""}</div>
+    ${commentsHTML(cmts, false)}
+  </article>`;
+}
+function bindIgPosts(root, list, person){
+  root.querySelectorAll(".ig-post").forEach(el=>{
+    const p=list[+el.dataset.pi]; if(!p) return;
+    el.querySelectorAll("[data-act]").forEach(btn=>{
+      btn.onclick=()=>{
+        const a=btn.dataset.act;
+        if(a==="more"){
+          const t=el.querySelector(".cap-t"); if(t) t.textContent=p.caption||p.title||"";
+          btn.remove();
+        } else if(a==="comments"){
+          const box=el.querySelector(".ig-comments"); const tog=el.querySelector(".cmt-toggle");
+          if(box){ box.hidden=!box.hidden; if(tog) tog.style.display=box.hidden?"":"none"; }
+        } else if(a==="share"){
+          const text=(p.caption||p.title||"")+"\n\nسَنَد | isnad.news";
+          if(navigator.share) navigator.share({title:person.name,text,url:p.link||location.href}).catch(()=>cpy(text));
+          else cpy(text+(p.link?"\n"+p.link:""));
+        } else if(a==="open"){
+          if(p.kind==="official") openOfficial(p.oi);
+          else if(p.kind==="action") setView("verify");
+          else if(p.kind==="brief") setView("brief");
+          else if(p.kind==="scenario"||p.kind==="signal") openForecastSheet();
+          else if(p.kind==="evo") openEvolutionSheet();
+          else if(p.link){ const u=safeUrl(p.link); if(u!=="#") window.open(u,"_blank","noopener") }
+          else if(p.item) showIsnad(p.item);
+        } else if(a==="isnad"&&p.item) showIsnad(p.item);
+        else if(a==="save"&&p.item){ toggleSave(p.item); renderProfile(); }
+      };
+    });
+  });
+}
+function renderProfile(){
+  const root=document.getElementById("profRoot");
+  if(!root||!PROFILE) return;
+  const person=profilePerson(PROFILE.kind, PROFILE.id);
+  if(!person){ root.innerHTML=`<div class="empty">${EN?"Profile not found.":"الملف غير موجود."}</div>`; return; }
+  const posts=buildProfilePosts(PROFILE.kind, PROFILE.id);
+  AGENT_POSTS=posts;
+  const stMap=EN?{ok:"On duty",skip:"Scheduled",fail:"Unavailable",idle:"Quiet"}:{ok:"على رأس عمله",skip:"في وردية لاحقة",fail:"غير متاح",idle:"صامت"};
+  const st=person.status?stMap[person.status]||person.status:"";
+  const followers=PROFILE.kind==="desk"?"—":(AGENTS&&AGENTS.healthy!=null?AGENTS.healthy:"—");
+  const tab=PROFILE.tab||"grid";
+  let body="";
+  if(tab==="grid"){
+    if(!posts.length) body=`<div class="empty">${EN?"No posts yet.":"لا منشورات بعد."}</div>`;
+    else body=`<div class="prof-grid">${posts.map((p,n)=>`<button type="button" class="prof-cell" onclick="setProfileTab('feed');setTimeout(()=>{const el=document.querySelector('.ig-post[data-pi=\"${n}\"]');if(el)el.scrollIntoView({behavior:'smooth',block:'start'})},40)">
+      ${profileMedia(p)}${p.pct!=null?`<span class="tag">${esc(p.pct)}%</span>`:""}</button>`).join("")}</div>`;
+  } else {
+    if(!posts.length) body=`<div class="empty">${EN?"No posts yet.":"لا منشورات بعد."}</div>`;
+    else body=`<div class="prof-feed" id="profFeed">${posts.map((p,n)=>igPostHTML(p,n,person)).join("")}</div>`;
+  }
+  const extraBtn = person.id==="fahis"
+    ? `<button type="button" class="primary" onclick="setView('verify')">${EN?"Verify":"تحقّق"}</button>`
+    : (person.id==="mustaqri"||person.id==="murtajil")
+      ? `<button type="button" class="primary" onclick="openForecastSheet()">${EN?"Forecast":"الاستقراء"}</button>`
+      : (person.id==="musannif"||person.id==="mudaqqiq")
+        ? `<button type="button" class="primary" onclick="openEvolutionSheet()">${EN?"Learning":"التعلّم"}</button>`
+        : (person.id==="rawi"||person.id==="mudawwin")
+          ? `<button type="button" class="primary" onclick="setView('brief')">${EN?"Brief":"النشرة"}</button>`
+          : (PROFILE.kind==="desk")
+            ? `<button type="button" class="primary" onclick="closeSheet();pickDesk('${person.id}')">${EN?"Live desk":"الحيّ"}</button>`
+            : `<button type="button" class="primary" onclick="setProfileTab('feed')">${EN?"Posts":"المنشورات"}</button>`;
+  root.innerHTML=`
+    <div class="prof-top">
+      <button type="button" class="back" onclick="closeProfile()" aria-label="back">‹</button>
+      <div class="ttl"><b>${esc(person.name)}</b><span>${esc(person.handle)}</span></div>
+    </div>
+    <div class="prof-hd">
+      <div class="prof-row">
+        <div class="prof-av" style="${person.color?`color:${person.color}`:""}">${esc(person.icon||"•")}</div>
+        <div class="prof-stats">
+          <div><b>${posts.length}</b><span>${EN?"posts":"منشور"}</span></div>
+          <div><b>${esc(String(followers))}</b><span>${EN?"on desk":"على الرأس"}</span></div>
+          <div><b>${person.ran===true?"✓":person.ran===false?"–":(st?st.slice(0,4):"—")}</b><span>${EN?"cycle":"دورة"}</span></div>
+        </div>
+      </div>
+      <div class="prof-name">${esc(person.name)}</div>
+      <div class="prof-handle">${esc(person.handle)} · ${EN?"Sanad desk":"غرفة سَنَد"}</div>
+      <div class="auto-pill">⚡ ${EN?"Fully automated · posts & work from the pipeline":"آلي بالكامل · المنشورات والعمل من خط الإنتاج"}</div>
+      <div class="prof-bio">${esc(person.bio||"")}</div>
+      ${person.note?`<div class="prof-note">${EN?"This cycle":"هذه الدورة"}: ${esc(person.note)}</div>`:""}
+      ${person.at?`<div class="prof-note">${EN?"Last active":"آخر نشاط"}: ${esc(ago(person.at)||person.at)}</div>`:""}
+      ${APOSTS&&APOSTS.updated?`<div class="prof-note">${EN?"Posts auto-built":"المنشورات بُنيت آليًّا"}: ${esc(ago(APOSTS.updated)||APOSTS.updated)}</div>`:""}
+      <div class="prof-actions">
+        ${extraBtn}
+        <button type="button" onclick="shareProfile()">${EN?"Share":"مشاركة"}</button>
+      </div>
+    </div>
+    <div class="prof-tabs">
+      <button type="button" class="${tab==="grid"?"on":""}" onclick="setProfileTab('grid')" aria-label="grid">⊞</button>
+      <button type="button" class="${tab==="feed"?"on":""}" onclick="setProfileTab('feed')" aria-label="posts">▤</button>
+    </div>
+    ${body}`;
+  if(tab==="feed") bindIgPosts(root, posts, person);
+}
+function shareProfile(){
+  if(!PROFILE) return;
+  const p=profilePerson(PROFILE.kind, PROFILE.id); if(!p) return;
+  const t=`${p.name} ${p.handle}\n${p.bio||""}\n\nسَنَد | isnad.news`;
+  if(navigator.share) navigator.share({title:p.name,text:t,url:location.href}).catch(()=>cpy(t));
+  else cpy(t);
+}
 
 function itemId(i){return (i.link||i.head||"").slice(0,180)}
 function loadSaved(){try{return JSON.parse(localStorage.getItem(SAVE_KEY)||"[]")}catch(e){return[]}}
@@ -592,21 +1143,27 @@ function updateFilterChip(){
 }
 
 function setView(v){
+  if(v!=="profile") PROFILE=null;
   VIEW=v;
+  document.body.classList.toggle("prof-mode", v==="profile");
   document.querySelectorAll(".view").forEach(el=>el.classList.toggle("on",el.dataset.view===v));
-  document.querySelectorAll(".bnav button, .desk-nav button").forEach(b=>b.classList.toggle("on",b.dataset.view===v));
+  document.querySelectorAll(".bnav button, .desk-nav button").forEach(b=>{
+    const bv=b.dataset.view;
+    b.classList.toggle("on", bv===v || (v==="profile" && bv==="team"));
+  });
   if(v!=="search") document.getElementById("searchBar").classList.remove("on");
   if(v==="team") renderTeam();
   if(v==="saved") renderSaved();
   if(v==="brief") renderBrief();
   if(v==="live"){ renderOfficialRail(); }
+  if(v==="profile") renderProfile();
   if(v==="search"){ document.getElementById("searchBar").classList.add("on"); try{qIn.focus()}catch(e){} }
 }
 document.getElementById("bnav").addEventListener("click",e=>{
-  const b=e.target.closest("button[data-view]"); if(b) setView(b.dataset.view);
+  const b=e.target.closest("button[data-view]"); if(b){ PROFILE=null; setView(b.dataset.view); }
 });
 document.getElementById("deskNav").addEventListener("click",e=>{
-  const b=e.target.closest("button[data-view]"); if(b) setView(b.dataset.view);
+  const b=e.target.closest("button[data-view]"); if(b){ PROFILE=null; setView(b.dataset.view); }
 });
 
 function shareItem(i){
@@ -638,20 +1195,24 @@ function postHTML(i,n,bucket){
     ? `<div class="post-media"><img src="${safeUrl(i.img)}" alt="" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('seal');this.outerHTML='<div class=\\'seal-mark\\'>سَنَد</div>'"></div>`
     : `<div class="post-media seal"><div class="seal-mark">سَنَد</div></div>`;
   return `<article class="post" style="animation-delay:${Math.min(n*40,360)}ms" data-pi="${n}" data-bucket="${esc(bucket||"feed")}">
-    <div class="post-hd">
+    <button type="button" class="post-hd" data-act="profile" style="width:100%;border:0;background:transparent;cursor:pointer;color:inherit;font:inherit;text-align:start">
       <div class="post-av" style="color:${d.color}">${esc(d.letter)}</div>
       <div class="post-who"><b>${esc(regionOf(d))}</b>
         <span>${esc(i.src||(EN?"source":"مصدر"))}${i.at?" · "+ago(i.at):""}</span></div>
-    </div>
+    </button>
     ${media}
     <div class="post-actions">
       <button type="button" data-act="share" aria-label="مشاركة">↗</button>
       <button type="button" data-act="source" aria-label="المصدر">⧉</button>
       <button type="button" data-act="isnad" aria-label="الإسناد">☰</button>
       <button type="button" data-act="save" class="${saved?"saved":""}" aria-label="حفظ">${saved?"♥":"♡"}</button>
+      <button type="button" data-act="comments" aria-label="تعليقات">💬</button>
     </div>
-    <div class="post-cap"><h2>${esc(hd(i))}</h2></div>
+    <div class="post-cap"><h2>${esc(hd(i))}</h2>
+      <p class="ig-cap-line"><span class="by">${esc(regionOf(d))}</span> ${EN?`Automated spot via ${i.src||"source"}.`:`رصد آلي من ${i.src||"مصدر"}.`}</p>
+    </div>
     <div class="post-meta">${badge(i.grade)}${i.score!==undefined?`<span class="badge b-src">${esc(i.score)}/7</span>`:""}${isnadBar(i.isnad,i.grade)}</div>
+    ${commentsHTML(commentsForItem(i), false)}
   </article>`;
 }
 function bindPosts(root, list, bucket){
@@ -660,10 +1221,15 @@ function bindPosts(root, list, bucket){
     el.querySelectorAll("[data-act]").forEach(btn=>{
       btn.onclick=()=>{
         const a=btn.dataset.act;
-        if(a==="share") shareItem(i);
+        if(a==="profile") openProfile("desk", deskFor(i).id);
+        else if(a==="share") shareItem(i);
         else if(a==="source"){ const u=safeUrl(i.link); if(u!=="#") window.open(u,"_blank","noopener") }
         else if(a==="isnad") showIsnad(i);
         else if(a==="save"){ toggleSave(i); }
+        else if(a==="comments"){
+          const box=el.querySelector(".ig-comments"); const tog=el.querySelector(".cmt-toggle");
+          if(box){ box.hidden=!box.hidden; if(tog) tog.style.display=box.hidden?"":"none"; }
+        }
       };
     });
   });
@@ -682,6 +1248,7 @@ function analystCardHTML(compact){
     </div>
     <div class="tx" id="${compact?"feedAnTx":"briefAnTx"}">${esc(tx)}</div>
     <button type="button" class="morebtn" onclick="(function(b){const t=b.previousElementSibling;t.classList.toggle('open');b.textContent=t.classList.contains('open')?(EN?'Less':'أقل'):(EN?'Read more':'اقرأ المزيد')})(this)">${EN?"Read more":"اقرأ المزيد"}</button>
+    ${FORECAST?`<button type="button" class="morebtn" onclick="openForecastSheet()">${EN?"Open forecast & scorecard":"الاستقراء ومراجعة التوقعات"}</button>`:""}
     ${ANALYST.audio?`<audio controls style="width:100%;margin-top:10px" src="${safeUrl(RAW+ANALYST.audio+"?t="+Date.now())}"></audio>`:""}
   </div>`;
 }
@@ -723,6 +1290,7 @@ function renderFeed(){
   const list=filtered().slice(0,40);
   POSTS=list;
   renderOfficialRail();
+  renderInsight();
   if(!list.length){
     feed.innerHTML=`<div class="empty">${EN?"No stories in this desk yet.":"لا أخبار في هذا المكتب حاليًا."}<br><button class="sheet-x" style="margin-top:14px" onclick="clearDesk()">عرض الكل</button></div>`;
     return;
@@ -738,12 +1306,13 @@ function renderFeed(){
 
 function renderBrief(){
   const lead=allItems()[0];
+  renderInsight();
   const ba=document.getElementById("briefAnalyst");
   if(ba) ba.innerHTML=analystCardHTML(false);
   renderBriefOfficial();
   if(lead){ briefHero.innerHTML=`<div class="team-sec">${EN?"Lead story":"أبرز خبر"}</div>`+postHTML(lead,0,"brief"); bindPosts(briefHero,[lead],"brief"); }
   else briefHero.innerHTML="";
-  briefLead.textContent=EN?"Daily bulletin, official wire, and Al-Mustaqri’s brief.":"النشرة الصوتية · المَنبع الرسمي · خلاصة المستقرئ.";
+  briefLead.textContent=EN?"Bulletin, forecast, self-learning, and the official wire.":"النشرة · الاستقراء · التعلّم الذاتي · المَنبع الرسمي.";
 }
 function renderSaved(){
   const arr=loadSaved();
@@ -753,7 +1322,7 @@ function renderSaved(){
 }
 function renderTeam(){
   const paused=new Set((CONTROL&&CONTROL.paused_agents)||[]);
-  teamDesks.innerHTML=DESKS.map(d=>`<button type="button" class="tcard" onclick="pickDesk('${d.id}')">
+  teamDesks.innerHTML=DESKS.map(d=>`<button type="button" class="tcard" onclick="openProfile('desk','${d.id}')">
     <div class="av" style="color:${d.color}">${esc(d.letter)}</div>
     <div class="b"><b>${esc(regionOf(d))}</b><div class="role">${esc(EN?d.en+" · ":"")}${esc(d.blurb)}</div></div>
     <span class="st st-desk">${esc(EN?d.en:d.name)}</span></button>`).join("");
@@ -763,22 +1332,19 @@ function renderTeam(){
   AGENT_CACHE=A;
   teamCrew.innerHTML=A.map((x,idx)=>{
     const st=paused.has(x.id)?"idle":(x.status||"idle");
-    return `<button type="button" class="tcard" onclick="openAgent(${idx})">
+    const did=enText(x.note,"")||"";
+    return `<button type="button" class="tcard" onclick="openProfile('agent','${x.id}')">
       <div class="av">${esc((x.icon||"•").slice(0,2))}</div>
-      <div class="b"><b>${esc(x.name)}</b><div class="role">${esc(teamBlurb(x.id))}</div></div>
+      <div class="b"><b>${esc(x.name)}</b><div class="role">${esc(teamBlurb(x.id))}${did?`<br><span style="color:var(--dim)">${esc(did)}</span>`:""}</div></div>
       <span class="st st-${esc(st)}">${paused.has(x.id)?(EN?"away":"صامت"):esc(SLBL[x.status]||x.status)}</span>
     </button>`;
   }).join("");
 }
 let AGENT_CACHE=[];
+function openDeskSheet(id){ openProfile("desk", id); }
 function openAgent(idx){
   const x=AGENT_CACHE[idx]; if(!x) return;
-  const stMap=EN?{ok:"On duty",skip:"Scheduled",fail:"Unavailable",idle:"Quiet"}:{ok:"على رأس عمله",skip:"في وردية لاحقة",fail:"غير متاح",idle:"صامت"};
-  openSheet(`<h3 class="amiri">${esc(x.icon||"")} ${esc(x.name)}</h3>
-    <p style="color:var(--mut);line-height:1.85;font-size:13.5px;margin:8px 0 12px">${esc(teamBlurb(x.id))}</p>
-    <div class="row"><b>${EN?"Status":"الحالة"}</b><span>${esc(stMap[x.status]||x.status||"—")}</span></div>
-    ${x.id==="fahis"||x.id==="mustaqri"||x.id==="manba"?`<button type="button" class="sheet-x" onclick="closeSheet();setView('${x.id==="fahis"?"verify":"brief"}')">${x.id==="fahis"?(EN?"Open Verify":"افتح تحقّق"):(EN?"Open Brief":"إلى النشرة")}</button>`:""}
-    <button type="button" class="sheet-x" onclick="closeSheet()">إغلاق</button>`);
+  openProfile("agent", x.id);
 }
 
 async function runVerify(){
@@ -929,7 +1495,19 @@ async function load(){
   }catch(e){feed.innerHTML=`<div class="empty">${EN?"Preparing today's feed…":"تُجهَّز أخبارُ اليوم…"}</div>`}
   try{ OFFICIAL=await grab("official"); }catch(e){ OFFICIAL=null }
   try{ ANALYST=await grab("analyst"); }catch(e){ ANALYST=null }
-  try{ renderFeed(); if(VIEW==="brief") renderBrief(); }catch(e){}
+  try{ FORECAST=await grab("forecast"); }catch(e){ FORECAST=null }
+  try{ EVOLUTION=await grab("evolution"); }catch(e){ EVOLUTION=null }
+  try{ TENSION=await grab("tension"); }catch(e){ TENSION=null }
+  try{ COMMENTS=await grab("comments"); }catch(e){ COMMENTS=null }
+  try{ APOSTS=await grab("posts"); }catch(e){ APOSTS=null }
+  try{
+    const ta=document.getElementById("teamAuto"), tl=document.getElementById("teamLead");
+    if(tl) tl.textContent=EN?"Agents run on their own — posts and cycles without hand edits.":"وكلاء يعملون آليًّا — منشوراتهم ودُوراتهم بلا تدخّل يدوي.";
+    if(ta) ta.innerHTML=EN
+      ?`<b>Fully automated</b> — intake, grading, forecast, learning, comments, and posts refresh from the pipeline${APOSTS&&APOSTS.n?` · ${APOSTS.n} posts`:"."}`
+      :`<b>آلي بالكامل</b> — الرصد، الإسناد، الاستقراء، التعلّم، التعليقات، والمنشورات تُحدَّث من خط الإنتاج${APOSTS&&APOSTS.n?` · ${APOSTS.n} منشورًا`:""}.`;
+  }catch(e){}
+  try{ renderFeed(); if(VIEW==="brief") renderBrief(); if(VIEW==="team") renderTeam(); if(VIEW==="profile") renderProfile(); }catch(e){}
   try{
     const m=await grab("latest");
     const _kt=new Date(Date.now()+3*36e5).toISOString().slice(0,10);
@@ -966,7 +1544,11 @@ async function load(){
 })();
 
 document.addEventListener("keydown",e=>{
-  if(e.key==="Escape"){ closeSheet(); if(VIEW==="search") toggleSearch(false); }
+  if(e.key==="Escape"){
+    closeSheet();
+    if(VIEW==="profile") closeProfile();
+    else if(VIEW==="search") toggleSearch(false);
+  }
   if((e.key==="/"||(e.key==="k"&&(e.metaKey||e.ctrlKey))) && !/input|textarea/i.test((e.target||{}).tagName||"")){
     e.preventDefault(); toggleSearch(true);
   }
