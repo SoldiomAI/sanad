@@ -2,35 +2,22 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta property="og:site_name" content="سَنَد">
-<meta property="og:title" content="سَنَد — أخبارٌ مُسنَدةٌ تُدقَّق قبل النشر">
-<meta property="og:description" content="منصّة إخباريّة تزن كلَّ خبرٍ على خمسة معايير من علم الحديث، وترصد الشائعات، وتستقرئ ما بعد الخبر — بشفافيةٍ كاملةٍ في الإسناد.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.isnad.news/">
-<meta property="og:image" content="https://www.isnad.news/og-card.png">
-<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<meta property="og:locale" content="ar_AR">
-<meta property="og:locale:alternate" content="en_US">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="سَنَد — أخبارٌ مُسنَدةٌ تُدقَّق قبل النشر">
-<meta name="twitter:image" content="https://www.isnad.news/og-card.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsMediaOrganization","name":"سَنَد","alternateName":"Sanad","url":"https://www.isnad.news/","logo":"https://www.isnad.news/og-card.png","description":"منصّة إخباريّة عربيّة تُسند كلَّ خبرٍ إلى مصدره وتزنه على خمسة معايير من علم الحديث."}</script>
 <title>سَنَد | SANAD — منصة الأخبار المُسنَدة</title>
 <meta name="description" content="أول منصة إخبارية تطبّق علم الإسناد — حكم كل خبر مبني على خمسة معايير من علم الحديث. نشرة مذيع يومية + أخبار حية من الخليج والعالم وإيران مترجمة.">
-<meta property="og:title" content="سَنَد | SANAD — Sovereign News Intelligence">
-<meta property="og:description" content="أخبار مُسنَدة بمنهج المحدّثين — لكلِّ خبرٍ درجةُ إسنادٍ ومصدرٌ معروض">
-<meta property="og:image" content="https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/og.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="ar_KW">
 <meta property="og:site_name" content="سَنَد">
-<meta property="og:url" content="https://isnad.news">
+<meta property="og:title" content="سَنَد — أخبارٌ مُسنَدةٌ تُدقَّق قبل النشر">
+<meta property="og:description" content="منصّة إخباريّة تزن كلَّ خبرٍ قبل النشر — درجة إسناد ظاهرة، وكلاء آليون، وتحقّق من الروابط.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://isnad.news/">
+<meta property="og:image" content="https://www.isnad.news/og-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="ar_KW">
+<meta property="og:locale:alternate" content="en_US">
 <link rel="canonical" href="https://isnad.news">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="سَنَد | منصةُ الأخبارِ المُسنَدة">
-<meta name="twitter:description" content="لكلِّ خبرٍ درجةُ إسنادٍ ومصدرٌ معروض">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/og.jpg">
+<meta name="twitter:title" content="سَنَد — أخبارٌ مُسنَدةٌ تُدقَّق قبل النشر">
+<meta name="twitter:description" content="لكلِّ خبرٍ درجةُ إسنادٍ ومصدرٌ معروض — شارك بطاقة اليوم.">
+<meta name="twitter:image" content="https://www.isnad.news/og-card.png">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🛡️</text></svg>">
 <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
 <link rel="apple-touch-icon" href="/icons/icon-192.png">
@@ -245,8 +232,35 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .v-step p{font-size:13px;line-height:1.75;color:var(--mut)}
 .toast{position:fixed;bottom:calc(var(--nav-h) + 16px);left:50%;transform:translateX(-50%) translateY(20px);
   background:var(--vellum);color:var(--ink);padding:10px 16px;border-radius:20px;font-size:12.5px;opacity:0;
-  transition:.25s;z-index:70;pointer-events:none}
+  transition:.25s;z-index:70;pointer-events:none;box-shadow:0 8px 28px rgba(0,0,0,.18)}
 .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast.pulse{animation:toastPop .55s ease}
+@keyframes toastPop{0%{transform:translateX(-50%) scale(.92)}40%{transform:translateX(-50%) scale(1.06)}100%{transform:translateX(-50%) scale(1)}}
+.viral-strip{padding:10px 14px 4px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.viral-strip::-webkit-scrollbar{display:none}
+.viral-chip{flex:0 0 auto;border:1px solid rgba(201,162,39,.4);background:linear-gradient(135deg,rgba(201,162,39,.12),rgba(158,43,55,.06));
+  color:var(--vellum);border-radius:14px;padding:10px 14px;font:inherit;cursor:pointer;text-align:start;min-width:200px}
+.viral-chip:active{transform:scale(.98)}
+.viral-chip b{display:block;font-family:'Noto Kufi Arabic',sans-serif;font-size:12px;color:var(--gold-l);margin-bottom:2px}
+.viral-chip span{font-size:12px;line-height:1.55;color:var(--mut);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.daily-card{border:1px solid var(--border);border-radius:18px;overflow:hidden;background:
+  radial-gradient(ellipse 120% 80% at 100% 0%,rgba(201,162,39,.18),transparent 55%),
+  linear-gradient(165deg,var(--card),var(--card2));padding:22px 18px 18px;margin:4px 0 8px}
+.daily-card .dc-brand{font-family:'Amiri',serif;font-size:28px;font-weight:700;letter-spacing:.02em;margin-bottom:6px}
+.daily-card .dc-kicker{font-size:11px;font-weight:700;font-family:'Noto Kufi Arabic',sans-serif;color:var(--gold-l);margin-bottom:14px}
+.daily-card .dc-title{font-family:'Amiri',serif;font-size:22px;line-height:1.55;color:var(--vellum);margin-bottom:14px}
+.daily-card .dc-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
+.daily-card .dc-foot{font-size:11.5px;color:var(--dim);line-height:1.7;border-top:1px solid var(--border);padding-top:12px;margin-top:4px}
+.daily-card .dc-acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.install-bar{position:fixed;inset-inline:12px;bottom:calc(var(--nav-h) + 10px);z-index:55;display:none;
+  align-items:center;gap:10px;padding:10px 12px;border-radius:16px;border:1px solid var(--border);
+  background:var(--topbar);backdrop-filter:blur(14px);box-shadow:0 10px 30px rgba(0,0,0,.12)}
+.install-bar.on{display:flex;animation:rise .35s ease}
+.install-bar .ib-t{flex:1;min-width:0;font-size:12.5px;line-height:1.55}
+.install-bar .ib-t b{display:block;font-family:'Noto Kufi Arabic',sans-serif;font-size:13px;margin-bottom:2px}
+.install-bar button{border:0;border-radius:12px;min-height:40px;padding:0 12px;font-weight:700;cursor:pointer;font-family:inherit}
+.install-bar .ib-go{background:var(--gold);color:#1A1206}
+.install-bar .ib-x{background:transparent;color:var(--mut);min-width:36px;padding:0}
 details.more{margin:12px 0;border:1px solid var(--border);border-radius:12px;padding:10px 12px;background:var(--card)}
 details.more summary{cursor:pointer;font-family:'Noto Kufi Arabic',sans-serif;font-size:12.5px;font-weight:700;color:var(--gold-l)}
 details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--mut)}
@@ -430,6 +444,7 @@ body.prof-mode .desks,body.prof-mode .desk-status,body.prof-mode .ennote,body.pr
       <div class="off-rail" id="offRail"></div>
     </div>
     <div id="insightLive"></div>
+    <div class="viral-strip" id="viralStrip" hidden></div>
     <div id="feed">
       <div class="sk media"></div><div class="sk" style="width:70%"></div><div class="sk" style="width:40%"></div>
       <div class="sk media" style="margin-top:16px"></div><div class="sk" style="width:60%"></div>
@@ -520,6 +535,11 @@ body.prof-mode .desks,body.prof-mode .desk-status,body.prof-mode .ennote,body.pr
 
 <div class="sheet" id="sheet" onclick="if(event.target===this)closeSheet()">
   <div class="sheet-c" id="sheetC"></div>
+</div>
+<div class="install-bar" id="installBar" role="dialog" aria-label="install">
+  <div class="ib-t"><b id="ibTitle">ثبّت سَنَد</b><span id="ibBody">على الشاشة الرئيسية — أخبار مُسنَدة بلمسة.</span></div>
+  <button type="button" class="ib-go" id="ibGo">ثبّت</button>
+  <button type="button" class="ib-x" id="ibX" aria-label="dismiss">✕</button>
 </div>
 <div class="toast" id="toast">تم</div>
 
@@ -619,16 +639,24 @@ function isnadBar(o,g){
   }).join("");
   return `<div class="isn${full?" done":""}" title="${EN?"Chain strength":"قوة الإسناد"}">${nodes}</div>`;
 }
-function toast(msg){
-  const t=document.getElementById("toast"); t.textContent=msg; t.classList.add("on");
-  clearTimeout(toast._t); toast._t=setTimeout(()=>t.classList.remove("on"),1600);
+const SITE="https://isnad.news";
+let ROUTE_LOCK=false, DEFERRED_INSTALL=null;
+function toast(msg, opts){
+  const t=document.getElementById("toast"); if(!t) return;
+  t.textContent=msg; t.classList.add("on");
+  if(opts&&opts.pulse){ t.classList.remove("pulse"); void t.offsetWidth; t.classList.add("pulse"); }
+  clearTimeout(toast._t); toast._t=setTimeout(()=>{t.classList.remove("on"); t.classList.remove("pulse")}, opts&&opts.long?2400:1700);
+}
+function celebrateShare(){
+  try{ navigator.vibrate&&navigator.vibrate(14) }catch(e){}
+  toast(EN?"Copied · ready for WhatsApp":"نُسخ · جاهز لواتساب",{pulse:true,long:true});
 }
 function openSheet(html){sheetC.innerHTML=html; sheet.classList.add("on"); document.body.style.overflow="hidden"}
 function closeSheet(){sheet.classList.remove("on"); document.body.style.overflow=""}
 
 let DATA=null, AGENTS=null, CONTROL=null, OFFICIAL=null, ANALYST=null, FORECAST=null, EVOLUTION=null, TENSION=null, COMMENTS=null, APOSTS=null, deskFilter=null, VIEW="live";
 let AGENT_POSTS=[];
-let PROFILE=null; /* {kind:'agent'|'desk', id, tab:'grid'|'feed'} */
+let PROFILE=null; /* {kind:'agent'|'desk', id, tab:'grid'|'feed', from} */
 
 /* Agent cross-comments: templates only — never call paid APIs from the client */
 const CMT_LINES={
@@ -1033,11 +1061,13 @@ function openProfile(kind, id, tab){
   setView("profile");
   renderProfile();
   try{window.scrollTo({top:0,behavior:"smooth"})}catch(e){window.scrollTo(0,0)}
+  syncRoute();
 }
 function closeProfile(){
   const back=(PROFILE&&PROFILE.from)||"team";
   PROFILE=null;
   setView(back);
+  syncRoute();
 }
 function goLiveDesk(id){
   deskFilter=id;
@@ -1123,6 +1153,7 @@ function openProfilePost(n){
       ${p.kind==="evo"?`<button type="button" class="primary" id="ppEvo">${EN?"Learning":"التعلّم"}</button>`:""}
       ${p.kind==="brief"?`<button type="button" class="primary" id="ppBrief">${EN?"Brief":"النشرة"}</button>`:""}
       ${p.kind==="official"?`<button type="button" class="primary" id="ppOff">${EN?"Official":"الرسمي"}</button>`:""}
+      <button type="button" class="primary" id="ppShare">${EN?"Share":"مشاركة"}</button>
       <button type="button" class="sheet-x" onclick="closeSheet()">${EN?"Close":"إغلاق"}</button>
     </div>
   </article>`);
@@ -1130,11 +1161,12 @@ function openProfilePost(n){
   bind("ppOpen",()=>{const u=safeUrl(p.link); if(u!=="#") window.open(u,"_blank","noopener")});
   bind("ppIsnad",()=>{if(p.item) showIsnad(p.item)});
   bind("ppSave",()=>{if(p.item){toggleSave(p.item); openProfilePost(n)}});
-  bind("ppVerify",()=>{closeSheet(); setView("verify")});
+  bind("ppVerify",()=>{closeSheet(); setView("verify"); syncRoute()});
   bind("ppFc",()=>{openForecastSheet()});
   bind("ppEvo",()=>{openEvolutionSheet()});
-  bind("ppBrief",()=>{closeSheet(); setView("brief")});
+  bind("ppBrief",()=>{closeSheet(); setView("brief"); syncRoute()});
   bind("ppOff",()=>{openOfficial(p.oi)});
+  bind("ppShare",()=>shareAgentPost(p, person));
 }
 function bindIgPosts(root, list, person){
   root.querySelectorAll(".ig-post").forEach(el=>{
@@ -1144,11 +1176,8 @@ function bindIgPosts(root, list, person){
         ev.stopPropagation();
         const a=btn.dataset.act;
         if(a==="post"||a==="more"){ openProfilePost(n); return; }
-        if(a==="share"){
-          const text=(p.caption||p.title||"")+"\n\nسَنَد | isnad.news";
-          if(navigator.share) navigator.share({title:person.name,text,url:p.link||location.href}).catch(()=>cpy(text));
-          else cpy(text+(p.link?"\n"+p.link:""));
-        } else if(a==="open"){
+        if(a==="share"){ shareAgentPost(p, person); }
+        else if(a==="open"){
           if(p.kind==="official") openOfficial(p.oi);
           else if(p.kind==="action") setView("verify");
           else if(p.kind==="brief") setView("brief");
@@ -1229,9 +1258,11 @@ function renderProfile(){
 function shareProfile(){
   if(!PROFILE) return;
   const p=profilePerson(PROFILE.kind, PROFILE.id); if(!p) return;
-  const t=`${p.name} ${p.handle}\n${p.bio||""}\n\nسَنَد | isnad.news`;
-  if(navigator.share) navigator.share({title:p.name,text:t,url:location.href}).catch(()=>cpy(t));
-  else cpy(t);
+  const url=deepUrl(PROFILE.kind+"/"+PROFILE.id);
+  const t=EN
+    ? `${p.name} ${p.handle}\n${p.bio||""}\n\nAutomated Sanad desk — open the profile:`
+    : `${p.name} ${p.handle}\n${p.bio||""}\n\nوكيل آلي في غرفة سَنَد — افتح الملف:`;
+  sharePack({title:p.name, text:t, url});
 }
 
 function itemId(i){return (i.link||i.head||"").slice(0,180)}
@@ -1324,9 +1355,10 @@ function setView(v){
   if(v==="team") renderTeam();
   if(v==="saved") renderSaved();
   if(v==="brief") renderBrief();
-  if(v==="live"){ renderOfficialRail(); }
+  if(v==="live"){ renderOfficialRail(); renderViralStrip(); }
   if(v==="profile") renderProfile();
   if(v==="search"){ document.getElementById("searchBar").classList.add("on"); try{qIn.focus()}catch(e){} }
+  syncRoute();
 }
 document.getElementById("bnav").addEventListener("click",e=>{
   const b=e.target.closest("button[data-view]"); if(b){ PROFILE=null; setView(b.dataset.view); }
@@ -1335,17 +1367,206 @@ document.getElementById("deskNav").addEventListener("click",e=>{
   const b=e.target.closest("button[data-view]"); if(b){ PROFILE=null; setView(b.dataset.view); }
 });
 
-function shareItem(i){
-  const t=(hd(i)||"")+"\n\n— "+(i.src||"")+"\n\nسَنَد | isnad.news";
-  const url=i.link||location.href;
-  if(navigator.share){navigator.share({title:"سَنَد",text:t,url}).catch(()=>cpy(t));}
-  else cpy(t+"\n"+url);
+function gradeLabel(g){
+  if(!g) return EN?"Ungraded":"بلا درجة";
+  if(EN) return g==="صحيح"?"Verified ✓":g==="ضعيف الإسناد"?"Weak chain":"Credible";
+  return g;
 }
-function cpy(t){
+function deepUrl(path){ return SITE+"/#/"+(path||"").replace(/^#\/?/,"") }
+function syncRoute(){
+  if(ROUTE_LOCK) return;
+  let path="live";
+  if(VIEW==="profile"&&PROFILE) path=PROFILE.kind+"/"+PROFILE.id+(PROFILE.tab==="feed"?"/feed":"");
+  else if(VIEW==="brief"||VIEW==="verify"||VIEW==="team"||VIEW==="saved"||VIEW==="search") path=VIEW;
+  else if(deskFilter) path="desk/"+deskFilter;
+  const want="#/"+path;
+  if(location.hash!==want) try{ history.replaceState(null,"",want) }catch(e){}
+}
+function routeParts(){ return (location.hash||"").replace(/^#\/?/,"").split("/").filter(Boolean) }
+function findByPostHash(h){
+  const key=String(h||"");
+  return allItems().find(i=>postPid(i)===key || cmtHash(itemId(i)).toString(16)===key);
+}
+function openSharedPost(i){
+  if(!i) return;
+  const url=deepUrl("post/"+postPid(i));
+  openSheet(`<h3 class="amiri">${esc(hd(i))}</h3>
+    <div style="margin:10px 0">${badge(i.grade)} ${i.score!=null?`<span class="badge b-src">${esc(i.score)}/7</span>`:""} ${isnadBar(i.isnad,i.grade)}</div>
+    <div class="row"><b>${EN?"Source":"المصدر"}</b><span>${esc(i.src||"—")}</span></div>
+    <p style="font-size:12.5px;color:var(--mut);line-height:1.8;margin:12px 0">${EN?"Shared from Sanad — graded before publish.":"مشاركة من سَنَد — خبرٌ وُزِن قبل النشر."}</p>
+    ${commentsHTML(commentsForItem(i), true)}
+    <div class="prof-actions" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
+      <button type="button" class="primary" id="spShare">${EN?"Share":"مشاركة"}</button>
+      <button type="button" id="spWa">${EN?"WhatsApp":"واتساب"}</button>
+      <button type="button" id="spSrc">${EN?"Source":"المصدر"}</button>
+      <button type="button" id="spSave">${isSaved(i)?(EN?"Saved":"محفوظ"):(EN?"Save":"حفظ")}</button>
+      <button type="button" class="sheet-x" onclick="closeSheet()">${EN?"Close":"إغلاق"}</button>
+    </div>`);
+  const bind=(id,fn)=>{const el=document.getElementById(id); if(el) el.onclick=fn};
+  bind("spShare",()=>shareItem(i));
+  bind("spWa",()=>shareWhatsApp(shareTextForItem(i), url));
+  bind("spSrc",()=>{const u=safeUrl(i.link); if(u!=="#") window.open(u,"_blank","noopener")});
+  bind("spSave",()=>{toggleSave(i); openSharedPost(i)});
+}
+function applyRoute(){
+  const p=routeParts(); if(!p.length) return;
+  ROUTE_LOCK=true;
+  try{
+    const [a,b,c]=p;
+    if(a==="agent"&&b){ openProfile("agent", b, c==="feed"?"feed":"grid"); }
+    else if(a==="desk"&&b){
+      if(DESKS.some(d=>d.id===b)){
+        if(c==="live") goLiveDesk(b);
+        else openProfile("desk", b, c==="feed"?"feed":"grid");
+      }
+    }
+    else if(a==="post"&&b){
+      const it=findByPostHash(b);
+      setView("live");
+      if(it) openSharedPost(it);
+      else toast(EN?"Story not in today’s feed":"الخبر ليس في حصيلة اليوم");
+    }
+    else if(a==="card"){ setView("live"); openDailyCard(); }
+    else if(a==="verify"||a==="brief"||a==="team"||a==="saved"||a==="live"||a==="search") setView(a);
+  } finally { ROUTE_LOCK=false; }
+}
+function shareTextForItem(i){
+  const g=gradeLabel(i.grade);
+  if(EN){
+    return `“${hd(i)}”\nAttribution: ${g}${i.src?" · "+i.src:""}\n——\nSanad grades before publish:`;
+  }
+  return `«${hd(i)}»\nدرجة الإسناد: ${g}${i.src?" · "+i.src:""}\n——\nسَنَد يزن الخبر قبل النشر:`;
+}
+function shareWhatsApp(text, url){
+  const full=(text||"")+(url?"\n"+url:"");
+  const wa="https://wa.me/?text="+encodeURIComponent(full);
+  try{ window.open(wa,"_blank","noopener") }catch(e){ cpy(full,true) }
+}
+function sharePack({title, text, url}){
+  const full=(text||"")+(url?"\n"+url:"");
+  if(navigator.share){
+    navigator.share({title:title||"سَنَد", text, url})
+      .then(()=>{ try{navigator.vibrate&&navigator.vibrate(14)}catch(e){} toast(EN?"Shared":"تمت المشاركة",{pulse:true,long:true}); })
+      .catch(()=>cpy(full,true));
+  } else cpy(full,true);
+}
+function shareItem(i){
+  if(!i) return;
+  const url=deepUrl("post/"+postPid(i));
+  sharePack({title:"سَنَد", text:shareTextForItem(i), url});
+}
+function shareAgentPost(p, person){
+  const url=p.item?deepUrl("post/"+postPid(p.item)):deepUrl((PROFILE&&PROFILE.kind||"agent")+"/"+(person&&person.id||""));
+  const title=p.title||"";
+  const t=EN
+    ? `${person?person.name:"Sanad"} · ${title}\n${(p.caption||"").slice(0,180)}\n——\nOpen on Sanad:`
+    : `${person?person.name:"سَنَد"} · ${title}\n${(p.caption||"").slice(0,180)}\n——\nافتح على سَنَد:`;
+  sharePack({title:person?person.name:"سَنَد", text:t, url});
+}
+function cpy(t, viral){
   (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject())
-    .then(()=>toast(EN?"Copied":"نُسخ"))
+    .then(()=>viral?celebrateShare():toast(EN?"Copied":"نُسخ"))
     .catch(()=>{const a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();
-      try{document.execCommand("copy")}catch(e){}a.remove();toast(EN?"Copied":"نُسخ")});
+      try{document.execCommand("copy")}catch(e){}a.remove(); viral?celebrateShare():toast(EN?"Copied":"نُسخ")});
+}
+
+/* —— بطاقة اليوم / Daily share card —— */
+function pickDailyStory(){
+  const list=allItems();
+  if(!list.length) return null;
+  const rank=g=>({صحيح:3,حسن:2,"ضعيف الإسناد":1}[g]||0);
+  return list.slice().sort((a,b)=>{
+    const dg=rank(b.grade)-rank(a.grade);
+    if(dg) return dg;
+    return (b.score||0)-(a.score||0);
+  })[0];
+}
+function renderViralStrip(){
+  const el=document.getElementById("viralStrip"); if(!el) return;
+  if(deskFilter){ el.hidden=true; el.innerHTML=""; return; }
+  const story=pickDailyStory();
+  if(!story){ el.hidden=true; return; }
+  el.hidden=false;
+  el.innerHTML=`
+    <button type="button" class="viral-chip" onclick="openDailyCard()">
+      <b>✦ ${EN?"Card of the day":"بطاقة اليوم"}</b>
+      <span>${esc(hd(story))}</span>
+    </button>
+    <button type="button" class="viral-chip" onclick="shareItem(pickDailyStory())">
+      <b>↗ ${EN?"Share top story":"شارك الأبرز"}</b>
+      <span>${EN?"WhatsApp-ready with attribution grade":"جاهز لواتساب مع درجة الإسناد"}</span>
+    </button>
+    <button type="button" class="viral-chip" onclick="setView('verify');syncRoute()">
+      <b>✓ ${EN?"Verify a link":"افحص رابطًا"}</b>
+      <span>${EN?"Paste a claim — get a clear verdict":"الصق ادّعاءً — احصل على حكم واضح"}</span>
+    </button>`;
+}
+function openDailyCard(){
+  const i=pickDailyStory();
+  if(!i){ toast(EN?"No story yet":"لا خبر بعد"); return; }
+  const url=deepUrl("card");
+  const postUrl=deepUrl("post/"+postPid(i));
+  openSheet(`<div class="daily-card" id="dailyCard">
+    <div class="dc-brand"><span class="gold">سَنَد</span></div>
+    <div class="dc-kicker">${EN?"Card of the day · graded before publish":"بطاقة اليوم · وُزِن قبل النشر"}</div>
+    <div class="dc-title">${esc(hd(i))}</div>
+    <div class="dc-meta">${badge(i.grade)}${i.src?`<span class="badge b-src">${esc(i.src)}</span>`:""}${isnadBar(i.isnad,i.grade)}</div>
+    <div class="dc-foot">${EN?"Share this card on WhatsApp or Stories — every tap brings people back to isnad.news.":"شارك البطاقة على واتساب أو الستوري — كل مشاركة تُعيد الناس إلى isnad.news."}<br>${esc(postUrl)}</div>
+    <div class="dc-acts">
+      <button type="button" class="primary" id="dcShare">${EN?"Share card":"شارك البطاقة"}</button>
+      <button type="button" id="dcWa">${EN?"WhatsApp":"واتساب"}</button>
+      <button type="button" id="dcCopy">${EN?"Copy link":"انسخ الرابط"}</button>
+      <button type="button" class="sheet-x" onclick="closeSheet()">${EN?"Close":"إغلاق"}</button>
+    </div>
+  </div>`);
+  if(!ROUTE_LOCK) try{ history.replaceState(null,"","#/card") }catch(e){}
+  const text=EN
+    ? `Sanad · Card of the day\n“${hd(i)}”\nAttribution: ${gradeLabel(i.grade)}${i.src?" · "+i.src:""}\n——\nOpen:`
+    : `سَنَد · بطاقة اليوم\n«${hd(i)}»\nدرجة الإسناد: ${gradeLabel(i.grade)}${i.src?" · "+i.src:""}\n——\nافتح:`;
+  const bind=(id,fn)=>{const el=document.getElementById(id); if(el) el.onclick=fn};
+  bind("dcShare",()=>sharePack({title:EN?"Sanad · Card of the day":"سَنَد · بطاقة اليوم", text, url:postUrl}));
+  bind("dcWa",()=>shareWhatsApp(text, postUrl));
+  bind("dcCopy",()=>cpy(postUrl, true));
+}
+
+/* —— PWA install nudge —— */
+function isStandalone(){
+  return window.matchMedia("(display-mode: standalone)").matches || navigator.standalone===true;
+}
+function setupInstallNudge(){
+  const bar=document.getElementById("installBar"); if(!bar||isStandalone()) return;
+  const KEY="sanad_install_dismiss";
+  try{
+    const until=+localStorage.getItem(KEY)||0;
+    if(until>Date.now()) return;
+  }catch(e){}
+  const ios=/iphone|ipad|ipod/i.test(navigator.userAgent);
+  const title=document.getElementById("ibTitle"), body=document.getElementById("ibBody"), go=document.getElementById("ibGo");
+  if(title) title.textContent=EN?"Install Sanad":"ثبّت سَنَد";
+  if(body) body.textContent=ios
+    ? (EN?"Share → Add to Home Screen":"مشاركة ← إضافة إلى الشاشة الرئيسية")
+    : (EN?"Home screen — graded news in one tap":"على الشاشة الرئيسية — أخبار مُسنَدة بلمسة");
+  if(go) go.textContent=ios?(EN?"How":"كيف"):(EN?"Install":"ثبّت");
+  const show=()=>{ bar.classList.add("on") };
+  const hide=(days)=>{
+    bar.classList.remove("on");
+    try{ localStorage.setItem(KEY, String(Date.now()+(days||7)*864e5)) }catch(e){}
+  };
+  document.getElementById("ibX").onclick=()=>hide(7);
+  go.onclick=()=>{
+    if(DEFERRED_INSTALL){
+      DEFERRED_INSTALL.prompt();
+      DEFERRED_INSTALL.userChoice.finally(()=>{ DEFERRED_INSTALL=null; hide(30) });
+    } else if(ios){
+      toast(EN?"Tap Share, then Add to Home Screen":"من مشاركة ← أضف إلى الشاشة الرئيسية",{long:true,pulse:true});
+    } else {
+      toast(EN?"Use your browser’s Install app menu":"من قائمة المتصفّح: تثبيت التطبيق",{long:true});
+    }
+  };
+  window.addEventListener("beforeinstallprompt",e=>{
+    e.preventDefault(); DEFERRED_INSTALL=e; setTimeout(show, 4500);
+  });
+  if(ios) setTimeout(show, 7000);
 }
 function showIsnad(i){
   openSheet(`<h3 class="amiri">${EN?"Attribution":"حكم الإسناد"}</h3>
@@ -1471,6 +1692,7 @@ function renderFeed(){
   });
   feed.innerHTML=html;
   bindPosts(feed, list, "feed");
+  renderViralStrip();
 }
 
 function renderBrief(){
@@ -1700,6 +1922,8 @@ async function load(){
       deskStatus.textContent=EN?`${a.healthy}/${a.total} on desk · ${mago}m`:`${a.healthy}/${a.total} على رأس العمل · قبل ${mago} د`;
     }
   }catch(e){}
+  /* deep links after data is ready */
+  try{ applyRoute(); syncRoute(); }catch(e){}
 }
 
 (function player(){
@@ -1731,7 +1955,9 @@ document.addEventListener("keydown",e=>{
   }
 });
 document.getElementById("qIn").addEventListener("keydown",e=>{if(e.key==="Enter"){clearTimeout(searchTimer);runSearch(qIn.value.trim())}});
+window.addEventListener("hashchange",()=>{ try{ applyRoute() }catch(e){} });
 load(); setInterval(load,10*60*1000);
+setupInstallNudge();
 if("serviceWorker" in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("/sw.js").catch(()=>{})});}
 </script>
 </body></html>
