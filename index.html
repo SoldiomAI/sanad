@@ -361,16 +361,17 @@ details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--m
   font-weight:700;background:var(--card2);border:1px solid var(--border);flex:0 0 auto;color:var(--gold-l)}
 .ig-post .ig-who b{display:block;font-size:13px}
 .ig-post .ig-who span{font-size:11px;color:var(--dim)}
-.ig-post .ig-media{aspect-ratio:1;background:linear-gradient(160deg,var(--card2),var(--ink-2));overflow:hidden;position:relative}
+.ig-post .ig-media{display:block;width:100%;border:0;padding:0;cursor:pointer;color:inherit;
+  aspect-ratio:1;background:linear-gradient(160deg,var(--card2),var(--ink-2));overflow:hidden;position:relative}
 .ig-post .ig-media img{width:100%;height:100%;object-fit:cover;display:block}
 .ig-post .ig-media .seal{width:100%;height:100%;display:grid;place-items:center;font-family:'Amiri',serif;font-size:40px;color:var(--gold);opacity:.85}
 .ig-post .ig-media .pct-badge{position:absolute;top:12px;inset-inline-end:12px;background:rgba(8,11,18,.65);color:var(--gold-l);
   font-weight:700;font-size:13px;padding:6px 10px;border-radius:20px}
 .ig-post .ig-acts{display:flex;gap:4px;padding:6px 8px}
 .ig-post .ig-acts button{flex:1;border:0;background:transparent;color:var(--vellum);min-height:40px;cursor:pointer;font-size:18px;border-radius:10px}
-.ig-post .ig-cap{padding:0 14px 14px;font-size:13.5px;line-height:1.85;color:var(--vellum)}
+.ig-post .ig-cap{display:block;width:100%;padding:0 14px 14px;font-size:13.5px;line-height:1.85;color:var(--vellum);cursor:pointer}
 .ig-post .ig-cap .by{font-weight:700;font-family:'Noto Kufi Arabic',sans-serif;margin-inline-end:6px}
-.ig-post .ig-cap .more{color:var(--dim);cursor:pointer;border:0;background:transparent;font:inherit;padding:0}
+.ig-post .ig-cap .more{color:var(--dim);font:inherit}
 .ig-post .ig-meta{padding:0 14px 12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 body.prof-mode .desks,body.prof-mode .desk-status,body.prof-mode .ennote,body.prof-mode .search-bar{display:none!important}
 .ig-comments{padding:0 14px 14px}
@@ -654,19 +655,23 @@ function agentMeta(id){
   if(a) return {id,name:a.name,icon:(a.icon||"•").slice(0,2)};
   return {id,name:id,icon:"•"};
 }
-function commentsForKey(key, extraSeed){
+function commentsForKey(key, extraSeed, ownerId){
   const day=kwDay();
   const threads=(COMMENTS&&COMMENTS.threads)||[];
   if(threads.length){
-    const hit=threads.find(t=>t.pid===key || t.link && key && (t.link===key) ||
+    const hit=threads.find(t=>t.pid===key || (t.link && key && t.link===key) ||
       (extraSeed && (t.head===extraSeed || t.he===extraSeed)));
-    if(hit) return (hit.comments||[]).map(c=>({...c, text:EN?(c.text_en||c.text):c.text}));
+    if(hit){
+      return (hit.comments||[])
+        .filter(c=>!ownerId || c.by!==ownerId)
+        .map(c=>({...c, text:EN?(c.text_en||c.text):c.text}));
+    }
   }
-  /* local fallback — same day seed, templates only, $0 */
+  /* local fallback — same day seed, templates only, $0 — other agents reply */
   const h=cmtHash(day+"|"+key+"|"+(extraSeed||""));
-  const roster=Object.keys(CMT_LINES);
+  const roster=Object.keys(CMT_LINES).filter(id=>id!==ownerId);
   const n=2+(h%2); const out=[];
-  for(let k=0,j=0;j<n && k<roster.length*3;k++){
+  for(let k=0,j=0;j<n && k<roster.length*4;k++){
     const aid=roster[(h+k*7)%roster.length];
     if(out.some(c=>c.by===aid)) continue;
     const lines=CMT_LINES[aid]; const [ar,en]=lines[(h>>(j*3))%lines.length];
@@ -676,25 +681,25 @@ function commentsForKey(key, extraSeed){
   }
   return out;
 }
-function commentsForItem(it){
-  if(!it) return [];
+function commentsForItem(it, ownerId){
+  if(!it) return commentsForKey("desk|"+(ownerId||"x"), ownerId||"", ownerId);
   const threads=(COMMENTS&&COMMENTS.threads)||[];
   if(threads.length){
     const hit=threads.find(t=>(it.link&&t.link&&t.link===it.link) || (it.head&&t.head===it.head) || (it.title&&t.head===it.title) || (it.s&&t.head===it.s));
-    if(hit) return (hit.comments||[]).map(c=>({...c, text:EN?(c.text_en||c.text):c.text}));
+    if(hit) return (hit.comments||[]).filter(c=>!ownerId||c.by!==ownerId).map(c=>({...c, text:EN?(c.text_en||c.text):c.text}));
   }
-  return commentsForKey(postPid(it), it.head||it.title||it.s||"");
+  return commentsForKey(postPid(it), it.head||it.title||it.s||"", ownerId);
 }
 function commentsHTML(list, open){
-  if(!list||!list.length) return "";
+  if(!list||!list.length) return `<div class="ig-comments"><div class="c-h">${EN?"Desk comments":"تعليقات الغرفة"}</div>
+    <p style="font-size:12px;color:var(--dim);line-height:1.7">${EN?"No desk chat on this item yet today.":"لا حوار غرفة على هذا المنشور اليوم بعد."}</p></div>`;
   const body=list.map(c=>`<div class="ig-cmt">
-    <button type="button" class="c-av" onclick="openProfile('agent','${esc(c.by)}')" aria-label="${esc(c.name)}">${esc((c.icon||"•").slice(0,2))}</button>
-    <div class="c-b"><span class="by" onclick="openProfile('agent','${esc(c.by)}')">${esc(c.name||c.by)}</span>${esc(c.text||"")}
+    <button type="button" class="c-av" onclick="event.stopPropagation();openProfile('agent','${esc(c.by)}')" aria-label="${esc(c.name)}">${esc((c.icon||"•").slice(0,2))}</button>
+    <div class="c-b"><span class="by" onclick="event.stopPropagation();openProfile('agent','${esc(c.by)}')">${esc(c.name||c.by)}</span> ${esc(c.text||"")}
       <span class="when">${EN?"once today · free desk chat":"مرّة اليوم · حوار الغرفة مجّانًا"}</span></div>
   </div>`).join("");
-  if(open) return `<div class="ig-comments"><div class="c-h">${EN?"Desk comments":"تعليقات الغرفة"} · ${list.length}</div>${body}</div>`;
-  return `<button type="button" class="cmt-toggle" data-act="comments">${EN?`View ${list.length} comments`:`عرض ${list.length} تعليقات`}</button>
-    <div class="ig-comments" hidden><div class="c-h">${EN?"Desk comments":"تعليقات الغرفة"} · ${list.length}</div>${body}</div>`;
+  /* always show comments — users expect to see agent chat */
+  return `<div class="ig-comments"><div class="c-h">${EN?"Agents commenting":"وكلاء يعلّقون"} · ${list.length}</div>${body}</div>`;
 }
 
 function trReview(r){
@@ -825,6 +830,50 @@ function newsAsPosts(items, who){
       : `${who} · رصد آلي من ${i.src||"مصدر"}. ${hd(i)}`
   }));
 }
+function shardItems(seed, items, n){
+  const list=items||[];
+  if(!list.length) return [];
+  const take=Math.min(n||12, list.length);
+  const h=cmtHash(kwDay()+"|"+seed);
+  const out=[], used=new Set();
+  for(let k=0; out.length<take && k<list.length*6; k++){
+    const i=(h+k*13+(String(seed).length*5))%list.length;
+    if(used.has(i)) continue;
+    used.add(i); out.push(list[i]);
+  }
+  for(let i=0; out.length<take; i++){
+    if(!used.has(i)){ used.add(i); out.push(list[i]); }
+  }
+  return out;
+}
+function agentNewsPool(id, all){
+  const blob=i=>`${i.head||""} ${i.he||""} ${i.src||""} ${i.cat||""}`;
+  if(id==="turjuman") return all.filter(i=>i.fa);
+  if(id==="mudaqqiq") return all.filter(i=>i.grade&&i.isnad);
+  if(id==="rasid") return all.filter(i=>i.grade||(i.score!=null&&i.score>=4));
+  if(id==="multaqit") return all.filter(i=>!i.grade||i.grade==="ضعيف"||(i.score!=null&&i.score<=3));
+  if(id==="munabbih") return all.filter(i=>/تحذير|عاجل|إنذار|إخلاء|alert|warning/i.test(blob(i)));
+  if(id==="shahid") return all.filter(i=>/زلزال|طيران|حرائق|ميدان|قصف|صاروخ|غارة|earthquake|fire|flight|strike/i.test(blob(i)));
+  if(id==="mustaqsi") return all.filter(i=>/ذخيرة|دفاع|صاروخ|مسيرة|وزارة الدفاع|military|missile|drone/i.test(blob(i)));
+  if(id==="mutabiq") return all.filter(i=>/\d+|قتيل|جريح|حصيلة|عدد|killed|wounded/i.test(blob(i)));
+  if(id==="mukharrij") return all.filter(i=>!!i.link);
+  if(id==="munaqqih"){
+    const seen=new Set(); const out=[];
+    for(const i of all){
+      const k=(i.src||"")+"|"+(i.head||"").slice(0,48);
+      if(seen.has(k)) continue; seen.add(k); out.push(i);
+    }
+    return out;
+  }
+  if(id==="hurr") return all.filter(i=>!i.fa);
+  return all;
+}
+function collectorPosts(id, who){
+  const all=allItems();
+  let pool=agentNewsPool(id, all);
+  if(pool.length<5) pool=all;
+  return newsAsPosts(shardItems(id, pool, 12), who);
+}
 function packToPosts(pack){
   if(!pack||!(pack.posts||[]).length) return null;
   return pack.posts.map(p=>{
@@ -837,17 +886,34 @@ function packToPosts(pack){
     return {...p, title, caption, item:item||p.item, auto:true};
   });
 }
+const COLLECTOR_IDS=new Set(["hurr","rasid","multaqit","munabbih","shahid","mustaqsi","mutabiq","mukharrij","munaqqih","turjuman"]);
 function buildProfilePosts(kind, id){
-  /* Prefer pipeline-published automated posts */
+  const who=(profilePerson(kind,id)||{}).name||id;
+  /* Collectors: always unique role pools — never mirror the same full feed */
+  if(kind==="agent" && COLLECTOR_IDS.has(id)){
+    if(APOSTS&&APOSTS.agents&&APOSTS.agents[id]){
+      const ready=packToPosts(APOSTS.agents[id]);
+      if(ready&&ready.length){
+        const news=ready.filter(p=>p.kind==="news");
+        const other=ready.filter(p=>p.kind!=="news");
+        if(news.length){
+          /* shared dumps (≥18 news) → rebuild from role pool; else daily shard */
+          if(news.length>=18) return collectorPosts(id, who).concat(other).slice(0,24);
+          return shardItems(id, news, 12).concat(other).slice(0,24);
+        }
+      }
+    }
+    return collectorPosts(id, who);
+  }
+  /* Prefer pipeline-published automated posts for specialist desks */
   if(APOSTS){
     const pack=kind==="desk"?(APOSTS.desks||{})[id]:(APOSTS.agents||{})[id];
     const ready=packToPosts(pack);
     if(ready&&ready.length) return ready;
   }
-  const who=(profilePerson(kind,id)||{}).name||id;
   if(kind==="desk"){
     const prev=deskFilter; deskFilter=id;
-    const list=filtered().slice(0,24);
+    const list=shardItems("desk|"+id, filtered(), 12);
     deskFilter=prev;
     return newsAsPosts(list, who);
   }
@@ -877,7 +943,7 @@ function buildProfilePosts(kind, id){
     }));
     return out;
   }
-  if(id==="musannif"||id==="mudaqqiq"){
+  if(id==="musannif"){
     const runs=((EVOLUTION&&EVOLUTION.runs)||[]).slice().reverse().slice(0,12);
     return runs.map(r=>({
       kind:"evo", title:`v${r.v||"—"}`, img:"", link:"", at:r.t,
@@ -885,6 +951,16 @@ function buildProfilePosts(kind, id){
         ? `${who} · Cycle v${r.v||"—"}: checked ${r.checked||0}, removed ${r.removed||0}, downgraded ${r.downgraded||0}. The desk got sharper.`
         : `${who} · دورة v${r.v||"—"}: راجع ${r.checked||0}، استبعد ${r.removed||0}، خفّض ${r.downgraded||0}. الغرفة أصبحت أحدّ.`
     }));
+  }
+  if(id==="mudaqqiq"){
+    const graded=collectorPosts("mudaqqiq", who);
+    const runs=((EVOLUTION&&EVOLUTION.runs)||[]).slice().reverse().slice(0,6).map(r=>({
+      kind:"evo", title:`v${r.v||"—"}`, img:"", link:"", at:r.t,
+      caption: EN
+        ? `${who} · Cycle v${r.v||"—"}: checked ${r.checked||0}, removed ${r.removed||0}, downgraded ${r.downgraded||0}.`
+        : `${who} · دورة v${r.v||"—"}: راجع ${r.checked||0}، استبعد ${r.removed||0}، خفّض ${r.downgraded||0}.`
+    }));
+    return graded.concat(runs).slice(0,18);
   }
   if(id==="miqyas"){
     return [...((TENSION&&TENSION.countries)||[])].sort((a,b)=>(b.score||0)-(a.score||0)).slice(0,12).map(c=>({
@@ -910,9 +986,7 @@ function buildProfilePosts(kind, id){
         : `${who} · الصق رابط خبر أو صورة أو فيديو — حكم واضح بلا كشف للأدوات.`
     }];
   }
-  if(id==="turjuman") return newsAsPosts(allItems().filter(i=>i.fa).slice(0,24), who);
-  if(id==="mudaqqiq") return newsAsPosts(allItems().filter(i=>i.grade&&i.isnad).slice(0,24), who);
-  return newsAsPosts(allItems().slice(0,24), who);
+  return collectorPosts(id, who);
 }
 function openProfile(kind, id, tab){
   PROFILE={kind,id,tab:tab||"grid"};
@@ -946,39 +1020,78 @@ function igPostHTML(p, n, person){
   const mediaInner=p.img
     ? `<img src="${safeUrl(p.img)}" alt="" loading="lazy" onerror="this.outerHTML='<div class=\\'seal\\'>سَنَد</div>'">`
     : `<div class="seal">${p.pct!=null?esc(p.pct)+"%":esc(person.icon||"سَنَد")}</div>`;
-  const cmts=commentsForItem(p.item||p);
+  const cmts=commentsForItem(p.item||p, person.id);
   return `<article class="ig-post" data-pi="${n}">
     <div class="ig-hd">
       <div class="ig-av" style="${person.color?`color:${person.color}`:""}">${esc(person.icon||"•")}</div>
       <div class="ig-who"><b>${esc(person.name)}</b><span>${esc(person.handle)}${p.at?" · "+ago(p.at):""}</span></div>
     </div>
-    <div class="ig-media">${mediaInner}${p.pct!=null&&p.kind==="scenario"?`<span class="pct-badge">${esc(p.pct)}%</span>`:""}</div>
+    <button type="button" class="ig-media" data-act="post" aria-label="${EN?"Open post":"افتح المنشور"}">${mediaInner}${p.pct!=null&&p.kind==="scenario"?`<span class="pct-badge">${esc(p.pct)}%</span>`:""}</button>
     <div class="ig-acts">
       <button type="button" data-act="share" aria-label="share">↗</button>
       <button type="button" data-act="open" aria-label="open">⧉</button>
       ${p.item?`<button type="button" data-act="isnad" aria-label="isnad">☰</button>`:""}
       ${p.item?`<button type="button" data-act="save" aria-label="save">${isSaved(p.item)?"♥":"♡"}</button>`:""}
-      ${cmts.length?`<button type="button" data-act="comments" aria-label="comments">💬</button>`:""}
+      <button type="button" data-act="post" aria-label="comments">💬 ${cmts.length||""}</button>
     </div>
-    <div class="ig-cap"><span class="by">${esc(person.handle)}</span><span class="cap-t">${esc(short)}</span>
-      ${cap.length>160?`<button type="button" class="more" data-act="more">${EN?"more":"المزيد"}</button>`:""}</div>
+    <button type="button" class="ig-cap" data-act="post" style="width:100%;border:0;background:transparent;cursor:pointer;color:inherit;font:inherit;text-align:start">
+      <span class="by">${esc(person.handle)}</span><span class="cap-t">${esc(short)}</span>
+      ${cap.length>160?`<span class="more">${EN?"more":"المزيد"}</span>`:""}</button>
     <div class="ig-meta">${p.grade?badge(p.grade):""}${p.src?`<span class="badge b-src">${esc(p.src)}</span>`:""}</div>
-    ${commentsHTML(cmts, false)}
+    ${commentsHTML(cmts, true)}
   </article>`;
+}
+function openProfilePost(n){
+  if(!PROFILE) return;
+  const person=profilePerson(PROFILE.kind, PROFILE.id);
+  const p=(AGENT_POSTS||[])[n];
+  if(!person||!p) return;
+  const cap=p.caption||p.title||"";
+  const cmts=commentsForItem(p.item||p, person.id);
+  const mediaInner=p.img
+    ? `<img src="${safeUrl(p.img)}" alt="" loading="lazy" onerror="this.outerHTML='<div class=\\'seal\\'>سَنَد</div>'">`
+    : `<div class="seal">${p.pct!=null?esc(p.pct)+"%":esc(person.icon||"سَنَد")}</div>`;
+  openSheet(`<article class="ig-post" style="border:0;margin:0">
+    <div class="ig-hd">
+      <div class="ig-av" style="${person.color?`color:${person.color}`:""}">${esc(person.icon||"•")}</div>
+      <div class="ig-who"><b>${esc(person.name)}</b><span>${esc(person.handle)}${p.at?" · "+ago(p.at):""}</span></div>
+    </div>
+    <div class="ig-media">${mediaInner}${p.pct!=null&&p.kind==="scenario"?`<span class="pct-badge">${esc(p.pct)}%</span>`:""}</div>
+    <div class="ig-cap" style="padding-top:12px"><span class="by">${esc(person.handle)}</span><span class="cap-t">${esc(cap)}</span></div>
+    <div class="ig-meta">${p.grade?badge(p.grade):""}${p.src?`<span class="badge b-src">${esc(p.src)}</span>`:""}${p.score!=null?`<span class="badge b-src">${esc(p.score)}/7</span>`:""}</div>
+    ${p.item?`<div style="padding:0 14px 8px">${isnadBar(p.item.isnad,p.item.grade)}</div>`:""}
+    ${commentsHTML(cmts, true)}
+    <div class="prof-actions" style="padding:8px 14px 0;display:flex;flex-wrap:wrap;gap:8px">
+      ${p.link?`<button type="button" class="primary" id="ppOpen">${EN?"Open source":"افتح المصدر"}</button>`:""}
+      ${p.item?`<button type="button" id="ppIsnad">${EN?"Attribution":"الإسناد"}</button>`:""}
+      ${p.item?`<button type="button" id="ppSave">${isSaved(p.item)?(EN?"Saved":"محفوظ"):(EN?"Save":"حفظ")}</button>`:""}
+      ${p.kind==="action"?`<button type="button" class="primary" id="ppVerify">${EN?"Verify":"تحقّق"}</button>`:""}
+      ${(p.kind==="scenario"||p.kind==="signal")?`<button type="button" class="primary" id="ppFc">${EN?"Forecast":"الاستقراء"}</button>`:""}
+      ${p.kind==="evo"?`<button type="button" class="primary" id="ppEvo">${EN?"Learning":"التعلّم"}</button>`:""}
+      ${p.kind==="brief"?`<button type="button" class="primary" id="ppBrief">${EN?"Brief":"النشرة"}</button>`:""}
+      ${p.kind==="official"?`<button type="button" class="primary" id="ppOff">${EN?"Official":"الرسمي"}</button>`:""}
+      <button type="button" class="sheet-x" onclick="closeSheet()">${EN?"Close":"إغلاق"}</button>
+    </div>
+  </article>`);
+  const bind=(id,fn)=>{const el=document.getElementById(id); if(el) el.onclick=fn};
+  bind("ppOpen",()=>{const u=safeUrl(p.link); if(u!=="#") window.open(u,"_blank","noopener")});
+  bind("ppIsnad",()=>{if(p.item) showIsnad(p.item)});
+  bind("ppSave",()=>{if(p.item){toggleSave(p.item); openProfilePost(n)}});
+  bind("ppVerify",()=>{closeSheet(); setView("verify")});
+  bind("ppFc",()=>{openForecastSheet()});
+  bind("ppEvo",()=>{openEvolutionSheet()});
+  bind("ppBrief",()=>{closeSheet(); setView("brief")});
+  bind("ppOff",()=>{openOfficial(p.oi)});
 }
 function bindIgPosts(root, list, person){
   root.querySelectorAll(".ig-post").forEach(el=>{
-    const p=list[+el.dataset.pi]; if(!p) return;
+    const n=+el.dataset.pi; const p=list[n]; if(!p) return;
     el.querySelectorAll("[data-act]").forEach(btn=>{
-      btn.onclick=()=>{
+      btn.onclick=(ev)=>{
+        ev.stopPropagation();
         const a=btn.dataset.act;
-        if(a==="more"){
-          const t=el.querySelector(".cap-t"); if(t) t.textContent=p.caption||p.title||"";
-          btn.remove();
-        } else if(a==="comments"){
-          const box=el.querySelector(".ig-comments"); const tog=el.querySelector(".cmt-toggle");
-          if(box){ box.hidden=!box.hidden; if(tog) tog.style.display=box.hidden?"":"none"; }
-        } else if(a==="share"){
+        if(a==="post"||a==="more"){ openProfilePost(n); return; }
+        if(a==="share"){
           const text=(p.caption||p.title||"")+"\n\nسَنَد | isnad.news";
           if(navigator.share) navigator.share({title:person.name,text,url:p.link||location.href}).catch(()=>cpy(text));
           else cpy(text+(p.link?"\n"+p.link:""));
@@ -989,7 +1102,7 @@ function bindIgPosts(root, list, person){
           else if(p.kind==="scenario"||p.kind==="signal") openForecastSheet();
           else if(p.kind==="evo") openEvolutionSheet();
           else if(p.link){ const u=safeUrl(p.link); if(u!=="#") window.open(u,"_blank","noopener") }
-          else if(p.item) showIsnad(p.item);
+          else openProfilePost(n);
         } else if(a==="isnad"&&p.item) showIsnad(p.item);
         else if(a==="save"&&p.item){ toggleSave(p.item); renderProfile(); }
       };
@@ -1010,7 +1123,7 @@ function renderProfile(){
   let body="";
   if(tab==="grid"){
     if(!posts.length) body=`<div class="empty">${EN?"No posts yet.":"لا منشورات بعد."}</div>`;
-    else body=`<div class="prof-grid">${posts.map((p,n)=>`<button type="button" class="prof-cell" onclick="setProfileTab('feed');setTimeout(()=>{const el=document.querySelector('.ig-post[data-pi=\"${n}\"]');if(el)el.scrollIntoView({behavior:'smooth',block:'start'})},40)">
+    else body=`<div class="prof-grid">${posts.map((p,n)=>`<button type="button" class="prof-cell" onclick="openProfilePost(${n})">
       ${profileMedia(p)}${p.pct!=null?`<span class="tag">${esc(p.pct)}%</span>`:""}</button>`).join("")}</div>`;
   } else {
     if(!posts.length) body=`<div class="empty">${EN?"No posts yet.":"لا منشورات بعد."}</div>`;
@@ -1212,7 +1325,7 @@ function postHTML(i,n,bucket){
       <p class="ig-cap-line"><span class="by">${esc(regionOf(d))}</span> ${EN?`Automated spot via ${i.src||"source"}.`:`رصد آلي من ${i.src||"مصدر"}.`}</p>
     </div>
     <div class="post-meta">${badge(i.grade)}${i.score!==undefined?`<span class="badge b-src">${esc(i.score)}/7</span>`:""}${isnadBar(i.isnad,i.grade)}</div>
-    ${commentsHTML(commentsForItem(i), false)}
+    ${commentsHTML(commentsForItem(i, deskFor(i).id), true)}
   </article>`;
 }
 function bindPosts(root, list, bucket){
@@ -1227,8 +1340,8 @@ function bindPosts(root, list, bucket){
         else if(a==="isnad") showIsnad(i);
         else if(a==="save"){ toggleSave(i); }
         else if(a==="comments"){
-          const box=el.querySelector(".ig-comments"); const tog=el.querySelector(".cmt-toggle");
-          if(box){ box.hidden=!box.hidden; if(tog) tog.style.display=box.hidden?"":"none"; }
+          const box=el.querySelector(".ig-comments");
+          if(box) box.scrollIntoView({behavior:"smooth",block:"nearest"});
         }
       };
     });
@@ -1369,8 +1482,9 @@ async function runVerify(){
 
 let BUNDLE=null, ARC_IX=null, ARC_CACHE={}, searchTimer=null, SEARCH_HITS=[];
 async function grab(name){
-  if(BUNDLE && BUNDLE[name]) return BUNDLE[name];
+  if(BUNDLE && BUNDLE[name]!=null) return BUNDLE[name];
   const r=await fetch(RAW+name+".json?t="+Date.now());
+  if(!r.ok) throw new Error(name+" "+r.status);
   return r.json();
 }
 function toggleSearch(force){

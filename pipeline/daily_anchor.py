@@ -577,6 +577,48 @@ def _auto_news_posts(items, who_ar, who_en, cap=24):
         })
     return out
 
+def _shard_items(seed, items, n=12):
+    """حصّة يوميّة ثابتة لكل وكيل — حتى لا يتكرّر نفس الشريط عند الجميع."""
+    lst=list(items or [])
+    if not lst: return []
+    take=min(n, len(lst))
+    day=_cmt_day()
+    h=_cmt_hash(f"{day}|{seed}")
+    out=[]; used=set()
+    k=0
+    while len(out)<take and k<len(lst)*6:
+        i=(h+k*13+len(str(seed))*5)%len(lst)
+        k+=1
+        if i in used: continue
+        used.add(i); out.append(lst[i])
+    for i,it in enumerate(lst):
+        if len(out)>=take: break
+        if i in used: continue
+        used.add(i); out.append(it)
+    return out
+
+def _agent_news_pool(aid, feed):
+    def blob(it):
+        return " ".join(str(it.get(k) or "") for k in ("head","he","src","cat"))
+    if aid=="turjuman": return [i for i in feed if i.get("fa")]
+    if aid=="mudaqqiq": return [i for i in feed if i.get("grade") and i.get("isnad")]
+    if aid=="rasid": return [i for i in feed if i.get("grade") or (i.get("score") is not None and i.get("score")>=4)]
+    if aid=="multaqit": return [i for i in feed if (not i.get("grade")) or i.get("grade")=="ضعيف" or (i.get("score") is not None and i.get("score")<=3)]
+    if aid=="munabbih": return [i for i in feed if re.search(r"تحذير|عاجل|إنذار|إخلاء|alert|warning", blob(i), re.I)]
+    if aid=="shahid": return [i for i in feed if re.search(r"زلزال|طيران|حرائق|ميدان|قصف|صاروخ|غارة|earthquake|fire|flight|strike", blob(i), re.I)]
+    if aid=="mustaqsi": return [i for i in feed if re.search(r"ذخيرة|دفاع|صاروخ|مسيرة|وزارة الدفاع|military|missile|drone", blob(i), re.I)]
+    if aid=="mutabiq": return [i for i in feed if re.search(r"\d+|قتيل|جريح|حصيلة|عدد|killed|wounded", blob(i), re.I)]
+    if aid=="mukharrij": return [i for i in feed if i.get("link")]
+    if aid=="munaqqih":
+        seen=set(); out=[]
+        for i in feed:
+            k=(i.get("src") or "")+"|"+(i.get("head") or "")[:48]
+            if k in seen: continue
+            seen.add(k); out.append(i)
+        return out
+    if aid=="hurr": return [i for i in feed if not i.get("fa")]
+    return list(feed)
+
 def social_posts():
     """منشورات كل وكيل/مكتب — تُبنى آليًّا من مخرجات الدورة بلا أي استدعاء API إضافي."""
     path=f"{OUT}/posts.json"
@@ -603,16 +645,16 @@ def social_posts():
             items=[i for i in feed if i.get("cat")=="إيران" or i.get("fa")]
         else:
             items=[i for i in feed if i.get("cat") in d["cats"]]
-        desk_posts[did]={"auto":True,"posts":_auto_news_posts(items,d["name"],d["en"])}
+        desk_posts[did]={"auto":True,"posts":_auto_news_posts(_shard_items("desk|"+did, items, 12),d["name"],d["en"])}
 
     agent_posts={}
-    # جامعون / رصد — منشورات من حصيلة الأخبار الآلية
-    for aid in ("hurr","rasid","multaqit","munabbih","shahid","mustaqsi","mutabiq","mukharrij","munaqqih"):
+    # جامعون / رصد — حصص يوميّة متمايزة حسب الدور (لا نفس الشريط للجميع)
+    for aid in ("hurr","rasid","multaqit","munabbih","shahid","mustaqsi","mutabiq","mukharrij","munaqqih","turjuman"):
         m=agents_meta.get(aid,{"name":aid,"en":aid})
-        agent_posts[aid]={"auto":True,"posts":_auto_news_posts(feed, m["name"], m.get("en",aid))}
-
-    m=agents_meta.get("turjuman",{"name":"التَّرْجُمَان","en":"Turjuman"})
-    agent_posts["turjuman"]={"auto":True,"posts":_auto_news_posts([i for i in feed if i.get("fa")], m["name"], "Al-Turjuman")}
+        pool=_agent_news_pool(aid, feed)
+        if len(pool)<5: pool=list(feed)
+        who_en={"turjuman":"Al-Turjuman"}.get(aid, m.get("en",aid))
+        agent_posts[aid]={"auto":True,"posts":_auto_news_posts(_shard_items(aid, pool, 12), m["name"], who_en)}
     graded=[i for i in feed if i.get("grade") and i.get("isnad")]
 
     # رسمي
@@ -663,7 +705,7 @@ def social_posts():
         "at":r.get("t") or "","link":"","img":"",
     } for r in runs]
     agent_posts["musannif"]={"auto":True,"posts":evo}
-    agent_posts["mudaqqiq"]={"auto":True,"posts":(_auto_news_posts(graded, "المُدقِّق", "Al-Mudaqqiq") + evo)[:24]}
+    agent_posts["mudaqqiq"]={"auto":True,"posts":(_auto_news_posts(_shard_items("mudaqqiq", graded, 12), "المُدقِّق", "Al-Mudaqqiq") + evo)[:18]}
 
     # حرارة
     countries=sorted((_load_daily("tension",{}).get("countries") or []), key=lambda c:-(c.get("score") or 0))[:12]
