@@ -358,19 +358,60 @@ function verifyStats() {
 }
 
 async function buildStatus() {
-  const [agents, cost, news, controlPack] = await Promise.all([
-    fetchJson(`${RAW_BASE}/agents.json`),
-    fetchJson(`${RAW_BASE}/cost.json`),
-    fetchJson(`${RAW_BASE}/news.json`),
-    loadControl(),
-  ]);
+  const sectionKeys = [
+    'news',
+    'verify',
+    'council',
+    'evolution',
+    'agents',
+    'forecast',
+    'analyst',
+    'alerts',
+    'official',
+    'rumors',
+    'column',
+    'latest',
+    'dua',
+    'cost',
+  ];
+  const [agents, cost, news, rumors, controlPack, ...sectionDocs] =
+    await Promise.all([
+      fetchJson(`${RAW_BASE}/agents.json`),
+      fetchJson(`${RAW_BASE}/cost.json`),
+      fetchJson(`${RAW_BASE}/news.json`),
+      fetchJson(`${RAW_BASE}/rumors.json`),
+      loadControl(),
+      ...sectionKeys.map((k) => fetchJson(`${RAW_BASE}/${k}.json`)),
+    ]);
 
-  const verify = verifyStats();
+  const sections = {};
+  sectionKeys.forEach((k, i) => {
+    const d = sectionDocs[i];
+    if (!d) {
+      sections[k] = null;
+      return;
+    }
+    sections[k] =
+      d.updated || d.built || (d.date ? String(d.date) + 'T00:00:00Z' : null);
+  });
+
+  const verifyRaw = verifyStats();
+  const verify = {
+    ...verifyRaw,
+    day: verifyRaw.spend?.day || '',
+    usd: verifyRaw.spend?.usd || 0,
+    calls: verifyRaw.spend?.calls || 0,
+    activity: verifyRaw.activity || [],
+  };
+
   return {
     ok: true,
     updated: new Date().toISOString(),
+    built: agents?.updated || news?.updated || null,
     agents: agents || null,
     cost: cost || null,
+    rumors: rumors || null,
+    sections,
     news: news
       ? {
           updated: news.updated || null,
