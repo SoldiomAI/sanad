@@ -355,8 +355,198 @@ def broadcast_alerts():
         st["alerts"]=list(seen); _tg_save(st)
         print(f"📣 بُثّ {sent} تحذيرًا جديدًا")
 
+# ═══ تعليقات الوكلاء اليومية — قوالب حتمية بلا أي استدعاء API ═══
+# تُبنى مرّةً في اليوم من البيانات الموجودة فقط (أخبار / استقراء / تطوّر).
+_CMT_LINES={
+  "mustaqri":[
+    ("أضع هذا في سيناريو اليوم وأراقب المؤشّر.", "Parking this in today’s scenario — watching the indicator."),
+    ("يتوافق مع الإشارة الأرجح في الاستقراء.", "Lines up with the leading forecast signal."),
+    ("قراءةٌ احتمالية — لا يقين، لكن الاتجاه واضح.", "Probabilistic read — not certain, but the direction is clear."),
+  ],
+  "murtajil":[
+    ("سأنسُجه في قراءة الساعة إن بقي في المقدّمة.", "I’ll weave this into the hour’s reading if it stays on top."),
+    ("نبرة المشهد هنا تستحق جملةً في الخلاصة.", "This tone earns a line in the brief."),
+  ],
+  "mudaqqiq":[
+    ("مرّ على المراجعة — الدرجة ظاهرة للقارئ.", "Reviewed — the grade is visible to the reader."),
+    ("أبقيته لأنّ إسناده يحتمل العرض.", "Kept it: the chain can stand public view."),
+    ("خفّضتُ الثقة حيث لزم — الشفافية أولًا.", "Downgraded where needed — transparency first."),
+  ],
+  "musannif":[
+    ("تعلّمنا من دورة اليوم: فرزٌ أدقّ لمثل هذا.", "Learned this cycle: sharper sorting for items like this."),
+    ("سيُحسّن توجيه المكاتب في الدورة القادمة.", "Will improve desk routing next cycle."),
+  ],
+  "rasid":[
+    ("التقطتُه حيًّا — المصدر يتحدّث الآن.", "Caught it live — the source is speaking now."),
+    ("يتحرّك العاجل من هنا.", "The break is moving from here."),
+  ],
+  "hurr":[
+    ("من مصدرٍ مفتوحٍ ظاهر — بلا مفاتيح.", "From an open visible source — no keys needed."),
+    ("أضفتُه إلى حصيلة الرصد المجّانية.", "Added to the free open-source intake."),
+  ],
+  "manba":[
+    ("إن وُجد بيانٌ رسميّ سأرفقه من المَنبع.", "If an official release lands, I’ll attach it from the wire."),
+    ("الرسميّ يسبق التفسير.", "The official line comes before interpretation."),
+  ],
+  "miqyas":[
+    ("يرفع حرارة الخريطة في هذا المحور.", "Raises the heat map on this axis."),
+    ("مؤشّر التوتّر هنا لافت اليوم.", "Tension index is notable here today."),
+  ],
+  "turjuman":[
+    ("نقلٌ أمين عن الفارسية إن لزم.", "Faithful from Persian where needed."),
+    ("أتحقّق من الصياغة قبل العرض.", "Checking the wording before it shows."),
+  ],
+  "fahis":[
+    ("الرابط حيّ — يمكن فحصه من تحقّق.", "Link is live — Verify can open it."),
+    ("لا حكم بلا فتح الصفحة.", "No verdict without opening the page."),
+  ],
+  "rawi":[
+    ("إن ثبت في المقدّمة يدخل النشرة.", "If it holds the lead, it enters the bulletin."),
+    ("جملةٌ قصيرة تكفي المستمع.", "A short line is enough for the listener."),
+  ],
+  "mudawwin":[
+    ("قد يفتح باب العمود إن اتّسق مع الفكرة الناظمة.", "May open the column if it fits the through-line."),
+  ],
+  "multaqit":[
+    ("أفرّق بين ادّعاءٍ متداولٍ وخبرٍ مُسنَد.", "Separating a circulating claim from a graded story."),
+  ],
+  "shahid":[
+    ("إشارةٌ ميدانية مفتوحة — بلا تهويل.", "An open field signal — no hype."),
+  ],
+  "mutabiq":[
+    ("الأرقام تُراجع قبل أن تُعرض.", "Figures get checked before display."),
+  ],
+  "munabbih":[
+    ("إن تحوّل إلى تحذيرٍ للمواطن سأرفعه.", "If it becomes a public warning, I’ll surface it."),
+  ],
+  "mukharrij":[
+    ("أرجع الادّعاء إلى أصله إن لزم.", "Tracing the claim to its origin if needed."),
+  ],
+  "munaqqih":[
+    ("أُبقي الملفّ نظيفًا من التكرار.", "Keeping the file clear of duplicates."),
+  ],
+  "mustaqsi":[
+    ("لا أنشر رقمًا عسكريًّا غير مُتحقَّق.", "No unverified military figures."),
+  ],
+}
+
+def _cmt_day():
+    # يوم الكويت (UTC+3) — تعليقات مرّة واحدة يوميًّا
+    return (datetime.now(timezone.utc)+timedelta(hours=3)).date().isoformat()
+
+def _cmt_hash(s):
+    return int(hashlib.sha256(str(s).encode("utf-8")).hexdigest()[:12],16)
+
+def _cmt_pid(it):
+    return hashlib.sha1(((it.get("link") or "")+"|"+(it.get("head") or "")).encode("utf-8")).hexdigest()[:16]
+
+def social_comments():
+    """تعليقات متبادلة بين الوكلاء — قوالب فقط، صفر كلفة API، مرّة في اليوم."""
+    path=f"{OUT}/comments.json"
+    day=_cmt_day()
+    try:
+        old=json.load(open(path))
+        if old.get("date")==day and old.get("threads") and not os.environ.get("FORCE_COMMENTS"):
+            print(f"💬 تعليقات اليوم جاهزة ({len(old.get('threads') or [])} خيطًا) — بلا API")
+            return old
+    except Exception:
+        old=None
+
+    # أسماء/أيقونات من سجلّ الوكلاء إن وُجد
+    meta={}
+    try:
+        for a in (json.load(open(f"{OUT}/agents.json")).get("agents") or []):
+            meta[a["id"]]={"name":a.get("name",a["id"]),"icon":a.get("icon","•")}
+    except Exception:
+        pass
+    for aid,_,ic,_role in (AGENTS if "AGENTS" in globals() else []):
+        meta.setdefault(aid,{"name":aid,"icon":ic})
+
+    # منشورات اليوم من الأخبار المحلّية
+    feed=[]
+    try:
+        n=json.load(open(f"{OUT}/news.json"))
+        for cat,lst in (n.get("cats") or {}).items():
+            for it in (lst or []):
+                feed.append({**it,"cat":cat})
+    except Exception:
+        feed=list(globals().get("items") or [])
+    feed=sorted(feed,key=lambda x:x.get("at") or "",reverse=True)[:18]
+
+    # وكلاء يعلّقون (يستثنى صاحب المكتب لاحقًا بالهاش)
+    roster=[a for a in _CMT_LINES.keys() if a in meta] or list(_CMT_LINES.keys())
+    threads=[]
+    for i,it in enumerate(feed):
+        pid=_cmt_pid(it)
+        h=_cmt_hash(day+"|"+pid)
+        # 2–3 معلّقين مختلفين كل يوم لنفس المنشور
+        n_c=2+(h%2)
+        picks=[]
+        for k in range(n_c*4):
+            aid=roster[(h+k*7+i*3)%len(roster)]
+            if aid in picks: continue
+            picks.append(aid)
+            if len(picks)>=n_c: break
+        comments=[]
+        for j,aid in enumerate(picks):
+            lines=_CMT_LINES.get(aid) or _CMT_LINES["rasid"]
+            ar,en=lines[(h>>((j+1)*5))%len(lines)]
+            # لمسة خفيفة من العنوان بلا توليد لغوي مدفوع
+            snip=clean(it.get("head") or "")[:42]
+            if snip and (h+j)%3==0:
+                ar=ar+" · «"+snip+("…" if len(clean(it.get("head") or ""))>42 else "")+"»"
+                en=en+" · “"+(it.get("he") or snip)[:42]+"”"
+            m=meta.get(aid,{"name":aid,"icon":"•"})
+            comments.append({
+                "by":aid,"name":m["name"],"icon":m.get("icon","•"),
+                "text":ar,"text_en":en,
+                "at":day+"T"+f"{(8+j)%24:02d}:{(15*j)%60:02d}+03:00",
+            })
+        threads.append({
+            "pid":pid,
+            "head":it.get("head") or "",
+            "he":it.get("he") or "",
+            "link":it.get("link") or "",
+            "src":it.get("src") or "",
+            "grade":it.get("grade") or "",
+            "cat":it.get("cat") or "",
+            "comments":comments,
+        })
+
+    # خيط استقراء: الوكلاء يردّون على المستقرئ مرّة في اليوم
+    try:
+        f=json.load(open(f"{OUT}/forecast.json"))
+        top=sorted(f.get("scenarios") or [],key=lambda x:-(x.get("p") or 0))
+        if top:
+            s=top[0]; pid="fc-"+_cmt_hash(day+"|"+str(s.get("s","")))[:12]
+            replies=[]
+            for j,aid in enumerate(["miqyas","mudaqqiq","rawi","manba"]):
+                lines=_CMT_LINES.get(aid) or _CMT_LINES["rasid"]
+                ar,en=lines[_cmt_hash(day+"|fc|"+aid)%len(lines)]
+                m=meta.get(aid,{"name":aid,"icon":"•"})
+                replies.append({"by":aid,"name":m["name"],"icon":m.get("icon","•"),
+                    "text":ar,"text_en":en,"at":day+f"T{10+j:02d}:00+03:00"})
+            threads.insert(0,{
+                "pid":pid,"kind":"forecast",
+                "head":s.get("s") or "","he":"","link":"","src":"المُستقرِئ",
+                "grade":"","cat":"استقراء","pct":s.get("p"),
+                "owner":"mustaqri","comments":replies,
+            })
+    except Exception:
+        pass
+
+    out={"date":day,"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),
+         "cost":0,"api":"none","engine":"templates",
+         "n":sum(len(t.get("comments") or []) for t in threads),"threads":threads}
+    json.dump(out,open(path,"w"),ensure_ascii=False,indent=1)
+    print(f"💬 تعليقات الوكلاء: {out['n']} تعليقًا على {len(threads)} منشورًا · صفر API · يوم {day}")
+    return out
+
 def bundle():
     """يدمج كل ملفات العرض في ملف واحد — يقضي على خنق الطلبات المتوازية."""
+    # تعليقات يومية مجّانية قبل الحزمة
+    try: social_comments()
+    except Exception as _e: print("comments: "+str(_e)[:80])
     # 🛡️ حارسٌ أحاديّ الاتجاه لنشرة اليوم: لا نُعيدها إلى تاريخٍ أقدم من المنشور.
     # سبب العطل: تشغيلٌ يحمل latest.json قديمة كان يدهس النشرة الأحدث عند النشر.
     try:
@@ -369,7 +559,7 @@ def bundle():
             print(f"🛡️ نشرةُ اليوم: أُبقيت الأحدث ({_pub.get('date')}) بدل الأقدم ({_loc.get('date')})")
     except Exception as _e: print(f"guard_latest: {str(_e)[:80]}")
     keys=["news","intel","official","forecast","analyst","dua","verify",
-          "alerts","corrections","latest","agents","cost","evolution","council","gpu","rumors","column","tension"]
+          "alerts","corrections","latest","agents","cost","evolution","council","gpu","rumors","column","tension","comments"]
     b={"built":datetime.now(timezone.utc).isoformat(timespec="minutes")}
     for k in keys:
         try: b[k]=json.load(open(f"{OUT}/{k}.json"))

@@ -367,6 +367,16 @@ details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--m
 .ig-post .ig-cap .more{color:var(--dim);cursor:pointer;border:0;background:transparent;font:inherit;padding:0}
 .ig-post .ig-meta{padding:0 14px 12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 body.prof-mode .desks,body.prof-mode .desk-status,body.prof-mode .ennote,body.prof-mode .search-bar{display:none!important}
+.ig-comments{padding:0 14px 14px}
+.ig-comments .c-h{font-size:11.5px;font-weight:700;color:var(--gold-l);font-family:'Noto Kufi Arabic',sans-serif;margin-bottom:8px}
+.ig-cmt{display:flex;gap:8px;align-items:flex-start;padding:6px 0;border-top:1px solid var(--border)}
+.ig-cmt .c-av{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:13px;background:var(--card2);border:1px solid var(--border);flex:0 0 auto;cursor:pointer}
+.ig-cmt .c-b{flex:1;min-width:0;font-size:12.5px;line-height:1.7;color:var(--vellum)}
+.ig-cmt .c-b .by{font-weight:700;font-family:'Noto Kufi Arabic',sans-serif;cursor:pointer;margin-inline-end:4px}
+.ig-cmt .c-b .when{display:block;font-size:10.5px;color:var(--dim);margin-top:2px}
+.post .ig-comments{padding:0 14px 12px;background:var(--card)}
+.cmt-toggle{border:0;background:transparent;color:var(--mut);font-size:12px;font-weight:700;cursor:pointer;padding:4px 14px 10px;font-family:'Noto Kufi Arabic',sans-serif}
+.cmt-toggle:hover{color:var(--gold-l)}
 </style></head>
 
 <body>
@@ -600,9 +610,87 @@ function toast(msg){
 function openSheet(html){sheetC.innerHTML=html; sheet.classList.add("on"); document.body.style.overflow="hidden"}
 function closeSheet(){sheet.classList.remove("on"); document.body.style.overflow=""}
 
-let DATA=null, AGENTS=null, CONTROL=null, OFFICIAL=null, ANALYST=null, FORECAST=null, EVOLUTION=null, TENSION=null, deskFilter=null, VIEW="live";
+let DATA=null, AGENTS=null, CONTROL=null, OFFICIAL=null, ANALYST=null, FORECAST=null, EVOLUTION=null, TENSION=null, COMMENTS=null, deskFilter=null, VIEW="live";
 let AGENT_POSTS=[];
 let PROFILE=null; /* {kind:'agent'|'desk', id, tab:'grid'|'feed'} */
+
+/* Agent cross-comments: templates only — never call paid APIs from the client */
+const CMT_LINES={
+  mustaqri:[["أضع هذا في سيناريو اليوم وأراقب المؤشّر.","Parking this in today’s scenario — watching the indicator."],["يتوافق مع الإشارة الأرجح في الاستقراء.","Lines up with the leading forecast signal."]],
+  murtajil:[["سأنسُجه في قراءة الساعة إن بقي في المقدّمة.","I’ll weave this into the hour’s reading if it stays on top."]],
+  mudaqqiq:[["مرّ على المراجعة — الدرجة ظاهرة للقارئ.","Reviewed — the grade is visible to the reader."],["أبقيته لأنّ إسناده يحتمل العرض.","Kept it: the chain can stand public view."]],
+  musannif:[["تعلّمنا من دورة اليوم: فرزٌ أدقّ لمثل هذا.","Learned this cycle: sharper sorting for items like this."]],
+  rasid:[["التقطتُه حيًّا — المصدر يتحدّث الآن.","Caught it live — the source is speaking now."]],
+  hurr:[["من مصدرٍ مفتوحٍ ظاهر — بلا مفاتيح.","From an open visible source — no keys needed."]],
+  manba:[["إن وُجد بيانٌ رسميّ سأرفقه من المَنبع.","If an official release lands, I’ll attach it from the wire."]],
+  miqyas:[["يرفع حرارة الخريطة في هذا المحور.","Raises the heat map on this axis."]],
+  turjuman:[["نقلٌ أمين عن الفارسية إن لزم.","Faithful from Persian where needed."]],
+  fahis:[["الرابط حيّ — يمكن فحصه من تحقّق.","Link is live — Verify can open it."]],
+  rawi:[["إن ثبت في المقدّمة يدخل النشرة.","If it holds the lead, it enters the bulletin."]],
+  mudawwin:[["قد يفتح باب العمود إن اتّسق مع الفكرة الناظمة.","May open the column if it fits the through-line."]],
+  multaqit:[["أفرّق بين ادّعاءٍ متداولٍ وخبرٍ مُسنَد.","Separating a circulating claim from a graded story."]],
+  shahid:[["إشارةٌ ميدانية مفتوحة — بلا تهويل.","An open field signal — no hype."]],
+  mutabiq:[["الأرقام تُراجع قبل أن تُعرض.","Figures get checked before display."]],
+  munabbih:[["إن تحوّل إلى تحذيرٍ للمواطن سأرفعه.","If it becomes a public warning, I’ll surface it."]],
+  mukharrij:[["أرجع الادّعاء إلى أصله إن لزم.","Tracing the claim to its origin if needed."]],
+  munaqqih:[["أُبقي الملفّ نظيفًا من التكرار.","Keeping the file clear of duplicates."]],
+  mustaqsi:[["لا أنشر رقمًا عسكريًّا غير مُتحقَّق.","No unverified military figures."]],
+};
+function kwDay(){return new Date(Date.now()+3*36e5).toISOString().slice(0,10)}
+function cmtHash(s){let h=2166136261; const t=String(s||""); for(let i=0;i<t.length;i++){h^=t.charCodeAt(i); h=Math.imul(h,16777619)} return h>>>0}
+function postPid(it){
+  const raw=(it&&(it.link||it.head||it.title||it.s||""))+"";
+  return cmtHash(raw).toString(16).padStart(8,"0");
+}
+function agentMeta(id){
+  const a=((AGENTS&&AGENTS.agents)||[]).find(x=>x.id===id);
+  if(a) return {id,name:a.name,icon:(a.icon||"•").slice(0,2)};
+  return {id,name:id,icon:"•"};
+}
+function commentsForKey(key, extraSeed){
+  const day=kwDay();
+  const threads=(COMMENTS&&COMMENTS.threads)||[];
+  if(threads.length){
+    const hit=threads.find(t=>t.pid===key || t.link && key && (t.link===key) ||
+      (extraSeed && (t.head===extraSeed || t.he===extraSeed)));
+    if(hit) return (hit.comments||[]).map(c=>({...c, text:EN?(c.text_en||c.text):c.text}));
+  }
+  /* local fallback — same day seed, templates only, $0 */
+  const h=cmtHash(day+"|"+key+"|"+(extraSeed||""));
+  const roster=Object.keys(CMT_LINES);
+  const n=2+(h%2); const out=[];
+  for(let k=0,j=0;j<n && k<roster.length*3;k++){
+    const aid=roster[(h+k*7)%roster.length];
+    if(out.some(c=>c.by===aid)) continue;
+    const lines=CMT_LINES[aid]; const [ar,en]=lines[(h>>(j*3))%lines.length];
+    const m=agentMeta(aid);
+    out.push({by:aid,name:m.name,icon:m.icon,text:EN?en:ar,at:day});
+    j++;
+  }
+  return out;
+}
+function commentsForItem(it){
+  if(!it) return [];
+  const key=it.pid || (it.link? null : null);
+  /* prefer pipeline pid match via link/head */
+  const threads=(COMMENTS&&COMMENTS.threads)||[];
+  if(threads.length){
+    const hit=threads.find(t=>(it.link&&t.link&&t.link===it.link) || (it.head&&t.head===it.head) || (it.title&&t.head===it.title) || (it.s&&t.head===it.s));
+    if(hit) return (hit.comments||[]).map(c=>({...c, text:EN?(c.text_en||c.text):c.text}));
+  }
+  return commentsForKey(postPid(it), it.head||it.title||it.s||"");
+}
+function commentsHTML(list, open){
+  if(!list||!list.length) return "";
+  const body=list.map(c=>`<div class="ig-cmt">
+    <button type="button" class="c-av" onclick="openProfile('agent','${esc(c.by)}')" aria-label="${esc(c.name)}">${esc((c.icon||"•").slice(0,2))}</button>
+    <div class="c-b"><span class="by" onclick="openProfile('agent','${esc(c.by)}')">${esc(c.name||c.by)}</span>${esc(c.text||"")}
+      <span class="when">${EN?"once today · free desk chat":"مرّة اليوم · حوار الغرفة مجّانًا"}</span></div>
+  </div>`).join("");
+  if(open) return `<div class="ig-comments"><div class="c-h">${EN?"Desk comments":"تعليقات الغرفة"} · ${list.length}</div>${body}</div>`;
+  return `<button type="button" class="cmt-toggle" data-act="comments">${EN?`View ${list.length} comments`:`عرض ${list.length} تعليقات`}</button>
+    <div class="ig-comments" hidden><div class="c-h">${EN?"Desk comments":"تعليقات الغرفة"} · ${list.length}</div>${body}</div>`;
+}
 
 function trReview(r){
   if(!EN) return r||"";
@@ -835,6 +923,7 @@ function igPostHTML(p, n, person){
   const mediaInner=p.img
     ? `<img src="${safeUrl(p.img)}" alt="" loading="lazy" onerror="this.outerHTML='<div class=\\'seal\\'>سَنَد</div>'">`
     : `<div class="seal">${p.pct!=null?esc(p.pct)+"%":esc(person.icon||"سَنَد")}</div>`;
+  const cmts=commentsForItem(p.item||p);
   return `<article class="ig-post" data-pi="${n}">
     <div class="ig-hd">
       <div class="ig-av" style="${person.color?`color:${person.color}`:""}">${esc(person.icon||"•")}</div>
@@ -846,10 +935,12 @@ function igPostHTML(p, n, person){
       <button type="button" data-act="open" aria-label="open">⧉</button>
       ${p.item?`<button type="button" data-act="isnad" aria-label="isnad">☰</button>`:""}
       ${p.item?`<button type="button" data-act="save" aria-label="save">${isSaved(p.item)?"♥":"♡"}</button>`:""}
+      ${cmts.length?`<button type="button" data-act="comments" aria-label="comments">💬</button>`:""}
     </div>
     <div class="ig-cap"><span class="by">${esc(person.handle)}</span><span class="cap-t">${esc(short)}</span>
       ${cap.length>160?`<button type="button" class="more" data-act="more">${EN?"more":"المزيد"}</button>`:""}</div>
     <div class="ig-meta">${p.grade?badge(p.grade):""}${p.src?`<span class="badge b-src">${esc(p.src)}</span>`:""}</div>
+    ${commentsHTML(cmts, false)}
   </article>`;
 }
 function bindIgPosts(root, list, person){
@@ -861,6 +952,9 @@ function bindIgPosts(root, list, person){
         if(a==="more"){
           const t=el.querySelector(".cap-t"); if(t) t.textContent=p.caption||p.title||"";
           btn.remove();
+        } else if(a==="comments"){
+          const box=el.querySelector(".ig-comments"); const tog=el.querySelector(".cmt-toggle");
+          if(box){ box.hidden=!box.hidden; if(tog) tog.style.display=box.hidden?"":"none"; }
         } else if(a==="share"){
           const text=(p.caption||p.title||"")+"\n\nسَنَد | isnad.news";
           if(navigator.share) navigator.share({title:person.name,text,url:p.link||location.href}).catch(()=>cpy(text));
@@ -1087,11 +1181,13 @@ function postHTML(i,n,bucket){
       <button type="button" data-act="source" aria-label="المصدر">⧉</button>
       <button type="button" data-act="isnad" aria-label="الإسناد">☰</button>
       <button type="button" data-act="save" class="${saved?"saved":""}" aria-label="حفظ">${saved?"♥":"♡"}</button>
+      <button type="button" data-act="comments" aria-label="تعليقات">💬</button>
     </div>
     <div class="post-cap"><h2>${esc(hd(i))}</h2>
       <p class="ig-cap-line"><span class="by">${esc(regionOf(d))}</span> ${EN?`Spotted via ${i.src||"source"}.`:`رصد من ${i.src||"مصدر"}.`}</p>
     </div>
     <div class="post-meta">${badge(i.grade)}${i.score!==undefined?`<span class="badge b-src">${esc(i.score)}/7</span>`:""}${isnadBar(i.isnad,i.grade)}</div>
+    ${commentsHTML(commentsForItem(i), false)}
   </article>`;
 }
 function bindPosts(root, list, bucket){
@@ -1105,6 +1201,10 @@ function bindPosts(root, list, bucket){
         else if(a==="source"){ const u=safeUrl(i.link); if(u!=="#") window.open(u,"_blank","noopener") }
         else if(a==="isnad") showIsnad(i);
         else if(a==="save"){ toggleSave(i); }
+        else if(a==="comments"){
+          const box=el.querySelector(".ig-comments"); const tog=el.querySelector(".cmt-toggle");
+          if(box){ box.hidden=!box.hidden; if(tog) tog.style.display=box.hidden?"":"none"; }
+        }
       };
     });
   });
@@ -1373,7 +1473,8 @@ async function load(){
   try{ FORECAST=await grab("forecast"); }catch(e){ FORECAST=null }
   try{ EVOLUTION=await grab("evolution"); }catch(e){ EVOLUTION=null }
   try{ TENSION=await grab("tension"); }catch(e){ TENSION=null }
-  try{ renderFeed(); if(VIEW==="brief") renderBrief(); if(VIEW==="team") renderTeam(); }catch(e){}
+  try{ COMMENTS=await grab("comments"); }catch(e){ COMMENTS=null }
+  try{ renderFeed(); if(VIEW==="brief") renderBrief(); if(VIEW==="team") renderTeam(); if(VIEW==="profile") renderProfile(); }catch(e){}
   try{
     const m=await grab("latest");
     const _kt=new Date(Date.now()+3*36e5).toISOString().slice(0,10);
