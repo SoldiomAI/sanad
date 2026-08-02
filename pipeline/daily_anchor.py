@@ -2824,6 +2824,18 @@ if os.environ.get("NEWS_ONLY"):
     except Exception: mark("rawi","skip","بانتظار أول نشرة")
     archive()
     bundle()
+    try:
+        from social_pack import social_pack as _social_pack
+        _social_pack()
+    except ImportError:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        try:
+            from social_pack import social_pack as _social_pack
+            _social_pack()
+        except Exception as _e:
+            print("social_pack: "+str(_e)[:100])
+    except Exception as _e:
+        print("social_pack: "+str(_e)[:100])
     broadcast_official(); broadcast_alerts(); broadcast_news()
     save_agents()
     print("⚡ وضع تحديث الأخبار فقط — تم"); sys.exit(0)
