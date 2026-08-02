@@ -787,7 +787,12 @@ function commentsForKey(key, extraSeed, ownerId){
   for(let k=0,j=0;j<n && k<roster.length*4;k++){
     const aid=roster[(h+k*7)%roster.length];
     if(out.some(c=>c.by===aid)) continue;
-    const lines=CMT_LINES[aid]; const [ar,en]=lines[(h>>(j*3))%lines.length];
+    const lines=CMT_LINES[aid];
+    /* >>> keeps index unsigned — signed >> turns large hashes negative (lines[-1]) and kills Live */
+    if(!lines||!lines.length) continue;
+    const pair=lines[(h>>>(j*3))%lines.length];
+    if(!pair||pair.length<2) continue;
+    const [ar,en]=pair;
     const m=agentMeta(aid);
     out.push({by:aid,name:m.name,icon:m.icon,text:EN?en:ar,at:day});
     j++;
@@ -1453,7 +1458,11 @@ function setView(v){
   if(v==="team") renderTeam();
   if(v==="saved") renderSaved();
   if(v==="brief") renderBrief();
-  if(v==="live"){ renderOfficialRail(); renderViralStrip(); }
+  if(v==="live"){
+    renderOfficialRail(); renderViralStrip();
+    const f=feedEl();
+    if(f && (!f.querySelector("article.post") || f.querySelector(".sk.media"))) renderFeed();
+  }
   if(v==="profile") renderProfile();
   if(v==="search"){ document.getElementById("searchBar").classList.add("on"); try{qIn.focus()}catch(e){} }
   syncRoute();
@@ -1767,13 +1776,15 @@ function renderBriefOfficial(){
     </button>`).join("");
 }
 
+function feedEl(){ return document.getElementById("feed") }
 function renderFeed(){
+  const root=feedEl(); if(!root) return;
   const list=liveList(40);
   POSTS=list;
-  renderOfficialRail();
-  renderInsight();
+  try{ renderOfficialRail(); }catch(e){ console.warn("renderOfficialRail", e) }
+  try{ renderInsight(); }catch(e){ console.warn("renderInsight", e) }
   if(!list.length){
-    feed.innerHTML=`<div class="empty">${EN?"No authenticated stories in this desk yet.":"لا أخبار مُسنَدة في هذا المكتب حاليًا."}<br><button class="sheet-x" style="margin-top:14px" onclick="clearDesk()">${EN?"Show all":"عرض الكل"}</button></div>`;
+    root.innerHTML=`<div class="empty">${EN?"No authenticated stories in this desk yet.":"لا أخبار مُسنَدة في هذا المكتب حاليًا."}<br><button class="sheet-x" style="margin-top:14px" onclick="clearDesk()">${EN?"Show all":"عرض الكل"}</button></div>`;
     return;
   }
   let html="";
@@ -1781,12 +1792,18 @@ function renderFeed(){
     html+=`<div class="rail-h" style="border:0;padding:8px 14px 0"><span>${EN?"Live · authenticated sources":"حيّ · مصادر موثوقة"}</span><span style="font-size:11px;color:var(--dim)">${EN?"Verified & Credible only":"صحيح وحسن فقط"}</span></div>`;
   }
   list.forEach((i,n)=>{
-    html+=postHTML(i,n,"feed");
-    if(n===1 && !deskFilter) html+=analystCardHTML(true);
+    try{
+      html+=postHTML(i,n,"feed");
+      if(n===1 && !deskFilter) html+=analystCardHTML(true);
+    }catch(e){ console.warn("postHTML", n, e) }
   });
-  feed.innerHTML=html;
-  bindPosts(feed, list, "feed");
-  renderViralStrip();
+  if(!html){
+    root.innerHTML=`<div class="empty">${EN?"Couldn’t render today’s feed.":"تعذّر عرض حصيلة اليوم."}</div>`;
+    return;
+  }
+  root.innerHTML=html;
+  bindPosts(root, list, "feed");
+  try{ renderViralStrip(); }catch(e){ console.warn("renderViralStrip", e) }
 }
 
 function renderBrief(){
@@ -1985,9 +2002,13 @@ async function load(){
   await loadBundle(); await loadControl();
   try{
     const n=await grab("news"); DATA=n;
-    upd.textContent=(EN?"Updated ":"")+new Date(n.updated).toLocaleTimeString(EN?"en-GB":"ar-KW",{hour:"2-digit",minute:"2-digit"});
+    const u=document.getElementById("upd");
+    if(u) u.textContent=(EN?"Updated ":"")+new Date(n.updated).toLocaleTimeString(EN?"en-GB":"ar-KW",{hour:"2-digit",minute:"2-digit"});
     renderDesks();
-  }catch(e){feed.innerHTML=`<div class="empty">${EN?"Preparing today's feed…":"تُجهَّز أخبارُ اليوم…"}</div>`}
+  }catch(e){
+    const f=feedEl();
+    if(f) f.innerHTML=`<div class="empty">${EN?"Preparing today's feed…":"تُجهَّز أخبارُ اليوم…"}</div>`;
+  }
   try{ OFFICIAL=await grab("official"); }catch(e){ OFFICIAL=null }
   try{ ANALYST=await grab("analyst"); }catch(e){ ANALYST=null }
   try{ FORECAST=await grab("forecast"); }catch(e){ FORECAST=null }
@@ -2002,22 +2023,26 @@ async function load(){
       ?`<b>Fully automated</b> — intake, grading, forecast, learning, comments, and posts refresh from the pipeline${APOSTS&&APOSTS.n?` · ${APOSTS.n} posts`:"."}`
       :`<b>آلي بالكامل</b> — الرصد، الإسناد، الاستقراء، التعلّم، التعليقات، والمنشورات تُحدَّث من خط الإنتاج${APOSTS&&APOSTS.n?` · ${APOSTS.n} منشورًا`:""}.`;
   }catch(e){}
-  try{ renderFeed(); if(VIEW==="brief") renderBrief(); if(VIEW==="team") renderTeam(); if(VIEW==="profile") renderProfile(); }catch(e){}
+  try{ renderFeed(); if(VIEW==="brief") renderBrief(); if(VIEW==="team") renderTeam(); if(VIEW==="profile") renderProfile(); }
+  catch(e){ console.warn("render after load", e); try{ renderFeed(); }catch(e2){ console.warn("renderFeed", e2) } }
   try{
     const m=await grab("latest");
     const _kt=new Date(Date.now()+3*36e5).toISOString().slice(0,10);
     const _ky=new Date(Date.now()+3*36e5-864e5).toISOString().slice(0,10);
-    blabel.textContent = m.date===_kt?(EN?"Today’s bulletin":"نشرةُ اليوم"):m.date===_ky?(EN?"Yesterday’s bulletin":"نشرةُ أمس"):(EN?"Latest bulletin":"آخرُ نشرة");
-    bdate.textContent=m.date;
+    const _bl=document.getElementById("blabel"), _bd=document.getElementById("bdate");
+    if(_bl) _bl.textContent = m.date===_kt?(EN?"Today’s bulletin":"نشرةُ اليوم"):m.date===_ky?(EN?"Yesterday’s bulletin":"نشرةُ أمس"):(EN?"Latest bulletin":"آخرُ نشرة");
+    if(_bd) _bd.textContent=m.date;
     const script=EN?(enText(m.script_en,"")||enText(m.script,"")||(EN?"Arabic audio bulletin — open Live for English headlines.":"")):(m.script||"");
-    s.textContent=script;
-    if(m.video_date===m.date && m.video){v.src=RAW+m.video+"?t="+Date.now();v.style.display="block";plr.style.display="none"}
-    else if(m.audio){a.src=RAW+m.audio+"?t="+Date.now();plr.style.display="flex"}
-  }catch(e){bdate.textContent=EN?"Preparing…":"قيد التجهيز"}
+    const _s=document.getElementById("s"); if(_s) _s.textContent=script;
+    const _v=document.getElementById("v"), _a=document.getElementById("a"), _plr=document.getElementById("plr");
+    if(m.video_date===m.date && m.video && _v){_v.src=RAW+m.video+"?t="+Date.now();_v.style.display="block"; if(_plr) _plr.style.display="none"}
+    else if(m.audio && _a){_a.src=RAW+m.audio+"?t="+Date.now(); if(_plr) _plr.style.display="flex"}
+  }catch(e){ const _bd=document.getElementById("bdate"); if(_bd) _bd.textContent=EN?"Preparing…":"قيد التجهيز" }
   try{ AGENTS=await grab("agents"); if(VIEW==="team") renderTeam();
     const a=AGENTS; if(a&&a.healthy!=null && !deskFilter){
       const mago=Math.max(0,Math.round((Date.now()-new Date(a.updated))/60000));
-      deskStatus.textContent=EN?`${a.healthy}/${a.total} on desk · ${mago}m`:`${a.healthy}/${a.total} على رأس العمل · قبل ${mago} د`;
+      const ds=document.getElementById("deskStatus");
+      if(ds) ds.textContent=EN?`${a.healthy}/${a.total} on desk · ${mago}m`:`${a.healthy}/${a.total} على رأس العمل · قبل ${mago} د`;
     }
   }catch(e){}
   try{ applyChromeI18n(); }catch(e){}
