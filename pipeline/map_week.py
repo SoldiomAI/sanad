@@ -23,7 +23,6 @@ _WORLD = [
     ("ir", "إيران", "Iran", ["إيران", "إيراني", "طهران", "بوشهر", "هرمز"]),
     ("ye", "اليمن", "Yemen", ["اليمن", "يمني", "صنعاء", "الحوثي", "الحوثيين"]),
     ("ps", "فلسطين", "Palestine", ["فلسطين", "فلسطيني", "غزة", "القدس", "الضفة", "رفح", "حماس"]),
-    ("il", "إسرائيل", "Israel", ["إسرائيل", "إسرائيلي", "تل أبيب", "نتانياهو", "الجيش الإسرائيلي"]),
     ("eg", "مصر", "Egypt", ["مصر", "مصري", "القاهرة", "سيناء"]),
     ("jo", "الأردن", "Jordan", ["الأردن", "أردني", "عمّان", "عمان الأردنية"]),
     ("lb", "لبنان", "Lebanon", ["لبنان", "لبناني", "بيروت", "حزب الله"]),
@@ -284,8 +283,6 @@ def build_map_week(days: int = 7) -> dict:
     countries = []
     for cid, name, en, aliases in _WORLD:
         matched = [i for i in items if _hit(_item_blob(i), aliases + [name, en])]
-        # Prefer Palestine over Israel when both tags match Gaza/Palestine-heavy items:
-        # already handled by alias lists; dual matches OK (same story can appear in both).
         matched = sorted(
             matched,
             key=lambda i: (

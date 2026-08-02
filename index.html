@@ -496,6 +496,7 @@ body.map-mode .app{max-width:min(960px,100%)}
 .map-wrap path.hot{stroke:rgba(255,255,255,.25);stroke-width:.45}
 .map-wrap path.focus{stroke:var(--gold);stroke-width:1.2;filter:brightness(1.08)}
 .map-wrap path:focus-visible,.map-wrap path:hover{stroke:var(--gold-l);stroke-width:.9;outline:none}
+.map-wrap path.map-hidden{display:none!important;pointer-events:none}
 .map-legend{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;padding:12px 14px 4px;
   font-family:'Noto Kufi Arabic',sans-serif;font-size:10.5px;color:var(--mut)}
 .map-legend i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-inline-end:5px;vertical-align:middle;
@@ -1668,14 +1669,19 @@ function heatColor(h){
 }
 function mapCountryById(id){
   id=String(id||"").toLowerCase();
+  if(MAP_EXCLUDED[id]) return null;
   return (MAP&&MAP.countries||[]).find(c=>c.id===id)||null;
 }
+function mapCountries(){
+  return (MAP&&MAP.countries||[]).filter(c=>c&&c.id&&!MAP_EXCLUDED[c.id]);
+}
+const MAP_EXCLUDED={il:1};
 async function ensureWorldSvg(force){
   const box=document.getElementById("worldMap");
   if(!box) return null;
   if(!force && box.querySelector("svg.world-map")) return box.querySelector("svg.world-map");
   box.innerHTML=`<div class="empty">${EN?"Loading map…":"جارٍ تحميل الخريطة…"}</div>`;
-  const urls=["/assets/world.svg","/assets/world.svg?v=2"];
+  const urls=["/assets/world.svg","/assets/world.svg?v=3"];
   let lastErr=null;
   for(const url of urls){
     try{
@@ -1704,6 +1710,13 @@ async function ensureWorldSvg(force){
       svg.setAttribute("role","img");
       svg.style.width="100%"; svg.style.height="auto"; svg.style.display="block";
       svg.querySelectorAll("path[id]").forEach(p=>{
+        const id=(p.id||"").toLowerCase();
+        if(MAP_EXCLUDED[id]){
+          p.classList.add("map-hidden");
+          p.removeAttribute("tabindex");
+          p.removeAttribute("role");
+          return;
+        }
         p.setAttribute("tabindex","0");
         p.setAttribute("role","button");
         p.setAttribute("aria-label", p.id);
@@ -1712,12 +1725,12 @@ async function ensureWorldSvg(force){
         box._mapBound=true;
         box.addEventListener("click",e=>{
           const path=e.target.closest("path[id]");
-          if(path) openCountryMap(path.id);
+          if(path && !MAP_EXCLUDED[(path.id||"").toLowerCase()]) openCountryMap(path.id);
         });
         box.addEventListener("keydown",e=>{
           if(e.key!=="Enter"&&e.key!==" ") return;
           const path=e.target.closest("path[id]");
-          if(path){ e.preventDefault(); openCountryMap(path.id); }
+          if(path && !MAP_EXCLUDED[(path.id||"").toLowerCase()]){ e.preventDefault(); openCountryMap(path.id); }
         });
       }
       return svg;
@@ -1731,8 +1744,10 @@ async function ensureWorldSvg(force){
 function paintMap(){
   const box=document.getElementById("worldMap");
   if(!box) return;
-  const by={}; (MAP&&MAP.countries||[]).forEach(c=>{ by[c.id]=c; });
+  const by={}; mapCountries().forEach(c=>{ by[c.id]=c; });
   box.querySelectorAll("path[id]").forEach(p=>{
+    const id=(p.id||"").toLowerCase();
+    if(MAP_EXCLUDED[id]){ p.classList.add("map-hidden"); return; }
     const c=by[p.id];
     const hot=!!(c&&c.n);
     p.classList.toggle("hot", hot);
@@ -1747,7 +1762,7 @@ function paintMap(){
 }
 function openCountryMap(id){
   id=String(id||"").toLowerCase();
-  if(!/^[a-z]{2}$/.test(id)) return;
+  if(!/^[a-z]{2}$/.test(id) || MAP_EXCLUDED[id]) return;
   MAP_FOCUS=id;
   paintMap();
   const c=mapCountryById(id);
@@ -1798,7 +1813,7 @@ async function renderMap(force){
   await ensureWorldSvg(!!force);
   paintMap();
   if(list){
-    const active=(MAP&&MAP.countries||[]).filter(c=>c.n>0);
+    const active=mapCountries().filter(c=>c.n>0);
     if(!MAP) list.innerHTML="";
     else if(!active.length){
       list.innerHTML=`<div class="empty">${EN?"No country activity this week yet.":"لا نشاط دولي مُسنَد هذا الأسبوع بعد."}</div>`;
@@ -1922,6 +1937,7 @@ function applyRoute(){
     }
     else if(a==="map"){
       MAP_FOCUS=(b||"").toLowerCase()||null;
+      if(MAP_FOCUS && MAP_EXCLUDED[MAP_FOCUS]) MAP_FOCUS=null;
       setView("map");
       if(MAP_FOCUS) openCountryMap(MAP_FOCUS);
     }
