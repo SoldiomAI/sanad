@@ -369,6 +369,28 @@ details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--m
 .prof-cell .tag{position:absolute;inset-inline-start:6px;bottom:6px;font-size:9px;font-weight:700;padding:2px 6px;
   border-radius:4px;background:rgba(8,11,18,.55);color:#fff}
 .prof-feed{padding-bottom:20px}
+/* عمود المُدوِّن — قسم مستقل مع تأكيد المصادر */
+.col-sec{margin:14px 0 8px}
+.col-sec .col-kicker{font-family:'Noto Kufi Arabic',sans-serif;font-size:11.5px;font-weight:700;color:var(--gold-l);margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.col-sec .col-kicker button{border:0;background:transparent;color:var(--gold-l);font:inherit;font-size:11px;font-weight:700;cursor:pointer;padding:0}
+.col-card{border:1px solid var(--border);border-radius:14px;background:var(--card);padding:14px 14px 12px;position:relative;overflow:hidden}
+.col-card::before{content:"";position:absolute;inset-block:0;inset-inline-start:0;width:3px;background:linear-gradient(180deg,var(--gold),rgba(201,162,39,.2))}
+.col-card .col-who{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.col-card .col-av{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-family:'Amiri',serif;font-size:18px;font-weight:700;background:linear-gradient(145deg,var(--card2),rgba(201,162,39,.18));border:1px solid rgba(201,162,39,.4);color:var(--gold-l);flex:0 0 auto}
+.col-card .col-who b{display:block;font-size:13.5px;font-family:'Noto Kufi Arabic',sans-serif}
+.col-card .col-who span{font-size:11px;color:var(--dim)}
+.col-card .col-title{font-family:'Amiri',serif;font-size:22px;font-weight:700;line-height:1.55;color:var(--vellum);margin:4px 0 10px}
+.col-card .col-body{font-size:14.5px;line-height:2;color:var(--mut);white-space:pre-wrap}
+.col-card .col-body.clamp{display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden}
+.col-card .col-meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:12px 0 4px}
+.col-card audio{width:100%;margin-top:10px}
+.col-src-h{font-family:'Noto Kufi Arabic',sans-serif;font-size:12px;font-weight:700;color:var(--gold-l);margin:16px 0 8px}
+.col-src{display:block;width:100%;text-align:start;border:1px solid var(--border);border-radius:12px;padding:10px 12px;margin:0 0 8px;background:var(--card2);color:inherit;font:inherit;cursor:pointer}
+.col-src:active{transform:scale(.995)}
+.col-src b{display:block;font-size:13.5px;line-height:1.7;color:var(--vellum);font-weight:600}
+.col-src .m{font-size:11px;color:var(--dim);margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.col-src .ok{font-size:10.5px;font-weight:700;color:var(--verify-l)}
+.col-empty{font-size:13px;color:var(--dim);line-height:1.7;padding:8px 0}
 .ig-post{border-bottom:1px solid var(--border);background:var(--card);animation:rise .4s ease both}
 .ig-post .ig-hd{display:flex;align-items:center;gap:10px;padding:12px 14px 8px}
 .ig-post .ig-av{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-family:'Amiri',serif;
@@ -472,6 +494,7 @@ body.prof-mode .desks,body.prof-mode .desk-status,body.prof-mode .ennote,body.pr
       </div>
       <div id="briefInsight"></div>
       <div id="briefAnalyst"></div>
+      <div id="briefColumn"></div>
       <div id="briefOfficial"></div>
       <div id="briefHero"></div>
       <details class="more"><summary>ما معنى درجة الإسناد؟</summary>
@@ -731,7 +754,7 @@ function celebrateShare(){
 function openSheet(html){sheetC.innerHTML=html; sheet.classList.add("on"); document.body.style.overflow="hidden"}
 function closeSheet(){sheet.classList.remove("on"); document.body.style.overflow=""}
 
-let DATA=null, AGENTS=null, CONTROL=null, OFFICIAL=null, ANALYST=null, FORECAST=null, EVOLUTION=null, TENSION=null, COMMENTS=null, APOSTS=null, deskFilter=null, VIEW="live";
+let DATA=null, AGENTS=null, CONTROL=null, OFFICIAL=null, ANALYST=null, COLUMN=null, FORECAST=null, EVOLUTION=null, TENSION=null, COMMENTS=null, APOSTS=null, deskFilter=null, VIEW="live";
 let AGENT_POSTS=[];
 let PROFILE=null; /* {kind:'agent'|'desk', id, tab:'grid'|'feed', from} */
 
@@ -1118,7 +1141,24 @@ function buildProfilePosts(kind, id){
         : `${who} · ${c.name} عند ${c.score} (${c.level||""})${c.delta?` · ${c.delta>0?"+":""}${c.delta}`:""}`
     }));
   }
-  if(id==="rawi"||id==="mudawwin"){
+  if(id==="mudawwin"){
+    if(COLUMN&&(COLUMN.text||COLUMN.text_en)){
+      const title=EN?(enText(COLUMN.head_en,"")||COLUMN.head|| (EN?"Today’s column":"عمود اليوم")):(COLUMN.head||"عمود اليوم");
+      const body=EN?(enText(COLUMN.text_en,"")||COLUMN.text||""):(COLUMN.text||"");
+      return [{
+        kind:"column", title, img:"", link:"",
+        caption: `${who} · ${body.slice(0,280)}${body.length>280?"…":""}`,
+        at:COLUMN.updated||COLUMN.date||"", src_n:COLUMN.src_n||(COLUMN.sources||[]).length
+      }];
+    }
+    const fromPosts=(((APOSTS&&APOSTS.agents)||{}).mudawwin||{}).posts||[];
+    if(fromPosts.length) return fromPosts.map(p=>({
+      kind:p.kind||"column", title:EN?(p.title_en||p.title):p.title,
+      caption:EN?(p.caption_en||p.caption):p.caption, img:p.img||"", link:p.link||"", at:p.at||"", src_n:p.src_n
+    }));
+    return [];
+  }
+  if(id==="rawi"){
     const tx=ANALYST&&(EN&&ANALYST.text_en?ANALYST.text_en:ANALYST.text);
     if(tx) return [{
       kind:"brief", title:EN?"Hour’s reading":"قراءة الساعة", img:ANALYST.avatar?mediaUrl(ANALYST.avatar):"", link:"",
@@ -1234,6 +1274,7 @@ function openProfilePost(n){
       ${(p.kind==="scenario"||p.kind==="signal")?`<button type="button" class="primary" id="ppFc">${EN?"Forecast":"الاستقراء"}</button>`:""}
       ${p.kind==="evo"?`<button type="button" class="primary" id="ppEvo">${EN?"Learning":"التعلّم"}</button>`:""}
       ${p.kind==="brief"?`<button type="button" class="primary" id="ppBrief">${EN?"Brief":"النشرة"}</button>`:""}
+      ${p.kind==="column"?`<button type="button" class="primary" id="ppCol">${EN?"Full column + sources":"العمود + المصادر"}</button>`:""}
       ${p.kind==="official"?`<button type="button" class="primary" id="ppOff">${EN?"Official":"الرسمي"}</button>`:""}
       <button type="button" class="primary" id="ppShare">${EN?"Share":"مشاركة"}</button>
       <button type="button" class="sheet-x" onclick="closeSheet()">${EN?"Close":"إغلاق"}</button>
@@ -1247,6 +1288,7 @@ function openProfilePost(n){
   bind("ppFc",()=>{openForecastSheet()});
   bind("ppEvo",()=>{openEvolutionSheet()});
   bind("ppBrief",()=>{closeSheet(); setView("brief"); syncRoute()});
+  bind("ppCol",()=>{closeSheet(); openColumnPage()});
   bind("ppOff",()=>{openOfficial(p.oi)});
   bind("ppShare",()=>shareAgentPost(p, person));
 }
@@ -1263,6 +1305,7 @@ function bindIgPosts(root, list, person){
           if(p.kind==="official") openOfficial(p.oi);
           else if(p.kind==="action") setView("verify");
           else if(p.kind==="brief") setView("brief");
+          else if(p.kind==="column") openColumnPage();
           else if(p.kind==="scenario"||p.kind==="signal") openForecastSheet();
           else if(p.kind==="evo") openEvolutionSheet();
           else if(p.link){ const u=safeUrl(p.link); if(u!=="#") window.open(u,"_blank","noopener") }
@@ -1299,11 +1342,42 @@ function renderProfile(){
       ? `<button type="button" class="primary" onclick="openForecastSheet()">${EN?"Forecast":"الاستقراء"}</button>`
       : (person.id==="musannif"||person.id==="mudaqqiq")
         ? `<button type="button" class="primary" onclick="openEvolutionSheet()">${EN?"Learning":"التعلّم"}</button>`
-        : (person.id==="rawi"||person.id==="mudawwin")
+        : person.id==="mudawwin"
+          ? `<button type="button" class="primary" onclick="openColumnPage()">${EN?"Full column":"العمود كاملًا"}</button>`
+          : person.id==="rawi"
           ? `<button type="button" class="primary" onclick="setView('brief')">${EN?"Brief":"النشرة"}</button>`
           : (PROFILE.kind==="desk")
             ? `<button type="button" class="primary" onclick="closeSheet();goLiveDesk('${person.id}')">${EN?"Live desk":"الحيّ"}</button>`
             : `<button type="button" class="primary" onclick="setProfileTab('feed')">${EN?"Posts":"المنشورات"}</button>`;
+  /* المُدوِّن: صفحة خاصة بالعمود + تأكيد كل مصادره في الصفحة نفسها */
+  if(person.id==="mudawwin"){
+    root.innerHTML=`
+      <div class="prof-top">
+        <button type="button" class="back" onclick="closeProfile()" aria-label="${EN?"Back":"رجوع"}">‹</button>
+        <div class="ttl"><b>${esc(person.name)}</b><span>${esc(person.handle)} · ${EN?"Column desk":"مكتب العمود"}</span></div>
+      </div>
+      <div class="prof-hd">
+        <div class="prof-row">
+          <div class="prof-av" style="${person.color?`color:${person.color}`:""}">${esc(person.icon||"🖋️")}</div>
+          <div class="prof-stats">
+            <div><b>1</b><span>${EN?"column":"عمود"}</span></div>
+            <div><b>${columnSources().length}</b><span>${EN?"sources":"مصدرًا"}</span></div>
+            <div><b>${person.at?esc((ago(person.at)||"—").split(" ")[0]):"—"}</b><span>${EN?"active":"نشاط"}</span></div>
+          </div>
+        </div>
+        <div class="prof-name">${esc(person.name)}</div>
+        <div class="prof-handle">${esc(person.handle)} · ${EN?"Opinion from graded news only":"رأيٌ من أخبار مُسنَدة فقط"}</div>
+        <div class="auto-pill">⚡ ${EN?"Automated column · sources confirmed below":"عمود آلي · المصادر مؤكَّدة أدناه"}</div>
+        <div class="prof-bio">${esc(person.bio||"")}</div>
+        ${person.note?`<div class="prof-note">${EN?"This cycle":"هذه الدورة"}: ${esc(person.note)}</div>`:""}
+        <div class="prof-actions">
+          <button type="button" class="primary" onclick="shareColumn()">${EN?"Share column":"شارك العمود"}</button>
+          <button type="button" onclick="setView('brief')">${EN?"Brief":"النشرة"}</button>
+        </div>
+      </div>
+      <div class="panel" style="padding-top:8px">${columnSectionHTML({full:true, showProfileLink:false})}</div>`;
+    return;
+  }
   root.innerHTML=`
     <div class="prof-top">
       <button type="button" class="back" onclick="closeProfile()" aria-label="${EN?"Back":"رجوع"}">‹</button>
@@ -1483,7 +1557,10 @@ function deepUrl(path){ return SITE+"/#/"+(path||"").replace(/^#\/?/,"") }
 function syncRoute(){
   if(ROUTE_LOCK) return;
   let path="live";
-  if(VIEW==="profile"&&PROFILE) path=PROFILE.kind+"/"+PROFILE.id+(PROFILE.tab==="feed"?"/feed":"");
+  if(VIEW==="profile"&&PROFILE){
+    if(PROFILE.kind==="agent"&&PROFILE.id==="mudawwin") path="column";
+    else path=PROFILE.kind+"/"+PROFILE.id+(PROFILE.tab==="feed"?"/feed":"");
+  }
   else if(VIEW==="brief"||VIEW==="verify"||VIEW==="team"||VIEW==="saved"||VIEW==="search") path=VIEW;
   else if(deskFilter) path="desk/"+deskFilter;
   const want="#/"+path;
@@ -1534,6 +1611,7 @@ function applyRoute(){
       else toast(EN?"Story not in today’s feed":"الخبر ليس في حصيلة اليوم");
     }
     else if(a==="card"){ setView("live"); openDailyCard(); }
+    else if(a==="column"||a==="mudawwin"){ openProfile("agent","mudawwin"); }
     else if(a==="verify"||a==="brief"||a==="team"||a==="saved"||a==="live"||a==="search") setView(a);
   } finally { ROUTE_LOCK=false; }
 }
@@ -1806,15 +1884,124 @@ function renderFeed(){
   try{ renderViralStrip(); }catch(e){ console.warn("renderViralStrip", e) }
 }
 
+function columnTitle(){
+  if(!COLUMN) return EN?"Today’s column":"عمود اليوم";
+  if(EN) return enText(COLUMN.head_en,"")||COLUMN.head||"Today’s column";
+  return COLUMN.head||"عمود اليوم";
+}
+function columnBody(){
+  if(!COLUMN) return "";
+  if(EN) return enText(COLUMN.text_en,"")||COLUMN.text||"";
+  return COLUMN.text||"";
+}
+/** مصادر عمود المُدوِّن المؤكَّدة — من column.sources أو مطابقة أخبار اليوم المُسنَدة */
+function columnSources(){
+  const listed=(COLUMN&&Array.isArray(COLUMN.sources))?COLUMN.sources:[];
+  if(listed.length){
+    return listed.map(s=>{
+      const hit=allItems().find(i=>(s.link&&i.link&&i.link===s.link)||(s.head&&i.head===s.head));
+      return hit?{...hit,...s,isnad:s.isnad||hit.isnad}:s;
+    });
+  }
+  if(!COLUMN||!(COLUMN.text||COLUMN.text_en)) return [];
+  const blob=((COLUMN.text||"")+"\n"+(COLUMN.text_en||"")).toLowerCase();
+  const auth=allItems().filter(isAuthItem);
+  const scored=auth.map(i=>{
+    let s=0;
+    String(i.head||"").split(/\s+/).forEach(w=>{ if(w.length>3 && (COLUMN.text||"").includes(w)) s++; });
+    String(i.he||"").split(/\s+/).forEach(w=>{ if(w.length>4 && blob.includes(w.toLowerCase())) s++; });
+    const src=String(i.src||"").toLowerCase();
+    if(src && blob.includes(src)) s+=2;
+    return {i,s};
+  }).filter(x=>x.s>=2).sort((a,b)=>b.s-a.s).map(x=>x.i);
+  if(scored.length) return scored.slice(0, COLUMN.src_n||12);
+  return auth.slice(0, COLUMN.src_n||12);
+}
+function columnSourcesHTML(){
+  const srcs=columnSources();
+  if(!srcs.length) return `<p class="col-empty">${EN?"No authenticated sources attached to this column yet.":"لا مصادر مُسنَدة مرفقة بهذا العمود بعد."}</p>`;
+  return srcs.map((i,n)=>{
+    const g=i.grade||"";
+    const ok=isAuthItem(i)||g==="صحيح"||g==="حسن";
+    return `<button type="button" class="col-src" onclick="openColumnSource(${n})">
+      <b>${esc(hd(i)||i.head||"")}</b>
+      <div class="m">${badge(g)}${i.score!=null?`<span class="badge b-src">${esc(i.score)}/7</span>`:""}${i.src?`<span class="badge b-src">${esc(i.src)}</span>`:""}${ok?`<span class="ok">${EN?"Confirmed source":"مصدر مؤكَّد"}</span>`:""}${isnadBar(i.isnad,g)}</div>
+    </button>`;
+  }).join("");
+}
+function openColumnSource(n){
+  const i=columnSources()[n]; if(!i) return;
+  if(i.isnad||i.grade) showIsnad(i);
+  else { const u=safeUrl(i.link); if(u!=="#") window.open(u,"_blank","noopener") }
+}
+function columnSectionHTML(opts){
+  opts=opts||{};
+  const full=!!opts.full;
+  const body=columnBody();
+  if(!body){
+    return `<div class="col-sec"><div class="col-kicker"><span>${EN?"Al-Mudawwin · Column":"المُدوِّن · عمود الجريدة"}</span></div>
+      <p class="col-empty">${EN?"Today’s column is being prepared.":"يُجهَّز عمودُ اليوم."}</p></div>`;
+  }
+  const srcs=columnSources();
+  const audio=COLUMN&&COLUMN.audio?mediaUrl(COLUMN.audio):"";
+  const role=EN?(COLUMN.title||"Columnist · AI aide"):(COLUMN.title||"كاتبُ الجريدة · مساعد ذكاء اصطناعي");
+  return `<div class="col-sec" id="mudawwinColumn">
+    <div class="col-kicker">
+      <span>${EN?"Al-Mudawwin · Column":"المُدوِّن · عمود الجريدة"}</span>
+      ${opts.showProfileLink!==false?`<button type="button" onclick="openProfile('agent','mudawwin')">${EN?"Open desk":"ملف المدوّن"}</button>`:""}
+    </div>
+    <article class="col-card">
+      <div class="col-who">
+        <div class="col-av">🖋️</div>
+        <div><b>${EN?"Al-Mudawwin":"المُدوِّن"}</b><span>${esc(role)}${COLUMN&&COLUMN.date?" · "+esc(COLUMN.date):""}</span></div>
+      </div>
+      <h3 class="col-title">${esc(columnTitle())}</h3>
+      <div class="col-body${full?"":" clamp"}" id="colBody">${esc(body)}</div>
+      <div class="col-meta">
+        <span class="badge b-hasan">${EN?"Opinion · AI":"رأي · ذكاء اصطناعي"}</span>
+        <span class="badge b-src">${srcs.length} ${EN?"graded sources":"مصدرًا مُسنَدًا"}</span>
+        ${!full?`<button type="button" class="sheet-x" style="margin:0" onclick="openColumnPage()">${EN?"Read & verify sources":"اقرأ وأكّد المصادر"}</button>`:""}
+      </div>
+      ${audio?`<audio controls preload="none" src="${safeUrl(audio+(audio.includes("?")?"":"?t="+Date.now()))}"></audio>`:""}
+      ${!full?`<button type="button" class="morebtn" onclick="openColumnPage()">${EN?"Full column + confirmed sources":"العمود كاملًا + المصادر المؤكَّدة"}</button>`:""}
+    </article>
+    <div class="col-src-h">${EN?"Confirmed sources for this column":"تأكيد مصادر هذا العمود"} · ${srcs.length}</div>
+    <p class="col-empty" style="padding-top:0">${EN?"Every claim in the column is grounded in the graded stories below — Verified or Credible only.":"كلُّ واقعة في العمود تستند إلى الأخبار المُسنَدة أدناه — صحيح أو حسن فقط."}</p>
+    ${full?columnSourcesHTML():srcs.slice(0,4).map((i,n)=>{
+      return `<button type="button" class="col-src" onclick="openColumnSource(${n})">
+        <b>${esc(hd(i)||i.head||"")}</b>
+        <div class="m">${badge(i.grade)}${i.src?`<span class="badge b-src">${esc(i.src)}</span>`:""}<span class="ok">${EN?"Confirmed":"مؤكَّد"}</span></div>
+      </button>`;
+    }).join("")+(srcs.length>4?`<button type="button" class="morebtn" onclick="openColumnPage()">${EN?"All "+srcs.length+" sources":"كل الـ "+srcs.length+" مصدرًا"}</button>`:"")}
+  </div>`;
+}
+function renderColumnSection(){
+  const el=document.getElementById("briefColumn"); if(!el) return;
+  el.innerHTML=columnSectionHTML({full:false, showProfileLink:true});
+}
+function openColumnPage(){
+  openProfile("agent","mudawwin");
+}
+function shareColumn(){
+  const title=columnTitle();
+  const url=deepUrl("column");
+  const text=EN
+    ? `Sanad · Al-Mudawwin’s column\n“${title}”\nGrounded in ${columnSources().length} graded sources\n——\nOpen:`
+    : `سَنَد · عمود المُدوِّن\n«${title}»\nمبني على ${columnSources().length} مصدرًا مُسنَدًا\n——\nافتح:`;
+  sharePack({title:EN?"Sanad · Column":"سَنَد · عمود المُدوِّن", text, url});
+}
+
 function renderBrief(){
   const lead=liveList(1)[0]||allItems().filter(isAuthItem)[0]||allItems()[0];
   renderInsight();
   const ba=document.getElementById("briefAnalyst");
   if(ba) ba.innerHTML=analystCardHTML(false);
+  renderColumnSection();
   renderBriefOfficial();
   if(lead){ briefHero.innerHTML=`<div class="team-sec">${EN?"Lead story":"أبرز خبر"}</div>`+postHTML(lead,0,"brief"); bindPosts(briefHero,[lead],"brief"); }
   else briefHero.innerHTML="";
-  briefLead.textContent=EN?"Bulletin, forecast, self-learning, and the official wire.":"النشرة · الاستقراء · التعلّم الذاتي · المَنبع الرسمي.";
+  const bl=document.getElementById("briefLead");
+  if(bl) bl.textContent=EN?"Bulletin, Al-Mudawwin’s column with confirmed sources, forecast, and the official wire.":"النشرة · عمود المُدوِّن بمصادره المؤكَّدة · الاستقراء · المَنبع الرسمي.";
 }
 function renderSaved(){
   const arr=loadSaved();
@@ -2011,6 +2198,7 @@ async function load(){
   }
   try{ OFFICIAL=await grab("official"); }catch(e){ OFFICIAL=null }
   try{ ANALYST=await grab("analyst"); }catch(e){ ANALYST=null }
+  try{ COLUMN=await grab("column"); }catch(e){ COLUMN=null }
   try{ FORECAST=await grab("forecast"); }catch(e){ FORECAST=null }
   try{ EVOLUTION=await grab("evolution"); }catch(e){ EVOLUTION=null }
   try{ TENSION=await grab("tension"); }catch(e){ TENSION=null }
@@ -2025,6 +2213,7 @@ async function load(){
   }catch(e){}
   try{ renderFeed(); if(VIEW==="brief") renderBrief(); if(VIEW==="team") renderTeam(); if(VIEW==="profile") renderProfile(); }
   catch(e){ console.warn("render after load", e); try{ renderFeed(); }catch(e2){ console.warn("renderFeed", e2) } }
+  try{ if(document.getElementById("briefColumn")) renderColumnSection(); }catch(e){}
   try{
     const m=await grab("latest");
     const _kt=new Date(Date.now()+3*36e5).toISOString().slice(0,10);
