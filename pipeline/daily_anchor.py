@@ -784,7 +784,7 @@ def bundle():
             print(f"🛡️ نشرةُ اليوم: أُبقيت الأحدث ({_pub.get('date')}) بدل الأقدم ({_loc.get('date')})")
     except Exception as _e: print(f"guard_latest: {str(_e)[:80]}")
     keys=["news","intel","official","forecast","analyst","dua","verify",
-          "alerts","corrections","latest","agents","cost","evolution","council","gpu","rumors","column","tension","map","osint","comments","posts"]
+          "alerts","corrections","latest","agents","cost","evolution","council","gpu","rumors","column","tension","map","osint","wave","comments","posts"]
     b={"built":datetime.now(timezone.utc).isoformat(timespec="minutes")}
     for k in keys:
         try: b[k]=json.load(open(f"{OUT}/{k}.json"))
@@ -2847,6 +2847,18 @@ if os.environ.get("NEWS_ONLY"):
             print("osint_watch: "+str(_e)[:100])
     except Exception as _e:
         print("osint_watch: "+str(_e)[:100])
+    try:
+        from viral_wave import viral_wave as _viral_wave
+        _viral_wave()
+    except ImportError:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        try:
+            from viral_wave import viral_wave as _viral_wave
+            _viral_wave()
+        except Exception as _e:
+            print("viral_wave: "+str(_e)[:100])
+    except Exception as _e:
+        print("viral_wave: "+str(_e)[:100])
     bundle()
     try:
         from social_pack import social_pack as _social_pack
@@ -3037,6 +3049,11 @@ if not os.environ.get("ENABLE_VIDEO"):
         _osint_watch()
     except Exception as _e:
         print("osint_watch: "+str(_e)[:100])
+    try:
+        from viral_wave import viral_wave as _viral_wave
+        _viral_wave()
+    except Exception as _e:
+        print("viral_wave: "+str(_e)[:100])
     bundle(); broadcast_bulletin(); broadcast_official(); broadcast_alerts(); broadcast_news(); save_agents()
     print("🎙️ النشرة الصوتية جاهزة — الفيديو معطَّل في هذه النسخة")
     sys.exit(0)
@@ -3131,6 +3148,11 @@ try:
     _osint_watch()
 except Exception as _e:
     print("osint_watch: "+str(_e)[:100])
+try:
+    from viral_wave import viral_wave as _viral_wave
+    _viral_wave()
+except Exception as _e:
+    print("viral_wave: "+str(_e)[:100])
 bundle()
 try:
     from social_pack import social_pack as _social_pack
