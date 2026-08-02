@@ -2982,6 +2982,15 @@ def gen(ap,vp):
 # ═══ النسخة الأولى: صوتٌ فقط — الفيديو مؤجَّل ═══
 if not os.environ.get("ENABLE_VIDEO"):
     mark("rawi","ok","نشرة صوتية")
+    try:
+        from social_pack import social_pack as _social_pack
+        _social_pack()
+    except ImportError:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        from social_pack import social_pack as _social_pack
+        _social_pack()
+    except Exception as _e:
+        print("social_pack: "+str(_e)[:100])
     bundle(); broadcast_bulletin(); broadcast_official(); broadcast_alerts(); broadcast_news(); save_agents()
     print("🎙️ النشرة الصوتية جاهزة — الفيديو معطَّل في هذه النسخة")
     sys.exit(0)
@@ -3067,6 +3076,15 @@ mark("rawi","ok","فيديو اليوم مكتمل")
 print(f"🎬 اكتمل الفيديو: bulletin-{today}.mp4 ({len(need)} مقطعًا)")
 
 bundle()
+try:
+    from social_pack import social_pack as _social_pack
+    _social_pack()
+except ImportError:
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from social_pack import social_pack as _social_pack
+    _social_pack()
+except Exception as _e:
+    print("social_pack: "+str(_e)[:100])
 broadcast_bulletin()
 broadcast_official(); broadcast_alerts(); broadcast_news()
 try: mark("rawi", _LOG.get("rawi",{}).get("status","ok"), _LOG.get("rawi",{}).get("note","نشرة اليوم")); save_agents()

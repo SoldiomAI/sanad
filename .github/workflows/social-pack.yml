@@ -1,0 +1,69 @@
+name: 🖼️ بطاقة سوشيال اليومية
+on:
+  workflow_dispatch:
+    inputs:
+      force:
+        description: أعد التوليد والإرسال حتى لو أُرسل اليوم
+        required: false
+        default: "true"
+        type: boolean
+permissions:
+  contents: write
+concurrency:
+  group: sanad-daily
+  cancel-in-progress: false
+jobs:
+  social:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install -q pillow arabic-reshaper python-bidi
+      - name: توليد الباكدج وإرساله لتلغرام
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL: ${{ secrets.TELEGRAM_CHANNEL }}
+          TELEGRAM_EDITOR_CHAT: ${{ secrets.TELEGRAM_EDITOR_CHAT }}
+          FORCE_SOCIAL: ${{ inputs.force == true && '1' || '' }}
+        run: |
+          cd pipeline && python social_pack.py
+          cd ..
+          ls -la daily/social/$(date +%F) || ls -la daily/social/*/  | head
+      - name: حفظ في الريبو
+        id: save
+        run: |
+          git config user.name "SANAD Bot"
+          git config user.email "soldiom@gmail.com"
+          git add daily/social/
+          git diff --cached --quiet && echo "no changes" && exit 0
+          git commit -m "🖼️ بطاقة سوشيال $(date +%F) [skip ci] [vercel skip]"
+          for i in 1 2 3 4 5; do
+            if git pull --rebase --autostash origin main; then git push && exit 0
+            else git rebase --abort 2>/dev/null || true; fi
+            sleep $((i*4))
+          done
+          exit 1
+      - name: نشر البيانات للمستودع العام
+        if: always() && steps.save.outcome == 'success'
+        env:
+          DATA_PUSH_TOKEN: ${{ secrets.DATA_PUSH_TOKEN }}
+        run: |
+          [ -z "$DATA_PUSH_TOKEN" ] && exit 0
+          python3 .github/scripts/guard-social-publish.py --soft || true
+          rm -rf /tmp/pub && git clone -q --depth 1 \
+            "https://x-access-token:${DATA_PUSH_TOKEN}@github.com/Soldiom/sanad-data.git" /tmp/pub
+          mkdir -p /tmp/pub/daily
+          cp -r daily/* /tmp/pub/daily/ 2>/dev/null || true
+          cd /tmp/pub
+          git config user.name "SANAD Bot"; git config user.email "soldiom@gmail.com"
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -qm "📦 social $(date -u +%F\ %H:%M)"
+          for i in 1 2 3 4 5; do
+            if git pull -q --rebase --autostash origin main; then git push -q && exit 0
+            else git rebase --abort 2>/dev/null || true; fi
+            sleep $((i*4))
+          done
+          exit 1
