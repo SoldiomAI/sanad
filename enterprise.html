@@ -71,6 +71,19 @@ table{width:100%;border-collapse:collapse;font-size:12px}
 th,td{text-align:start;padding:7px 8px;border-bottom:1px solid var(--line)}
 th{color:var(--dim);font-weight:600;font-size:11px}
 .kchip{font-family:ui-monospace,monospace;font-size:11.5px;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:2px 7px}
+.hash{font-family:ui-monospace,monospace;font-size:12px;color:var(--gold-l);font-weight:700}
+.htag{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--bg2);
+  border-radius:10px;padding:8px 10px;margin:0 0 8px 8px;cursor:pointer;color:inherit;font:inherit;text-align:start}
+.htag:hover{border-color:var(--gold)}
+.htag .ht{font-size:10.5px;color:var(--mut)}
+.htag .hh{font-size:12px;font-weight:700;min-width:28px;text-align:center;border-radius:6px;padding:2px 6px}
+.ohit{padding:8px 0;border-bottom:1px solid var(--line);font-size:12.5px;line-height:1.7}
+.ohit:last-child{border-bottom:0}
+.ohit a{color:var(--txt);text-decoration:none}.ohit a:hover{color:var(--gold-l)}
+.ohit .om{font-size:10.5px;color:var(--mut)}
+.och{font-size:9.5px;font-weight:700;border-radius:20px;padding:1px 7px;border:1px solid var(--line);color:var(--dim)}
+.och.sanad{color:var(--verify);border-color:rgba(62,155,114,.4)}
+.och.gnews{color:var(--lapis);border-color:rgba(91,132,196,.4)}
 .revoke{background:none;border:1px solid rgba(195,66,80,.4);color:#e79ba4;border-radius:6px;padding:3px 9px;font-size:11px;cursor:pointer;font-family:var(--kufi)}
 .mini{background:var(--bg2);border:1px solid var(--line);color:var(--txt);border-radius:8px;padding:7px 12px;font-family:var(--kufi);font-size:12.5px;cursor:pointer}
 .mini:hover{border-color:var(--gold)}
@@ -84,7 +97,7 @@ th{color:var(--dim);font-weight:600;font-size:11px}
 <div id="gate">
   <div class="card">
     <div class="brand">🛡️ <span>سَنَد <b>للمؤسسات</b></span> <span class="ent">Enterprise</span></div>
-    <p class="sub">بوّابةٌ محميّةٌ لطبقةِ <b style="color:var(--txt)">مِرصادِ التوتّر</b>: تاريخُ المؤشر، التصدير، مفاتيحُ API، وسجلُّ التدقيق. الوصولُ <b style="color:var(--txt)">بدعوةٍ فقط</b>.</p>
+    <p class="sub">بوّابةٌ محميّةٌ لطبقةِ <b style="color:var(--txt)">مِرصادِ التوتّر</b> و<b style="color:var(--txt)">رصدِ الكلمات والهاشتاقات</b>: تاريخُ المؤشر، استخباراتٌ مفتوحةُ المصدر، التصدير، مفاتيحُ API، وسجلُّ التدقيق. الوصولُ <b style="color:var(--txt)">بدعوةٍ فقط</b>.</p>
 
     <label for="em">البريدُ المؤسّسي</label>
     <input id="em" type="email" placeholder="you@organization.gov" autocomplete="email">
@@ -114,6 +127,15 @@ th{color:var(--dim);font-weight:600;font-size:11px}
       <div class="note">مؤشرٌ حسابيٌّ شفّافٌ من كثافةِ الموادِّ المُسنَدة — الرقمُ الحاليُّ حيٌّ من سَنَد، والخطُّ المصغّرُ تاريخُ آخرِ القياسات. ليس تقييمًا استخباراتيًّا رسميًّا.</div>
     </section>
 
+    <section class="panel wide">
+      <h3>رصدُ الكلمات والهاشتاقات <span class="tag">OSINT</span></h3>
+      <p class="note" style="margin-top:0">طبقةُ استخباراتٍ مفتوحةِ المصدر للمؤسسات: هاشتاقاتٌ وكلماتٌ مفتاحية تُطابق حصيلةَ سَنَد المُسنَدة وإشاراتِ الأخبار المفتوحة — منسوبةٌ لمصدرِها. ليس حكمًا استخباراتيًّا رسميًّا.</p>
+      <div id="osintMeta" class="note" style="margin:8px 0"></div>
+      <div id="osintTerms" style="display:flex;flex-wrap:wrap;gap:0;margin:8px 0 12px"></div>
+      <div id="osintDetail"></div>
+      <div class="note" id="osintReach" style="margin-top:12px"></div>
+    </section>
+
     <section class="panel">
       <h3>التصدير</h3>
       <p class="note" style="margin-top:0">صدِّرْ تاريخَ المؤشرِ لمؤسستك.</p>
@@ -136,16 +158,17 @@ th{color:var(--dim);font-weight:600;font-size:11px}
     </section>
 
     <section class="panel wide">
-      <h3>قوائمُ المتابعة <span class="tag">تنبيهُ التجاوز</span></h3>
-      <p class="note" style="margin-top:0">تابِعْ دولًا بعتبةِ توتّرٍ محدَّدة — تُبرَزُ الدولُ المتجاوزةُ الآن، وتُسجَّلُ للتنبيهِ الآليّ (قيدُ التفعيل).</p>
+      <h3>قوائمُ المتابعة <span class="tag">دول · كلمات</span></h3>
+      <p class="note" style="margin-top:0">تابِعْ دولًا بعتبةِ توتّر، و/أو كلماتٍ وهاشتاقاتٍ للتنبيه عند الظهور في رصدِ OSINT.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;align-items:center">
         <input id="wlName" type="email" placeholder="اسمُ القائمة (مثال: جوارُ الكويت)" style="flex:1;min-width:160px">
-        <input id="wlCountries" type="email" placeholder="رموزُ الدول: kw,ir,iq" style="flex:1;min-width:140px">
+        <input id="wlCountries" type="email" placeholder="دول: kw,ir,iq" style="flex:1;min-width:120px">
+        <input id="wlKeywords" type="email" placeholder="كلمات/هاشتاق: #غزة,هرمز" style="flex:1;min-width:160px">
         <input id="wlThresh" type="email" inputmode="numeric" placeholder="العتبة ٥٠" style="width:90px">
         <button class="mini" id="wlAdd">إضافة</button>
       </div>
-      <div class="note" id="wlHint">الرموز: kw السعودية=sa الإمارات=ae قطر=qa البحرين=bh عُمان=om العراق=iq إيران=ir اليمن=ye فلسطين=ps</div>
-      <table id="wlTbl" style="margin-top:10px"><thead><tr><th>القائمة</th><th>الدول</th><th>العتبة</th><th>الحالة الآن</th><th></th></tr></thead><tbody></tbody></table>
+      <div class="note" id="wlHint">الرموز: kw · sa · ae · qa · bh · om · iq · ir · ye · ps — الهاشتاق يبدأ بـ #</div>
+      <table id="wlTbl" style="margin-top:10px"><thead><tr><th>القائمة</th><th>الدول</th><th>الكلمات</th><th>العتبة</th><th>الحالة الآن</th><th></th></tr></thead><tbody></tbody></table>
     </section>
 
     <section class="panel wide">
@@ -204,7 +227,7 @@ async function boot(){
   $("who").innerHTML = esc(USER.email)+" · <b>"+esc(ORG.name)+"</b> · "+esc(ROLE);
   await sb.from("sanad_audit_log").insert({ org_id:ORG.id, user_id:USER.id, action:"portal_view", target:"dashboard", meta:{} });
   await renderIndex();
-  await Promise.all([renderKeys(), renderWatch(), renderAudit()]);
+  await Promise.all([renderKeys(), renderWatch(), renderOsint(), renderAudit()]);
 }
 $("logout").onclick = async () => { await sb.auth.signOut(); location.reload(); };
 
@@ -292,21 +315,86 @@ $("genKey").onclick = async () => {
   renderKeys();
 };
 
+// ── OSINT keyword / hashtag intel ──
+let OSINT=null, OSINT_FOCUS=null;
+async function renderOsint(){
+  try{
+    const r=await fetch(RAW+"osint.json?t="+Date.now());
+    if(r.ok) OSINT=await r.json();
+    else {
+      const r2=await fetch("/daily/osint.json?t="+Date.now());
+      OSINT=r2.ok?await r2.json():null;
+    }
+  }catch(e){ OSINT=null }
+  const meta=$("osintMeta"), terms=$("osintTerms"), detail=$("osintDetail"), reach=$("osintReach");
+  if(!OSINT){
+    meta.textContent="لا ملفّ رصد بعد — سيظهر بعد دورة الأخبار التالية.";
+    terms.innerHTML=""; detail.innerHTML=""; reach.innerHTML="";
+    return;
+  }
+  meta.textContent = (OSINT.active||0)+" مصطلحًا نشطًا · "+(OSINT.total_hits||0)+" إشارة · محدَّث "+(OSINT.updated||"");
+  const watches=OSINT.watches||[];
+  terms.innerHTML = watches.map(w=>{
+    const on=OSINT_FOCUS===w.term?"border-color:var(--gold)":"";
+    return `<button type="button" class="htag" style="${on}" data-term="${esc(w.term)}">
+      <span class="hash">${esc(w.term)}</span>
+      <span class="hh" style="background:${band(w.heat)}22;color:${band(w.heat)}">${w.heat}</span>
+      <span class="ht">${w.n_sanad||0} سَنَد · ${w.n_open||0} مفتوح</span>
+    </button>`;
+  }).join("") || '<div class="note">لا مصطلحات.</div>';
+  terms.querySelectorAll("[data-term]").forEach(b=>b.onclick=()=>{ OSINT_FOCUS=b.dataset.term; renderOsintDetail(); 
+    terms.querySelectorAll(".htag").forEach(x=>x.style.borderColor=x.dataset.term===OSINT_FOCUS?"var(--gold)":"");
+  });
+  if(!OSINT_FOCUS && watches[0]) OSINT_FOCUS=watches[0].term;
+  renderOsintDetail();
+  reach.innerHTML = 'القنوات الآن: سَنَد المُسنَد + أخبار Google المفتوحة. للوصول العميق لمنصّات التواصل بجلسة منظّمتك (X/Reddit…) يمكن تشغيل '
+    +'<a href="https://github.com/Panniantong/Agent-Reach" target="_blank" rel="noopener">Agent-Reach</a> '
+    +'جانب الخادم لديكم — كوكيز الجلسة تبقى محلّية.';
+}
+function renderOsintDetail(){
+  const detail=$("osintDetail"); if(!detail||!OSINT) return;
+  const w=(OSINT.watches||[]).find(x=>x.term===OSINT_FOCUS);
+  if(!w){ detail.innerHTML='<div class="note">اختر مصطلحًا.</div>'; return; }
+  const hits=(w.hits||[]).map(h=>{
+    const ch=h.channel==="sanad"?"sanad":"gnews";
+    const lab=ch==="sanad"?"سَنَد":"مفتوح";
+    const g=h.grade?` · ${esc(h.grade)}`:"";
+    const link=safeUrl(h.link);
+    return `<div class="ohit">
+      <span class="och ${ch}">${lab}</span>${g}
+      ${link!=="#"?`<a href="${link}" target="_blank" rel="noopener">${esc(h.head||"—")}</a>`:`<span>${esc(h.head||"—")}</span>`}
+      <div class="om">${esc(h.src||"")}${h.at?" · "+esc(String(h.at).slice(0,22)):""}</div>
+    </div>`;
+  }).join("");
+  detail.innerHTML = `<div style="margin-bottom:8px"><span class="hash">${esc(w.term)}</span>
+    <span class="note" style="margin-inline-start:8px">${esc(w.summary||"")}</span></div>
+    ${hits||'<div class="note">لا إشارات لهذا المصطلح.</div>'}`;
+}
+
 // ── watchlists: CRUD + live threshold-breach status ──
 function liveScore(id){ const c=LIVE.find(x=>x.id===id); return c?c.score:null; }
+function osintHeat(term){
+  if(!OSINT) return null;
+  const t=String(term||"").trim().toLowerCase();
+  const w=(OSINT.watches||[]).find(x=>String(x.term||"").toLowerCase()===t || String(x.term||"").replace(/^#/,"").toLowerCase()===t.replace(/^#/,""));
+  return w?w.heat:null;
+}
 async function renderWatch(){
   const canWrite = ROLE==="owner"||ROLE==="admin"||ROLE==="analyst";
   $("wlAdd").disabled=!canWrite; $("wlName").disabled=!canWrite;
-  const { data } = await sb.from("sanad_watchlists").select("id,name,countries,threshold").order("created_at",{ascending:false});
+  const { data } = await sb.from("sanad_watchlists").select("id,name,countries,keywords,threshold").order("created_at",{ascending:false});
   $("wlTbl").querySelector("tbody").innerHTML = (data||[]).map(w=>{
     const breach=(w.countries||[]).filter(id=>{const s=liveScore(id);return s!=null&&s>=w.threshold;});
-    const status = breach.length
-      ? `<span style="color:var(--tense);font-weight:700">⚠ تجاوزت: ${esc(breach.map(id=>{const c=LIVE.find(x=>x.id===id);return c?c.name:id;}).join("، "))}</span>`
-      : `<span style="color:var(--verify)">ضمن العتبة</span>`;
-    return `<tr><td>${esc(w.name)}</td><td class="note">${esc((w.countries||[]).join(", "))}</td>
+    const hotKw=(w.keywords||[]).filter(k=>{const h=osintHeat(k);return h!=null&&h>=(w.threshold||50);});
+    let statusParts=[];
+    if(breach.length) statusParts.push(`<span style="color:var(--tense);font-weight:700">⚠ دول: ${esc(breach.map(id=>{const c=LIVE.find(x=>x.id===id);return c?c.name:id;}).join("، "))}</span>`);
+    if(hotKw.length) statusParts.push(`<span style="color:var(--tense);font-weight:700">⚑ كلمات: ${esc(hotKw.join("، "))}</span>`);
+    const status = statusParts.length ? statusParts.join("<br>") : `<span style="color:var(--verify)">ضمن العتبة</span>`;
+    return `<tr><td>${esc(w.name)}</td><td class="note">${esc((w.countries||[]).join(", ")||"—")}</td>
+      <td class="note">${esc((w.keywords||[]).join(", ")||"—")}</td>
       <td>${esc(w.threshold)}</td><td>${status}</td>
       <td>${canWrite?`<button class="revoke" data-wl="${esc(w.id)}">حذف</button>`:''}</td></tr>`;
-  }).join("") || '<tr><td colspan="5" class="note">لا قوائمَ بعد.</td></tr>';
+  }).join("") || '<tr><td colspan="6" class="note">لا قوائمَ بعد.</td></tr>';
   $("wlTbl").querySelectorAll("[data-wl]").forEach(b=>b.onclick=async()=>{
     await sb.from("sanad_watchlists").delete().eq("id",b.dataset.wl);
     await sb.from("sanad_audit_log").insert({org_id:ORG.id,user_id:USER.id,action:"watchlist_delete",target:b.dataset.wl,meta:{}});
@@ -316,12 +404,13 @@ async function renderWatch(){
 $("wlAdd").onclick = async () => {
   const name=$("wlName").value.trim();
   const countries=$("wlCountries").value.split(",").map(s=>s.trim().toLowerCase()).filter(Boolean);
+  const keywords=$("wlKeywords").value.split(",").map(s=>s.trim()).filter(Boolean);
   const threshold=Math.max(1,Math.min(100,parseInt($("wlThresh").value,10)||50));
-  if(!name||!countries.length){ alert("أدخِلْ اسمًا ورموزَ دولٍ (kw,ir,…)."); return; }
-  const { error } = await sb.from("sanad_watchlists").insert({org_id:ORG.id,owner:USER.id,name,countries,keywords:[],threshold});
+  if(!name||(!countries.length&&!keywords.length)){ alert("أدخِلْ اسمًا مع دول و/أو كلمات."); return; }
+  const { error } = await sb.from("sanad_watchlists").insert({org_id:ORG.id,owner:USER.id,name,countries,keywords,threshold});
   if(error){ alert("تعذّر: "+error.message); return; }
-  $("wlName").value=""; $("wlCountries").value=""; $("wlThresh").value="";
-  await sb.from("sanad_audit_log").insert({org_id:ORG.id,user_id:USER.id,action:"watchlist_create",target:name,meta:{countries,threshold}});
+  $("wlName").value=""; $("wlCountries").value=""; $("wlKeywords").value=""; $("wlThresh").value="";
+  await sb.from("sanad_audit_log").insert({org_id:ORG.id,user_id:USER.id,action:"watchlist_create",target:name,meta:{countries,keywords,threshold}});
   renderWatch();
 };
 

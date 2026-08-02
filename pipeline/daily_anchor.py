@@ -784,7 +784,7 @@ def bundle():
             print(f"🛡️ نشرةُ اليوم: أُبقيت الأحدث ({_pub.get('date')}) بدل الأقدم ({_loc.get('date')})")
     except Exception as _e: print(f"guard_latest: {str(_e)[:80]}")
     keys=["news","intel","official","forecast","analyst","dua","verify",
-          "alerts","corrections","latest","agents","cost","evolution","council","gpu","rumors","column","tension","map","comments","posts"]
+          "alerts","corrections","latest","agents","cost","evolution","council","gpu","rumors","column","tension","map","osint","comments","posts"]
     b={"built":datetime.now(timezone.utc).isoformat(timespec="minutes")}
     for k in keys:
         try: b[k]=json.load(open(f"{OUT}/{k}.json"))
@@ -2835,6 +2835,18 @@ if os.environ.get("NEWS_ONLY"):
             print("map_week: "+str(_e)[:100])
     except Exception as _e:
         print("map_week: "+str(_e)[:100])
+    try:
+        from osint_watch import osint_watch as _osint_watch
+        _osint_watch()
+    except ImportError:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        try:
+            from osint_watch import osint_watch as _osint_watch
+            _osint_watch()
+        except Exception as _e:
+            print("osint_watch: "+str(_e)[:100])
+    except Exception as _e:
+        print("osint_watch: "+str(_e)[:100])
     bundle()
     try:
         from social_pack import social_pack as _social_pack
@@ -3020,6 +3032,11 @@ if not os.environ.get("ENABLE_VIDEO"):
         _map_week()
     except Exception as _e:
         print("map_week: "+str(_e)[:100])
+    try:
+        from osint_watch import osint_watch as _osint_watch
+        _osint_watch()
+    except Exception as _e:
+        print("osint_watch: "+str(_e)[:100])
     bundle(); broadcast_bulletin(); broadcast_official(); broadcast_alerts(); broadcast_news(); save_agents()
     print("🎙️ النشرة الصوتية جاهزة — الفيديو معطَّل في هذه النسخة")
     sys.exit(0)
@@ -3109,6 +3126,11 @@ try:
     _map_week()
 except Exception as _e:
     print("map_week: "+str(_e)[:100])
+try:
+    from osint_watch import osint_watch as _osint_watch
+    _osint_watch()
+except Exception as _e:
+    print("osint_watch: "+str(_e)[:100])
 bundle()
 try:
     from social_pack import social_pack as _social_pack
