@@ -727,7 +727,7 @@ function fromFeedItem(url, item) {
     claim: item.head || item.he || '',
     news: {
       verdict: verdictFromGrade(grade),
-      why: 'مطابقة من تغذية سَنَد المنشورة — بلا تكلفة إضافية.',
+      why: 'الخبر مطابق لحصيلة سَنَد المنشورة.',
       sources: [{ u: item.link || url, t: item.src || source.name }],
     },
     media: { kind: 'none', deepfake_risk: 'غير مقيّم', note: '' },
@@ -742,8 +742,8 @@ function fromFetchHeuristic(url, page, source) {
   const claim = page.title || page.description || '';
   const why =
     source.rank === 'رسمي' || source.rank === 'وكالة'
-      ? `مصدر مصنَّف (${source.rank}) بعد جلب الصفحة — تحقق مجاني.`
-      : 'جلب الصفحة دون استدعاء نموذج مدفوع.';
+      ? `المصدر مصنَّف ضمن فئة «${source.rank}» بعد مراجعة الرابط.`
+      : 'راجَعنا الرابط وقيَّمنا المصدر الظاهر دون إعلان تفاصيل الغرفة.';
   return {
     url,
     tier: 'free',
@@ -757,7 +757,7 @@ function fromFetchHeuristic(url, page, source) {
     media: {
       kind: page.kind || 'none',
       deepfake_risk: page.kind === 'none' ? 'غير مقيّم' : 'غير مقيّم',
-      note: page.ogImage ? 'وُجدت صورة OG — لم يُقيَّم التزييف.' : '',
+      note: page.ogImage ? 'وُجدت صورة مرفقة بالرابط — لم يُقيَّم خطر التزييف بعد.' : '',
     },
     grade,
     agent: 'الفاحِص',
@@ -975,19 +975,20 @@ module.exports = async function handler(req, res) {
       cacheSet(key, clean);
       return json(res, 200, clean);
     }
-    // Grok failed → fall through with fetch heuristic; note why
+    // Deep review unavailable → keep fetch heuristic with public wording
     result.news.why =
       (result.news.why || '') +
       (result.news.why ? ' ' : '') +
-      'تعذّر استدعاء النموذج؛ أُعيدت نتيجة الجلب فقط.';
+      'اكتفينا بمراجعة الرابط الظاهرة.';
   } else if (wantGrok && (kill || !underBudget || !hasKey)) {
     result.cost_tier = kill || !underBudget ? 'blocked' : result.cost_tier;
-    if (kill) {
-      result.news.why = 'مفتاح القتل المدفوع مفعّل — تحقق مجاني فقط.';
-    } else if (!underBudget) {
-      result.news.why = 'بلغ سقف ميزانية التحقق اليومية — نتيجة مجانية فقط.';
+    if (kill || !underBudget) {
+      result.news.why = 'الحكم أوليّ ضمن الحد اليومي للمراجعات المعمّقة.';
     } else if (!hasKey) {
-      result.news.why = (result.news.why || '') + ' لا مفتاح Grok — نتيجة مجانية.';
+      result.news.why =
+        (result.news.why || '') +
+        (result.news.why ? ' ' : '') +
+        'الحكم أوليّ من مراجعة الرابط الظاهرة.';
     }
     if (source.rank === 'مجهول') {
       result.grade = '—';
