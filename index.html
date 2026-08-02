@@ -186,11 +186,11 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 
 /* Bottom nav */
 .bnav{position:fixed;bottom:0;inset-inline:0;z-index:50;background:var(--topbar);backdrop-filter:blur(16px);
-  border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(5,1fr);height:var(--nav-h);
+  border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(6,1fr);height:var(--nav-h);
   padding-bottom:env(safe-area-inset-bottom,0)}
 .bnav button{border:0;background:transparent;color:var(--dim);font-family:'Noto Kufi Arabic',sans-serif;
-  font-size:10px;font-weight:600;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px}
-.bnav button i{font-style:normal;font-size:18px;line-height:1}
+  font-size:9.5px;font-weight:600;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
+.bnav button i{font-style:normal;font-size:16px;line-height:1}
 .bnav button.on{color:var(--vellum)}
 .bnav button.on i{color:var(--gold-l)}
 
@@ -429,6 +429,44 @@ body.prof-mode .desks,body.prof-mode .desk-status,body.prof-mode .ennote,body.pr
 .post .ig-comments{padding:0 14px 12px;background:var(--card)}
 .cmt-toggle{border:0;background:transparent;color:var(--mut);font-size:12px;font-weight:700;cursor:pointer;padding:4px 14px 10px;font-family:'Noto Kufi Arabic',sans-serif}
 .cmt-toggle:hover{color:var(--gold-l)}
+
+/* World map — weekly authenticated news by country */
+body.map-mode .desks,body.map-mode .desk-status,body.map-mode .ennote,body.map-mode #filterChip{display:none!important}
+body.map-mode .app{max-width:min(960px,100%)}
+@media(min-width:1040px){body.map-mode .app{max-width:920px}}
+#view-map .panel{padding-bottom:8px}
+.map-meta{font-family:'Noto Kufi Arabic',sans-serif;font-size:11.5px;color:var(--mut);margin:-6px 0 12px}
+.map-wrap{margin:0 10px;border:1px solid var(--border);border-radius:14px;overflow:hidden;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%,rgba(13,92,63,.18),transparent 70%),
+    linear-gradient(165deg,#15202b 0%,#0c121c 55%,#152a22 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+.map-wrap svg{width:100%;height:auto;display:block;min-height:200px}
+.map-wrap path{fill:#d8d0c0;stroke:rgba(15,20,28,.35);stroke-width:.35;cursor:pointer;
+  transition:fill .2s ease,stroke .15s ease,stroke-width .15s ease}
+.map-wrap path.hot{stroke:rgba(255,255,255,.25);stroke-width:.45}
+.map-wrap path.focus{stroke:var(--gold);stroke-width:1.2;filter:brightness(1.08)}
+.map-wrap path:focus-visible,.map-wrap path:hover{stroke:var(--gold-l);stroke-width:.9;outline:none}
+.map-legend{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;padding:12px 14px 4px;
+  font-family:'Noto Kufi Arabic',sans-serif;font-size:10.5px;color:var(--mut)}
+.map-legend i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-inline-end:5px;vertical-align:middle;
+  border:1px solid rgba(0,0,0,.12)}
+.map-list{display:flex;flex-wrap:wrap;gap:8px;padding:10px 14px 20px}
+.map-chip{border:1px solid var(--border);background:var(--card);border-radius:10px;padding:8px 11px;
+  cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-family:'Noto Kufi Arabic',sans-serif;
+  font-size:12px;color:var(--txt)}
+.map-chip:active{transform:scale(.97)}
+.map-chip b{font-weight:700}
+.map-chip span{font-size:10.5px;color:var(--gold-l);font-weight:700}
+.map-sum{font-size:13.5px;line-height:1.85;color:var(--txt);margin:10px 0 14px}
+.map-stats{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12px;color:var(--mut)}
+.map-stories{display:flex;flex-direction:column;gap:8px;margin-bottom:8px}
+.map-story{display:block;text-decoration:none;color:inherit;border:1px solid var(--border);border-radius:12px;
+  padding:10px 12px;background:var(--card2)}
+.map-story .ms-top{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:6px}
+.map-story b{display:block;font-size:13.5px;line-height:1.65;font-weight:600;color:var(--vellum)}
+[data-theme=dark] .map-wrap path{fill:#3a4554;stroke:rgba(8,11,18,.55)}
+[data-theme=dark] .map-wrap{background:linear-gradient(165deg,#0a1018,#07140f 60%,#0c121c)}
 </style></head>
 
 <body>
@@ -440,6 +478,7 @@ body.prof-mode .desks,body.prof-mode .desk-status,body.prof-mode .ennote,body.pr
     <nav class="desk-nav" id="deskNav" aria-label="التنقّل">
       <button type="button" data-view="live" class="on">حيّ</button>
       <button type="button" data-view="brief">نشرة</button>
+      <button type="button" data-view="map">خريطة</button>
       <button type="button" data-view="verify" id="navVerifyD">تحقّق</button>
       <button type="button" data-view="team">وكلاء</button>
       <button type="button" data-view="saved">محفوظ</button>
@@ -479,6 +518,22 @@ body.prof-mode .desks,body.prof-mode .desk-status,body.prof-mode .ennote,body.pr
       <div class="sk media"></div><div class="sk" style="width:70%"></div><div class="sk" style="width:40%"></div>
       <div class="sk media" style="margin-top:16px"></div><div class="sk" style="width:60%"></div>
     </div>
+  </section>
+
+  <section class="view" id="view-map" data-view="map">
+    <div class="panel">
+      <h2 class="amiri gold" id="mapTitle">خريطة الأسبوع</h2>
+      <p class="lead" id="mapLead">اضغط على دولة لملخص أخبارها الصحيحة والحسنة خلال آخر أسبوع.</p>
+      <div class="map-meta" id="mapMeta"></div>
+    </div>
+    <div class="map-wrap" id="worldMap" aria-label="خريطة العالم"></div>
+    <div class="map-legend" id="mapLegend">
+      <span><i style="background:#d8d0c0"></i><span data-leg="idle">بلا حصيلة</span></span>
+      <span><i style="background:#e2d3a8"></i><span data-leg="low">خفيف</span></span>
+      <span><i style="background:#c9a227"></i><span data-leg="mid">نشط</span></span>
+      <span><i style="background:#6b5218"></i><span data-leg="high">مكثّف</span></span>
+    </div>
+    <div class="map-list" id="mapList"></div>
   </section>
 
   <section class="view" id="view-brief" data-view="brief">
@@ -559,6 +614,7 @@ body.prof-mode .desks,body.prof-mode .desk-status,body.prof-mode .ennote,body.pr
 <nav class="bnav" id="bnav" aria-label="القائمة">
   <button type="button" data-view="live" class="on"><i>◎</i>حيّ</button>
   <button type="button" data-view="brief"><i>◈</i>نشرة</button>
+  <button type="button" data-view="map"><i>▣</i>خريطة</button>
   <button type="button" data-view="verify" id="navVerifyM"><i>✓</i>تحقّق</button>
   <button type="button" data-view="team"><i>◉</i>وكلاء</button>
   <button type="button" data-view="saved"><i>♡</i>محفوظ</button>
@@ -649,7 +705,7 @@ function enText(s, fallback){ if(!EN) return s||""; if(!s) return fallback||""; 
 /** Rewrite static Arabic chrome when EN is on — no Arabic leftovers in shell UI */
 function applyChromeI18n(){
   if(!EN) return;
-  const nav={live:"Live",brief:"Brief",verify:"Verify",team:"Agents",saved:"Saved"};
+  const nav={live:"Live",brief:"Brief",map:"Map",verify:"Verify",team:"Agents",saved:"Saved"};
   document.querySelectorAll("#deskNav [data-view], #bnav [data-view]").forEach(b=>{
     const lab=nav[b.dataset.view]; if(!lab) return;
     const ic=b.querySelector("i");
@@ -677,6 +733,10 @@ function applyChromeI18n(){
   setH2("verify","Verify","Paste a news, image, or video link — clear verdict, no tools exposed.");
   setH2("team","Team");
   setH2("saved","Saved","Stories you save stay on this device only.");
+  const mt=document.getElementById("mapTitle"); if(mt) mt.textContent="Weekly map";
+  const ml=document.getElementById("mapLead"); if(ml) ml.textContent="Tap a country for its authenticated news summary over the last week.";
+  const legs={idle:"None",low:"Light",mid:"Active",high:"Heavy"};
+  document.querySelectorAll("#mapLegend [data-leg]").forEach(el=>{ const k=el.getAttribute("data-leg"); if(legs[k]) el.textContent=legs[k]; });
   const bl=document.getElementById("blabel"); if(bl) bl.textContent="Anchor bulletin";
   const plTop=document.querySelector(".pl-top b"); if(plTop) plTop.textContent="Audio bulletin";
   const plBtn=document.getElementById("plBtn"); if(plBtn) plBtn.setAttribute("aria-label","Play");
@@ -762,7 +822,7 @@ function celebrateShare(){
 function openSheet(html){sheetC.innerHTML=html; sheet.classList.add("on"); document.body.style.overflow="hidden"}
 function closeSheet(){sheet.classList.remove("on"); document.body.style.overflow=""}
 
-let DATA=null, AGENTS=null, CONTROL=null, OFFICIAL=null, ANALYST=null, COLUMN=null, COLUMNS_IX=null, COLUMN_CACHE={}, COLUMN_DATE=null, FORECAST=null, EVOLUTION=null, TENSION=null, COMMENTS=null, APOSTS=null, deskFilter=null, VIEW="live";
+let DATA=null, AGENTS=null, CONTROL=null, OFFICIAL=null, ANALYST=null, COLUMN=null, COLUMNS_IX=null, COLUMN_CACHE={}, COLUMN_DATE=null, FORECAST=null, EVOLUTION=null, TENSION=null, COMMENTS=null, APOSTS=null, MAP=null, MAP_FOCUS=null, deskFilter=null, VIEW="live";
 let AGENT_POSTS=[];
 let PROFILE=null; /* {kind:'agent'|'desk', id, tab:'grid'|'feed', from} */
 
@@ -1531,10 +1591,145 @@ function updateFilterChip(){
   if(lbl) lbl.textContent=d?regionOf(d):"";
 }
 
+function heatColor(h){
+  h=+h||0;
+  if(h<=0) return "";
+  if(h<12) return "#e2d3a8";
+  if(h<25) return "#d4b85a";
+  if(h<40) return "#c9a227";
+  if(h<60) return "#9a7714";
+  if(h<80) return "#6b5218";
+  return "#3f3010";
+}
+function mapCountryById(id){
+  id=String(id||"").toLowerCase();
+  return (MAP&&MAP.countries||[]).find(c=>c.id===id)||null;
+}
+async function ensureWorldSvg(){
+  const box=document.getElementById("worldMap");
+  if(!box) return null;
+  if(box.querySelector("svg")) return box.querySelector("svg");
+  box.innerHTML=`<div class="empty">${EN?"Loading map…":"جارٍ تحميل الخريطة…"}</div>`;
+  try{
+    const r=await fetch("/assets/world.svg");
+    if(!r.ok) throw new Error("svg");
+    box.innerHTML=await r.text();
+    const svg=box.querySelector("svg");
+    if(svg){
+      svg.removeAttribute("width"); svg.removeAttribute("height");
+      svg.setAttribute("role","img");
+      svg.style.width="100%"; svg.style.height="auto"; svg.style.display="block";
+      svg.querySelectorAll("path[id]").forEach(p=>{
+        p.setAttribute("tabindex","0");
+        p.setAttribute("role","button");
+        p.setAttribute("aria-label", p.getAttribute("name")||p.id);
+      });
+      if(!box._mapBound){
+        box._mapBound=true;
+        box.addEventListener("click",e=>{
+          const path=e.target.closest("path[id]");
+          if(path) openCountryMap(path.id);
+        });
+        box.addEventListener("keydown",e=>{
+          if(e.key!=="Enter"&&e.key!==" ") return;
+          const path=e.target.closest("path[id]");
+          if(path){ e.preventDefault(); openCountryMap(path.id); }
+        });
+      }
+    }
+    return svg;
+  }catch(e){
+    box.innerHTML=`<div class="empty">${EN?"Map unavailable.":"تعذّر تحميل الخريطة."}</div>`;
+    return null;
+  }
+}
+function paintMap(){
+  const box=document.getElementById("worldMap");
+  if(!box) return;
+  const by={}; (MAP&&MAP.countries||[]).forEach(c=>{ by[c.id]=c; });
+  box.querySelectorAll("path[id]").forEach(p=>{
+    const c=by[p.id];
+    const hot=!!(c&&c.n);
+    p.classList.toggle("hot", hot);
+    p.classList.toggle("focus", MAP_FOCUS===p.id);
+    const fill=hot?heatColor(c.heat):"";
+    if(fill) p.style.fill=fill; else p.style.removeProperty("fill");
+    if(c){
+      const label=EN?(c.en||c.name):c.name;
+      p.setAttribute("aria-label", hot?`${label}: ${c.n}`:label);
+    }
+  });
+}
+function openCountryMap(id){
+  id=String(id||"").toLowerCase();
+  if(!/^[a-z]{2}$/.test(id)) return;
+  MAP_FOCUS=id;
+  paintMap();
+  const c=mapCountryById(id);
+  const pathEl=document.querySelector(`#worldMap path#${CSS.escape(id)}`);
+  const fallbackName=pathEl?(pathEl.getAttribute("name")||id.toUpperCase()):id.toUpperCase();
+  if(!c || !c.n){
+    openSheet(`<h3 class="amiri">${esc(EN?fallbackName:(c&&c.name)||fallbackName)}</h3>
+      <p class="map-sum" style="color:var(--mut)">${EN?"No authenticated stories for this country in the last week.":"لا أخبار مُسنَدة لهذه الدولة خلال آخر أسبوع في حصيلة سَنَد."}</p>
+      <button type="button" class="sheet-x" onclick="closeSheet()">${EN?"Close":"إغلاق"}</button>`);
+    syncRoute();
+    return;
+  }
+  const title=EN?(c.en||c.name):c.name;
+  const sum=EN?(c.summary_en||c.summary):c.summary;
+  const stories=(c.stories||[]).map(s=>{
+    let h;
+    if(EN){
+      const en=enText(s.he,"");
+      h=en||(hasAr(s.head)?((s.src?s.src+" · ":"")+"Verified story"):(s.head||""));
+    } else h=s.head||"";
+    const link=safeUrl(s.link);
+    return `<a class="map-story" ${link!=="#"?`href="${link}" target="_blank" rel="noopener"`:`href="#" onclick="return false"`}>
+      <div class="ms-top">${badge(s.grade)} ${s.src?`<span class="badge b-src">${esc(s.src)}</span>`:""}</div>
+      <b>${esc(h)}</b>
+    </a>`;
+  }).join("");
+  openSheet(`<h3 class="amiri">${esc(title)}</h3>
+    <div class="map-stats"><span class="badge b-src">${c.n} ${EN?"stories":"خبرًا"}</span>
+      ${badge("صحيح")} <span>${c.sahih||0}</span>
+      ${badge("حسن")} <span>${c.hasan||0}</span>
+      <span>· ${EN?"last week":"آخر أسبوع"}</span></div>
+    <p class="map-sum">${esc(sum)}</p>
+    <div class="map-stories">${stories||`<div class="empty">${EN?"No stories listed.":"لا أخبار في القائمة."}</div>`}</div>
+    <button type="button" class="sheet-x" onclick="closeSheet()">${EN?"Close":"إغلاق"}</button>`);
+  syncRoute();
+}
+async function renderMap(){
+  const meta=document.getElementById("mapMeta");
+  const list=document.getElementById("mapList");
+  if(meta){
+    if(!MAP) meta.textContent=EN?"Loading weekly map…":"جارٍ تحميل خريطة الأسبوع…";
+    else {
+      meta.textContent=EN
+        ? `${MAP.active_countries||0} countries · ${MAP.total_stories||0} authenticated stories · last ${MAP.days||7} days`
+        : `${MAP.active_countries||0} دولة · ${MAP.total_stories||0} خبرًا مُسنَدًا · آخر ${MAP.days||7} أيام`;
+    }
+  }
+  await ensureWorldSvg();
+  paintMap();
+  if(list){
+    const active=(MAP&&MAP.countries||[]).filter(c=>c.n>0);
+    if(!MAP) list.innerHTML="";
+    else if(!active.length){
+      list.innerHTML=`<div class="empty">${EN?"No country activity this week yet.":"لا نشاط دولي مُسنَد هذا الأسبوع بعد."}</div>`;
+    } else {
+      list.innerHTML=active.map(c=>`<button type="button" class="map-chip${MAP_FOCUS===c.id?" on":""}" onclick="openCountryMap('${c.id}')">
+        <b>${esc(EN?(c.en||c.name):c.name)}</b><span>${c.n}</span>
+      </button>`).join("");
+    }
+  }
+}
+
 function setView(v){
   if(v!=="profile") PROFILE=null;
   VIEW=v;
   document.body.classList.toggle("prof-mode", v==="profile");
+  document.body.classList.toggle("map-mode", v==="map");
   document.querySelectorAll(".view").forEach(el=>el.classList.toggle("on",el.dataset.view===v));
   document.querySelectorAll(".bnav button, .desk-nav button").forEach(b=>{
     const bv=b.dataset.view;
@@ -1544,6 +1739,7 @@ function setView(v){
   if(v==="team") renderTeam();
   if(v==="saved") renderSaved();
   if(v==="brief") renderBrief();
+  if(v==="map") renderMap();
   if(v==="live"){
     renderOfficialRail(); renderViralStrip();
     const f=feedEl();
@@ -1554,10 +1750,10 @@ function setView(v){
   syncRoute();
 }
 document.getElementById("bnav").addEventListener("click",e=>{
-  const b=e.target.closest("button[data-view]"); if(b){ PROFILE=null; setView(b.dataset.view); }
+  const b=e.target.closest("button[data-view]"); if(b){ PROFILE=null; if(b.dataset.view==="map") MAP_FOCUS=null; setView(b.dataset.view); }
 });
 document.getElementById("deskNav").addEventListener("click",e=>{
-  const b=e.target.closest("button[data-view]"); if(b){ PROFILE=null; setView(b.dataset.view); }
+  const b=e.target.closest("button[data-view]"); if(b){ PROFILE=null; if(b.dataset.view==="map") MAP_FOCUS=null; setView(b.dataset.view); }
 });
 
 function gradeLabel(g){
@@ -1573,7 +1769,9 @@ function syncRoute(){
     if(PROFILE.kind==="agent"&&PROFILE.id==="mudawwin") path=COLUMN_DATE?("column/"+COLUMN_DATE):"column";
     else path=PROFILE.kind+"/"+PROFILE.id+(PROFILE.tab==="feed"?"/feed":"");
   }
-  else if(VIEW==="brief"||VIEW==="verify"||VIEW==="team"||VIEW==="saved"||VIEW==="search") path=VIEW;
+  else if(VIEW==="brief"||VIEW==="verify"||VIEW==="team"||VIEW==="saved"||VIEW==="search"||VIEW==="map"){
+    path=VIEW==="map"&&MAP_FOCUS?("map/"+MAP_FOCUS):VIEW;
+  }
   else if(deskFilter) path="desk/"+deskFilter;
   const want="#/"+path;
   if(location.hash!==want) try{ history.replaceState(null,"",want) }catch(e){}
@@ -1635,6 +1833,11 @@ function applyRoute(){
         COLUMN_DATE=(COLUMN&&COLUMN.date)||null;
         openProfile("agent","mudawwin");
       }
+    }
+    else if(a==="map"){
+      MAP_FOCUS=(b||"").toLowerCase()||null;
+      setView("map");
+      if(MAP_FOCUS) openCountryMap(MAP_FOCUS);
     }
     else if(a==="verify"||a==="brief"||a==="team"||a==="saved"||a==="live"||a==="search") setView(a);
   } finally { ROUTE_LOCK=false; }
@@ -2331,6 +2534,7 @@ async function load(){
   try{ TENSION=await grab("tension"); }catch(e){ TENSION=null }
   try{ COMMENTS=await grab("comments"); }catch(e){ COMMENTS=null }
   try{ APOSTS=await grab("posts"); }catch(e){ APOSTS=null }
+  try{ MAP=await grab("map"); }catch(e){ MAP=null }
   try{
     const ta=document.getElementById("teamAuto"), tl=document.getElementById("teamLead");
     if(tl) tl.textContent=EN?"Agents run on their own — posts and cycles without hand edits.":"وكلاء يعملون آليًّا — منشوراتهم ودُوراتهم بلا تدخّل يدوي.";
@@ -2338,7 +2542,7 @@ async function load(){
       ?`<b>Fully automated</b> — intake, grading, forecast, learning, comments, and posts refresh from the pipeline${APOSTS&&APOSTS.n?` · ${APOSTS.n} posts`:"."}`
       :`<b>آلي بالكامل</b> — الرصد، الإسناد، الاستقراء، التعلّم، التعليقات، والمنشورات تُحدَّث من خط الإنتاج${APOSTS&&APOSTS.n?` · ${APOSTS.n} منشورًا`:""}.`;
   }catch(e){}
-  try{ renderFeed(); if(VIEW==="brief") renderBrief(); if(VIEW==="team") renderTeam(); if(VIEW==="profile") renderProfile(); }
+  try{ renderFeed(); if(VIEW==="brief") renderBrief(); if(VIEW==="team") renderTeam(); if(VIEW==="profile") renderProfile(); if(VIEW==="map") renderMap(); }
   catch(e){ console.warn("render after load", e); try{ renderFeed(); }catch(e2){ console.warn("renderFeed", e2) } }
   try{ if(document.getElementById("briefColumn")) renderColumnSection(); }catch(e){}
   try{
