@@ -1,5 +1,9 @@
 name: 🖼️ بطاقة سوشيال اليومية
 on:
+  schedule:
+    # توقيت الكويت = UTC+3
+    - cron: '0 6 * * *'   # 09:00 صباحًا — بطاقة الفيد/الستوري
+    - cron: '0 15 * * *'  # 18:00 مساءً — تحديث إن تغيّر أبرز خبر
   workflow_dispatch:
     inputs:
       force:
@@ -10,7 +14,7 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: sanad-daily
+  group: sanad-social-pack
   cancel-in-progress: false
 jobs:
   social:
@@ -26,11 +30,13 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHANNEL: ${{ secrets.TELEGRAM_CHANNEL }}
           TELEGRAM_EDITOR_CHAT: ${{ secrets.TELEGRAM_EDITOR_CHAT }}
-          FORCE_SOCIAL: ${{ inputs.force == true && '1' || '' }}
+          # الجدولة: لا تفرض الإعادة — مرة واحدة لليوم ما لم يُطلب يدويًا
+          FORCE_SOCIAL: ${{ github.event_name == 'workflow_dispatch' && inputs.force == true && '1' || '' }}
         run: |
           cd pipeline && python social_pack.py
           cd ..
-          ls -la daily/social/$(date +%F) || ls -la daily/social/*/  | head
+          echo "KW date: $(TZ=Asia/Kuwait date +%F)"
+          ls -la daily/social/"$(TZ=Asia/Kuwait date +%F)" 2>/dev/null || ls -la daily/social/ | head
       - name: حفظ في الريبو
         id: save
         run: |
@@ -38,7 +44,7 @@ jobs:
           git config user.email "soldiom@gmail.com"
           git add daily/social/
           git diff --cached --quiet && echo "no changes" && exit 0
-          git commit -m "🖼️ بطاقة سوشيال $(date +%F) [skip ci] [vercel skip]"
+          git commit -m "🖼️ بطاقة سوشيال $(TZ=Asia/Kuwait date +%F) [skip ci] [vercel skip]"
           for i in 1 2 3 4 5; do
             if git pull --rebase --autostash origin main; then git push && exit 0
             else git rebase --abort 2>/dev/null || true; fi
