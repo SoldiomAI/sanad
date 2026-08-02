@@ -1,8 +1,8 @@
 /* سَنَد — عاملُ خدمةٍ محافِظ: يجعلُ الموقعَ قابلًا للتثبيت ويعملُ غلافُه دون شبكة،
    دون المساسِ بطزاجةِ البيانات — بياناتُ الأخبارِ تمرُّ للشبكةِ دائمًا. */
-const SHELL = "sanad-shell-v4";
+const SHELL = "sanad-shell-v5";
 const PRECACHE = ["/", "/index.html", "/manifest.webmanifest",
-  "/icons/icon-192.png", "/icons/icon-512.png", "/og-card.png"];
+  "/icons/icon-192.png", "/icons/icon-512.png", "/og-card.png", "/assets/world.svg"];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(SHELL).then((c) => c.addAll(PRECACHE)).then(() => self.skipWaiting()).catch(() => {}));
