@@ -226,10 +226,59 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .v-box button{border:0;background:var(--gold);color:#1A1206;border-radius:12px;padding:0 16px;font-weight:700;
   cursor:pointer;min-height:48px;font-family:'Noto Kufi Arabic',sans-serif}
 .v-box button:disabled{opacity:.5}
+.v-box .v-paste{background:var(--card);color:var(--mut);border:1px solid var(--border);padding:0 12px;font-size:16px}
 .v-steps{display:grid;gap:8px;margin-top:12px}
 .v-step{border:1px solid var(--border);border-radius:12px;padding:12px;background:var(--card)}
 .v-step b{display:block;font-size:12px;font-family:'Noto Kufi Arabic',sans-serif;color:var(--gold-l);margin-bottom:4px}
 .v-step p{font-size:13px;line-height:1.75;color:var(--mut)}
+.v-step.on{border-color:rgba(201,162,39,.45);box-shadow:0 0 0 1px rgba(201,162,39,.12)}
+.v-step.done b{color:var(--verify-l)}
+.verify-panel{position:relative}
+.verify-hero{text-align:center;padding:8px 0 4px;margin-bottom:4px;
+  background:
+    radial-gradient(ellipse 70% 90% at 50% 0%,rgba(62,155,114,.12),transparent 65%),
+    radial-gradient(ellipse 50% 60% at 80% 20%,rgba(201,162,39,.08),transparent 60%)}
+.verify-mark{width:56px;height:56px;margin:0 auto 10px;border-radius:50%;display:grid;place-items:center;
+  font-family:'Amiri',serif;font-size:28px;font-weight:700;color:var(--verify-l);
+  background:linear-gradient(145deg,rgba(62,155,114,.16),rgba(201,162,39,.1));
+  border:1px solid rgba(62,155,114,.35);animation:vMarkIn .55s ease both}
+@keyframes vMarkIn{from{opacity:0;transform:scale(.82)}to{opacity:1;transform:none}}
+.verify-hero h2{margin-bottom:6px}
+.verify-hero .lead{max-width:34em;margin-inline:auto}
+.v-hints{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:0 0 8px}
+.v-hints span{font-family:'Noto Kufi Arabic',sans-serif;font-size:10.5px;color:var(--mut);
+  border:1px solid var(--border);border-radius:8px;padding:4px 9px;background:var(--card2)}
+.v-result{margin-top:14px;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--card);
+  animation:rise .45s ease both}
+.v-result .vr-top{padding:20px 16px 16px;text-align:center;
+  background:linear-gradient(180deg,rgba(201,162,39,.08),transparent 70%)}
+.v-result.v-sahih .vr-top{background:linear-gradient(180deg,rgba(62,155,114,.14),transparent 70%)}
+.v-result.v-daif .vr-top{background:linear-gradient(180deg,rgba(158,43,55,.1),transparent 70%)}
+.v-result.v-wait .vr-top{background:linear-gradient(180deg,rgba(74,124,199,.1),transparent 70%)}
+.vr-verdict{font-family:'Amiri',serif;font-size:clamp(28px,7vw,36px);font-weight:700;line-height:1.2;
+  color:var(--vellum);margin-bottom:8px}
+.v-result.v-sahih .vr-verdict{color:var(--verify-l)}
+.v-result.v-daif .vr-verdict{color:var(--seal-l)}
+.vr-grade{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:4px}
+.vr-claim{font-size:14px;line-height:1.75;color:var(--txt);padding:0 16px 12px;text-wrap:balance}
+.vr-why{font-size:13px;line-height:1.8;color:var(--mut);padding:0 16px 14px}
+.vr-rows{border-top:1px solid var(--border);padding:4px 16px}
+.vr-rows .row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;
+  border-bottom:1px solid var(--border);font-size:13px}
+.vr-rows .row:last-child{border-bottom:0}
+.vr-rows .row span{color:var(--mut);text-align:end}
+.vr-actions{display:flex;flex-wrap:wrap;gap:8px;padding:12px 16px 16px}
+.vr-actions button,.vr-actions a.sheet-x{flex:1;min-width:120px;text-align:center;text-decoration:none;
+  display:inline-flex;align-items:center;justify-content:center}
+.vr-actions .primary{border:0;background:var(--gold);color:#1A1206;border-radius:10px;padding:10px 14px;
+  font-weight:700;cursor:pointer;font-family:'Noto Kufi Arabic',sans-serif}
+.v-recent{margin-top:18px}
+.v-recent h3{font-family:'Noto Kufi Arabic',sans-serif;font-size:12px;color:var(--gold-l);margin-bottom:8px}
+.v-recent button{width:100%;text-align:start;border:1px solid var(--border);background:var(--card);
+  border-radius:12px;padding:10px 12px;margin-bottom:6px;cursor:pointer;color:inherit;font:inherit}
+.v-recent button b{display:block;font-size:12.5px;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.v-recent button span{font-size:11px;color:var(--mut)}
+@media(prefers-reduced-motion:reduce){.verify-mark,.v-result{animation:none}}
 .toast{position:fixed;bottom:calc(var(--nav-h) + 16px);left:50%;transform:translateX(-50%) translateY(20px);
   background:var(--vellum);color:var(--ink);padding:10px 16px;border-radius:20px;font-size:12.5px;opacity:0;
   transition:.25s;z-index:70;pointer-events:none;box-shadow:0 8px 28px rgba(0,0,0,.18)}
@@ -573,14 +622,24 @@ body.map-mode .app{max-width:min(960px,100%)}
   </section>
 
   <section class="view" id="view-verify" data-view="verify">
-    <div class="panel">
-      <h2 class="amiri gold">تحقّق</h2>
-      <p class="lead">الصق رابط خبر أو صورة أو فيديو — نراجعُه ونُصدر حكمًا واضحًا دون أن نكشف أدوات الغرفة.</p>
-      <div class="v-box">
-        <input id="vUrl" type="url" inputmode="url" placeholder="https://…" autocomplete="off">
-        <button type="button" id="vGo" onclick="runVerify()">افحص</button>
+    <div class="panel verify-panel">
+      <div class="verify-hero">
+        <div class="verify-mark" aria-hidden="true">✓</div>
+        <h2 class="amiri gold" id="verifyTitle">تحقّق</h2>
+        <p class="lead" id="verifyLead">الصق رابط خبر أو صورة أو فيديو — نراجعُه ونُصدر حكمًا واضحًا، دون أن نكشف أدوات الغرفة.</p>
+      </div>
+      <form id="vForm" class="v-form" action="#" onsubmit="runVerify();return false">
+        <div class="v-box">
+          <input id="vUrl" type="url" inputmode="url" placeholder="https://…" autocomplete="off" aria-label="رابط للتحقق">
+          <button type="button" class="v-paste" id="vPaste" title="لصق" aria-label="لصق الرابط">⎘</button>
+          <button type="submit" id="vGo">افحص</button>
+        </div>
+      </form>
+      <div class="v-hints" id="vHints">
+        <span>خبر</span><span>صورة</span><span>فيديو</span><span>مصدر ظاهر</span>
       </div>
       <div id="vOut"></div>
+      <div class="v-recent" id="vRecent" hidden></div>
     </div>
   </section>
 
@@ -730,7 +789,13 @@ function applyChromeI18n(){
     const p=root.querySelector("p.lead:not([id])"); if(p&&lead) p.textContent=lead;
   };
   setH2("brief","Sanad bulletin");
-  setH2("verify","Verify","Paste a news, image, or video link — clear verdict, no tools exposed.");
+  setH2("verify","Verify","Paste a news, image, or video link — we review it and issue a clear verdict, without exposing the newsroom toolkit.");
+  const vt=document.getElementById("verifyTitle"); if(vt) vt.textContent="Verify";
+  const vl=document.getElementById("verifyLead"); if(vl) vl.textContent="Paste a news, image, or video link — we review it and issue a clear verdict, without exposing the newsroom toolkit.";
+  const vh=document.getElementById("vHints");
+  if(vh) vh.innerHTML="<span>Story</span><span>Image</span><span>Video</span><span>Visible source</span>";
+  const vp=document.getElementById("vPaste"); if(vp){ vp.title="Paste"; vp.setAttribute("aria-label","Paste link"); }
+  const vu=document.getElementById("vUrl"); if(vu) vu.setAttribute("aria-label","Link to verify");
   setH2("team","Team");
   setH2("saved","Saved","Stories you save stay on this device only.");
   const mt=document.getElementById("mapTitle"); if(mt) mt.textContent="Weekly map";
@@ -1760,6 +1825,7 @@ function setView(v){
   if(v==="saved") renderSaved();
   if(v==="brief") renderBrief();
   if(v==="map") renderMap();
+  if(v==="verify"){ renderVerifyRecent(); try{document.getElementById("vUrl").focus()}catch(e){} }
   if(v==="live"){
     renderOfficialRail(); renderViralStrip();
     const f=feedEl();
@@ -2380,27 +2446,184 @@ function openAgent(idx){
   openProfile("agent", x.id);
 }
 
+async function pasteVerifyUrl(){
+  try{
+    const t=(await navigator.clipboard.readText()||"").trim();
+    if(!t){ toast(EN?"Clipboard empty":"الحافظة فارغة"); return; }
+    const m=t.match(/https?:\/\/[^\s<>"']+/i);
+    vUrl.value=m?m[0]:t;
+    toast(EN?"Pasted":"تم اللصق");
+  }catch(e){
+    toast(EN?"Allow clipboard access, or paste manually":"اسمح باللصق أو الصق يدويًا");
+    try{vUrl.focus()}catch(err){}
+  }
+}
+function publicWhy(s){
+  let t=String(s||"");
+  t=t.replace(/\bGrok\b/gi,"")
+    .replace(/لا مفتاح[^.]*\.?/g,"")
+    .replace(/مفتاح القتل[^.]*\.?/g,"")
+    .replace(/سقف ميزانية[^.]*\.?/g,"")
+    .replace(/بلا تكلفة[^.]*\.?/g,"")
+    .replace(/تحقق مجاني[^.]*\.?/g,"")
+    .replace(/نموذج مدفوع[^.]*\.?/g,"")
+    .replace(/استدعاء النموذج[^.]*\.?/g,"")
+    .replace(/\s{2,}/g," ")
+    .replace(/\s+([.،])/g,"$1")
+    .trim();
+  return t;
+}
+function verdictLabel(v){
+  const x=String(v||"");
+  if(EN){
+    if(x==="صحّ"||x==="صح") return "Holds";
+    if(x==="لم يصحّ"||x==="لم يصح") return "Does not hold";
+    if(x==="قيد التحقق") return "Under review";
+    return x||"Under review";
+  }
+  return x||"قيد التحقق";
+}
+function verdictClass(v, grade){
+  const x=String(v||"");
+  if(x==="صحّ"||x==="صح"||grade==="صحيح"||grade==="حسن") return "v-sahih";
+  if(x==="لم يصحّ"||x==="لم يصح"||grade==="ضعيف الإسناد") return "v-daif";
+  return "v-wait";
+}
+function mediaKindLabel(k){
+  const x=String(k||"none");
+  if(EN) return ({none:"None",image:"Image",video:"Video",audio:"Audio"}[x]||x);
+  return ({none:"لا وسائط",image:"صورة",video:"فيديو",audio:"صوت"}[x]||x);
+}
+function deepfakeLabel(r){
+  const x=String(r||"");
+  if(!EN) return x||"غير مقيّم";
+  return ({منخفض:"Low",متوسط:"Medium",مرتفع:"High","غير مقيّم":"Unrated","غير مقيم":"Unrated"}[x]||x||"Unrated");
+}
+function rankLabel(r){
+  const x=String(r||"");
+  if(!EN) return x||"—";
+  return ({رسمي:"Official",وكالة:"Wire",قناة:"Outlet",مجهول:"Unknown"}[x]||x||"—");
+}
+const V_RECENT_KEY="sanad_verify_recent";
+function loadVerifyRecent(){
+  try{ return JSON.parse(localStorage.getItem(V_RECENT_KEY)||"[]") }catch(e){ return [] }
+}
+function saveVerifyRecent(entry){
+  try{
+    const list=loadVerifyRecent().filter(x=>x.url!==entry.url);
+    list.unshift(entry);
+    localStorage.setItem(V_RECENT_KEY, JSON.stringify(list.slice(0,6)));
+  }catch(e){}
+}
+function renderVerifyRecent(){
+  const box=document.getElementById("vRecent"); if(!box) return;
+  const list=loadVerifyRecent();
+  if(!list.length){ box.hidden=true; box.innerHTML=""; return; }
+  box.hidden=false;
+  box.innerHTML=`<h3>${EN?"Recent on this device":"آخر ما فحصت على هذا الجهاز"}</h3>`+
+    list.map((x,i)=>`<button type="button" onclick="replayVerify(${i})">
+      <b>${esc(x.claim||x.url)}</b>
+      <span>${esc(verdictLabel(x.verdict))} · ${esc(gradeLabel(x.grade))}</span>
+    </button>`).join("");
+}
+function replayVerify(i){
+  const x=loadVerifyRecent()[i]; if(!x) return;
+  vUrl.value=x.url||"";
+  runVerify();
+}
+function renderVerifyProgress(step){
+  const steps=EN?[
+    ["Al-Fahis","Opening the link…"],
+    ["Source","Reading the visible source…"],
+    ["Media","Checking attached media…"],
+    ["Verdict","Issuing the ruling…"],
+  ]:[
+    ["الفاحِص","يفتح الرابط الآن…"],
+    ["المصدر","يقرأ المصدر الظاهر…"],
+    ["الوسائط","يفحص الوسائط المرفقة…"],
+    ["الحكم","يُصدر الحكم…"],
+  ];
+  vOut.innerHTML=`<div class="v-steps">${steps.map((s,i)=>`
+    <div class="v-step${i<step?" done":""}${i===step?" on":""}">
+      <b>${esc(s[0])}</b><p>${i<=step?esc(s[1]):"…"}</p>
+    </div>`).join("")}</div>`;
+}
+function renderVerifyResult(j, url){
+  const n=j.news||{}, m=j.media||{}, s=j.source||{};
+  const why=publicWhy(EN?(enText(n.why, j.claim)||enText(j.claim,"")||n.why||j.claim||""):(n.why||""));
+  const claim=EN?(enText(j.claim,"")||enText(n.why,"")||(hasAr(j.claim)?"":j.claim)||""):(j.claim||"");
+  const claimShow=claim||(EN?"Link reviewed.":"تُراجع الرابط.");
+  const verdict=n.verdict||(EN?"Under review":"قيد التحقق");
+  const vCls=verdictClass(verdict, j.grade);
+  const srcName=s.name||"—";
+  const live=s.live?(EN?"reachable":"حيّ"):(EN?"unreachable":"غير متاح");
+  const openUrl=safeUrl(url||j.url||"");
+  const shareTxt=EN
+    ? `Sanad Verify\n${verdictLabel(verdict)} · ${gradeLabel(j.grade)}\n${claimShow}\n${url||j.url||""}`
+    : `تحقّق سَنَد\n${verdictLabel(verdict)} · ${gradeLabel(j.grade)}\n${claimShow}\n${url||j.url||""}`;
+  vOut.innerHTML=`<div class="v-result ${vCls}">
+    <div class="vr-top">
+      <div class="vr-verdict">${esc(verdictLabel(verdict))}</div>
+      <div class="vr-grade">${badge(j.grade||"—")}</div>
+    </div>
+    <p class="vr-claim amiri">${esc(claimShow)}</p>
+    ${why?`<p class="vr-why">${esc(why)}</p>`:""}
+    <div class="vr-rows">
+      <div class="row"><b>${EN?"Source":"المصدر"}</b><span>${esc(srcName)} · ${esc(rankLabel(s.rank))} · ${esc(live)}</span></div>
+      <div class="row"><b>${EN?"Media":"الوسائط"}</b><span>${esc(mediaKindLabel(m.kind))} · ${EN?"Deepfake":"التزييف"}: ${esc(deepfakeLabel(m.deepfake_risk))}</span></div>
+      ${m.note?`<div class="row"><b>${EN?"Note":"ملاحظة"}</b><span>${esc(publicWhy(EN?(enText(m.note,"")||m.note):m.note))}</span></div>`:""}
+      <div class="row"><b>${EN?"Desk":"المكتب"}</b><span>${esc(agentName("fahis", j.agent||"الفاحِص"))}</span></div>
+    </div>
+    <div class="vr-actions">
+      <button type="button" class="primary" id="vShare">${EN?"Share verdict":"شارك الحكم"}</button>
+      ${openUrl!=="#"?`<a class="sheet-x" href="${openUrl}" target="_blank" rel="noopener">${EN?"Open link":"افتح الرابط"}</a>`:""}
+      <button type="button" class="sheet-x" id="vAgain">${EN?"Check another":"افحص رابطًا آخر"}</button>
+    </div>
+  </div>`;
+  const shareBtn=document.getElementById("vShare");
+  if(shareBtn) shareBtn.onclick=()=>sharePack({title:EN?"Sanad Verify":"تحقّق سَنَد", text:shareTxt, url:deepUrl("verify")});
+  const again=document.getElementById("vAgain");
+  if(again) again.onclick=()=>{ vUrl.value=""; vOut.innerHTML=""; try{vUrl.focus()}catch(e){} };
+  saveVerifyRecent({
+    url:url||j.url||"",
+    claim:claimShow.slice(0,120),
+    verdict,
+    grade:j.grade||"",
+    at:Date.now()
+  });
+  renderVerifyRecent();
+}
 async function runVerify(){
   const url=(vUrl.value||"").trim();
   if(!/^https?:\/\//i.test(url)){toast(EN?"Paste a valid link":"الصق رابطًا صالحًا");return}
   vGo.disabled=true; vGo.textContent="…";
-  vOut.innerHTML=`<div class="v-steps"><div class="v-step"><b>${EN?"Al-Fahis":"الفاحِص"}</b><p>${EN?"Opening the link…":"يفتح الرابط الآن…"}</p></div></div>`;
+  let step=0;
+  renderVerifyProgress(step);
+  const tick=setInterval(()=>{ step=Math.min(step+1,3); renderVerifyProgress(step); },700);
   try{
     const r=await fetch("/api/verify",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({url})});
     const j=await r.json();
-    if(!r.ok){vOut.innerHTML=`<div class="v-step"><b>${EN?"Couldn’t verify":"تعذّر"}</b><p>${esc(j.error||j.message||r.status)}</p></div>`;return}
-    const n=j.news||{}, m=j.media||{}, s=j.source||{};
-    const why=EN?(enText(n.why, j.claim)||enText(j.claim,"")||n.why||j.claim||""):(n.why||j.claim||"");
-    const note=EN?(enText(m.note,"")||m.note||""):(m.note||"");
-    vOut.innerHTML=`<div class="v-steps">
-      <div class="v-step"><b>${EN?"Source":"المصدر"} · ${esc(agentName("fahis", j.agent||"الفاحِص"))}</b><p>${esc(s.name||"—")} · ${esc(s.rank||"")} · ${s.live?(EN?"live":"حيّ"):(EN?"unreachable":"غير متاح")}</p></div>
-      <div class="v-step"><b>${EN?"Claim":"المتن"}</b><p>${esc(n.verdict||(EN?"Under review":"قيد التحقق"))} — ${esc(why)}</p></div>
-      <div class="v-step"><b>${EN?"Media":"الوسائط"}</b><p>${esc(m.kind||"none")} · ${EN?"Deepfake risk":"خطر التزييف"}: ${esc(m.deepfake_risk||(EN?"unrated":"غير مقيّم"))}<br>${esc(note)}</p></div>
-      <div class="v-step"><b>${EN?"Verdict":"الحاكم · الحكم"}</b><p>${badge(j.grade||"—")} <span class="badge b-src">${esc(j.cost_tier||j.tier||"")}</span></p></div>
-    </div>`;
-  }catch(e){vOut.innerHTML=`<div class="v-step"><b>${EN?"Error":"خطأ"}</b><p>${esc(String(e).slice(0,120))}</p></div>`}
+    clearInterval(tick);
+    if(!r.ok){
+      vOut.innerHTML=`<div class="v-result v-daif"><div class="vr-top"><div class="vr-verdict">${EN?"Couldn't verify":"تعذّر التحقق"}</div></div>
+        <p class="vr-why">${esc(publicWhy(j.error||j.message||j.news&&j.news.why||r.status))}</p>
+        <div class="vr-actions"><button type="button" class="primary" onclick="runVerify()">${EN?"Retry":"إعادة المحاولة"}</button></div></div>`;
+      return;
+    }
+    renderVerifyProgress(3);
+    renderVerifyResult(j, url);
+  }catch(e){
+    clearInterval(tick);
+    vOut.innerHTML=`<div class="v-result v-daif"><div class="vr-top"><div class="vr-verdict">${EN?"Error":"خطأ"}</div></div>
+      <p class="vr-why">${esc(String(e).slice(0,120))}</p>
+      <div class="vr-actions"><button type="button" class="primary" onclick="runVerify()">${EN?"Retry":"إعادة المحاولة"}</button></div></div>`;
+  }
   finally{vGo.disabled=false; vGo.textContent=EN?"Check":"افحص"}
 }
+try{
+  const vp=document.getElementById("vPaste");
+  if(vp) vp.addEventListener("click",pasteVerifyUrl);
+}catch(e){}
 
 let BUNDLE=null, ARC_IX=null, ARC_CACHE={}, searchTimer=null, SEARCH_HITS=[];
 async function grab(name){
