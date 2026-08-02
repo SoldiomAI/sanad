@@ -2689,6 +2689,32 @@ analyst_segment()
 
 # ═══ المُدوِّن: كاتبُ عمودِ الجريدة اليوميّ — Gemini فقط، صفرُ كلفةِ Grok ═══
 COLF=f"{OUT}/column.json"
+COLS_DIR=f"{OUT}/columns"
+
+def _archive_column(col):
+    """يحفظ عمود كل يوم في columns/YYYY-MM-DD.json + فهرس — لا يُمحى بعمود الغد."""
+    if not isinstance(col, dict) or not col.get("date") or not col.get("text"):
+        return
+    try:
+        os.makedirs(COLS_DIR, exist_ok=True)
+        date=str(col["date"])
+        # لا تكتب صوت اليوم كمسار نسبي في الأرشيف إن كان ملف اليوم يُستبدل
+        snap={k:col.get(k) for k in ("name","title","head","text","date","src_n",
+            "head_en","text_en","sources","audio","updated") if col.get(k) is not None}
+        if "sources" not in snap: snap["sources"]=col.get("sources") or []
+        json.dump(snap, open(f"{COLS_DIR}/{date}.json","w"), ensure_ascii=False, indent=1)
+        try: idx=json.load(open(f"{COLS_DIR}/index.json"))
+        except Exception: idx={"columns":[]}
+        cols=[c for c in (idx.get("columns") or []) if c.get("date")!=date]
+        cols.append({"date":date,"head":snap.get("head") or "","head_en":snap.get("head_en") or "",
+            "src_n":snap.get("src_n") or len(snap.get("sources") or []),
+            "updated":snap.get("updated") or ""})
+        cols=sorted(cols, key=lambda c:c.get("date") or "", reverse=True)[:120]
+        idx={"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),
+             "n":len(cols),"columns":cols}
+        json.dump(idx, open(f"{COLS_DIR}/index.json","w"), ensure_ascii=False, indent=1)
+    except Exception as e:
+        print("أرشفة العمود تعذّرت: "+str(e)[:70])
 
 @agent("mudawwin")
 def mudawwin():
@@ -2698,6 +2724,7 @@ def mudawwin():
     try:
         old=json.load(open(COLF))
         if old.get("date")==kw_today and not os.environ.get("FORCE_COLUMN"):
+            _archive_column(old)
             print("⏱️ المُدوِّن: عمودُ اليوم منشور")
             return {"skipped":1,"why":"عمودُ اليوم منشور"}
     except Exception: old=None
@@ -2761,16 +2788,21 @@ def mudawwin():
         "isnad":i.get("isnad") or {},"at":i.get("at") or "",
         "cat":i.get("cat") or "",
     } for i in feed]
-    json.dump({"name":"المُدوِّن","title":"كاتبُ الجريدة · مساعد ذكاء اصطناعي",
+    col_out={"name":"المُدوِّن","title":"كاتبُ الجريدة · مساعد ذكاء اصطناعي",
         "head":title,"text":text,"date":kw_today,"src_n":len(feed),
         "head_en":he_t,"text_en":he_x,
         "sources":sources,
         "audio":"column.mp3" if aok else "",
-        "updated":datetime.now(timezone.utc).isoformat(timespec="minutes")},
-        open(COLF,"w"),ensure_ascii=False,indent=1)
+        "updated":datetime.now(timezone.utc).isoformat(timespec="minutes")}
+    json.dump(col_out, open(COLF,"w"), ensure_ascii=False, indent=1)
+    _archive_column(col_out)
     print("🖋️ المُدوِّن: «%s» — %d كلمة من %d عنوانًا مُسنَدًا%s"%(title,len(text.split()),len(feed)," + 🎧" if aok else ""))
 
 mudawwin()
+# إن بقي عمود الأمس دون توليد اليوم — أرشف ما هو موجود كي لا يضيع من الأرشيف العام
+try:
+    _cur=json.load(open(COLF)); _archive_column(_cur)
+except Exception: pass
 
 naqid()
 

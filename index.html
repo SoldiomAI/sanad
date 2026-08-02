@@ -391,6 +391,14 @@ details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--m
 .col-src .m{font-size:11px;color:var(--dim);margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .col-src .ok{font-size:10.5px;font-weight:700;color:var(--verify-l)}
 .col-empty{font-size:13px;color:var(--dim);line-height:1.7;padding:8px 0}
+.col-arch{margin:18px 0 8px}
+.col-arch-h{font-family:'Noto Kufi Arabic',sans-serif;font-size:12px;font-weight:700;color:var(--gold-l);margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.col-arch-list{display:flex;flex-direction:column;gap:8px}
+.col-arch-item{display:block;width:100%;text-align:start;border:1px solid var(--border);border-radius:12px;padding:10px 12px;background:var(--card);color:inherit;font:inherit;cursor:pointer}
+.col-arch-item.on{border-color:rgba(201,162,39,.55);background:rgba(201,162,39,.08)}
+.col-arch-item:active{transform:scale(.995)}
+.col-arch-item b{display:block;font-size:13.5px;line-height:1.65;color:var(--vellum);font-family:'Amiri',serif;font-weight:700}
+.col-arch-item .m{font-size:11px;color:var(--dim);margin-top:4px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .ig-post{border-bottom:1px solid var(--border);background:var(--card);animation:rise .4s ease both}
 .ig-post .ig-hd{display:flex;align-items:center;gap:10px;padding:12px 14px 8px}
 .ig-post .ig-av{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-family:'Amiri',serif;
@@ -754,7 +762,7 @@ function celebrateShare(){
 function openSheet(html){sheetC.innerHTML=html; sheet.classList.add("on"); document.body.style.overflow="hidden"}
 function closeSheet(){sheet.classList.remove("on"); document.body.style.overflow=""}
 
-let DATA=null, AGENTS=null, CONTROL=null, OFFICIAL=null, ANALYST=null, COLUMN=null, FORECAST=null, EVOLUTION=null, TENSION=null, COMMENTS=null, APOSTS=null, deskFilter=null, VIEW="live";
+let DATA=null, AGENTS=null, CONTROL=null, OFFICIAL=null, ANALYST=null, COLUMN=null, COLUMNS_IX=null, COLUMN_CACHE={}, COLUMN_DATE=null, FORECAST=null, EVOLUTION=null, TENSION=null, COMMENTS=null, APOSTS=null, deskFilter=null, VIEW="live";
 let AGENT_POSTS=[];
 let PROFILE=null; /* {kind:'agent'|'desk', id, tab:'grid'|'feed', from} */
 
@@ -1349,8 +1357,9 @@ function renderProfile(){
           : (PROFILE.kind==="desk")
             ? `<button type="button" class="primary" onclick="closeSheet();goLiveDesk('${person.id}')">${EN?"Live desk":"الحيّ"}</button>`
             : `<button type="button" class="primary" onclick="setProfileTab('feed')">${EN?"Posts":"المنشورات"}</button>`;
-  /* المُدوِّن: صفحة خاصة بالعمود + تأكيد كل مصادره في الصفحة نفسها */
+  /* المُدوِّن: صفحة خاصة بالعمود + أرشيف الأيام + تأكيد المصادر */
   if(person.id==="mudawwin"){
+    const nCols=Math.max(1, columnIndexList().length);
     root.innerHTML=`
       <div class="prof-top">
         <button type="button" class="back" onclick="closeProfile()" aria-label="${EN?"Back":"رجوع"}">‹</button>
@@ -1360,14 +1369,14 @@ function renderProfile(){
         <div class="prof-row">
           <div class="prof-av" style="${person.color?`color:${person.color}`:""}">${esc(person.icon||"🖋️")}</div>
           <div class="prof-stats">
-            <div><b>1</b><span>${EN?"column":"عمود"}</span></div>
+            <div><b>${nCols}</b><span>${EN?"columns":"عمودًا"}</span></div>
             <div><b>${columnSources().length}</b><span>${EN?"sources":"مصدرًا"}</span></div>
             <div><b>${person.at?esc((ago(person.at)||"—").split(" ")[0]):"—"}</b><span>${EN?"active":"نشاط"}</span></div>
           </div>
         </div>
         <div class="prof-name">${esc(person.name)}</div>
         <div class="prof-handle">${esc(person.handle)} · ${EN?"Opinion from graded news only":"رأيٌ من أخبار مُسنَدة فقط"}</div>
-        <div class="auto-pill">⚡ ${EN?"Automated column · sources confirmed below":"عمود آلي · المصادر مؤكَّدة أدناه"}</div>
+        <div class="auto-pill">⚡ ${EN?"Daily columns archived · open any past day":"أعمدة يومية مؤرشفة · افتح أي يوم سابق"}</div>
         <div class="prof-bio">${esc(person.bio||"")}</div>
         ${person.note?`<div class="prof-note">${EN?"This cycle":"هذه الدورة"}: ${esc(person.note)}</div>`:""}
         <div class="prof-actions">
@@ -1375,7 +1384,10 @@ function renderProfile(){
           <button type="button" onclick="setView('brief')">${EN?"Brief":"النشرة"}</button>
         </div>
       </div>
-      <div class="panel" style="padding-top:8px">${columnSectionHTML({full:true, showProfileLink:false})}</div>`;
+      <div class="panel" style="padding-top:8px" id="mudawwinDesk">
+        ${columnSectionHTML({full:true, showProfileLink:false})}
+        ${columnArchiveHTML()}
+      </div>`;
     return;
   }
   root.innerHTML=`
@@ -1558,7 +1570,7 @@ function syncRoute(){
   if(ROUTE_LOCK) return;
   let path="live";
   if(VIEW==="profile"&&PROFILE){
-    if(PROFILE.kind==="agent"&&PROFILE.id==="mudawwin") path="column";
+    if(PROFILE.kind==="agent"&&PROFILE.id==="mudawwin") path=COLUMN_DATE?("column/"+COLUMN_DATE):"column";
     else path=PROFILE.kind+"/"+PROFILE.id+(PROFILE.tab==="feed"?"/feed":"");
   }
   else if(VIEW==="brief"||VIEW==="verify"||VIEW==="team"||VIEW==="saved"||VIEW==="search") path=VIEW;
@@ -1611,7 +1623,19 @@ function applyRoute(){
       else toast(EN?"Story not in today’s feed":"الخبر ليس في حصيلة اليوم");
     }
     else if(a==="card"){ setView("live"); openDailyCard(); }
-    else if(a==="column"||a==="mudawwin"){ openProfile("agent","mudawwin"); }
+    else if(a==="column"||a==="mudawwin"){
+      if(b && /^\d{4}-\d{2}-\d{2}$/.test(b)){
+        COLUMN_DATE=b;
+        openProfile("agent","mudawwin");
+        loadColumnDate(b).then(j=>{
+          if(j){ COLUMN_CACHE[b]=j; if(VIEW==="profile"&&PROFILE&&PROFILE.id==="mudawwin") renderProfile(); }
+          else toast(EN?"Column not found":"العمود غير موجود");
+        });
+      } else {
+        COLUMN_DATE=(COLUMN&&COLUMN.date)||null;
+        openProfile("agent","mudawwin");
+      }
+    }
     else if(a==="verify"||a==="brief"||a==="team"||a==="saved"||a==="live"||a==="search") setView(a);
   } finally { ROUTE_LOCK=false; }
 }
@@ -1884,42 +1908,94 @@ function renderFeed(){
   try{ renderViralStrip(); }catch(e){ console.warn("renderViralStrip", e) }
 }
 
+function activeColumn(){
+  if(COLUMN_DATE && COLUMN_CACHE[COLUMN_DATE]) return COLUMN_CACHE[COLUMN_DATE];
+  if(COLUMN_DATE && COLUMN && COLUMN.date===COLUMN_DATE) return COLUMN;
+  /* لا تُعرض كتابة اليوم مكان يوم آخر أثناء التحميل */
+  if(COLUMN_DATE && !(COLUMN && COLUMN.date===COLUMN_DATE)) return null;
+  return COLUMN;
+}
 function columnTitle(){
-  if(!COLUMN) return EN?"Today’s column":"عمود اليوم";
-  if(EN) return enText(COLUMN.head_en,"")||COLUMN.head||"Today’s column";
-  return COLUMN.head||"عمود اليوم";
+  const c=activeColumn();
+  if(!c) return EN?"Today’s column":"عمود اليوم";
+  if(EN) return enText(c.head_en,"")||c.head||"Today’s column";
+  return c.head||"عمود اليوم";
 }
 function columnBody(){
-  if(!COLUMN) return "";
-  if(EN) return enText(COLUMN.text_en,"")||COLUMN.text||"";
-  return COLUMN.text||"";
+  const c=activeColumn();
+  if(!c) return "";
+  if(EN) return enText(c.text_en,"")||c.text||"";
+  return c.text||"";
 }
-/** مصادر عمود المُدوِّن المؤكَّدة — من column.sources أو مطابقة أخبار اليوم المُسنَدة */
+function columnIndexList(){
+  const fromIx=((COLUMNS_IX&&COLUMNS_IX.columns)||[]).slice();
+  const seen=new Set(fromIx.map(c=>c.date));
+  if(COLUMN&&COLUMN.date&&!seen.has(COLUMN.date)){
+    fromIx.unshift({date:COLUMN.date, head:COLUMN.head||"", head_en:COLUMN.head_en||"", src_n:COLUMN.src_n||0, updated:COLUMN.updated||""});
+  }
+  return fromIx.sort((a,b)=>(b.date||"").localeCompare(a.date||""));
+}
+async function loadColumnsIndex(){
+  try{
+    const r=await fetch(RAW+"columns/index.json?t="+Date.now());
+    if(r.ok){ COLUMNS_IX=await r.json(); return COLUMNS_IX; }
+  }catch(e){}
+  try{
+    const r2=await fetch("/daily/columns/index.json?t="+Date.now());
+    if(r2.ok){ COLUMNS_IX=await r2.json(); return COLUMNS_IX; }
+  }catch(e){}
+  if(!COLUMNS_IX) COLUMNS_IX={columns:[], n:0};
+  return COLUMNS_IX;
+}
+async function loadColumnDate(date){
+  if(!date) return null;
+  if(COLUMN_CACHE[date]) return COLUMN_CACHE[date];
+  if(COLUMN&&COLUMN.date===date){ COLUMN_CACHE[date]=COLUMN; return COLUMN; }
+  try{
+    const r=await fetch(RAW+"columns/"+date+".json?t="+Date.now());
+    if(r.ok){ const j=await r.json(); COLUMN_CACHE[date]=j; return j; }
+  }catch(e){}
+  try{
+    const r2=await fetch("/daily/columns/"+date+".json?t="+Date.now());
+    if(r2.ok){ const j=await r2.json(); COLUMN_CACHE[date]=j; return j; }
+  }catch(e){}
+  return null;
+}
+/** مصادر عمود المُدوِّن المؤكَّدة — من column.sources أو مطابقة أخبار اليوم (لعمود اليوم فقط) */
 function columnSources(){
-  const listed=(COLUMN&&Array.isArray(COLUMN.sources))?COLUMN.sources:[];
+  const c=activeColumn();
+  const listed=(c&&Array.isArray(c.sources))?c.sources:[];
   if(listed.length){
     return listed.map(s=>{
       const hit=allItems().find(i=>(s.link&&i.link&&i.link===s.link)||(s.head&&i.head===s.head));
       return hit?{...hit,...s,isnad:s.isnad||hit.isnad}:s;
     });
   }
-  if(!COLUMN||!(COLUMN.text||COLUMN.text_en)) return [];
-  const blob=((COLUMN.text||"")+"\n"+(COLUMN.text_en||"")).toLowerCase();
+  if(!c||!(c.text||c.text_en)) return [];
+  /* لا نخلط مصادر اليوم مع أعمدة الأيام السابقة */
+  if(COLUMN&&c.date&&COLUMN.date&&c.date!==COLUMN.date) return [];
+  const blob=((c.text||"")+"\n"+(c.text_en||"")).toLowerCase();
   const auth=allItems().filter(isAuthItem);
   const scored=auth.map(i=>{
     let s=0;
-    String(i.head||"").split(/\s+/).forEach(w=>{ if(w.length>3 && (COLUMN.text||"").includes(w)) s++; });
+    String(i.head||"").split(/\s+/).forEach(w=>{ if(w.length>3 && (c.text||"").includes(w)) s++; });
     String(i.he||"").split(/\s+/).forEach(w=>{ if(w.length>4 && blob.includes(w.toLowerCase())) s++; });
     const src=String(i.src||"").toLowerCase();
     if(src && blob.includes(src)) s+=2;
     return {i,s};
   }).filter(x=>x.s>=2).sort((a,b)=>b.s-a.s).map(x=>x.i);
-  if(scored.length) return scored.slice(0, COLUMN.src_n||12);
-  return auth.slice(0, COLUMN.src_n||12);
+  if(scored.length) return scored.slice(0, c.src_n||12);
+  return auth.slice(0, c.src_n||12);
 }
 function columnSourcesHTML(){
   const srcs=columnSources();
-  if(!srcs.length) return `<p class="col-empty">${EN?"No authenticated sources attached to this column yet.":"لا مصادر مُسنَدة مرفقة بهذا العمود بعد."}</p>`;
+  const c=activeColumn();
+  if(!srcs.length){
+    const past=c&&COLUMN&&c.date&&COLUMN.date&&c.date!==COLUMN.date;
+    return `<p class="col-empty">${past
+      ? (EN?"Source list wasn’t saved with this older column — the full text is preserved.":"قائمة المصادر لم تُحفظ مع هذا العمود القديم — النص الكامل محفوظ.")
+      : (EN?"No authenticated sources attached to this column yet.":"لا مصادر مُسنَدة مرفقة بهذا العمود بعد.")}</p>`;
+  }
   return srcs.map((i,n)=>{
     const g=i.grade||"";
     const ok=isAuthItem(i)||g==="صحيح"||g==="حسن";
@@ -1934,39 +2010,59 @@ function openColumnSource(n){
   if(i.isnad||i.grade) showIsnad(i);
   else { const u=safeUrl(i.link); if(u!=="#") window.open(u,"_blank","noopener") }
 }
+function columnArchiveHTML(){
+  const list=columnIndexList();
+  if(list.length<=1) return "";
+  const cur=(COLUMN_DATE||(COLUMN&&COLUMN.date)||"");
+  return `<div class="col-arch">
+    <div class="col-arch-h"><span>${EN?"Past columns":"أعمدة الأيام السابقة"}</span><span style="color:var(--dim);font-weight:600">${list.length}</span></div>
+    <div class="col-arch-list">${list.map(c=>{
+      const title=EN?(enText(c.head_en,"")||c.head||c.date):(c.head||c.date);
+      const on=c.date===cur?" on":"";
+      return `<button type="button" class="col-arch-item${on}" onclick="openColumnDate('${esc(c.date)}')">
+        <b>${esc(title)}</b>
+        <div class="m"><span>${esc(c.date)}</span>${c.src_n?`<span class="badge b-src">${esc(c.src_n)} ${EN?"sources":"مصدرًا"}</span>`:""}${c.date===cur?`<span class="ok">${EN?"Open":"مفتوح"}</span>`:""}</div>
+      </button>`;
+    }).join("")}</div>
+  </div>`;
+}
 function columnSectionHTML(opts){
   opts=opts||{};
   const full=!!opts.full;
+  const c=activeColumn();
   const body=columnBody();
   if(!body){
-    return `<div class="col-sec"><div class="col-kicker"><span>${EN?"Al-Mudawwin · Column":"المُدوِّن · عمود الجريدة"}</span></div>
-      <p class="col-empty">${EN?"Today’s column is being prepared.":"يُجهَّز عمودُ اليوم."}</p></div>`;
+    const loading=!!COLUMN_DATE;
+    return `<div class="col-sec"><div class="col-kicker"><span>${EN?"Al-Mudawwin · Column":"المُدوِّن · عمود الجريدة"}${COLUMN_DATE?" · "+esc(COLUMN_DATE):""}</span></div>
+      <p class="col-empty">${loading
+        ? (EN?"Loading this day’s column…":"يُحمَّل عمود هذا اليوم…")
+        : (EN?"Today’s column is being prepared.":"يُجهَّز عمودُ اليوم.")}</p></div>`;
   }
   const srcs=columnSources();
-  const audio=COLUMN&&COLUMN.audio?mediaUrl(COLUMN.audio):"";
-  const role=EN?(COLUMN.title||"Columnist · AI aide"):(COLUMN.title||"كاتبُ الجريدة · مساعد ذكاء اصطناعي");
+  const audio=c&&c.audio?mediaUrl(c.audio):"";
+  const role=EN?(c.title||"Columnist · AI aide"):(c.title||"كاتبُ الجريدة · مساعد ذكاء اصطناعي");
   return `<div class="col-sec" id="mudawwinColumn">
     <div class="col-kicker">
-      <span>${EN?"Al-Mudawwin · Column":"المُدوِّن · عمود الجريدة"}</span>
-      ${opts.showProfileLink!==false?`<button type="button" onclick="openProfile('agent','mudawwin')">${EN?"Open desk":"ملف المدوّن"}</button>`:""}
+      <span>${EN?"Al-Mudawwin · Column":"المُدوِّن · عمود الجريدة"}${c&&c.date?" · "+esc(c.date):""}</span>
+      ${opts.showProfileLink!==false?`<button type="button" onclick="openColumnPage()">${EN?"Archive":"الأرشيف"}</button>`:""}
     </div>
     <article class="col-card">
       <div class="col-who">
         <div class="col-av">🖋️</div>
-        <div><b>${EN?"Al-Mudawwin":"المُدوِّن"}</b><span>${esc(role)}${COLUMN&&COLUMN.date?" · "+esc(COLUMN.date):""}</span></div>
+        <div><b>${EN?"Al-Mudawwin":"المُدوِّن"}</b><span>${esc(role)}${c&&c.date?" · "+esc(c.date):""}</span></div>
       </div>
       <h3 class="col-title">${esc(columnTitle())}</h3>
       <div class="col-body${full?"":" clamp"}" id="colBody">${esc(body)}</div>
       <div class="col-meta">
         <span class="badge b-hasan">${EN?"Opinion · AI":"رأي · ذكاء اصطناعي"}</span>
         <span class="badge b-src">${srcs.length} ${EN?"graded sources":"مصدرًا مُسنَدًا"}</span>
-        ${!full?`<button type="button" class="sheet-x" style="margin:0" onclick="openColumnPage()">${EN?"Read & verify sources":"اقرأ وأكّد المصادر"}</button>`:""}
+        ${!full?`<button type="button" class="sheet-x" style="margin:0" onclick="openColumnPage()">${EN?"Read & past days":"اقرأ وأيام سابقة"}</button>`:""}
       </div>
-      ${audio?`<audio controls preload="none" src="${safeUrl(audio+(audio.includes("?")?"":"?t="+Date.now()))}"></audio>`:""}
-      ${!full?`<button type="button" class="morebtn" onclick="openColumnPage()">${EN?"Full column + confirmed sources":"العمود كاملًا + المصادر المؤكَّدة"}</button>`:""}
+      ${audio&&(!COLUMN_DATE||(COLUMN&&COLUMN_DATE===COLUMN.date))?`<audio controls preload="none" src="${safeUrl(audio+(audio.includes("?")?"":"?t="+Date.now()))}"></audio>`:""}
+      ${!full?`<button type="button" class="morebtn" onclick="openColumnPage()">${EN?"Full column · sources · archive":"العمود كاملًا · المصادر · الأرشيف"}</button>`:""}
     </article>
     <div class="col-src-h">${EN?"Confirmed sources for this column":"تأكيد مصادر هذا العمود"} · ${srcs.length}</div>
-    <p class="col-empty" style="padding-top:0">${EN?"Every claim in the column is grounded in the graded stories below — Verified or Credible only.":"كلُّ واقعة في العمود تستند إلى الأخبار المُسنَدة أدناه — صحيح أو حسن فقط."}</p>
+    <p class="col-empty" style="padding-top:0">${EN?"Every claim in the column is grounded in graded stories — Verified or Credible only.":"كلُّ واقعة في العمود تستند إلى أخبار مُسنَدة — صحيح أو حسن فقط."}</p>
     ${full?columnSourcesHTML():srcs.slice(0,4).map((i,n)=>{
       return `<button type="button" class="col-src" onclick="openColumnSource(${n})">
         <b>${esc(hd(i)||i.head||"")}</b>
@@ -1977,17 +2073,42 @@ function columnSectionHTML(opts){
 }
 function renderColumnSection(){
   const el=document.getElementById("briefColumn"); if(!el) return;
+  /* النشرة تعرض عمود اليوم فقط */
+  const keep=COLUMN_DATE; COLUMN_DATE=COLUMN&&COLUMN.date||null;
   el.innerHTML=columnSectionHTML({full:false, showProfileLink:true});
+  COLUMN_DATE=keep;
 }
-function openColumnPage(){
+function openColumnPage(date){
+  if(date) COLUMN_DATE=date;
+  else if(!COLUMN_DATE&&COLUMN) COLUMN_DATE=COLUMN.date||null;
   openProfile("agent","mudawwin");
 }
+async function openColumnDate(date){
+  if(!date) return;
+  COLUMN_DATE=date;
+  if(VIEW==="profile"&&PROFILE&&PROFILE.id==="mudawwin") renderProfile();
+  else openProfile("agent","mudawwin");
+  syncRoute();
+  const j=await loadColumnDate(date);
+  if(!j){
+    toast(EN?"Column not found":"العمود غير موجود");
+    COLUMN_DATE=(COLUMN&&COLUMN.date)||null;
+    if(VIEW==="profile"&&PROFILE&&PROFILE.id==="mudawwin") renderProfile();
+    return;
+  }
+  COLUMN_CACHE[date]=j;
+  COLUMN_DATE=date;
+  if(VIEW==="profile"&&PROFILE&&PROFILE.id==="mudawwin") renderProfile();
+  try{ window.scrollTo({top:0,behavior:"smooth"}) }catch(e){ window.scrollTo(0,0) }
+}
 function shareColumn(){
+  const c=activeColumn();
   const title=columnTitle();
-  const url=deepUrl("column");
+  const path=c&&c.date?("column/"+c.date):"column";
+  const url=deepUrl(path);
   const text=EN
-    ? `Sanad · Al-Mudawwin’s column\n“${title}”\nGrounded in ${columnSources().length} graded sources\n——\nOpen:`
-    : `سَنَد · عمود المُدوِّن\n«${title}»\nمبني على ${columnSources().length} مصدرًا مُسنَدًا\n——\nافتح:`;
+    ? `Sanad · Al-Mudawwin’s column${c&&c.date?" · "+c.date:""}\n“${title}”\nGrounded in ${columnSources().length} graded sources\n——\nOpen:`
+    : `سَنَد · عمود المُدوِّن${c&&c.date?" · "+c.date:""}\n«${title}»\nمبني على ${columnSources().length} مصدرًا مُسنَدًا\n——\nافتح:`;
   sharePack({title:EN?"Sanad · Column":"سَنَد · عمود المُدوِّن", text, url});
 }
 
@@ -2198,7 +2319,13 @@ async function load(){
   }
   try{ OFFICIAL=await grab("official"); }catch(e){ OFFICIAL=null }
   try{ ANALYST=await grab("analyst"); }catch(e){ ANALYST=null }
-  try{ COLUMN=await grab("column"); }catch(e){ COLUMN=null }
+  try{ COLUMN=await grab("column"); if(COLUMN&&COLUMN.date) COLUMN_CACHE[COLUMN.date]=COLUMN; }catch(e){ COLUMN=null }
+  try{ await loadColumnsIndex(); }catch(e){}
+  if(!COLUMN_DATE&&COLUMN) COLUMN_DATE=COLUMN.date||null;
+  /* حمّل أعمدة الأرشيف في الخلفية لفتح سريع */
+  try{
+    columnIndexList().slice(0,14).forEach(c=>{ if(c.date) loadColumnDate(c.date); });
+  }catch(e){}
   try{ FORECAST=await grab("forecast"); }catch(e){ FORECAST=null }
   try{ EVOLUTION=await grab("evolution"); }catch(e){ EVOLUTION=null }
   try{ TENSION=await grab("tension"); }catch(e){ TENSION=null }
