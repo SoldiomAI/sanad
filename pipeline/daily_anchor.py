@@ -727,15 +727,17 @@ def social_posts():
         "caption_en":f"Al-Rawi · Automated bulletin — {(tx[:280]+('…' if len(tx)>280 else '')) if tx else 'Bulletin pending'}",
         "img":("analyst.jpg" if an.get("avatar") else ""),"link":"","at":an.get("updated") or "",
     }] if True else [])}
-    agent_posts["mudawwin"]={"auto":True,"posts":list(agent_posts["rawi"]["posts"])}
+    agent_posts["mudawwin"]={"auto":True,"posts":[]}
     col=_load_daily("column",{})
     if col.get("text"):
         agent_posts["mudawwin"]={"auto":True,"posts":[{
-            "kind":"brief","auto":True,
-            "title":col.get("title") or "عمود اليوم","title_en":col.get("title") or "Today’s column",
+            "kind":"column","auto":True,
+            "title":col.get("head") or "عمود اليوم",
+            "title_en":col.get("head_en") or col.get("head") or "Today’s column",
             "caption":f"المُدوِّن · عمود آلي — {clean(col.get('text'))[:280]}",
-            "caption_en":f"Al-Mudawwin · Automated column — {clean(col.get('text'))[:280]}",
+            "caption_en":f"Al-Mudawwin · Automated column — {clean(col.get('text_en') or col.get('text'))[:280]}",
             "link":"","img":"","at":col.get("updated") or col.get("date") or "",
+            "src_n":col.get("src_n") or len(col.get("sources") or []),
         }]}
     agent_posts["fahis"]={"auto":True,"posts":[{
         "kind":"action","auto":True,
@@ -2751,9 +2753,18 @@ def mudawwin():
         _a.run(_go())
         aok=os.path.getsize(col_mp3)>4000
     except Exception as e: print("صوت العمود تعذّر: "+str(e)[:60])
+    # مصادر العمود المُسنَدة — تُعرض مع النص في قسم المُدوِّن لتأكيد كل كتابة
+    sources=[{
+        "head":i.get("head") or "","he":i.get("he") or "",
+        "src":i.get("src") or "","grade":i.get("grade") or "",
+        "link":i.get("link") or "","score":i.get("score"),
+        "isnad":i.get("isnad") or {},"at":i.get("at") or "",
+        "cat":i.get("cat") or "",
+    } for i in feed]
     json.dump({"name":"المُدوِّن","title":"كاتبُ الجريدة · مساعد ذكاء اصطناعي",
         "head":title,"text":text,"date":kw_today,"src_n":len(feed),
         "head_en":he_t,"text_en":he_x,
+        "sources":sources,
         "audio":"column.mp3" if aok else "",
         "updated":datetime.now(timezone.utc).isoformat(timespec="minutes")},
         open(COLF,"w"),ensure_ascii=False,indent=1)
