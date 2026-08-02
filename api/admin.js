@@ -25,6 +25,7 @@ const DEFAULT_CONTROL = {
 const WORKFLOWS = {
   'news-refresh': 'news-refresh.yml',
   'daily-anchor': 'daily-anchor.yml',
+  'social-pack': 'social-pack.yml',
 };
 
 function dataRepo() {
