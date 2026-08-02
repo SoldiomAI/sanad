@@ -1,8 +1,8 @@
 /* سَنَد — عاملُ خدمةٍ محافِظ: يجعلُ الموقعَ قابلًا للتثبيت ويعملُ غلافُه دون شبكة،
    دون المساسِ بطزاجةِ البيانات — بياناتُ الأخبارِ تمرُّ للشبكةِ دائمًا. */
-const SHELL = "sanad-shell-v5";
+const SHELL = "sanad-shell-v6";
 const PRECACHE = ["/", "/index.html", "/manifest.webmanifest",
-  "/icons/icon-192.png", "/icons/icon-512.png", "/og-card.png", "/assets/world.svg"];
+  "/icons/icon-192.png", "/icons/icon-512.png", "/og-card.png"];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(SHELL).then((c) => c.addAll(PRECACHE)).then(() => self.skipWaiting()).catch(() => {}));
@@ -24,6 +24,8 @@ self.addEventListener("fetch", (e) => {
   // كي لا تتعفّنَ الأخبارُ في الكاش. لا نتدخّل — نتركُها للمتصفّح.
   if (url.origin !== self.location.origin) return;
   if (url.pathname.endsWith(".json")) return;
+  // خريطة العالم كبيرة نسبيًا — الشبكة مباشرة دون كاش عامل الخدمة
+  if (url.pathname.endsWith("/assets/world.svg") || url.pathname === "/assets/world.svg") return;
 
   // تنقّلُ الصفحة: الشبكةُ أولًا، والغلافُ المخبّأُ احتياطًا عند انقطاعها.
   if (req.mode === "navigate") {

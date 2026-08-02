@@ -1605,24 +1605,43 @@ function mapCountryById(id){
   id=String(id||"").toLowerCase();
   return (MAP&&MAP.countries||[]).find(c=>c.id===id)||null;
 }
-async function ensureWorldSvg(){
+async function ensureWorldSvg(force){
   const box=document.getElementById("worldMap");
   if(!box) return null;
-  if(box.querySelector("svg")) return box.querySelector("svg");
+  if(!force && box.querySelector("svg.world-map")) return box.querySelector("svg.world-map");
   box.innerHTML=`<div class="empty">${EN?"Loading map…":"جارٍ تحميل الخريطة…"}</div>`;
-  try{
-    const r=await fetch("/assets/world.svg");
-    if(!r.ok) throw new Error("svg");
-    box.innerHTML=await r.text();
-    const svg=box.querySelector("svg");
-    if(svg){
+  const urls=["/assets/world.svg","/assets/world.svg?v=2"];
+  let lastErr=null;
+  for(const url of urls){
+    try{
+      const ctrl=typeof AbortController!=="undefined"?new AbortController():null;
+      const timer=ctrl?setTimeout(()=>ctrl.abort(),25000):null;
+      const r=await fetch(url,{signal:ctrl?ctrl.signal:undefined,cache:force?"reload":"default"});
+      if(timer) clearTimeout(timer);
+      if(!r.ok) throw new Error("http "+r.status);
+      const text=await r.text();
+      if(!text||text.length<1000||!/<svg[\s>]/i.test(text)) throw new Error("bad svg");
+      let svg=null;
+      try{
+        const doc=new DOMParser().parseFromString(text,"image/svg+xml");
+        const parsed=doc.documentElement;
+        if(!parsed||parsed.tagName.toLowerCase()!=="svg"||doc.querySelector("parsererror")) throw new Error("parse");
+        box.replaceChildren();
+        svg=document.importNode(parsed,true);
+        box.appendChild(svg);
+      }catch(parseErr){
+        box.innerHTML=text;
+        svg=box.querySelector("svg");
+      }
+      if(!svg) throw new Error("no svg node");
+      svg.classList.add("world-map");
       svg.removeAttribute("width"); svg.removeAttribute("height");
       svg.setAttribute("role","img");
       svg.style.width="100%"; svg.style.height="auto"; svg.style.display="block";
       svg.querySelectorAll("path[id]").forEach(p=>{
         p.setAttribute("tabindex","0");
         p.setAttribute("role","button");
-        p.setAttribute("aria-label", p.getAttribute("name")||p.id);
+        p.setAttribute("aria-label", p.id);
       });
       if(!box._mapBound){
         box._mapBound=true;
@@ -1636,12 +1655,13 @@ async function ensureWorldSvg(){
           if(path){ e.preventDefault(); openCountryMap(path.id); }
         });
       }
-    }
-    return svg;
-  }catch(e){
-    box.innerHTML=`<div class="empty">${EN?"Map unavailable.":"تعذّر تحميل الخريطة."}</div>`;
-    return null;
+      return svg;
+    }catch(e){ lastErr=e; }
   }
+  console.warn("world svg", lastErr);
+  box.innerHTML=`<div class="empty">${EN?"Map unavailable.":"تعذّر تحميل الخريطة."}<br>
+    <button type="button" class="sheet-x" style="margin-top:12px;max-width:200px" onclick="renderMap(true)">${EN?"Retry":"إعادة المحاولة"}</button></div>`;
+  return null;
 }
 function paintMap(){
   const box=document.getElementById("worldMap");
@@ -1699,7 +1719,7 @@ function openCountryMap(id){
     <button type="button" class="sheet-x" onclick="closeSheet()">${EN?"Close":"إغلاق"}</button>`);
   syncRoute();
 }
-async function renderMap(){
+async function renderMap(force){
   const meta=document.getElementById("mapMeta");
   const list=document.getElementById("mapList");
   if(meta){
@@ -1710,7 +1730,7 @@ async function renderMap(){
         : `${MAP.active_countries||0} دولة · ${MAP.total_stories||0} خبرًا مُسنَدًا · آخر ${MAP.days||7} أيام`;
     }
   }
-  await ensureWorldSvg();
+  await ensureWorldSvg(!!force);
   paintMap();
   if(list){
     const active=(MAP&&MAP.countries||[]).filter(c=>c.n>0);
