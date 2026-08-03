@@ -124,6 +124,21 @@ never pad with weak items.
 - Never present a Tier-3 report as news, even with a disclaimer.
 - Never authenticate images/video without a forensic pass — text verification ≠ media verification.
 
+## Viral social pack (بطاقة السوشيال)
+
+When generating Instagram/Telegram cards or voice clips (`pipeline/social_pack.py`):
+
+1. **Authenticated only:** صحيح / حسن. Never ship ضعيف or مردود on a card.
+2. **Viral gate:** score the day’s lead with `viral_score`; skip the pack if below
+   `SANAD_SOCIAL_VIRAL_MIN` (default 55). Silence beats a weak share.
+3. **Arabic typography:** assert Pillow RAQM. Pass logical Arabic with
+   `direction="rtl", language="ar"`. Never combine `arabic_reshaper` + `python-bidi`
+   with RAQM (double-shaping reverses/disconnects letters).
+4. **Voice:** Edge TTS `ar-KW-FahedNeural` (Kuwaiti) for the spoken line; rate ≈ `-2%`.
+   Prefer silence over a failed voice clip.
+5. **Assets:** `feed.png` (1080²), `story.png` (1080×1920), `caption_ar.txt`,
+   optional `voice.mp3` — templates only for captions; no invented methodology.
+
 ## References
 
 - `references/source-registry.md` — full tiered registry: Gulf, Levant, North Africa,

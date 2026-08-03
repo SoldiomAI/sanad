@@ -24,7 +24,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
-      - run: pip install -q pillow arabic-reshaper python-bidi
+      - run: pip install -q pillow arabic-reshaper python-bidi edge-tts
       - name: توليد الباكدج وإرساله لتلغرام
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}

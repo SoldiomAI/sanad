@@ -1,28 +1,58 @@
 # -*- coding: utf-8 -*-
-"""Daily viral social pack: feed + story PNGs, captions, Telegram delivery."""
+"""Daily viral social pack: feed + story PNGs, Arabic voice, Telegram delivery.
+
+RTL: when Pillow is built with RAQM/HarfBuzz, pass logical Arabic as-is.
+Manual arabic-reshaper+bidi is only a fallback (and must never double-apply).
+"""
 from __future__ import annotations
 
+import asyncio
 import hashlib
 import json
 import os
+import re
 import urllib.request
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 try:
-    from PIL import Image, ImageDraw, ImageFont
-    import arabic_reshaper
-    from bidi.algorithm import get_display
+    from PIL import Image, ImageDraw, ImageFont, features as _pil_features
+
+    try:
+        import arabic_reshaper
+        from bidi.algorithm import get_display
+    except Exception:
+        arabic_reshaper = None  # type: ignore
+        get_display = None  # type: ignore
 except Exception as e:  # pragma: no cover
     Image = None  # type: ignore
     _IMPORT_ERR = e
+    _HAS_RAQM = False
 else:
     _IMPORT_ERR = None
+    try:
+        _HAS_RAQM = bool(_pil_features.check("raqm"))
+    except Exception:
+        _HAS_RAQM = False
 
 OUT = os.environ.get("SANAD_DAILY", "daily")
 SITE = "https://isnad.news"
 _KW = timezone(timedelta(hours=3))
 FONTS = Path(__file__).resolve().parent / "assets" / "fonts"
+
+# Kuwaiti male news voice — brand-aligned for Sanad
+VOICE = os.environ.get("SANAD_SOCIAL_VOICE", "ar-KW-FahedNeural")
+VOICE_RATE = os.environ.get("SANAD_SOCIAL_VOICE_RATE", "-2%")
+
+VIRAL_CATS = {"عاجل", "الخليج", "إيران", "فلسطين", "تقنية"}
+VIRAL_RE = re.compile(
+    r"مسير|صاروخ|غارة|عاجل|قصف|تفجير|توتر|هجوم|إسقاط|تدمير|اشتباك|"
+    r"ذكاء اصطناع|حظر|عقوبات|ناقلة|هرمز|غزة|شهيد|شهداء|انفجار|اختراق|"
+    r"drone|strike|missile|sanction|hormuz|gaza",
+    re.I,
+)
+VIRAL_MIN = int(os.environ.get("SANAD_SOCIAL_VIRAL_MIN", "55"))
+
 HOOKS = [
     "خبرٌ وُزِن قبل النشر.",
     "درجة إسناد ظاهرة — لا ضباب.",
@@ -33,10 +63,22 @@ HOOKS = [
 
 
 def _ar(text: str) -> str:
+    """Prepare Arabic for Pillow draw/measure.
+
+    With RAQM: return logical Arabic (HarfBuzz shapes correctly).
+    Without RAQM: reshape + bidi once for visual LTR blit.
+    """
     text = str(text or "")
     if not text.strip():
         return ""
-    return get_display(arabic_reshaper.reshape(text))
+    if _HAS_RAQM:
+        return text
+    if arabic_reshaper and get_display:
+        try:
+            return get_display(arabic_reshaper.reshape(text))
+        except Exception:
+            return text
+    return text
 
 
 def _font(name: str, size: int):
@@ -46,14 +88,83 @@ def _font(name: str, size: int):
     return ImageFont.load_default()
 
 
-def _wrap(draw, text, font, max_w):
+def _font_ar(bold: bool, size: int):
+    return _font("NotoNaskhArabic-Bold.ttf" if bold else "NotoNaskhArabic-Regular.ttf", size)
+
+
+def _font_lat(bold: bool, size: int):
+    return _font("DejaVuSans-Bold.ttf" if bold else "DejaVuSans.ttf", size)
+
+
+def _draw_kw():
+    """Pillow text kwargs for correct Arabic shaping."""
+    if _HAS_RAQM:
+        return {"direction": "rtl", "language": "ar"}
+    return {}
+
+
+# Latin/ASCII + punctuation missing from Naskh cmap → DejaVu
+_LAT_RE = re.compile(r"[A-Za-z0-9][A-Za-z0-9._/@-]*|[|/·•—–−-]+")
+
+
+def _script_runs(text: str) -> list[tuple[str, bool]]:
+    """Split into (chunk, is_arabic_font) runs. Keep Arabic phrases intact (incl. spaces)."""
+    text = str(text or "")
+    parts: list[tuple[str, bool]] = []
+    pos = 0
+    for m in _LAT_RE.finditer(text):
+        if m.start() > pos:
+            parts.append((text[pos : m.start()], True))
+        parts.append((m.group(), False))
+        pos = m.end()
+    if pos < len(text):
+        parts.append((text[pos:], True))
+    return [(c, ar) for c, ar in parts if c]
+
+
+def _text_w(draw, text: str, font_ar, font_lat) -> float:
+    """Width of mixed Arabic/Latin (drawn RTL: Arabic Naskh + Latin DejaVu)."""
+    kw = _draw_kw()
+    w = 0.0
+    for chunk, is_ar in _script_runs(text):
+        if is_ar:
+            w += draw.textlength(_ar(chunk), font=font_ar, **kw)
+        else:
+            w += draw.textlength(chunk, font=font_lat)
+    return w
+
+
+def _draw_rtl(draw, xy, text: str, *, font_ar, font_lat, fill, v_anchor: str = "a"):
+    """Draw mixed text right-aligned; Arabic shaped via RAQM, Latin via DejaVu.
+
+    Logical order is painted from the right edge (first logical run sits on the right).
+    v_anchor: 'a' (baseline) or 'm' (vertical middle).
+    """
+    text = str(text or "")
+    if not text:
+        return
+    x, y = xy
+    y_anchor = "rm" if v_anchor == "m" else "ra"
+    kw = _draw_kw()
+    cursor = x
+    for chunk, is_ar in _script_runs(text):
+        font = font_ar if is_ar else font_lat
+        s = _ar(chunk) if is_ar else chunk
+        draw_kw = kw if is_ar else {}
+        width = draw.textlength(s, font=font, **draw_kw)
+        draw.text((cursor, y), s, font=font, fill=fill, anchor=y_anchor, **draw_kw)
+        cursor -= width
+
+
+def _wrap(draw, text, font_ar, font_lat, max_w):
+    """Wrap logical Arabic; measure the same form that will be drawn."""
     words = str(text or "").split()
     if not words:
         return []
     lines, cur = [], words[0]
     for w in words[1:]:
         trial = cur + " " + w
-        if draw.textlength(_ar(trial), font=font) <= max_w:
+        if _text_w(draw, trial, font_ar, font_lat) <= max_w:
             cur = trial
         else:
             lines.append(cur)
@@ -96,69 +207,148 @@ def all_items(news: dict):
     return out
 
 
-def select_social_story(news: dict | None = None):
+def viral_score(i: dict) -> int:
+    """0–100-ish shareability score. Only high scores become social packs."""
+    if not i or i.get("grade") not in ("صحيح", "حسن"):
+        return 0
+    if not i.get("isnad") and i.get("grade") != "صحيح":
+        # prefer items with isnad; still allow صحيح
+        pass
+    score = 0
+    score += 38 if i.get("grade") == "صحيح" else 22
+    score += min(25, int(i.get("score") or 0) * 4)
+    if i.get("cat") in VIRAL_CATS:
+        score += 14
+    if i.get("cat") == "عاجل":
+        score += 10
+    head = i.get("head") or ""
+    if VIRAL_RE.search(head):
+        score += 18
+    try:
+        age_h = (datetime.now(timezone.utc) - datetime.fromisoformat(i.get("at") or "1970-01-01")).total_seconds() / 3600
+        if age_h < 6:
+            score += 12
+        elif age_h < 18:
+            score += 6
+    except Exception:
+        pass
+    # length: punchy headlines share better
+    n = len(head)
+    if 28 <= n <= 90:
+        score += 6
+    elif n > 140:
+        score -= 8
+    return score
+
+
+def select_social_story(news: dict | None = None, *, viral_only: bool = True):
     news = news if news is not None else load_news()
     items = all_items(news)
-    auth = [i for i in items if i.get("isnad") and i.get("grade") in ("صحيح", "حسن")]
-    if not auth:
-        auth = [i for i in items if i.get("grade") in ("صحيح", "حسن")]
+    auth = [i for i in items if i.get("grade") in ("صحيح", "حسن")]
     if not auth:
         return None
-
-    def key(i):
-        g = 3 if i.get("grade") == "صحيح" else 2
-        try:
-            t = datetime.fromisoformat(i.get("at") or "1970-01-01").timestamp()
-        except Exception:
-            t = 0
-        return (g, t, i.get("score") or 0)
-
-    return sorted(auth, key=key, reverse=True)[0]
+    ranked = sorted(auth, key=lambda i: (viral_score(i), i.get("score") or 0), reverse=True)
+    top = ranked[0]
+    vs = viral_score(top)
+    if viral_only and vs < VIRAL_MIN:
+        print(f"⏭️ social skip — top viral_score={vs} < {VIRAL_MIN}: {(top.get('head') or '')[:60]}")
+        return None
+    top = dict(top)
+    top["_viral_score"] = vs
+    return top
 
 
 def _draw_card(size, story: dict, variant: str) -> Image.Image:
     W, H = size
-    # cream atmosphere + ink text (Sanad look)
-    img = Image.new("RGB", (W, H), "#F4EFE4")
+    img = Image.new("RGB", (W, H), "#F3EEE3")
     d = ImageDraw.Draw(img)
-    for y in range(0, int(H * 0.18)):
-        mix = y / max(1, H * 0.18)
-        r = int(232 + (244 - 232) * mix)
-        g = int(220 + (239 - 220) * mix)
-        b = int(196 + (228 - 196) * mix)
+    # warm top wash + gold edge
+    for y in range(0, int(H * 0.22)):
+        mix = y / max(1, H * 0.22)
+        r = int(228 + (243 - 228) * mix)
+        g = int(214 + (238 - 214) * mix)
+        b = int(188 + (227 - 188) * mix)
         d.line([(0, y), (W, y)], fill=(r, g, b))
-    d.rectangle([0, 0, 14 if variant == "feed" else 18, H], fill="#C9A227")
+    d.rectangle([0, 0, 16 if variant == "feed" else 20, H], fill="#C9A227")
+    # subtle bottom ink band
+    d.rectangle([0, H - 140 if variant == "feed" else H - 180, W, H], fill="#1A1206")
 
-    brand = _font("NotoNaskhArabic-Bold.ttf", 64 if variant == "feed" else 72)
-    head_f = _font("NotoNaskhArabic-Bold.ttf", 54 if variant == "feed" else 58)
-    meta_f = _font("NotoNaskhArabic-Regular.ttf", 32 if variant == "feed" else 34)
-    small = _font("NotoNaskhArabic-Regular.ttf", 28)
+    brand = _font_ar(True, 62 if variant == "feed" else 70)
+    head_f = _font_ar(True, 56 if variant == "feed" else 60)
+    meta_f = _font_ar(False, 30 if variant == "feed" else 32)
+    small = _font_ar(False, 26)
+    lat_meta = _font_lat(False, 28 if variant == "feed" else 30)
+    lat_small = _font_lat(False, 24)
 
     pad = 64 if variant == "feed" else 72
-    # brand
-    d.text((W - pad, pad), _ar("سَنَد"), font=brand, fill="#1A1206", anchor="ra")
-    d.text((W - pad, pad + 78), _ar("يزن الخبر قبل النشر"), font=small, fill="#7A6A4A", anchor="ra")
+    _draw_rtl(d, (W - pad, pad), "سَنَد", font_ar=brand, font_lat=lat_meta, fill="#1A1206")
+    _draw_rtl(
+        d,
+        (W - pad, pad + 74),
+        "بطاقة اليوم — وُزِن قبل النشر",
+        font_ar=small,
+        font_lat=lat_small,
+        fill="#7A6A4A",
+    )
 
     grade = story.get("grade") or ""
-    badge = "صحيح ✓" if grade == "صحيح" else ("حسن" if grade == "حسن" else grade)
+    cat = story.get("cat") or ""
+    badge = "صحيح" if grade == "صحيح" else ("حسن" if grade == "حسن" else grade)
     badge_col = "#2F6B4F" if grade == "صحيح" else "#8A6A1F"
-    bw = int(d.textlength(_ar(badge), font=meta_f)) + 36
+    by = pad + 124
+    bw = int(_text_w(d, badge, meta_f, lat_meta)) + (52 if grade == "صحيح" else 36)
     bx = W - pad - bw
-    by = pad + 130
-    d.rounded_rectangle([bx, by, bx + bw, by + 52], radius=12, fill=badge_col)
-    d.text((bx + bw / 2, by + 26), _ar(badge), font=meta_f, fill="#F7F1E4", anchor="mm")
+    d.rounded_rectangle([bx, by, bx + bw, by + 50], radius=12, fill=badge_col)
+    if grade == "صحيح":
+        # geometric check — avoid Unicode ✓ (missing from Naskh)
+        cx0, cy0 = bx + 18, by + 25
+        d.line([(cx0 - 6, cy0), (cx0 - 1, cy0 + 6), (cx0 + 9, cy0 - 7)], fill="#F7F1E4", width=3)
+        text_right = bx + bw - 14
+    else:
+        text_right = bx + bw / 2 + _text_w(d, badge, meta_f, lat_meta) / 2
+    _draw_rtl(
+        d, (text_right, by + 25), badge, font_ar=meta_f, font_lat=lat_meta, fill="#F7F1E4", v_anchor="m"
+    )
+    if cat:
+        cw = int(_text_w(d, cat, small, lat_small)) + 28
+        cx = bx - 14 - cw
+        d.rounded_rectangle([cx, by + 4, cx + cw, by + 46], radius=12, outline="#C9A227", width=2)
+        _draw_rtl(
+            d,
+            (cx + cw - 14, by + 25),
+            cat,
+            font_ar=small,
+            font_lat=lat_small,
+            fill="#8A6F1B",
+            v_anchor="m",
+        )
 
     head = story.get("head") or ""
     max_w = W - pad * 2
-    lines = _wrap(d, head, head_f, max_w)[:7]
-    y = int(H * 0.38) if variant == "feed" else int(H * 0.34)
+    lines = _wrap(d, head, head_f, lat_meta, max_w)[:6]
+    y = int(H * 0.36) if variant == "feed" else int(H * 0.32)
     for line in lines:
-        d.text((W - pad, y), _ar(line), font=head_f, fill="#1A1206", anchor="ra")
-        y += int(head_f.size * 1.45)
+        _draw_rtl(d, (W - pad, y), line, font_ar=head_f, font_lat=lat_meta, fill="#1A1206")
+        y += int(head_f.size * 1.42)
 
     src = story.get("src") or "مصدر"
-    d.text((W - pad, H - pad - 90), _ar(f"المصدر · {src}"), font=meta_f, fill="#5C4E38", anchor="ra")
-    d.text((W - pad, H - pad - 40), "isnad.news", font=meta_f, fill="#C9A227", anchor="ra")
+    foot_y = H - (90 if variant == "feed" else 120)
+    _draw_rtl(
+        d,
+        (W - pad, foot_y),
+        f"المصدر — {src}",
+        font_ar=meta_f,
+        font_lat=lat_meta,
+        fill="#E8DFC8",
+    )
+    _draw_rtl(
+        d,
+        (W - pad, foot_y + 44),
+        "isnad.news",
+        font_ar=meta_f,
+        font_lat=_font_lat(True, 28 if variant == "feed" else 30),
+        fill="#C9A227",
+    )
     return img
 
 
@@ -187,14 +377,46 @@ def build_texts(story: dict, date: str) -> dict:
             f"Attribution: {g_en}" + (f" · {src}" if src else "") + "\n\n"
             f"——\nSanad · {url}"
         )
-    story_text = f"سَنَد · {grade}\n{head[:90]}{'…' if len(head) > 90 else ''}\n{url}"
+    story_text = f"سَنَد — {grade}\n{head[:90]}{'…' if len(head) > 90 else ''}\n{url}"
+    # Fully vocalized opener — partial diacritics confuse Edge TTS
+    g_say = "صَحِيح" if grade == "صحيح" else ("حَسَن" if grade == "حسن" else grade)
+    spoken = f"خَبَرٌ مِنْ سَنَد. دَرَجَةُ الإِسْنَادِ: {g_say}. {head}"
+    if len(spoken) > 220:
+        spoken = spoken[:217] + "…"
     return {
         "caption_ar": caption_ar,
         "caption_en": caption_en,
         "story_text": story_text,
+        "spoken": spoken,
         "pid": pid,
         "post_url": url,
     }
+
+
+def synthesize_voice(text: str, dest: Path) -> bool:
+    """Kuwaiti Fahed neural — short viral voiceover."""
+    try:
+        import edge_tts
+        import ssl as _ssl
+
+        _ssl._create_default_https_context = _ssl._create_unverified_context
+    except Exception as e:
+        print("voice: edge_tts missing " + str(e)[:60])
+        return False
+
+    async def _run():
+        comm = edge_tts.Communicate(text, VOICE, rate=VOICE_RATE)
+        await comm.save(str(dest))
+
+    try:
+        asyncio.run(_run())
+        ok = dest.exists() and dest.stat().st_size > 1000
+        if ok:
+            print(f"🎙️ social voice · {VOICE} · {dest.stat().st_size}b")
+        return ok
+    except Exception as e:
+        print("voice failed: " + str(e)[:100])
+        return False
 
 
 def pack_dir(date: str) -> Path:
@@ -216,6 +438,7 @@ def write_index():
                 "head": m.get("head"),
                 "grade": m.get("grade"),
                 "status": m.get("status"),
+                "viral_score": m.get("viral_score"),
                 "post_url": m.get("post_url"),
                 "updated": m.get("updated"),
             }
@@ -238,13 +461,14 @@ def render_social_pack(story: dict | None = None, date: str | None = None, force
     if meta_path.exists() and not force and not os.environ.get("FORCE_SOCIAL"):
         return json.loads(meta_path.read_text())
 
-    story = story or select_social_story()
+    story = story or select_social_story(viral_only=True)
     if not story:
         dest.mkdir(parents=True, exist_ok=True)
         meta = {
             "date": date,
             "status": "skipped",
-            "reason": "no authenticated stories",
+            "reason": "no viral authenticated story",
+            "viral_min": VIRAL_MIN,
             "updated": datetime.now(timezone.utc).isoformat(timespec="minutes"),
         }
         meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -261,17 +485,23 @@ def render_social_pack(story: dict | None = None, date: str | None = None, force
     if texts["caption_en"]:
         (dest / "caption_en.txt").write_text(texts["caption_en"], encoding="utf-8")
     (dest / "story_text.txt").write_text(texts["story_text"], encoding="utf-8")
+    (dest / "spoken.txt").write_text(texts["spoken"], encoding="utf-8")
+    voice_ok = synthesize_voice(texts["spoken"], dest / "voice.mp3")
 
     meta = {
         "date": date,
         "status": "ready",
-        "platform": ["instagram_feed", "instagram_story", "whatsapp", "telegram"],
+        "platform": ["instagram_feed", "instagram_story", "whatsapp", "telegram", "reel_audio"],
         "head": story.get("head") or "",
         "he": story.get("he") or "",
         "grade": story.get("grade") or "",
         "src": story.get("src") or "",
+        "cat": story.get("cat") or "",
         "link": story.get("link") or "",
         "score": story.get("score"),
+        "viral_score": story.get("_viral_score") or viral_score(story),
+        "voice": VOICE if voice_ok else "",
+        "raqm": _HAS_RAQM,
         "post_url": texts["post_url"],
         "pid": texts["pid"],
         "assets": {
@@ -280,18 +510,22 @@ def render_social_pack(story: dict | None = None, date: str | None = None, force
             "caption_ar": "caption_ar.txt",
             "caption_en": "caption_en.txt" if texts["caption_en"] else "",
             "story_text": "story_text.txt",
+            "spoken": "spoken.txt",
+            "voice": "voice.mp3" if voice_ok else "",
         },
         "updated": datetime.now(timezone.utc).isoformat(timespec="minutes"),
     }
     meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=1), encoding="utf-8")
     write_index()
-    print(f"🖼️ social pack {date}: {story.get('grade')} · {(story.get('head') or '')[:50]}")
+    print(
+        f"🖼️ social pack {date}: {story.get('grade')} · viral={meta['viral_score']} · raqm={_HAS_RAQM} · "
+        f"{(story.get('head') or '')[:50]}"
+    )
     return meta
 
 
 def _tg_token_chat():
     token = os.environ.get("TELEGRAM_BOT_TOKEN") or os.environ.get("TG_TOKEN") or ""
-    # Prefer channel they already use; editor chat optional override
     chat = (
         os.environ.get("TELEGRAM_EDITOR_CHAT")
         or os.environ.get("TELEGRAM_CHANNEL")
@@ -336,6 +570,43 @@ def tg_send_photo(path: str, caption: str = "") -> bool:
         return bool(r.get("ok"))
     except Exception as e:
         print(f"تلغرام صورة تعذّر: {str(e)[:100]}")
+        return False
+
+
+def tg_send_audio(path: str, caption: str = "") -> bool:
+    token, chat = _tg_token_chat()
+    if not (token and chat and path and os.path.exists(path)):
+        return False
+    try:
+        import uuid as _u
+
+        bnd = "----sanad" + _u.uuid4().hex
+        parts = []
+
+        def fld(n, v):
+            parts.append(
+                f"--{bnd}\r\nContent-Disposition: form-data; name=\"{n}\"\r\n\r\n{v}\r\n".encode()
+            )
+
+        fld("chat_id", chat)
+        if caption:
+            fld("caption", caption[:1024])
+        fname = os.path.basename(path)
+        parts.append(
+            f"--{bnd}\r\nContent-Disposition: form-data; name=\"audio\"; filename=\"{fname}\"\r\nContent-Type: audio/mpeg\r\n\r\n".encode()
+        )
+        parts.append(open(path, "rb").read())
+        parts.append(f"\r\n--{bnd}--\r\n".encode())
+        body = b"".join(parts)
+        req = urllib.request.Request(
+            f"https://api.telegram.org/bot{token}/sendAudio",
+            data=body,
+            headers={"Content-Type": f"multipart/form-data; boundary={bnd}"},
+        )
+        r = json.load(urllib.request.urlopen(req, timeout=90))
+        return bool(r.get("ok"))
+    except Exception as e:
+        print(f"تلغرام صوت تعذّر: {str(e)[:100]}")
         return False
 
 
@@ -395,23 +666,26 @@ def broadcast_social_pack(meta: dict | None = None, force: bool = False) -> bool
 
     feed = dest / "feed.png"
     story = dest / "story.png"
+    voice = dest / "voice.mp3"
     cap = (dest / "caption_ar.txt").read_text(encoding="utf-8") if (dest / "caption_ar.txt").exists() else ""
     head = meta.get("head") or ""
     grade = meta.get("grade") or ""
     url = meta.get("post_url") or SITE
+    vs = meta.get("viral_score")
     intro = (
         f"🖼️ <b>بطاقة سَنَد اليومية</b> — {date}\n"
-        f"⚖️ {grade}\n"
+        f"⚖️ {grade}" + (f" · viral {vs}" if vs is not None else "") + "\n"
         f"{head}\n\n"
         f"<a href=\"{url}\">افتح على سَنَد ↗</a>"
     )
     ok1 = tg_send_photo(str(feed), intro)
-    ok2 = tg_send_photo(str(story), "نسخة الستوري · 1080×1920")
+    ok2 = tg_send_photo(str(story), "نسخة الستوري · 1080×1920 · عربي صحيح")
+    okv = tg_send_audio(str(voice), f"🎙️ صوت كويتي · {meta.get('voice') or VOICE}") if voice.exists() else False
     ok3 = tg_send_message(f"<b>كابشن إنستغرام (انسخ):</b>\n\n{cap[:3500]}")
-    if ok1 or ok2 or ok3:
+    if ok1 or ok2 or ok3 or okv:
         st["social_pack"] = date
         _tg_save(st)
-        print(f"📣 social pack sent · photo={ok1}/{ok2} text={ok3}")
+        print(f"📣 social pack sent · photo={ok1}/{ok2} voice={okv} text={ok3}")
         return True
     print("⚠️ social pack Telegram send failed (missing secrets or API error)")
     return False
@@ -427,4 +701,9 @@ def social_pack(force: bool = False) -> dict:
 if __name__ == "__main__":
     force = bool(os.environ.get("FORCE_SOCIAL"))
     m = social_pack(force=force)
-    print(json.dumps({k: m.get(k) for k in ("date", "status", "grade", "head", "post_url")}, ensure_ascii=False))
+    print(
+        json.dumps(
+            {k: m.get(k) for k in ("date", "status", "grade", "viral_score", "voice", "raqm", "head", "post_url")},
+            ensure_ascii=False,
+        )
+    )
