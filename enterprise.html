@@ -104,10 +104,11 @@ th{color:var(--dim);font-weight:600;font-size:11px}
     <button class="btn" id="magic">✉️ أرسِلْ رابطَ الدخول</button>
 
     <div class="or">أو</div>
-    <button class="btn ghost" id="google">الدخول عبر Google</button>
-    <button class="btn ghost" id="ms">الدخول عبر Microsoft</button>
+    <button class="btn ghost" id="google" disabled title="يُفعَّل من لوحة Supabase">الدخول عبر Google</button>
+    <button class="btn ghost" id="ms" disabled title="يُفعَّل من لوحة Supabase">الدخول عبر Microsoft</button>
 
     <div class="msg" id="msg"></div>
+    <div class="msg info" id="authStatus" style="display:none"></div>
     <div class="foot">محميٌّ بمصادقةِ سَنَد. لا تُخزَّن كلماتُ مرور.<br><a href="https://www.isnad.news">← العودة إلى سَنَد</a></div>
   </div>
 </div>
@@ -185,7 +186,10 @@ const SB_URL = "https://uewqsczvyglahnqjhuvx.supabase.co";
 const SB_KEY = "sb_publishable_vkQkzJ5s86bWd7lxPSeGTA_xNoahNaV";
 const API_FN = SB_URL + "/functions/v1/sanad-enterprise-api";
 const RAW = "https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/";
-const sb = createClient(SB_URL, SB_KEY);
+const REDIRECT = "https://www.isnad.news/enterprise";
+const sb = createClient(SB_URL, SB_KEY, {
+  auth: { detectSessionInUrl: true, persistSession: true, flowType: "pkce" },
+});
 
 const esc = s => String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const safeUrl = u => { u=String(u==null?"":u).trim(); return /^https?:\/\//i.test(u)?u.replace(/"/g,"%22"):"#"; };
@@ -193,19 +197,69 @@ const tSig = k => ({quake:["〰️","زلزال"],flight:["✈️","طيران"]
 const $ = id => document.getElementById(id);
 const band = s => s>=75?"#9E2B37":s>=50?"#D07A2E":s>=25?"#C9A227":"#3E9B72";
 function showMsg(t,cls){ const m=$("msg"); m.className="msg "+cls; m.textContent=t; }
+function authErrAr(err){
+  const msg = (err && (err.message||err.msg||err.error_description)) || String(err||"");
+  const code = (err && (err.code||err.error_code)) || "";
+  if(code==="over_email_send_rate_limit" || /rate limit/i.test(msg))
+    return "تجاوزنا حدَّ إرسال البريد (Supabase). انتظر ساعةً أو اربط SMTP مخصَّصًا في لوحة المشروع.";
+  if(/provider is not enabled|Unsupported provider/i.test(msg))
+    return "مزوّدُ الدخول غير مفعَّل في Supabase (Authentication → Providers).";
+  if(/redirect/i.test(msg))
+    return "رابطُ العودة غير مسموح. أضِفْ https://www.isnad.news/enterprise في Redirect URLs.";
+  return msg || "تعذّر الدخول.";
+}
+
+async function refreshAuthStatus(){
+  const box=$("authStatus");
+  try{
+    const r=await fetch(SB_URL+"/auth/v1/settings",{headers:{apikey:SB_KEY,Authorization:"Bearer "+SB_KEY}});
+    const j=await r.json();
+    const ext=j.external||{};
+    const googleOn=!!ext.google, azureOn=!!ext.azure, emailOn=ext.email!==false;
+    $("google").disabled=!googleOn;
+    $("ms").disabled=!azureOn;
+    $("magic").disabled=!emailOn;
+    const missing=[];
+    if(!googleOn) missing.push("Google");
+    if(!azureOn) missing.push("Microsoft");
+    if(!missing.length){ box.style.display="none"; return; }
+    box.style.display="block";
+    box.className="msg info";
+    box.innerHTML = "الدخول الاجتماعي غير جاهز بعد ("+esc(missing.join(" · "))+"). "
+      +"فعِّلْه من <b>Supabase → Authentication → Providers</b>، "
+      +"وأضِف Redirect URL: <code style=\"font-size:11px\">"+esc(REDIRECT)+"</code>. "
+      +"للبريد: إن لم تصل الرسائل، اربط SMTP مخصَّصًا (Resend/SendGrid) — البريد الافتراضي محدود جدًّا.";
+  }catch(e){
+    box.style.display="block";
+    box.className="msg err";
+    box.textContent="تعذّر فحص إعدادات المصادقة.";
+  }
+}
 
 // ── auth screen ──
 $("magic").onclick = async () => {
   const email = $("em").value.trim();
   if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ showMsg("أدخِلْ بريدًا صحيحًا.","err"); return; }
   $("magic").disabled=true;
-  const { error } = await sb.auth.signInWithOtp({ email, options:{ emailRedirectTo: location.origin + "/enterprise" } });
+  const { error } = await sb.auth.signInWithOtp({ email, options:{ emailRedirectTo: REDIRECT } });
   $("magic").disabled=false;
-  if(error) showMsg("تعذّر الإرسال: "+error.message,"err");
-  else showMsg("أرسلنا رابطَ الدخول إلى بريدك. افتحه من هذا الجهاز.","ok");
+  if(error) showMsg(authErrAr(error),"err");
+  else showMsg("إن وُجد الحساب أو كان التسجيل مفتوحًا، يصل رابط الدخول خلال دقائق. افحص الوارد والرسائل غير المرغوب فيها.","ok");
 };
-$("google").onclick = () => sb.auth.signInWithOAuth({ provider:"google", options:{ redirectTo: location.origin + "/enterprise" } });
-$("ms").onclick     = () => sb.auth.signInWithOAuth({ provider:"azure", options:{ scopes:"email", redirectTo: location.origin + "/enterprise" } });
+$("google").onclick = async () => {
+  if($("google").disabled){ showMsg("Google غير مفعَّل في Supabase.","err"); return; }
+  const { data, error } = await sb.auth.signInWithOAuth({ provider:"google", options:{ redirectTo: REDIRECT, skipBrowserRedirect:false } });
+  if(error) showMsg(authErrAr(error),"err");
+  else if(data&&data.url) location.href=data.url;
+};
+$("ms").onclick = async () => {
+  if($("ms").disabled){ showMsg("Microsoft غير مفعَّل في Supabase.","err"); return; }
+  const { data, error } = await sb.auth.signInWithOAuth({ provider:"azure", options:{ redirectTo: REDIRECT, scopes:"email", skipBrowserRedirect:false } });
+  if(error) showMsg(authErrAr(error),"err");
+  else if(data&&data.url) location.href=data.url;
+};
+
+refreshAuthStatus();
 
 let ORG=null, ROLE=null, USER=null;
 
