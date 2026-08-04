@@ -317,15 +317,31 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .wave-card .wm{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-top:8px}
 .wave-card .wa{margin-top:10px;width:100%;border:0;background:rgba(201,162,39,.14);color:var(--gold-l);
   border-radius:10px;padding:8px 10px;font-family:'Noto Kufi Arabic',sans-serif;font-size:12px;font-weight:700;cursor:pointer}
-.daily-card{border:1px solid var(--border);border-radius:18px;overflow:hidden;background:
-  radial-gradient(ellipse 120% 80% at 100% 0%,rgba(201,162,39,.18),transparent 55%),
-  linear-gradient(165deg,var(--card),var(--card2));padding:22px 18px 18px;margin:4px 0 8px}
-.daily-card .dc-brand{font-family:'Amiri',serif;font-size:28px;font-weight:700;letter-spacing:.02em;margin-bottom:6px}
-.daily-card .dc-kicker{font-size:11px;font-weight:700;font-family:'Noto Kufi Arabic',sans-serif;color:var(--gold-l);margin-bottom:14px}
-.daily-card .dc-title{font-family:'Amiri',serif;font-size:22px;line-height:1.55;color:var(--vellum);margin-bottom:14px}
-.daily-card .dc-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
-.daily-card .dc-foot{font-size:11.5px;color:var(--dim);line-height:1.7;border-top:1px solid var(--border);padding-top:12px;margin-top:4px}
-.daily-card .dc-acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.daily-card{direction:rtl;border:0;border-radius:20px;overflow:hidden;padding:0;margin:4px 0 8px;
+  background:#F3EEE3;color:#1A1206;box-shadow:0 18px 40px rgba(0,0,0,.28);max-width:420px;margin-inline:auto;
+  position:relative;aspect-ratio:9/16;display:flex;flex-direction:column;min-height:520px}
+.daily-card::before{content:"";position:absolute;inset-block:0;inset-inline-start:0;width:14px;background:#C9A227;z-index:2}
+.daily-card .dc-stage{flex:1;display:flex;flex-direction:column;padding:28px 22px 0 28px;
+  background:linear-gradient(180deg,#E4D6BC 0%,#F3EEE3 22%,#F3EEE3 72%);position:relative;z-index:1}
+.daily-card .dc-brand{font-family:'Amiri',serif;font-size:34px;font-weight:700;color:#1A1206;line-height:1;margin:0 0 6px}
+.daily-card .dc-kicker{font-size:11px;font-weight:700;font-family:'Noto Kufi Arabic',sans-serif;color:#7A6A4A;margin-bottom:16px}
+.daily-card .dc-pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-start;margin-bottom:auto}
+.daily-card .dc-pill{display:inline-flex;align-items:center;gap:6px;border-radius:12px;padding:6px 12px;
+  font-family:'Noto Kufi Arabic',sans-serif;font-size:12px;font-weight:700}
+.daily-card .dc-pill.ok{background:#2F6B4F;color:#F7F1E4}
+.daily-card .dc-pill.ok::before{content:"";width:10px;height:7px;border-inline-start:2px solid #F7F1E4;border-bottom:2px solid #F7F1E4;
+  transform:rotate(-45deg);margin-top:-2px}
+.daily-card .dc-pill.cat{background:transparent;color:#8A6F1B;border:1.5px solid #C9A227}
+.daily-card .dc-title{font-family:'Amiri',serif;font-size:26px;line-height:1.45;color:#1A1206;font-weight:700;
+  margin:28px 0 24px;text-align:start}
+.daily-card .dc-ink{background:#1A1206;color:#E8DFC8;padding:16px 22px 18px 28px;margin-top:auto}
+.daily-card .dc-ink .src{font-size:13px;font-family:'Noto Kufi Arabic',sans-serif;margin-bottom:4px}
+.daily-card .dc-ink .site{font-size:13px;font-weight:700;color:#C9A227;font-family:ui-sans-serif,system-ui,sans-serif}
+.daily-card .dc-preview{display:block;width:100%;border-radius:0;border:0;aspect-ratio:9/16;object-fit:cover;background:#F3EEE3}
+.daily-card .dc-acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;padding:0 2px}
+.daily-card-wrap{max-width:420px;margin-inline:auto}
+[data-lng=en] .daily-card{direction:ltr}
+[data-lng=en] .daily-card::before{inset-inline-start:auto;inset-inline-end:0}
 .install-bar{position:fixed;inset-inline:12px;bottom:calc(var(--nav-h) + 10px);z-index:55;display:none;
   align-items:center;gap:10px;padding:10px 12px;border-radius:16px;border:1px solid var(--border);
   background:var(--topbar);backdrop-filter:blur(14px);box-shadow:0 10px 30px rgba(0,0,0,.12)}
@@ -2146,14 +2162,28 @@ function renderViralStrip(){
 function openDailyCard(){
   const i=pickDailyStory();
   if(!i){ toast(EN?"No story yet":"لا خبر بعد"); return; }
-  const url=deepUrl("card");
   const postUrl=deepUrl("post/"+postPid(i));
-  openSheet(`<div class="daily-card" id="dailyCard">
-    <div class="dc-brand"><span class="gold">سَنَد</span></div>
-    <div class="dc-kicker">${EN?"Card of the day · graded before publish":"بطاقة اليوم · وُزِن قبل النشر"}</div>
-    <div class="dc-title">${esc(hd(i))}</div>
-    <div class="dc-meta">${badge(i.grade)}${i.src?`<span class="badge b-src">${esc(i.src)}</span>`:""}${isnadBar(i.isnad,i.grade)}</div>
-    <div class="dc-foot">${EN?"Share this card on WhatsApp or Stories — every tap brings people back to isnad.news.":"شارك البطاقة على واتساب أو الستوري — كل مشاركة تُعيد الناس إلى isnad.news."}<br>${esc(postUrl)}</div>
+  const day=(typeof KW_DAY==="string"&&KW_DAY)||new Date().toISOString().slice(0,10);
+  const storyPng=`/daily/social/${day}/story.png`;
+  const feedPng=`/daily/social/${day}/feed.png`;
+  const grade=i.grade||"";
+  const cat=i.cat||"";
+  const gradePill=grade?`<span class="dc-pill ${grade==="صحيح"||grade==="Verified"?"ok":""}">${esc(gradeLabel(grade))}</span>`:"";
+  const catPill=cat&&!EN?`<span class="dc-pill cat">${esc(cat)}</span>`:"";
+  openSheet(`<div class="daily-card-wrap">
+    <div class="daily-card" id="dailyCard">
+      <img class="dc-preview" id="dcPng" alt="" hidden>
+      <div class="dc-stage" id="dcCss">
+        <div class="dc-brand">${EN?"SANAD":"سَنَد"}</div>
+        <div class="dc-kicker">${EN?"Card of the day · graded before publish":"بطاقة اليوم — وُزِن قبل النشر"}</div>
+        <div class="dc-pills">${gradePill}${catPill}</div>
+        <div class="dc-title">${esc(hd(i))}</div>
+        <div class="dc-ink">
+          <div class="src">${EN?"Source":"المصدر"} — ${esc(i.src||(EN?"Sanad":"سَنَد"))}</div>
+          <div class="site">isnad.news</div>
+        </div>
+      </div>
+    </div>
     <div class="dc-acts">
       <button type="button" class="primary" id="dcShare">${EN?"Share card":"شارك البطاقة"}</button>
       <button type="button" id="dcWa">${EN?"WhatsApp":"واتساب"}</button>
@@ -2161,6 +2191,13 @@ function openDailyCard(){
       <button type="button" class="sheet-x" onclick="closeSheet()">${EN?"Close":"إغلاق"}</button>
     </div>
   </div>`);
+  const png=document.getElementById("dcPng");
+  const css=document.getElementById("dcCss");
+  if(png){
+    png.onload=()=>{ png.hidden=false; if(css) css.hidden=true; };
+    png.onerror=()=>{ png.removeAttribute("src"); if(css) css.hidden=false; };
+    png.src=storyPng+"?t="+Date.now();
+  }
   if(!ROUTE_LOCK) try{ history.replaceState(null,"","#/card") }catch(e){}
   const text=EN
     ? `Sanad · Card of the day\n“${hd(i)}”\nAttribution: ${gradeLabel(i.grade)}${i.src?" · "+i.src:""}\n——\nOpen:`
