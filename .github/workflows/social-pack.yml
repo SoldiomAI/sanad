@@ -24,12 +24,26 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
-      - run: pip install -q pillow arabic-reshaper python-bidi
+      - name: RAQM / HarfBuzz (Arabic shaping)
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libraqm0 libfribidi0 libharfbuzz0b fonts-dejavu-core
+      - run: pip install -q pillow arabic-reshaper python-bidi edge-tts
+      - name: Assert Pillow RAQM before generate
+        run: |
+          python - <<'PY'
+          from PIL import features
+          ok = bool(features.check("raqm"))
+          print("raqm=", ok, "fribidi=", features.check("fribidi"), "harfbuzz=", features.check("harfbuzz"))
+          if not ok:
+              raise SystemExit("FATAL: Pillow built without RAQM — Arabic cards will ship broken (double-reshape risk).")
+          PY
       - name: توليد الباكدج وإرساله لتلغرام
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHANNEL: ${{ secrets.TELEGRAM_CHANNEL }}
           TELEGRAM_EDITOR_CHAT: ${{ secrets.TELEGRAM_EDITOR_CHAT }}
+          SANAD_REQUIRE_RAQM: "1"
           # الجدولة: لا تفرض الإعادة — مرة واحدة لليوم ما لم يُطلب يدويًا
           FORCE_SOCIAL: ${{ github.event_name == 'workflow_dispatch' && inputs.force == true && '1' || '' }}
         run: |

@@ -334,12 +334,14 @@ async function renderSocial(){
   try{ const r=await fetch(SOCIAL_RAW+date+"/feed.png",{method:"HEAD"}); if(r.ok) baseUsed=SOCIAL_RAW; }catch(e){}
   const feed=baseUsed+date+"/feed.png?t="+Date.now();
   const story=baseUsed+date+"/story.png?t="+Date.now();
+  const voice=baseUsed+date+"/voice.mp3?t="+Date.now();
+  const vs=top.viral_score!=null?` · viral ${esc(String(top.viral_score))}`:"";
   el.innerHTML=`
     <div class="row">
       <button class="btn btn-p" onclick="triggerWf('social-pack')">🖼️ توليد وإرسال لتلغرام</button>
       <button class="btn btn-s" onclick="refresh()">↻ تحديث</button>
     </div>
-    <div class="panel"><div class="hd">اليوم · ${esc(date)} · ${esc(top.grade||"")}</div>
+    <div class="panel"><div class="hd">اليوم · ${esc(date)} · ${esc(top.grade||"")}${vs}</div>
       <div class="bd">
         <div style="font-weight:700;margin-bottom:10px;line-height:1.7">${esc(top.head||"")}</div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
@@ -349,13 +351,15 @@ async function renderSocial(){
         <div class="row" style="margin-top:12px">
           <a class="btn btn-s" href="${esc(feed)}" download>تنزيل الفيد</a>
           <a class="btn btn-s" href="${esc(story)}" download>تنزيل الستوري</a>
+          <a class="btn btn-s" href="${esc(voice)}" download>صوت كويتي</a>
           <a class="btn btn-s" href="${esc(top.post_url||"#")}" target="_blank" rel="noopener">رابط المنشور</a>
         </div>
+        <audio controls preload="none" src="${esc(voice)}" style="width:100%;margin-top:12px"></audio>
       </div>
     </div>
     <div class="panel"><div class="hd">الأرشيف · ${packs.length}</div>
-    <div class="tw"><table><thead><tr><th>تاريخ</th><th>العنوان</th><th>درجة</th></tr></thead><tbody>
-    ${packs.slice(0,14).map(p=>`<tr><td class="mono">${esc(p.date)}</td><td>${esc((p.head||"").slice(0,70))}</td><td>${esc(p.grade||"")}</td></tr>`).join("")}
+    <div class="tw"><table><thead><tr><th>تاريخ</th><th>العنوان</th><th>درجة</th><th>viral</th></tr></thead><tbody>
+    ${packs.slice(0,14).map(p=>`<tr><td class="mono">${esc(p.date)}</td><td>${esc((p.head||"").slice(0,70))}</td><td>${esc(p.grade||"")}</td><td class="mono">${esc(p.viral_score!=null?String(p.viral_score):"—")}</td></tr>`).join("")}
     </tbody></table></div></div>`;
 }
 
