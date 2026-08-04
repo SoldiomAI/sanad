@@ -2163,12 +2163,11 @@ function openDailyCard(){
   const i=pickDailyStory();
   if(!i){ toast(EN?"No story yet":"لا خبر بعد"); return; }
   const postUrl=deepUrl("post/"+postPid(i));
-  const day=(typeof KW_DAY==="string"&&KW_DAY)||new Date().toISOString().slice(0,10);
+  const day=kwDay();
   const storyPng=`/daily/social/${day}/story.png`;
-  const feedPng=`/daily/social/${day}/feed.png`;
   const grade=i.grade||"";
   const cat=i.cat||"";
-  const gradePill=grade?`<span class="dc-pill ${grade==="صحيح"||grade==="Verified"?"ok":""}">${esc(gradeLabel(grade))}</span>`:"";
+  const gradePill=grade?`<span class="dc-pill ${grade==="صحيح"?"ok":""}">${esc(gradeLabel(grade))}</span>`:"";
   const catPill=cat&&!EN?`<span class="dc-pill cat">${esc(cat)}</span>`:"";
   openSheet(`<div class="daily-card-wrap">
     <div class="daily-card" id="dailyCard">

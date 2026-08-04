@@ -1,6 +1,6 @@
 /* سَنَد — عاملُ خدمةٍ محافِظ: يجعلُ الموقعَ قابلًا للتثبيت ويعملُ غلافُه دون شبكة،
    دون المساسِ بطزاجةِ البيانات — بياناتُ الأخبارِ تمرُّ للشبكةِ دائمًا. */
-const SHELL = "sanad-shell-v9";
+const SHELL = "sanad-shell-v10";
 const PRECACHE = ["/", "/index.html", "/manifest.webmanifest",
   "/icons/icon-192.png", "/icons/icon-512.png", "/og-card.png"];
 
