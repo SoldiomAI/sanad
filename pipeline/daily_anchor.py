@@ -92,7 +92,32 @@ AGENTS=[
  ("murtajil","المُحلِّل","🎤","يصوغ قراءة الساعة ويؤدّيها صوتًا"),
  ("mudawwin","المُدوِّن","🖋️","يكتبُ عمودَ الجريدة اليوميّ من أخبار اليوم المُسنَدة"),
  ("rawi","الرَّاوِي","🎙️","يؤدّي النشرة اليومية بصوت المذيع"),
+ ("mawj","المَوّاج","🌊","يتتبّعُ موجاتِ الأخبارِ المُسنَدةَ ويُوكِّلُ وكيلًا فرعيًّا لكلِّ موجةٍ حيّة"),
 ]
+# أسماءٌ وأدوارٌ إنجليزيّةٌ للوكلاءِ الثابتين — كي تُعرَضَ نسخةُ EN سليمةً في الواجهة
+# (الوكلاءُ الديناميكيّون يحملون name_en/role_en في ملفّهم). المفتاحُ = مُعرِّفُ الوكيل.
+AGENTS_EN={
+ "hurr":("Al-Hurr","Free agent — keyless public RSS via Google News"),
+ "rasid":("Al-Rasid","Watches live sources; gathers tallies and breaking"),
+ "mutabiq":("Al-Mutabiq","Cross-checks figures against independent sources"),
+ "manba":("Al-Manba","Relays official data straight from the authorities"),
+ "munabbih":("Al-Munabbih","Collects official warnings and citizen directives"),
+ "multaqit":("Al-Multaqit","Catches spreading claims before they publish"),
+ "fahis":("Al-Fahis","Opens the link itself; confirms it's live and holds the claim"),
+ "mukharrij":("Al-Mukharrij","Pins the documented source and rules on the rumor"),
+ "munaqqih":("Al-Munaqqih","Reviews rumors each cycle; retires stale, re-checks, names the source"),
+ "miqyas":("Al-Miqyas","Computes the regional instability index transparently from verified density"),
+ "shahid":("Al-Shahid","Watches open field signals (quakes/flights/fires), attributed to source & time"),
+ "mustaqsi":("Al-Mustaqsi","Relays munitions counts straight from defense ministries"),
+ "turjuman":("Al-Turjuman","Renders Persian news into faithful Arabic"),
+ "mudaqqiq":("Al-Mudaqqiq","Reviews material and drops what isn't fit to publish"),
+ "musannif":("Al-Musannif","Evolves the sorting rules after each round"),
+ "mustaqri":("Al-Mustaqri","Forecasts what may come from precedent and statements"),
+ "murtajil":("Al-Murtajil","Frames the hour's read and voices it"),
+ "mudawwin":("Al-Mudawwin","Writes the daily newspaper column from verified news"),
+ "rawi":("Al-Rawi","Delivers the daily bulletin in the anchor's voice"),
+ "mawj":("Al-Mawwaj","Tracks verified news waves; delegates a sub-agent to each live wave"),
+}
 _LOG={}
 def _load_log():
     try: return {a["id"]:a for a in json.load(open(AGENTS_F)).get("agents",[])}
@@ -784,7 +809,7 @@ def bundle():
             print(f"🛡️ نشرةُ اليوم: أُبقيت الأحدث ({_pub.get('date')}) بدل الأقدم ({_loc.get('date')})")
     except Exception as _e: print(f"guard_latest: {str(_e)[:80]}")
     keys=["news","intel","official","forecast","analyst","dua","verify",
-          "alerts","corrections","latest","agents","cost","evolution","council","gpu","rumors","column","tension","map","osint","wave","comments","posts"]
+          "alerts","corrections","latest","agents","cost","evolution","council","gpu","rumors","column","tension","map","osint","wave","waves","comments","posts"]
     b={"built":datetime.now(timezone.utc).isoformat(timespec="minutes")}
     for k in keys:
         try: b[k]=json.load(open(f"{OUT}/{k}.json"))
@@ -831,18 +856,55 @@ def save_agents():
     for aid,nm,ic,role in AGENTS:
         cur=_LOG.get(aid) or {}
         prev=_PREV.get(aid,{})
-        out.append({"id":aid,"name":nm,"icon":ic,"role":role,
+        en=AGENTS_EN.get(aid,("",""))
+        out.append({"id":aid,"name":nm,"name_en":en[0],"icon":ic,"role":role,"role_en":en[1],
             "status":cur.get("status", prev.get("status","idle")),
             "ms":cur.get("ms", prev.get("ms",0)),
             "note":cur.get("note", prev.get("note","")),
+            "note_en":cur.get("note_en", prev.get("note_en","")),
             "at":cur.get("at", prev.get("at","")),
             "ran":aid in _LOG})
+    # الطاقمُ الديناميكيّ: وكلاءُ الموجةِ الأحياءُ الذين فرّخهم «المَوّاج» هذه الدورة.
+    # يُقرأون من agents_dynamic.json (كتبه wave_agents) ويُلحَقون بالطاقمِ الثابت،
+    # فيظهرون في لوحةِ الفريقِ ويتقاعدون تلقائيًّا حين تخبو موجتُهم (يختفي صفُّهم).
+    try:
+        dyn=json.load(open(f"{OUT}/agents_dynamic.json")).get("agents",[])
+    except Exception:
+        dyn=[]
+    for a in dyn:
+        if not isinstance(a,dict) or not a.get("id"): continue
+        cur=_LOG.get(a["id"]) or {}
+        out.append({"id":a["id"],"name":a.get("name",""),"name_en":a.get("name_en",""),
+            "icon":a.get("icon","🌊"),"role":a.get("role",""),"role_en":a.get("role_en",""),
+            "parent":a.get("parent","mawj"),"wave_id":a.get("wave_id",""),
+            "status":cur.get("status", a.get("status","ok")),
+            "ms":cur.get("ms",0),
+            "note":cur.get("note", a.get("note","")),
+            "note_en":a.get("note_en",""),
+            "at":cur.get("at", a.get("at","")),
+            "ran":True})
     ok=sum(1 for a in out if a["status"] in ("ok","skip"))
     ran=sum(1 for a in out if a["status"]=="ok")
     json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),
         "healthy":ok,"total":len(out),"ran":ran,"slot":SLOT,"agents":out},
         open(AGENTS_F,"w"),ensure_ascii=False,indent=1)
     print(f"🤖 طبقة الوكلاء: {ran} عمل الآن · {ok}/{len(out)} سليم · النوبة {SLOT}")
+
+def _run_wave():
+    """يشغّلُ «المَوّاج» (وكلاءَ الموجةِ الديناميكيّين) قبلَ save_agents — بأمانٍ تامّ
+    فلا يكسرُ الأنبوبَ إن غابَ المُوديول. يكتبُ waves.json + agents_dynamic.json."""
+    try:
+        from wave_agents import wave_agents as _wa
+        _wa()
+    except ImportError:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        try:
+            from wave_agents import wave_agents as _wa
+            _wa()
+        except Exception as _e:
+            print("wave_agents: "+str(_e)[:100])
+    except Exception as _e:
+        print("wave_agents: "+str(_e)[:100])
 
 def bill(d,who):
     """يسجّل التكلفة الفعلية من رد الـAPI."""
@@ -2859,6 +2921,7 @@ if os.environ.get("NEWS_ONLY"):
             print("viral_wave: "+str(_e)[:100])
     except Exception as _e:
         print("viral_wave: "+str(_e)[:100])
+    _run_wave()
     bundle()
     try:
         from social_pack import social_pack as _social_pack
@@ -3054,6 +3117,7 @@ if not os.environ.get("ENABLE_VIDEO"):
         _viral_wave()
     except Exception as _e:
         print("viral_wave: "+str(_e)[:100])
+    _run_wave()
     bundle(); broadcast_bulletin(); broadcast_official(); broadcast_alerts(); broadcast_news(); save_agents()
     print("🎙️ النشرة الصوتية جاهزة — الفيديو معطَّل في هذه النسخة")
     sys.exit(0)
@@ -3153,6 +3217,7 @@ try:
     _viral_wave()
 except Exception as _e:
     print("viral_wave: "+str(_e)[:100])
+_run_wave()
 bundle()
 try:
     from social_pack import social_pack as _social_pack

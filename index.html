@@ -212,6 +212,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
   font-size:18px;font-weight:700;background:var(--card2);border:1px solid var(--border);flex:0 0 auto}
 .tcard .b{flex:1;min-width:0}
 .tcard .b b{display:block;font-size:14px}
+.tcard .b b .wv-badge{font-size:10px;margin-inline-start:5px;vertical-align:middle;opacity:.85}
 .tcard .b .role{font-size:11.5px;color:var(--mut);margin-top:2px;line-height:1.6}
 .tcard .st{font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:20px;flex:0 0 auto}
 .st-ok{background:rgba(62,155,114,.14);color:var(--verify-l)}
@@ -759,10 +760,11 @@ const AGENT_NAME={
   mustaqri:["المُستقرِئ","Al-Mustaqri"], murtajil:["المُحلِّل","Al-Murtajil"], mudawwin:["المُدوِّن","Al-Mudawwin"],
   rawi:["الرَّاوِي","Al-Rawi"],
 };
-function agentName(id, fallback){
+function agentName(id, fallback, x){
+  if(EN && x && x.name_en) return x.name_en;      // ديناميكيّ/ثابت: يحمل الاسمَ الإنجليزيَّ من الأنبوب
   const row=AGENT_NAME[id];
   if(row) return EN?row[1]:row[0];
-  if(EN && hasAr(fallback)) return id;
+  if(EN && hasAr(fallback)) return (x&&x.name_en)||id;
   return fallback||id;
 }
 /* نبذٌ قصيرة للعامة — بلا أدوات ولا خطوات قابلة للاستنساخ */
@@ -787,9 +789,11 @@ const TEAM_BLURB={
   mudawwin:{ar:"يكتب عمود اليوم.",en:"Writes today’s column."},
   rawi:{ar:"يؤدّي النشرة اليومية.",en:"Hosts the daily bulletin."},
 };
-function teamBlurb(id, fallback){
+function teamBlurb(id, fallback, x){
+  if(EN && x && x.role_en) return x.role_en;       // وكيلُ الموجةِ الديناميكيّ يحملُ دورَه الإنجليزيَّ
   const b=TEAM_BLURB[id];
   if(b) return EN?b.en:b.ar;
+  if(!EN && x && x.role) return x.role;            // AR: دورُ الوكيلِ الديناميكيِّ كما كتبه الأنبوب
   return EN?"Member of the Sanad desk.":(fallback&&fallback.length<48?fallback:"عضو في فريق سَنَد.");
 }
 function hasAr(s){return /[\u0600-\u06FF]/.test(String(s||""))}
@@ -1125,8 +1129,8 @@ function profilePerson(kind,id){
       icon:d.letter,color:d.color,bio:deskBlurb(d),raw:d};
   }
   const a=((AGENTS&&AGENTS.agents)||[]).find(x=>x.id===id) || {id,name:id,icon:"•",status:"idle"};
-  return {kind:"agent",id,name:agentName(id,a.name),handle:"@"+id,icon:(a.icon||"•").slice(0,2),color:"",bio:teamBlurb(id),
-    note:enText(a.note,"")||(EN?"":(a.note||"")),status:a.status||"idle",at:a.at,ran:a.ran,raw:a};
+  return {kind:"agent",id,name:agentName(id,a.name,a),handle:"@"+id,icon:(a.icon||"•").slice(0,2),color:"",bio:teamBlurb(id,a.role,a),
+    note:enText(a.note,a.note_en||"")||(EN?"":(a.note||"")),status:a.status||"idle",at:a.at,ran:a.ran,raw:a};
 }
 function newsAsPosts(items, who){
   return items.map(i=>({
@@ -2583,10 +2587,11 @@ function renderTeam(){
   AGENT_CACHE=A;
   teamCrew.innerHTML=A.map((x,idx)=>{
     const st=paused.has(x.id)?"idle":(x.status||"idle");
-    const did=enText(x.note,"")||"";
+    const did=enText(x.note, x.note_en||"")||"";
+    const wv=x.parent==="mawj"?`<span class="wv-badge" title="${esc(EN?"spawned to follow a wave":"وكيلٌ فُرِّخَ لمتابعةِ موجة")}">🌊</span>`:"";
     return `<button type="button" class="tcard" onclick="openProfile('agent','${x.id}')">
       <div class="av">${esc((x.icon||"•").slice(0,2))}</div>
-      <div class="b"><b>${esc(agentName(x.id,x.name))}</b><div class="role">${esc(teamBlurb(x.id))}${did?`<br><span style="color:var(--dim)">${esc(did)}</span>`:""}</div></div>
+      <div class="b"><b>${esc(agentName(x.id,x.name,x))}${wv}</b><div class="role">${esc(teamBlurb(x.id,x.role,x))}${did?`<br><span style="color:var(--dim)">${esc(did)}</span>`:""}</div></div>
       <span class="st st-${esc(st)}">${paused.has(x.id)?(EN?"away":"صامت"):esc(SLBL[x.status]||x.status)}</span>
     </button>`;
   }).join("");
