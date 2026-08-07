@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       force:
-        description: أعد التوليد والإرسال حتى لو أُرسل اليوم
+        description: أعد التوليد حتى لو وُلِّد اليوم (لا إرسالَ لتلغرام)
         required: false
         default: "true"
         type: boolean
@@ -25,11 +25,9 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
       - run: pip install -q pillow arabic-reshaper python-bidi
-      - name: توليد الباكدج وإرساله لتلغرام
+      # بقرارِ المالك: لا يُرسَلُ محتوى إنستغرام إلى تلغرام — توليدٌ وحفظٌ فقط
+      - name: توليد الباكدج (بلا إرسالٍ لتلغرام)
         env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHANNEL: ${{ secrets.TELEGRAM_CHANNEL }}
-          TELEGRAM_EDITOR_CHAT: ${{ secrets.TELEGRAM_EDITOR_CHAT }}
           # الجدولة: لا تفرض الإعادة — مرة واحدة لليوم ما لم يُطلب يدويًا
           FORCE_SOCIAL: ${{ github.event_name == 'workflow_dispatch' && inputs.force == true && '1' || '' }}
         run: |

@@ -418,10 +418,10 @@ def broadcast_social_pack(meta: dict | None = None, force: bool = False) -> bool
 
 
 def social_pack(force: bool = False) -> dict:
-    meta = render_social_pack(force=force or bool(os.environ.get("FORCE_SOCIAL")))
-    if meta.get("status") == "ready":
-        broadcast_social_pack(meta, force=force or bool(os.environ.get("FORCE_SOCIAL")))
-    return meta
+    # بقرارِ المالك: محتوى إنستغرام (بطاقة الفيد/الستوري + الكابشن) لا يُرسَلُ إلى
+    # تلغرام إطلاقًا — التوليدُ والحفظُ في daily/social/ فقط، والنشرُ على إنستغرام
+    # يتمُّ يدويًّا من الملفّات. دالّةُ broadcast_social_pack تبقى معطَّلةً ولا تُستدعى.
+    return render_social_pack(force=force or bool(os.environ.get("FORCE_SOCIAL")))
 
 
 if __name__ == "__main__":
