@@ -188,6 +188,7 @@ async function refresh(){
 
 function renderAll(){
   renderOverview(); renderAgents(); renderCost(); renderVerify(); renderFeed(); renderSocial(); renderControls();
+  loadHealth();   // 🩺 حالةُ الأقسامِ من نتيجتِها — بعد رسمِ تبويبِ الخلاصة
 }
 
 function renderOverview(){
@@ -284,12 +285,36 @@ function renderVerify(){
     </tbody></table></div></div>`;
 }
 
+/* لوحةُ الحِراسة: الحالةُ من نتيجةِ كلِّ قسمٍ (عُمر + عدد) لا من نجاحِ التشغيل.
+   وُلدت بعد أن بقيَ قسمُ التحذيراتِ فارغًا ٦ أيّامٍ وكلُّ المؤشّراتِ خضراء. */
+let HEALTH=null;
+const HEALTH_RAW="https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/health.json";
+async function loadHealth(){
+  try{ const r=await fetch(HEALTH_RAW+"?t="+Date.now()); HEALTH=r.ok?await r.json():null; }
+  catch(e){ HEALTH=null }
+  const box=document.getElementById("healthBox"); if(!box) return;
+  if(!HEALTH){ box.innerHTML=`<div class="panel"><div class="hd">🩺 الحِراسة</div>
+    <div class="mono" style="padding:8px">لم يُنشَرْ health.json بعد — يُكتَبُ مع أوّلِ دورةِ أنبوبٍ بعد الدمج.</div></div>`; return; }
+  const S=HEALTH.sections||[]; const bad=S.filter(s=>s.state!=="fresh");
+  const LBL={fresh:"حيّ",stale:"بائت",empty:"فارغ",dead:"ميّت"};
+  const CL={fresh:"ok",stale:"",empty:"",dead:"err"};
+  box.innerHTML=`<div class="panel"><div class="hd">🩺 الحِراسة · ${bad.length?`<span class="err">${bad.length} قسمًا يحتاجُ نظرًا</span>`:'<span class="ok">كلُّ الأقسامِ حيّة</span>'}</div>
+    <div class="tw"><table><thead><tr><th>قسم</th><th>الحالة</th><th>العُمر</th><th>عناصر</th><th>ملاحظة</th></tr></thead><tbody>
+    ${S.map(s=>`<tr><td>${s.key}</td>
+      <td class="${CL[s.state]||""}">${LBL[s.state]||s.state}</td>
+      <td class="mono">${s.age_h==null?"—":s.age_h+"س"}</td>
+      <td class="mono">${s.items==null?"—":s.items}</td>
+      <td class="mono" style="font-size:11px">${(s.note||"").slice(0,60)}</td></tr>`).join("")}
+    </tbody></table></div></div>`;
+}
+
 function renderFeed(){
   const sec=STATUS.sections||{};
   const CADENCE={news:.6,verify:.6,council:.6,evolution:.6,agents:.6,forecast:6.5,analyst:6.5,alerts:8.5,official:13,rumors:8.5,column:27,latest:26,dua:26};
   const NM={news:"الأخبار",verify:"التدقيق",council:"المجلس",evolution:"التطوّر",agents:"الوكلاء",forecast:"الاستقراء",analyst:"المحلّل",alerts:"التحذيرات",official:"من المَنبع",rumors:"تحت المجهر",column:"عمودُ الجريدة",latest:"نشرةُ المذيع",dua:"الدعاء"};
   const keys=Object.keys(CADENCE);
   document.getElementById("tab-feed").innerHTML=`
+    <div id="healthBox"></div>
     <div class="row">
       <button class="btn btn-p" onclick="triggerWf('news-refresh')">↻ news-refresh</button>
       <button class="btn btn-s" onclick="triggerWf('daily-anchor')">🎙️ daily-anchor</button>

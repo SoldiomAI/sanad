@@ -91,6 +91,9 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .dot{width:7px;height:7px;border-radius:50%;background:var(--red);animation:blink 1.2s infinite}
 @keyframes blink{50%{opacity:.35}}
 @media(prefers-reduced-motion:reduce){.dot{animation:none}}
+/* بياناتٌ شاخت: لا نبضَ «حيّ» على محتوًى قديم — النبضُ وعدٌ، لا زينة */
+.dot.dot-off{animation:none;background:var(--dim);opacity:.65}
+.upd-stale{color:var(--dim)}
 .desk-status{font-size:11px;color:var(--mut);padding:0 14px 6px;min-height:18px}
 
 /* Desktop top nav instead of bottom */
@@ -2313,7 +2316,13 @@ function openOfficial(i){
 function renderBriefOfficial(){
   const el=document.getElementById("briefOfficial"); if(!el) return;
   const L=(OFFICIAL&&OFFICIAL.src)||[];
-  if(!L.length){ el.innerHTML=""; return; }
+  // الفراغُ يُقال، لا يُخفى: قسمٌ يختفي صامتًا يجعلُ القارئَ يظنُّ أنّه لا شيء
+  // يستحقُّ النشر، بينما قد يكون المصدرُ منقطعًا.
+  if(!L.length){
+    el.innerHTML=`<div class="team-sec" style="margin-top:8px">${EN?"Official wire":"من المَنبع · بيانات رسمية"}</div>`
+      +`<div class="empty">${EN?"No official statements captured recently.":"لا بياناتٍ رسميّةً مرصودةً حديثًا."}</div>`;
+    return;
+  }
   el.innerHTML=`<div class="team-sec" style="margin-top:8px">${EN?"Official wire":"من المَنبع · بيانات رسمية"}</div>`+
     L.slice(0,8).map((x,i)=>`<button type="button" class="tcard" onclick="openOfficial(${i})">
       <div class="av">${esc(x.f||"🏛")}</div>
@@ -2909,16 +2918,46 @@ async function loadControl(){
   if(CONTROL.maintenance){maint.style.display="block"; maint.textContent=CONTROL.maintenance} else maint.style.display="none";
 }
 
+/* ختمُ الطزاجة: عُمرٌ صريحٌ بلغتين + تاريخٌ عند تجاوزِ اليوم، ونقطةُ «حيّ»
+   تكفُّ عن النبضِ حين تشيخُ البيانات. كان الختمُ ساعةً مجرّدةً بلا تاريخٍ ولا
+   عُمر، فلو ماتَ الأنبوبُ ثلاثةَ أيّامٍ لقرأ الزائرُ رقمًا هادئًا ونبضًا حيًّا. */
+const STALE_MIN=90;
+function stampFreshness(iso){
+  const u=document.getElementById("upd"), dot=document.querySelector(".live .dot");
+  if(!u) return;
+  const t=iso?new Date(iso):null;
+  if(!t||isNaN(t)){
+    u.textContent=EN?"data unavailable":"البياناتُ غيرُ متاحة";
+    if(dot) dot.classList.add("dot-off");
+    return;
+  }
+  const mins=Math.max(0,Math.round((Date.now()-t)/60000));
+  const hrs=Math.floor(mins/60), days=Math.floor(hrs/24);
+  let age;
+  if(mins<2)      age=EN?"just now":"الآن";
+  else if(mins<60)age=EN?`${mins} min ago`:`قبل ${mins} د`;
+  else if(hrs<24) age=EN?`${hrs} h ago`:`قبل ${hrs} س`;
+  else            age=EN?`${days} d ago`:`قبل ${days} ي`;
+  const time=t.toLocaleTimeString(EN?"en-GB":"ar-KW",{hour:"2-digit",minute:"2-digit"});
+  const datePart=hrs>=24?" · "+t.toLocaleDateString(EN?"en-GB":"ar-KW",{day:"numeric",month:"short"}):"";
+  u.textContent=(EN?"Updated ":"آخر تحديث ")+age+" ("+time+datePart+")";
+  if(dot) dot.classList.toggle("dot-off", mins>STALE_MIN);
+  u.classList.toggle("upd-stale", mins>STALE_MIN);
+}
 async function load(){
   await loadBundle(); await loadControl();
   try{
     const n=await grab("news"); DATA=n;
-    const u=document.getElementById("upd");
-    if(u) u.textContent=(EN?"Updated ":"")+new Date(n.updated).toLocaleTimeString(EN?"en-GB":"ar-KW",{hour:"2-digit",minute:"2-digit"});
+    stampFreshness(n.updated);
     renderDesks();
   }catch(e){
+    // صدقٌ في العطل: القارئُ يستحقُّ تشخيصًا لا عبارةَ «تُجهَّز أخبارُ اليوم»
+    // التي تُلقي اللومَ على غرفةِ الأخبارِ بينما الشبكةُ هي التي انقطعت.
+    stampFreshness(null);
     const f=feedEl();
-    if(f) f.innerHTML=`<div class="empty">${EN?"Preparing today's feed…":"تُجهَّز أخبارُ اليوم…"}</div>`;
+    if(f) f.innerHTML=`<div class="empty">${EN?"Couldn’t reach the newsroom data.":"تعذّرَ الوصولُ إلى بياناتِ سَنَد."}<br>`
+      +`<span style="color:var(--dim);font-size:11.5px">${EN?"Check your connection — your last saved edition is still below if available.":"تحقّقْ من اتصالك — آخرُ نسخةٍ محفوظةٍ تبقى متاحةً إن وُجدت."}</span><br>`
+      +`<button class="mini" style="margin-top:9px" onclick="load()">${EN?"Retry":"أعِد المحاولة"}</button></div>`;
   }
   try{ OFFICIAL=await grab("official"); }catch(e){ OFFICIAL=null }
   try{ ANALYST=await grab("analyst"); }catch(e){ ANALYST=null }
