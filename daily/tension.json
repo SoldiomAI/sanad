@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-08T04:49+00:00",
+ "updated": "2026-08-08T05:19+00:00",
  "note": "مؤشرٌ حسابيٌّ شفّافٌ من كثافة المواد المُسنَدة وحدَها — ليس تقييمًا استخباراتيًّا رسميًّا",
  "formula": "score = min(100, 4·عاجل + 3·ألفاظ تصعيد + 8·تحذيرات + 4·شائعات + 2·أخبار أخرى + بيانات رسمية)",
  "countries": [
@@ -11,7 +11,7 @@
    "lon": 53.0,
    "score": 64,
    "level": "متوتّر",
-   "delta": -1,
+   "delta": 0,
    "parts": {
     "n": 27,
     "u": 0,
@@ -57,17 +57,7 @@
      "src": "إيران إنترناشونال"
     }
    ],
-   "signals": [
-    {
-     "kind": "flight",
-     "src": "OpenSky",
-     "lat": 32.0,
-     "lon": 53.0,
-     "detail": "1 طائرةً في المجالِ الجوّيِّ الآن",
-     "url": "https://opensky-network.org/",
-     "at": "2026-08-08T04:49+00:00"
-    }
-   ]
+   "signals": []
   },
   {
    "id": "sa",
@@ -77,16 +67,23 @@
    "lon": 45.0,
    "score": 43,
    "level": "مترقّب",
-   "delta": 2,
+   "delta": 0,
    "parts": {
-    "n": 17,
+    "n": 18,
     "u": 0,
     "w": 2,
     "a": 0,
     "r": 0,
-    "o": 3
+    "o": 1
    },
    "events": [
+    {
+     "h": "أمير سعودي يرد وسط جدال حول الاتفاقية الدفاعية التركية الباكستانية السعودية",
+     "g": "حسن",
+     "u": "https://arabic.cnn.com/middle-east/article/2026/08/08/saudi-prince-viral-post-defense-agreement-with-turkey-pakistan-social-reactions",
+     "at": "2026-08-08T04:44+00:00",
+     "src": "CNN بالعربية"
+    },
     {
      "h": "السعودية وتركيا تؤكدان أن الاتفاقية مع باكستان لا تستهدف دول المنطقة وليست مرتبطة بمساعٍ نووية",
      "g": "حسن",
@@ -114,13 +111,6 @@
      "u": "https://news.google.com/rss/articles/CBMirgJBVV95cUxQTmdhb0s3YmxIVzMtVFBhX1NmT0VFeW1qa1Byek5zZEJQXzZCX19ENS1jUVY3X3BDUE16MVBtV19IY0ZQcUNJcUdRZ0ZGY2lIdncycGN6Q3AxQVVubjhXV3FESlRHcllpR2xVaWdha3AwOVRVdWkxbmtGaVZaX2YzdEdfemZjTllSSHFWVG0yMWo5X09JYmRwZWdVTjlWYVBJV3hFUEJ4T3RLbnBRTGpldkRVMDRsWUx2bVRlaTB4RUFOLXFoVlN4blFldzRsUW16dzRGVmFHN1pRUTNzT2ZuVEY4VHpwTmFVYXRSSUdZcnREMGNKREZwSko5b0MwcHowdHlYdTVVM1hyWGdqMUUzQjliLS1OYlFTaVdVOWsyVnZISC0zaFgtdDBBclQ3QdIBswJBVV95cUxQMlkwSlBvUS1JMncyOGNGZGd2UWZDMTd5Q3NWVXZCUktSMk9SZ0p0VlRQUFhVeXR3bW5PTGo4eTJyM0RSbzQwMzUxajZuLU5XR2lOYVFaRzFGMHRZelpWdVhNRm9Pa19VRDV6Vm5Hb250dmVGSlp1X2RnWWhrYUhpeFpjVE9NMWVGZENVS2QzZmxaOU43ck85Tm12TWtZZXc1NWFTd0ZXN1QzNjNSY3Q0cWlnNXRCLTVOdVFMVDVmb1BxSERxZTlQY1dpNkY5RWxBWmo5dE9taTgyZDQwcDBQRGVUTDhhMnJHRklVeGhBYzNFRzJtQUpGalUwRWw4YkM3bHBTVnhRZVdsajhERnItRVM2Ml8zVm5TUmUwblM1bjdUY1hUQWdHRDh3U3p3eEFCRm1v?oc=5",
      "at": "2026-08-07T18:50+00:00",
      "src": "الجزيرة نت"
-    },
-    {
-     "h": "أردوغان وشريف يعلقان على اتفاقية الدفاع المشترك مع السعودية",
-     "g": "حسن",
-     "u": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPRFltbkd5VVFpWThYVll6NFIzVndVeVJ3NHFRVU12ODZvMHNTZ3lIQ0ZzeFg2bWJjVTYtdVRteE5ZRXZzenNGekZZUkhyVW5OenEwZ3RXOUhCeTdrTlByNzRENzdXekhKU0hIVGZHMmZHVjdrMzlNX2JXN1VqYzRnY0JQYndOTlZIaDI1dmEyTHRhNVk1SzFhd19hakh5LWxSVEt4MElULUpMc0RFV0ZhS2JQU3RTS0XSAcIBQVVfeXFMTWlnaWhRWUZKYVg0bmV3MW16OG4wSmppMEpjLTVXXzA1SDB1TnZCcFl0OHdpR0E2MUJWNGhuRHpIcUpwckhFcDhSeU9YcUFoSmU2YVVsak14d21tZmJ5VzRWbDdTbjA3TEk5QWJDd3ExNWN4VTNKenhQbkVnV0E2bVFPSXFiRUZtYks1VXJKaXRQeHBNV1AySUNJbTByTVc3ZkRzZE9LTjBGUjRuOFM3V0NIWE9XSW5IcDNrcW5sbjkwM1E?oc=5",
-     "at": "2026-08-07T18:06+00:00",
-     "src": "CNN Arabic"
     }
    ],
    "signals": []
@@ -131,16 +121,16 @@
    "en": "Palestine",
    "lat": 31.9,
    "lon": 35.2,
-   "score": 34,
+   "score": 32,
    "level": "مترقّب",
-   "delta": 0,
+   "delta": -2,
    "parts": {
     "n": 13,
     "u": 0,
     "w": 2,
     "a": 0,
     "r": 0,
-    "o": 2
+    "o": 0
    },
    "events": [
     {
@@ -185,9 +175,9 @@
      "src": "OpenSky",
      "lat": 31.9,
      "lon": 35.2,
-     "detail": "61 طائرةً في المجالِ الجوّيِّ الآن",
+     "detail": "71 طائرةً في المجالِ الجوّيِّ الآن",
      "url": "https://opensky-network.org/",
-     "at": "2026-08-08T04:49+00:00"
+     "at": "2026-08-08T05:19+00:00"
     }
    ]
   },
@@ -199,7 +189,7 @@
    "lon": 47.8,
    "score": 26,
    "level": "مترقّب",
-   "delta": 2,
+   "delta": 0,
    "parts": {
     "n": 8,
     "u": 0,
@@ -214,7 +204,7 @@
      "g": "صحيح",
      "u": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1NWno1dU1MSW5JRTJTSEhXYXJTV1dMcFBUeDV6bUFWSExzdVhYQ29kaXI1VE4zZkszSktHMm1ONWRfMTVuZkZfSE91Ujg2cEQ2ZXh6TFVLUlVTQlNCa2pyUHhXSXYwNlJpQmJOeDRCQlVjMDRwR1V1NDJkTQ?oc=5",
      "at": "2026-07-31T10:57+00:00",
-     "src": "reuters.com"
+     "src": "Reuters"
     },
     {
      "h": "الأمير: تكثيف الجهود لرفع راية الكويت عالياً",
@@ -251,9 +241,9 @@
      "src": "OpenSky",
      "lat": 29.3,
      "lon": 47.8,
-     "detail": "3 طائرةً في المجالِ الجوّيِّ الآن",
+     "detail": "4 طائرةً في المجالِ الجوّيِّ الآن",
      "url": "https://opensky-network.org/",
-     "at": "2026-08-08T04:49+00:00"
+     "at": "2026-08-08T05:19+00:00"
     }
    ]
   },
@@ -297,17 +287,7 @@
      "src": "الشرق الأوسط"
     }
    ],
-   "signals": [
-    {
-     "kind": "flight",
-     "src": "OpenSky",
-     "lat": 33.0,
-     "lon": 44.0,
-     "detail": "2 طائرةً في المجالِ الجوّيِّ الآن",
-     "url": "https://opensky-network.org/",
-     "at": "2026-08-08T04:49+00:00"
-    }
-   ]
+   "signals": []
   },
   {
    "id": "om",
@@ -317,7 +297,7 @@
    "lon": 57.0,
    "score": 10,
    "level": "هادئ",
-   "delta": -2,
+   "delta": 0,
    "parts": {
     "n": 5,
     "u": 0,
@@ -328,7 +308,7 @@
    },
    "events": [
     {
-     "h": "مسؤول أمريكي: الجمهورية الإسلامية وعمان ستتوصلان إلى اتفاق قريباً",
+     "h": "مسؤول أمريكي: الجمهورية الإسلامية وعُمان ستتوصلان إلى اتفاق قريباً",
      "g": "حسن",
      "u": "https://www.iranintl.com/202608074128",
      "at": "2026-08-07T23:55+00:00",
@@ -339,7 +319,7 @@
      "g": "صحيح",
      "u": "https://news.google.com/rss/articles/CBMif0FVX3lxTE91c0dhSVZDaVRMcDZEOW40UUg5ektfdGtVSU1iUVBYNDVRel9VTm0yZ2FaVGszODU0bDl5aUJROEhSaU5CanB2aXFlUWJQMGJYdV9EOEJ1dkRTTDA2OC1jczNwT3NmLTR1bVE2SjA3MmJfZEVELWJYNjM5MlJ2LW8?oc=5",
      "at": "2026-08-06T18:24+00:00",
-     "src": "reuters.com"
+     "src": "Reuters"
     },
     {
      "h": "إيران وسلطنة عُمان تقتربان من اتفاق محتمل بشأن مضيق هرمز",
@@ -369,47 +349,9 @@
      "src": "OpenSky",
      "lat": 21.0,
      "lon": 57.0,
-     "detail": "7 طائرةً في المجالِ الجوّيِّ الآن",
+     "detail": "10 طائرةً في المجالِ الجوّيِّ الآن",
      "url": "https://opensky-network.org/",
-     "at": "2026-08-08T04:49+00:00"
-    }
-   ]
-  },
-  {
-   "id": "qa",
-   "name": "قطر",
-   "en": "Qatar",
-   "lat": 25.3,
-   "lon": 51.2,
-   "score": 5,
-   "level": "هادئ",
-   "delta": 0,
-   "parts": {
-    "n": 1,
-    "u": 0,
-    "w": 0,
-    "a": 0,
-    "r": 0,
-    "o": 3
-   },
-   "events": [
-    {
-     "h": "إلغاء تصريح الوصول إلى المعلومات السرية لوزير أمريكي سابق بسبب\" تسريبات الطائرة المهداة لترامب من قطر\"",
-     "g": "حسن",
-     "u": "https://arabic.cnn.com/world/article/2026/08/08/pentagon-revokes-access-to-classified-information-for-former-air-force-secretary",
-     "at": "2026-08-08T00:46+00:00",
-     "src": "CNN بالعربية"
-    }
-   ],
-   "signals": [
-    {
-     "kind": "flight",
-     "src": "OpenSky",
-     "lat": 25.3,
-     "lon": 51.2,
-     "detail": "28 طائرةً في المجالِ الجوّيِّ الآن",
-     "url": "https://opensky-network.org/",
-     "at": "2026-08-08T04:49+00:00"
+     "at": "2026-08-08T05:19+00:00"
     }
    ]
   },
@@ -445,9 +387,39 @@
      "src": "OpenSky",
      "lat": 26.0,
      "lon": 50.5,
-     "detail": "17 طائرةً في المجالِ الجوّيِّ الآن",
+     "detail": "20 طائرةً في المجالِ الجوّيِّ الآن",
      "url": "https://opensky-network.org/",
-     "at": "2026-08-08T04:49+00:00"
+     "at": "2026-08-08T05:19+00:00"
+    }
+   ]
+  },
+  {
+   "id": "qa",
+   "name": "قطر",
+   "en": "Qatar",
+   "lat": 25.3,
+   "lon": 51.2,
+   "score": 1,
+   "level": "هادئ",
+   "delta": -4,
+   "parts": {
+    "n": 0,
+    "u": 0,
+    "w": 0,
+    "a": 0,
+    "r": 0,
+    "o": 1
+   },
+   "events": [],
+   "signals": [
+    {
+     "kind": "flight",
+     "src": "OpenSky",
+     "lat": 25.3,
+     "lon": 51.2,
+     "detail": "45 طائرةً في المجالِ الجوّيِّ الآن",
+     "url": "https://opensky-network.org/",
+     "at": "2026-08-08T05:19+00:00"
     }
    ]
   },
@@ -457,16 +429,16 @@
    "en": "UAE",
    "lat": 24.2,
    "lon": 54.3,
-   "score": 2,
+   "score": 0,
    "level": "هادئ",
-   "delta": 0,
+   "delta": -2,
    "parts": {
     "n": 0,
     "u": 0,
     "w": 0,
     "a": 0,
     "r": 0,
-    "o": 2
+    "o": 0
    },
    "events": [],
    "signals": [
@@ -475,9 +447,9 @@
      "src": "OpenSky",
      "lat": 24.2,
      "lon": 54.3,
-     "detail": "62 طائرةً في المجالِ الجوّيِّ الآن",
+     "detail": "67 طائرةً في المجالِ الجوّيِّ الآن",
      "url": "https://opensky-network.org/",
-     "at": "2026-08-08T04:49+00:00"
+     "at": "2026-08-08T05:19+00:00"
     }
    ]
   },
