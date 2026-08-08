@@ -154,7 +154,12 @@ def agent(aid):
             t0=time.time(); st="ok"; note=""
             try:
                 r=fn(*a,**k)
-                if isinstance(r,dict) and r.get("skipped"): st="skip"; note=r.get("why","")
+                # الوكيلُ الذي يبتلعُ استثناءَه داخليًّا يُبلِّغُ عنه بـ{"failed":1}
+                # — بغيرِ هذا لا يرى المُزيِّنُ إلّا الاستثناءَ غيرَ الملتقَط،
+                # فتُنشَرُ حالةُ «سليم» لوكيلٍ معطَّل (سببُ كذبةِ 19/19).
+                if isinstance(r,dict) and r.get("failed"):
+                    st="fail"; note=str(r.get("why",""))[:110]
+                elif isinstance(r,dict) and r.get("skipped"): st="skip"; note=r.get("why","")
                 return r
             except Exception as e:
                 st="fail"; note=str(e)[:110]; print(f"⚠️ {aid}: {note}"); return None
@@ -167,6 +172,36 @@ def agent(aid):
 def mark(aid,status="ok",note=""):
     _LOG[aid]={"ms":_LOG.get(aid,{}).get("ms",0),"status":status,"note":note,
         "at":datetime.now(timezone.utc).isoformat(timespec="minutes")}
+
+# نافذةُ طزاجةِ الخلاصةِ الإخباريّة: مادّةٌ أقدمُ منها لا تُنشَرُ بوصفِها خبرًا.
+# الدرس: كانت الخلاصةُ الحيّةُ تحملُ ١٨ مادّةً أقدمَ من أسبوع، أقدمُها ٨١٥ يومًا
+# («OpenAI تُعلن نموذجًا جديدًا») معروضةً بدرجةِ «حسن» كأنّها خبرُ اليوم —
+# لأنّ مسارَ الإدخالِ كان يقرأ pubDate ولا يرفضُ به شيئًا قطّ.
+FRESH_MAX_H=float(os.environ.get("FRESH_MAX_H","72"))
+_STALE_DROP=[0]          # عدّادُ ما أُسقِط قِدَمًا هذه الدورة (يُطبَعُ في السجلّ)
+def _too_old(iso, max_h=None):
+    """True إن كان الختمُ الزمنيُّ أقدمَ من النافذة. بلا ختمٍ → False (لا نُسقِطُ
+    ما لا نملكُ إثباتَ قِدَمِه، لكنّه يُمنَعُ من الصدارةِ لاحقًا)."""
+    if not iso: return False
+    a=_age_h(iso)
+    return a is not None and a>(FRESH_MAX_H if max_h is None else max_h)
+
+def _age_h(iso):
+    """عمرُ ختمٍ زمنيٍّ بالساعات، أو None إن تعذّرت القراءة."""
+    if not iso: return None
+    try:
+        t=datetime.fromisoformat(str(iso).replace("Z","+00:00"))
+        if t.tzinfo is None: t=t.replace(tzinfo=timezone.utc)
+        return (datetime.now(timezone.utc)-t).total_seconds()/3600.0
+    except Exception: return None
+
+# بعد هذه المهلةِ (ساعات) يُعدُّ الوكيلُ الذي لم يعملْ «بائتًا» لا «سليمًا».
+# القيَمُ أوسعُ من نوبةِ كلِّ وكيلٍ كي لا يُوسَمَ بائتًا وهو منتظِمٌ في دورته.
+_STALE_DEFAULT_H=26
+_STALE_AFTER_H={"hurr":3,"rasid":26,"mutabiq":26,"manba":26,"munabbih":26,
+    "multaqit":26,"fahis":26,"mukharrij":26,"munaqqih":26,"miqyas":3,"shahid":3,
+    "turjuman":26,"mudaqqiq":6,"musannif":26,"mustaqri":13,"murtajil":13,
+    "mudawwin":30,"rawi":30,"mawj":3}
 
 
 # ═══ الأرشيف: لقطة لكل جولة + فهرس ═══
@@ -784,6 +819,92 @@ def social_posts():
     print(f"📸 منشورات آلية: {total} منشورًا عبر {len(agent_posts)} وكيلًا + {len(desk_posts)} مكتبًا · صفر API إضافي")
     return out
 
+# ═══ الحِراسة: حارسُ الصحّة — هل ما نَنشرُه حيٌّ فعلًا؟ ═══
+# الدرسُ الذي فرضَ وجودَها: بقيَ قسمُ «تحذيراتٌ رسمية» فارغًا ٦ أيّامٍ كاملة
+# بينما كلُّ شيءٍ يقولُ «سليم» — التشغيلُ ناجح، والوكيلُ ok، واللوحةُ ١٩/١٩.
+# لأنّ كلَّ ما كنّا نقيسُه هو «هل جرى الكودُ بلا استثناء؟» لا «هل خرجَ منه شيءٌ
+# طازج؟». الحِراسةُ تقيسُ **النتيجة**: عُمرَ كلِّ ملفٍّ وعددَ عناصرِه.
+# الحالات: fresh (حيّ) · stale (بائت) · empty (فارغ) · dead (ميّت/مفقود).
+HEALTH_F=f"{OUT}/health.json"
+#            المفتاح        (أقصى عُمرٍ بالساعات, أدنى عدد, مسارُ العناصر, الوكيلُ المالك)
+_HEALTH_SPEC={
+ "news":     (3,   10, "cats",   "hurr"),
+ "official": (26,  1,  "src",    "manba"),
+ "alerts":   (26,  0,  "list",   "munabbih"),
+ "rumors":   (26,  0,  "items",  "munaqqih"),
+ "tension":  (3,   1,  "countries","miqyas"),
+ "forecast": (26,  0,  "scenarios","mustaqri"),
+ "analyst":  (26,  0,  None,     "murtajil"),
+ "column":   (30,  0,  None,     "mudawwin"),
+ "map":      (26,  1,  "countries","map_week"),
+ "osint":    (26,  1,  "watches","osint_watch"),
+ "wave":     (26,  0,  "cards",  "viral_wave"),
+ "waves":    (3,   0,  "waves",  "mawj"),
+ "latest":   (30,  0,  None,     "rawi"),
+}
+def _count_items(doc, path):
+    if not path: return None
+    v=doc.get(path)
+    if isinstance(v,list): return len(v)
+    if isinstance(v,dict): return sum(len(x) for x in v.values() if isinstance(x,list))
+    return 0
+
+def hirasa():
+    """يفحصُ نتيجةَ كلِّ قسمٍ ويكتبُ health.json، ويُصحّحُ حالةَ الوكيلِ المالك."""
+    secs=[]; now=datetime.now(timezone.utc).isoformat(timespec="minutes")
+    try: prev={s["key"]:s for s in json.load(open(HEALTH_F)).get("sections",[])}
+    except Exception: prev={}
+    for key,(max_h,min_n,path,owner) in _HEALTH_SPEC.items():
+        p=f"{OUT}/{key}.json"
+        if not os.path.exists(p):
+            secs.append({"key":key,"state":"dead","age_h":None,"items":0,"owner":owner,
+                         "note":"الملفُّ غيرُ موجود","empty_for_h":0}); continue
+        try: doc=json.load(open(p))
+        except Exception as e:
+            secs.append({"key":key,"state":"dead","age_h":None,"items":0,"owner":owner,
+                         "note":"تعذّرت القراءة: "+str(e)[:50],"empty_for_h":0}); continue
+        # بعضُ الملفّاتِ تختمُ بـdate (يوم) لا updated (لحظة) — نقبلُ الاثنين
+        age=_age_h(doc.get("updated"))
+        if age is None and doc.get("date"):
+            age=_age_h(str(doc["date"])[:10]+"T23:59+00:00")
+            if age is not None and age<0: age=0.0
+        n=_count_items(doc,path)
+        state="fresh"; note=""
+        if age is None: state,note="dead","بلا ختمٍ زمنيّ"
+        elif age>max_h*6: state,note="dead",f"لم يتحدّثْ منذ {age/24:.1f} يوم"
+        elif age>max_h:   state,note="stale",f"أقدمُ من مهلتِه ({age:.1f}س > {max_h}س)"
+        if n is not None and n<min_n and state=="fresh":
+            state,note="empty",f"العناصرُ {n} دونَ الحدِّ الأدنى {min_n}"
+        # مدّةُ الفراغِ المتّصلة: «لا تحذيراتٍ» ساعةً أمرٌ طبيعيّ، وستّةَ أيّامٍ عطل
+        ef=float((prev.get(key) or {}).get("empty_for_h") or 0)
+        if n==0:
+            step=_age_h(prev.get("updated_at")) if prev.get("updated_at") else None
+            ef=ef+(step if step and step<6 else 0.5)
+            if ef>=48 and state=="fresh": state,note="empty",f"فارغٌ منذ ~{ef/24:.1f} يوم"
+        else: ef=0
+        secs.append({"key":key,"state":state,"age_h":(round(age,1) if age is not None else None),
+                     "items":n,"owner":owner,"note":note,"empty_for_h":round(ef,1)})
+    bad=[s for s in secs if s["state"] in ("dead","stale","empty")]
+    overall="ok" if not bad else ("dead" if any(s["state"]=="dead" for s in bad) else "degraded")
+    json.dump({"updated":now,"updated_at":now,"overall":overall,
+        "note":"حالةُ كلِّ قسمٍ من نتيجتِه لا من نجاحِ تشغيلِه",
+        "sections":secs,"modules":_AUX},
+        open(HEALTH_F,"w"),ensure_ascii=False,indent=1)
+    # الوكيلُ المالكُ لقسمٍ بائتٍ/فارغٍ لا يُنشَرُ «سليمًا»
+    for s in secs:
+        o=s.get("owner")
+        if not o or s["state"]=="fresh": continue
+        cur=(_LOG.get(o) or {}).get("status")
+        if cur in ("fail",): continue
+        if s["state"] in ("dead","empty") or cur is None:
+            mark(o,"degraded" if s["state"]!="dead" else "fail",
+                 f"{s['key']}: {s['note']}"[:110])
+    if bad:
+        print("🩺 الحِراسة: "+" · ".join(f"{s['key']}={s['state']}" for s in bad))
+    else:
+        print(f"🩺 الحِراسة: كلُّ الأقسامِ حيّة ({len(secs)})")
+    return {"why":overall}
+
 def bundle():
     """يدمج كل ملفات العرض في ملف واحد — يقضي على خنق الطلبات المتوازية."""
     # تعليقات ومنشورات مجّانية قبل الحزمة — من مخرجات الدورة فقط
@@ -809,7 +930,7 @@ def bundle():
             print(f"🛡️ نشرةُ اليوم: أُبقيت الأحدث ({_pub.get('date')}) بدل الأقدم ({_loc.get('date')})")
     except Exception as _e: print(f"guard_latest: {str(_e)[:80]}")
     keys=["news","intel","official","forecast","analyst","dua","verify",
-          "alerts","corrections","latest","agents","cost","evolution","council","gpu","rumors","column","tension","map","osint","wave","waves","comments","posts"]
+          "alerts","corrections","latest","agents","cost","evolution","council","gpu","rumors","column","tension","map","osint","wave","waves","health","comments","posts"]
     b={"built":datetime.now(timezone.utc).isoformat(timespec="minutes")}
     for k in keys:
         try: b[k]=json.load(open(f"{OUT}/{k}.json"))
@@ -857,18 +978,32 @@ def save_agents():
         cur=_LOG.get(aid) or {}
         prev=_PREV.get(aid,{})
         en=AGENTS_EN.get(aid,("",""))
+        st=cur.get("status", prev.get("status","idle"))
+        at=cur.get("at", prev.get("at",""))
+        note=cur.get("note", prev.get("note",""))
+        # لا وراثةَ صامتة: وكيلٌ لم يعملْ هذه الدورةَ وآخرُ عملٍ له أقدمُ من مهلتِه
+        # يُوسَمُ «بائتًا» لا «سليمًا» — كان fahis/mukharrij يظهران ok وآخرُ عملٍ
+        # لهما قبل ٨ أيّام، فبدا الطاقمُ ١٩/١٩ سليمًا وهو ليس كذلك.
+        if aid not in _LOG:
+            gap=_age_h(at)
+            if gap is None or gap>_STALE_AFTER_H.get(aid,_STALE_DEFAULT_H):
+                st="stale"
+                note=(f"لم يعملْ منذ {gap:.0f} ساعة" if gap is not None else "لا سجلَّ تشغيلٍ سابق")
         out.append({"id":aid,"name":nm,"name_en":en[0],"icon":ic,"role":role,"role_en":en[1],
-            "status":cur.get("status", prev.get("status","idle")),
+            "status":st,
             "ms":cur.get("ms", prev.get("ms",0)),
-            "note":cur.get("note", prev.get("note","")),
+            "note":note,
             "note_en":cur.get("note_en", prev.get("note_en","")),
-            "at":cur.get("at", prev.get("at","")),
+            "at":at,
             "ran":aid in _LOG})
     # الطاقمُ الديناميكيّ: وكلاءُ الموجةِ الأحياءُ الذين فرّخهم «المَوّاج» هذه الدورة.
     # يُقرأون من agents_dynamic.json (كتبه wave_agents) ويُلحَقون بالطاقمِ الثابت،
     # فيظهرون في لوحةِ الفريقِ ويتقاعدون تلقائيًّا حين تخبو موجتُهم (يختفي صفُّهم).
     try:
-        dyn=json.load(open(f"{OUT}/agents_dynamic.json")).get("agents",[])
+        _dynj=json.load(open(f"{OUT}/agents_dynamic.json"))
+        # روسترٌ بائتٌ لا يُنشَر: لو تعطّلَ المَوّاجُ لظلَّ يُقدِّمُ وكلاءَ موجةٍ
+        # ميّتين كأنّهم يعملون الآن.
+        dyn=_dynj.get("agents",[]) if (_age_h(_dynj.get("updated")) or 999)<=_STALE_DEFAULT_H else []
     except Exception:
         dyn=[]
     for a in dyn:
@@ -882,29 +1017,50 @@ def save_agents():
             "note":cur.get("note", a.get("note","")),
             "note_en":a.get("note_en",""),
             "at":cur.get("at", a.get("at","")),
-            "ran":True})
+            "ran":a["id"] in _LOG})
+    # «سليم» يعني طازجًا فعلًا: البائتُ والمعطَّلُ لا يُعدّان.
     ok=sum(1 for a in out if a["status"] in ("ok","skip"))
     ran=sum(1 for a in out if a["status"]=="ok")
+    stale=sum(1 for a in out if a["status"]=="stale")
+    failed=sum(1 for a in out if a["status"]=="fail")
     json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),
-        "healthy":ok,"total":len(out),"ran":ran,"slot":SLOT,"agents":out},
+        "healthy":ok,"total":len(out),"ran":ran,"stale":stale,"failed":failed,
+        "slot":SLOT,"agents":out},
         open(AGENTS_F,"w"),ensure_ascii=False,indent=1)
-    print(f"🤖 طبقة الوكلاء: {ran} عمل الآن · {ok}/{len(out)} سليم · النوبة {SLOT}")
+    _warn=(f" · ⚠️ {failed} معطَّل" if failed else "")+(f" · 🕰️ {stale} بائت" if stale else "")
+    print(f"🤖 طبقة الوكلاء: {ran} عمل الآن · {ok}/{len(out)} سليم · النوبة {SLOT}{_warn}")
+
+# سجلُّ الوحداتِ المساعِدة (خريطة/رصد/موجة/بطاقات): تعملُ خارجَ طبقةِ الوكلاء
+# التحريريّة، وكانت تفشلُ في صمتٍ تامّ — لا أثرَ لها في أيِّ لوحة. الآن تُسجَّلُ
+# حالتُها هنا ويعرضُها حارسُ الصحّة في health.json (لوحةُ التشغيل)، دون أن
+# تُقحَمَ في طاقمِ التحرير المعروضِ للقارئ.
+_AUX={}
+def _run_aux(mod, fn, label):
+    """يستوردُ وحدةً مساعِدةً ويشغّلُها ويسجّلُ نتيجتَها — بلا كسرِ الأنبوب."""
+    t0=time.time()
+    def _call():
+        m=__import__(mod, fromlist=[fn])
+        return getattr(m, fn)()
+    try:
+        try:
+            _call()
+        except ImportError:
+            sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+            _call()
+        _AUX[label]={"status":"ok","note":"","ms":int((time.time()-t0)*1000),
+            "at":datetime.now(timezone.utc).isoformat(timespec="minutes")}
+    except Exception as _e:
+        note=str(_e)[:110]
+        print(f"{label}: {note}")
+        _AUX[label]={"status":"fail","note":note,"ms":int((time.time()-t0)*1000),
+            "at":datetime.now(timezone.utc).isoformat(timespec="minutes")}
 
 def _run_wave():
-    """يشغّلُ «المَوّاج» (وكلاءَ الموجةِ الديناميكيّين) قبلَ save_agents — بأمانٍ تامّ
-    فلا يكسرُ الأنبوبَ إن غابَ المُوديول. يكتبُ waves.json + agents_dynamic.json."""
-    try:
-        from wave_agents import wave_agents as _wa
-        _wa()
-    except ImportError:
-        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-        try:
-            from wave_agents import wave_agents as _wa
-            _wa()
-        except Exception as _e:
-            print("wave_agents: "+str(_e)[:100])
-    except Exception as _e:
-        print("wave_agents: "+str(_e)[:100])
+    """يشغّلُ «المَوّاج» (وكلاءَ الموجةِ الديناميكيّين) قبلَ save_agents."""
+    _run_aux("wave_agents","wave_agents","wave_agents")
+    # المَوّاجُ وكيلٌ مُعلَنٌ في AGENTS — تُنقَلُ حالتُه إلى طبقةِ الوكلاء أيضًا
+    a=_AUX.get("wave_agents") or {}
+    mark("mawj", a.get("status","fail"), a.get("note","") or "تتبّعُ الموجات")
 
 def bill(d,who):
     """يسجّل التكلفة الفعلية من رد الـAPI."""
@@ -924,6 +1080,34 @@ def bill(d,who):
         return usd
     except Exception as e:
         print(f"تسجيل التكلفة تعذّر: {str(e)[:60]}"); return 0
+
+# ═══ تسعيرُ Gemini: كان إنفاقُه خارجَ الحساب بالكامل ═══
+# `bill()` يقرأ حقلَ xAI وحدَه (cost_in_usd_ticks)، وGemini يُعيدُ عددَ الرموزِ لا
+# الكلفة — فبقيَ كلُّ إنفاقِ Gemini غيرَ مرئيٍّ في cost.json وخارجَ سقفِ اليوم.
+# نحسبُه من usageMetadata بأسعارٍ قابلةٍ للضبط (تقديريّة — تُراجَعُ من فاتورةِ غوغل).
+GEM_IN_PER_M=float(os.environ.get("GEMINI_IN_PER_M","0.10"))
+GEM_OUT_PER_M=float(os.environ.get("GEMINI_OUT_PER_M","0.40"))
+def bill_gem(d, who="Gemini"):
+    """يحوّلُ عدّادَ رموزِ Gemini إلى كلفةٍ تقديريّةٍ ويضمّها لنفسِ دفترِ اليوم."""
+    day=datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    try:
+        u=(d or {}).get("usageMetadata") or {}
+        pin=int(u.get("promptTokenCount") or 0)
+        pout=int(u.get("candidatesTokenCount") or 0)+int(u.get("thoughtsTokenCount") or 0)
+        if not (pin or pout): return 0
+        usd=(pin/1e6)*GEM_IN_PER_M+(pout/1e6)*GEM_OUT_PER_M
+        try: c=json.load(open(f"{OUT}/cost.json"))
+        except Exception: c={"day":day,"usd":0,"calls":0,"by":{}}
+        if c.get("day")!=day: c={"day":day,"usd":0,"calls":0,"by":{}}
+        c["usd"]=round(c.get("usd",0)+usd,4); c["calls"]=c.get("calls",0)+1
+        c["by"][who]=round(c["by"].get(who,0)+usd,4)
+        c["gem_tokens"]=int(c.get("gem_tokens",0))+pin+pout
+        c["month_est"]=round(c["usd"]*30,2)
+        c["budget"]=float(os.environ.get("DAILY_BUDGET_USD","0.80"))
+        json.dump(c,open(f"{OUT}/cost.json","w"),ensure_ascii=False,indent=1)
+        return usd
+    except Exception:
+        return 0
 
 # ═══ سقفُ الإنفاقِ اليوميّ الصارم: الضمانةُ الرياضيّةُ للفاتورة ═══
 # الخلاصةُ الإخباريّةُ نفسُها مجّانية (RSS + الوكيل الحرّ)؛ كلُّ النداءاتِ المدفوعةِ
@@ -1036,6 +1220,9 @@ for label,url in FEEDS:
                         except Exception:
                             try: _iso=datetime.strptime(_pd,_f).astimezone(timezone.utc).isoformat(timespec="minutes"); break
                             except Exception: pass
+                if _too_old(_iso):        # 🛡️ لا تُنشَرُ مادّةٌ قديمةٌ كأنّها خبرُ اليوم
+                    _STALE_DROP[0]+=1
+                    continue
                 d={"head":head,"src":src_,"grade":g,"cat":label,"at":_iso,
                    "link":clean(it.findtext("link","")),"fa":is_fa}
                 _w,_wsrc=witness(it.findtext("description",""),src_)
@@ -1091,6 +1278,9 @@ def wire_hurr():
                             from email.utils import parsedate_to_datetime
                             _iso=parsedate_to_datetime(_pd).astimezone(timezone.utc).isoformat(timespec="minutes")
                         except Exception: pass
+                    if _too_old(_iso):    # 🛡️ نفسُ الحارس على مسارِ الوكيلِ الحرّ
+                        _STALE_DROP[0]+=1
+                        continue
                     _d={"head":head,"src":src_,"grade":g,"cat":cat,"at":_iso,
                         "link":clean(it.findtext("link","")),"fa":False,"free":True}
                     _w,_wsrc=witness(it.findtext("description",""),src_)
@@ -1104,7 +1294,7 @@ def wire_hurr():
 wire_hurr()
 
 GEM_MODEL=os.environ.get("GEMINI_MODEL","gemini-flash-latest")
-def gemini_post(body, timeout=60):
+def gemini_post(body, timeout=60, who="Gemini"):
     """نداءُ Gemini متحمِّلًا تغيُّرَ الحقول: النماذجُ الأحدثُ ترفض thinkingBudget
     بـ400 (تعطّلت به الترجمةُ والعمود) — عند 400 نعيدُ المحاولةَ دون thinkingConfig."""
     import urllib.error as _ue
@@ -1112,7 +1302,9 @@ def gemini_post(body, timeout=60):
     try:
         req=urllib.request.Request(url,data=json.dumps(body).encode(),
             headers={"Content-Type":"application/json"})
-        return json.load(urllib.request.urlopen(req,timeout=timeout))
+        _r=json.load(urllib.request.urlopen(req,timeout=timeout))
+        bill_gem(_r, who)          # كلُّ نداءِ Gemini يمرُّ من هنا — نقطةُ تسعيرٍ واحدة
+        return _r
     except _ue.HTTPError as e:
         gc=body.get("generationConfig",{})
         if e.code!=400 or "thinkingConfig" not in gc: raise
@@ -1123,7 +1315,9 @@ def gemini_post(body, timeout=60):
         b2=dict(body); b2["generationConfig"]=g2
         req=urllib.request.Request(url,data=json.dumps(b2).encode(),
             headers={"Content-Type":"application/json"})
-        return json.load(urllib.request.urlopen(req,timeout=timeout))
+        _r2=json.load(urllib.request.urlopen(req,timeout=timeout))
+        bill_gem(_r2, who)
+        return _r2
 
 def gemini_json(prompt, max_tok=1500, temp=0.2):
     body={"contents":[{"parts":[{"text":prompt}]}],
@@ -1281,7 +1475,8 @@ for i in items:
         | ({"via":i["via"]} if i.get("via") else {}))
 json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"cats":cats},
     open(f"{OUT}/news.json","w"),ensure_ascii=False,indent=1)
-print(f"🗞️ news.json: {sum(len(v) for v in cats.values())} خبرًا في {len(cats)} أقسام")
+print(f"🗞️ news.json: {sum(len(v) for v in cats.values())} خبرًا في {len(cats)} أقسام"
+      + (f" · 🛡️ أُسقط {_STALE_DROP[0]} خبرًا أقدمَ من {FRESH_MAX_H:.0f}س" if _STALE_DROP[0] else ""))
 
 # ═══ Grok: حصيلة الأزمة + عاجل من X (محسَّن بالكاش) ═══
 INTEL=f"{OUT}/intel.json"
@@ -1464,6 +1659,15 @@ def safe_json(path):
 def naqid():
     """يراجع ما جُمع، يستبعد غير الصالح ويخفّض المشكوك فيه، ثم يكتب قواعد تمنع تكرار الخطأ."""
     if os.environ.get("SKIP_COUNCIL") or not GEMINI_KEY: return
+    # 💸 نوبةٌ للنَّاقِد: كان يعملُ كلَّ دورةٍ (٤٨ مرّةً/يوم) بلا أيِّ بوّابة — وهو
+    # تشغيلُ Gemini CLI وكيليٌّ بمهلةِ ٤٨٠ ثانية، أي أثقلُ بندٍ في الفاتورةِ وأخفاه.
+    # القواعدُ تتطوّرُ بالتراكمِ لا بالتكرار (الإصدارُ ٥٠٤)، فنوبةُ ٣ ساعاتٍ تكفي.
+    if not os.environ.get("FORCE_COUNCIL"):
+        try: _cage=(time.time()-os.path.getmtime(f"{OUT}/council.json"))/3600.0
+        except Exception: _cage=None
+        _every=float(os.environ.get("NAQID_EVERY_H","3"))
+        if _cage is not None and _cage<_every:
+            return {"skipped":1,"why":f"نوبتُه بعد ~{max(0,round(_every-_cage,1))}س"}
     P=("أنت «المُدقِّق» في منصة سَنَد — وظيفتك مراجعة المواد وتمحيصها قبل النشر.\n"
        "١) اقرأ daily/news.json و daily/intel.json و daily/rules.json.\n"
        "٢) راجع المواد واستبعد ما لا يصلح للنشر: عناوين خارج موضوع قسمها، تكرار، مبالغة أو إثارة، ادعاء بلا مصدر، تناقض مع الحصيلة.\n"
@@ -1487,7 +1691,7 @@ def naqid():
             env=env,timeout=480,capture_output=True)
         c=safe_json(f"{OUT}/council.json")
     except Exception as e:
-        print(f"النَّاقِد تخطّى: {str(e)[:80]}"); return
+        print(f"النَّاقِد تخطّى: {str(e)[:80]}"); return {"failed":1,"why":str(e)[:110]}
 
     drop={f["h"][:28] for f in c.get("flags",[]) if f.get("action")=="حُذف"}
     down={f["h"][:28] for f in c.get("flags",[]) if f.get("action")=="خُفّض"}
@@ -1586,7 +1790,7 @@ def mustaqri():
         txt=txt.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
         j=json.loads(txt[txt.find("{"):txt.rfind("}")+1])
     except Exception as e:
-        print("المُستقرِئ تخطّى: "+str(e)[:90]); return
+        print("المُستقرِئ تخطّى: "+str(e)[:90]); return {"failed":1,"why":str(e)[:110]}
 
     # ── سجل الإصابة ──
     hist=(prev or {}).get("history",[])
@@ -1687,6 +1891,7 @@ def manba():
         print("📡 المَنبع: +%d جهة (المجموع %d)"%(len(lst),len(merged)))
     except Exception as e:
         print("المَنبع تخطّى: "+str(e)[:90])
+        return {"failed":1,"why":str(e)[:110]}
 
 manba()
 
@@ -1792,6 +1997,7 @@ def mutabiq():
         print("🔍 المُطابِق: %d/%d رقمًا مطابقًا لمصدر مستقل"%(ok,len(lst)))
     except Exception as e:
         print("المُطابِق تخطّى: "+str(e)[:80])
+        return {"failed":1,"why":str(e)[:110]}
 
 mutabiq()
 
@@ -1809,7 +2015,7 @@ def _alert_stale(x, now=None):
     """يُسقِطُ التحذيرَ غيرَ الحديث: تاريخُه الصريحُ أقدمُ من يومين، أو تاريخُه غامضٌ
     شهريّ، أو ختمُ التقاطِه (cap) أقدمُ من ٤٨ ساعة."""
     w=x.get("when")
-    if _vague_when(w) or _stmt_old_days(w,2): return True
+    if _vague_when(w) or _stmt_old_days(w,3): return True
     try:
         now=now or datetime.now(timezone.utc)
         if (now-datetime.fromisoformat(x["cap"])).total_seconds()>48*3600: return True
@@ -1829,7 +2035,7 @@ def munabbih():
     if not GROK_KEY: return
     if over_budget("المُنبِّه"): return {"skipped":1,"why":"بلغ سقفَ الإنفاق اليوميّ"}
     P=("ابحث عن آخر التحذيرات والتوجيهات الرسمية الصادرة عن جهات الكويت والخليج بشأن الأزمة "
-       "خلال ٢٤ ساعة فقط: الداخلية، الدفاع، الإطفاء، الصحة، الكهرباء والماء، الطيران المدني، الدفاع المدني.\n"
+       "خلال ٧٢ ساعة فقط: الداخلية، الدفاع، الإطفاء، الصحة، الكهرباء والماء، الطيران المدني، الدفاع المدني، الأرصاد.\n"
        "ادرج نوعين:\n"
        "أ) تحذير أو توجيه عملي للمواطنين (إخلاء، ملاجئ، مجال جوي، مياه، كهرباء، طوارئ).\n"
        "ب) تنبيه رسمي من تداول أخبار غير موثوقة أو شائعات أو حسابات مجهولة.\n"
@@ -1864,7 +2070,12 @@ def munabbih():
         for x in lst: x["cap"]=_now_iso
         _b2=len(lst); lst=[x for x in lst if not _alert_stale(x)]
         if _b2!=len(lst): print(f"🛡️ المُنبِّه: أُسقط {_b2-len(lst)} توجيهًا قديمًا أو غامضَ التاريخ")
-        if not lst: raise ValueError("فارغة")
+        # الفراغُ حالةٌ مُعلَنةٌ لا عطلٌ مبتلَع: لا نرفعُ استثناءً (كان يُبتلَعُ فيُنشَرُ
+        # «سليم» كذبًا)، بل نُبلِّغُ تخطّيًا صريحًا يرصدُه حارسُ الصحّة إن طال.
+        if not lst:
+            bill(d,"المُنبِّه")
+            print("⚠️ المُنبِّه: لا تحذيراتٍ مطابقةً في النافذة")
+            return {"skipped":1,"why":"لا تحذيراتٍ مطابقةً في النافذة"}
         bill(d,"المُنبِّه")
         json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"list":lst},
             open(ALERTS,"w"),ensure_ascii=False,indent=1)
@@ -1872,6 +2083,7 @@ def munabbih():
         print(f"⚠️ المُنبِّه: {w} تحذيرًا · {len(lst)-w} تنبيهًا من الشائعات")
     except Exception as e:
         print("المُنبِّه تخطّى: "+str(e)[:90])
+        return {"failed":1,"why":str(e)[:110]}
 
 munabbih()
 
@@ -1882,6 +2094,11 @@ munabbih()
 _ALERT_WIRE_Q=[
  '"الدفاع المدني" OR "وزارة الداخلية" (تحذير OR تنبيه OR إخلاء OR صافرات OR طوارئ) الكويت',
  '(الكويت OR السعودية OR البحرين) ("الدفاع المدني" OR "الطيران المدني") (تعليق OR تحذير OR إغلاق OR استئناف)',
+ # توسيعُ التغطيةِ الخليجيّة: قسمٌ سياديٌّ بقيَ فارغًا ٦ أيّامٍ باستعلامين فقط
+ '(الإمارات OR قطر OR عُمان) ("الدفاع المدني" OR "الطيران المدني" OR "الداخلية") (تحذير OR تنبيه OR إغلاق OR طوارئ)',
+ '(الأرصاد OR "الأرصاد الجوية") (تحذير OR إنذار OR تنبيه) (الكويت OR السعودية OR الإمارات OR قطر OR البحرين OR عُمان)',
+ '("وزارة الصحة" OR "الكهرباء والماء") (تحذير OR تنبيه OR طوارئ OR انقطاع) (الكويت OR الخليج)',
+ '(إغلاق OR تعليق OR استئناف) (المطار OR الملاحة OR "حركة الطيران") (الكويت OR الخليج)',
 ]
 def alerts_wire():
     from email.utils import parsedate_to_datetime
@@ -1907,7 +2124,7 @@ def alerts_wire():
                 if grade(src_) not in ("صحيح","حسن"): continue   # منافذُ معتبَرةٌ فقط في قسمٍ سياديّ
                 try: dt=parsedate_to_datetime(clean(it.findtext("pubDate",""))).astimezone(timezone.utc)
                 except Exception: continue
-                if (now-dt).total_seconds()>48*3600 or len(head)<20 or blocked(head): continue
+                if (now-dt).total_seconds()>72*3600 or len(head)<20 or blocked(head): continue
                 rid=_h(head)
                 if rid in keep: continue
                 if any(_tok_sim(head,x.get("txt",""))>0.6 for x in keep.values()): continue
@@ -1921,7 +2138,11 @@ def alerts_wire():
                   key=lambda x:x.get("cap",""),reverse=True)[:8]
     purged=len(keep)-len(merged)
     if added or purged or j is None or merged!=cur:
-        json.dump({"updated":(j or {}).get("updated") or now_iso,"wired":now_iso,"list":merged},
+        # ختمُ التحديثِ يتبعُ المضمونَ لا النوبة: إن دخلَ تحذيرٌ جديدٌ فالملفُّ
+        # طازجٌ فعلًا. (كان الختمُ يُحفَظُ من نوبةِ المُنبِّه، فبقيَ عالقًا على
+        # ١ أغسطس بينما السلكُ يعملُ — فبدا القسمُ حيًّا وهو ميّت.)
+        json.dump({"updated":(now_iso if added else ((j or {}).get("updated") or now_iso)),
+                   "wired":now_iso,"list":merged},
             open(ALERTS,"w"),ensure_ascii=False,indent=1)
     print(f"🧵 سلكُ التحذيرات الحرّ: +{added} · طُهّر {purged} قديمًا (المجموع {len(merged)})")
 
@@ -2066,7 +2287,10 @@ def _rumor_takhrij(cands, paid_ok):
                 "why":clean(o.get("why","")) or "—","sources":src,"first_seen":c.get("first_seen",now_iso)})
     except Exception as e:
         print("المُخرِّج تخطّى: "+str(e)[:80])
-        return {"judged":[{"claim":c["claim"],"spread":c.get("spread","التداول"),
+        # يعودُ بحكمٍ آمنٍ («قيد التحقق») كي لا يتعطّلَ المسار، لكنّه يُبلِّغُ عن
+        # فشلِ البحثِ صراحةً — تعذُّرُ التخريجِ عطلٌ يجبُ أن يراه المشغّل.
+        return {"failed":1,"why":str(e)[:110],
+            "judged":[{"claim":c["claim"],"spread":c.get("spread","التداول"),
             "qail":c.get("qail",""),
             "verdict":"قيد التحقق","why":"تعذّر البحثُ الآن — يبقى قيد التحقّق.",
             "sources":([{"u":c["u"],"t":"المصدر المُدَّعى"}] if c.get("u") else []),
@@ -2885,56 +3109,14 @@ if os.environ.get("NEWS_ONLY"):
             mark("rawi","skip",f"النشرة ٦ مساءً (~{(18-_hk)%24}س)")
     except Exception: mark("rawi","skip","بانتظار أول نشرة")
     archive()
-    try:
-        from map_week import map_week as _map_week
-        _map_week()
-    except ImportError:
-        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-        try:
-            from map_week import map_week as _map_week
-            _map_week()
-        except Exception as _e:
-            print("map_week: "+str(_e)[:100])
-    except Exception as _e:
-        print("map_week: "+str(_e)[:100])
-    try:
-        from osint_watch import osint_watch as _osint_watch
-        _osint_watch()
-    except ImportError:
-        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-        try:
-            from osint_watch import osint_watch as _osint_watch
-            _osint_watch()
-        except Exception as _e:
-            print("osint_watch: "+str(_e)[:100])
-    except Exception as _e:
-        print("osint_watch: "+str(_e)[:100])
-    try:
-        from viral_wave import viral_wave as _viral_wave
-        _viral_wave()
-    except ImportError:
-        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-        try:
-            from viral_wave import viral_wave as _viral_wave
-            _viral_wave()
-        except Exception as _e:
-            print("viral_wave: "+str(_e)[:100])
-    except Exception as _e:
-        print("viral_wave: "+str(_e)[:100])
+    _run_aux("map_week","map_week","map_week")
+    _run_aux("osint_watch","osint_watch","osint_watch")
+    _run_aux("viral_wave","viral_wave","viral_wave")
     _run_wave()
+    _run_aux("correspondents","correspondents","correspondents")
+    hirasa()
     bundle()
-    try:
-        from social_pack import social_pack as _social_pack
-        _social_pack()
-    except ImportError:
-        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-        try:
-            from social_pack import social_pack as _social_pack
-            _social_pack()
-        except Exception as _e:
-            print("social_pack: "+str(_e)[:100])
-    except Exception as _e:
-        print("social_pack: "+str(_e)[:100])
+    _run_aux("social_pack","social_pack","social_pack")
     broadcast_official(); broadcast_alerts(); broadcast_news()
     save_agents()
     print("⚡ وضع تحديث الأخبار فقط — تم"); sys.exit(0)
@@ -3093,31 +3275,13 @@ def gen(ap,vp):
 # ═══ النسخة الأولى: صوتٌ فقط — الفيديو مؤجَّل ═══
 if not os.environ.get("ENABLE_VIDEO"):
     mark("rawi","ok","نشرة صوتية")
-    try:
-        from social_pack import social_pack as _social_pack
-        _social_pack()
-    except ImportError:
-        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-        from social_pack import social_pack as _social_pack
-        _social_pack()
-    except Exception as _e:
-        print("social_pack: "+str(_e)[:100])
-    try:
-        from map_week import map_week as _map_week
-        _map_week()
-    except Exception as _e:
-        print("map_week: "+str(_e)[:100])
-    try:
-        from osint_watch import osint_watch as _osint_watch
-        _osint_watch()
-    except Exception as _e:
-        print("osint_watch: "+str(_e)[:100])
-    try:
-        from viral_wave import viral_wave as _viral_wave
-        _viral_wave()
-    except Exception as _e:
-        print("viral_wave: "+str(_e)[:100])
+    _run_aux("social_pack","social_pack","social_pack")
+    _run_aux("map_week","map_week","map_week")
+    _run_aux("osint_watch","osint_watch","osint_watch")
+    _run_aux("viral_wave","viral_wave","viral_wave")
     _run_wave()
+    _run_aux("correspondents","correspondents","correspondents")
+    hirasa()
     bundle(); broadcast_bulletin(); broadcast_official(); broadcast_alerts(); broadcast_news(); save_agents()
     print("🎙️ النشرة الصوتية جاهزة — الفيديو معطَّل في هذه النسخة")
     sys.exit(0)
@@ -3202,32 +3366,14 @@ json.dump(meta,open(f"{OUT}/latest.json","w"),ensure_ascii=False,indent=1)
 mark("rawi","ok","فيديو اليوم مكتمل")
 print(f"🎬 اكتمل الفيديو: bulletin-{today}.mp4 ({len(need)} مقطعًا)")
 
-try:
-    from map_week import map_week as _map_week
-    _map_week()
-except Exception as _e:
-    print("map_week: "+str(_e)[:100])
-try:
-    from osint_watch import osint_watch as _osint_watch
-    _osint_watch()
-except Exception as _e:
-    print("osint_watch: "+str(_e)[:100])
-try:
-    from viral_wave import viral_wave as _viral_wave
-    _viral_wave()
-except Exception as _e:
-    print("viral_wave: "+str(_e)[:100])
+_run_aux("map_week","map_week","map_week")
+_run_aux("osint_watch","osint_watch","osint_watch")
+_run_aux("viral_wave","viral_wave","viral_wave")
 _run_wave()
+_run_aux("correspondents","correspondents","correspondents")
+hirasa()
 bundle()
-try:
-    from social_pack import social_pack as _social_pack
-    _social_pack()
-except ImportError:
-    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-    from social_pack import social_pack as _social_pack
-    _social_pack()
-except Exception as _e:
-    print("social_pack: "+str(_e)[:100])
+_run_aux("social_pack","social_pack","social_pack")
 broadcast_bulletin()
 broadcast_official(); broadcast_alerts(); broadcast_news()
 try: mark("rawi", _LOG.get("rawi",{}).get("status","ok"), _LOG.get("rawi",{}).get("note","نشرة اليوم")); save_agents()

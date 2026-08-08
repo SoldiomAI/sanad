@@ -20,7 +20,7 @@ jobs:
         with: {node-version: '22'}
       - run: sudo apt-get install -y -q ffmpeg
       - run: pip install -q edge-tts gradio_client
-      - run: npm i -g @google/gemini-cli@latest
+      - run: npm i -g --no-audit --no-fund --prefer-offline @google/gemini-cli@latest   # أخفُّ تثبيتًا: بلا تدقيقٍ ولا تمويلٍ ومع تفضيلِ الكاش
       - name: النشرة الكاملة (نص → صوت → فيديو) بكل الوكلاء
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}

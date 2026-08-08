@@ -1,0 +1,43 @@
+name: ci
+# شبكةُ الأمانِ الدنيا على كلِّ PR. قبلَ هذا الملفّ لم يكنْ يُشغَّلُ **أيُّ** فحصٍ
+# على طلباتِ الدمج: خطأٌ نحويٌّ في الأنبوبِ كان يُدمَجُ نظيفًا ولا يُكتشَفُ إلّا
+# بعد ٣٠ دقيقةً في الإنتاج — وحتى حينها تُحفَظُ المخرجاتُ وتُنشَرُ لأنّ خطوةَ
+# الحفظِ تعملُ بـif: always().
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - name: فحصُ الصياغة (كلُّ وحداتِ الأنبوب)
+        run: python -m py_compile pipeline/*.py
+      - name: اختباراتُ حرّاسِ النزاهةِ والطزاجة
+        run: python -m unittest discover -s tests -v
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: فحصُ جافاسكربت المضمَّنة في الصفحات
+        run: |
+          python3 - <<'PY'
+          import re, pathlib, sys
+          bad = 0
+          for page in ("index.html", "admin.html", "enterprise.html"):
+              p = pathlib.Path(page)
+              if not p.exists():
+                  continue
+              html = p.read_text(encoding="utf-8")
+              blocks = [b for a, b in re.findall(r"<script([^>]*)>(.*?)</script>", html, re.S)
+                        if "src=" not in a and "ld+json" not in a]
+              pathlib.Path(f"/tmp/{page}.js").write_text("\n;\n".join(blocks), encoding="utf-8")
+              print(f"{page}: {len(blocks)} inline block(s)")
+          sys.exit(bad)
+          PY
+          for f in index.html admin.html enterprise.html; do
+            [ -f "/tmp/$f.js" ] && node --check "/tmp/$f.js" && echo "✓ $f"
+          done

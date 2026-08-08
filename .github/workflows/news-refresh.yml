@@ -31,7 +31,7 @@ jobs:
         with: {python-version: '3.11'}
       - uses: actions/setup-node@v4
         with: {node-version: '22'}
-      - run: npm i -g @google/gemini-cli@latest
+      - run: npm i -g --no-audit --no-fund --prefer-offline @google/gemini-cli@latest   # أخفُّ تثبيتًا: بلا تدقيقٍ ولا تمويلٍ ومع تفضيلِ الكاش
       - run: pip install -q edge-tts pillow arabic-reshaper python-bidi || true   # صوتُ المحلّل + بطاقة السوشيال — غيرُ حاسمٍ فلا يُعطِّلُ الأخبار
       - name: تحديث الأخبار وتشغيل الوكلاء
         env:

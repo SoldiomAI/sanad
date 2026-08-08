@@ -234,7 +234,12 @@ def wave_agents() -> dict:
             "note_en": f"{_MO_EN.get(mo, mo)} · {n} verified items",
             "at": now,
         })
-    DYN_F.write_text(json.dumps({"updated": now, "agents": roster}, ensure_ascii=False, indent=1), encoding="utf-8")
+    # دمجٌ لا استبدال: الملفُّ يتشاركُه المَوّاجُ والمراسلون — نستبدلُ صفوفَنا فقط
+    _prev = _load(DYN_F, {})
+    _others = [a for a in (_prev.get("agents") or [])
+               if isinstance(a, dict) and a.get("parent") != "mawj"]
+    DYN_F.write_text(json.dumps({"updated": now, "agents": _others + roster},
+                                ensure_ascii=False, indent=1), encoding="utf-8")
 
     live = sum(1 for w in waves if w.get("status") == "live")
     print(f"🌊 المَوّاج: {live} موجةً حيّة · {len(roster)} وكيلًا فرعيًّا · طَوى {max(0, len(prev) - len(waves))}")

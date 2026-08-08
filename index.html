@@ -36,10 +36,19 @@
 {"@type":"BreadcrumbList","@id":"https://isnad.news/#crumbs","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://www.isnad.news/"}]}
 ]}
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap">
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* خطوطُ سَنَد مستضافةٌ ذاتيًّا — نفسُ المحارف تمامًا (Amiri وIBM Plex Sans Arabic
+   وNoto Kufi) بمقاطعِ غوغل العربيّةِ نفسِها، لكن من نطاقِنا: يسقطُ اتصالان
+   خارجيّان وطلبُ CSS حاجبٌ للعرض، ويُخبَّأُ الخطُّ سنةً كاملةً (immutable). */
+@font-face{font-family:'Amiri';src:url(/fonts/amiri-400.woff2) format('woff2');font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1}
+@font-face{font-family:'Amiri';src:url(/fonts/amiri-700.woff2) format('woff2');font-weight:700;font-style:normal;font-display:swap;unicode-range:U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1}
+@font-face{font-family:'IBM Plex Sans Arabic';src:url(/fonts/ibm-plex-sans-arabic-400.woff2) format('woff2');font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1}
+@font-face{font-family:'IBM Plex Sans Arabic';src:url(/fonts/ibm-plex-sans-arabic-600.woff2) format('woff2');font-weight:600;font-style:normal;font-display:swap;unicode-range:U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1}
+@font-face{font-family:'IBM Plex Sans Arabic';src:url(/fonts/ibm-plex-sans-arabic-700.woff2) format('woff2');font-weight:700;font-style:normal;font-display:swap;unicode-range:U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1}
+@font-face{font-family:'Noto Kufi Arabic';src:url(/fonts/noto-kufi-arabic-400.woff2) format('woff2');font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1}
+@font-face{font-family:'Noto Kufi Arabic';src:url(/fonts/noto-kufi-arabic-400.woff2) format('woff2');font-weight:600;font-style:normal;font-display:swap;unicode-range:U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1}
+@font-face{font-family:'Noto Kufi Arabic';src:url(/fonts/noto-kufi-arabic-400.woff2) format('woff2');font-weight:700;font-style:normal;font-display:swap;unicode-range:U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1}
+</style>
 
 <style>
 :root{
@@ -91,6 +100,9 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .dot{width:7px;height:7px;border-radius:50%;background:var(--red);animation:blink 1.2s infinite}
 @keyframes blink{50%{opacity:.35}}
 @media(prefers-reduced-motion:reduce){.dot{animation:none}}
+/* بياناتٌ شاخت: لا نبضَ «حيّ» على محتوًى قديم — النبضُ وعدٌ، لا زينة */
+.dot.dot-off{animation:none;background:var(--dim);opacity:.65}
+.upd-stale{color:var(--dim)}
 .desk-status{font-size:11px;color:var(--mut);padding:0 14px 6px;min-height:18px}
 
 /* Desktop top nav instead of bottom */
@@ -2313,7 +2325,13 @@ function openOfficial(i){
 function renderBriefOfficial(){
   const el=document.getElementById("briefOfficial"); if(!el) return;
   const L=(OFFICIAL&&OFFICIAL.src)||[];
-  if(!L.length){ el.innerHTML=""; return; }
+  // الفراغُ يُقال، لا يُخفى: قسمٌ يختفي صامتًا يجعلُ القارئَ يظنُّ أنّه لا شيء
+  // يستحقُّ النشر، بينما قد يكون المصدرُ منقطعًا.
+  if(!L.length){
+    el.innerHTML=`<div class="team-sec" style="margin-top:8px">${EN?"Official wire":"من المَنبع · بيانات رسمية"}</div>`
+      +`<div class="empty">${EN?"No official statements captured recently.":"لا بياناتٍ رسميّةً مرصودةً حديثًا."}</div>`;
+    return;
+  }
   el.innerHTML=`<div class="team-sec" style="margin-top:8px">${EN?"Official wire":"من المَنبع · بيانات رسمية"}</div>`+
     L.slice(0,8).map((x,i)=>`<button type="button" class="tcard" onclick="openOfficial(${i})">
       <div class="av">${esc(x.f||"🏛")}</div>
@@ -2588,7 +2606,8 @@ function renderTeam(){
   teamCrew.innerHTML=A.map((x,idx)=>{
     const st=paused.has(x.id)?"idle":(x.status||"idle");
     const did=enText(x.note, x.note_en||"")||"";
-    const wv=x.parent==="mawj"?`<span class="wv-badge" title="${esc(EN?"spawned to follow a wave":"وكيلٌ فُرِّخَ لمتابعةِ موجة")}">🌊</span>`:"";
+    const wv=x.parent==="mawj"?`<span class="wv-badge" title="${esc(EN?"spawned to follow a wave":"وكيلٌ فُرِّخَ لمتابعةِ موجة")}">🌊</span>`
+      :x.parent==="murasil"?`<span class="wv-badge" title="${esc(EN?"automated country desk — relays sourced stories":"مكتبُ رصدٍ آليّ — ينقلُ موادَّ مُسنَدةً بمصادرِها")}">📍</span>`:"";
     return `<button type="button" class="tcard" onclick="openProfile('agent','${x.id}')">
       <div class="av">${esc((x.icon||"•").slice(0,2))}</div>
       <div class="b"><b>${esc(agentName(x.id,x.name,x))}${wv}</b><div class="role">${esc(teamBlurb(x.id,x.role,x))}${did?`<br><span style="color:var(--dim)">${esc(did)}</span>`:""}</div></div>
@@ -2909,16 +2928,46 @@ async function loadControl(){
   if(CONTROL.maintenance){maint.style.display="block"; maint.textContent=CONTROL.maintenance} else maint.style.display="none";
 }
 
+/* ختمُ الطزاجة: عُمرٌ صريحٌ بلغتين + تاريخٌ عند تجاوزِ اليوم، ونقطةُ «حيّ»
+   تكفُّ عن النبضِ حين تشيخُ البيانات. كان الختمُ ساعةً مجرّدةً بلا تاريخٍ ولا
+   عُمر، فلو ماتَ الأنبوبُ ثلاثةَ أيّامٍ لقرأ الزائرُ رقمًا هادئًا ونبضًا حيًّا. */
+const STALE_MIN=90;
+function stampFreshness(iso){
+  const u=document.getElementById("upd"), dot=document.querySelector(".live .dot");
+  if(!u) return;
+  const t=iso?new Date(iso):null;
+  if(!t||isNaN(t)){
+    u.textContent=EN?"data unavailable":"البياناتُ غيرُ متاحة";
+    if(dot) dot.classList.add("dot-off");
+    return;
+  }
+  const mins=Math.max(0,Math.round((Date.now()-t)/60000));
+  const hrs=Math.floor(mins/60), days=Math.floor(hrs/24);
+  let age;
+  if(mins<2)      age=EN?"just now":"الآن";
+  else if(mins<60)age=EN?`${mins} min ago`:`قبل ${mins} د`;
+  else if(hrs<24) age=EN?`${hrs} h ago`:`قبل ${hrs} س`;
+  else            age=EN?`${days} d ago`:`قبل ${days} ي`;
+  const time=t.toLocaleTimeString(EN?"en-GB":"ar-KW",{hour:"2-digit",minute:"2-digit"});
+  const datePart=hrs>=24?" · "+t.toLocaleDateString(EN?"en-GB":"ar-KW",{day:"numeric",month:"short"}):"";
+  u.textContent=(EN?"Updated ":"آخر تحديث ")+age+" ("+time+datePart+")";
+  if(dot) dot.classList.toggle("dot-off", mins>STALE_MIN);
+  u.classList.toggle("upd-stale", mins>STALE_MIN);
+}
 async function load(){
   await loadBundle(); await loadControl();
   try{
     const n=await grab("news"); DATA=n;
-    const u=document.getElementById("upd");
-    if(u) u.textContent=(EN?"Updated ":"")+new Date(n.updated).toLocaleTimeString(EN?"en-GB":"ar-KW",{hour:"2-digit",minute:"2-digit"});
+    stampFreshness(n.updated);
     renderDesks();
   }catch(e){
+    // صدقٌ في العطل: القارئُ يستحقُّ تشخيصًا لا عبارةَ «تُجهَّز أخبارُ اليوم»
+    // التي تُلقي اللومَ على غرفةِ الأخبارِ بينما الشبكةُ هي التي انقطعت.
+    stampFreshness(null);
     const f=feedEl();
-    if(f) f.innerHTML=`<div class="empty">${EN?"Preparing today's feed…":"تُجهَّز أخبارُ اليوم…"}</div>`;
+    if(f) f.innerHTML=`<div class="empty">${EN?"Couldn’t reach the newsroom data.":"تعذّرَ الوصولُ إلى بياناتِ سَنَد."}<br>`
+      +`<span style="color:var(--dim);font-size:11.5px">${EN?"Check your connection — your last saved edition is still below if available.":"تحقّقْ من اتصالك — آخرُ نسخةٍ محفوظةٍ تبقى متاحةً إن وُجدت."}</span><br>`
+      +`<button class="mini" style="margin-top:9px" onclick="load()">${EN?"Retry":"أعِد المحاولة"}</button></div>`;
   }
   try{ OFFICIAL=await grab("official"); }catch(e){ OFFICIAL=null }
   try{ ANALYST=await grab("analyst"); }catch(e){ ANALYST=null }
