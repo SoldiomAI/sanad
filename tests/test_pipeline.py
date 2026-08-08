@@ -216,5 +216,89 @@ class TestHealthWatchdog(unittest.TestCase):
         self.assertIsNone(g["_count_items"]({"x": 1}, None))
 
 
+class TestGeminiBilling(unittest.TestCase):
+    """الدرس: bill() يقرأ حقلَ xAI وحدَه، فبقيَ كلُّ إنفاقِ Gemini خارجَ سقفِ اليوم."""
+
+    def setUp(self):
+        self.d = tempfile.mkdtemp()
+        self.g = load(["GEM_IN_PER_M", "GEM_OUT_PER_M", "bill_gem"], extra={"OUT": self.d})
+
+    def _cost(self):
+        with open(os.path.join(self.d, "cost.json"), encoding="utf-8") as fh:
+            return json.load(fh)
+
+    def test_tokens_become_usd_in_the_same_ledger(self):
+        usd = self.g["bill_gem"]({"usageMetadata": {
+            "promptTokenCount": 1_000_000, "candidatesTokenCount": 0}}, "اختبار")
+        self.assertAlmostEqual(usd, self.g["GEM_IN_PER_M"], places=6)
+        self.assertGreater(self._cost()["usd"], 0)
+
+    def test_output_tokens_priced_higher(self):
+        out = self.g["bill_gem"]({"usageMetadata": {
+            "promptTokenCount": 0, "candidatesTokenCount": 1_000_000}}, "اختبار")
+        self.assertAlmostEqual(out, self.g["GEM_OUT_PER_M"], places=6)
+
+    def test_thinking_tokens_counted(self):
+        self.g["bill_gem"]({"usageMetadata": {
+            "promptTokenCount": 10, "candidatesTokenCount": 10, "thoughtsTokenCount": 500}}, "اختبار")
+        self.assertEqual(self._cost()["gem_tokens"], 520)
+
+    def test_response_without_usage_is_free(self):
+        self.assertEqual(self.g["bill_gem"]({}, "اختبار"), 0)
+        self.assertEqual(self.g["bill_gem"]({"candidates": []}, "اختبار"), 0)
+
+    def test_accumulates_across_calls(self):
+        for _ in range(3):
+            self.g["bill_gem"]({"usageMetadata": {"promptTokenCount": 1000}}, "اختبار")
+        self.assertEqual(self._cost()["calls"], 3)
+
+
+class TestCorrespondents(unittest.TestCase):
+    """مراسلٌ لكلِّ دولةٍ لها موادُّ مُسنَدةٌ اليوم — حتميّ، ويتقاعدُ تلقائيًّا."""
+
+    def _run(self, countries, existing=None):
+        d = tempfile.mkdtemp()
+        with open(os.path.join(d, "map.json"), "w", encoding="utf-8") as fh:
+            json.dump({"countries": countries}, fh, ensure_ascii=False)
+        if existing is not None:
+            with open(os.path.join(d, "agents_dynamic.json"), "w", encoding="utf-8") as fh:
+                json.dump({"updated": "t", "agents": existing}, fh, ensure_ascii=False)
+        env = dict(os.environ, SANAD_DAILY=d)
+        import subprocess
+        mod = os.path.join(ROOT, "pipeline", "correspondents.py")
+        subprocess.run([sys.executable, mod], env=env, cwd=d,
+                       capture_output=True, check=True)
+        with open(os.path.join(d, "agents_dynamic.json"), encoding="utf-8") as fh:
+            return json.load(fh)["agents"]
+
+    def test_country_with_enough_stories_gets_a_correspondent(self):
+        rows = self._run([{"id": "kw", "name": "الكويت", "en": "Kuwait",
+                           "n": 9, "sahih": 2, "hasan": 7}])
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]["id"], "murasil_kw")
+        self.assertIn("الكويت", rows[0]["name"])
+        self.assertEqual(rows[0]["name_en"], "Kuwait correspondent")
+        self.assertEqual(rows[0]["parent"], "murasil")
+
+    def test_country_below_threshold_gets_none(self):
+        rows = self._run([{"id": "kw", "name": "الكويت", "en": "Kuwait", "n": 1}])
+        self.assertEqual([r for r in rows if r["parent"] == "murasil"], [])
+
+    def test_retires_when_country_goes_quiet(self):
+        stale = [{"id": "murasil_zz", "parent": "murasil", "name": "مراسل قديم"}]
+        rows = self._run([{"id": "kw", "name": "الكويت", "en": "Kuwait", "n": 5}], existing=stale)
+        self.assertNotIn("murasil_zz", [r["id"] for r in rows])
+
+    def test_does_not_clobber_wave_agents(self):
+        wave = [{"id": "mawja_abc", "parent": "mawj", "name": "موجة"}]
+        rows = self._run([{"id": "kw", "name": "الكويت", "en": "Kuwait", "n": 5}], existing=wave)
+        self.assertIn("mawja_abc", [r["id"] for r in rows])
+
+    def test_roster_is_capped(self):
+        many = [{"id": f"c{i}", "name": f"د{i}", "en": f"C{i}", "n": 5} for i in range(40)]
+        rows = self._run(many)
+        self.assertLessEqual(len([r for r in rows if r["parent"] == "murasil"]), 12)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

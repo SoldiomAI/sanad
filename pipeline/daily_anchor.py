@@ -1081,6 +1081,34 @@ def bill(d,who):
     except Exception as e:
         print(f"تسجيل التكلفة تعذّر: {str(e)[:60]}"); return 0
 
+# ═══ تسعيرُ Gemini: كان إنفاقُه خارجَ الحساب بالكامل ═══
+# `bill()` يقرأ حقلَ xAI وحدَه (cost_in_usd_ticks)، وGemini يُعيدُ عددَ الرموزِ لا
+# الكلفة — فبقيَ كلُّ إنفاقِ Gemini غيرَ مرئيٍّ في cost.json وخارجَ سقفِ اليوم.
+# نحسبُه من usageMetadata بأسعارٍ قابلةٍ للضبط (تقديريّة — تُراجَعُ من فاتورةِ غوغل).
+GEM_IN_PER_M=float(os.environ.get("GEMINI_IN_PER_M","0.10"))
+GEM_OUT_PER_M=float(os.environ.get("GEMINI_OUT_PER_M","0.40"))
+def bill_gem(d, who="Gemini"):
+    """يحوّلُ عدّادَ رموزِ Gemini إلى كلفةٍ تقديريّةٍ ويضمّها لنفسِ دفترِ اليوم."""
+    day=datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    try:
+        u=(d or {}).get("usageMetadata") or {}
+        pin=int(u.get("promptTokenCount") or 0)
+        pout=int(u.get("candidatesTokenCount") or 0)+int(u.get("thoughtsTokenCount") or 0)
+        if not (pin or pout): return 0
+        usd=(pin/1e6)*GEM_IN_PER_M+(pout/1e6)*GEM_OUT_PER_M
+        try: c=json.load(open(f"{OUT}/cost.json"))
+        except Exception: c={"day":day,"usd":0,"calls":0,"by":{}}
+        if c.get("day")!=day: c={"day":day,"usd":0,"calls":0,"by":{}}
+        c["usd"]=round(c.get("usd",0)+usd,4); c["calls"]=c.get("calls",0)+1
+        c["by"][who]=round(c["by"].get(who,0)+usd,4)
+        c["gem_tokens"]=int(c.get("gem_tokens",0))+pin+pout
+        c["month_est"]=round(c["usd"]*30,2)
+        c["budget"]=float(os.environ.get("DAILY_BUDGET_USD","0.80"))
+        json.dump(c,open(f"{OUT}/cost.json","w"),ensure_ascii=False,indent=1)
+        return usd
+    except Exception:
+        return 0
+
 # ═══ سقفُ الإنفاقِ اليوميّ الصارم: الضمانةُ الرياضيّةُ للفاتورة ═══
 # الخلاصةُ الإخباريّةُ نفسُها مجّانية (RSS + الوكيل الحرّ)؛ كلُّ النداءاتِ المدفوعةِ
 # لأقسامٍ مساندة — فإذا بلغَ إنفاقُ اليومِ السقفَ تتوقّفُ حتى الغد وتستمرُّ المجّانية.
@@ -1266,7 +1294,7 @@ def wire_hurr():
 wire_hurr()
 
 GEM_MODEL=os.environ.get("GEMINI_MODEL","gemini-flash-latest")
-def gemini_post(body, timeout=60):
+def gemini_post(body, timeout=60, who="Gemini"):
     """نداءُ Gemini متحمِّلًا تغيُّرَ الحقول: النماذجُ الأحدثُ ترفض thinkingBudget
     بـ400 (تعطّلت به الترجمةُ والعمود) — عند 400 نعيدُ المحاولةَ دون thinkingConfig."""
     import urllib.error as _ue
@@ -1274,7 +1302,9 @@ def gemini_post(body, timeout=60):
     try:
         req=urllib.request.Request(url,data=json.dumps(body).encode(),
             headers={"Content-Type":"application/json"})
-        return json.load(urllib.request.urlopen(req,timeout=timeout))
+        _r=json.load(urllib.request.urlopen(req,timeout=timeout))
+        bill_gem(_r, who)          # كلُّ نداءِ Gemini يمرُّ من هنا — نقطةُ تسعيرٍ واحدة
+        return _r
     except _ue.HTTPError as e:
         gc=body.get("generationConfig",{})
         if e.code!=400 or "thinkingConfig" not in gc: raise
@@ -1285,7 +1315,9 @@ def gemini_post(body, timeout=60):
         b2=dict(body); b2["generationConfig"]=g2
         req=urllib.request.Request(url,data=json.dumps(b2).encode(),
             headers={"Content-Type":"application/json"})
-        return json.load(urllib.request.urlopen(req,timeout=timeout))
+        _r2=json.load(urllib.request.urlopen(req,timeout=timeout))
+        bill_gem(_r2, who)
+        return _r2
 
 def gemini_json(prompt, max_tok=1500, temp=0.2):
     body={"contents":[{"parts":[{"text":prompt}]}],
@@ -1627,6 +1659,15 @@ def safe_json(path):
 def naqid():
     """يراجع ما جُمع، يستبعد غير الصالح ويخفّض المشكوك فيه، ثم يكتب قواعد تمنع تكرار الخطأ."""
     if os.environ.get("SKIP_COUNCIL") or not GEMINI_KEY: return
+    # 💸 نوبةٌ للنَّاقِد: كان يعملُ كلَّ دورةٍ (٤٨ مرّةً/يوم) بلا أيِّ بوّابة — وهو
+    # تشغيلُ Gemini CLI وكيليٌّ بمهلةِ ٤٨٠ ثانية، أي أثقلُ بندٍ في الفاتورةِ وأخفاه.
+    # القواعدُ تتطوّرُ بالتراكمِ لا بالتكرار (الإصدارُ ٥٠٤)، فنوبةُ ٣ ساعاتٍ تكفي.
+    if not os.environ.get("FORCE_COUNCIL"):
+        try: _cage=(time.time()-os.path.getmtime(f"{OUT}/council.json"))/3600.0
+        except Exception: _cage=None
+        _every=float(os.environ.get("NAQID_EVERY_H","3"))
+        if _cage is not None and _cage<_every:
+            return {"skipped":1,"why":f"نوبتُه بعد ~{max(0,round(_every-_cage,1))}س"}
     P=("أنت «المُدقِّق» في منصة سَنَد — وظيفتك مراجعة المواد وتمحيصها قبل النشر.\n"
        "١) اقرأ daily/news.json و daily/intel.json و daily/rules.json.\n"
        "٢) راجع المواد واستبعد ما لا يصلح للنشر: عناوين خارج موضوع قسمها، تكرار، مبالغة أو إثارة، ادعاء بلا مصدر، تناقض مع الحصيلة.\n"
@@ -3072,6 +3113,7 @@ if os.environ.get("NEWS_ONLY"):
     _run_aux("osint_watch","osint_watch","osint_watch")
     _run_aux("viral_wave","viral_wave","viral_wave")
     _run_wave()
+    _run_aux("correspondents","correspondents","correspondents")
     hirasa()
     bundle()
     _run_aux("social_pack","social_pack","social_pack")
@@ -3238,6 +3280,7 @@ if not os.environ.get("ENABLE_VIDEO"):
     _run_aux("osint_watch","osint_watch","osint_watch")
     _run_aux("viral_wave","viral_wave","viral_wave")
     _run_wave()
+    _run_aux("correspondents","correspondents","correspondents")
     hirasa()
     bundle(); broadcast_bulletin(); broadcast_official(); broadcast_alerts(); broadcast_news(); save_agents()
     print("🎙️ النشرة الصوتية جاهزة — الفيديو معطَّل في هذه النسخة")
@@ -3327,6 +3370,7 @@ _run_aux("map_week","map_week","map_week")
 _run_aux("osint_watch","osint_watch","osint_watch")
 _run_aux("viral_wave","viral_wave","viral_wave")
 _run_wave()
+_run_aux("correspondents","correspondents","correspondents")
 hirasa()
 bundle()
 _run_aux("social_pack","social_pack","social_pack")

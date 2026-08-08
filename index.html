@@ -2597,7 +2597,8 @@ function renderTeam(){
   teamCrew.innerHTML=A.map((x,idx)=>{
     const st=paused.has(x.id)?"idle":(x.status||"idle");
     const did=enText(x.note, x.note_en||"")||"";
-    const wv=x.parent==="mawj"?`<span class="wv-badge" title="${esc(EN?"spawned to follow a wave":"وكيلٌ فُرِّخَ لمتابعةِ موجة")}">🌊</span>`:"";
+    const wv=x.parent==="mawj"?`<span class="wv-badge" title="${esc(EN?"spawned to follow a wave":"وكيلٌ فُرِّخَ لمتابعةِ موجة")}">🌊</span>`
+      :x.parent==="murasil"?`<span class="wv-badge" title="${esc(EN?"automated country desk — relays sourced stories":"مكتبُ رصدٍ آليّ — ينقلُ موادَّ مُسنَدةً بمصادرِها")}">📍</span>`:"";
     return `<button type="button" class="tcard" onclick="openProfile('agent','${x.id}')">
       <div class="av">${esc((x.icon||"•").slice(0,2))}</div>
       <div class="b"><b>${esc(agentName(x.id,x.name,x))}${wv}</b><div class="role">${esc(teamBlurb(x.id,x.role,x))}${did?`<br><span style="color:var(--dim)">${esc(did)}</span>`:""}</div></div>
