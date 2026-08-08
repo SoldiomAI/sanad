@@ -294,6 +294,47 @@ class TestCorrespondents(unittest.TestCase):
         rows = self._run([{"id": "kw", "name": "الكويت", "en": "Kuwait", "n": 5}], existing=wave)
         self.assertIn("mawja_abc", [r["id"] for r in rows])
 
+    def test_memory_accumulates_across_cycles(self):
+        """التطوّر: الخبرةُ تتراكمُ عبرَ الدورات بلا نموذجٍ لغويّ."""
+        import subprocess
+        d = tempfile.mkdtemp()
+        stories = [{"head": "الكويت تعلن ميزانية التعليم", "grade": "صحيح", "src": "كونا"},
+                   {"head": "وزارة التعليم تفتتح مدارس", "grade": "حسن", "src": "الجريدة"},
+                   {"head": "ميزانية التعليم في البرلمان", "grade": "حسن", "src": "القبس"}]
+        with open(os.path.join(d, "map.json"), "w", encoding="utf-8") as fh:
+            json.dump({"countries": [{"id": "kw", "name": "الكويت", "en": "Kuwait",
+                                      "n": 3, "sahih": 1, "hasan": 2, "stories": stories}]},
+                      fh, ensure_ascii=False)
+        env = dict(os.environ, SANAD_DAILY=d)
+        mod = os.path.join(ROOT, "pipeline", "correspondents.py")
+        for _ in range(3):
+            subprocess.run([sys.executable, mod], env=env, cwd=d, capture_output=True, check=True)
+        with open(os.path.join(d, "correspondents.json"), encoding="utf-8") as fh:
+            mem = json.load(fh)["countries"]["kw"]
+        self.assertEqual(mem["cycles"], 3)
+        self.assertEqual(mem["total"], 9)
+        # وثاقةُ المنفذِ من درجةِ الإسناد: «كونا» صحيح ⇒ يتصدّر
+        self.assertEqual(list(mem["sources"])[0], "كونا")
+        self.assertGreater(mem["sources"]["كونا"]["sahih"], 0)
+        # حارسُ الانجراف: لا حقلَ أداءٍ/انتشارٍ في الذاكرة إطلاقًا
+        for rec in mem["sources"].values():
+            self.assertEqual(set(rec) - {"n", "sahih", "at"}, set())
+
+    def test_memory_only_learns_from_verified(self):
+        import subprocess
+        d = tempfile.mkdtemp()
+        stories = [{"head": "خبر ضعيف الإسناد", "grade": "غير مُسند", "src": "مدونة"},
+                   {"head": "الكويت تعلن ميزانية", "grade": "صحيح", "src": "كونا"}]
+        with open(os.path.join(d, "map.json"), "w", encoding="utf-8") as fh:
+            json.dump({"countries": [{"id": "kw", "name": "الكويت", "en": "Kuwait",
+                                      "n": 3, "stories": stories}]}, fh, ensure_ascii=False)
+        subprocess.run([sys.executable, os.path.join(ROOT, "pipeline", "correspondents.py")],
+                       env=dict(os.environ, SANAD_DAILY=d), cwd=d, capture_output=True, check=True)
+        with open(os.path.join(d, "correspondents.json"), encoding="utf-8") as fh:
+            mem = json.load(fh)["countries"]["kw"]
+        self.assertIn("كونا", mem["sources"])
+        self.assertNotIn("مدونة", mem["sources"])   # غيرُ المُسنَدِ لا يدخلُ الذاكرة
+
     def test_roster_is_capped(self):
         many = [{"id": f"c{i}", "name": f"د{i}", "en": f"C{i}", "n": 5} for i in range(40)]
         rows = self._run(many)
