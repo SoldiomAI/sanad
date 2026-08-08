@@ -896,10 +896,10 @@ def hirasa():
         _push(key,state,note,owner,age,n,ef)
     bad=[s for s in secs if s["state"] in ("dead","stale","empty")]
     overall="ok" if not bad else ("dead" if any(s["state"]=="dead" for s in bad) else "degraded")
-    json.dump({"updated":now,"updated_at":now,"overall":overall,
-        "note":"حالةُ كلِّ قسمٍ من نتيجتِه لا من نجاحِ تشغيلِه",
-        "sections":secs,"modules":_AUX},
-        open(HEALTH_F,"w"),ensure_ascii=False,indent=1)
+    with open(HEALTH_F,"w",encoding="utf-8") as _fh:
+        json.dump({"updated":now,"updated_at":now,"overall":overall,
+            "note":"حالةُ كلِّ قسمٍ من نتيجتِه لا من نجاحِ تشغيلِه",
+            "sections":secs,"modules":_AUX},_fh,ensure_ascii=False,indent=1)
     # الوكيلُ المالكُ لقسمٍ بائتٍ/فارغٍ لا يُنشَرُ «سليمًا»
     for s in secs:
         o=s.get("owner")
@@ -1055,11 +1055,18 @@ def _run_aux(mod, fn, label):
         return getattr(m, fn)()
     try:
         try:
-            _call()
+            r=_call()
         except ImportError:
             sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-            _call()
-        _AUX[label]={"status":"ok","note":"","ms":int((time.time()-t0)*1000),
+            r=_call()
+        # الوحدةُ التي تُرجِعُ «تخطّيتُ» أو «فشلتُ» لا تُسجَّلُ «سليمة»: نفسُ درسِ
+        # طبقةِ الوكلاء — المقياسُ نتيجةُ التشغيلِ لا مجرّدُ خلوّه من استثناء.
+        st,note="ok",""
+        if isinstance(r,dict):
+            note=str(r.get("why") or "")[:110]
+            if r.get("failed"): st="fail"
+            elif r.get("skipped"): st="skip"
+        _AUX[label]={"status":st,"note":note,"ms":int((time.time()-t0)*1000),
             "at":datetime.now(timezone.utc).isoformat(timespec="minutes")}
     except Exception as _e:
         note=str(_e)[:110]
@@ -2160,6 +2167,12 @@ def alerts_wire():
 
 try: alerts_wire()
 except Exception as e: print("سلكُ التحذيرات تخطّى: "+str(e)[:80])
+
+# 📣 المُنادي — يُشعِرُ تطبيقَ سَنَد بالتحذيرِ الرسميِّ الجديدِ وحدَه. موضعُه هنا
+# مقصود: بعدَ استقرارِ alerts.json نهائيًّا (المُنبِّه ثمّ السلك)، فلا يُرسَلُ
+# تحذيرٌ ثمّ يُطهَّرُ بعدَ لحظةٍ لقِدَمِه أو غموضِ تاريخِه. بلا سرِّ Firebase:
+# تخطٍّ صامت.
+_run_aux("push_fcm","push_alerts","push_fcm")
 
 # ═══════════════ سَنَد تحت المجهر: رصدُ الشائعات بسلسلة إسنادٍ ثلاثيّة ═══════════════
 # لا يُنشَر حكمٌ قاطعٌ إلا بما تتّفق عليه ثلاثةُ وكلاء: المُلتَقِط يجمع، والمُخرِّج يبحث

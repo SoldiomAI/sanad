@@ -1,0 +1,22 @@
+{
+  "name": "sanad-mobile",
+  "version": "1.0.0",
+  "private": true,
+  "description": "سَنَد — غلافُ التطبيقِ الأصليّ (Capacitor) حولَ نفسِ صفحةِ isnad.news",
+  "scripts": {
+    "sync:web": "node scripts/sync-web.mjs",
+    "sync": "npm run sync:web && cap sync",
+    "android:build": "npm run sync && cd android && ./gradlew assembleDebug",
+    "android:release": "npm run sync && cd android && ./gradlew bundleRelease"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.2.0",
+    "@capacitor/app": "^6.0.2",
+    "@capacitor/core": "^6.2.0",
+    "@capacitor/push-notifications": "^6.0.2",
+    "@capacitor/status-bar": "^6.0.2"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.2.0"
+  }
+}

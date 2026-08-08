@@ -364,5 +364,109 @@ class TestCorrespondents(unittest.TestCase):
         self.assertLessEqual(len([r for r in rows if r["parent"] == "murasil"]), 12)
 
 
+class TestPushGuards(unittest.TestCase):
+    """«المُنادي»: الإشعارُ مقاطعةٌ — فبواباتُه أضيقُ من بواباتِ العرض.
+
+    الأنبوبُ يدورُ كلَّ ٣٠ دقيقةً على نفسِ `alerts.json`، فبلا سِجلِّ إرسالٍ
+    يُقصَفُ القارئُ بنفسِ التحذيرِ ٤٨ مرّةً في اليوم. هذه الاختباراتُ تحرسُ ذلك.
+    """
+
+    def setUp(self):
+        sys.path.insert(0, os.path.join(ROOT, "pipeline"))
+        import push_fcm
+        self.m = push_fcm
+        self.d = tempfile.mkdtemp()
+        self.m.ALERTS_F = os.path.join(self.d, "alerts.json")
+        self.m.SENT_F = __import__("pathlib").Path(self.d, "push_sent.json")
+        self.sent_msgs = []
+        self.m._sa = lambda: {"client_email": "x@y.z", "private_key": "k", "project_id": "p"}
+        self.m._access_token = lambda sa: "tok"
+        self.m._send = lambda p, t, title, body, data: (
+            self.sent_msgs.append({"title": title, "body": body, "data": data}) or True)
+
+    def _alert(self, txt, hours_ago=0.2, url="https://example.com/a"):
+        cap = (datetime.now(timezone.utc) - timedelta(hours=hours_ago)).isoformat(timespec="minutes")
+        return {"kind": "تحذير", "body": "الدفاع المدني", "txt": txt, "u": url,
+                "when": "8 أغسطس 2026", "cap": cap}
+
+    def _write(self, items):
+        with open(self.m.ALERTS_F, "w", encoding="utf-8") as fh:
+            json.dump({"updated": "x", "list": items}, fh, ensure_ascii=False)
+
+    def test_same_alert_is_never_pushed_twice(self):
+        self._write([self._alert("إخلاء فوري في المنطقة أ")])
+        self.assertEqual(len(self.sent_msgs), 0)
+        self.m.push_alerts()
+        self.assertEqual(len(self.sent_msgs), 1)
+        self.m.push_alerts()          # الدورةُ التالية بعد ٣٠ دقيقة
+        self.m.push_alerts()          # والتي تليها
+        self.assertEqual(len(self.sent_msgs), 1, "أُرسِلَ نفسُ التحذيرِ أكثرَ من مرّة")
+
+    def test_id_survives_link_resolution(self):
+        """رابطُ غوغل يُفَكُّ لاحقًا إلى رابطِ الناشر — والبصمةُ من النصِّ فلا يتكرّر."""
+        a = self._alert("حريق في المستودع", url="https://news.google.com/rss/articles/CBMi123")
+        b = dict(a, u="https://alqabas.com/article/999")
+        self.assertEqual(self.m.alert_id(a), self.m.alert_id(b))
+
+    def test_stale_alert_does_not_wake_anyone(self):
+        self._write([self._alert("تحذيرٌ فاتَ أوانُه", hours_ago=30)])
+        r = self.m.push_alerts()
+        self.assertEqual(len(self.sent_msgs), 0)
+        self.assertTrue(r.get("skipped"))
+
+    def test_insecure_link_is_refused(self):
+        self._write([self._alert("تحذير", url="http://insecure.example/a")])
+        self.m.push_alerts()
+        self.assertEqual(len(self.sent_msgs), 0)
+
+    def test_daily_cap_holds_the_line(self):
+        self._write([self._alert(f"تحذير رقم {i}") for i in range(20)])
+        self.m.push_alerts()
+        self.assertLessEqual(len(self.sent_msgs), self.m.DAILY_CAP)
+
+    def test_body_carries_the_source(self):
+        """الإشعارُ نفسُه مُسنَد: يحملُ اسمَ الراوي، لا صوتًا مجهولًا."""
+        self._write([self._alert("إغلاق طريق")])
+        self.m.push_alerts()
+        self.assertIn("الدفاع المدني", self.sent_msgs[0]["body"])
+
+    def test_no_secret_means_silent_skip(self):
+        self.m._sa = lambda: None
+        self._write([self._alert("تحذير")])
+        r = self.m.push_alerts()
+        self.assertTrue(r.get("skipped"))
+        self.assertEqual(len(self.sent_msgs), 0)
+
+
+class TestAuxStatusHonesty(unittest.TestCase):
+    """وحدةٌ مساعِدةٌ تقولُ «تخطّيتُ» لا تُسجَّلُ «سليمة»."""
+
+    def _aux(self, ret):
+        aux = {}
+        g = load(["_run_aux"], extra={
+            "_AUX": aux, "time": __import__("time"),
+            "sys": sys, "os": os,
+        })
+        mod = type(sys)("fake_aux_mod")
+        mod.go = lambda: ret
+        sys.modules["fake_aux_mod"] = mod
+        try:
+            g["_run_aux"]("fake_aux_mod", "go", "fake")
+        finally:
+            sys.modules.pop("fake_aux_mod", None)
+        return aux["fake"]
+
+    def test_skipped_return_is_recorded_as_skip(self):
+        rec = self._aux({"skipped": 1, "why": "لا سرَّ Firebase"})
+        self.assertEqual(rec["status"], "skip")
+        self.assertIn("Firebase", rec["note"])
+
+    def test_failed_return_is_recorded_as_fail(self):
+        self.assertEqual(self._aux({"failed": 1, "why": "انقطاع"})["status"], "fail")
+
+    def test_plain_return_is_ok(self):
+        self.assertEqual(self._aux({"why": "3 تحذيرات"})["status"], "ok")
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

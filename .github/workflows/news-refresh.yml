@@ -33,6 +33,7 @@ jobs:
         with: {node-version: '22'}
       - run: npm i -g --no-audit --no-fund --prefer-offline @google/gemini-cli@latest   # أخفُّ تثبيتًا: بلا تدقيقٍ ولا تمويلٍ ومع تفضيلِ الكاش
       - run: pip install -q edge-tts pillow arabic-reshaper python-bidi || true   # صوتُ المحلّل + بطاقة السوشيال — غيرُ حاسمٍ فلا يُعطِّلُ الأخبار
+      - run: pip install -q cryptography || true   # توقيعُ JWT لإشعاراتِ FCM — غيابُه يُعطّلُ الإشعاراتِ وحدَها
       - name: تحديث الأخبار وتشغيل الوكلاء
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -52,6 +53,9 @@ jobs:
           # بوّابةُ المؤسسات — تغذيةُ تاريخِ المؤشّر (اختياريّةٌ، تخطٍّ صامتٌ بلا الأسرار)
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          # 📣 المُنادي — إشعارُ التحذيراتِ الرسميّةِ لتطبيقِ سَنَد (حسابُ خدمةِ Firebase).
+          # بلا السرِّ: تخطٍّ صامتٌ تامّ، والأنبوبُ يعملُ كما هو.
+          FCM_SA_JSON: ${{ secrets.FCM_SA_JSON }}
         run: python pipeline/daily_anchor.py
       - name: حفظ
         id: save

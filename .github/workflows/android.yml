@@ -1,0 +1,72 @@
+# بناءُ تطبيقِ أندرويد — غلافُ Capacitor حولَ نفسِ صفحةِ isnad.news
+name: android
+
+# لا يعملُ إلّا حين يمسُّ التغييرُ التطبيقَ أو أصولَ الصفحةِ التي يحملُها.
+# دقائقُ ubuntu بمُضاعِفِ ١× (خلافًا لـmacOS ١٠×) — فالبناءُ هنا رخيصٌ عمدًا.
+on:
+  push:
+    branches: [main]
+    paths: ['app/**', 'index.html', 'icons/**', 'fonts/**', 'assets/**',
+            'manifest.webmanifest', '.github/workflows/android.yml']
+  pull_request:
+    paths: ['app/**', 'index.html', 'icons/**', 'fonts/**', 'assets/**',
+            'manifest.webmanifest', '.github/workflows/android.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: تثبيتُ الاعتماديّات
+        working-directory: app
+        run: npm ci --no-audit --no-fund
+
+      - name: نسخُ أصولِ الصفحةِ إلى التطبيق
+        working-directory: app
+        run: npm run sync:web
+
+      # السرُّ غائبٌ ⇒ يُبنى التطبيقُ كاملًا بلا إشعارات (نفسُ نمطِ الأنبوب:
+      # مفتاحٌ غائبٌ = تخطٍّ صامت، لا بناءٌ فاشل).
+      - name: إعدادُ Firebase (إن وُجد السرّ)
+        env:
+          GS: ${{ secrets.ANDROID_GOOGLE_SERVICES_JSON }}
+        run: |
+          if [ -n "$GS" ]; then
+            printf '%s' "$GS" > app/android/app/google-services.json
+            echo "✅ google-services.json مُهيَّأ — الإشعاراتُ فعّالة"
+          else
+            echo "ℹ️ لا سرَّ Firebase — يُبنى التطبيقُ بلا إشعارات"
+          fi
+
+      - name: مزامنةُ Capacitor
+        working-directory: app
+        run: npx cap sync android
+
+      - name: بناءُ APK للتجربة
+        working-directory: app/android
+        run: ./gradlew --no-daemon assembleDebug
+
+      - name: رفعُ الحزمة
+        uses: actions/upload-artifact@v4
+        with:
+          name: sanad-debug-apk
+          path: app/android/app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
+          retention-days: 14
