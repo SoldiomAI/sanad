@@ -295,10 +295,13 @@ async function loadHealth(){
   const box=document.getElementById("healthBox"); if(!box) return;
   if(!HEALTH){ box.innerHTML=`<div class="panel"><div class="hd">🩺 الحِراسة</div>
     <div class="mono" style="padding:8px">لم يُنشَرْ health.json بعد — يُكتَبُ مع أوّلِ دورةِ أنبوبٍ بعد الدمج.</div></div>`; return; }
-  const S=HEALTH.sections||[]; const bad=S.filter(s=>s.state!=="fresh");
-  const LBL={fresh:"حيّ",stale:"بائت",empty:"فارغ",dead:"ميّت"};
-  const CL={fresh:"ok",stale:"",empty:"",dead:"err"};
-  box.innerHTML=`<div class="panel"><div class="hd">🩺 الحِراسة · ${bad.length?`<span class="err">${bad.length} قسمًا يحتاجُ نظرًا</span>`:'<span class="ok">كلُّ الأقسامِ حيّة</span>'}</div>
+  const S=HEALTH.sections||[];
+  // «خامد» مقصودٌ لا عطل — لا يُحتسَبُ في مَن «يحتاجُ نظرًا» كي لا يبلُدَ الإنذار
+  const bad=S.filter(s=>s.state!=="fresh"&&s.state!=="dormant");
+  const dorm=S.filter(s=>s.state==="dormant").length;
+  const LBL={fresh:"حيّ",stale:"بائت",empty:"فارغ",dead:"ميّت",dormant:"خامد"};
+  const CL={fresh:"ok",stale:"",empty:"",dead:"err",dormant:""};
+  box.innerHTML=`<div class="panel"><div class="hd">🩺 الحِراسة · ${bad.length?`<span class="err">${bad.length} قسمًا يحتاجُ نظرًا</span>`:'<span class="ok">كلُّ الأقسامِ العاملةِ حيّة</span>'}${dorm?` <span style="color:var(--mut);font-weight:500">· ${dorm} خامد</span>`:""}</div>
     <div class="tw"><table><thead><tr><th>قسم</th><th>الحالة</th><th>العُمر</th><th>عناصر</th><th>ملاحظة</th></tr></thead><tbody>
     ${S.map(s=>`<tr><td>${s.key}</td>
       <td class="${CL[s.state]||""}">${LBL[s.state]||s.state}</td>

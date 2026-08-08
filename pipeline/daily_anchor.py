@@ -841,7 +841,13 @@ _HEALTH_SPEC={
  "wave":     (26,  0,  "cards",  "viral_wave"),
  "waves":    (3,   0,  "waves",  "mawj"),
  "latest":   (30,  0,  None,     "rawi"),
+ # قسمان يُشحَنان في الحزمةِ ولا تقرؤهما الواجهةُ إطلاقًا — يُرصَدان كي لا يُنسَيا
+ "corrections":(26, 0, "log",    "rasid"),
+ "verify":   (26,  0,  "rows",   "mutabiq"),
 }
+# مُغذّي هذين مُعطَّلٌ عمدًا (الحصيلةُ موقوفة) — فيُعلَنان «خامدَين» بصدقٍ ولا
+# يُحاسَبُ عليهما وكيلُهما. الحارسُ الذي يصرخُ بلا عطلٍ حقيقيٍّ يفقدُ قيمتَه.
+_HEALTH_DORMANT={"corrections","verify"}
 def _count_items(doc, path):
     if not path: return None
     v=doc.get(path)
@@ -854,15 +860,20 @@ def hirasa():
     secs=[]; now=datetime.now(timezone.utc).isoformat(timespec="minutes")
     try: prev={s["key"]:s for s in json.load(open(HEALTH_F)).get("sections",[])}
     except Exception: prev={}
+    def _push(key,state,note,owner,age=None,n=0,ef=0):
+        """نقطةُ إصدارٍ واحدةٌ لكلِّ قسم — فقاعدةُ الخمودِ تُطبَّقُ في كلِّ المسارات."""
+        if key in _HEALTH_DORMANT and state!="fresh":
+            state,note="dormant","مُغذّيه مُعطَّلٌ عمدًا — ولا تقرؤه الواجهة"
+        secs.append({"key":key,"state":state,"age_h":(round(age,1) if age is not None else None),
+                     "items":n,"owner":owner,"note":note,"empty_for_h":round(ef,1)})
     for key,(max_h,min_n,path,owner) in _HEALTH_SPEC.items():
         p=f"{OUT}/{key}.json"
         if not os.path.exists(p):
-            secs.append({"key":key,"state":"dead","age_h":None,"items":0,"owner":owner,
-                         "note":"الملفُّ غيرُ موجود","empty_for_h":0}); continue
-        try: doc=json.load(open(p))
+            _push(key,"dead","الملفُّ غيرُ موجود",owner); continue
+        try:
+            with open(p,encoding="utf-8") as _fh: doc=json.load(_fh)
         except Exception as e:
-            secs.append({"key":key,"state":"dead","age_h":None,"items":0,"owner":owner,
-                         "note":"تعذّرت القراءة: "+str(e)[:50],"empty_for_h":0}); continue
+            _push(key,"dead","تعذّرت القراءة: "+str(e)[:50],owner); continue
         # بعضُ الملفّاتِ تختمُ بـdate (يوم) لا updated (لحظة) — نقبلُ الاثنين
         age=_age_h(doc.get("updated"))
         if age is None and doc.get("date"):
@@ -882,8 +893,7 @@ def hirasa():
             ef=ef+(step if step and step<6 else 0.5)
             if ef>=48 and state=="fresh": state,note="empty",f"فارغٌ منذ ~{ef/24:.1f} يوم"
         else: ef=0
-        secs.append({"key":key,"state":state,"age_h":(round(age,1) if age is not None else None),
-                     "items":n,"owner":owner,"note":note,"empty_for_h":round(ef,1)})
+        _push(key,state,note,owner,age,n,ef)
     bad=[s for s in secs if s["state"] in ("dead","stale","empty")]
     overall="ok" if not bad else ("dead" if any(s["state"]=="dead" for s in bad) else "degraded")
     json.dump({"updated":now,"updated_at":now,"overall":overall,
@@ -893,16 +903,18 @@ def hirasa():
     # الوكيلُ المالكُ لقسمٍ بائتٍ/فارغٍ لا يُنشَرُ «سليمًا»
     for s in secs:
         o=s.get("owner")
-        if not o or s["state"]=="fresh": continue
+        if not o or s["state"] in ("fresh","dormant"): continue
         cur=(_LOG.get(o) or {}).get("status")
         if cur in ("fail",): continue
         if s["state"] in ("dead","empty") or cur is None:
             mark(o,"degraded" if s["state"]!="dead" else "fail",
                  f"{s['key']}: {s['note']}"[:110])
+    dorm=[s["key"] for s in secs if s["state"]=="dormant"]
+    tail=(f" · خامد: {'، '.join(dorm)}" if dorm else "")
     if bad:
-        print("🩺 الحِراسة: "+" · ".join(f"{s['key']}={s['state']}" for s in bad))
+        print("🩺 الحِراسة: "+" · ".join(f"{s['key']}={s['state']}" for s in bad)+tail)
     else:
-        print(f"🩺 الحِراسة: كلُّ الأقسامِ حيّة ({len(secs)})")
+        print(f"🩺 الحِراسة: كلُّ الأقسامِ العاملةِ حيّة ({len(secs)-len(dorm)})"+tail)
     return {"why":overall}
 
 def bundle():

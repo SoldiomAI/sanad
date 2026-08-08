@@ -176,7 +176,7 @@ class TestHealthWatchdog(unittest.TestCase):
             with open(os.path.join(d, name + ".json"), "w", encoding="utf-8") as fh:
                 json.dump(doc, fh, ensure_ascii=False)
         log = {}
-        g = load(["_age_h", "_count_items", "_HEALTH_SPEC", "hirasa"], extra={
+        g = load(["_age_h", "_count_items", "_HEALTH_SPEC", "_HEALTH_DORMANT", "hirasa"], extra={
             "OUT": d, "HEALTH_F": os.path.join(d, "health.json"),
             "_LOG": log, "_AUX": {},
             "mark": lambda a, s="ok", n="": log.__setitem__(a, {"status": s, "note": n}),
@@ -200,8 +200,31 @@ class TestHealthWatchdog(unittest.TestCase):
         self.assertNotEqual(h["overall"], "ok")
 
     def test_missing_file_is_dead(self):
-        h, _ = self._run({})
-        self.assertTrue(all(s["state"] == "dead" for s in h["sections"]))
+        h, log = self._run({})
+        live = [s for s in h["sections"] if s["key"] not in ("corrections", "verify")]
+        self.assertTrue(live)
+        self.assertTrue(all(s["state"] == "dead" for s in live))
+        # حتى الغيابُ الكاملُ للملفِّ لا يُحوِّلُ الخامدَ إلى اتّهامٍ لوكيلِه
+        for key, owner in (("verify", "mutabiq"), ("corrections", "rasid")):
+            sec = [s for s in h["sections"] if s["key"] == key][0]
+            self.assertEqual(sec["state"], "dormant")
+            self.assertNotIn(owner, log)
+
+    def test_dormant_sections_are_declared_not_blamed(self):
+        """قسمٌ مُغذّيه مُعطَّلٌ عمدًا يُعلَنُ «خامدًا» ولا يُتَّهَمُ به وكيلُه."""
+        h, log = self._run({"verify": {"updated": iso_ago(hours=24 * 16), "rows": []},
+                            "corrections": {"updated": iso_ago(hours=24 * 18), "log": []}})
+        for key, owner in (("verify", "mutabiq"), ("corrections", "rasid")):
+            sec = [s for s in h["sections"] if s["key"] == key][0]
+            self.assertEqual(sec["state"], "dormant")     # يُقالُ ولا يُخفى
+            self.assertNotIn(owner, log)                  # ولا يُحاسَبُ عليه وكيلُه
+
+    def test_dormant_does_not_mask_a_real_outage(self):
+        """الخمودُ لا يبتلعُ عطلًا حقيقيًّا في قسمٍ عامل."""
+        h, log = self._run({"verify": {"updated": iso_ago(hours=24 * 16), "rows": []},
+                            "alerts": {"updated": iso_ago(hours=140), "list": []}})
+        self.assertNotEqual(h["overall"], "ok")
+        self.assertIn("munabbih", log)
         self.assertEqual(h["overall"], "dead")
 
     def test_empty_below_minimum_is_flagged(self):
