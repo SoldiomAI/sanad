@@ -1,11 +1,23 @@
-# سَنَد — self-hosted subset fonts
+# سَنَد — خطوط مستضافة ذاتيًّا
 
-Two woff2 files replace the 16 Google-Fonts requests. Subset to the Arabic
-block plus Basic/Latin-1 and the punctuation the interface uses.
+نفسُ المحارفِ التي كانت تُجلَبُ من Google Fonts، لكنّها تُخدَمُ من نطاقِنا:
+مقاطعُ غوغل العربيّةُ نفسُها (`unicode-range: U+0600-06FF …`) بلا أيِّ تغييرٍ
+بصريّ، فيسقطُ اتّصالان خارجيّان (fonts.googleapis + fonts.gstatic) وطلبُ CSS
+حاجبٌ للعرض، ويُشدَّدُ الـCSP إلى `font-src 'self'`.
 
-| file | family in CSS | source | weight | license |
-|---|---|---|---|---|
-| `sanad-text.woff2` | IBM Plex Sans Arabic (also backs the UI/Noto-Kufi slots) | IBM Plex Sans Arabic Regular | 400 | OFL-1.1 |
-| `sanad-display.woff2` | Amiri (display/headline slot) | Markazi Text @ wght 700 | 700 | OFL-1.1 |
+| الملف | العائلة في CSS | الوزن |
+|---|---|---|
+| `amiri-400.woff2` | Amiri | 400 |
+| `amiri-700.woff2` | Amiri | 700 |
+| `ibm-plex-sans-arabic-400/600/700.woff2` | IBM Plex Sans Arabic | 400 · 600 · 700 |
+| `noto-kufi-arabic-400.woff2` | Noto Kufi Arabic (خطٌّ متغيّرٌ يخدمُ 400/600/700) | متغيّر |
 
-Rebuild: `pyftsubset <src>.ttf --flavor=woff2 --layout-features='ccmp,isol,init,medi,fina,rlig,calt,liga,mark,mkmk,kern' --unicodes='U+0020-00FF,U+0600-06FF,U+0750-077F,U+200C-200F,U+2010-2015,U+2018-201F,U+2039-203A'`
+الرخصة: OFL-1.1 لكلِّ العائلات (ملفّا الرخصةِ مرفقان).
+
+> **تحذيرٌ تاريخيّ**: كان هنا ملفّان `sanad-text.woff2` و`sanad-display.woff2`
+> يزعمان ملءَ خانةِ **Amiri** بينما مصدرُهما **Markazi Text** — أي استبدالُ
+> محرفٍ بآخرَ لا اقتطاعُه، وهو ما كان سيغيّرُ هويّةَ العناوين. حُذفا لئلّا
+> يُوصَلا سهوًا. أيُّ اقتطاعٍ لاحقٍ يجبُ أن يكونَ من **نفسِ** العائلة.
+
+إعادةُ البناء: نزِّلْ من رابطِ `@font-face` في CSS غوغل (وكيلُ متصفّحٍ حديث)
+مقطعَ `U+0600` العربيَّ لكلِّ عائلةٍ ووزن.
