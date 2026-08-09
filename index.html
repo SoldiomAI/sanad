@@ -713,7 +713,7 @@ body.map-mode .app{max-width:min(960px,100%)}
     <div id="profRoot"></div>
   </section>
 
-  <div class="foot-mini">سَنَد · SOLDIOM · الكويت</div>
+  <div class="foot-mini">سَنَد · SOLDIOM · الكويت · <a href="/privacy" style="color:inherit">سياسةُ الخصوصيّة</a></div>
 </main>
 
 <nav class="bnav" id="bnav" aria-label="القائمة">
@@ -866,7 +866,7 @@ function applyChromeI18n(){
     else if(i===2){ if(s) s.textContent="For institutions"; if(b) b.innerHTML=`<a href="/enterprise">Sanad Enterprise</a>.`; }
   });
   const foot=document.querySelector(".foot-mini");
-  if(foot) foot.innerHTML=`Sanad · SOLDIOM · Kuwait`;
+  if(foot) foot.innerHTML=`Sanad · SOLDIOM · Kuwait · <a href="/privacy" style="color:inherit">Privacy</a>`;
   document.title="Sanad | Graded news intelligence";
 }
 

@@ -26,6 +26,43 @@
     }
   } catch (e) {}
 
+  // ── «شارِكْ إلى سَنَد» — استقبالُ الرابطِ من امتدادِ المشاركة ─────────────
+  // الامتدادُ يُسلّمُ `sanad://verify?u=<رابط مُرمَّز>`. الفحصُ يبقى في مكانٍ
+  // واحدٍ (تبويبُ «تحقّق») لا يُنسَخُ داخلَ الامتداد.
+  function handleDeepLink(raw) {
+    var s = String(raw || "");
+    if (s.indexOf("verify") < 0) return;
+    var m = s.match(/[?&]u=([^&]+)/);
+    if (!m) return;
+    var target = "";
+    try { target = decodeURIComponent(m[1]); } catch (e) { return; }
+    if (!/^https?:\/\//i.test(target)) return;   // لا نُمرّرُ إلّا رابطًا حقيقيًّا
+    try {
+      if (typeof window.setView === "function") {
+        window.setView("verify");
+        if (typeof window.syncRoute === "function") window.syncRoute();
+      }
+      var box = document.getElementById("vUrl");
+      if (box) {
+        box.value = target;
+        if (typeof window.runVerify === "function") window.runVerify();
+      }
+    } catch (e) {}
+  }
+
+  var AppPlugin = Cap.Plugins && Cap.Plugins.App;
+  if (AppPlugin && AppPlugin.addListener) {
+    AppPlugin.addListener("appUrlOpen", function (ev) {
+      handleDeepLink(ev && ev.url);
+    }).catch(function () {});
+    // فتحٌ باردٌ: التطبيقُ لم يكنْ يعملُ حين شُورِكَ الرابط
+    if (AppPlugin.getLaunchUrl) {
+      AppPlugin.getLaunchUrl().then(function (r) {
+        if (r && r.url) setTimeout(function () { handleDeepLink(r.url); }, 600);
+      }).catch(function () {});
+    }
+  }
+
   var Push = Cap.Plugins && Cap.Plugins.PushNotifications;
   if (!Push) return;
 

@@ -23,6 +23,8 @@ const SITE = "https://www.isnad.news";
 // ما يُنسَخُ حرفيًّا — ولا شيءَ غيرُه
 const COPY = [
   "index.html",
+  // تُحمَلُ داخلَ التطبيقِ عمدًا: مُراجِعُ المتجرِ يفتحُها، ويجبُ أن تعملَ بلا شبكة
+  "privacy.html",
   "manifest.webmanifest",
   "og-card.png",
   "icons",
@@ -88,7 +90,11 @@ async function main() {
   // ٣) بوّابةُ المؤسساتِ تبقى على الويب — لا تُشحَنُ داخلَ تطبيقٍ عامّ
   html = html.replaceAll('href="/enterprise"', `href="${SITE}/enterprise"`);
 
-  // ٤) جسرُ الإشعارات (يُحقَنُ قبل </body>؛ لا أثرَ له على الويب)
+  // ٤) سياسةُ الخصوصيّةِ محمولةٌ داخلَ الحزمة: المسارُ النظيفُ `/privacy` من
+  //    إعادةِ كتابةِ Vercel ولا وجودَ له محلّيًّا، فيُوجَّهُ إلى الملفِّ نفسِه.
+  html = html.replaceAll('href="/privacy"', 'href="/privacy.html"');
+
+  // ٥) جسرُ الإشعارات (يُحقَنُ قبل </body>؛ لا أثرَ له على الويب)
   const bridge = await readFile(join(HERE, "native-bridge.js"), "utf8");
   html = html.replace(/<\/body>/i, `<script>\n${bridge}\n</script>\n</body>`);
 

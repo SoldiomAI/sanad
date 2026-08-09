@@ -1,0 +1,67 @@
+# بناءُ تطبيقِ سَنَد لـiOS على macOS سحابيّ — بلا حاجةٍ إلى جهاز Mac.
+# (أندرويد يُبنى في GitHub Actions على ubuntu بمُضاعِفِ ١×؛ لا داعيَ لتكرارِه هنا.)
+#
+# قبلَ أوّلِ تشغيلٍ يلزمُ في Codemagic:
+#   • دمجُ App Store Connect API key باسم «sanad_asc»
+#   • متغيّرُ APP_STORE_APPLE_ID من App Store Connect
+#   • رفعُ GoogleService-Info.plist ملفًّا مُشفَّرًا (للإشعارات)
+workflows:
+  ios:
+    name: SANAD iOS
+    instance_type: mac_mini_m2
+    max_build_duration: 45
+    integrations:
+      app_store_connect: sanad_asc
+    environment:
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: news.isnad.app
+      vars:
+        BUNDLE_ID: "news.isnad.app"
+      node: 22
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: تثبيتُ الاعتماديّات
+        script: cd app && npm ci --no-audit --no-fund
+
+      - name: نسخُ أصولِ الصفحةِ إلى التطبيق
+        script: cd app && npm run sync:web
+
+      - name: إضافةُ هدفِ امتدادِ المشاركة
+        # مُتَّسِقٌ عندَ التكرار: يتخطّى إن كان الهدفُ موجودًا
+        script: |
+          cd app
+          gem install xcodeproj --no-document
+          ruby scripts/add-ios-share-extension.rb
+
+      - name: مزامنةُ Capacitor و pod install
+        script: cd app && npx cap sync ios
+
+      - name: إعدادُ Firebase (إن رُفِعَ الملفّ)
+        script: |
+          if [ -f "$CM_ENV_FILE_GOOGLE_SERVICE_INFO" ]; then
+            cp "$CM_ENV_FILE_GOOGLE_SERVICE_INFO" app/ios/App/App/GoogleService-Info.plist
+            echo "✅ إشعاراتُ iOS مُهيَّأة"
+          else
+            echo "ℹ️ بلا GoogleService-Info.plist — يُبنى التطبيقُ بلا إشعارات"
+          fi
+
+      - name: ضبطُ التوقيع
+        script: |
+          cd app/ios/App
+          xcode-project use-profiles
+
+      - name: البناء
+        script: |
+          cd app/ios/App
+          xcode-project build-ipa \
+            --workspace App.xcworkspace \
+            --scheme App
+    artifacts:
+      - app/ios/App/build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+    publishing:
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: true
