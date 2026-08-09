@@ -68,6 +68,14 @@ class ShareViewController: UIViewController {
 
     /// يفتحُ التطبيقَ الأمَّ بالرابطِ مُرمَّزًا. الامتدادُ لا يملكُ `UIApplication.shared`،
     /// فيُصعَدُ في سلسلةِ المُستجيبين للوصولِ إلى `open(_:)`.
+    ///
+    /// ⚠️ قيدٌ معروفٌ يجبُ إغلاقُه قبلَ النشر: مخطَّطُ `sanad://` **ليس محجوزًا**
+    /// لتطبيقٍ بعينِه في iOS — أيُّ تطبيقٍ آخرَ يُسجّلُ المخطَّطَ نفسَه قد يلتقطُ
+    /// الرابطَ المُشارَك. الحمولةُ هنا رابطُ خبرٍ عامٌّ اختارَ القارئُ مشاركتَه (لا
+    /// سرَّ فيها)، لكنّ العلاجَ الصحيحَ **الروابطُ الشاملة (Universal Links)**:
+    /// نطاقٌ مقترنٌ + ملفُّ `apple-app-site-association` على isnad.news. وكلاهما
+    /// يحتاجُ **Team ID** من حسابِ آبل — وهو غيرُ موجودٍ بعد. يُنفَّذُ فورَ توفّرِه،
+    /// ولا يُشحَنُ الامتدادُ للمتجرِ قبلَه.
     private func openHost(with url: String) {
         let encoded = url.addingPercentEncoding(withAllowedCharacters: .alphanumerics) ?? ""
         guard let deep = URL(string: "sanad://verify?u=\(encoded)") else { return }
