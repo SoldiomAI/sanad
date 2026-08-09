@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-09T17:43+00:00",
+ "updated": "2026-08-09T18:11+00:00",
  "note": "مؤشرٌ حسابيٌّ شفّافٌ من كثافة المواد المُسنَدة وحدَها — ليس تقييمًا استخباراتيًّا رسميًّا",
  "formula": "score = min(100, 4·عاجل + 3·ألفاظ تصعيد + 8·تحذيرات + 4·شائعات + 2·أخبار أخرى + بيانات رسمية)",
  "countries": [
@@ -57,7 +57,17 @@
      "src": "بي بي سي فارسي"
     }
    ],
-   "signals": []
+   "signals": [
+    {
+     "kind": "flight",
+     "src": "OpenSky",
+     "lat": 24.0,
+     "lon": 45.0,
+     "detail": "4 طائرةً في المجالِ الجوّيِّ الآن",
+     "url": "https://opensky-network.org/",
+     "at": "2026-08-09T18:11+00:00"
+    }
+   ]
   },
   {
    "id": "ir",
@@ -65,11 +75,11 @@
    "en": "Iran",
    "lat": 32.0,
    "lon": 53.0,
-   "score": 29,
+   "score": 27,
    "level": "مترقّب",
-   "delta": 0,
+   "delta": -2,
    "parts": {
-    "n": 11,
+    "n": 10,
     "u": 0,
     "w": 1,
     "a": 0,
@@ -78,31 +88,17 @@
    },
    "events": [
     {
-     "h": "اعتقال خمسة مشتبه بهم والعثور على جثة حميد رجب زاده في أطراف طهران",
+     "h": "ترامب: المفاوضات مع إيران جارية مثل لعبة الشطرنج",
      "g": "حسن",
-     "u": "https://www.bbc.com/persian/articles/c4g32wp7pweo?at_medium=RSS&at_campaign=rss",
-     "at": "2026-08-09T16:07+00:00",
-     "src": "بي بي سي فارسي"
+     "u": "https://arabic.cnn.com/middle-east/article/2026/08/09/trump-says-us-is-low-keying-negotiations-with-iran",
+     "at": "2026-08-09T17:40+00:00",
+     "src": "CNN بالعربية"
     },
     {
-     "h": "الحكم على المصورة الصحفية يلدا معيري بالسجن 15 عاماً بموجب حكم غيابي صادر عن محكمة الثورة في طهران",
+     "h": "عاجل.. مسؤول الشؤون الإعلامية بالرئاسة الإيرانية: تعيين محسن رضائي أمينا للمجلس الأعلى للأمن القومي",
      "g": "حسن",
-     "u": "https://www.iranintl.com/202608095830",
-     "at": "2026-08-09T15:09+00:00",
-     "src": "إيران إنترناشونال"
-    },
-    {
-     "h": "شاهد.. إيراني يصنع هدف الفوز بـ\"رمية بهلوانية\" في الدوري الروسي",
-     "g": "حسن",
-     "u": "https://www.aljazeera.net/sport/2026/8/9/%d9%86%d8%a7%d8%af%d8%b1-%d9%85%d8%ad%d9%85%d8%af%d9%8a-%d8%b1%d9%85%d9%8a%d8%a9-%d8%aa%d9%85%d8%a7%d8%b3-%d8%a8%d9%87%d9%84%d9%88%d8%a7%d9%86%d9%8a%d8%a9-%d9%87%d8%af%d9%81?traffic_source=rss",
-     "at": "2026-08-09T14:15+00:00",
-     "src": "الجزيرة نت"
-    },
-    {
-     "h": "التهديد ثم التراجع والاستنزاف.. حرب إيران تتحول إلى فخ لترمب",
-     "g": "حسن",
-     "u": "https://www.aljazeera.net/politics/2026/8/9/%d8%a7%d9%84%d8%aa%d9%87%d8%af%d9%8a%d8%af-%d8%ab%d9%85-%d8%a7%d9%84%d8%aa%d8%b1%d8%a7%d8%ac%d8%b9-%d9%88%d8%a7%d9%84%d8%a7%d8%b3%d8%aa%d9%86%d8%b2%d8%a7%d9%81-%d8%ad%d8%b1%d8%a8?traffic_source=rss",
-     "at": "2026-08-09T14:02+00:00",
+     "u": "https://www.aljazeera.net/news/2026/8/9/4778?traffic_source=rss",
+     "at": "2026-08-09T14:57+00:00",
      "src": "الجزيرة نت"
     },
     {
@@ -111,6 +107,20 @@
      "u": "https://news.google.com/rss/articles/CBMilgRBVV95cUxOSzBQTFdEYURwNHd6aS1sLUlGN1EyVnp0RFlBNDQ1OGd4Um5oZXh5Zk54RlN5anNvbHFaSE4yM0JsMm9rU3NDeXBtaHp3ajEtNEU1cGJfZVBfMjdwZm93TENGSFZlUnJ2bUoxeGRQVFBqMDV4b0ZiV1cxSXFvbFdjaDM3QTc1bmU3OXVGcy05OTlJVzBSRy1BOWpmdjRnRGg4WGppYm5EdlVYMF9Ud1BxUG5oeWZ0bGktM1lYVUxiT3ZOQVlpVmcyZGQ1RnlWVHBBaHdEZVE0akVGNURIYmtzWThDZ1VOQ3FuWDlZa05mMGsyX3VCZWxLWDJ3NUQwNmZiejZJdzdGd1VKM3hJei01WS1lUjV1VC0weC13Mjkzd3lEMW9hcWlOQ3lTR3FMXzZLci1yM0FtM3NydnhqOGNJUjJrTEJYSTFvSXFmU3lLeEotblNXbTRxUUxCeVMzX0hfT3NrTjNOQndpZlJXYU5xdm42WF9VQllBckJ4enZaX1BLLWFBUlExcWEyc1pQVkFPV2lxb0dnOHNxUmJRbWxfNHV5V1psTGRuOHdyRFo0aTlFNDdEdnNKaGxKR1R6NjFFZXZrQzYzYVNDcWhCaTQyVGQ2cl9SNTJyaVg2b21TYjF6R2dQNTlfMHZvUEl2LWVacFNNNHNYTnNyZXU3M2VtU2pnV01rUXhDSC03d0gxTWdUY1lrNmfSAZsEQVVfeXFMTkRtN1VhOUQxU2tFV0dGSVJqU1UxYzd5a3pmb0JyYzVCSlZkUk15WXg1M2NIcmNnc0UtWUthcnZtTVRxSnlTXzZlZl9LaHozR2k5YldYUnhOczZaRWpNYVpOdFpBMmUzazQwaXBtWHpSOFAzeVJzelFZOTRTNVFrRlgwR2locEZIemxiMWRKZzl0Q3VRUmRYWjdPTWFadV9DTkFndjVEemJKbjhJbjFweHN6TTlPZDFELU4ySWlHOGJmcTJhOHh5bDZqaUJHV3EwbENETUIwOG5ZSVBXaGJSbGFoRTNoVTNQQkF1T25PV3pzYTN0MXRrVDB1Z1Jmc0Fza0p1TWQ5SWZjdDNtZEpUcGNRYUN2SlQteVUzTGthYmcwdy0yUkpvMDFqeExmQkNrWWp2b01UOXJQNmoyRVhzckNuZFRONTlDVkFzSXZMNjVVbGw1NzFnRzdEWFN4YjVTRE4tTHdESDJEc0IzdGFsSnQyTG5JNHVzdURMdjhVNW40Tk9SVEJSWjNpYVc2SUw4REVPUV9oRTZfTW10V2pzbG9oYjFCQWJURUIwS0x0WFhvUTZicUIxcF95WUZFcjRFcG5pSWNtUm5jLVlzaThiV28zSFVUY2pMaDJnZ29BUDJvM05QM08wRHp3NHFYaEpxTzZra0NmdlFHdGhBQUlBTkhLOUVCZ25TNXY3SWg3Tm9PSkFPdUNZMU0xdk0?oc=5",
      "at": "2026-08-09T13:39+00:00",
      "src": "العربية"
+    },
+    {
+     "h": "إعلام إيراني: نشر صور حديثة للمرشد مجتبى خامنئي قريبًا",
+     "g": "حسن",
+     "u": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNTWRNVTEzZi1wU1F5R2t3TU5YLU1pWFByRGJyMWhVcndFbEhyV2ZKSXhycXFINWcxTWxTclh5c25RalFjV2Zma3JQeHA1aEJfNU9JLXp4UVVzWjBtOTJjQVVlOUN4UGh2M0s1ODVsNG9DbjA4Q2Z5dHVDTFZIbnBYSWhGMGhxVUQ0d2RORjQtdGF5OWozVU1EZE1MMnloYWl1clFRSGo5Sm5xcGxjdjFlZTVnZGZyTWhtMnUw0gHGAUFVX3lxTFA4NWxQbXo4a0hFcGpPaFJIazRvcFkxQmY0UElfNWlpdm00RmFoOTRacWNSZldIaFo0VWZoNWxhaEcyU1NYMkk4V3ZsY01LMlBlUGhBeVJ0Qm96VEpqZkN3bmN4S0VGTm50VEZPVVFNR2dpRGZpdEp3Q0txR0l3NGNTSmRTZUp1QjlVYWdBZVhleE53TVFrX0RNS1RYakNKc3doeGw3NDh4ZzJsOFdNYzU4ZDlqVkdzMUJ5NHVMTVFkRWFCVVFaZw?oc=5",
+     "at": "2026-08-09T12:58+00:00",
+     "src": "CNN Arabic"
+    },
+    {
+     "h": "الحرس الثوري يضع هرمز ضمن \"جغرافيا المواجهة\" وعراقجي: اتفاق عُمان لا يعني فتح المضيق",
+     "g": "حسن",
+     "u": "https://news.google.com/rss/articles/CBMiuAJBVV95cUxNeEYyNDZleDhUT0d4Z3YxN0JmUWE4dlE1MU5NbkRlUHB2Nl9oWUNOUWd3M1BPcEdQUVNnai1hVFk4S1FaTVY4UnFJZ19QNHNJRzEteW5jbk1zRW5Oc2VrSE13djE4czV3bl93UEJFQ0E3UHNaU2syUkRrbmRZeDBrN1JIOFE3TDhNaEFqeUg1UExUanM4VF94M3ZaVU5kcDhyS3pyMUNTWGp2RXZ3aTJwZTZHWHhQQTJBX3p3bVdQeXhoSUZGeGJWd256UGZZb3FPanBpLTdad2YweFJRVmc4bDd0TXFjUFAzRndub19kdXhwcURuVEF5Rk01dWlhcUNva3Q1OFFMMFpUckpWbFlzd1UwWXJ1Y3pvUV84SmVxSEYxQ0IyOW5QRFFXWmRvU2hiN1pXVGk1Nk_SAb4CQVVfeXFMT2hqTk10Q2ZkeUd4LXRpVU9iaUlwaXMxTl9UQmtibmhKLVBwQkZDdXctaEs5VmZIRXJmYjRCcklfQ2JLVzl4VGJNdW5FSmNFc203MDZqbk02eGFzM3pkTE04NFNTWlYtSk1jd0x3YVNmZUhHVXl4d3I1ZERPSmNtME9VUzVSLWowTllOTTRzVXU0dGV1WHlnQkUtVURxT1diMC1Da1pTNldzVl90UG8tRnFBNXJMSngyTk5FbXpadWw1NHlsZnZwZ1d5YVlWVU85RzFxLXEyWTRRam1WeGtrX0JSMlk5OWVuRzlrMlRJVGhzc1VNa3h5Y0dxNmRvSjJBN0NoT2w5ZzhfSnVIOEJGMUk0XzNhVnZ5aXNsOURYV3JFOWYwNkk5Q0xmaFBwSkdXUGdMTjVUN1VwdWJla1VB?oc=5",
+     "at": "2026-08-09T12:00+00:00",
+     "src": "الجزيرة نت"
     }
    ],
    "signals": [
@@ -131,11 +141,11 @@
    "en": "Palestine",
    "lat": 31.9,
    "lon": 35.2,
-   "score": 29,
+   "score": 25,
    "level": "مترقّب",
-   "delta": -2,
+   "delta": -4,
    "parts": {
-    "n": 13,
+    "n": 11,
     "u": 0,
     "w": 1,
     "a": 0,
@@ -172,11 +182,11 @@
      "src": "CNN Arabic"
     },
     {
-     "h": "أوانٍ فارغة وصرخات مكتومة.. شهادات الجوع في خيام نازحي غزة",
+     "h": "إسرائيل متهمة باستخدام علم الآثار كسلاح في المواقع الأثرية في الضفة الغربية",
      "g": "حسن",
-     "u": "https://www.aljazeera.net/politics/2026/8/9/%d8%a3%d9%88%d8%a7%d9%86-%d9%81%d8%a7%d8%b1%d8%ba%d8%a9-%d9%88%d8%b5%d8%b1%d8%ae%d8%a7%d8%aa-%d9%85%d9%83%d8%aa%d9%88%d9%85%d8%a9-%d8%b4%d9%87%d8%a7%d8%af%d8%a7%d8%aa?traffic_source=rss",
-     "at": "2026-08-09T13:47+00:00",
-     "src": "الجزيرة نت"
+     "u": "https://www.bbc.com/arabic/articles/ckgv1421047o?at_medium=RSS&at_campaign=rss",
+     "at": "2026-08-09T13:43+00:00",
+     "src": "بي بي سي عربي"
     }
    ],
    "signals": [
@@ -185,9 +195,9 @@
      "src": "OpenSky",
      "lat": 31.9,
      "lon": 35.2,
-     "detail": "91 طائرةً في المجالِ الجوّيِّ الآن",
+     "detail": "99 طائرةً في المجالِ الجوّيِّ الآن",
      "url": "https://opensky-network.org/",
-     "at": "2026-08-09T17:43+00:00"
+     "at": "2026-08-09T18:11+00:00"
     },
     {
      "kind": "quake",
@@ -206,13 +216,13 @@
    "en": "Yemen",
    "lat": 15.5,
    "lon": 47.5,
-   "score": 25,
-   "level": "مترقّب",
-   "delta": 0,
+   "score": 20,
+   "level": "هادئ",
+   "delta": -5,
    "parts": {
-    "n": 5,
+    "n": 4,
     "u": 0,
-    "w": 5,
+    "w": 4,
     "a": 0,
     "r": 0,
     "o": 0
@@ -231,13 +241,6 @@
      "u": "https://www.france24.com/ar/%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7/20260809-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%88%D9%86-%D9%85%D8%B5%D9%81%D8%A7%D8%A9-%D8%AC%D8%A7%D8%B2%D8%A7%D9%86-%D8%A7%D9%84%D8%AC%D9%8A%D8%B4-%D8%A7%D9%84%D9%8A%D9%85%D9%86%D9%8A-%D9%82%D8%AA%D9%84%D9%89-%D9%87%D8%AC%D9%88%D9%85-%D9%85%D9%8A%D9%86%D8%A7%D8%A1-%D8%A7%D9%84%D9%85%D8%AE%D8%A7",
      "at": "2026-08-09T16:07+00:00",
      "src": "فرانس ٢٤ عربي"
-    },
-    {
-     "h": "تفاصيل جديدة عن هجوم الحوثي على المخا.. مسيرات وزوارق مفخخة",
-     "g": "حسن",
-     "u": "https://news.google.com/rss/articles/CBMi9gNBVV95cUxOM1VaZVoxRXp6Um9Pa21FdldrbTRDVE5CQW1uUU9XWXlUTmFQS283Qjg1d3lvWlY0aUUxT3d1WVhENmtqYlk1VkhPUXp6cHVQVldxRmpzUEhZQlRPUF94MnJqU0p2ZjFvM2JlZjJya3gyNWxvcjhsZEVKM0xVQndaejh6cmFpUUZUSjM3LWg5SVNCbGNoMXhRbDVLaDQ3Z0F6NFFmVzNLQmdJVTJLS1JSblRHdU0weGstbWxVaV8yaWFJR0RWOG9HWmxfRmNBV0dEZGVPdFpIWEFIeE1RRnhfLVNUSzlFczRTLTVGWWZvSE1lSDlITmx2cDV0aEZVZ1pOVF9LaEhoa3FQRF9aNVQ2Y2lpU1V6bnVlaXQ1R2VGTGg0RjM3NVhzZGh0Y0gyNVdOTzQ3cXJ4TV9yelhfc250LW0wUlBHd2p4WWlmZWtaTEdTRkdLT1Buano5TDhHX0xHemxucjV6Zjh1dk5Pc3pmckZtQnZ4ZTNfQnJrX0FGWUE2SG0ta2czSVhVZXdKNzJMN3k5XzBsRWxILWY0Y3ZuaGRBamdwMnJLNHkyanJRWnpOQ0xveE0tZ3ZfMERpMWo4OFpFek9kR19QQUI5ZWFsRlZ2N2E3RzdFYjBqQUtpVGx2N3JhaFVGdjNzRXg3SlJiZGhzYWdB0gH7A0FVX3lxTFBlcGNEbkl0Wl9nQk1OZFcwN3JsZDdoTDJ5eHd2ZE9VRHM2UTJpb3ZxYmJqcXByZnAwWHVUX3FRWU1IeVUzdnd2bnk0R3NzbjBZek1ORzlvT1Nyc1dzaUtLZkVOZDFsSUNYZHhPUUlmU3dyOURxQUUyaTZYWGxYOXpmZTBDZGQzMlo2WS1xNkxQNDdSNXNMalBIaDlZSDNSaFktYjBFSVJNRDFYT25LcEZSUndPb1liN2dkVE9USFBOaENwTng0U0dHWmhHTVU1ai03a1FpUjVOS0ktMk1mQ2NZdGg3aVRmMUNKM2RlZC01bmFYbzd3VWZ6LThOVHE3YVg4emZMTWpVUmNDZnVPM2prTk9sLWY3aERCU3BZN2pIOTVZeVlsVFloaEk0MTRFRmpFbzZ2bWIyLWczdUJVWjhoZFBPN3pJem9PeXByZjc4QTVtYmM4cFBiVlFpbWFfTzZ4Y0Q5VW1nWjZ5QjNUeGY4WkFhTXBtSTVrSnpiTnV0T05RLXA4MGVNaHBZX1pKVXRhcmFBYnVOLTBhbmdTZVdzU01RLUdqTzgtNlVJZFFWUGxCUy1uZFVJVjZWLW9ZVU01V3NTM1hwMHd0ZFFrZ0ZkQTJyVVdMelhlTWlLVVRVa1l0eTdnTTVPUkxFdUg1bmNIWWdpZDNIRXBZQQ?oc=5",
-     "at": "2026-08-09T14:18+00:00",
-     "src": "العربية"
     },
     {
      "h": "الحوثيون: شننا هجوماً صاروخياً وبطائرات مسيرة على مصفاة ومقر لحلفاء السعودية",
@@ -316,9 +319,9 @@
      "src": "OpenSky",
      "lat": 21.0,
      "lon": 57.0,
-     "detail": "8 طائرةً في المجالِ الجوّيِّ الآن",
+     "detail": "3 طائرةً في المجالِ الجوّيِّ الآن",
      "url": "https://opensky-network.org/",
-     "at": "2026-08-09T17:43+00:00"
+     "at": "2026-08-09T18:11+00:00"
     }
    ]
   },
@@ -363,7 +366,7 @@
      "lon": 51.2,
      "detail": "24 طائرةً في المجالِ الجوّيِّ الآن",
      "url": "https://opensky-network.org/",
-     "at": "2026-08-09T17:43+00:00"
+     "at": "2026-08-09T18:11+00:00"
     }
    ]
   },
@@ -393,7 +396,7 @@
      "lon": 54.3,
      "detail": "63 طائرةً في المجالِ الجوّيِّ الآن",
      "url": "https://opensky-network.org/",
-     "at": "2026-08-09T17:43+00:00"
+     "at": "2026-08-09T18:11+00:00"
     }
    ]
   },
@@ -405,7 +408,7 @@
    "lon": 47.8,
    "score": 0,
    "level": "هادئ",
-   "delta": -2,
+   "delta": 0,
    "parts": {
     "n": 0,
     "u": 0,
@@ -423,7 +426,7 @@
      "lon": 47.8,
      "detail": "1 طائرةً في المجالِ الجوّيِّ الآن",
      "url": "https://opensky-network.org/",
-     "at": "2026-08-09T17:43+00:00"
+     "at": "2026-08-09T18:11+00:00"
     }
    ]
   },
@@ -451,9 +454,9 @@
      "src": "OpenSky",
      "lat": 26.0,
      "lon": 50.5,
-     "detail": "14 طائرةً في المجالِ الجوّيِّ الآن",
+     "detail": "18 طائرةً في المجالِ الجوّيِّ الآن",
      "url": "https://opensky-network.org/",
-     "at": "2026-08-09T17:43+00:00"
+     "at": "2026-08-09T18:11+00:00"
     }
    ]
   },
@@ -465,7 +468,7 @@
    "lon": 44.0,
    "score": 0,
    "level": "هادئ",
-   "delta": -4,
+   "delta": 0,
    "parts": {
     "n": 0,
     "u": 0,
