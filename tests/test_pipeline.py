@@ -430,6 +430,26 @@ class TestPushGuards(unittest.TestCase):
         self.m.push_alerts()
         self.assertIn("الدفاع المدني", self.sent_msgs[0]["body"])
 
+    def test_rumor_notice_is_never_pushed_as_official_warning(self):
+        """`alerts.json` يحملُ صنفَين — والإشعارُ يخرجُ بعنوانِ «تحذيرٌ رسميّ».
+
+        بثُّ «تنبيه من شائعة» تحتَه يجعلُ سَنَد تخلطُ ما قامت لتفريقِه.
+        (٣ من آخرِ ٨ عناصرَ منشورةٍ كانت من هذا الصنف — الخطرُ حقيقيٌّ لا نظريّ.)
+        """
+        rumor = self._alert("تداول مزاعم عن انفجار")
+        rumor["kind"] = "تنبيه من شائعة"
+        self._write([rumor])
+        r = self.m.push_alerts()
+        self.assertEqual(len(self.sent_msgs), 0, "أُرسِلَ تنبيهُ شائعةٍ كتحذيرٍ رسميّ")
+        self.assertTrue(r.get("skipped"))
+
+    def test_official_warning_still_passes_alongside_a_rumor(self):
+        rumor = self._alert("مزاعم متداولة"); rumor["kind"] = "تنبيه من شائعة"
+        self._write([rumor, self._alert("إخلاء فوري")])
+        self.m.push_alerts()
+        self.assertEqual(len(self.sent_msgs), 1)
+        self.assertIn("إخلاء فوري", self.sent_msgs[0]["body"])
+
     def test_no_secret_means_silent_skip(self):
         self.m._sa = lambda: None
         self._write([self._alert("تحذير")])

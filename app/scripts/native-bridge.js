@@ -26,6 +26,54 @@
     }
   } catch (e) {}
 
+  // ── «شارِكْ إلى سَنَد» — استقبالُ الرابطِ من امتدادِ المشاركة ─────────────
+  // الامتدادُ يُسلّمُ `sanad://verify?u=<رابط مُرمَّز>`. الفحصُ يبقى في مكانٍ
+  // واحدٍ (تبويبُ «تحقّق») لا يُنسَخُ داخلَ الامتداد.
+  // حارسُ التكرارِ مؤقّتٌ وبعدَ التحقّق، لا قبلَه:
+  //  • `appUrlOpen` و`getLaunchUrl` يُسلّمانِ نفسَ الرابطِ خلالَ لحظةٍ عند الفتحِ
+  //    البارد، فبلا حارسٍ يُرسَلُ طلبانِ إلى `/api/verify`.
+  //  • لكنّ الحجبَ الدائمَ يمنعُ القارئَ من إعادةِ مشاركةِ نفسِ الرابطِ لاحقًا،
+  //    ورابطًا مرفوضًا يُسمَّمُ فلا يُقبَلُ حتى لو صُحّح. فالنافذةُ ثوانٍ فقط،
+  //    والتسجيلُ بعدَ نجاحِ التحقّق.
+  var lastLink = "", lastAt = 0;
+  var DUP_MS = 4000;
+  function handleDeepLink(raw) {
+    var s = String(raw || "");
+    if (s.indexOf("verify") < 0) return;
+    var now = Date.now();
+    if (s === lastLink && (now - lastAt) < DUP_MS) return;
+    var m = s.match(/[?&]u=([^&]+)/);
+    if (!m) return;
+    var target = "";
+    try { target = decodeURIComponent(m[1]); } catch (e) { return; }
+    if (!/^https?:\/\//i.test(target)) return;   // لا نُمرّرُ إلّا رابطًا حقيقيًّا
+    lastLink = s; lastAt = now;
+    try {
+      if (typeof window.setView === "function") {
+        window.setView("verify");
+        if (typeof window.syncRoute === "function") window.syncRoute();
+      }
+      var box = document.getElementById("vUrl");
+      if (box) {
+        box.value = target;
+        if (typeof window.runVerify === "function") window.runVerify();
+      }
+    } catch (e) {}
+  }
+
+  var AppPlugin = Cap.Plugins && Cap.Plugins.App;
+  if (AppPlugin && AppPlugin.addListener) {
+    AppPlugin.addListener("appUrlOpen", function (ev) {
+      handleDeepLink(ev && ev.url);
+    }).catch(function () {});
+    // فتحٌ باردٌ: التطبيقُ لم يكنْ يعملُ حين شُورِكَ الرابط
+    if (AppPlugin.getLaunchUrl) {
+      AppPlugin.getLaunchUrl().then(function (r) {
+        if (r && r.url) setTimeout(function () { handleDeepLink(r.url); }, 600);
+      }).catch(function () {});
+    }
+  }
+
   var Push = Cap.Plugins && Cap.Plugins.PushNotifications;
   if (!Push) return;
 
@@ -63,21 +111,32 @@
 
   Push.addListener("registrationError", function () {}).catch(function () {});
 
+  // الاشتراكُ في موضوعِ التحذيراتِ لا يحدثُ إلّا هنا — بعدَ موافقةٍ صريحة.
+  // (كان يجري تلقائيًّا عندَ الإقلاع، فيستقبلُ الجهازُ التحذيراتِ بلا استئذان.)
+  var Topic = Cap.Plugins && Cap.Plugins.SanadPush;
+  function subscribe() { try { if (Topic) Topic.subscribe().catch(function () {}); } catch (e) {} }
+  function unsubscribe() { try { if (Topic) Topic.unsubscribe().catch(function () {}); } catch (e) {} }
+
   function register() {
     Push.register().catch(function () {});
+    subscribe();
   }
 
   function requestAndRegister() {
     markAsked();
     Push.requestPermissions().then(function (r) {
       if (r && r.receive === "granted") register();
+      else unsubscribe();
     }).catch(function () {});
   }
 
   // إن كان الإذنُ ممنوحًا سلفًا فلا سؤالَ ولا بطاقة — نُسجّلُ فحسب
   Push.checkPermissions().then(function (r) {
     if (r && r.receive === "granted") { register(); return; }
-    if (r && r.receive === "denied") return;
+    // إذنٌ مرفوضٌ أو لم يُطلَبْ بعد: نضمنُ ألّا يبقى الجهازُ مشتركًا من نسخةٍ
+    // سابقةٍ كانت تشتركُ تلقائيًّا — الإلغاءُ آمنٌ ومُتَّسِقٌ عندَ التكرار.
+    if (r && r.receive === "denied") { unsubscribe(); return; }
+    unsubscribe();
     if (!asked()) setTimeout(showOptIn, 1500);
   }).catch(function () {});
 
