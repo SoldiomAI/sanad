@@ -35,8 +35,9 @@
 		</dict>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.share-services</string>
+		<!-- أصنافُ Swift تحملُ اسمَ الوحدةِ بادئةً؛ بدونها لا يُحمَّلُ الامتدادُ وقتَ التشغيل -->
 		<key>NSExtensionPrincipalClass</key>
-		<string>ShareViewController</string>
+		<string>$(PRODUCT_MODULE_NAME).ShareViewController</string>
 	</dict>
 </dict>
 </plist>

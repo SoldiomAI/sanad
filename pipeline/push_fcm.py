@@ -166,6 +166,12 @@ def _eligible(item, sent_ids):
     """
     if not isinstance(item, dict):
         return False, "ليس عنصرًا"
+    # ‼️ `alerts.json` يحملُ صنفَين: «تحذير» رسميّ و«تنبيه من شائعة». الإشعارُ
+    # يخرجُ بعنوانِ «تحذيرٌ رسميّ»، فبثُّ تنبيهِ شائعةٍ تحتَه يجعلُ سَنَد نفسَها
+    # تخلطُ ما قامت لتفريقِه. الشائعةُ تُقرَأُ في «تحت المِجهر» ولا يُوقَظُ لها أحد.
+    kind = str(item.get("kind") or "").strip()
+    if "شائعة" in kind or "تحذير" not in kind:
+        return False, f"ليس تحذيرًا رسميًّا ({kind[:24]})"
     if alert_id(item) in sent_ids:
         return False, "أُرسِلَ سابقًا"
     if not str(item.get("txt") or "").strip():

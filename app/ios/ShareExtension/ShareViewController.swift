@@ -19,10 +19,16 @@ class ShareViewController: UIViewController {
         super.viewDidLoad()
         extractURL { [weak self] url in
             guard let self = self else { return }
-            if let url = url {
-                self.openHost(with: url)
+            guard let url = url else {
+                self.extensionContext?.completeRequest(returningItems: nil)
+                return
             }
-            self.extensionContext?.completeRequest(returningItems: nil)
+            self.openHost(with: url)
+            // الإنهاءُ الفوريُّ قد يقتلُ العمليّةَ قبلَ أن يُسلَّمَ الرابطُ للتطبيق،
+            // فيبتلعُ النظامُ المشاركةَ صامتًا. مهلةٌ قصيرةٌ تكفي لتسليمِه.
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                self.extensionContext?.completeRequest(returningItems: nil)
+            }
         }
     }
 

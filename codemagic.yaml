@@ -38,13 +38,17 @@ workflows:
       - name: مزامنةُ Capacitor و pod install
         script: cd app && npx cap sync ios
 
-      - name: إعدادُ Firebase (إن رُفِعَ الملفّ)
+      # ⚠️ نسخُ الملفِّ **لا يُفعّلُ الإشعارات** على iOS: تنقصُ حزمةُ
+      # FirebaseMessaging وتهيئتُها والاشتراكُ في الموضوع، ويجبُ ضمُّ الملفِّ
+      # إلى موارِدِ الهدف. يُنجَزُ ذلك حين يتوفّرُ حسابُ آبل ويُبنى فعليًّا —
+      # وحتى ذلك الحين لا تُوصَفُ إشعاراتُ iOS بأنّها جاهزة.
+      - name: نسخُ إعداداتِ Firebase (تمهيدٌ فقط — الإشعاراتُ غيرُ مُفعَّلةٍ بعد)
         script: |
           if [ -f "$CM_ENV_FILE_GOOGLE_SERVICE_INFO" ]; then
             cp "$CM_ENV_FILE_GOOGLE_SERVICE_INFO" app/ios/App/App/GoogleService-Info.plist
-            echo "✅ إشعاراتُ iOS مُهيَّأة"
+            echo "ℹ️ نُسِخَ GoogleService-Info.plist — يبقى ربطُ FirebaseMessaging"
           else
-            echo "ℹ️ بلا GoogleService-Info.plist — يُبنى التطبيقُ بلا إشعارات"
+            echo "ℹ️ بلا GoogleService-Info.plist"
           fi
 
       - name: ضبطُ التوقيع

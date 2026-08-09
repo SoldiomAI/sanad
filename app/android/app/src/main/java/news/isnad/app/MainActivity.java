@@ -11,18 +11,15 @@ public class MainActivity extends BridgeActivity {
     /** قناةُ التحذيراتِ الرسميّة — القناةُ الوحيدة. لا قناةَ ترويجٍ ولا تذكير. */
     private static final String CHANNEL_ID = "sanad_alerts";
 
-    /**
-     * موضوعُ الإشعارات. الاشتراكُ بـ«موضوعٍ» لا بجهاز: فلا يُخزَّنُ رمزُ جهازٍ
-     * في أيِّ مكان، ولا يملكُ الأنبوبُ قائمةَ أجهزةٍ أصلًا. الأنبوبُ ساكنٌ
-     * يكتبُ في مستودع — لا خادمَ لديه يحفظُ الرموزَ ولا ينبغي أن يكون.
-     */
-    private static final String TOPIC = "alerts";
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        // الاشتراكُ في موضوعِ التحذيراتِ **لا يجري هنا**: يُنادى صراحةً من
+        // `SanadPush.subscribe()` بعدَ موافقةِ القارئ. الاشتراكُ التلقائيُّ عند
+        // الإقلاعِ كان يجعلُ كلَّ تثبيتٍ مشتركًا بلا استئذان — وعلى أندرويد ١٢
+        // فأقدم لا إذنَ نظامٍ يمنعُ ذلك، فيصلُه الإشعارُ وهو لم يوافقْ قطّ.
+        registerPlugin(SanadPush.class);
         super.onCreate(savedInstanceState);
         createAlertsChannel();
-        subscribeToAlerts();
     }
 
     /**
@@ -38,21 +35,5 @@ public class MainActivity extends BridgeActivity {
                 CHANNEL_ID, "التحذيراتُ الرسميّة", NotificationManager.IMPORTANCE_HIGH);
         ch.setDescription("تنبيهٌ عند صدورِ تحذيرٍ رسميٍّ مُسنَد — لا شيءَ سواه");
         nm.createNotificationChannel(ch);
-    }
-
-    /**
-     * يُشترَكُ في موضوعِ التحذيراتِ إن كانت إعداداتُ Firebase موجودة.
-     * بلا `google-services.json` تغيبُ الفئةُ كلُّها، فيُلتقَطُ الأمرُ صامتًا
-     * ويبقى التطبيقُ عاملًا بالكامل — الإشعاراتُ وحدَها هي التي تنتظر.
-     * (نفسُ نمطِ «المفتاحُ غائبٌ ⇒ تخطٍّ صامت» في الأنبوب.)
-     */
-    private void subscribeToAlerts() {
-        try {
-            Class<?> messaging = Class.forName("com.google.firebase.messaging.FirebaseMessaging");
-            Object instance = messaging.getMethod("getInstance").invoke(null);
-            messaging.getMethod("subscribeToTopic", String.class).invoke(instance, TOPIC);
-        } catch (Throwable ignored) {
-            // لا Firebase في هذه النسخة — التطبيقُ يعملُ، والإشعاراتُ معطّلة
-        }
     }
 }

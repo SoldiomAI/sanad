@@ -29,9 +29,14 @@
   // ── «شارِكْ إلى سَنَد» — استقبالُ الرابطِ من امتدادِ المشاركة ─────────────
   // الامتدادُ يُسلّمُ `sanad://verify?u=<رابط مُرمَّز>`. الفحصُ يبقى في مكانٍ
   // واحدٍ (تبويبُ «تحقّق») لا يُنسَخُ داخلَ الامتداد.
+  var lastLink = "";
   function handleDeepLink(raw) {
     var s = String(raw || "");
     if (s.indexOf("verify") < 0) return;
+    // `appUrlOpen` و`getLaunchUrl` يُسلّمانِ نفسَ الرابطِ عند الفتحِ البارد،
+    // فبلا هذا الحارسِ يُنفَّذُ الفحصُ مرّتين ويُرسَلُ طلبانِ إلى /api/verify.
+    if (s === lastLink) return;
+    lastLink = s;
     var m = s.match(/[?&]u=([^&]+)/);
     if (!m) return;
     var target = "";
@@ -100,21 +105,32 @@
 
   Push.addListener("registrationError", function () {}).catch(function () {});
 
+  // الاشتراكُ في موضوعِ التحذيراتِ لا يحدثُ إلّا هنا — بعدَ موافقةٍ صريحة.
+  // (كان يجري تلقائيًّا عندَ الإقلاع، فيستقبلُ الجهازُ التحذيراتِ بلا استئذان.)
+  var Topic = Cap.Plugins && Cap.Plugins.SanadPush;
+  function subscribe() { try { if (Topic) Topic.subscribe().catch(function () {}); } catch (e) {} }
+  function unsubscribe() { try { if (Topic) Topic.unsubscribe().catch(function () {}); } catch (e) {} }
+
   function register() {
     Push.register().catch(function () {});
+    subscribe();
   }
 
   function requestAndRegister() {
     markAsked();
     Push.requestPermissions().then(function (r) {
       if (r && r.receive === "granted") register();
+      else unsubscribe();
     }).catch(function () {});
   }
 
   // إن كان الإذنُ ممنوحًا سلفًا فلا سؤالَ ولا بطاقة — نُسجّلُ فحسب
   Push.checkPermissions().then(function (r) {
     if (r && r.receive === "granted") { register(); return; }
-    if (r && r.receive === "denied") return;
+    // إذنٌ مرفوضٌ أو لم يُطلَبْ بعد: نضمنُ ألّا يبقى الجهازُ مشتركًا من نسخةٍ
+    // سابقةٍ كانت تشتركُ تلقائيًّا — الإلغاءُ آمنٌ ومُتَّسِقٌ عندَ التكرار.
+    if (r && r.receive === "denied") { unsubscribe(); return; }
+    unsubscribe();
     if (!asked()) setTimeout(showOptIn, 1500);
   }).catch(function () {});
 
