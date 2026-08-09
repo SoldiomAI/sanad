@@ -29,19 +29,25 @@
   // ── «شارِكْ إلى سَنَد» — استقبالُ الرابطِ من امتدادِ المشاركة ─────────────
   // الامتدادُ يُسلّمُ `sanad://verify?u=<رابط مُرمَّز>`. الفحصُ يبقى في مكانٍ
   // واحدٍ (تبويبُ «تحقّق») لا يُنسَخُ داخلَ الامتداد.
-  var lastLink = "";
+  // حارسُ التكرارِ مؤقّتٌ وبعدَ التحقّق، لا قبلَه:
+  //  • `appUrlOpen` و`getLaunchUrl` يُسلّمانِ نفسَ الرابطِ خلالَ لحظةٍ عند الفتحِ
+  //    البارد، فبلا حارسٍ يُرسَلُ طلبانِ إلى `/api/verify`.
+  //  • لكنّ الحجبَ الدائمَ يمنعُ القارئَ من إعادةِ مشاركةِ نفسِ الرابطِ لاحقًا،
+  //    ورابطًا مرفوضًا يُسمَّمُ فلا يُقبَلُ حتى لو صُحّح. فالنافذةُ ثوانٍ فقط،
+  //    والتسجيلُ بعدَ نجاحِ التحقّق.
+  var lastLink = "", lastAt = 0;
+  var DUP_MS = 4000;
   function handleDeepLink(raw) {
     var s = String(raw || "");
     if (s.indexOf("verify") < 0) return;
-    // `appUrlOpen` و`getLaunchUrl` يُسلّمانِ نفسَ الرابطِ عند الفتحِ البارد،
-    // فبلا هذا الحارسِ يُنفَّذُ الفحصُ مرّتين ويُرسَلُ طلبانِ إلى /api/verify.
-    if (s === lastLink) return;
-    lastLink = s;
+    var now = Date.now();
+    if (s === lastLink && (now - lastAt) < DUP_MS) return;
     var m = s.match(/[?&]u=([^&]+)/);
     if (!m) return;
     var target = "";
     try { target = decodeURIComponent(m[1]); } catch (e) { return; }
     if (!/^https?:\/\//i.test(target)) return;   // لا نُمرّرُ إلّا رابطًا حقيقيًّا
+    lastLink = s; lastAt = now;
     try {
       if (typeof window.setView === "function") {
         window.setView("verify");

@@ -32,7 +32,10 @@ workflows:
         # مُتَّسِقٌ عندَ التكرار: يتخطّى إن كان الهدفُ موجودًا
         script: |
           cd app
-          gem install xcodeproj --no-document
+          # نسخةٌ مُثبَّتة: خطُّ بناءٍ يوقّعُ ويرفعُ للمتجرِ لا يجوزُ أن يسحبَ
+          # أحدثَ إصدارٍ من حزمةٍ خارجيّةٍ كيفما اتّفق — إصدارٌ مُخترَقٌ أعلاه
+          # ينفّذُ شيفرتَه بجوارِ أسرارِ التوقيع.
+          gem install xcodeproj -v 1.27.0 --no-document
           ruby scripts/add-ios-share-extension.rb
 
       - name: مزامنةُ Capacitor و pod install

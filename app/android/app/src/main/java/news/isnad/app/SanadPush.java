@@ -20,24 +20,37 @@ public class SanadPush extends Plugin {
 
     static final String TOPIC = "alerts";
 
+    /**
+     * `subscribeToTopic` تُرجِعُ `Task` تنتهي في خيطٍ خلفيّ — فالحسمُ فورَ النداءِ
+     * يُبلِّغُ نجاحًا لم يقعْ بعد. وفي قناةِ التحذيراتِ تحديدًا يعني ذلك قارئًا
+     * يظنُّ نفسَه مشتركًا ولا يصلُه إنذار. فالنتيجةُ تُنتظَرُ ثمّ يُحسَمُ النداء.
+     */
     @PluginMethod
     public void subscribe(PluginCall call) {
-        try {
-            FirebaseMessaging.getInstance().subscribeToTopic(TOPIC);
-            call.resolve();
-        } catch (Throwable e) {
-            // بلا إعدادات Firebase: لا اشتراك، ولا انهيار
-            call.reject("subscribe failed: " + e.getMessage());
-        }
+        topic(call, true);
     }
 
     @PluginMethod
     public void unsubscribe(PluginCall call) {
+        topic(call, false);
+    }
+
+    private void topic(PluginCall call, boolean join) {
         try {
-            FirebaseMessaging.getInstance().unsubscribeFromTopic(TOPIC);
-            call.resolve();
+            FirebaseMessaging fm = FirebaseMessaging.getInstance();
+            (join ? fm.subscribeToTopic(TOPIC) : fm.unsubscribeFromTopic(TOPIC))
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        call.resolve();
+                    } else {
+                        Exception e = task.getException();
+                        call.reject((join ? "subscribe" : "unsubscribe") + " failed: "
+                                + (e != null ? e.getMessage() : "unknown"));
+                    }
+                });
         } catch (Throwable e) {
-            call.reject("unsubscribe failed: " + e.getMessage());
+            // بلا إعدادات Firebase تغيبُ التهيئةُ كلُّها — يُبلَّغُ ولا يُنهار
+            call.reject((join ? "subscribe" : "unsubscribe") + " unavailable: " + e.getMessage());
         }
     }
 }
