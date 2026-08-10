@@ -264,7 +264,7 @@ class TestGeminiBilling(unittest.TestCase):
     def test_thinking_tokens_counted(self):
         self.g["bill_gem"]({"usageMetadata": {
             "promptTokenCount": 10, "candidatesTokenCount": 10, "thoughtsTokenCount": 500}}, "اختبار")
-        self.assertEqual(self._cost()["gem_tokens"], 520)
+        self.assertEqual(self._cost()["lm_tokens"], 520)
 
     def test_response_without_usage_is_free(self):
         self.assertEqual(self.g["bill_gem"]({}, "اختبار"), 0)

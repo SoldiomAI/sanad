@@ -99,8 +99,11 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--border);
 <ul>
   <li>يُرسَلُ <b>الرابطُ الذي لصقتَه</b> إلى خادمِ سَنَد.</li>
   <li>يفتحُ الخادمُ تلك الصفحةَ ويقرأُ جزءًا من نصِّها.</li>
-  <li>قد يُرسَلُ مقتطفٌ من النصِّ إلى <b>xAI (Grok)</b> لإصدارِ الحكم.
-      يخضعُ ذلك لسياسةِ xAI. <b>لا تلصقْ روابطَ تحوي معلوماتٍ خاصّةً أو سرّيّة.</b></li>
+  <li>قد يُرسَلُ مقتطفٌ من النصِّ إلى <b>مزوّدِ نماذجِ ذكاءٍ اصطناعيٍّ خارجيّ</b>
+      لإصدارِ الحكم، ويخضعُ لسياسةِ ذلك المزوّد.
+      <b>لا تلصقْ روابطَ تحوي معلوماتٍ خاصّةً أو سرّيّة.</b>
+      <span style="color:var(--mut)">(للجهاتِ المؤسسيّةِ والحكوميّة: تُفصَحُ أسماءُ
+      المعالِجين الخارجيّين كاملةً ضمنَ اتفاقِ الخدمة.)</span></li>
   <li>لمنعِ إساءةِ الاستخدام نُحدِّدُ عددَ الطلباتِ لكلِّ مُستخدِمٍ في الساعة.
       لهذا الغرضِ يُستعمَلُ عنوانُ IP <b>في الذاكرةِ المؤقّتةِ فقط</b>.</li>
   <li>سجلُّ التشغيلِ الداخليُّ يحفظُ <b>بصمةً مُشفَّرةً (SHA-256 بمِلح) لعنوانِ IP لا العنوانَ نفسَه</b>،
@@ -177,8 +180,11 @@ saved articles (<code>sanad_saved_v1</code>, up to 80), your last 6 Verify check
 <ul>
   <li>The <b>link you pasted</b> is sent to SANAD's server.</li>
   <li>The server fetches that page and reads part of its text.</li>
-  <li>An extract may be sent to <b>xAI (Grok)</b> to produce the ruling, subject to xAI's
-      policy. <b>Do not paste links containing private or confidential information.</b></li>
+  <li>An extract may be sent to an <b>external AI model provider</b> to produce the ruling,
+      subject to that provider's policy.
+      <b>Do not paste links containing private or confidential information.</b>
+      <span style="color:var(--mut)">(Enterprise and government customers: external
+      processors are disclosed by name in the service agreement.)</span></li>
   <li>To prevent abuse we rate-limit per user per hour; your IP address is used for this
       <b>in temporary memory only</b>.</li>
   <li>The internal activity log stores a <b>salted SHA-256 hash of the IP, not the IP itself</b>,

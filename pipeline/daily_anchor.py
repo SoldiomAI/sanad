@@ -1106,7 +1106,7 @@ def bill(d,who):
 # نحسبُه من usageMetadata بأسعارٍ قابلةٍ للضبط (تقديريّة — تُراجَعُ من فاتورةِ غوغل).
 GEM_IN_PER_M=float(os.environ.get("GEMINI_IN_PER_M","0.10"))
 GEM_OUT_PER_M=float(os.environ.get("GEMINI_OUT_PER_M","0.40"))
-def bill_gem(d, who="Gemini"):
+def bill_gem(d, who="التحليلُ اللغويّ"):
     """يحوّلُ عدّادَ رموزِ Gemini إلى كلفةٍ تقديريّةٍ ويضمّها لنفسِ دفترِ اليوم."""
     day=datetime.now(timezone.utc).strftime("%Y-%m-%d")
     try:
@@ -1120,7 +1120,7 @@ def bill_gem(d, who="Gemini"):
         if c.get("day")!=day: c={"day":day,"usd":0,"calls":0,"by":{}}
         c["usd"]=round(c.get("usd",0)+usd,4); c["calls"]=c.get("calls",0)+1
         c["by"][who]=round(c["by"].get(who,0)+usd,4)
-        c["gem_tokens"]=int(c.get("gem_tokens",0))+pin+pout
+        c["lm_tokens"]=int(c.get("lm_tokens",0))+pin+pout
         c["month_est"]=round(c["usd"]*30,2)
         c["budget"]=float(os.environ.get("DAILY_BUDGET_USD","0.80"))
         json.dump(c,open(f"{OUT}/cost.json","w"),ensure_ascii=False,indent=1)
@@ -1313,7 +1313,20 @@ def wire_hurr():
 wire_hurr()
 
 GEM_MODEL=os.environ.get("GEMINI_MODEL","gemini-flash-latest")
-def gemini_post(body, timeout=60, who="Gemini"):
+# أسماءُ المزوّدين لا تخرجُ من الأنبوب. النموذجُ يذكرُ اسمَ نفسِه أحيانًا في
+# تعليلِه، فيتسرّبُ إلى `daily/*.json` — وهي تُنشَرُ في مستودعٍ **عامٍّ دائم**،
+# فلا يكفي إخفاؤه في الواجهة. التنظيفُ هنا عند مَنبعِ النصِّ قبلَ أن يُكتَبَ.
+#
+# القائمةُ مقصورةٌ على ما نستعملُه فعلًا: تعميمُها على كلِّ مزوّدي الذكاءِ
+# الاصطناعيِّ يمسحُ أسماءً هي **موضوعُ الخبر** (عناوينُ اليومِ عن OpenAI مثلًا)،
+# فنُخفي تشغيلَنا ولا نُحرِّفُ الأخبار.
+_VENDOR_RE=re.compile(r"\b(grok|gemini|x\.?ai|google\s+ai|vertex\s+ai)\b", re.I)
+
+def _no_vendor(s):
+    """ينزعُ أسماءَ المزوّدين من نصٍّ ولّده نموذج."""
+    return re.sub(r"[ \t]{2,}", " ", _VENDOR_RE.sub("", str(s or ""))).strip()
+
+def gemini_post(body, timeout=60, who="التحليلُ اللغويّ"):
     """نداءُ Gemini متحمِّلًا تغيُّرَ الحقول: النماذجُ الأحدثُ ترفض thinkingBudget
     بـ400 (تعطّلت به الترجمةُ والعمود) — عند 400 نعيدُ المحاولةَ دون thinkingConfig."""
     import urllib.error as _ue
@@ -1346,7 +1359,7 @@ def gemini_json(prompt, max_tok=1500, temp=0.2):
     parts=((d.get("candidates") or [{}])[0].get("content") or {}).get("parts") or []
     txt="".join(p.get("text","") for p in parts if isinstance(p,dict)).strip()
     txt=txt.removeprefix("```json").removeprefix("```").removesuffix("```").strip()
-    return json.loads(txt)
+    return json.loads(_no_vendor(txt))
 
 fa_items=[i for i in items if i.get("fa")]
 if fa_items and GEMINI_KEY:
@@ -2204,7 +2217,7 @@ def _grok(P, max_tok=2500, max_calls=6, tools=True):
     txt="".join(c.get("text","") for o in d.get("output",[]) if o.get("type")=="message"
                 for c in o.get("content",[]))
     txt=txt.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
-    return d, txt
+    return d, _no_vendor(txt)
 
 def _json_list(txt):
     try: return json.loads(txt[txt.find("["):txt.rfind("]")+1])

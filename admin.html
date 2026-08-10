@@ -255,7 +255,7 @@ function renderCost(){
       <input type="number" step="0.05" id="budVerify" value="${esc(ctrl.verify_daily_budget_usd??0.5)}">
       <label>حدّ التحقّق لكل IP / ساعة</label>
       <input type="number" step="1" id="ipLimit" value="${esc(ctrl.verify_per_ip_hour??5)}">
-      <div class="chk"><input type="checkbox" id="killPay" ${ctrl.paid_kill_switch?"checked":""}><label for="killPay" style="margin:0">وقف الدفع الطارئ (يمنع Grok)</label></div>
+      <div class="chk"><input type="checkbox" id="killPay" ${ctrl.paid_kill_switch?"checked":""}><label for="killPay" style="margin:0">وقف الدفع الطارئ (يمنع النماذج المدفوعة)</label></div>
       <div class="row"><button class="btn btn-p" onclick="saveBudgets()">حفظ السقوف</button></div>
     </div></div>`;
 }

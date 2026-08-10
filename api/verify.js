@@ -37,6 +37,22 @@ const spend = { day: utcDay(), usd: 0, calls: 0 };
 /** @type {Array<object>} */
 const activity = [];
 
+// أسماءُ المزوّدين لا تصلُ القارئ: الحكمُ يُنسَبُ لسَنَد ولمصادرِه لا لأداةٍ خلفَ
+// الستار. النموذجُ يذكرُ اسمَ نفسِه أحيانًا في تعليلِه، فيُنزَعُ هنا — على الخادمِ
+// حيث لا تُخدَمُ الشيفرةُ للمتصفّح، فلا تفضحُ القائمةُ نفسُها ما تُخفيه.
+// مقصورةٌ على ما نستعملُه فعلًا كي لا تُمحى أسماءٌ هي موضوعُ الخبر (OpenAI…).
+const VENDOR_RE = /\b(grok|gemini|x\.?ai|google\s+ai|vertex\s+ai)\b/gi;
+function noVendor(v) {
+  if (typeof v === 'string') return v.replace(VENDOR_RE, '').replace(/[ \t]{2,}/g, ' ').trim();
+  if (Array.isArray(v)) return v.map(noVendor);
+  if (v && typeof v === 'object') {
+    const o = {};
+    for (const k of Object.keys(v)) o[k] = noVendor(v[k]);
+    return o;
+  }
+  return v;
+}
+
 function clearCache() {
   cache.clear();
 }
@@ -780,7 +796,7 @@ function mergeGrok(base, grokParsed, usd) {
     claim: g.claim || base.claim,
     news: {
       verdict: ['صحّ', 'لم يصحّ', 'قيد التحقق'].includes(g.verdict) ? g.verdict : base.news.verdict,
-      why: g.why || base.news.why,
+      why: noVendor(g.why || base.news.why),
       sources: Array.isArray(g.sources) && g.sources.length
         ? g.sources
             .filter((s) => s && s.u)
