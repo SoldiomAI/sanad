@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-19T21:51+00:00",
+ "updated": "2026-08-19T22:27+00:00",
  "note": "رصدُ كلماتٍ وهاشتاقاتٍ للمؤسسات — حصيلة سَنَد المُسنَدة + إشارات أخبار مفتوحة منسوبة. ليس حكمًا استخباراتيًّا رسميًّا.",
  "note_en": "Enterprise keyword/hashtag watch — graded Sanad corpus + attributable open news signals. Not an official intelligence assessment.",
  "channels": [
@@ -8,34 +8,25 @@
  ],
  "reach_note": "Deep social (X/Twitter, Reddit sessions) is org-operated; see Agent-Reach for session-based reach: https://github.com/Panniantong/Agent-Reach",
  "seeds": 15,
- "active": 15,
- "total_hits": 169,
+ "active": 9,
+ "total_hits": 40,
  "watches": [
   {
    "term": "#إيران",
    "en": "#Iran",
    "kind": "hashtag",
    "topic": "إيران",
-   "heat": 100,
+   "heat": 80,
    "n_sanad": 8,
-   "n_open": 8,
+   "n_open": 0,
    "sahih": 0,
    "hasan": 8,
-   "summary": "«#إيران»: 8 خبرًا مُسنَدًا من سَنَد (0 صحيح · 8 حسن) و8 إشارة مفتوحة من الأخبار.",
-   "summary_en": "“#Iran”: 8 graded Sanad hits (0 verified · 8 credible) and 8 open news signals.",
+   "summary": "«#إيران»: 8 خبرًا مُسنَدًا من سَنَد (0 صحيح · 8 حسن).",
+   "summary_en": "“#Iran”: 8 graded Sanad hits (0 verified · 8 credible).",
    "hits": [
     {
-     "head": "خليلي، مدير فريق برسبوليس: لا نرغب في أن تُقام المباراة مع تراكتور بحضور الجماهير",
-     "he": "Persepolis manager Khalili: We prefer match against Tractor to be held without fans",
-     "grade": "حسن",
-     "src": "إيران إنترناشونال",
-     "link": "https://www.iranintl.com/202608191149",
-     "at": "2026-08-19T20:43+00:00",
-     "channel": "sanad"
-    },
-    {
-     "head": "شكوى من نادي برسبوليس ضد حكم المباراة مع استقلال خوزستان",
-     "he": "Persepolis files complaint against referee of Esteghlal Khuzestan match",
+     "head": "شكوى من نادي برسبوليس ضد حكم مباراة استقلال خوزستان",
+     "he": "Persepolis FC Files Complaint Against Referee of Esteghlal Khuzestan Match",
      "grade": "حسن",
      "src": "إيران إنترناشونال",
      "link": "https://www.iranintl.com/202608197502",
@@ -44,7 +35,7 @@
     },
     {
      "head": "اعتقال رجل أوكراني في كرواتيا بتهمة تفجير خطوط أنابيب غاز نورد ستريم",
-     "he": "Ukrainian man arrested in Croatia over Nord Stream pipeline bombing",
+     "he": "Ukrainian Man Arrested in Croatia Over Nord Stream Pipeline Bombings",
      "grade": "حسن",
      "src": "بي بي سي فارسي",
      "link": "https://www.bbc.com/persian/articles/c934z1w2nxwo?at_medium=RSS&at_campaign=rss",
@@ -52,8 +43,8 @@
      "channel": "sanad"
     },
     {
-     "head": "برسبوليس 4-1 استقلال خوزستان؛ صدارة لبرسبوليس في الأسبوع الثاني من الدوري السادس والعشرين",
-     "he": "Persepolis 4-1 Esteghlal Khuzestan: Persepolis top the table in week two of 26th league",
+     "head": "برسبوليس 4-1 استقلال خوزستان؛ برسبوليس يتصدر في الأسبوع الثاني من الدوري السادس والعشرين",
+     "he": "Persepolis 4-1 Esteghlal Khuzestan: Persepolis Tops Table in Week 2 of 26th League",
      "grade": "حسن",
      "src": "إيران إنترناشونال",
      "link": "https://www.iranintl.com/202608195613",
@@ -61,26 +52,8 @@
      "channel": "sanad"
     },
     {
-     "head": "إيما، ابنة لوكا مودريتش البالغة من العمر 13 عاماً، تنضم إلى أكاديمية ريال مدريد للسيدات",
-     "he": "Luka Modric's 13-year-old daughter Ema joins Real Madrid women's academy",
-     "grade": "حسن",
-     "src": "إيران إنترناشونال",
-     "link": "https://www.iranintl.com/202608197076",
-     "at": "2026-08-19T17:25+00:00",
-     "channel": "sanad"
-    },
-    {
-     "head": "بعد تعليقه المفاوضات.. ترامب: الوضع \"جيد للغاية\" بشأن إيران",
-     "he": "After suspending talks, Trump says situation on Iran is \"very good\"",
-     "grade": "حسن",
-     "src": "CNN Arabic",
-     "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNSFU5YkItRFVycFNNbmdKLTR4ZkhNMlplZU8yWGo0MWpiaXJ0ZEhmRjVNQjMzbjUxV2I0Ylh3YVUybDVvUG82Yjg3ck9EdXBvSlo5a0pjUmF6SHlYR2VZamZLOGh0RkRBYTZ1N3pNNXpZekJHYlcwMFBCcjRFX1RwRGZUVkxKRWlUd1FWcFNjMFhqVXBBSGNyM3pvdWs2VGxs0gGrAUFVX3lxTE92R3UtQWJPX2ZwRWhpMXdLYWtuMTNWRzRYREhmYlFJYWNCbWRTX3Z2OUdvaEtQTVVHdUtFZ09hSElNRFpsOUgyNjBLY2lYRElHN1ZNSXVldEoyTXE5OU9fSThfblF6emhQVFNDaEhNLXZldHJPbjVWZ195QzRoenVpVXE5bWRqRkc3RTd6eWVnWmp5b0p2U2pwZFZJTlN2c2VlSFNOYi1LWUlkTQ?oc=5",
-     "at": "2026-08-19T16:54+00:00",
-     "channel": "sanad"
-    },
-    {
      "head": "وسط تهديدات ترامب بضرب عمان... لماذا تجري طهران ومسقط مفاوضات حول مضيق هرمز وما آفاقها؟",
-     "he": "",
+     "he": "Amid Trump Threats to Strike Oman: Why Tehran and Muscat Are Holding Talks on Hormuz and What Lies Ahead",
      "grade": "حسن",
      "src": "فرانس ٢٤ عربي",
      "link": "https://www.france24.com/ar/%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7/20260819-%D9%85%D9%81%D8%A7%D9%88%D8%B6%D8%A7%D8%AA-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D8%B9%D9%8F%D9%85%D8%A7%D9%86-%D9%85%D8%B6%D9%8A%D9%82-%D9%87%D8%B1%D9%85%D8%B2-%D8%A2%D9%81%D8%A7%D9%82-%D8%AA%D8%B1%D8%A7%D9%85%D8%A8-%D8%A7%D9%84%D9%88%D9%84%D8%A7%D9%8A%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D8%AA%D8%AD%D8%AF%D8%A9",
@@ -88,8 +61,8 @@
      "channel": "sanad"
     },
     {
-     "head": "زيارة قاليباف إلى العراق؛ إيران تسعى للحفاظ على الهدوء في «البيت الشيعي»",
-     "he": "Ghalibaf visits Iraq as Iran seeks to maintain calm within \"Shiite House\"",
+     "head": "زيارة قاليباف إلى العراق؛ إيران تسعى للحفاظ على التهدئة في «البيت الشيعي»",
+     "he": "Ghalibaf Visits Iraq as Iran Seeks to Maintain Calm in 'Shiite House'",
      "grade": "حسن",
      "src": "بي بي سي فارسي",
      "link": "https://www.bbc.com/persian/articles/c5y3nlv1v4xo?at_medium=RSS&at_campaign=rss",
@@ -97,235 +70,31 @@
      "channel": "sanad"
     },
     {
-     "head": "وزير الخارجية اللبناني: السفير الإيراني شخص غير مرغوب فيه وعليه مغادرة البلاد - Iran International",
-     "he": "",
-     "grade": "",
-     "src": "Iran International",
-     "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE96SkJGaWVVY21iQzRfTWpyTFhlVWNENEdPMTZ3NFBiaWxXUjdYeEJfN2lqOERJZjM1MkJuWnVlNDdvMmFhb1Z4eGpfMVRfdDNwZUE?oc=5",
-     "at": "Wed, 19 Aug 2026 20:17:34 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "الخامسة | ترمب يفتح النار على إيران.. والناتو يجهز دفاعاته أمام تهديدات طهران - العربية",
-     "he": "",
-     "grade": "",
-     "src": "العربية",
-     "link": "https://news.google.com/rss/articles/CBMi3wRBVV95cUxOdjctUVAwZU5LUUN4d0tNNkRaSHVBTnRxZ29Jakh1R1M4ZHR5bDlNbFhoMTI3VGxPaDdCaHRjMGItVmxQWVdyZlNETlpYLXlFN2lvRWNmb2tQRzMwYzAyaWpPaGVpd0kyRlQ3bVRvdnF1UUJGamJUSXpkVFo2aldVY1Blb3BTbm5rRFJGNnNOT3FFWkc1MEFfdjl1WnB2V2FqX2tKNm5mcHJGZjhLY3BvYmJwblVfNDhxVEQwT3otemowZTBZN0ZOc0NsX1dvdHp5dnVQa1NFRmdlUEIyaEhwNUF6YWlIaFl4TmhSSVRwVkVzLUFFZGkzMnRoSkpxUWIxOTRWdmc1R2N2MG5pSGhzSkN5Y1BjUmNLU0tJU1AxYk9qWXhNeDZEck9VeDIzZXAxa3lxcGhzbWdac3RuZmUtdzluTDRDWkNtYTd6ZHQyUWJuYVlCTFdHN0lVU3dqWHdUdDZKaFB0S0dTbUtmb2VlTkF6SkhYQjYtVUlpQXFVWEVyY1BuTWFUWVZjTExnVU40Z0Y0RmloTWkyaGhfbVlfVmp3ODVGUmNUSHd6MFd4N204RzE4aTloT0lzUW9Tc2g4ZVdMVGs2TV9UWHNva2Y0ZXJUUnp6TnNpRWlHZVVDQUUxdlNPRWlBTVRJWU0zWW9KQ0RrNUE1Z1FpbTFIOGc5cWZqOHRzZWYxa2h1bUxxUFJadTBkSlpyVDRFamhLZV9FUnN0NXZlb2xrcWJNUG5FSUZyWVVFUHZmbDFrWE1pcnRrZzVpUk1nRDdvc1BPMVdjckk1ek5xazZjdEhtSjNj0gHkBEFVX3lxTE9MSTFJMTFvUVdXTDhOZ3JwLUdXZjNGVi1yY0hJdUphdHhtZXFRbjlGWnBncE5VZVdCVWNqMmZ3QjNKZEppODhtSGtZN3VIa1R0Si05a2MxRjQzVXktMENydnZZVGR2Ty16bTRKYWE2OWdNa0xjZGZzOGhIWG1OekV0aW5pT2h3QmtPalYxbnBpUko0Y1JlOTAyVnFySU1nWXhPdHQ4Rm1yb2hIUmJjRVNyQ0VWRHBES1NmdjhNQ3FXUkRxNjh0TmZuWko5XzA0LTVSR3NrdjNVQTF4bEtYcGZzekJQN05tNS1pdzJKQm5aQldoaENoZXlEaUJMdVZtb1NnYlZJWlJSd1ZtRWVBd0Qtb1lXU1FrTURXcU1hTDVjOHlnY3VYQU5ET29PSHBzRmJGRTBvWTJfWGpOaERGbEdrQ3ZhcHlIdGtOZzlBT243V0xBbXFKSlFMYjBmRlJwYnFqMkg0Wm4wNFF4bXpsa2U3S1BwZHRVNGU1TTY4X2plbVBleVhPcnRCMERZb3pWc3N0VnNQbTF2c1poSUhQaHNmdFcwM0lQTTlVNk04SXdGbFBfNlVvWkMyWEpWbjRNRjZKX0Z1dmd6eVBMLVN4ZVl0ZlVwdWE4bmlhMlN6X050WjBhX0dlVDlBbkpMeVlMTmNHQ1RTNWZPdGw5MXRscXoxaTZUTlYwRTlnRG5HS1JwTmhtTjZxLU9TcFJacjNGSnVVM2RZMmJGODJVc2FMNHpqU0o5SWFxOTBSUThhRDBBTWRKdElwR1FqQ3pSbzdSbGtmVWxPYjFUemhSRDJEVTRsa2k3cw?oc=5",
-     "at": "Wed, 19 Aug 2026 20:15:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "ترامب يغلق باب التفاوض مع إيران ويتمسك بحصار هرمز - سكاي نيوز عربية",
-     "he": "",
-     "grade": "",
-     "src": "سكاي نيوز عربية",
-     "link": "https://news.google.com/rss/articles/CBMimANBVV95cUxQeHItM3RUREY5al9temVqWFIxMzQ5U2tHU0hmdWZuUjlCZmtMRWI4RTFBcEJPWGxGSnh2MHFYdDJUclpzX3NNWkU4SFowbDFJMzE2LVd5TjRvbFpwczZtQzk1RG1ZVEhsQ1BxZFBELUlVUFhfSmdsSzRvX0tlR0pqSVdIOW91ci1yZWdIY000c1Q2MzFzZGlUMlp1WjhEd3FHTUpjcEdwSlBDWHJlcXlvVTdmUC14c0pXRGN6VnBsNjJEQTJCUlBraDliS0ZwVnhya1FPWWtzdlhiVzIwYVRtWFR1bHlJVHFHaHBRa3VkWW54MkxYdmZDTzhBazNlM2t2YU1iUUVUS3dTSDlSczJ1RjFtY1U5djlXMjRIcEQ3OXFIXzNCem5QM2dnMGQ4bGtUMlZaSUZNUFNTeXdDc0ZvRDBMWjZqMUtQTTRSNFM3cWstcEFuV25LZllySzl0b3JFSV9OZFBQWm5NVGY5ZmxVOW9MeS1iVktXXzhRazhVaENERmp3dS0wYkVKbDRJYjJVa05pOVBhNVHSAZ4DQVVfeXFMTktITzhYYzhQNkh2NzdoM0xlc3o3NGYwcVVLTEdPRWNRcGVBQ1BsbFpReDRYbjBfTkdIemFMZVpJdFNJUC0tVWNfMFdETFBRVXVrX3o2QmJTYUJsdUZBeWg3UW11R3ZDRnVTcTEtMnBzVmRoZUFSek9mOTRFLTdVcTBGSmhwNkZXSXRfbExUVmM4YmEtM2pZOWYxUDZUaEFhMVZ4VnVEOHRRcEoyRUxZV1BLcmllb3hMbWRjektDZFl4ZWlmMzRSZXNyR2tNMWVkaHdXbXozYW5JTXFIVWtKMmN5QTR2eDBQc0JzNWJSbmgyNzhIWXpFRkxjMWhYWmJHTllqZk5HbEIwOE9UUkJvVUlGNm5WNHVMRndPbTNKdVd3NTRaOF9qNEtBbl9TaHZLem1HZk9ZSURSdTBWZzZQdllpamVPZ2xfMlJ2UmY2ZnZVY0NYazJsUi1fMWRmSXE0blhsaU53YkJsVUVZd3FqSEp2dEt6amlOM3FKMjM4NFdKVjZ6VUV1cDBZS0FyUW0xTS14c3VyYmdiU2NwYVd3?oc=5",
-     "at": "Tue, 18 Aug 2026 22:25:53 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "ترامب: لا نتفاوض مع إيران في الوقت الراهن.. المضيق مفتوح والحصار فعال - اليوم السابع",
-     "he": "",
-     "grade": "",
-     "src": "اليوم السابع",
-     "link": "https://news.google.com/rss/articles/CBMixgNBVV95cUxOMkRzS3RERzdiVzQtRkFJcEhEaVV4RzZWc3QzNTA5RFQzdTFzcmRLM0xiT3QtSjFYQjJhcXFZSklTNzRRZmVGYkVNMzh3OFpkMkRqS1hXRUt6UWVJN2NrZGxOZ0o2TTFIWUhSbmlfV0o4SXV1YmpyMVdPN2RKdHhLWlBFNjlKZnNaQVlDQUFBMmE0a1Y4Z1NRUFpMRHZJb3B2d3dTZDdURWM4MjMxVGVUcWRiZFZ2dVJpS05nT0w2Q0NzbjAxUGd6alZYSmlOY3JiOXJpU1NSQnYtNE8yZ3lKcFphenJWSWhKa0kzWDA1bGpFRlRudzVjLVk5djA4T3ZVUHJZV2ZXWmh3YjhhN216dGFqZjlscnVsZlRraTljeUdDYXB6NWlQeVMxUUdOdm1NY2MxcnVPMmVxXzRQbVNJaVV1WHU5VnRmSlBSdmdTM01LS0pyY2xfQTVDN0gwRDJBTTBaNnA4aDJQTDZmUWtYeHk0ZUloUHE0bkdZVWZ1THZFNEg2ZGptc09fLWg2T0NIZkRJMER3eFBjVm90ajZYOXZQMkJyNmw1RXBzQXVxaXJuN1FwN3NmYTJCTEJZY1Q2Nk1LZmxn0gHAA0FVX3lxTE9lOEZhRFVJZ1V0SlRMYlNzV1REdi1ya0RTVThKUUdzSHBTemYxaEkzYi1aVWF6b3I3X1BOZzhqdzBqLXBQUVg1VkhSU2hyUnhFRUIzTlNZM2h3N0lWRmFVdkJJeHF5dmpOa0ZxN3dsRzZFM3FTelIwa2hJMUI0czZySk9pQUswSk5mOFpTeTRrRng5R1FyaVo0VFUwdUM4WmlBaUJCZjByUWYtRUVRdU1LRURHZ1p1WjZ3ZFpLMkttX3JLM2N1NHlyRm5JcVE3QVZzb04wajNXUWRvdDhHdDM4WldTSlhHMEVQUHlpU0dCU2FZbjVGMXpLWVU4b3BwbTc4TVkwQ2Y0dkpCYmJIV214SWxHdUZqRE1nVl9Db00wdGxvZ1V6SjZvVVMyR2pQbFlIVnU5QUxzQWR0S25fOHY5R3lsX3RPdFNUelN2TlJvekx1ZWI5R21DQWFIOEQ2TGpLOXo4N0gtdVFYNmV5em1nXzhGNzZHalNENUdLTUhEZjA3QmJtcXhPUmhqOVhGMEE4dUxRQ24xV183QUpnMEN6RGs1ZlpDU05qNzlmY1gzNnFjb2NfU0tVUHg0bXNiZFk?oc=5",
-     "at": "Wed, 19 Aug 2026 21:08:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "إيران مباشر.. ترمب يقلل من أهمية مضيق هرمز وعراقجي يهاتف قائد الجيش الباكستاني - الجزيرة نت",
-     "he": "",
-     "grade": "",
-     "src": "الجزيرة نت",
-     "link": "https://news.google.com/rss/articles/CBMizwJBVV95cUxNMWo3UnF5aDdEaXQwRFhRR3c3UlZxUFNPQm5FNVZiM0NNWmhuVFVCX3lwSm9vQ0ZuaWFYRzFpTDZLaXJRc2dKdWNrQ1ZwUHZSOWpqaW9UUVJBT3dYTDE0ZVpocTVid2p5V29VUU5ZSEFxSlRuTDdISjJSM2xSUktaQWpQcUNQYV83WHM1emRzN0FmOEdYTS13MnBaNUwwN2tRRXZsRFdLTkdiTlA3OWRTU0FFU1B5dGJfb2Uyd25fMVhlaV9tN2hmVmd5czhLTGppVWlOZ1dpTU5nRFM5c3ZpMUtNZVRjU1R5NnFMX1FqdlFrbV9RVkpZRlpHR3BCSmtxa2V0X1JES3NxaEU0QnNpd0FNMzlfTEllcGR3c0lZaGxlSk9xcVd0cWl2d0JBV1RqQXY2TXdRTkFCbWRyTThvQnhpbUxuOWttODVkZDVBSdIB1AJBVV95cUxQdV9waVpjbFlpUURUWnpQazVtaEhOaUROQ3hHaXhnOV96SUV1M3loUmhVMFdiWlhmTDJtZTRfSEt5UmpDMS1uRWhQLUJ1Skp2X196X1ctU0lzbk5EZUFGUnA3Rk5tMER6YXAwU3JiY0NSQXJQS0tsV0NlcGQtYkJfU1U5RnR2N0lzdHBJYzJmckt6bXhZS0FhblFuajBBakk2TlF6dXRvUzh3NXlKd0V6N0llMkxfZm9lOUVkMVhQRUVweHlSNDRCN1VRZFA0TFEwUncyT0doOUJjU1ZYSTNZODlCQXhVVnRNQ1JmZmtEVmZPY1Zza0t6WDJ5NGpDTndTY2lkblZUdzR2WEw0QTNSVXFfSkNsQk1CU0RmOXJVc3FVQkRjV20zLUhQRlYxT0RMYWdpTnRpUEdzUlpkR3ZlVk5vc09wc1JUNnpMcVBtTlU1c09n?oc=5",
-     "at": "Wed, 19 Aug 2026 21:11:15 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "حظر مالي فرضته الإمارات على إيران بعد تهديد صاروخي يعيد للضوء خصومة قديمة - Reuters",
-     "he": "",
-     "grade": "",
-     "src": "Reuters",
-     "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9YbEt1RlpnU011YUQ2OW5VN1VoM2M4djZTa1pTMDhDTTY5UjUzckhlS1NqMEd0NmhpOXFwaEZfWkk1LTNaUXFoXzE5X2l1ZnVBaTlNTGEtWmlnai1DRUVCRmM4VXI2Z3oxcXZITWtaNG9uSHpQYTB3bDQ2ZVlBd00?oc=5",
-     "at": "Wed, 19 Aug 2026 12:09:43 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "الإمارات: إسقاط صاروخين باليستيين قادمين من إيران - CNN Arabic",
-     "he": "",
-     "grade": "",
-     "src": "CNN Arabic",
-     "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNd2ZZNlJURG5ZZjRkRWFJRGRVOVJMa1ZEcmN2Y3ZYRkUtU0x3X2F6aWlseVp4Q09ZVm9iTW1DaUw1YWlhTW5IbFZDMFJGZHltQ2ZOeXFFLUhkQjg1UXBwbTl1QlowaGk4N3NYMWdhN3pZZzh4eHhwZlU3cHBOM0RaTk5VUXNMSEJpLWhEYlEzNEZVUE1lYVg1YWwzYV9MeXZRUm5UZkZ4LU5nYnZLcVQ5TnBRU01hd9IBwAFBVV95cUxNQ0VnNHp2TGVrcDFTX1kzLVVySzFoS1BSc2ZJUXJKalcxWW9Sby1NOWRUTmJLa3VYTm5ZOG1ROFhLVkEzREFjX00yR3BzZTNYWkJUbGFfMkxpdEpYZXVNUFZsOTV2TVRHSFVEeVpWd19pWGtXS2dOWXNnNzROcGJuOF9iZ3ZVcmM1TTFGMGU1N3Niem1kdHdlWHJVajBBMjZrelMyTWR1VGRyTzNNYTVpLWVYUldZb3Q4a29uX1VibVk?oc=5",
-     "at": "Tue, 18 Aug 2026 15:15:29 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "الحوثيون يستعدون للتقدم نحو باب المندب وإلغاء حفلات في الإمارات وسط التصعيد - BBC",
-     "he": "",
-     "grade": "",
-     "src": "BBC",
-     "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9MWnB1dHNLYnFmSUUxUWU4bnNsYy1GSE1VdWtCSzU0blJaVmR3U29CdTd5bmIxakVRNzlwVFQ4bUhqMk0tQ2U3dmstY0tucE9VMlNUUS1GaVNtdUlq0gFiQVVfeXFMUEhnVWVKVEVoZmNiY2VkS1l1VG9WS0tNRjcyVkhBN1VvZF9WclEzbGRic1BPTy1lZDNDbXdhZEpQOTFaTmZkcU9vcXR2amdhX0I5Ml92NldJRXUyQzRxc3BsUFE?oc=5",
-     "at": "Wed, 19 Aug 2026 18:26:37 GMT",
-     "channel": "gnews"
-    }
-   ]
-  },
-  {
-   "term": "#غزة",
-   "en": "#Gaza",
-   "kind": "hashtag",
-   "topic": "فلسطين",
-   "heat": 100,
-   "n_sanad": 8,
-   "n_open": 8,
-   "sahih": 0,
-   "hasan": 8,
-   "summary": "«#غزة»: 8 خبرًا مُسنَدًا من سَنَد (0 صحيح · 8 حسن) و8 إشارة مفتوحة من الأخبار.",
-   "summary_en": "“#Gaza”: 8 graded Sanad hits (0 verified · 8 credible) and 8 open news signals.",
-   "hits": [
-    {
-     "head": "إدارة ترامب ترصد 206 ملايين دولار لقوة الاستقرار في غزة",
-     "he": "",
+     "head": "وزير الدفاع الأوكراني المقال يدعو إلى إجراء انتخابات رئاسية",
+     "he": "Dismissed Ukrainian Defense Minister Calls for Presidential Elections",
      "grade": "حسن",
-     "src": "سكاي نيوز عربية",
-     "link": "https://www.skynewsarabia.com/middle-east/1887079-%D8%A5%D8%AF%D8%A7%D8%B1%D8%A9-%D8%AA%D8%B1%D8%A7%D9%85%D8%A8-%D8%AA%D8%B1%D8%B5%D8%AF-206-%D9%85%D9%84%D8%A7%D9%8A%D9%8A%D9%86-%D8%AF%D9%88%D9%84%D8%A7%D8%B1-%D9%84%D9%82%D9%88%D8%A9-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%82%D8%B1%D8%A7%D8%B1-%D8%BA%D8%B2%D8%A9",
-     "at": "2026-08-19T20:59+00:00",
+     "src": "بي بي سي فارسي",
+     "link": "https://www.bbc.com/persian/articles/cd0x92vmdlno?at_medium=RSS&at_campaign=rss",
+     "at": "2026-08-19T13:10+00:00",
      "channel": "sanad"
     },
     {
-     "head": "قطر والسعودية تدعوان لضمان أمن الملاحة وتدينان رفض إسرائيل خطة غزة",
-     "he": "Qatar and Saudi Arabia call for securing maritime safety, condemn Israel's rejection of Gaza plan",
+     "head": "حرب إيران تدخل شهرها السادس؛ لماذا لا يتحدث أحد عن نهايتها؟",
+     "he": "Iran War Enters Sixth Month: Why Is No One Talking About Its End?",
      "grade": "حسن",
-     "src": "الجزيرة نت",
-     "link": "https://news.google.com/rss/articles/CBMi0gJBVV95cUxOR0hsZW52X2N2SkljVXA4ZU9udzVpVzREeWswNUxicTdPMUFXdmtNVkFpR1JxUHc5MnJfbWVUQkhlS1ZDVG5GV1pkWExCemZLMm1jX1phLXVxbkFDMDR3OTVGLVNWUHIzbVpTSFhWRTE0TUd1UEtDTFprMzc2Ynl6VUlZUXRnWFM4S3JNSXJ1djZHV1JseHBLaUlJV0QyQldRbjRoVXZZQkxvVEdPblk2QWpqTVNBZi0tVWNJd0Q3Zl9FWmoyQ3FEaGs2bWNkbnZWQm91RTBkLWRwWlI4SXd5eGtIVUxHMEJ5ckNTd0czQnE5d0MzMHlybmlPUGFnTXU3X3p6c2lzdDNES0dFM3pqSUgyM2doNHdmaGQwc3VpR1ZndGthT0ZNYTVMTG1wdjhha1lfSTVpUTVyTV80eWR1cm9WLUIxbWlPajZKTEVEeklWQdIB1wJBVV95cUxObXJTUmFfaFRqZHdxVk1VTWx0a3ZvNXdlSDBpTzNORlNBSHV1V3RoZU5uZU1nWmVyT2xrN2RnRzhfQ1hMakF1YmN5M1JSeHcwb0hwVDRwWndrVFpsOUN4WGpsZnRDYnpFVFdiWTQyaGw2VnpvOE4zVHA5ejJEelVweUlkbDNTRGhOSkRwWUFVRWc1bXJEbGdpc0hyODI3SWEzNzY0MlNsRl9ucFl5Xy1fZGxaOVNaUFJpa0dpMFUxTHc2czh6YkFDMVU3MzZ0eEVpaFg0VkNvVUxkZGNDaGxfM0JPd2F2MlRtYWZ3NnNONExPcFdCY0tGNlBGWnJYbWVya0FUcUt5ZzhiYnVXb1cyM0l2UVlEenFQWDZ3TGtPWWNyNmhpUUtBbmJ2WFhEQU5tdDV6ZmFOYjF6Wk9STURJUkRZblNZZUZNNEE3S0VkNlE4V0FFY3hJ?oc=5",
-     "at": "2026-08-19T20:55+00:00",
+     "src": "بي بي سي فارسي",
+     "link": "https://www.bbc.com/persian/articles/c0qvkd7gy24o?at_medium=RSS&at_campaign=rss",
+     "at": "2026-08-19T07:50+00:00",
      "channel": "sanad"
     },
     {
-     "head": "غزة اليوم : \" عندما أخلو الى نفسي، استحضر أسماء طلابي .. اسما اسما \" ضيفتنا المعلمة الغزية نوال أبو الجديان",
-     "he": "Gaza Today: \"When I am alone, I recall my students' names one by one,\" says Gaza teacher Nawal Abu al-Jidyan",
-     "grade": "حسن",
-     "src": "BBC",
-     "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1IYXRCTU5UVmtQWFdZWTBxbFZJd0laVEVjeDBRLV9WY2JyWlN1MmljX2J5cjVqbjdDN1pDM1NZa09jbmdOS1FJQS14V1IzN194Ykw5QmRac3l4d2tIM1hiZWxOVQ?oc=5",
-     "at": "2026-08-19T14:38+00:00",
-     "channel": "sanad"
-    },
-    {
-     "head": "هندسة الضرورة.. ماذا صنع سكان غزة من بقايا الدمار؟",
-     "he": "Engineering of necessity: What Gaza residents created from rubble",
-     "grade": "حسن",
-     "src": "سكاي نيوز عربية",
-     "link": "https://news.google.com/rss/articles/CBMi7wJBVV95cUxQRmx3VnhUbEduQXhBWTZwODVncnNSc0RNZjg5NmVwTndSTG1uVGFXV2lZQ3FYT2tHeHpLWnRPN1l6cTRmSkF3S0RiUi05RTF3cjJPWW5UVkZHTi1IVjZZSEhwTDhZZTVOY1JnQXQtWXMzUGczeWd1ZnRwNGV1ZktPOHNUMjUwYVZXWGhxai1JeUJIaDNrSV9VbDNNcERGV1R1WmhfNk1jZ2o2cllqaFctLTZxNF9KTlg2UnB6NVVVUng1a0FFRTFYdm5PM1gtQUdHUUNBaWh0Y2tPbVBhbXNPUnNOTFg0NHc4TUVXc2taVFZrQkt3OXlicjV5OXVidHo5UGgyN2o1aXZoNHpDZ2JiWlg3M3JGNndnYzN4cmptUEo1OHV3ajl0eG5kWDNHWmxteklIVWtPcC1tZTd3N0RDbjA5MEdjOFJyTF8wVjIyUlk4ZUhhOUVMWXZGZ1F6a0JjQnJTbkZsUWVtZnduR2NV0gH0AkFVX3lxTE1aQ2s0alZEYVpma01rSkcyZ1JYWG1zSG5QRjQ5WTFqRExkMTVuTlpCRy05Vy1OSjMzV2RhV0JRMzBIam9QbU14N0ZOazU4WWRMRXdJRnVudGQ4R3ZSZ3dpdFFkc21RSG9QaVVjV1JXWEVEdVdLM3NjSE55Tjk4UFNJbjVzMnNRcWJEbnBzTkdRSzVad0hzVXFUakRYb3BUNnZ0anRzWmN5NzF4UlN5eEFZZHo3OXQzNlJnRDV4UXRnTkpLRWFrdm9vV3B0d2tiY0tFZGxvTVNOUmR1c2t4R0tTYnAzSXJWaGp4RGpqeGNQY3ZiaUdCNUdaSmhoU0V4R1ZtRHl5Y2JrVUpsWGl3ZncwSWhZVEIxUEU5NVQza01SVHFKd2RyczBuX1BnTHA2cGpuRjB1ZUphSjFCQXRWc3VfSDg3VVA3N2ZGdkRacURYMUhRUWFQLUNoS2VDZ1lxWFNnSUYwOTdWT0ZlLVJheTdvdlNvUA?oc=5",
-     "at": "2026-08-19T12:46+00:00",
-     "channel": "sanad"
-    },
-    {
-     "head": "غزة: مقتل 7 فلسطينيين في غارة إسرائيلية على مركز للشرطة",
-     "he": "Gaza: 7 Palestinians killed in Israeli strike on police station",
+     "head": "واشنطن توسع نطاق ملاحقتها ضد شبكة قرصنة إيرانية",
+     "he": "",
      "grade": "حسن",
      "src": "الشرق الأوسط",
-     "link": "https://news.google.com/rss/articles/CBMi8wRBVV95cUxOSG50eHJQX25XZHZlem5xRWFfQjBNOFBWLVpLa1V1U2hWNHV3dF9pbFJXTnV2M1M3YU9TMHk3dXN3Y3Z1OWdGN2FRckdZeUNsWWVHSmNuX3RJX1dHTWVQZUw5aE90VktXR0hSbHJKRG9HZERZUmN6ajlFUXZ6UlZMSWJ0ZWZWdDdFQmdCSlV1U1Z3c0ttbDhKZmgySU9yc0k2dVVoaDFoZWVfbkpVblgxNWIxY2hsV01TQkFEdlVVbi1wUlhHdXhrcmlvTEVreVQ5WUZZSTY3c0hyY2N1bC14R3dhaXd1eVNpWTZRZzhXdnR3bDNhNWFqRjNSY091eU85YVVqN1hjZ2p2Q2xQRGtFajVhaS1FSEtXQ3l2ME9HS2RvU2dTWlRBVmdyX2hsdk55LUxDZVJZaElGZ2ludGhPSmE2QXV0SGh3YS1qQjNwOWZUVVpqRlRacU1Ra2FNZU4yeEJ0VkJOaDNJVjNIS2JJTWtQQzdhSjNFb1FRQmZNekpmclJuQk44Mm52blJEY2Z1WUZjeTd2dzdyN2Ruclp1RHF1SVJCSlZueFJ1VWR6RDhRR2toazl6WllyQlFkSEI1QkZTSnlNamt0VTJrMDYzT1F4aUhtWGcyUzRKSG1jdktTb3lSRnZNT2R1aUc4REhwa2pTRkdqd0Y3VkR5UXZKamx3dW03eVBJdjRxcjJsM2NSeXFyRFNlLWQ5LUR3bHV3X1ZTZXJGaHlIZ01LWTlsOFRkcHVDenZaV2phU0NpeUQxcjN4VTFYMW5Ra3ZPcmxIM2VoVENFTHFBWUl5X0ZuMDRmS09yVXhpYWktRHZJTnZjVWs?oc=5",
-     "at": "2026-08-19T12:35+00:00",
+     "link": "https://aawsat.com/node/5308602",
+     "at": "2026-08-18T23:39+00:00",
      "channel": "sanad"
-    },
-    {
-     "head": "إسرائيل لـ\"مجلس السلام\": سنواصل استهداف عناصر حماس في غزة",
-     "he": "Israel tells Peace Council: We will continue targeting Hamas operatives in Gaza",
-     "grade": "حسن",
-     "src": "العربية",
-     "link": "https://news.google.com/rss/articles/CBMi7ANBVV95cUxOeW5vZGYzSWhpWUg1UUlfUk9ZeDlYZVlnZzdxdWJ4bDg2RVQzLURxeXFKajVjZEdwQlV6dEsxakRnc2lhcEZmNnphTjZvdGctVU5TUXhFZ0FKSktJTnN1QlZqajVOcnl4SExLUTU3YnBSU1VtaDFTSHF3TDRMeno2QXFmT1kzQTc5UHR2RWN5WHlSMlRZbDhvVzFiTTItYW02ZG9GdmJ2LTRIcWdEVkRqdW1ocnFSd1ljeTdkQklCR0tUTTVqN2ZNLWNEQ0ZBVEppZFNhb2lTRjVicFNCZ1p6OUQxR04xZTNfSTcxcWtEUkh6RWlvLWJaN29CMl9lV3VKY3lQM3dXaFFUbDJWRXVRV2VIamN5WWNPN0cwbFZOUlBQUFJHdnJsVS1zU0JLclI2Y0dKNjZKYVVSTElxNHZQdEZkdmlHaE55cElRdlY2NW8zZ1B5S21MOG1HRV93MXNZUVN3YzNvTFBMd0dYMVh1VVBNaXhzVXFZamEzYWVGcEg0aG1kczQwckxPZUprbTFwQ1pwbk5wX05XVTR1QnRLSE9BY1lOOE1fa0NtbUJaaV9TNE5namMtQmVIcVN3b29TaUtaUnc4aEFRNHdnY29QTUZtUnNtTEdwZmxHTGJ6SGdZZnNOOGliVmxBMUfSAfIDQVVfeXFMTjRRbU4zYnJCZndTWGdmVnlBbjZqVkhTLXVYaXRRNE1Zc3ljUldEQlo4S2ZYS2pWVUNGaWpweGR4SXNPRHhFZmpmalc0RVVKTzB4cXk5UFRVeE1jcmh1RUNwaGxfUi00SFRtMWU2cWJNTWdteVBUVWQ1dHc1QXdWdDA1UTd6MmRTakIwVUhWU3hhTHpYWUtUYXJPY1Z5NnZSczRBdGRTQjNFUVJZa0xBcmZXZFVfd1ZlcnRKOE1CeThuTzJrX1BSbXJHMm5yWlp4cTI5V3pLQ083WjVIUkFaOE5PQ1NrTC12S083UVlIUWxkTW5HNENWckNaMThUVUtadHloQ2hEOUVaV3REZjN3a3pMQmw5RkpsS2lKX1lUQ250Z0RlZ3cwYW1RakhDcm1Ddnl6WnVxLTRqaDJpOTNWTFlnWTB4ZXFvNnduRlU0RUNnSVIwcTFNVXRrdGh4VWtFYUFPaC03eEcyajl0YjR6RVhmTnY0dnZOdzVtT0g5TFJBclg5WmhURVQtU2pqZHNfSTNqbkxTa0ROS1ktNzAxaXdPbnVXMVhMWTlsMkNDaGRJOXFhLXh4anhYTjd4MkMwQjQxR2EtcGVMSHdtcHZIcHR5M29FYjRZeDd4UlprMVV5ZmtERFROTGV6dTEwcVdZMTFB?oc=5",
-     "at": "2026-08-19T10:52+00:00",
-     "channel": "sanad"
-    },
-    {
-     "head": "ركام الحرب في قطاع غزة يتحول إلى موطن لخلايا النحل",
-     "he": "War rubble in Gaza Strip becomes home for beehives",
-     "grade": "حسن",
-     "src": "سكاي نيوز عربية",
-     "link": "https://news.google.com/rss/articles/CBMigANBVV95cUxPcEtQbVp1NXFzeElGQkNDTml6Wnl4WkdVeHZvZ0wwak9WUTJUQzZYRFVNT0hQYW1scmhSZ2l6UlFyc1EwLURENDJqOFhWYzJKaW9kU0hvUkJHbnBSTlFfNEhJT01LTXJVLVgtQk90Y0lGVU1YRHVmemg5OWdQdm5mZnlOYVR3bkFhNVQ1Uk1jZEp1eTZuVnJqWkZfSzFnZjcwam5Fa1BsbHJ0bE5UdllDbE5mNGstaDl3anJuMXZCRmx0LVNwX1I5eHJrbmNpcnlMVUJoRkd6anFHZEVJaUI0N19PdW9NRmE0ZWJmLVFTSjF0cGdzNkZwcnZ5RGh6bWJFeUtYbTl3UjIxc25hclVkZndoeFY2ajFkY0hxRXlvM3Y3aVdFTmtYTmx1M3NmV3FwWTljU19hek42UHppbzNPWS1QcnpHRUQzSnFkaEI5SUZZR2xmRV92NGljU3Y0NlgwU1V0aDk1QTl5VDRCRjFVOVpRbGZ1T1BpOTBSZHRiaWbSAYYDQVVfeXFMTS13Qm1pSXdyMXFhQm9sS3IyUGRsNjJOZlltT2xhOEtUYnVlUmtOV2hFUDdCZDRqeXk2WjN1LXRKVVNYR0ZoVVhmLWhwa1VHX2JubFlqOWx5QURRdExHamxZQVRKUEpCdjZTd2hFN0lmZ1NKMWNON1hVRWw5YUVXOUJIQjF4bUxKanBCajlKVWVENEVSSzdhSTEwLW1iZnJ2bnpkUFMtRUMtR0tZRUE5VVY4X1FvSTNHVHZwbm8tVVlRM1BYNk9FMWN5X0ZRMGdrUkctUS02U3JYaU9Lb1NsNEY5OXRTWXNJSW5hQTBTSWdTekNFWHE4bFRQamxZVEFHbEJ2RTQ2MXdRUUtzMmplT3NxbDZzTEZjdzhiVmFjTU1PYkFQM0JxZDhvdzlHLVN6R1BBV0hlVzQya2NpVE1URVFnelctUEdjM1pMX0psMW5JTmNmV0M3b1hVcFNtMUFQOFJiRzI5MV9RQkl0SFR5eWxNTGg4Q3hNa0lqQThWRlNNNTNLR1dB?oc=5",
-     "at": "2026-08-19T09:57+00:00",
-     "channel": "sanad"
-    },
-    {
-     "head": "6 شهداء في غارة إسرائيلية على غزة وحماس تتهم نتنياهو بإفشال التفاوض",
-     "he": "Six killed in Israeli strike on Gaza as Hamas accuses Netanyahu of derailing talks",
-     "grade": "حسن",
-     "src": "الجزيرة نت",
-     "link": "https://news.google.com/rss/articles/CBMi1gJBVV95cUxNZUtuNERraFdyT3ZxNTFaVElvbnZPd0NxSHd3S0NzQ2o5UTdzMzlPbFRFQzRmeV9JZks4cU50dVNjT0NlTFplWDdIMlA2T1VsQWIxSzRRZkYzS0txSXgtMlJmSXJ6MXFNSjNRN0ppRks1bXNSZVpxTGxPZDltM3pkSng3RVlTaDJ6LWg5ZkNvdENwZjJPR0NZMlVWNUtpYkwtSS1SUXVlcG15NjFNSU5CUGdTU2RLTWRzNGNtb2NtZHRuOEJlZ2NzUExfR2ZYRGN0aE9ETzhYTjc0V0tFNWVFRGFPZEZUdVd0akpVM3RYRkZUQnEtSHFFdjBnckEzaVhDVDRWNnlQMkw3ZE5ZUmJET2VXUmJWQW0xanJyejQ3RXlzeDA4UnVGYWtvWnIza1p1RHRheHpMUkZrNk00TFU5cExTZW1vZEQ1VGh2YVlrX1dJeU9tTHfSAdsCQVVfeXFMT1dCMUg2YWY4a0FpdDJqVWRGQkh0UFlaY0JXczdYYjI2ejFVSmY0OVJWS3VZcUZ0ZlZHcGNaeVdQUjdDeXR0N2YxN1NLR3ZSTkx3bkw1Y2ZQNzN2Q1hZYzJIOWdOOUdfTV9SNHpZeHRBS2E4MzlIdTdMVUxVWTh0SFo4cTd1eG1wUVotNlhzalZ2eU5Pc29Ub3RuUUhkZTllcGg5bFpxNC13N3FRNHZhZ2d5YnlDZ09ITDctYjFRUGhlMlVCdUhjY1hkN3ZuTW4yeVZIcFU4X3dabnk5eXRpd3BQTG9YNDdRdnUxM3RIbC11Z1RJT2VGbTUwcGJOWGNaaEM2emhHNVhYdEMzWDlVRWNqOWNNeDZLYVl2ODVMMVo5Y1l4SEpjeWlxRXhtaVQ5RnJ6S2NDOVlURTRKQTYzYTYzYlpMaG5lclp1VkhwLXR5ZEt0X3dXXzdXNk0?oc=5",
-     "at": "2026-08-18T21:33+00:00",
-     "channel": "sanad"
-    },
-    {
-     "head": "اللجنة المصرية.. تجسيد لجوهر العمل الإنساني داخل قطاع غزة - اليوم السابع",
-     "he": "",
-     "grade": "",
-     "src": "اليوم السابع",
-     "link": "https://news.google.com/rss/articles/CBMi3ANBVV95cUxNMTFGbEVJZkp5M2FHSGJEMUtMRGhKZ2hNaUZUbTB4cWZiSmlQNm9nTFU5dnl3dEpQS2ZBZW1LYURCRE1PYml3eTNMQ1ZXWUUwTjRmSGluQUJCLVpmclF0NVZfcDI4OWJTQjZmMlNXNjluWGZyWWZRNE5rNnJuSmpsb0VBOHZWNUJGTUVfWFZDYzZ1dFNOU3p1bU9JV296RlY5eGpDel9sU3VqUEVfUGpPYXo5ejZpbVhINXJaUE1rQmx4ZzlUSFBITHphLS1NQWdkQk5vQnVYRk1oN1FBTVU1cWZBanFvMDlJeHlXdjUwM0ZNVlBsd2x5eWhjUkZjWU9YUG05dnlYQ1gzV0JWTE1JSmd3OHB6TmFPUlhfWWtpUi11MmRDNXRuN25PdDdFT2ppajFHMTJ5OGNPdEtLblFLNzBiMkdFWnZXc1NZRC1kZ2tQaEJpdnpIR2FzYlh4NjN5OGY1d2puRU16dlRXZDQ2ZUQ1T2d3ZUdueU1ValBxU0NobmFXRmRUeS1oSDY4U3pUZ0NhdnBwdExmZWZjTDZpUU9fT2h4Uk9rbmRsVTloMlZtWkVlMVpSOUF2VXNnQzVXOGY0TUpDcXRiWGZtNkhQWVZNTm14MGhyRm51etIB1wNBVV95cUxNZnA4MUVueVl4ai1DTlo3N294RkVFVXlkZTNpbUhhRmh1RS01OEo3LWlqckVDTUFpVkdmZFdOWHpnVUZOV0VsQ0l0WjhaUEJIbzZrSXhrbXRMcmsxZmFUT0lWR2xYdk5zdFFUUm9Yd2x1ODRnNDNCUm85WDNnTV96eDBfVUxaRUtSVnVXQ0MwZzgwa3hwSmpsLUN6UWVmcmNSN3V6el9zNUJhUUN5Vnk5RnNaV2xBbkI2eFpkRzA4VnNIb2JldTNOaVphMlFfdUgtY2FyeHdJS3lpc3hrTG55WG5sWVJSeVBGNUV6NEQxeHlMQ0ZnQmRWLThJd0o0RlBnU09jUzY5TmxtR2taaUx3b2o4OUY2S0xNQ2UxQXo3ZEhWOXZGVlB5OU5iMjVQNjBsek1HWVZzM1lIVHpNaU5ZNkp5ZWRBdjVIcDdYYTFoT2Zra3dhMlRxWE8tdzRmSHBiOGQzdVBJbU5NNkNYNGJ6aV91UUpaQmNVQkltNzc1QmxjcS1QMFFOZ2lVd01kbkpybDZYRFRRS0pDaEU1ejd4QkdhWVUzbGV4akozVVFKajVuRDU4bFM4VTZOVXNhbkxBM0FRRFU2YS0xU1Y0VndONURqVjNhVFk?oc=5",
-     "at": "Wed, 19 Aug 2026 21:12:38 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "هند رجب: الجيش الإسرائيلي يؤكد أن جنوده أطلقوا النار على سيارة الطفلة ويفتح تحقيقاً جنائياً - BBC",
-     "he": "",
-     "grade": "",
-     "src": "BBC",
-     "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1zeGRoTzhuZU1qdlJ1SWdNTVpONFJET1ZDTWJZcU9hcVh1WWlpSnVCUElKN1NKTktrX0VpWUFsZm9tYzNTTEJCTWhhTUN5a3VQb2ZaQ1ViajZjdlpj0gFiQVVfeXFMT2lvdFhwaW0yeGRLRHRZV3pidngzQkNBLVYyR2VGWnZkZ1YzM1pMeXVqbmMzNEpMekZyUFRtNzVEOXY4SGJYOGpIT2JqbjM4ay1DNGV4alkwSHRkbS1YSFh2NVE?oc=5",
-     "at": "Wed, 19 Aug 2026 16:36:13 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "الجيش الإسرائيلي يقرّ بإطلاق النار على سيارة كانت تقل هند رجب - CNN Arabic",
-     "he": "",
-     "grade": "",
-     "src": "CNN Arabic",
-     "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNVktNZEVuU1JrbzJDQTE2VGtpc2dVaG9IMVVZWnVXdFJ0RGRETEZKdTFYOTEwU2Vvb1V4LW5fSXhDcHdqdXJUUzZ4ZHRfUWlOYWZabWwwU2NuOFJlSF9zekxJNE1uOUQyUGNmMTNWZnluWDRoQWJERDRKTkp0TkxUV3Z4bjl5WmZ3Q1lHb1ROd3JDMEhxSGx0YTBXdXZNV2x1ZXdXUkZQbWF2aWstZE1hVTA0VHRPWmdqaDdKVEJSWWFmTm1LU0I1N0NmVUpKOWw5d2trQ05TTdIB4gFBVV95cUxPTVU3MTA2TXhSeElpdkJJbEk0V0NVaW1PU25zUjRiQUZWazFJVVAyWVlXb3l3S1hXd2ZWYTAtY3BZNXdRVWQwMkpVdUQyd1BpMHU3Ujk4Q0l3UE03QmpwTWtHWGM2LTk0bVdNZkZNR3ltNVNnSEtVMlRjRVNhWkxHdTYtQWVzdHVNdFNqUXZkV0RSYmVHWlF4YkpJam5FM1QzcU9YZkVBN3hKNUlEbDA3ZnlLX1VHU3BzTU1FR2JvcXM0RzBJRkYtZzB4YWZqYkVYOEpFLXFna09ORFZHVkZxcGpB?oc=5",
-     "at": "Wed, 19 Aug 2026 12:09:42 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "مقتل هند رجب.. جيش الاحتلال يزعم فتح تحقيقات رغم تبريره تصفية موظفي إغاثة غزة مسبقا - اليوم السابع",
-     "he": "",
-     "grade": "",
-     "src": "اليوم السابع",
-     "link": "https://news.google.com/rss/articles/CBMixgNBVV95cUxNWXAtejlKU0FUTS1VcnhrMlo4aG5jZXVaYkJGOUJOeGkxYmEwaHkwQnV1WmhONXdWV1o4MmxZOXpTc3l1Q3ZNSFY0SkdZX2ZoT1pJRmVqQXVFTkN6RE9EUlhsdE1Ld0ZxRGh3MFR5NTlkNXR4Uk5KOWFycko4ejNIbmVtTzJ2bGpMT1pOdTdNU2VlR21kN3BYdktqMGx3T3NGQm1rSlNHZXA5ZkhrZXl5b2hETVBYQUpabmRuT3NSMXVjZjZNZ0JYb0JkRHUzRjNqSjA4cVdoVWh0ZGZFdm5rdjZzR1l1eEZWaEF0d1d3cW1OLW9KakpHQlkteTNwYnJkemxNa0hzQ1VwclJFWUlNd1h5Rk1VWk1hTDFWQ3F2c2lPQTV4SHpqRm14dU1FWjFVWUQyZFdJSTgtNzhIR0VJQkpmR05Kek9FTUhUZ3JvVDJNZXFDM0tQbFFodFBkZ0hjRk00R2ppRWhkMjVmODlza3RzZ3Z5SnBBRjV2UFZOYXI5amllLW5NWm9wb2NSc1B0Wng0X1BMV2dWWFBMZzRyMEFKQ1Z5NEx4eFRDZkVWQnBpUFhlUzY2QTdTM21OZnViQ0VXYjRn0gHAA0FVX3lxTE5EdmFzYk80NThsM1FQZUJkemYtcl9oSlVNT3lGdm83X05lX0FwWmFlaU1vZzNNcnBobXJBOG5yVlkzUXNFdVV5MWg0Tm55LVFQUzBMX3o2cXExenh2elVOLVMxbnhxRWNPdlB6Q05CSi01QW9MVDZYQnFFUFVLUnJMSlRmaXdBOFJMdnMyZmhTYXh4REFUOExuamYxdm1sa1V6VUM3SDA0VFZtNWRKQWsyLTNja3pKbF9QV1ZGTXFVRUk2MnFTQi1yNTVsMlZjSHpWd2FNVzVDR0lTc2VNeXZLcnBqc09CVE1iZGVuNXNsZ3hudWphNXVmRWo1OThLZHFkbEdmMUcxejk3YWRSemZrWlJmbFFIM2F5VVhJOUNRU1kxV1g4OU5GVFZNdWZSWHFVdlRrbExvSVZXNXRfQ0pQVjJsNlM4aDVoS0p3Wk51UEJvUkJNaFNQODh5bUd6Zk5XTG55Zl9rbDJkU05XbjZYLUh6aENPWjlYT2t4Y3V1TTFnVG9wNDhDbjg2c2J6TWgyOFN3ZGZ0TUUybVlZYlltTVdJRERPLXc3Q2VmOVZHa0EzQ3dBeGJCMVEzZkVpVWQ?oc=5",
-     "at": "Wed, 19 Aug 2026 19:04:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "9 قتلى في غارة إسرائيلية على وسط غزة - سكاي نيوز عربية",
-     "he": "",
-     "grade": "",
-     "src": "سكاي نيوز عربية",
-     "link": "https://news.google.com/rss/articles/CBMinwJBVV95cUxPM2wybFZBZ01UdlRUNUQ1WmNDNVlCWW5IVlJOQzZBSm05MTM0WmREd3hmVlJHYVJxRE9na21PbTNxSkhINW9qQlFpTThhNVBIZVpOcGM3dnRjc0dkUHVLUHFTRHRBX0l0MW1fb2dvT1lrN0FoY1VHcnY4WEhRaWpsakl6MkE4VzU4UTNZdVdWYW96UThUMDZGcFpBdmpvblpOU2VXSXdub05TN0x1NVk2M1VwT2FiSkVwd2YzUVRkanhGSGNCQXhFZ05TYXFrTUd6UmZXY3BPQU9iazZteXpMRUdiTndUNk15ODd2OFotRG1seXpZSXl0c252Vkdfb2VybGhWVjN2dElNdWpjaUsyR3ZHYXNaNkpSc0tXWWl0UdIBpAJBVV95cUxOYUNkc1dsWGh2SWV2cHllMV9NcTd0MnR1R19UaGtLNWFYTHJQWjd1MmN4WEZ6REt6THFUQWhfQTF2ekFvSnlOWjRFbWVYU1c0LWNlS3pETlVoOGxHV0VHRlZTOG5NbEczRGx5QWJISndnY1hTTE9pVUJiWDlYOHRCWkU4cmYzM2d5d1lvWnRoQk5nNmY0U3hVUHh0VzgyN2FyYS05ZUxTV0tCYnZickNoZE4wQnIwb0tvODdTTm9tVWVRN2xITVhobDExbmQ3Q1hnWjU0bW84WE05S0hER0JSWTh2LXBVZGFDSU5idzBobnFRR3ZlaEJUYWMxQkRaeDc1UmJLM2FnWWZkR2dLUXMtdGZ2Tmk0ZkZpWXhENnY2WjQ4SzdU?oc=5",
-     "at": "Wed, 19 Aug 2026 13:37:04 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "إسرائيل تكشف هوية قتلى مقهى غزة.. 4 من قادة النخبة في حماس - العربية",
-     "he": "",
-     "grade": "",
-     "src": "العربية",
-     "link": "https://news.google.com/rss/articles/CBMi0gNBVV95cUxNTUxWUHVOZUN1T0NCY3RDZmZJc1g3NThtdHV4MFJXUUgxc3pjQmdUSDNEM2xuemZrOHZlOEpQM3pqZEQzczdjSnowSTc4YVBuMHpiU3Z5SGNIaVRwSVQzQ1lqZFdwYVREQ0dzNnd2Y0R4VmdwQklNeklRZmQxbHctdDNnT0lWUFVmWHhhM1FGN2wtQk1ERDlQcVVub0E4ZDVKRHZNNVNOOS1iYTFNOGZqYnFlYmtrWFRRRGQzRDJjQTNoQ29BTF9lYWtja29wbEcwWG1XRXNESzQzbWZNc2gtbDBza2VaeVhsek5iVXM3V1luZ1RPcTQxRHB0OFVXTWdPc1ZnZU5CNmJEQTlubTJ3NEVRUF9GTmpjOU1mOXJmR2NyMXRJZmhaSUtUVWNPYnVDSmlxOUJHQUMzWXBIRTN2SlVFQjgxNVlHR2tSQ2tzTVJNNHhOUTF5b2tsbWctRXJrX1JXYW1MU2hZWVV1NVFvMnNkREpxaElLektzcFB4aEFURExBWHdzZVBCTlVCX241R2lsUU5naU45X3dzM1BGLXlqSWlIOVhpSmI1T2ZOa053bFJ0NnRFcjZQZzllc0ZTcFJxS25ja2tHWFhkMXM2aWJB0gHXA0FVX3lxTE1jZlF6Sk9rWWk1WlZxb2FOT3dfc3ZYX3FESmduZU5qaDd0Vm1JRXdsdTQzZ0Q4MGdTMDVSRV9XLVlLdEpLVTFzTXNtNGVhRGVCY0FRMGlBSzA0SmphMGZEMmlNXzdhZWozRGhZdjlFRjFWenY4NVV1RlZibXhGaEdSbUVZdXFHZG11TXpNVWdHNDY2OWwzSEZVbG9DNWVOVkdTQTdmTmF3cnBPSmtQOTcwTWNGczl4Xy1lOGxBM3pCS0dDNjNmTjRqMVFuM29lTndmZ2dtQ1BWdU1NSkllLW9HeXZKUHE5RXR2cGF6NnFmVm01T3ozSlRRWDRNNzJaSVFRdzQwV0lCXzFYdDZqem9DeHBReGNVRVVZalBpbE5kb0RSVmlEOU9WRVAzdk0yeDVlT1UxTWdSRTJVRHM3akhZdW85RlBJZTRrVkVDa1JtNkJRc2FKQ1ZxWEdVQ1RJT2VNMDBwTXI3RlNrNzBxLXotYXRjQ3JyWGpUOTZMLXZWTkYyUy1oaWtuSjlPbGVva0Vrc0pFekN5WHhsOXlfUnYwdE9ZRlFRN2V3aFU4UXZRcVBkZmJKWm43UE9MS0UtZGV5bjZaYmIxclB5ZkxTVzFhdUttMXRPbw?oc=5",
-     "at": "Tue, 18 Aug 2026 07:00:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "تصعيد إسرائيلي مستمر في غزة رغم الدعوات لإنهاء الحرب.. قتلى باستهداف مقر للشرطة - مونت كارلو الدولية",
-     "he": "",
-     "grade": "",
-     "src": "مونت كارلو الدولية",
-     "link": "https://news.google.com/rss/articles/CBMiwAVBVV95cUxNd19mUE13Nkl6Z0hUUERHZjZic3JRVlFVOFdGVlJWZlNPYVk4OEw4dmluWjBpR2dXRTF4bWJsUzBvMjlua0pCeEl4cGVFSmN6Q2dGQ2N1dGZ2aW1ueDNDWDA1SVN1Y1FSNng3QXhkWVhxX2hXZko2aHhqdHd2NjlFWldOS3BNRF9GQnFiSHJlVlpCemxRWnV1LUptNVUzUGFCMjUxN2lFbGozRmJEYjVYQnBybkJUY1BxWVNHSzdiTTZnTUF6T3d4VTgtdE5DYVp3X1QxdnZZaEZWaThOdU4xWXVlWWxnMVk1M0s5TGNkNUNfNnpha0stald1TVZ6ZUo0NEdmRkVteUR3b0tWSW5XbUhLN0JLNFd2d01LQ3lWem1ldFN1S01OZF9haGF5NTkwY2UzOWl6OVJtcTZ3NVNxQTBZMlZCX3RkZVZsZzRGOEFWenN5UmZSaUN3endYZ2p1aFpXSzliZlBmUzNlN01pYlZra283V2F3aDRvZW5MUG5OX3JJVXJJemFoRG9VQnItUWJtaVd6ZnlYdWZ1V21acWNiVzBQTFNfNGF1ck9jME40ZTBOSVV0YlIyWWEzbG94UWQ5S3liblJKNFNfeE5rX2ZJYlhlQ2I3VTVFT0dpRkV6V3RqOUZZUk9OVnB5aWdrOFpwdldNSTZNR1dneUpsc3NzY2xuRTdtSXdLV2JDNTVkOURLTjhJZEozZDFucy1QZE1KZVFEMDIyMkcyOWs5TXRHMVB6UGtiQUtLNTJ5VHhCUnRTYUEyX0xjMWNSb1ZCUWJFSWhJRWZrU2tiRXFXd01wTU1Rb2RhSkU2SUNEcmdPbVREdmpPYThrRHBEWDFrRUlQSjBiaDRuNHZNZVFfRFpXbzNhT0gta1VHVlBKRlNOWFdjbm1kc09PNE5YNDFndl9YZDZ3a3hUWk9NMFNYaQ?oc=5",
-     "at": "Wed, 19 Aug 2026 14:38:25 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "أميركا ترصد 206 ملايين دولار لقوة حفظ السلام في غزة - العربية",
-     "he": "",
-     "grade": "",
-     "src": "العربية",
-     "link": "https://news.google.com/rss/articles/CBMiqgNBVV95cUxOMWF6Qk55UWJqR1F3Zno2LWozdDJhZnpJRElSSzFQNWVDS0xIMkpSZ3VHZ1NTeVpTNFNHVFJpY2xsUG9sZ3dwUDdLN1M2NWNKX1RZeTQ0QzhHMzdqbFA5WFNEaTN1NWFRcUJGMllCc0Ztc1ppSUQtdTdfZGVQbHVBWUkzWjZNNmZveVVEb3ozSTQ5WmE5V3R6TldSNV9raElmYm5kY3lGc2owUktPanhKNHJBYWN3M3luRjZEbFRoTXFEWkdXSVUxN1dGaHR2dXUyYzBDRHRQY0ZEREljSTdFUHhfQ1hVUUs5ZmhpbENxYVY1czRhaEhZdVJrMkRmQ00ySHd3OVlXVTdxNzV5RDIyOVpPX1JwbU9kejduMUtyY1lkWF9JdFVJOHJWSXc2WlVhS3lTWl9jNTBBODBuTGtIZlYyMERMSno4MmNGQWxaNTB2QTBpWXdhQUtZN1FkQm8tRTdycm5EYWtUNTlaZjFOTEM0Z0R5bk5GMk9XNEJGa0gwN0tnblFvU1l1cDQ5bjlSdWphN0VOWUI2SjJuSXBiZkdZSUI4OU5ScEHSAa8DQVVfeXFMTlRScHJ3ODFPakVUaHV6cEVtZmhEOWVZcTR4N0VrZ1l5dlc3TC00cmh5ZFozTkNSN2xkanRvYS1XbTAtc2xtbTlmR1hPVjg1SlduSk5wWTlBUjZKTEozLXl2cnJBUFBoUklvWnl2dkw3dlQ0eG1wSEtqc1NfOXBiNmdPd0FNN0t4a2oxSFlWVGlTZmtRS0dNT2FkMERtQm4zWkpLbnNzdjl0ajE5cndPS0Z3bVpjRVhhTHpCYzRpVm04THdsRWdJTGV5REZrUTZfMFZ4bEl4LTZ3R19YTlVYZ2Z2aXZGVUtJQWhkTkFILTlBMW4zUUp0bElGVWFLU04tcVZtclFwYkRobzlWY01XLW8yd2wtYXU4akhDUVRscTMxVFdNaW5HRzM1STRDelF2YWpQYktQaUdpZTZVWFNSendLOVBwMndIRDRQVllPblNRejhLWlFORVhOMGRLUXd1NzRFQW1rTk1RTGJsUWc4RlBVSlQxYkJYdF9PTjJzdGxqa3pGLTlXejdfaVdCLUhubWhDdi1rTUJYcFhfTEhCNnVqbzlVV1BoVkxhTW9GSkE?oc=5",
-     "at": "Tue, 18 Aug 2026 07:00:00 GMT",
-     "channel": "gnews"
     }
    ]
   },
@@ -334,17 +103,17 @@
    "en": "#Hormuz",
    "kind": "hashtag",
    "topic": "ملاحة",
-   "heat": 100,
+   "heat": 80,
    "n_sanad": 8,
-   "n_open": 8,
+   "n_open": 0,
    "sahih": 0,
    "hasan": 8,
-   "summary": "«#هرمز»: 8 خبرًا مُسنَدًا من سَنَد (0 صحيح · 8 حسن) و8 إشارة مفتوحة من الأخبار.",
-   "summary_en": "“#Hormuz”: 8 graded Sanad hits (0 verified · 8 credible) and 8 open news signals.",
+   "summary": "«#هرمز»: 8 خبرًا مُسنَدًا من سَنَد (0 صحيح · 8 حسن).",
+   "summary_en": "“#Hormuz”: 8 graded Sanad hits (0 verified · 8 credible).",
    "hits": [
     {
      "head": "فيصل بن فرحان يؤكد ضرورة خلو مضيقي هرمز وباب المندب من أي تهديدات",
-     "he": "",
+     "he": "Faisal bin Farhan Stresses Need to Keep Hormuz and Bab el-Mandeb Free of Threats",
      "grade": "حسن",
      "src": "CNN بالعربية",
      "link": "https://arabic.cnn.com/middle-east/article/2026/08/19/faisal-bin-farhan-the-strait-of-hormuz-bab-al-mandab",
@@ -353,7 +122,7 @@
     },
     {
      "head": "وسط تهديدات ترامب بضرب عمان... لماذا تجري طهران ومسقط مفاوضات حول مضيق هرمز وما آفاقها؟",
-     "he": "",
+     "he": "Amid Trump Threats to Strike Oman: Why Tehran and Muscat Are Holding Talks on Hormuz and What Lies Ahead",
      "grade": "حسن",
      "src": "فرانس ٢٤ عربي",
      "link": "https://www.france24.com/ar/%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7/20260819-%D9%85%D9%81%D8%A7%D9%88%D8%B6%D8%A7%D8%AA-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D8%B9%D9%8F%D9%85%D8%A7%D9%86-%D9%85%D8%B6%D9%8A%D9%82-%D9%87%D8%B1%D9%85%D8%B2-%D8%A2%D9%81%D8%A7%D9%82-%D8%AA%D8%B1%D8%A7%D9%85%D8%A8-%D8%A7%D9%84%D9%88%D9%84%D8%A7%D9%8A%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D8%AA%D8%AD%D8%AF%D8%A9",
@@ -413,78 +182,84 @@
      "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPaFRNUzVzRlIxYllOMHdZY1pvOUVVclhIY041cTJEMmZVaVlqZDZnXzlVUDhYdEFKTHRheVBxOWg0X3dXczNpWGk4ODhlQUlPUGlWOXRHVE9ReC03bVR2d095WVlPblFjX1NKSHJ4UzhQT0Vfc2kxckxiWlRqNjgyWGVCUjJpODVUWm1QbVFTOWQzNl9uOVM4YUN4QlJDTkRsR3RWdTZHNU41Q1XSAbYBQVVfeXFMTnY3Qkk3WU1kVWhJakE1ZlZvMTVUQ0JWRTBSYWFDaHNaLTJvalRwUE1DTGZac015Qjh0OVZtdEJHT3VHdU04M2lQTVkzVW5vU2EwLWV1cXZ5bmgybkhWdUtnajF1b3NkR2cyS21iZjh6WnhWM2poOWdlXzNIazBYalNrSlBWVXBmbDI2OS1nQUNUZW81eE5zenY2T0JPMExBaEFnQU5LaU1CZ2NLS2NPMEdZaDEwT1E?oc=5",
      "at": "2026-08-18T09:54+00:00",
      "channel": "sanad"
-    },
+    }
+   ]
+  },
+  {
+   "term": "#غزة",
+   "en": "#Gaza",
+   "kind": "hashtag",
+   "topic": "فلسطين",
+   "heat": 70,
+   "n_sanad": 7,
+   "n_open": 0,
+   "sahih": 0,
+   "hasan": 7,
+   "summary": "«#غزة»: 7 خبرًا مُسنَدًا من سَنَد (0 صحيح · 7 حسن).",
+   "summary_en": "“#Gaza”: 7 graded Sanad hits (0 verified · 7 credible).",
+   "hits": [
     {
-     "head": "الأرقام تكشف \"حركة الملاحة الحقيقية\" في مضيق هرمز - سكاي نيوز عربية",
-     "he": "",
-     "grade": "",
-     "src": "سكاي نيوز عربية",
-     "link": "https://news.google.com/rss/articles/CBMilwNBVV95cUxPRVhaTnJNVlZXY3E4WXd6SW9UX25RNDdwYXlIZk5USGJISWRvTWtoUVdnckRLbXhJa2xnd0xZeUVsY2J1dUU2YXd1SEU3eGY3amxETDJPeW5NSGpvN0FHUG5jNmV5SWZEclNzcHp2ZlpfeThTMHZ4QTNqT0U2RHVaVC1tM2JVb0RjdDdOWkNDMWp5SjRYNEh6YVV3TGZjcDlJTW82VlRGQTA3cHkxVHNvSGtObTREUXFoNFdVZE43TnU2WUR2Q3l0V1lkRXZidGEteWVMTHBvRDF1UHRqelNnd29OVkprMVJhbkVNRlpHR1FFRWc3cXFXd085M1pyc1pIUzU0Q1daXzNDbW5zM2otWmFwYjRhajJ4VnFmdU1WcUsxbTg5Y05Kbmp6YkI2eUxyYWxzRVhPc0VXMnhtWTg2NTYyVEZXR2JyZmNBZmVmbXllbUswZnRCbkljbE9INXNQaElFdFZrZHowWTVlblk5cF9BajFBSHNGbFIzaW5JRzdDTm5LUmV2X19rSjZacG4yOElTQkZNZ9IBnANBVV95cUxQVVNPd1U2SnpTMWczRlUtVkZHQlhydDJNWHl4LTBPWkxhTDQ1YnMzMGwwcXBIVlp1S2I1RU5WRXpRWnE1M19INFlWNFhEeUJCOE9kQ1d2Yk1KeHBsdHg3QnpXQ3EyaDJMT21oU2ZjRFFFdWc0WDhjNl9rZ2FycFRwQ2xCeGZmN2xRWUd0REREVHpKU3ZmbXJHQTN6WEJYV2RPLTh0QjBCc3NZUGZUV21Kd1dOYTdSR29ISnEtbFZtRUtUVmZndkZOVFJkdVQ1ZnpkLXdXc3NObTR0U3M3XzBMZTdOa1BaT1ltNUttYWxGRzZpQ1VWM0pPOHc1Rm4zbW1WLXJwakxadGxyTDFQVjZqVkFXMkpFYndJOGJaZjFhaW92YW9xR0FUa2JIYV8tMHBtdWhzUXJTZjRraFVOLWxtRW0tZ2tEWkJRT0M5QWdISDgxLXFHcnZqdnExTTA4OWFXZXpvWlYydTR5RF9yTmRvdnBhek1WdXRVUkxSelItSHFzVFEwSUw2aWZ4LUpFTzl1TTZyTzdCc3lVMGhi?oc=5",
-     "at": "Wed, 19 Aug 2026 03:57:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "السعودية تستأنف تحميل ومبيعات النفط من داخل مضيق هرمز - Reuters",
-     "he": "",
-     "grade": "",
-     "src": "Reuters",
-     "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5VeDNXZUpsaVJMTzNERWljcy1sLVlGbGx6VXh5bVB6R1JPbE1Mb25xUkJJNEJiandGTnlsZWtZMG9jd3RmWmNNamlSbU5lTUZXSG1KUF8xOG5QN0F3eVQzcW9jcXBkUC1wT2xfLW8xZzI5YmxUUGQ5bC03d0hjOUk?oc=5",
-     "at": "Tue, 18 Aug 2026 10:48:06 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "إيران مباشر.. ترمب يقلل من أهمية مضيق هرمز وعراقجي يهاتف قائد الجيش الباكستاني - الجزيرة نت",
-     "he": "",
-     "grade": "",
+     "head": "6 شهداء في غارة إسرائيلية على غزة وحماس تتهم نتنياهو بإفشال التفاوض",
+     "he": "Six killed in Israeli strike on Gaza as Hamas accuses Netanyahu of derailing talks",
+     "grade": "حسن",
      "src": "الجزيرة نت",
-     "link": "https://news.google.com/rss/articles/CBMizwJBVV95cUxNMWo3UnF5aDdEaXQwRFhRR3c3UlZxUFNPQm5FNVZiM0NNWmhuVFVCX3lwSm9vQ0ZuaWFYRzFpTDZLaXJRc2dKdWNrQ1ZwUHZSOWpqaW9UUVJBT3dYTDE0ZVpocTVid2p5V29VUU5ZSEFxSlRuTDdISjJSM2xSUktaQWpQcUNQYV83WHM1emRzN0FmOEdYTS13MnBaNUwwN2tRRXZsRFdLTkdiTlA3OWRTU0FFU1B5dGJfb2Uyd25fMVhlaV9tN2hmVmd5czhLTGppVWlOZ1dpTU5nRFM5c3ZpMUtNZVRjU1R5NnFMX1FqdlFrbV9RVkpZRlpHR3BCSmtxa2V0X1JES3NxaEU0QnNpd0FNMzlfTEllcGR3c0lZaGxlSk9xcVd0cWl2d0JBV1RqQXY2TXdRTkFCbWRyTThvQnhpbUxuOWttODVkZDVBSdIB1AJBVV95cUxQdV9waVpjbFlpUURUWnpQazVtaEhOaUROQ3hHaXhnOV96SUV1M3loUmhVMFdiWlhmTDJtZTRfSEt5UmpDMS1uRWhQLUJ1Skp2X196X1ctU0lzbk5EZUFGUnA3Rk5tMER6YXAwU3JiY0NSQXJQS0tsV0NlcGQtYkJfU1U5RnR2N0lzdHBJYzJmckt6bXhZS0FhblFuajBBakk2TlF6dXRvUzh3NXlKd0V6N0llMkxfZm9lOUVkMVhQRUVweHlSNDRCN1VRZFA0TFEwUncyT0doOUJjU1ZYSTNZODlCQXhVVnRNQ1JmZmtEVmZPY1Zza0t6WDJ5NGpDTndTY2lkblZUdzR2WEw0QTNSVXFfSkNsQk1CU0RmOXJVc3FVQkRjV20zLUhQRlYxT0RMYWdpTnRpUEdzUlpkR3ZlVk5vc09wc1JUNnpMcVBtTlU1c09n?oc=5",
-     "at": "Wed, 19 Aug 2026 21:11:15 GMT",
-     "channel": "gnews"
+     "link": "https://news.google.com/rss/articles/CBMi1gJBVV95cUxNZUtuNERraFdyT3ZxNTFaVElvbnZPd0NxSHd3S0NzQ2o5UTdzMzlPbFRFQzRmeV9JZks4cU50dVNjT0NlTFplWDdIMlA2T1VsQWIxSzRRZkYzS0txSXgtMlJmSXJ6MXFNSjNRN0ppRks1bXNSZVpxTGxPZDltM3pkSng3RVlTaDJ6LWg5ZkNvdENwZjJPR0NZMlVWNUtpYkwtSS1SUXVlcG15NjFNSU5CUGdTU2RLTWRzNGNtb2NtZHRuOEJlZ2NzUExfR2ZYRGN0aE9ETzhYTjc0V0tFNWVFRGFPZEZUdVd0akpVM3RYRkZUQnEtSHFFdjBnckEzaVhDVDRWNnlQMkw3ZE5ZUmJET2VXUmJWQW0xanJyejQ3RXlzeDA4UnVGYWtvWnIza1p1RHRheHpMUkZrNk00TFU5cExTZW1vZEQ1VGh2YVlrX1dJeU9tTHfSAdsCQVVfeXFMT1dCMUg2YWY4a0FpdDJqVWRGQkh0UFlaY0JXczdYYjI2ejFVSmY0OVJWS3VZcUZ0ZlZHcGNaeVdQUjdDeXR0N2YxN1NLR3ZSTkx3bkw1Y2ZQNzN2Q1hZYzJIOWdOOUdfTV9SNHpZeHRBS2E4MzlIdTdMVUxVWTh0SFo4cTd1eG1wUVotNlhzalZ2eU5Pc29Ub3RuUUhkZTllcGg5bFpxNC13N3FRNHZhZ2d5YnlDZ09ITDctYjFRUGhlMlVCdUhjY1hkN3ZuTW4yeVZIcFU4X3dabnk5eXRpd3BQTG9YNDdRdnUxM3RIbC11Z1RJT2VGbTUwcGJOWGNaaEM2emhHNVhYdEMzWDlVRWNqOWNNeDZLYVl2ODVMMVo5Y1l4SEpjeWlxRXhtaVQ5RnJ6S2NDOVlURTRKQTYzYTYzYlpMaG5lclp1VkhwLXR5ZEt0X3dXXzdXNk0?oc=5",
+     "at": "2026-08-18T21:33+00:00",
+     "channel": "sanad"
     },
     {
-     "head": "ترامب تحدث عن \"كمية كبيرة\".. ممر أميركي \"سري\" لنقل النفط - سكاي نيوز عربية",
-     "he": "",
-     "grade": "",
-     "src": "سكاي نيوز عربية",
-     "link": "https://news.google.com/rss/articles/CBMiogNBVV95cUxQWF9oTHQ5YUxWMkE4cVg4OVhHYko3YWl3XzZXZDVWRk5kVG1pZUNCQmg2TEp5LTlMVzcxMHhCbnh5UDhPT3JlOHF4RHFRUjlJdFNaVTlZMzZnX0hORktmYktUc2FTTGpGOXQ0dDBLOXdFcG1WTWdWcGh0ME16U1NIU2ZLUXAwYjUybWJ0NmY2blBnMTBFNVFMaHpDdDVoelExTU9rZ3VDV00zZDI3RUg0QXMwWG85UExyelNKWkpESkRVS25ySUswYUF2bFRwRVFGNzZ2NENIS1hJTlFjdFRLYmtlUml2U1J1allXdXQzdldWTXZ0bk5naE1QSWtqbjZjS0NWZFJZQWg2S3dyei1hQW9ZZmM5TkotdlNXaG8wVlk1RlA2LTJXajJCZXExeEE2emxiRUxQZTc4eXk3RGxCd1I5LUl6NDlkQm16Z2c2UHhiNXcxVE1mb0d1UVBWcERvRm1hMDNIc2x6MnpGX0NtV1hPOWJkaUFWdkZVbllkVVN4WWo4aS1IVWFhQlZmRDNkNXVqS2hZbTRIZ2JIWmo4d3B30gGnA0FVX3lxTE5QU253SXdMbUdGOVNZZ3hTNmhMRkNlald4cE1GYWJ2c3B0VEM3cV9laWZFZXlfckVwMnpYM1FEaTR3OXg3QWNkQ0lBcTZ0QUlRRElLOEpRMmhkUWF5V3VQTHgyWTI3UzJnOHdSLWtoNEZPRWVVLVhWN0hSVFFqekM1UElORmd1OGc1akJaRG1lZnk2UTBMazJ3RGdRTThVWTAxZkJoOUVzSklYRlUzLU1rVUhYSUZhRklEaVI3RXd3dzg0b1Q4Y1JlVmNWWEZYNlFTMnREOFB4QnZoVUdkM0pudEdNU3E5NHhDTDctWUVNT2RpTldoU2prWmtGSmRMNkNneF9aNWJJazBRbk5WZGpDalN6ZXlScDFDemRwNlRBeFl6RFZNazZadXdqendCbHR2NGpzNmNQeUp4dmJWcThqdDF4WkFlakxUYTc0VDlNTFZVeWxyZ3gwV25xSWZUTFNjd2dwVGsxT3hsdDJ1eDR0akZQTldVSmdsOTg5eXBrUjFGVnNNN3JrWW9wZGo2WDdoN1B1Tk9vTjdpVEdyZkZ6dUc1Rl92dw?oc=5",
-     "at": "Wed, 19 Aug 2026 19:59:52 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "إيران مباشر.. ترمب يطلب وقف المحادثات مع طهران والعبور في مضيق هرمز يتباطأ - الجزيرة نت",
-     "he": "",
-     "grade": "",
-     "src": "الجزيرة نت",
-     "link": "https://news.google.com/rss/articles/CBMivwJBVV95cUxOWDFwVHhEbDhSaVNwOEhDYXZNMlU5ODBBeEE1Y0FiR0lRRk1xRjc3ZmZRTlpNeHU1UGt3bGlKT3o3UkRWVzhtbGNzTDFDdTZtd05uTFpFRkk3bFZjQUJUNjM4Y1Q4Uk9ldlZYNVJYSWVTSWFrYlQ0TElHUzJrSkJwYmM0U2R0OTQtVC0tZGgwODAtODBpcU1ZZGVpODhMNm83VFBkTjk3VWg3QUwxSW1HREVtS092NDVJUUwxdjBKUl9Wbmt6MGtSMDRxV3haT29wNzVKMUxmVWFUaXZpWTJXNU4zM0UyRjZsQkx0TzFtejZWVmpuYjd5LUZfZVk3UXJCTjBwcjZiZXUzMFI2d29vajBGTUxCWWY0aTQwWURtMTQ5cHAtMFhPMGJ5dlZ6cEVYZ21oLWhuN1B5czdqcWNj0gHEAkFVX3lxTFA0dEZPc28zV3FvbFJiYWtDX2VRZUR3cHdXN1ctekQwOFhoVFMxQXBzMkdka3hGUDdHNlVVWFBwdjUtWF9WLTNodXFWWlNwMDNpSENGYy1CZVN6aDVuRDVKMjQ1bzZUZ1BLNEFFS09lSWRPdzMzMm1jWjZwcnEtb2kxV0RJS0RocUVJSWxtY3NqZXFjQlBUajFjZHI3TDYxeExOc2VaVjZESHAxdXR5ZTlRX2JTQnJ4SjAxbVlTT0pNU25hamd0VDFRdkdRbWo2OVhjQk1oRFJEUDd4UGRVREhDdHpMNW5WSzd5cjA5dXJzcGtvdUJ5MDVOaGFBY01WQjlwQTlHQlNScnZTYnduRzI1dm9nZUg4QVNXX1ozWVBJemJ5a1FkYlYwejZieU9fQXhvU3B0Z2NwZURQem1nU1J5eTdkaw?oc=5",
-     "at": "Wed, 19 Aug 2026 21:11:15 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "ترامب يقصف على الجبهتين: كوريا الشمالية تمتلك 57 قنبلة نووية ونتحكم في مضيق هرمز - اليوم السابع",
-     "he": "",
-     "grade": "",
-     "src": "اليوم السابع",
-     "link": "https://news.google.com/rss/articles/CBMi6ANBVV95cUxOYS11Q3lsMHFXQ3Q5S1JTbEpvTlJhTzgxVTZKeGtHMktjM2NNWnBPSUkzLWliR2NPX2l1TzBYTnQtSUpvWkN6Vnp4Uk15Zk1oZW8xS2J4ZVF3eEZNeE5lWHNvUW15b08xQW9FUEhIU01vSmthMXF3MkNqdi1YbWRrMGl1UnRyQXF5TV9PTm9IQm1vVEdGMWg3SWJoejdLaTMzMFc1YXIxWG11bklPZUtWQ2FuQWZlRWFUSEZEY0xuMlFVdjgySjFYbFhjREJscmx1TkN1TFh1YnJxUlZOQ0lTU1FhQkRRY2tudWlhYVQyMWlTUlRieElreFJLTFhfdVlfODhRZUJ6ZFhFb056MklLUi1aQ3Z0MGJRenFySmdCUl9YREkxMFlFbVJpUzdOeEVGcWlaNGdXajNqb1htSkdsc212WHlvdUNQejZTUzd6Rzk5WTdoTF9RbThQbGxXOE11NHljUnRWbGVPMDVYeWpNVDlDakFBM0JHbHZsSTNORWVoNmxDMmJva0VaN1NRa2ZCOTM0T3ZHejVrQVRrTWMzeEQ4UUN6Z3hjOEYyVF80SHVXWXJEcU91Vk1pcnRlZmJHczlqRXp5dW9uOGxZZC1oUG92MmJOT08wOUR0dHJPMEFCWFJ0bGZ4ddIB4wNBVV95cUxPM0JOMWRLMi1wOXhiYk5jUmJVb3JzVFVHX2J6Z2NHVy14a1dtWUlUNW43SUhYbVgydjJ6bUxzSkc4QUJ5c0hocEFkaHhmYXlrM3FrOGMxWkw4Z1lBX2tPX0ZtUk9rZ01hVTdPWE03aFFtMmVieThSNVFEb2NtSGYxMHZkOXhjbUdha1A4aVFrekZZc0Z2WUs5WlozTEpiZERfb0RWcFpZTmNHOWhwSnVOTDdhSFgtcWp2N3NTaUE0b2xGYUdTVE5RTDJMdEdOSDRvTVNhOWkwcWl4eDlLbm1RNTNEa05iVThkYUh6YU9TbURNQnpuSUYtSk9GbE5JbVFmd1hDWm1kM0lkQmlyZEV2NTJUbVl5NjMta1phQ3VoUVl4XzI5eXIyTXM4bGE2ejcweDIxcFJVOGRwZEhFQlM4UzNtOWF1ODExU1F2bk45Yzh0WDVMcVAzTkFwUzRobW1iQmg0LVl0UkxqU3dPMTNQaWswTjlmQnlNUVFiZ2piVkVTbzZEZ1Y3M0V4SUl3NnN1RHYzUkpaMm9aMEd3V2d3NlZFT0VMcE1UWVE3SmFjaElXMTluQVdiZEc5T3dqQlEyc2xXbkVfS2JPMlA0Z0JHaThpb0tjeVl6eWVIWnFHTV9wYVk?oc=5",
-     "at": "Wed, 19 Aug 2026 18:12:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "طهران تقول إن \"اتهامات\" ⁠أبوظبي \"لا أساس لها ​من ​الصحة\"، والإمارات توقف جميع الأنشطة التجارية مع إيران - BBC",
-     "he": "",
-     "grade": "",
-     "src": "BBC",
-     "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1xQURZNFVVX0RHbVNmNE8xN2xkdklMY0liUXM4eEgyenY3cmVQUm8xcDM2QW5HeXhuWjctWVB0TU5HMnJHTlVtWXcxTnRTdlN5UFRWYmRYbnF5Njc20gFiQVVfeXFMTVd5QXRnU3lIR1FmeFpaaUxlYW1xaXBrMHUyUG9EWEQzLUJUZktOVlp6ZmZ1YW9QdC1qVHloeXJKNXR6OWMwT3BaMUpvZndlbHZLc2UtYzVpZjVLWV9oR3c5Zmc?oc=5",
-     "at": "Wed, 19 Aug 2026 01:33:12 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "ترامب: لا مفاوضات مع إيران.. والنفط يتدفق عبر مضيق هرمز - العربية",
-     "he": "",
-     "grade": "",
+     "head": "إسرائيل طلبت بدء نزع السلاح في غزة يوم 7 أكتوبر المقبل",
+     "he": "Israel requests Gaza disarmament begin on October 7",
+     "grade": "حسن",
      "src": "العربية",
-     "link": "https://news.google.com/rss/articles/CBMi5gNBVV95cUxQWUR6bXM4aEZkVHhpdWp0a0p4b1JMTHRyV0Z2dFpTa2VDOHNHaFFKNlVMUDA0SlhEUmczR1NzUjFYSFhnMjZ0cHYySVBLb3cwNFdBMGFCZjJGanZ4UlRva0ZPT0NNQkhYQVBrTW9uX2I3a2hVY3FSRmZIbXh4Z3A3MjlQLWZ2Ymdrb3JmLUd2djdNSTFkazlfcVBVb1pxcjBKbERsMkY5QWhhdHZ3RGNzODhnaDQzMzNQTGZZbGU2NlZZeHlDQU1GZE5qeWRRaFlYaWdCVUFUTFE3b3lwaWJNZ0Nic25keVZXVE8yR1FwOHR3bUVtdVZ0bzZSLWpHX3dRWEdPZ2JvUUNHNTNEZmN5eFFWM1BVdTU0dnp1a1RUWFZQY0p3WWZ2RXY2bmdTc0tkRGY2OWJBaHNLMVBsbGpKd0RoS3NqRVZteHUtalhDTzY4cmlua1lMVE1iYXpSVEYtNVBrUnEwUWhBVTE5amtNNTdNSF8xbnAzMlRzeklzeWJnbk92aWhfdHNWVFVCV05ndzB3VFF5TkJ0WnYzSjE0MXMzZk9QcV80Tzk1M29zRjd1c2hGUTJMeVVIYkU3VGk3ckxYRFpOeUU1cjBxYmhoUmNHbXc1bV9EblM4emtTSUNlc0dJeXfSAesDQVVfeXFMTjVGeURocVJJaFZ6eUZsamF0a1NpNHR6eWRad2N0UHlVaE8tQlVpSFlZMnhtRnhxN3lNOWliODJrYm9UZjdoNXdXcjAxQ0RCV2E2T3JhUllYSnZZazhvZTllR2tUUm9VN044UFJoOUxHQjBnMThucXNrQ1VlZlZPWklLeE5LMFFfVEVwaHZ0V24zU0dLRVlmVnc4dmVvS3lOMFgyLU9VVHo0UFQzaWpER3hFUzNmMEp1ekdiVXVzRWNPelFFYjBDS2Z0UXZtOS1HT1BVcEhVUy1XazdjeDEyWWd0WDJwYUVNV0RBYm5Sa3RBeTcwdjd4OUhFblFMODA0TVl2RUYyMXowSjhnRW9zTTZQN2xNdXY4YmtXTzh0RmNldzNKU1hrM1BOMGJocUxqMXYwbVVUcURWTzRvRFJGR2UzLXczRlFQWFA0eUVZVk1JMW85VEhtblpTQjZ5aW5FeDJYTVJOR01HNmRvVzRtSnhGM25VbFI1S0RxS3NBUlZib3pLTG9NZGlNV29PZUN0OElVakJuVU9WZjU1VDNuVk5HZHN5Z0FTd01GZ3p5WkwyYkFQUzR0MXJIdVBnUmViWGx3WmE4ZXRTaXJfdnhtR3o0MmphLVM5bGJTWXo4YS11UXVsdktBNkZ5cFU?oc=5",
-     "at": "Wed, 19 Aug 2026 19:44:00 GMT",
-     "channel": "gnews"
+     "link": "https://news.google.com/rss/articles/CBMiyANBVV95cUxPdHNDcGdHeGh3TVY0V1JaWFNONkVEUGlsMkdfMVlqa1VfM09YdXEzcEgwUEV5bEVfR20zbGprd0RYY2N3cWNwSUstY3Q2Z29HRzEwaHVoY1YxdmZ6eWh0eVlheVg2eEptMnBUWWJ4Zml2SnZsSFZ3SVpVNWtKUHdBV1dOVFhYMFpPYkhZM0kxd29WTXItbE1Xd3VXUzlKQjVtVU5NamhOR0oyRFRDTTVURFR3WVJfSngwd3RISEkzYndwck1MYWdBWkV3T1k1RlV2ZGRUbzVjNnE1bnpMRzE2dElMVG1EY043b19lN0NvaWk5TExxTVducTVZemI3dlN3dFVjZldYb1dhVDl2VklhS0VZVWMyZEFQUVB1bHlHaFRINDFiRmYxMXU0T0tvVklUMlUzdFpaUE5xbHFxeV9WcHRkVmpIdy1zUHFYckZFU0ctNmxZb1JIVGcwX1QwaGMzYmxPOEFaeFVmUmxzeVZQVEJyb3gxMWxuYVhNUF9OdkVJeERjajBBcENUaHRmcTZsOTFITVY4S04wY2J5X0tLZU95Q0FDMEdtUkJYR0YxbFJmeE9sMkpnalBIdjhKVXVqSHpjNGhVMy3SAc4DQVVfeXFMUENjNUZYblZXRzJpeWFQTGpUc0lOMk5uSGFUd0VWUHdJSXdPNC1TalFIT1NLMlQ0aWM3THhTSlozN3RhNk9CalZsZGZmZ0F3OGdqTnhnUmVUZzlFRjZsN3ppQjN0MEF6SEw3RUtOS1FXZUVFWTUyVHlGOUpzR1VhcThqRWFHbjBHX01ReFpiMmhLMDdaUlItNXpZazcwSWsyaXVRY1hFLXJtaGV1amduc1lNTEg3SjBQZGxKLXZfdDdVa1FWNjFHYzdnYjIzVS1TLXRhckd4RXI4MGsxZmZYd0ttaV9oWmFibkVLTENrWFhWMVZoaW11czRrYmZtM29zdXMwTjRSM1VJTkx5TTVOT2RFOFAtRDI1T3c3ZXlYR0pXOGQ3QjdMRU1TUnJlTWxjYm9wWGoxeGw5eUFycWJ0bTU2enUzR2xFVDZjQWRXRzl3NDU1NURLNjVPQ1R6amJrU2dpUDNxakRLa1hvcm9Qc2FWQUNXdnM5YkRGQ3liLWFCWmVSVWFpOU9PTDc5QXJGSjZBR3AzWDlYMVlTYXRVQ0staWZJUDVtRkstTWVxTDBRdnRkOHdpTVZGX0ZVbmNHN0pNRVd0VUxtbTJFYW13?oc=5",
+     "at": "2026-08-18T19:01+00:00",
+     "channel": "sanad"
+    },
+    {
+     "head": "مجلس السلام: ننسق مع إسرائيل وحماس بشأن نزع السلاح في غزة",
+     "he": "Peace Council coordinates with Israel and Hamas on Gaza disarmament",
+     "grade": "حسن",
+     "src": "العربية",
+     "link": "https://news.google.com/rss/articles/CBMi3wNBVV95cUxPdTRtRmI3UEpkTXVBZnl3WndNV1N3UjZJWFkyN1JTQnJaZnVNWFl1MEdSakxFZWgya0MyQ2ptZDRTT0lmeVEtMG1JcURPN0ZLbFZDaWFxNVpRRmZIU0s4TVgtcklUeWd3V3NkcXZLcXJXTXktX050ZnBTc2JsaDRBS1lOTkNXNkt6MldJZGl4eFVBakdBLWRXNjA3T1FHYVRfdHdXV0hDUzk2bnAwdU1CMlluR0lieDZhYXJ3dk9FeWE4OG5zRU56OGp1SXNJNmwtZXRoWEEyeHdCMFJwa3dJR0ctVVJvT0l6YV92SWdhZ2Z2RkxMLXAxb29LSk4zWHN5bHItWDF4SFB3b2lmVWhSVFhmdXc3UDdXeXp2dVpYbHYzbDMtbzVMbmpScDNWVEtjWUw1SWdkRzd6NGdMc0hENTdJOUtxaW9VVmxDYXJUOFpJZTJLNWw2MnljNUdCdzM1VkJjc2FwaEhzSDEzNXV4T1hUeUF2ZkIwcGlLeHJMZmNoMzQ5ZVU3VDJTTVNDX0dJUTZDQ1pFYV9idF9YUnA0LU5zQ1hCaFNUZFNJOVRwMlRqazJySnBRQXI0dGVsUzM4UW91Um1hYWQ0aGgxRUNiWTUxdG0wR1ZsckxadG4wRdIB5ANBVV95cUxQb09XU2l0cFpQM3lsNDFaMy1JRVlhVlMwV2Y4RFlQZjRYS0lqWXFWRnM3VTVLREtiOU9yUGN3TFVwNGV6SUNlR0RYMXNDSFBzaFVLZ1lFWjhpU1FkRUhPVEZraXhBMks5ZjE0MDdVdER2VHRkYUdGaHhjU29KdkJ6UDc5Zlozemxmbk9NYW4zb0xLazdUSFg2c3NNN2pxcWEtRWRQQ0swcFVJTVBFdXZtdGpXRUllanZZbWk3dWlYZWVvaEFleXl2Yi1xMTRFWlpLdUpfaG01VTkxVzM3eEZPbzF2bDNlYkE1Umw1ZC1jMnNXWGZ2R0l6bHVOZmI2bkxaY3Vpb2xUckcxQnh2cERwX182U3dMRjBEbzM2dmJ2VUNYTmprNTlMNlZyNXd3T0FjUW1SUmtNODBXTEVRWmIyQVdhUndYdWZXeFV0U2RjWDZuTG5veVZwU01jWTRjUzFkc3QzVDJvSlhqdXViNmxNb09VbHZPRV9MaEczRXp2YkdycVNWUTQ0ZGpDUHBkNFRWNU4xVy1mdURFOGFQeW1DVW9NaGFqT2dFb3N4aFZvV1Z6UDNtZjRibGNNQldCT2ludTl0UHZ0WTExNFFpb2hJSm1kVVRZM1BRNWtReGZVazhiUGFT?oc=5",
+     "at": "2026-08-18T17:50+00:00",
+     "channel": "sanad"
+    },
+    {
+     "head": "بن غفير يدعو إلى قتل «30 - 40 شخصاً كل ليلة» في غزة",
+     "he": "Ben-Gvir calls for killing \"30 to 40 people every night\" in Gaza",
+     "grade": "حسن",
+     "src": "الشرق الأوسط",
+     "link": "https://news.google.com/rss/articles/CBMirwNBVV95cUxNMk12Vlp4ZXNpaXBCa1lRQjQxbzBMazRzU3VqazFucHZhTzBXR19xQ2FCQThGaE5oOU53ZEpFc3dYYlJjdjNPeWZJcjZlaEdkNTlDWGZHZUx5X2ZobmZhdnBSeFpPWnVOMjdoa0xSU0ViNVNyWWVlMVVNdENvODJEU3dyLVo0aXNOeHQ0aHF4ckltNnl5MVR2Qzc5RlZZb1g0Z0dpSUpmalRhdnlKNWtidUJPYUFPYTdrX05tSkhRUy0xT2taVzNuU2RIS2pna1FpUURqcWZjN2o3Z1ZDUlhKVWdKR292NDNURkgycjI2ZHdIRzROMnpwUDFhLTZJMV9wQTVTbkFkVFZjdW9tRThDSGFCUjBRZ2wyLVM4ZmRJZzlkVVJrRURUVnBoTnd0a2R2dG1xM2xpQ1ZMaWdiRHl6VXFjbjlBdDFiQ1ViVWtOdDlBLVN0RGhZdkFhRVlsWWtDZDRuOWFMdDlRREw0TEpSTVBTdVlhQkZyWGphTk1vVHdaYlV0LWNEWUVtSkhfOU1SLTJndENqczBwQVVqMzBmZklMQnRNZmctWDd3VXpuaw?oc=5",
+     "at": "2026-08-18T16:40+00:00",
+     "channel": "sanad"
+    },
+    {
+     "head": "5 قتلى قرب ميناء غزة.. وإسرائيل: استهدفنا قياديين بحماس",
+     "he": "Five killed near Gaza port; Israel says it targeted Hamas commanders",
+     "grade": "حسن",
+     "src": "العربية",
+     "link": "https://news.google.com/rss/articles/CBMixgNBVV95cUxOdFFIZUt3ZGtFTDZCTnl6MVByNkd2TFBETFRTYXNYUnJ3OXQ4a0E3RkhJM0tJWHphejhZWW5ETDU5Vjg0dlRXbFBGWEZKczNmU3RCTTFXdGRQTEwtaUg1ck5NSDlNbVpJUjQwcmRrcGFKV29lX3JRemYwSDNpdjRjbGFtVDJlUUY5UW5BX1JuODVLZzlsMHF0a1dkTEdpYjVmOEJ4ZV9FVWhkMnlSRFh0a0NSZXo0R3FRZG13cUF6dTNlQUVxYnUtNjFjUW5DNGw1MjRLcGUxTGN5Z0dCN0xtZ3FGbTFCNDhTXzJMaWlsOWRoZk8zY0tTZ2NVdTV6cUVLdjhLSXEyOTVidFhuU3lYaVJvZ0ZoNTA2anRpMDhjdHJudXFNXzlEY2lfalpCWHdvdzRmbXJfQmJKdkg5ZmxTYVUxb0Fyd2NRX1NjeV9vZ0k3QnMza1NWd2pOWFJxdE5ROXJKb2E5QXliNnByV3lxdjBkek9uaWxXYW8xSWo1MWdKYUY4dE9sem9wa05FTDNmdzRERFdBX2tqTFVpWU02MzJEVDI5aEstWWYyYWJKTHZDRjExb3lqTkRLalVlNlktS05BWmd30gHLA0FVX3lxTE5QanNpaVhsTnhYbTNqN2U1eW0zeHd1eVJvODV1emwzd2txSDRKSTlnQ3NGYUhiWXZuTURnNm9nUlN5QWhLeXdVbkQySEZzVW5jSG5kS1ZrOWRaRnR1WHVJTUNKOGJpTlpZZkJjclNFcElJLVRkUU52VFpjaVltcGFvUWV4MzVxZThrSEFiSS03TkRlWjBEWnc0dFh6bXlydnRMcllJTnVWM3YySEVQUG5VVUx3LVhGV3BkeWZMankwZ013WE5ScnRSWEZWZUJYdlV4Qk1LQ3VMTXlvMFQxeEpsYjcwZjUwYnRLU0p2MFdhbl9KZW5kaUl4VFk5OGUxTk15SDBLWDJ6ajhrSl8yVnFBQ0FJS0lhUjZGeG0tWndCc2hLMWE0YjNDZEJMb1hGZVNRbkdzbUNMVEYtR3JqMDhCQzdpQjhONTRwc2lOSjZnLWItZGxsMEI4LXFhaVFxMFVZOHMzcTdMM1hkVmE0cWRmbjdjU3o5ZnZScXlfYVgtMXc3dGFVZFNzdGhIRnJuNTJXdUFyVnlnaW8ybmtEZHZRWTU0UHJsTkxMSVVqeFdtX0NNLWpaVHFLUEhTZWNVUmtKS3lVTENHMmJmYw?oc=5",
+     "at": "2026-08-18T15:38+00:00",
+     "channel": "sanad"
+    },
+    {
+     "head": "حماس: ملتزمون باتفاق غزة.. وإسرائيل لم تعطِ موافقة واضحة",
+     "he": "Hamas: We are committed to Gaza deal, Israel has not given clear approval",
+     "grade": "حسن",
+     "src": "العربية",
+     "link": "https://news.google.com/rss/articles/CBMihgJBVV95cUxOY3UzZ3BwVlQtZENTWF9GcWowRkxHSWZzRFdFWTl2UDZKMjNwWEJvVFFsWVBqRVY0LU5yelJwaU9OZjBCVEljeFNDOWoySWtRckxTSDRUTEdLc1hnQWRFSFFldlpyRTlZSnE2ZkZFY0c2SVlNUDRSNkgzMkFDWG9WclIteXM3R1F1RzctMktOMjJIMzNXTXRiZ1gzYkYtN1E4bXBlOXUtLUN4NV9CZlpRSzdrTWVxUnhwNmtKUVpMZ3o5YmVkaGFmWHQ2NDdlNmE3N2NZZkJxaldRLTVfT2NZVS1pTE9UcV9sN2NwVnVZT25tOW1MTjBzeUcyUTV2R0FmbzJjOXZR0gGLAkFVX3lxTE5yZ29mcFVndFBxLWNvRGNBV0hmVVF5T1B0MzFCODZsTjFFZ1pGcV9lNDBjdGRUajFwSjhha2ZPUzU4UUNSMU5SajQ0TUJVdDRhWE1xeWEydk1tS3VEQ1pYc3hEWUQ3bEQyTmxQZlhBaUVjVWlHaVF5ZWFhanVsOFhtZ1N5VTRBVk5pQURPc2VUMU9XS21fSEVhSEhwdUdCbFRNdjMyOEtKWnhidVFkV0ZoOWppVGhwSk11eG84ZUFVXy1CQmlWRndLcXRoblhhNEo2QkNBTW9NNktxWlQ1Sjg5bko0R3ljRlQ5RXhEektZdG4xdXp1WlBPMUUzU3FtM1JXNTRmZ1hZdUl1MA?oc=5",
+     "at": "2026-08-18T09:04+00:00",
+     "channel": "sanad"
+    },
+    {
+     "head": "ترامب يهدد بقصف عُمان ويطالب إيران بـ\"الاستسلام\".. وكوشنر يتحرك في ملف غزة",
+     "he": "",
+     "grade": "حسن",
+     "src": "france24.com",
+     "link": "https://news.google.com/rss/articles/CBMi9gZBVV95cUxNcEtQOTBkRzEyUTZpSWpEdkJla2dpcElhdVVsMXlmRUM2YUU2X0J2VWFvNTlKdXFva21hNEl3WENCVXp4bENyc1J0LVU5NGZBVGRlS2ZjbUNpcWd0TzhsajByMTcwbmN0WWk0WW1fSGR0a19mLXlIX2xzUk03QU5kZmhkTjNzb04yTkdRYjRReWc0YmstWXFTaGd4ZmdQSlNKaGJabUdPV1VDV1pSVU9QbDRPdlMzVFVJSDJrVnA3b0QwN2ZpMWJmZWUzM19XNmlucWtGYlR6U2ZUZTZHdU9acFRTLW9nQzlRZ3diOUVFbWtSemxfY2UzLVRaUTdxa0JkdXU1cnp5eE8tRUJZOVRUcVlMcUVVdU01a0QyZ3doN3h5a3hqT1YydXNOUEtWMjFMTEFuX3FiX2tUUUt0TFNRZTQwaTg1S1Rud2s1aFFhVi1yYnlsbFQ5UVhpR25LazlQTjZkZjBtWl9xR21TWTVXcmtyLV9ZVE55Sm9kU1M0UTY3Rm05NlRHMTgwNlV0THdxeURWRG1oTGRrNWtjc2c0b3V4WlNmTHZPUnV3MVVkLXpHeThoeEt0VHM0UlN4UU5JWTU3QW9vdGk4YTl2eUNINDBvbnExN2JHODdLWmM1T3NpbEtNNncyX051ZHJhME1CQV80V18wM0pFT0JCcHhHS1pZQkI4dW9Icjl2Y2V4cWdlZnFBZ3RMQVVwbnFsZjBEcVhtWGs3aGU2OFJtajZST1RfdDhRNTlsQktIQXlBLWh6TTdRVG41cERSUUhoT1JTWWt4ZGYxb3pjZmxoQlByWUZYVC1oc3FvNmVnQV9EQnc3aXFJeHIzaGdfdmVoNmJZbWpFT0s5eGhsb0FBcmU3Mmt0TWVydm80WVIxT3Y0V1R0TWxTdHprLUJWVTdSZEhIZUFzOUZha1lnN1JpcE5kZDZpYkxNX2pfcWZheUpmamNXZDJUd3VpLVlHczRvcDlQcXdaNjdSdVU1dk44Wl9nSFF3aVkxWXUzT3NsMldhY2ZlMktMV01WcmJpeDc3MVdJcVctZkczMTJ0dG5UXzE2bHU2Y1RfVDdwZGJPZW1UMDVJeTF5TVQyUUJjY0Q0bkR5VHpOUG40aW1oQ2VzUkk0djZkTGl1b0d1cmFxUlJub0xDcWhQNDZQWkllZ2NLOFM4OWhrcXln?oc=5",
+     "at": "2026-08-17T22:15+00:00",
+     "channel": "sanad"
     }
    ]
   },
@@ -493,26 +268,17 @@
    "en": "Trump Iran",
    "kind": "keyword",
    "topic": "إيران",
-   "heat": 100,
-   "n_sanad": 8,
-   "n_open": 8,
+   "heat": 70,
+   "n_sanad": 7,
+   "n_open": 0,
    "sahih": 0,
-   "hasan": 8,
-   "summary": "«ترامب إيران»: 8 خبرًا مُسنَدًا من سَنَد (0 صحيح · 8 حسن) و8 إشارة مفتوحة من الأخبار.",
-   "summary_en": "“Trump Iran”: 8 graded Sanad hits (0 verified · 8 credible) and 8 open news signals.",
+   "hasan": 7,
+   "summary": "«ترامب إيران»: 7 خبرًا مُسنَدًا من سَنَد (0 صحيح · 7 حسن).",
+   "summary_en": "“Trump Iran”: 7 graded Sanad hits (0 verified · 7 credible).",
    "hits": [
     {
-     "head": "بعد تعليقه المفاوضات.. ترامب: الوضع \"جيد للغاية\" بشأن إيران",
-     "he": "After suspending talks, Trump says situation on Iran is \"very good\"",
-     "grade": "حسن",
-     "src": "CNN Arabic",
-     "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNSFU5YkItRFVycFNNbmdKLTR4ZkhNMlplZU8yWGo0MWpiaXJ0ZEhmRjVNQjMzbjUxV2I0Ylh3YVUybDVvUG82Yjg3ck9EdXBvSlo5a0pjUmF6SHlYR2VZamZLOGh0RkRBYTZ1N3pNNXpZekJHYlcwMFBCcjRFX1RwRGZUVkxKRWlUd1FWcFNjMFhqVXBBSGNyM3pvdWs2VGxs0gGrAUFVX3lxTE92R3UtQWJPX2ZwRWhpMXdLYWtuMTNWRzRYREhmYlFJYWNCbWRTX3Z2OUdvaEtQTVVHdUtFZ09hSElNRFpsOUgyNjBLY2lYRElHN1ZNSXVldEoyTXE5OU9fSThfblF6emhQVFNDaEhNLXZldHJPbjVWZ195QzRoenVpVXE5bWRqRkc3RTd6eWVnWmp5b0p2U2pwZFZJTlN2c2VlSFNOYi1LWUlkTQ?oc=5",
-     "at": "2026-08-19T16:54+00:00",
-     "channel": "sanad"
-    },
-    {
      "head": "وسط تهديدات ترامب بضرب عمان... لماذا تجري طهران ومسقط مفاوضات حول مضيق هرمز وما آفاقها؟",
-     "he": "",
+     "he": "Amid Trump Threats to Strike Oman: Why Tehran and Muscat Are Holding Talks on Hormuz and What Lies Ahead",
      "grade": "حسن",
      "src": "فرانس ٢٤ عربي",
      "link": "https://www.france24.com/ar/%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7/20260819-%D9%85%D9%81%D8%A7%D9%88%D8%B6%D8%A7%D8%AA-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D8%B9%D9%8F%D9%85%D8%A7%D9%86-%D9%85%D8%B6%D9%8A%D9%82-%D9%87%D8%B1%D9%85%D8%B2-%D8%A2%D9%81%D8%A7%D9%82-%D8%AA%D8%B1%D8%A7%D9%85%D8%A8-%D8%A7%D9%84%D9%88%D9%84%D8%A7%D9%8A%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D8%AA%D8%AD%D8%AF%D8%A9",
@@ -572,228 +338,6 @@
      "link": "https://news.google.com/rss/articles/CBMi9gZBVV95cUxNcEtQOTBkRzEyUTZpSWpEdkJla2dpcElhdVVsMXlmRUM2YUU2X0J2VWFvNTlKdXFva21hNEl3WENCVXp4bENyc1J0LVU5NGZBVGRlS2ZjbUNpcWd0TzhsajByMTcwbmN0WWk0WW1fSGR0a19mLXlIX2xzUk03QU5kZmhkTjNzb04yTkdRYjRReWc0YmstWXFTaGd4ZmdQSlNKaGJabUdPV1VDV1pSVU9QbDRPdlMzVFVJSDJrVnA3b0QwN2ZpMWJmZWUzM19XNmlucWtGYlR6U2ZUZTZHdU9acFRTLW9nQzlRZ3diOUVFbWtSemxfY2UzLVRaUTdxa0JkdXU1cnp5eE8tRUJZOVRUcVlMcUVVdU01a0QyZ3doN3h5a3hqT1YydXNOUEtWMjFMTEFuX3FiX2tUUUt0TFNRZTQwaTg1S1Rud2s1aFFhVi1yYnlsbFQ5UVhpR25LazlQTjZkZjBtWl9xR21TWTVXcmtyLV9ZVE55Sm9kU1M0UTY3Rm05NlRHMTgwNlV0THdxeURWRG1oTGRrNWtjc2c0b3V4WlNmTHZPUnV3MVVkLXpHeThoeEt0VHM0UlN4UU5JWTU3QW9vdGk4YTl2eUNINDBvbnExN2JHODdLWmM1T3NpbEtNNncyX051ZHJhME1CQV80V18wM0pFT0JCcHhHS1pZQkI4dW9Icjl2Y2V4cWdlZnFBZ3RMQVVwbnFsZjBEcVhtWGs3aGU2OFJtajZST1RfdDhRNTlsQktIQXlBLWh6TTdRVG41cERSUUhoT1JTWWt4ZGYxb3pjZmxoQlByWUZYVC1oc3FvNmVnQV9EQnc3aXFJeHIzaGdfdmVoNmJZbWpFT0s5eGhsb0FBcmU3Mmt0TWVydm80WVIxT3Y0V1R0TWxTdHprLUJWVTdSZEhIZUFzOUZha1lnN1JpcE5kZDZpYkxNX2pfcWZheUpmamNXZDJUd3VpLVlHczRvcDlQcXdaNjdSdVU1dk44Wl9nSFF3aVkxWXUzT3NsMldhY2ZlMktMV01WcmJpeDc3MVdJcVctZkczMTJ0dG5UXzE2bHU2Y1RfVDdwZGJPZW1UMDVJeTF5TVQyUUJjY0Q0bkR5VHpOUG40aW1oQ2VzUkk0djZkTGl1b0d1cmFxUlJub0xDcWhQNDZQWkllZ2NLOFM4OWhrcXln?oc=5",
      "at": "2026-08-17T22:15+00:00",
      "channel": "sanad"
-    },
-    {
-     "head": "ترامب يغلق باب التفاوض مع إيران: لا محادثات والحصار مستمر - سكاي نيوز عربية",
-     "he": "",
-     "grade": "",
-     "src": "سكاي نيوز عربية",
-     "link": "https://news.google.com/rss/articles/CBMixwNBVV95cUxOMjA2T0YySUNpY0ZTM1BkdDV4YnZSVlAwcWR2bDNyZXlmNzlMcWU4Ui1LZEVmVzVVS2Q3cklQaG1uSWNzcUx5X3diMG9oa2doZUtPck9oSDNMZ1R5emFvYmZtWTdtRThucVBsbml5OGxRZGp4SFgybzZEUlhNLV9YNmRfSFVaM3ZZcFdTOTU3Y1lLZmJYZjFOVndQZ09yQ0htSXV4Tjk0X2lVZWJfbWlwUmIzMjNuMEFyaEVla2k4WXNMTlk4QzNoeTc5ZnpFWmJ5QVE1bXpXUXBMcURsM1MybkVfSjRaeEpJOG1abTU4LWZmZncwZ1lBWXgwd2tWZ2c0MXVPUXMwblBSdmxHUWxaQzJ1enZjMGhha3ZZdHRmMlZObUxKX0FSV1Y2T1h1OHZpTWNGb0JhbHBRUWNRVmY0eUd3TTg3b1Btb3Y2TGY1U25TMTlwSEM5b0RCZ1pQcHF0MTVoNGxwV1FJSmYybURzbGdxWHc3dUR0V29JTGctazJjNzkydkJmNHNqWmhQMWROcEhmSlFYQmc3amcwbjQ3ME4tV09fZkhCdllnZkVnN2dNcVRVUWxhVWNMOFdhYlZoRU83S2Y3aw?oc=5",
-     "at": "Tue, 18 Aug 2026 14:58:14 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "مسؤولون يكشفون سبب تهديد ترامب لسلطنة عمان - اليوم السابع",
-     "he": "",
-     "grade": "",
-     "src": "اليوم السابع",
-     "link": "https://news.google.com/rss/articles/CBMiggNBVV95cUxPbF9DZkt1TWxINmpvX19rWlB3X1RDb3pYQ1NqMmRRQWJGTHRia1VUdVROVUxDbEQ3ZWxpSWU3Rlc2NGg1eWtfSEZqMlhfUzdqWnFsSVNpWS1uTzRWYk1yLVhtUHZoMG5EYnZvbGxjSmZRN21uZlNCVktKenFaNlViOGFzcWVJQ3RUZ0FtUHlrRmVoMWtuUGdpclFwajl5WHlHMXk4YVNHT2dSQTlNZ3ZvOWhfWVdWN2p2VXBYamYycDNTUkdjVjFjU2RObXN5WlNNcXUtYlRlNU5vQmZOcGVBczRJOVE4RXVONUNRZTdfcWxKbGtGamhkNWp0ZzIta0Y2M19GQl9VYW41RWxmS2tYT05EdWRHeHVjMURDV1V2NllFMFZxVnN5MDlRTzZTN1c5aWVQRXpTWVVyZUtPLXEtY3dpeW1uSHVxb0x3bk1kOHB6VTBnNmJETzllbDZzbU1PcVZDamRwWkthYUVWQ1B2c3NaQ0pnX3dzNDFueUFMMFpHZ9IB_AJBVV95cUxNbnB0N3dwb180dUw5SXNKV29nd2loWWlsVHBoa1lTWFFFMW44YzBYMHlrSHFNM0xhNmRjcUtmOFUzZ0UxU1RDWGNXYTJ3YjJCOEdiMVRmeHVEa1VTcUN2R2FiZ2dTU0h6OUYtQTBSVlFjMTN4ODBhRmVvRUNBeFI3QjdhYXJuYjVpWXc0WkFvemUzMzRZUnJ5S1NFZFVYZnpIM2dKRnNtR09CYXExZU90S1BTRzJDdXdlOG5IOU5YZEpnQWRNRzU4YXB5UVdvOEZmNkxfYncwSFRiOXNfMmh3WC02Mm9EelZobXB0cExOSHU3d3pxZnRFYUhvWGlOTGlPZGZWM2EyRVI0UXNMZl93NnUtZTM3empwU09wQktfM0RwcXVUeURzMmd3UHpNcFhobnhDUkk0M0ZVMFVyMEJUN0Nxc1FGWUVlelViYkpqT1gyRDc0bGV5NF9WUlQtRHNreklhYWpBSVNIczN3NDBsVXV5RF9YUk1NcjFMcg?oc=5",
-     "at": "Wed, 19 Aug 2026 04:00:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "كوريا الجنوبية تلمح إلى \"ضغط من ترامب\" لإدخالها حرب إيران - سكاي نيوز عربية",
-     "he": "",
-     "grade": "",
-     "src": "سكاي نيوز عربية",
-     "link": "https://news.google.com/rss/articles/CBMiqANBVV95cUxQcmNUMFVOdGdqRUgyU2VuS2k1dWZCeHU5ZF9EaExvQXdzdnhDVmNFbWVwc0cwVUJfWlJCa200LWRPT3FJTktXZmR0S04zTi1KTGk1b0U2QzhxTmNfWnBCcGpMWjlVaUNqMFFUUHVwVjNWMWcwRUw5UWVqc3lmYnVRbVBya2NOUDVvQ1RYNUJ4cERsTWNvRDNZTTMwTG9OOEJfelBsaUZhQmtrMW5OU0R4dVN4TWV1VE5udFV4UUNsYUVDd0pfS3lydzR4MDI0RmVTamptMUVGOUNreGZkeEpibXQ3UkVKU1Zvem5SSEVVcU84c09HYXROQmNCVFoteXlZUGdsNUhRaXZKU2lDWEVkVUxrcEk3aGFtVWJhTjh0YWxocmtZNzgzb0l1S3V0SFhRSHdRb0taV0pzSXdSQUV3VXB2Z2ZzVHlBNHRyM2Z4aTJrVmdvb25XbUlFanJ4eUdUc0VvUTZxWVZjU2ZaZWJjX05rbm01R1BhclRBemFSOC1oYkhZUWlfM1g2VEVuOTI0dkFxcEpscVNxZFdreGxPakx5MTJvaDNw0gGuA0FVX3lxTE1GSlhuYlZkQXU5STFzOFFTUjFUcEJ0N19OMkZTUWgtYk1vZ00wbU9YY1RNZ1AydmZMSGRvT2twcWNJeXh6R2F2X2gtM1h0b2J1N21NejZmMy1mdjc5dUotRDVaWkhRM2NScjEtcGlUUTJNa2FSNmJ3bmwyYzNiazVBQ2FJSmFWSV9ua2ZsR29JM1lIX2VGSWlJcmtyNmFFWDhNZHdjX0w5eW1WLXFWTzJTUjJURnN3MnM0LVgwNTIydjRyZkdoZDNIZWVQaG9NTzZFbVNrR1h0a1FsV29Lc2Y5S1p4Y3pkM215V21aWS00YUJRSzJsVURTV0dqc3d1aGlPSHNBWHpYMDN6NVc1MllxNXZpNmZPdkFuX3lMR2ltWXJhanZlNkk5NUFZMFl4RXFPU3ZvNWpYMVlqaHlrTDJielg4YkdXUHZvRndYcjN6c0VWVVQ1STBRVmpfa1BYZ1hDVjlPZWlCVFRJNDZqcHpqRVBxQXd5dkFyenZBVlFyd0ZvMjVtZHRtSkltVkVkbzBNYXJnUHktTDBRQ2Jya29sNmNVV3hjNEFWeUxxSmc?oc=5",
-     "at": "Wed, 19 Aug 2026 03:05:09 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "ترمب يوقف المحادثات... وإيران تدرس استهداف أصول أميركية في أوروبا (تغطية حية) - الشرق الأوسط",
-     "he": "",
-     "grade": "",
-     "src": "الشرق الأوسط",
-     "link": "https://news.google.com/rss/articles/CBMikgVBVV95cUxOaFJhLWt4eUFQdlBGMC1ha2tINlJ2SW5wdHVNMTFKZnlfaWgzTXNWSXc1ZlhjT1kzLWRYdUx2Z2FmNWxQRkkwNmowck9zNTkzT2l4Qkdzclc4ejFiTHBxaXFGUW1jLWxyTmxjeE9CN0l3QzM5T1p0NWRNb3NDa3doLWI2ZVlRX1djSkZUQVliQ0I4REdPQnJpeVdKZzgwYmlOam5jX2pkclQxOXZ5LXlWNDNpN3RPb01oTWJwcHk2cWN5ajliXzZqWGkwTHlDX0VuVXl0alVuNk56UzZXc2NNYUlqZEZVWnlKbENLN2FZeEcwUmZHODBha2U1NGRkQlVGem9NYnFBT3JBbnJ0RW1BUzdxeUlOMS1hN3BGZ1psLWcxa0Fvbjl2X0tuZ1VyODB0SFVkSUltamJwT1RXektJMFg2UU5FR3F2MkpBX0xnQ0tOU09ERS01eC1CeXRzNkNlMXB4OUZtMi00T2hkMFlpUUpLcFRMVzFNbEhCaXNuOEtmcnhPbHBYV3JqQ1pDVmVkTHI1cnJVNzZEb3hrYmxRNEJHTnhDQ3FYRVBIaEk3Q0lTV0xra19tb1FLZ0ZCbzBjV3V0d21qUUNlUnExaDBIODZ3UjF6akR5T2NFYzMyODI3QUIweWJfY2xERFFxa2dNSzNqc21BOTlrUTJycmF4WUs2eVdLczhocVA0V0hkQUM3eFE4T3pCQ0lTUlIxS25uaDZjOXpQWUZnSlQtWk1qU3RqbGpFVm40Mi1rQ1ZKRFJlalhzRTJIUVdFSk5tNWlHMHBpblhscFJRWUEyNHJRZ1NVZ1VsX1ByRkg2VC05ek00LWFVdXVqM3RFd2VDTEU5NGlRTlZEbU9va1o4Q2ZfZVVR?oc=5",
-     "at": "Mon, 17 Aug 2026 19:36:02 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "حرب خرائط بين ترامب وإيران.. طهران ترد على \"هرمز الأمريكي\" بـ \"كاليفورنيا الإيرانية\" - مونت كارلو الدولية",
-     "he": "",
-     "grade": "",
-     "src": "مونت كارلو الدولية",
-     "link": "https://news.google.com/rss/articles/CBMiyAVBVV95cUxQbVM5Rl8xcU1MX3NxUVF5ZlBDdzdlV3Rqb2pPNTVlMkkxZ3kzeW9wN3RLVGpQTHBDdUR2LTRsUVNvY0swQXBZRkE3Y1NlT2NCenJsc0w5VHczWW94QjZPa09uZFI4ZHpiN0pMb29ZQzBLNTc5UUptUDA5VHM4NEFjVF9MT0ZhMGlGVWRMeEFObzRfaml3Q0JKcWFuYllZT0s0ZzVjWGk0cUNWQjRMUXdJdXhVbDBmR1A4ajljYmhiN2RXRXM3NG5MMnRvWXF0MHBkczZ5MFBVYWpaNW9JY3lSSUVRbDdpUHg4TFlhYzQ5eFpOLUl3UGxOWWQ0NGpJWDhUZnFQMzR5TE44d0xkczA3Y2JvenZsdk91NzBBUVg3c1VUbnFmVW5jMWszQXROaERKRktneUJxRWpCS3V4ZThfOUFyaWxQTjllcVNEajdzaW9QZklTMFRkYVBoRzVoQnl5a29SNmR4elc0d2MyMnBYcTd1NkVOd0FFNWN5eGc4cmZ2bDBUSWVmeVgxU0kyaENWbmpMZHdRNWJXQmtudllxZmtVWl9EblJ2aDU5MWlLS0c4cTIwWTgxbEs0VUJkOU1IRUxSaDJCdS13bmIwQmxCVUpkTjdlTmNpRjl2SEFYbDBTOWhZQ0dLdU40UkN5YV9qdE1lcHllVzNFU3NzYVg5Y0Z3MmNXVEM0ckdSbzBnY0hvVXlQa1JBYTV4SFd1MnJJT2pibU5wdE5qb2dLd2t0YTl0SndzZnBVVGxCVFVEcWZ0S3lJUjEwZEN3Z1N1MkozdzBGYjRsc2pncTk1VVBYOVVJeXhwbWFlaU9yaVlaRC1LSWxROHZiMFNVVFY5MnJOWjlvaWlDV0lKNWotTXFzc2I5QTdhOXQydFJwY0xXSDVfMzJaTHhrQ1hfOWtHSm1FdzE4ejdNTS02cDBKUVV0ZEh4YUdhcHpO?oc=5",
-     "at": "Wed, 19 Aug 2026 13:04:59 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "سول: ترامب يضغط علينا بشأن إيران وضخ الاستثمارات - DW.com",
-     "he": "",
-     "grade": "",
-     "src": "DW.com",
-     "link": "https://news.google.com/rss/articles/CBMilgNBVV95cUxOLUdGNjFxelZaei1qQzZzZUVSSHVnLVZYaVB6SlJ6M3dpdG9UbzllM2M4dVF2OWRUeWhQZkowc1JlN3Z1VHY2Umpyb1RkNkJYUnQ5ekZIOWotdGtmeEtteW5nRnM5YTNNZm5jcGVaUUVCeTZ6bllYX1FBMjkyMzNmX0NmRWlTQVBRc3lhUDVfNUN1UVhGdTBNdmMyTFpMVVJua0EtQlhPWjFKamdmaFREZ0tFaFV3N2tKbXZEbTM5LURZQVZqa0dFY2FXRGxrczM3OWR4MmxqckRFcXhOSllwWFFQbnlSQmd1bTV2ZElYRFBBalBQY1dtYUpEZUVENHVUUVRsbFhlVlJrRFpTSmU2SFU3NW9wbVdiekJYSnMwbHFBZ0M5cmRFczFmWm5RcHFNYzFYSHlYU3dSN20xT3ZuMGE4cHZ1cm42TzMwTW1FcGtmQlBEa21lYnlVNVNic3M2OTZQNkFLQy1zcGZLUlZIRlQ0N2dULWcwaEFpMENzekFzWGpMOExLRkN6ZWEwZTAzX2pxRXZR?oc=5",
-     "at": "Mon, 17 Aug 2026 15:48:10 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "النفط يرتفع 1% بعد طلب ترامب وقف التفاوض مع إيران - بوابة الشروق",
-     "he": "",
-     "grade": "",
-     "src": "بوابة الشروق",
-     "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNejdyYndENXVZUE1TeXVpVHE1Sy1CdWVTejJIX3A5aGJVbzlwUzQ1cXFOQTI3bFprd21ESkMzaWpZSUN2VG5YOGpnRzZyMndVUHl0amc5OFlHWUw4Wk5yOVFHLWZvREsxY2FGVlRzeU03YjZxT2tYU0dvZnR5dEw1MGFJbzZVOG51aVNQQjRoRG5IWDZYRlRIenM2aGJuRWI5R1o2UGdYaw?oc=5",
-     "at": "Wed, 19 Aug 2026 12:47:53 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "ترامب: الولايات المتحدة لا تسعى لتمديد مذكرة التفاهم مع إيران - BBC",
-     "he": "",
-     "grade": "",
-     "src": "BBC",
-     "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9adWJSWTlJdURpVXNqbFhNb3VRZGhOUE4zVktTZWRBYm5fRnV6MHNUVmpGNERlRV9Ramk1cmZhNEI4bnhfSmhxZ2RkT1pEMXNpbGlNbWVhN3VSdzNf0gFiQVVfeXFMUGZxa0pfMDluX0lFS0hkakV6STFVQ05aX0V1ZjZuNkhWLVhNUi1QazR1QlhSZzNFbTMtby1YRElPMUNjQnF3dVA2REUyY2ZUWFRIb1Z4enFQa21BbU1EU2hOZkE?oc=5",
-     "at": "Tue, 18 Aug 2026 01:30:53 GMT",
-     "channel": "gnews"
-    }
-   ]
-  },
-  {
-   "term": "#السعودية",
-   "en": "#Saudi",
-   "kind": "hashtag",
-   "topic": "الخليج",
-   "heat": 100,
-   "n_sanad": 7,
-   "n_open": 8,
-   "sahih": 0,
-   "hasan": 7,
-   "summary": "«#السعودية»: 7 خبرًا مُسنَدًا من سَنَد (0 صحيح · 7 حسن) و8 إشارة مفتوحة من الأخبار.",
-   "summary_en": "“#Saudi”: 7 graded Sanad hits (0 verified · 7 credible) and 8 open news signals.",
-   "hits": [
-    {
-     "head": "قطر والسعودية تدعوان لضمان أمن الملاحة وتدينان رفض إسرائيل خطة غزة",
-     "he": "Qatar and Saudi Arabia call for securing maritime safety, condemn Israel's rejection of Gaza plan",
-     "grade": "حسن",
-     "src": "الجزيرة نت",
-     "link": "https://news.google.com/rss/articles/CBMi0gJBVV95cUxOR0hsZW52X2N2SkljVXA4ZU9udzVpVzREeWswNUxicTdPMUFXdmtNVkFpR1JxUHc5MnJfbWVUQkhlS1ZDVG5GV1pkWExCemZLMm1jX1phLXVxbkFDMDR3OTVGLVNWUHIzbVpTSFhWRTE0TUd1UEtDTFprMzc2Ynl6VUlZUXRnWFM4S3JNSXJ1djZHV1JseHBLaUlJV0QyQldRbjRoVXZZQkxvVEdPblk2QWpqTVNBZi0tVWNJd0Q3Zl9FWmoyQ3FEaGs2bWNkbnZWQm91RTBkLWRwWlI4SXd5eGtIVUxHMEJ5ckNTd0czQnE5d0MzMHlybmlPUGFnTXU3X3p6c2lzdDNES0dFM3pqSUgyM2doNHdmaGQwc3VpR1ZndGthT0ZNYTVMTG1wdjhha1lfSTVpUTVyTV80eWR1cm9WLUIxbWlPajZKTEVEeklWQdIB1wJBVV95cUxObXJTUmFfaFRqZHdxVk1VTWx0a3ZvNXdlSDBpTzNORlNBSHV1V3RoZU5uZU1nWmVyT2xrN2RnRzhfQ1hMakF1YmN5M1JSeHcwb0hwVDRwWndrVFpsOUN4WGpsZnRDYnpFVFdiWTQyaGw2VnpvOE4zVHA5ejJEelVweUlkbDNTRGhOSkRwWUFVRWc1bXJEbGdpc0hyODI3SWEzNzY0MlNsRl9ucFl5Xy1fZGxaOVNaUFJpa0dpMFUxTHc2czh6YkFDMVU3MzZ0eEVpaFg0VkNvVUxkZGNDaGxfM0JPd2F2MlRtYWZ3NnNONExPcFdCY0tGNlBGWnJYbWVya0FUcUt5ZzhiYnVXb1cyM0l2UVlEenFQWDZ3TGtPWWNyNmhpUUtBbmJ2WFhEQU5tdDV6ZmFOYjF6Wk9STURJUkRZblNZZUZNNEE3S0VkNlE4V0FFY3hJ?oc=5",
-     "at": "2026-08-19T20:55+00:00",
-     "channel": "sanad"
-    },
-    {
-     "head": "الأسهم السعودية ترتفع.. وبورصة قطر تهبط لأدنى مستوى في أكثر من عام",
-     "he": "Saudi shares rise; Qatar bourse drops to over one-year low",
-     "grade": "حسن",
-     "src": "العربية",
-     "link": "https://news.google.com/rss/articles/CBMipARBVV95cUxNQlI3TXVfNFNYTHR3X1NTVG8zOGZJSmJKb1RNcGhFY0dNVjZDUm9zcnZtalE5M2hoNU53S1ZSTGZrNnRvSXdrd3Q1aExSTU1lS09mSUZNcmxITGc0SVRmX1JWcFVkT1FKalREM2NQei05d0E5VGwwQXhNQVo4WTlkX1IxeHhuNkRMdlpQNG50TkUwQ1o5SWNnckV6SlFTa2xDZEhsTFQwd25RZ1kzSkFoVzQ4blhGNkVRUF9adFFmeDFBdEl4MHNxWHlOMmNQNVJ0a3VFRGNmcEdLNXhJV21pcEl5bVY5LTBDUXd0VkNxVnQxWUNTWWxGRC02ZFNVaEZQUmo5eEZzMTVNUzhjeDY1QzJnRFdRU2Y3Wll0TW1LaEIyMXhoWU5rRHhfaEZiVmNaNXpJbDNnT0M1c2tHcmNaNUZXODk3b2tTN3RkNXBWX3hOVDluQzhYQ0gxSUdfSUtVSUJhaWVaU21QaWE1bFliSExBdzh3a0FFVjlnUXRXTFpoSTlmaFdzdnZpSkpLZzYxZGdmLWxSckJ3Y3BTcncxUHBLSmxXYk16OVpYanhkdlRWdDdCVWNjTklCQ2FoMm44ano1b0tFLWRQMnVwTnV4Q3Vha0RsdHJsaDVWMUV6Y1ZHaHEyYld4a2t3TXVZWUFmMzl1NVRiUmhSZVlwem9aMU50VVhEM2JjSDJLVHB5SHNTMXFGcmhxbjAzYV9KeFhmLUs0bNIBqgRBVV95cUxPQWROOUV5aGtpZVpuLWl3Umw1SlN5aFVzVGNld01YeWhsb21oU1JFeVJkc0xnc2xHSXJMNWU5b3hzcmpXLWlWQXhNQVNFM2g3VlZ5aXRmVTJkbVVoRnFWLTI4bnJ6MmRfYlJjMUhKRDFvRElTWmFiWmR0NWlLUi0wTk9OY2Q3VHpxX1NiQ2phandjbnNnZHd0N09xZ2pyVktXMHYxT1RtMy13bHEtU3ZjQ2gwT2duMndDNEN3R3ViMXRPLWMxbkZGX0hKWDhRQ01vbmtUUEVlaU94T0ZSOEFEMVMzcnM4RmVJSF9GQkJ4LUhTczdFX09rSElxMUpuN3lZdWpWckZsQ2dsVVZrdXNKdVFkUmx4djEzWDQ5bDRyLVFHQWFsd2pnRmIyZFZxT0xIWTJXejRXbDhBenFWLUpCUUxqODdIallZMlZBZXVzZ0tGOFJQZGVybW5fa2lRZ1FldmNlcjFkOWhjRzZwTHk3R1VHSkVBM0pCVmJUTHBCRElDaDRLWURKYlhXSk5Uc0l0VzlTcjhrSldob3M0eDRxRlJxRFRKN0dFVkhDX0VCQmRRYzFRRFdDSklHZEM4M01MZ0ZTMjNTYTE1WXRhRmF0ZGxTcWJGODVRMWdDaGl5RDVBa3dJR05kdERoclZHbi1HbGN0QjhNVXhhTEpYSFgxdXpuTEQ4NWFOVDdVdFlLY0pRX0lXRmdGTjhRT2xXZDFJTHVqZkwyQndEQQ?oc=5",
-     "at": "2026-08-19T14:17+00:00",
-     "channel": "sanad"
-    },
-    {
-     "head": "«الداخلية» السعودية: إجراءات بحق متورطين في جرائم مُهددة للوحدة الوطنية",
-     "he": "",
-     "grade": "حسن",
-     "src": "الشرق الأوسط",
-     "link": "https://news.google.com/rss/articles/CBMiuAVBVV95cUxOeVJSa2JqUUlDLWJscS1LaXJYc05LcW1BUnFSZ3VKVDFBQnZwUS1ud1h3SEpnRUtzY0pXOHh5TmlzbUdESWFYVnF1cVUxYnk1RlZCRkxIZXpRS0UyRno1djhHV2VmYVBsbmRLVVdTSjRtRFNSWkFfYVFObVppdFBpeU4tanh6SFBfSmd6aGQxUlhpZmk0c0lGa1ZFMmQzbm5yeTFwaEhIOUxiN2F4eldIOVlXTjhwaU9mcHRuYlFkelZZR1BYRTI1bEI2UU9Kdlp5UU8weEFyeXQtRWl1eXpHT1RzSmNhWVhva3FDd2NUNmt3TjZwMzJzUzE1eGFqLVhXa1lKSDBrWGc0SWRCTEk1ck5jQ1VvcmNlUjZ1eDl4eTAwREI1VWhpYWJoeXNxWllaRktMN1p4QTUxLTJpOU9ySDBtVmpxeUc4Yk1yNkNWWWdrVG9YNnY5Y1ZNQUFiN3E1MS1EbmxuWHFoSzRkYU9TaGZ4V1ZCTzFYVFlkQi1jVDhiQng3MDh5N2w3bW5nd2ZtRFFKRmJVZjNhZ1pVdnVzMWR0al83d2wwYkVUWXVNQjlJc01zbTlMOFNicWRjNEw4RkhPUHl4THZyNVBPcTRCTDdIOFpRZk9FVVYtVzFsQTZsYmw4cjdaZkRXMVFsdUlYUkw5Zzk3MkxjMlcxRTZ5LXl6ZmFvYkdCbE5lMVNCOThGSGVTUE8zcjJGQkFPTzlFVjhyTHBhTGtRMGViMldFNjVnNTRHc29tRDIycksxUVJzMElNT3NOckp0dE1vc21LVFpMNmJuWkhOT0ZMMkUwcWJXR2pEQXRSMzRJYTNDdW56eU5MLXpMbVN4TXFGMGQxeU1CY3liNUpKYVhBQXJsMzFyOVNPNkh3blMzU2lkQ1BXNHUtNTcxV2lIYjc4QUZKNnppbk5YSFM?oc=5",
-     "at": "2026-08-19T14:00+00:00",
-     "channel": "sanad"
-    },
-    {
-     "head": "السعودية: تدمير 3 «مسيّرات» قادمة من العراق",
-     "he": "",
-     "grade": "حسن",
-     "src": "الشرق الأوسط",
-     "link": "https://news.google.com/rss/articles/CBMi5gNBVV95cUxQdExvcTVycUUxdlRRd3pBc1hZOEZHMTRhcEsyMlRJM0xGU3UtTmU2WWdKbU81U0lldGNVRFhFZGNaZzhBTy04Mmh3aDhmYks1RWd2Tk51b0xrTng0Rm1maFN6SVpRUWhyelFMUTdGNEc1dGEyLUNfSVQ1RjF5ak1SN2ZRTG9TU3RaV1hnRWYzWG45Y3BkTzh0MWZFa3BUX0JGUjFtTTVlX1p5b3YzUUFPSlVCdENFbWtoNllPaXRjTld1cGJ0OGVRMEI0V3o4Y2pOaElmTXVncFNNbmtGUEk1QXU3ckZDSHhQaURFajZBQzRPdEZGZ3lweW5tVGtONUtoeWktNVE1Z0h2UnlGeEhnRTE1bEJYbWRIcGd0VXVUWWFabGM4NkpORzJnTG9OSnBqYjJUbVdvelplbFdXdjdRUnBOV0FsTS1kYlUzS2Z1X2hmcFRNczdibkI1SndFVi1QRHJTd1ZpZ3FpakIwNkpSWk1jRG14ZzhzYnE4LWM5MWpvcHZyV3Q5RTc1VUQxRmpqOUhXckRxTm1VelV3Zy0zQ2c3VlhLb1pOTVJMMzNfMWZ5TzVWcDdCcXpnYldxOWVGWVhaX1ZzZE5XbEd4cGRUdDVOc2M5djA4WkY1NGszLWNiSU5sTlE?oc=5",
-     "at": "2026-08-18T17:01+00:00",
-     "channel": "sanad"
-    },
-    {
-     "head": "رئيس «مايكروسوفت العربية» يحدد لـ«الشرق الأوسط» أولويات المرحلة المقبلة للذكاء الاصطناعي في السعودية",
-     "he": "Microsoft Arabia chief outlines upcoming AI priorities in Saudi Arabia to Asharq Al-Awsat",
-     "grade": "حسن",
-     "src": "الشرق الأوسط",
-     "link": "https://news.google.com/rss/articles/CBMingVBVV95cUxOd3pYcGxya2JJWlVJLWdadDNYQm5XR2p1b0ljZnpKd3pvb0c4cGEtTTJ0RjRzU2xQZkxPM3RERzc3dXBKRldaNHNNenlNUm5vTGIzeDlucFBxX0FpYk9xUWRyMlo2YUQtd0hObEMzS2NzbkdVMHNFRXYxY21Hc0pOYjdkVWsyVUZBbmoyY285amdYTGMwQzVvSnBEX0pQaDVlRmJDR2ZyazNtal9WV01qT1FQV0NWV0s1Mkx0MVZHdi1xenlYOHN3WWpxN0lnQmRVV1NJS2dLWXBHYk5ic3UxTEYtV016RXRxVnRxYTFsa0tPa3p1Z21fSkFNdmxWWXBsNXFQNDdaNzA5NGU0WHk5Uk9ueExUeXFKLVdmSGdKcFVZemJua2lBVUZjNEFhbWJ3MHlTelJtRjlxUHJ2MTlBZjJTOUYxZURLeng0QnpZT0Z0YmtYNnlNV0RuT21XRFI1dFJwTlYzRGx1SHpmeWZrQ2thbTdHVkR1RFFtaU9UeV9kUmUxRmJhb21EOVQ3dUVZS1VfTmZqNmhkT0dJbjdVb2lhUGhyZDlBNzBVdjFXdHU1YzB3QkJMaGdFYmFzTFpSaldwODNxX3FndElQM2JDTnMxRnpJLTJCUUU4bW9XbGhvakRfNXVVMzBGUGt3U3ZKc2tSN0ducU00QVJSTDFaUFRjcWFTaG5OeUQ2XzQwclFIV0NXNkhucngyMEQzVmdwcm45cEtWa05Qc3cyS0oxdGFPbEF3TnA0TWJHSDFNeDBRaEFYSlRRV2NoRWJocEstNTgwWnBPNmpBQmx5UWJpTldVcmtCMGFNUkhTNkplcklPaUF5TDNBRHFqSS13bEY2UnhsSWJmTlhRTWVXQkxxSEl2SlJnb0ZmNWJKT3hR?oc=5",
-     "at": "2026-08-18T12:21+00:00",
-     "channel": "sanad"
-    },
-    {
-     "head": "حصري-السعودية تشدد الرقابة المرتبطة بالجرائم على التحويلات المصرفية إلى الإمارات",
-     "he": "Exclusive: Saudi Arabia tightens crime-related scrutiny on bank transfers to UAE",
-     "grade": "حسن",
-     "src": "Reuters",
-     "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE8tZFBMeVk4eGhMdnEtUExfQzRHRWI3TERJUmY4Y1JJdm5sTnlERDEzczlCTVF6SE4yMFM3SW8tVXEwM1BRX2g1OFFuVVVjWTlYNXB2cXB0aEhSRVg5REgzanNzclUyMC16Q1pFazNZYUZ0VEYzMHRkb2ZRVkNwUVk?oc=5",
-     "at": "2026-08-18T10:28+00:00",
-     "channel": "sanad"
-    },
-    {
-     "head": "داخلية السعودية تعلن إعدام مواطن وتكشف عن اسمه وجريمته",
-     "he": "",
-     "grade": "حسن",
-     "src": "CNN Arabic",
-     "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOOVNyaTFIbUdUVExZZWE5MmR1YmRJOTZtXzY4eDhrUERXSzJoelFBMVNmVldBbTBDbFlqU0VfNzk1SjNPX2haTHl4SWpOQVBRbFdJZGpkZllZRTd2amVGeHlXSEl5cTBZVmJGX0tQanU4Q29JNkVmdHowQ3lYNVRwVUJpZk1mRWFfak1kTUthR3NKZW0zTmVQTFI0aGdKTGh6OGtR0gGuAUFVX3lxTE1ITmdOSFBSOVh3V3JKcGpCTndaWjkwV2pyZHMyR0c1NmNRTngwYUg1R2YzQlg1cWZ6ajN6WjdESmdLamQyZkRoUVNQTlVia2dVRHR5Y0l4b1Z5NXlOSUxRVHRXMzZlMUN5by0yenlnVDN5U0QwN0dROFZIVDNWalpCaGZIR00xek5ubHRlTktNWEJCemVNREhldDkyLUhIbXlNaUs3clZ2V3lQbm9XQQ?oc=5",
-     "at": "2026-08-16T11:05+00:00",
-     "channel": "sanad"
-    },
-    {
-     "head": "وزير العدل السعودي يستقبل رئيس مجلس القضاء العراقي - الشرق للأخبار",
-     "he": "",
-     "grade": "",
-     "src": "الشرق للأخبار",
-     "link": "https://news.google.com/rss/articles/CBMirgNBVV95cUxPOE5TWGhUUk4zYmc3RDJJeFNwQ0Frck0zdG9wSnlhQ2NJREJXWGhyOE5zR2g5cG44YXp1a1h0Y3BRazM3eWhtLVpSdFNNc0FzTDNmdWNYYnd2Vy00MGM0MHJhNGNUbUdlWDRoRW1YU3RyN0VDOTB2TG56aDl2T19wdWh6bldQazZpdDhSZGppdjN6QkFqdi1Sb2ZBTVlJelZKREoyUkRzQzhyRnQxRWstQ0pSRnJZY2UxTmtOUDRzUnd4TTd0cEo3OHBXV2drVWdkQVZrUDRJMFI4QnpsYkh4MzVnd05kSHV1VHBfdTF1aTFUV0R0LUFtaDlBakZhcFdzVU9UZHM1TFc5a2x2QUhCY3AwUjNNSEpaWTVjS09ZQ0xwc2Mzc1A0OVFjd3RiS3NPTEl6Z2F2ekFZaThuSHpfUHF2Sjg0d2t4bzRKdW9rZjA2MzQ1MmlrbF9RTjdUWU5ZMUx1UV9RZnJpWURUX2ItbVpwM3FZdDdHYXlQa18wN3Y3N3pudS1UOGxQMUI0d1hDTG01OHFIWndLY0hDN3VKdXl5WHFsQl9RUmtpb01B?oc=5",
-     "at": "Wed, 19 Aug 2026 21:33:39 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "السعودية وقطر تشددان على ضرورة خفض التصعيد واحتواء التوترات في المنطقة - الشرق للأخبار",
-     "he": "",
-     "grade": "",
-     "src": "الشرق للأخبار",
-     "link": "https://news.google.com/rss/articles/CBMixgNBVV95cUxPX0p1NE1RbEN1RU9Dc1lZUlhOQllEZW1FVndkSTVvOVRmMlVGd0JfVWl0Um9KRHJrWV9CVmp6MUN4WkNSeFhsNWViZUVFU2kyeEQ1U2ZxN25ua0NCT1E0UVd6SjRTeGhUd2pJZ2xZc0hBWjNpUnhqUjJBckNzWDhqeVBWaHBvUDF5VmdnMElPT0F2cWtidk9TSV9tSmJtMDRwWFVReUV1Y3VwbVNnejQtS2E5aUgtV3NUOUVGNUNMSGJreVR0X1V4am5GdndmazBpMXhKSS1MUUh1eVJJZ3RiNkQ0SGR1WDh0RzlXMGYxc1dqUHVfQzFjaDVWUnZfc1d3TVQxb3RPRVZDLVo2akpvelBuTTZLN0ZmWUMzOVpJMkN6MlNDM2gxT0FlSjVMaEY2VlpSRTV4ZU1ib3JjUW1kclpxeUJ1QTFhTVNveUNuZHJleDVOLWktY3Jlc2VMWHNYM1U0WXotOTVmTE12bjAtSlM2aWpHUGNFVWQzNzVQM1dVZVZ4d25HYXFVeDY5S0tUOWRtMGdEV3ZxTW1UN1FjVGI3YVVyc0h3cjhBcnl3Ry04bzJndldpY0FnNE9mbVdPRi1fS0FR?oc=5",
-     "at": "Wed, 19 Aug 2026 21:23:01 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "السعودية وقطر تبحثان خفض التصعيد وتعزيز أمن الملاحة بالمنطقة - mubasher.info",
-     "he": "",
-     "grade": "",
-     "src": "mubasher.info",
-     "link": "https://news.google.com/rss/articles/CBMi_ANBVV95cUxQY29BM1hjZ1F1VHlsVm1ZM19Sd3p5cmhkcFNDMkE3T3dINlBibGNiVER1YjI5aWZ2dVJvS21FNjJ4MmZNZkU2UGdNQWRUTVpqVGp6YjV1MU80Si1Oc0Zxb3A4S1hDYXpnMVdsc0VUSlhxVTJIVWdNdlhsb2Q5dDRaa1czYkItUEhjRjRZamxKbFdYZll0X1l5VXd1czRYRGhvWXJwVi1DTkNuaW12MjBiaGo0MXdWYnh3UU90RHFJUDNOeUVISXdxTFlQVGVzd3lJOEZLYm1lSm03bWhfOTZpZ2ptcDVyWFV0Q09TTmV3S1g2UUNyNElzY1JFNlp0by01a1FkVkRoaS05al9yUUlsM2ZCWXF6aHN2dkZLc21IWDNPN09oRzNFU0ZYZHFuVWszcTdqZE9mWl9yZ05fZ2dmMkVfSU8xWUZHTnpZSy1CUUFZZHp4bjJmdzdUYUlKT1BRbUoyclpXZUNSbkxZMzl0SF9BWS1NVGJNUXdmWHhWaGhrbzFlSzZFdW80VnFXcnE4ZXN5TENndERPUkpRQUZ4cGo1cFFVX213VTY1VDNIenBxRjBTS2NNU3FIbUFpeEh0Z3dzVzZxQVFsYnhoQmhxWkxTWjVNTHd0UWNIaHZnM3RiVDlYTW1TaW82dG10SkFHaUV6azQ5N0NsRnBs?oc=5",
-     "at": "Wed, 19 Aug 2026 18:59:47 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "السعودية وقطر تؤكدان أهمية مواصلة التنسيق وتوحيد المواقف حيال التطورات الراهنة - بوابة الأهرام",
-     "he": "",
-     "grade": "",
-     "src": "بوابة الأهرام",
-     "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBZcHBUbkVxaUhGc05tVnduSXFISkZqRFBzbnltVEFXM1RvVUNtR1hvSXpIcWI4VXNaU2FWb2U3R1JtTi1MZTljX2FZY0NJNmZhNFc1VVpn?oc=5",
-     "at": "Wed, 19 Aug 2026 20:42:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "\"مصفاة الذهب السعودية\" تتقدم بطلب للحصول على رخص تنقيب في مصر - الشرق بلومبرغ",
-     "he": "",
-     "grade": "",
-     "src": "الشرق بلومبرغ",
-     "link": "https://news.google.com/rss/articles/CBMi7gNBVV95cUxNeHZfSVdJcGp2NnYyY2JkbTR2S2g2ZVBtMVhUMkNoem5LYi0wQzBMTFhQVEdoOHhER0Q1UG9zMXdWNUE1MXZMTWtwYS1rNkdKU09xNzVaeVpDWTF3NGdiNkI4VS1DRW9uanJ4Q3lUN3NLMWxiT3B0OUVjME1GaGtOdk5NNlFrZjN0MzZxTXJUcDNhcEFaTEFWNW5NRWJZTGFMdDB2VmExSVJfR2QtVGV6dk5WVlFEcHpBa0k2T1BnalJka3pLRXpVbllNZzlKdU56WXFXNmRDRHJBZ1VwbXNBV3BMRlNzVmI5WDRsNXVkaU5tWlFCTXY0QXhSSTNETGl0VFRmb2lOVnRfUkhNbDg4aUxHU0ZlcWkyUDhSRmloWVViVnRxZHN0NmhGOFZqQlRxcU5qM0ktTmZDN2N4TmxiZjl5SHozc0VfN092SUVGaDNyVndQMkxUVzBDVlVCTkRDMXlpRlBYOU9hczRMSVpEY29OZWcyZDRxLVgyaDZUdDFzakp2WWlIOXVQbWlUN0FuOTAxanhKOU9hQXhPbWE3dU1KVjJzenM4QlBwWmxLeHRKOWFZc3dPaGEwVURfR0NwRVZ4VUd1dzdzTUpoUEw3MEg0QWZhaGJKWGs4TWRDeFFIRVFWemJqNjAxUE5LQQ?oc=5",
-     "at": "Tue, 18 Aug 2026 11:02:34 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "حل مجالس إدارات الاتحاد والأهلي والهلال والنصر في السعودية - اليوم السابع",
-     "he": "",
-     "grade": "",
-     "src": "اليوم السابع",
-     "link": "https://news.google.com/rss/articles/CBMi9ANBVV95cUxPUEZ3TTlKbWt3MFUtOEo4TERfdFBXVzQwTEduZXNGQ0RsdVF0SXNYM3BMWXpqMjRrUHdOb2Z4VEFKZzI4a1UtVGM5d1BzNzlpRW01OXowR2M0cTBET0F2T1U0LW5ldHV4eVhxclJ4bERsYzRjYWh6cXlOOFNzb25hWHh2Q2J6dWZnQUFvclRrSTU5Z0dLd1V4VlNaNld5YkMtTWNkM1pRWlc4QTZDeXNrUzkybDNRZXZXaV93bHRPdk1GTjU1RzBWOUNxeUNsQmxnRzI2NWpuZUhZNjNWZi1VbXFzOERHcGYtVEladFh1RkxSY1ByWUJLcC1YQlY4OUMzU0w1bmFkLVhMZkc4cGY1em1ZbnZycngwWFlkMlBhX3o1c0tXdDkyYjF0QUVKM1p2OTNyYjB1SFc5ejIzTU40anV2NXhrQm1ZNVdScU44MExxZ21uTGxSaWs2OGFKX09VLXV3Wmw3R3NfNmxkSll6QXh4WTZXSGFOTGk2UGd2MU9RWGRHaU9CY1JsV2d3S0o5ckJyeDBtS3JIYXlfOGZVdW9yNnpiZHBNZWtXZWV3X3N4T09hOWVRMUNySE9oeWVZNVdVSXdqOVdkcXpaT095ai04RWpoQUp1WTVFVGNpd1p3Q2lPeFRTYUE3LVRwWkd5ekViRtIB7wNBVV95cUxOVGZEcGs1Y2RpNWdzOWdSQW1pSEFnSHQyUXd1ZTlLSXU0bUdoaXM2REhZc2Y2UkN0SjB4V2xlU2dLMWlvVlNQTllCR01TX0RIRUIzd01HY0VfOFkxazdwYXd5YTZYcWd4WnE5aDNzME9abGtjZmdhTHctNV82dWRVYk5Za2xKVDdvNWpUOWlmNU5jbzNxaE5pSEtFZzFqTURzZjBCQ2hrMmpmOEhKR2M3NVdpb1NJVVYzUWx0b0ZDRjU5TW40dnJWajJEeWVNUWZseExQbi1WTlVwRE50NDFDVG9nVnBUUFltNktWcjBUa0xXSU9felNSejlNUTQ5V2tyWTdBUlNIMWRTanZ3TWtIQXptTDFrcm5HblpPSFRQRXpoSmctQlZsdXBNU0pvYXo1Q1ZTSFprMHE1cU9IZkdYVFN4ZzdUdGJUUzJaZkxmNUFaLUppRXlXWHo3bHNjbkRHRk9WZGFwOE1VSG4tX0x5Z0Y4S3FLTWJBeU9aWE5fZmhINGYwZXZtRXlDcjQtZGRZc1JkNjlKOWlVcU9DWlkzeVQ2TUV1TUJnWU9jWTNncE9fdTRxYWpreVpILXhTY3h4LW90TnQwTWE5V3l1dDVfTHpXTnUzcE9Ec2djbUh3SmdiMnY4VFVJNGprUnZkR3c?oc=5",
-     "at": "Wed, 19 Aug 2026 15:02:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "السعودية:قرار بشأن مستقبل إدارات النصر والهلال والاتحاد والأهلي - CNN Arabic",
-     "he": "",
-     "grade": "",
-     "src": "CNN Arabic",
-     "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQeGU5NUxsXzJUMGw4SnFqMjlqRFJPT1dCdHFUYUJoMTVUeHpOWjB4dmc4UjdfWFo3ZjdGOWNXYU9CNm53TjRKY29KUGNIOVR2dUlsMGVVbUZTWnBQUVdwZVpmRmVhbXBITXBQWVhYN0RYY181TThMT01lank5YnBIMTkxVVhXYUF5OXRVV24zdVZvVTJQOEtzV1Nrai1YZ9IBqAFBVV95cUxOLUVDdkhzeFp4bjAzd3E2aVZpRlZwM0g0dnZhXzhNQ0hHNEJzWEJTb0NvdVZxSTk1bmtxeXYwN2Y5UG12a2h2Z0swVlRpTmh2eEUwZ0dVVDh4V3dtX2I2WG85YTMxNnJnQlNxbEJnd2RFUkt6LTFNLUV6VnZ4dlpDeEVkcGxRb1N2TVMtSVI4VGdRRG41am5OblBwdnc1ZFpJR0NBRWJxZkg?oc=5",
-     "at": "Wed, 19 Aug 2026 15:39:46 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "قرعة نخبة آسيا تسفر عن مواجهات قوية للأندية السعودية - العربية",
-     "he": "",
-     "grade": "",
-     "src": "العربية",
-     "link": "https://news.google.com/rss/articles/CBMiwANBVV95cUxNdW9qd1p6U1dSZTJTRmxQWHhVSEtycWtoRzdKajhvcUgwQUdESHdRR29qYTZKazRNYThJNU45aU1namptY0NFSTYtc3Qzc2M2dkU2Y0l1OXdfM013WlpONFFsNWRBTW1vTXlmZkw3eExHOGpGWFlGa0ZwSV9OLUdHM1RCc3JUaTNfUWVmbUplTnB5eDZxeE5iSERoUF9TbjFTMkdzNTNIOHl2Wm1oUHFDTkthT0FER2VmbWJQODRzV1RhSkFJQzRSQVRzT3pRSElnRk5obThqclc4MzJnbV9xNjlMRDZWdWxTZGdRcG1xUTZjcFE0RmhxRlFvYm5aSk4xSHhleWQ5Ry1jVUlERjl1ZHdSS1dmSm5LZGh4Q3RGQVlTTVdGT09WTS14VEZ1Q3RVSW5IMVBtc1hnbUVxNG1nNFZZc1plMk94eExzdFRMdDRGelFUU1NBb1BhdXNKQkZvVk10M3ZPWUs1dEdZemotWTNMNG95b0dBcHRYZ3g2dEl1djdSRnlTVWFfVlZKb2hzbkhHaW9tRlRyLUFIRTVkVk9yOU5PMzZRY3NTNUZyM1RLOFQ4bDlaVnotSDNZVU0y0gHGA0FVX3lxTE45YjVTUjJmM29XNVhMVnpQM0x0TVBUajN3ZFdjQ2tCeV96Y3lKbmdrUklrVlRCdWdjSHMzMllPVGlxTWd2SU14X1BzT0kxQVBaaTB0NnRpSzRfUTRVd2VVeGlBcjllTGZmTUpLZk5vUEdRbnNmRFUyUjFFSVFBb0dVS3FOUnY0dzZQZ2xyUDFfR1FRV0FITHZDak1vbFVJX1hWdkNRZkwwZDYwb0lsb1ZWaV9ib2lUajR5a0tPXy03OHJVVDJYc0NCdWxUUXhqZGwzZ0pxYnlIQVdvbGtlTS1jQlJDMG5aaDVLUXgxcS1IaGFfblI3SDFZdEhxaWhEckZvdnROSzBTN19EZGhlOG9uc2hnSmx3dExnbkRyYnp0YWlhekhLbjdRMXp0U3FqbUlVVmlyYTlIOXpIdS0zejlsbHNmbktVcFFyZTRXQVZIVXA4Z21KaThoVlBUaEcyRGdOTDFLeTkzN1EyVDRJWktxNThKcVpfVmRnc2cwNXFEY251TWZPS0IyNk5wLTZ0ZDJfTVV6Z0otdE8yRUFqY25qQ1d6N3RqQldudDhMLXdRWno5c2dHV2FQcHZUeUZCRlJWcFB1dHc?oc=5",
-     "at": "Tue, 18 Aug 2026 09:13:00 GMT",
-     "channel": "gnews"
     }
    ]
   },
@@ -802,17 +346,17 @@
    "en": "Strait of Hormuz",
    "kind": "keyword",
    "topic": "ملاحة",
-   "heat": 100,
-   "n_sanad": 7,
-   "n_open": 8,
+   "heat": 50,
+   "n_sanad": 5,
+   "n_open": 0,
    "sahih": 0,
-   "hasan": 7,
-   "summary": "«مضيق هرمز»: 7 خبرًا مُسنَدًا من سَنَد (0 صحيح · 7 حسن) و8 إشارة مفتوحة من الأخبار.",
-   "summary_en": "“Strait of Hormuz”: 7 graded Sanad hits (0 verified · 7 credible) and 8 open news signals.",
+   "hasan": 5,
+   "summary": "«مضيق هرمز»: 5 خبرًا مُسنَدًا من سَنَد (0 صحيح · 5 حسن).",
+   "summary_en": "“Strait of Hormuz”: 5 graded Sanad hits (0 verified · 5 credible).",
    "hits": [
     {
      "head": "فيصل بن فرحان يؤكد ضرورة خلو مضيقي هرمز وباب المندب من أي تهديدات",
-     "he": "",
+     "he": "Faisal bin Farhan Stresses Need to Keep Hormuz and Bab el-Mandeb Free of Threats",
      "grade": "حسن",
      "src": "CNN بالعربية",
      "link": "https://arabic.cnn.com/middle-east/article/2026/08/19/faisal-bin-farhan-the-strait-of-hormuz-bab-al-mandab",
@@ -821,7 +365,7 @@
     },
     {
      "head": "وسط تهديدات ترامب بضرب عمان... لماذا تجري طهران ومسقط مفاوضات حول مضيق هرمز وما آفاقها؟",
-     "he": "",
+     "he": "Amid Trump Threats to Strike Oman: Why Tehran and Muscat Are Holding Talks on Hormuz and What Lies Ahead",
      "grade": "حسن",
      "src": "فرانس ٢٤ عربي",
      "link": "https://www.france24.com/ar/%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7/20260819-%D9%85%D9%81%D8%A7%D9%88%D8%B6%D8%A7%D8%AA-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D8%B9%D9%8F%D9%85%D8%A7%D9%86-%D9%85%D8%B6%D9%8A%D9%82-%D9%87%D8%B1%D9%85%D8%B2-%D8%A2%D9%81%D8%A7%D9%82-%D8%AA%D8%B1%D8%A7%D9%85%D8%A8-%D8%A7%D9%84%D9%88%D9%84%D8%A7%D9%8A%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D8%AA%D8%AD%D8%AF%D8%A9",
@@ -854,201 +398,39 @@
      "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPaFRNUzVzRlIxYllOMHdZY1pvOUVVclhIY041cTJEMmZVaVlqZDZnXzlVUDhYdEFKTHRheVBxOWg0X3dXczNpWGk4ODhlQUlPUGlWOXRHVE9ReC03bVR2d095WVlPblFjX1NKSHJ4UzhQT0Vfc2kxckxiWlRqNjgyWGVCUjJpODVUWm1QbVFTOWQzNl9uOVM4YUN4QlJDTkRsR3RWdTZHNU41Q1XSAbYBQVVfeXFMTnY3Qkk3WU1kVWhJakE1ZlZvMTVUQ0JWRTBSYWFDaHNaLTJvalRwUE1DTGZac015Qjh0OVZtdEJHT3VHdU04M2lQTVkzVW5vU2EwLWV1cXZ5bmgybkhWdUtnajF1b3NkR2cyS21iZjh6WnhWM2poOWdlXzNIazBYalNrSlBWVXBmbDI2OS1nQUNUZW81eE5zenY2T0JPMExBaEFnQU5LaU1CZ2NLS2NPMEdZaDEwT1E?oc=5",
      "at": "2026-08-18T09:54+00:00",
      "channel": "sanad"
-    },
-    {
-     "head": "ترامب يهدد مجددًا بقصف سلطنة عُمان بسبب مضيق هرمز",
-     "he": "",
-     "grade": "حسن",
-     "src": "CNN Arabic",
-     "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQNmZZMTNSN0xPd3RiUHoxNEZOb2hSZWhIekw0SERaZmRkMmdidlpaQV9RXzh0cWpTTTIxUk4xaVZ4a1kyMmRVOEkwVmVySVRNVk0td0RGR3ZJZElMTmZIZGJHajlrQ2ZURjJraklvN2NuQUJNVXRrd0tBWFVHMUd2SHA0MEhjSE5uaEVtY0hOUFlfV3BLdTVJRnBLQ1d4dXNMOW14NFR30gGwAUFVX3lxTFAzclVVZHlmMktKZzI1LWhCLS04YnFZVURPVjdxclFhS05WQWQxWjhlVTQ3dk1uS3ZxRktROXU3ZjJwUWxoN01WUmdiQ2EtODBTdjkyOWMwVkc1OXZzVzFSNHNFWEQtYUVIc2x0clY2NzIzTTFlZ2pMR0RtV21pOFFaNkloM1Zad0JINzctb3hCZ3ZYOGZhWTlhdDZlaXhUUHVPbnVhODR0MEo0Y2E2cWlJ?oc=5",
-     "at": "2026-08-17T12:22+00:00",
-     "channel": "sanad"
-    },
-    {
-     "head": "ترامب: بإنشاء عدة خطوط لنقل النفط، سيفقد مضيق هرمز أهميته",
-     "he": "Trump: Multiple oil pipelines will render Strait of Hormuz irrelevant",
-     "grade": "حسن",
-     "src": "بي بي سي فارسي",
-     "link": "https://www.bbc.co.uk/persian/live/cmewreljjrq4t?at_medium=RSS&at_campaign=rss",
-     "at": "",
-     "channel": "sanad"
-    },
-    {
-     "head": "أرامكو السعودية تستأنف تحميل النفط من داخل مضيق هرمز - العربية",
-     "he": "",
-     "grade": "",
-     "src": "العربية",
-     "link": "https://news.google.com/rss/articles/CBMihwNBVV95cUxOUm1MdlhQRXlDZzFoajhldTZVaW9lWVkyS3k4UXZ5dGxkS09zYm1DT09aMVp0UzNTTmVZNzZxZXFEU2d3SHRVdXlUOWZLa1QyLVVXc3JfcmcwYUtnekt6S2pUcGpmRmd3UmxCcFloNnZTMWNQQUcxY2dUZnVSZk16Mm5pR2JuQzNiQXFsSldzQXFyVkFVQUMzdlhGR3MtYjhhSW81SXE0NW1DM0dEa0VGRjhxS0VWSWhxRWs4T0pvVzhhdGlVRFJfcl84ZGtTeHd0aHpXNTFPc3lMRE5UM3E0c0tMbjNHa3FKZnk3YVItV1pEdWpzampFUVZZbF9kWU9LV0RWTDBNUTV4TWZFa2pjQ0ozMzNBMEg4MkFsN1Y5ZE5OTnAtcGQ1em5rVGRsbEtrY2dienR5cVRPWnU2eGlJT3Y1NzljYzRiajAxbkxxTzFIS1AzSWZtOUVTbXlYTE9Ic3kwb0xaMlZ6S1VsQzFKTDR1aW1NTGkwRG5oMzI1QkxYVlRnTkpJ0gGMA0FVX3lxTE1qNXJxUzQ0a3lOQUc3ZGxxSFZNOWt1QXBlNVRrZ2NkbnAtSExKbnphdFBZdklFWVljTWhpbFB0bktWX1JJcm5GUk5aalpJRnJ2Z0gtSjN0WDVNMk1keFgyTUw2V1pycWpLZ0dab1pIUjVEUElNRFA4dktUZUd0bDgydlltUGtzWjlqbE1mMWZ2cW1EUTZueGtFejE0R1VlbTlKU25DeXFmY0pmYmhCWFZ3Yk8xWXVNb3hBeURXeVdnOEJ6OFl5N1RKT3JOcmRScXRFa0IwaGR3Nnp0aVU3dEduOGtFc1YtSEJBVUwtVGx4T01wZlpUeG9ObTdMdHFvTndjc1BiallfczN5STAtYzZabFZkemFTMFFrdUpyQ183LTlzWVZ3a0FLY2MxdU5TYU9RcndfdE5DeHJ1a0JJbkN1RjVoNG5EWVZrbzE3amxjQjh4TjUtYTltdk1MZUw4Y2h2eDhIN090QkFHWWpRVWxaSno2SXRheU5QVWU3cDlTOWZWWVhWdE5QSkFCaA?oc=5",
-     "at": "Tue, 18 Aug 2026 13:29:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "إيران مباشر.. ترمب يقلل من أهمية مضيق هرمز وعراقجي يهاتف قائد الجيش الباكستاني - الجزيرة نت",
-     "he": "",
-     "grade": "",
-     "src": "الجزيرة نت",
-     "link": "https://news.google.com/rss/articles/CBMizwJBVV95cUxNMWo3UnF5aDdEaXQwRFhRR3c3UlZxUFNPQm5FNVZiM0NNWmhuVFVCX3lwSm9vQ0ZuaWFYRzFpTDZLaXJRc2dKdWNrQ1ZwUHZSOWpqaW9UUVJBT3dYTDE0ZVpocTVid2p5V29VUU5ZSEFxSlRuTDdISjJSM2xSUktaQWpQcUNQYV83WHM1emRzN0FmOEdYTS13MnBaNUwwN2tRRXZsRFdLTkdiTlA3OWRTU0FFU1B5dGJfb2Uyd25fMVhlaV9tN2hmVmd5czhLTGppVWlOZ1dpTU5nRFM5c3ZpMUtNZVRjU1R5NnFMX1FqdlFrbV9RVkpZRlpHR3BCSmtxa2V0X1JES3NxaEU0QnNpd0FNMzlfTEllcGR3c0lZaGxlSk9xcVd0cWl2d0JBV1RqQXY2TXdRTkFCbWRyTThvQnhpbUxuOWttODVkZDVBSdIB1AJBVV95cUxQdV9waVpjbFlpUURUWnpQazVtaEhOaUROQ3hHaXhnOV96SUV1M3loUmhVMFdiWlhmTDJtZTRfSEt5UmpDMS1uRWhQLUJ1Skp2X196X1ctU0lzbk5EZUFGUnA3Rk5tMER6YXAwU3JiY0NSQXJQS0tsV0NlcGQtYkJfU1U5RnR2N0lzdHBJYzJmckt6bXhZS0FhblFuajBBakk2TlF6dXRvUzh3NXlKd0V6N0llMkxfZm9lOUVkMVhQRUVweHlSNDRCN1VRZFA0TFEwUncyT0doOUJjU1ZYSTNZODlCQXhVVnRNQ1JmZmtEVmZPY1Zza0t6WDJ5NGpDTndTY2lkblZUdzR2WEw0QTNSVXFfSkNsQk1CU0RmOXJVc3FVQkRjV20zLUhQRlYxT0RMYWdpTnRpUEdzUlpkR3ZlVk5vc09wc1JUNnpMcVBtTlU1c09n?oc=5",
-     "at": "Wed, 19 Aug 2026 21:11:15 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "أكسيوس عن مسئولين أمريكيين: نسيطر على الممر الجنوبي في مضيق هرمز منذ شهرين - بوابة الأهرام",
-     "he": "",
-     "grade": "",
-     "src": "بوابة الأهرام",
-     "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5Fd1JVTlhHNGk3S1pCR1dSaEpUUnRUT0hGV2QxaVN2VW1KMDNKYU9FRjhHZlRhVExNaDRPREgtS2RJVU9QR0xZRTFhOXM2WTlTTWRYVjVR?oc=5",
-     "at": "Wed, 19 Aug 2026 19:50:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "ترامب ينفي وجود محادثات وإيران تؤكد إغلاق مضيق هرمز - Reuters",
-     "he": "",
-     "grade": "",
-     "src": "Reuters",
-     "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5jRlNnN0hVcy1MSC1xZG94YVZMOHhKZDZ1dXNzcUZuMUNXdVREb3BKZTAwT0V3ZzRIamtCd2VYMHU5YmhFRWxWekZwU3QyZFREZmhxOUFSZUdsWGhENEo3U2g1SDZSb0V1SjJ1MXV6Yjl4TnZsd0FGZUlPcw?oc=5",
-     "at": "Tue, 18 Aug 2026 22:25:40 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "ترامب ينشر خريطة تصنف مضيق هرمز \"أرضًا أمريكية جديدة\".. إلى ما ترمز؟ - CNN Arabic",
-     "he": "",
-     "grade": "",
-     "src": "CNN Arabic",
-     "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNS1pRaHdhOFY4SWNhd1JxcEZ0cXhoZks4bDQtUjkwUXlBOGRjZlVTblFfNXhGZ3lEN2hjNkxNdHlOQTlqa192OFNIUDNobzgtZnhNeGdXR0Q1YXJXOFE5RjFxZV9QZ2Q2eHBXY19GY3R1LWxTSTdPODBhdHhiVTRQQnViYl9SYkNndnVkVmlFN25OUmFnbFBz0gGiAUFVX3lxTE1kcHNacHZYZi14YVRhaHo3RlA2R2tkUmFtalRnX0llQXpyNWhqRG01ZGF3OGZuaHJWT05ZbXNWam1OdE5OMk8xaHVKVzRTYjFQSTBZNkJKUktMY1JFTnh1MkN4eWhlSHc0eUp3N1FqNDZ3Q3Q2VDlrLWZPS0J0RE9oWVdFRkZ3RjlNbXI2SkxWSE5GeGpJNFRWQ3A4YlAwdUw4Zw?oc=5",
-     "at": "Wed, 19 Aug 2026 06:30:14 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "ترامب تحدث عن \"كمية كبيرة\".. ممر أميركي \"سري\" لنقل النفط - سكاي نيوز عربية",
-     "he": "",
-     "grade": "",
-     "src": "سكاي نيوز عربية",
-     "link": "https://news.google.com/rss/articles/CBMiogNBVV95cUxQWF9oTHQ5YUxWMkE4cVg4OVhHYko3YWl3XzZXZDVWRk5kVG1pZUNCQmg2TEp5LTlMVzcxMHhCbnh5UDhPT3JlOHF4RHFRUjlJdFNaVTlZMzZnX0hORktmYktUc2FTTGpGOXQ0dDBLOXdFcG1WTWdWcGh0ME16U1NIU2ZLUXAwYjUybWJ0NmY2blBnMTBFNVFMaHpDdDVoelExTU9rZ3VDV00zZDI3RUg0QXMwWG85UExyelNKWkpESkRVS25ySUswYUF2bFRwRVFGNzZ2NENIS1hJTlFjdFRLYmtlUml2U1J1allXdXQzdldWTXZ0bk5naE1QSWtqbjZjS0NWZFJZQWg2S3dyei1hQW9ZZmM5TkotdlNXaG8wVlk1RlA2LTJXajJCZXExeEE2emxiRUxQZTc4eXk3RGxCd1I5LUl6NDlkQm16Z2c2UHhiNXcxVE1mb0d1UVBWcERvRm1hMDNIc2x6MnpGX0NtV1hPOWJkaUFWdkZVbllkVVN4WWo4aS1IVWFhQlZmRDNkNXVqS2hZbTRIZ2JIWmo4d3B30gGnA0FVX3lxTE5QU253SXdMbUdGOVNZZ3hTNmhMRkNlald4cE1GYWJ2c3B0VEM3cV9laWZFZXlfckVwMnpYM1FEaTR3OXg3QWNkQ0lBcTZ0QUlRRElLOEpRMmhkUWF5V3VQTHgyWTI3UzJnOHdSLWtoNEZPRWVVLVhWN0hSVFFqekM1UElORmd1OGc1akJaRG1lZnk2UTBMazJ3RGdRTThVWTAxZkJoOUVzSklYRlUzLU1rVUhYSUZhRklEaVI3RXd3dzg0b1Q4Y1JlVmNWWEZYNlFTMnREOFB4QnZoVUdkM0pudEdNU3E5NHhDTDctWUVNT2RpTldoU2prWmtGSmRMNkNneF9aNWJJazBRbk5WZGpDalN6ZXlScDFDemRwNlRBeFl6RFZNazZadXdqendCbHR2NGpzNmNQeUp4dmJWcThqdDF4WkFlakxUYTc0VDlNTFZVeWxyZ3gwV25xSWZUTFNjd2dwVGsxT3hsdDJ1eDR0akZQTldVSmdsOTg5eXBrUjFGVnNNN3JrWW9wZGo2WDdoN1B1Tk9vTjdpVEdyZkZ6dUc1Rl92dw?oc=5",
-     "at": "Wed, 19 Aug 2026 19:59:52 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "الأرقام تكشف \"حركة الملاحة الحقيقية\" في مضيق هرمز - سكاي نيوز عربية",
-     "he": "",
-     "grade": "",
-     "src": "سكاي نيوز عربية",
-     "link": "https://news.google.com/rss/articles/CBMilwNBVV95cUxPRVhaTnJNVlZXY3E4WXd6SW9UX25RNDdwYXlIZk5USGJISWRvTWtoUVdnckRLbXhJa2xnd0xZeUVsY2J1dUU2YXd1SEU3eGY3amxETDJPeW5NSGpvN0FHUG5jNmV5SWZEclNzcHp2ZlpfeThTMHZ4QTNqT0U2RHVaVC1tM2JVb0RjdDdOWkNDMWp5SjRYNEh6YVV3TGZjcDlJTW82VlRGQTA3cHkxVHNvSGtObTREUXFoNFdVZE43TnU2WUR2Q3l0V1lkRXZidGEteWVMTHBvRDF1UHRqelNnd29OVkprMVJhbkVNRlpHR1FFRWc3cXFXd085M1pyc1pIUzU0Q1daXzNDbW5zM2otWmFwYjRhajJ4VnFmdU1WcUsxbTg5Y05Kbmp6YkI2eUxyYWxzRVhPc0VXMnhtWTg2NTYyVEZXR2JyZmNBZmVmbXllbUswZnRCbkljbE9INXNQaElFdFZrZHowWTVlblk5cF9BajFBSHNGbFIzaW5JRzdDTm5LUmV2X19rSjZacG4yOElTQkZNZ9IBnANBVV95cUxQVVNPd1U2SnpTMWczRlUtVkZHQlhydDJNWHl4LTBPWkxhTDQ1YnMzMGwwcXBIVlp1S2I1RU5WRXpRWnE1M19INFlWNFhEeUJCOE9kQ1d2Yk1KeHBsdHg3QnpXQ3EyaDJMT21oU2ZjRFFFdWc0WDhjNl9rZ2FycFRwQ2xCeGZmN2xRWUd0REREVHpKU3ZmbXJHQTN6WEJYV2RPLTh0QjBCc3NZUGZUV21Kd1dOYTdSR29ISnEtbFZtRUtUVmZndkZOVFJkdVQ1ZnpkLXdXc3NObTR0U3M3XzBMZTdOa1BaT1ltNUttYWxGRzZpQ1VWM0pPOHc1Rm4zbW1WLXJwakxadGxyTDFQVjZqVkFXMkpFYndJOGJaZjFhaW92YW9xR0FUa2JIYV8tMHBtdWhzUXJTZjRraFVOLWxtRW0tZ2tEWkJRT0M5QWdISDgxLXFHcnZqdnExTTA4OWFXZXpvWlYydTR5RF9yTmRvdnBhek1WdXRVUkxSelItSHFzVFEwSUw2aWZ4LUpFTzl1TTZyTzdCc3lVMGhi?oc=5",
-     "at": "Wed, 19 Aug 2026 03:57:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "6 سفن فقط تعبر مضيق هرمز وسط استمرار تراجع حركة الملاحة - اليوم السابع",
-     "he": "",
-     "grade": "",
-     "src": "اليوم السابع",
-     "link": "https://news.google.com/rss/articles/CBMijwNBVV95cUxPeHZJTEtvT1R0LWNIWUI2bXBQX1NhVHQ4bktnSVdLYnlsMFR1MklmU0hhNWJ4cTZrZXowTlpTRGFENWpJVEF0MUtBRUg0aW43d2RYeTFTUXF2elVZS2RBc0FBT3JLVVI4a2ozekU3Z2x6eHRMbFVmUW5oXzVpejBUUFNMcFlFZW83VmVHU045TVRhRUFObjVQenU0czZ6RGg1U0V6TTItbmFYYmh2Tk5vdVhlMkt3cWc1RGFKOHJ2c0c1c3B5UDhia1RmNkdTdF9DV0oxZzBsUHpQNXJLbVhxR284TjI3TFdpZmZzNkVpbU5PSld5c011TGFRekRXZUViVFpxb2J3djdKZFI5RTlrVXFXa0RVTWw2d3B3ZU5XVEdCLU9ZSXhsWFRmc3dfUEJ6bExURVZGMWhScmVmQTNwN3NIelM3T0ZEbG9iME1COG8wVWVmMnNqLVdvbnNlSjR3dld1YWxHQ1Z5OVhiakk5M1RMT0M1QnhVcHBGVUlXU1QwUmZlRm14b2daMkxnc1E?oc=5",
-     "at": "Wed, 19 Aug 2026 06:53:00 GMT",
-     "channel": "gnews"
     }
    ]
   },
   {
-   "term": "الحوثي",
-   "en": "Houthi",
-   "kind": "keyword",
-   "topic": "اليمن",
-   "heat": 52,
+   "term": "#السعودية",
+   "en": "#Saudi",
+   "kind": "hashtag",
+   "topic": "الخليج",
+   "heat": 20,
    "n_sanad": 2,
-   "n_open": 8,
+   "n_open": 0,
    "sahih": 0,
    "hasan": 2,
-   "summary": "«الحوثي»: 2 خبرًا مُسنَدًا من سَنَد (0 صحيح · 2 حسن) و8 إشارة مفتوحة من الأخبار.",
-   "summary_en": "“Houthi”: 2 graded Sanad hits (0 verified · 2 credible) and 8 open news signals.",
+   "summary": "«#السعودية»: 2 خبرًا مُسنَدًا من سَنَد (0 صحيح · 2 حسن).",
+   "summary_en": "“#Saudi”: 2 graded Sanad hits (0 verified · 2 credible).",
    "hits": [
     {
-     "head": "الحوثيون يستعدون للتقدم نحو باب المندب وإلغاء حفلات في الإمارات وسط التصعيد",
-     "he": "Houthis prepare to advance toward Bab al-Mandab as concerts canceled in UAE amid escalation",
+     "head": "حصري-السعودية تشدد الرقابة المرتبطة بالجرائم على التحويلات المصرفية إلى الإمارات",
+     "he": "Exclusive: Saudi Arabia tightens crime-related scrutiny on bank transfers to UAE",
      "grade": "حسن",
-     "src": "BBC",
-     "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9MWnB1dHNLYnFmSUUxUWU4bnNsYy1GSE1VdWtCSzU0blJaVmR3U29CdTd5bmIxakVRNzlwVFQ4bUhqMk0tQ2U3dmstY0tucE9VMlNUUS1GaVNtdUlq0gFiQVVfeXFMUEhnVWVKVEVoZmNiY2VkS1l1VG9WS0tNRjcyVkhBN1VvZF9WclEzbGRic1BPTy1lZDNDbXdhZEpQOTFaTmZkcU9vcXR2amdhX0I5Ml92NldJRXUyQzRxc3BsUFE?oc=5",
-     "at": "2026-08-19T18:26+00:00",
+     "src": "Reuters",
+     "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE8tZFBMeVk4eGhMdnEtUExfQzRHRWI3TERJUmY4Y1JJdm5sTnlERDEzczlCTVF6SE4yMFM3SW8tVXEwM1BRX2g1OFFuVVVjWTlYNXB2cXB0aEhSRVg5REgzanNzclUyMC16Q1pFazNZYUZ0VEYzMHRkb2ZRVkNwUVk?oc=5",
+     "at": "2026-08-18T10:28+00:00",
      "channel": "sanad"
     },
     {
-     "head": "ترامب يصعّد بشأن هرمز وغارات إسرائيلية على سوريا والحوثيون يعلنون استهداف أرامكو",
-     "he": "Trump escalates on Hormuz, Israel strikes Syria, Houthis claim attack on Aramco",
+     "head": "داخلية السعودية تعلن إعدام مواطن وتكشف عن اسمه وجريمته",
+     "he": "",
      "grade": "حسن",
-     "src": "فرانس ٢٤ عربي",
-     "link": "https://www.france24.com/ar/%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7/20260818-%D8%AA%D9%88%D8%AA%D8%B1-%D9%87%D8%B1%D9%85%D8%B2-%D8%BA%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A5%D8%B3%D8%B1%D8%A7%D8%A6%D9%8A%D9%84%D9%8A%D8%A9-%D8%B9%D9%84%D9%89-%D8%B3%D9%88%D8%B1%D9%8A%D8%A7-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%88%D9%86-%D9%8A%D8%B9%D9%84%D9%86%D9%88%D9%86-%D8%A7%D8%B3%D8%AA%D9%87%D8%AF%D8%A7%D9%81-%D8%A3%D8%B1%D8%A7%D9%85%D9%83%D9%88-%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7-%D8%AF%D9%88%D9%86%D8%A7%D9%84-%D8%AA%D8%B1%D8%A7%D9%85%D8%A8",
-     "at": "2026-08-18T22:18+00:00",
-     "channel": "sanad"
-    },
-    {
-     "head": "طارق صالح: أسلحة جديدة ومعركة فاصلة في مواجهة الحوثيين - العربية",
-     "he": "",
-     "grade": "",
-     "src": "العربية",
-     "link": "https://news.google.com/rss/articles/CBMi3ANBVV95cUxPelFpVHVINHZvLWs5ZEZFVVU5QUZUTnZPeExkZ0x5bHktWHZUS2dIVDlZVlpnejhsZ1huTG80QkI3ZFRkOHNfdU1yaGNQelJXVXNwNnNRUGxjd19XRWFWZEVTUmN6YUI2OGtYTWZxVWRuUWRLMC1aalFSMnI4UmVrc0xKUjBFM2VXVGlwR0VwbXZlMVpEREZmc0lTb2pfRDdDVTd3UTZ5Zm1WbW41ZXFqYTBvRl9CYW93VktKY2ZlbXh1Z1RsdmhSMHJYdE5ibkk5ckxqdDFJOWNQTDlTMmJzaHlZc2FNcXh2OU9DeDlralFrSlg5NzFDSWNqdml3cTIzbnNtbXV1TFRrVjlFbnRsbE05NVdnYWFhV01SOUdHRmJnXzlpZzZQYnB3cDFEVEcyS3dQN0xIUFlqVTJtUXpNcHNnYlNuYlk5TE1wNW1BSUdJaG92M2dENFo0Z1UxY3plUXdJd0t2NXJzQ0ZybklvVmxLaUdhcGtCT2pUb0IxUVZOMG93WmVoWUhQQnA0REZTOVkxdEVLSFRzZTJlclltUV9JNkFLdlA3QUQ3LXVKV1lOVlIwX3k0S2FhR0F4WUpFeEp5em95MGF4YTIwMUFVQnl5U1d3eWltclZNUtIB4gNBVV95cUxOZjlBR1BUTjR4SFBVUzk2dkY1a2plZ3JicVZQZlgtc2pRcUxoS28yY2ljRUYyaUI0ODZ5STA1c2stVnBGOEpmY3lVUU1xQ2pEaVAzZ0RYR3diblNUOW5lcUJZN1RhamlibzNTbmpzZzNleXhYcmFmY0J5YkRhZ3RWNU4tUVd5ZGhfbUtOR3o1eE5BRDRac1FKbHJGZnlzVTNPTWhLc1cwVGkxZUVEdGVDNGpNcVd6TDNXR0dvXzFHeEVhRnRNSU9oU3I5aHJTN2VxaDFyd1FCUm5BUTR1QXNjYTRCMmpUYzVGeTBaYVVHTkRFQUVtdFBYTHRodnRjN2NlWmQxLTNpTmt3eGxtc2xpQ0ZFRkdmSEo5Y2ZOaVkxZEJ4TXBtMmpyT29RRTJKWXIxMnhSbEJZUy14OWJ0Q1Ixc2F3ODRZNzhUODZPMTVJTFZrM05QUzcyT01vUHJDY0N3aDRpdnVlS2s3c2N2bndIRGFkRmRJRzloeDduTWN3NDRHSEVsZUtmMlNtbTlHQjNPaXJpSjZEaC1WT0dSRmtYZ0xBVjNIRGduVk5DSWstTXhRai04U0hOOUJtTUxFY3dNZVdObnJnTTFRM2lPcEdKVTJPVEF3XzlpUkwwNlBHamtkdw?oc=5",
-     "at": "Wed, 19 Aug 2026 18:14:39 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "صاروخان حوثيان يقتلان مزارعين وطفلا في الخوخة - سكاي نيوز عربية",
-     "he": "",
-     "grade": "",
-     "src": "سكاي نيوز عربية",
-     "link": "https://news.google.com/rss/articles/CBMijgNBVV95cUxPdW43RkFrVGJhV19zcmgzVGp6OU9vYVFTVGRXU2NSMnNZVDJVWnRQbnp0WVRLbWpKMV84Z2ZYOXN4VVgycVBPMVFyZldPUzRoeFR5VEM3YWZCTEhKb2hZa0NpVEtqa2FEdVhuZXRXenc1Y1E5RW81SUNPTjFjSEtxOTlzUmdjUEcxaGFmTnIxZWxjUnJOM0Q2dTFFOEpXcjZ5VmlRc1c3blFwQ1gzcWw5aVFDU0x5bHQ3ZFBFZ1l1UlVqX2t6cWdQVndvS1lrZ1l3X3JBbUNOZHFOYTliWm1QOGNJcS1VbzRDX3JQbmZQMlZLcHM5TEhhN2FIb1RQR3M3dUpGRHdTVUQ2TGQ4UlUwa19vOGlkd1dhUWlZQURsbEM4NDVBay1WRVRibFhvelc0dzJjaXVtXzAxb2ZVVTROQTBtSjlKMG1EUlItMGo2Q3AxbWFTZ1J3c0IzSUpnR2VUQmZfaXZOS1dHR1hZYUtGZHFEZTZrb1hpRmNkcnlkUTJ4bXRqMGVWZF83T3A4QdIBkwNBVV95cUxOTkZmekdMMFNfQjdPZ2dQZTFERm5yRG8tb2hlalhaZnY2RmRpVC10Q2h4YWVzQmg0OXlfbktRN19ha3hRTlZSSlU2dnJOZjZxSFpXQXV2R2xhS3pzSWQ5cVRJWUpDNGNPU2dscE5PQXZsV0dHd0JDT3ZEcEIxbmcxM3ZrTXh1ci1NZWRCcld2N0NmVWIyS29fYk5YcU1PQUdFVm9VNjZDNklERlRFam5zU1NSR3pOZkp0VzVGNEpTN3hEVDlndWdEUHZvZkE3RTNCSUU2VmtENllWM1AteFlYdk12U0V2SlFwM3VtSnlmNnI4QTExd2VvZlFhQ2tpVklTcmVuYjE0aGdsM2Jaalk4cTNnM3NCOFRYLXpJVGxFZ2ZjOXUwNzhaaXo3WGJaWjJtWVNfVDhpVGJ3am9qeDhZMTN4NW43a3dRZU5ibHlKV0VUMzVFb3J1VmthbTQ1Vy05Q0dXSTl6Z0VEWHlRZDZ0TGctbWxzV2t6WmZiOTdTUlNPVjlxLWc0M2ozaXhJdjhMdkJN?oc=5",
-     "at": "Tue, 18 Aug 2026 17:47:01 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "تحذير يمني من خطط الحوثيين للسيطرة على ساحل باب المندب - الجزيرة نت",
-     "he": "",
-     "grade": "",
-     "src": "الجزيرة نت",
-     "link": "https://news.google.com/rss/articles/CBMi2wJBVV95cUxOS1cwd0xwR1VzQkVaeXUxOVNIMzdObHNVall3X1JMNEc0UWtaUWR3ZXc5VW02UDlrRGlFMHhScG1RcnVKOUMxZndrMTF4aTZ6LWgybkZzeUlvVDNxbDRBQUtTSVpIWXhpU0pZRVFGTnRlUGpfZUFNbHVLOGJZcWFMQXRjazFVSFd1dzVwN0FMXzczTjY4UlZmNm9aSVBSYm5tVTRkbVpTUHN4dDFKRVhUdUItTTFvRlJWbWtZNlg1Rm1IWTBodG1FY3BqWVVGTV9WZVdHa2d3SjdZM0g1dUktQ19DM1prNlhLaFluSGpGeWl3X3ZkWFA4M0phckFaMk1NU2ppMHJabkEzT1l2WTB3cGRYNEsyOUd2V3pLRmRGT1dCX0pLSGpwYjAzTFhvLTJCeF9pU0FRdnpFLW92VW5vZWVaZUM0Ymk2RVNiRFp1SnU5TFRiMHlLQzZBRdIB4AJBVV95cUxQUXJlNE91UUU2VzRxZXowdHlnUEZVMXh6M29Bdi16azJkTEd1TFlfaURMNmZvR0JEeTlTQUkya3gya015WFdERGhhdkNsamFDUlFfT1lpLTJaRmdLWV9KVG9TRDh4LVhfV2pkdTlFT1k5RHVKMWZ3UUdkOXpUVFdPckY4VjFSN1Nsbk1nU0FQdDhIUWtTZWJHSEk5SmprY2ktX1pjaTVUWDQ2c2pKcDk5UTlXVWdWVkZONVIxS000RHZvSXdZbkVxSlZGc3dZOGsyT01GT0t3LXktbTBlekVBd0pEWUVjanRFUnlGOG94Y2RkbzJCZEpDY1UtZy1oU2RqejRLN0xUMGxVeENYLU5lMmZuQ3NtOEhpZnBycVVsM3RXX01HY1k4WDNSenNIVmVCOXN3MjJ5M3h2NW9JVTVZSzBBZGM0S0JPekViNDJiYnpzWDhfYXYtLTJadVc3dmcy?oc=5",
-     "at": "Wed, 19 Aug 2026 14:45:02 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "مصادر: جماعة الحوثي تستهدف المخا وباب المندب بالصواريخ - سكاي نيوز عربية",
-     "he": "",
-     "grade": "",
-     "src": "سكاي نيوز عربية",
-     "link": "https://news.google.com/rss/articles/CBMi2ANBVV95cUxPOGxRaWdielFzaW1XSTRBNmx5bTk0b1RaSnpiTk9Od3dxMHdwLXNrOFNGV2d3ZWs3V1drVVhzTk11cHdSYjVyUE00QmJ1OXVacWlHM0trWUxtVHBuVDA1SHAwWDVXdHFjcUVlZy1vYXJFbXc1RWl4ZjBaWUEyclVuZ05jeXhmT3UxblBPRzRsZTdmQlE1dG9VNVItV1Q2SFdKWkNaUi1zQ0ZweldaamhnT1p5bDdsUjJHM0Q2ckFQbXJYdlJTNTl1MmNESTdDMEhYaGY0NlpCRy1jVzZRV29jRWxYTDdmZHFVbTlhUUg1N2ZmWkJzcXJfV0ZlSjBKblpvRHV2X0lPUGVOZEo2aU1oUS1DaTdsLTJiV2tjSE05TU9GNFdHYmUtRXYtd0djamlmLTRXZEl3bmhSZ2xXRFhhRUt3bXFCU0hsNTZVWW9HeFppQVMxcUdxNDhXWkRoUE42dUtUai03RHlXX3hzeElVQ3Atb0xXZVBVMEhLRWtOVFM3OFNZMWJBQXhXMjZDMmU1dEJITXRpTDJxY0l1T21DMW53M2N0U1BuVm5hbm1lZlZaOThnXy05TUkxTVZoTXY3SzVDenMyV2k0UWIwNW9UMnlKLXVHN1BX0gHeA0FVX3lxTE5ERUlpVnYzaXRGVmE3WFhUdHBkU3hIRTh1bTYtNFBWcFZXaEVOQV9ydTh3cW9NZzZpYjU1aUI2RXZEWmRSdUpWQnVCbElQOEh4MmJ2c3RKamhsdHFwU0FDS2FqTURqNFJnZTUyTDdweElFSW95XzRNeU9BLWF2S1pMZ0xPbnIyY2xwekk3RFRHQ2RreFhibzBUakRuejliaFpIcnIyUTZGUG9HVDhrZWRFSURrclJjbFljM05NenZLRFYtclZZeFZJWmxDSWFHNEo0UGJDNzNuZFNrUHp1QkRCTkRUMzVKWDVXZnN5dXRXMFpUaDRKd2dKZlVva05IRms0VTZjalljUFp6WURiOVpsakJMajBXc3Q0VXR6bFJwVmpTNnZ5dXhJNW04ekR1MzlNNWJHZFZLWEZpeFJ3aUMyT1pBc0x0NnVpaWdOZloxWUM1TTFXQlRSWUlUVDl0eGREcmlVVWdpWkNBWW9yWjVSMVFiMDVoWTlpV01LbndxeS1iMjdKbDZ3Z1JrZEh4ZE5oT3M2X1BrX1JuRkhkZ2NmT2w3LTUxdXVnWHplRGt3Vm1CQ3hpRUNKeUpRYVNYbEJsX0hWQTZwOHgzVTJZdFVRMXFCRUlubEkxQUcwbmc?oc=5",
-     "at": "Mon, 17 Aug 2026 10:13:29 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "الحكومة اليمنية تحذر من خطط للحوثيين للسيطرة على ساحل باب المندب - مونت كارلو الدولية",
-     "he": "",
-     "grade": "",
-     "src": "مونت كارلو الدولية",
-     "link": "https://news.google.com/rss/articles/CBMihAVBVV95cUxQQzlCSWYxelZYcDBhVHRTNHRpbVNCcGpadDRHdGFJcXJrdlRONzNUdWtQVFJVTXpWMlFmN0lTOS02dVVENGtFcDdtZEJiRFh1aEh6MFZYNEQtNU5ROFgwYlVaVHZ1RFJFVXdDV2JxbE1xb1F0Sl93ZHVmVzh4RnhEc216T2pTUkx5bU8ySFBtaWNVMlBJeVdyeGlGak1vc0E0NEpiQWt0U28wUHFEWnpMUnpWYnFJRVlMUElwZEhDSU45TzdnZFZJbGExLThwM09rVVFWckR4Z1ZfVVVLanYxVllRS2tqVkJUOVN6Qnd0MGV4cDlMbU5YSGdCeXNIQjQ5M3M0aUp0YVBJTnI1OUtqWF80Sk95aUJ3U3hNQzA1Q2FRZ2l0M0NIMERKd1lUNkpUQ3BRLWp5UEVUUWp0bVF6dnVNeGg3bjZvc1ZFRUZRUVY2MkxORlI4WHhnc1NvbFZCQkZWQXFjVmVQbDB2RkJUTFZIV2hncng1TEZVUGZhWFE0bENqQ0cxVEs3NThndXJiSE5BSUZQQmFDUWJZZ0VCWmFVN2lLdndmci1YRUE0cW1LQ3N2d2NjaUxLTVYzT1d0OExfUDRDc2Z3bGpFblpQMHVBeE0xc0RMX2pGMkdxQmxMWkFOcENCZ1FHOEhBcF9fS21aSXdDYzF4RHIxRThicmpLYTRuQ0I5ekotTDU5bXpvaGp2OS1tUXd0TElmM0hGU2hwMTd2c0RJWDZWM25aa0pDRC1lMEJaVUhEaFhIbG9TMTBQLW1panBKb2lPS2FXWUx4MkhQU3ZxanFWVEgxdHVuYS1fMndsbGxfZ091RlF6QlhPQUNHdUFvekhvTjdkckU4bQ?oc=5",
-     "at": "Wed, 19 Aug 2026 13:04:12 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "تكتل يمني: المعركة مع الحوثي ستكون شاملة وحاسمة حتى هزيمة \"الانقلاب\" - Anadolu Ajansı",
-     "he": "",
-     "grade": "",
-     "src": "Anadolu Ajansı",
-     "link": "https://news.google.com/rss/articles/CBMi8ARBVV95cUxQX2pZVTBqY2ZxanhWTlRSUmp2cnlXcWttcVFpbEJ5dnVZbzVwd0hvVWZpVFVHZ29GcnFla2NKSm81dXFwR0VlZktjVEFsS0pQWHB6enhQaGZZSlJVbzNnZWVzRW9YajBSWUkyaHNJbS1iOUxCNkdHdlJJVFk5aE9SQ0cwNFhZMnl5dDFUODVzamxaaEZuV0pCRlctYmhBS3JiS3pHVWdEYmkwRWhaT04tVy1tUUVXckludDNyYXFYUlZJSnUtSDZ0RVRrSmwtenpfOWI3X2pSZUpwelBwanA2WkJya3p1SE8tMTV1dzRnNmZZbFZHMW9FbHI2Mkx5cEdhZmM4VXp6V2ZOMUdiZ1hZV2E0YzNGOFdIRXlIbVFfWVJCWS0teEtQZTdJVk5RdV9hai1JR0NYUlpHT0cyTGFlWWJvQnZ5b25QRC1PM29fTWtGSEtWLTNidTU5bl9EZ0xVbFNqQlA4blJsQ2V4NHVER1NlV2dHbUloR1ZCWkY3dDc2N3ZSSjRIQnJRRzJpbGpRR2k2NXJfc0ZrbWl1U2VVRkN1dndhdzVKeWdOWnphNW1uZnRxZzlTc0xHbHltazBhcHJWMEtCVmt6cFNZX0FRdENKTVZQSW9FeUFWY2RxdVl3TTNMMDhZNG80MzBmM3FQRnBLQ0pMOVQtY1FDdjBrbmdla1laS1AzY01vc3dydlNFMHpoU0VQNWd2ZE03dk9Qazh6dHg1emUyT3V1alJ0NjlLc0w0VkFxaFRuLXozZEVpSk5oUlF4THZBYXBsclk0aElDQ3hhNWlTZk9HbFVlU0lKUm5zdW9jRUpMZUR5SXE?oc=5",
-     "at": "Wed, 19 Aug 2026 14:53:11 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "الحوثيون يزعمون استهداف سفينة عسكرية سعودية في البحر الأحمر - CNN Arabic",
-     "he": "",
-     "grade": "",
      "src": "CNN Arabic",
-     "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPOGs2Q25SSFh5dDE0TkhqT1NFZ0xoSHBybElEYUpvbElnbm1VT1lvMFZfNVdjSUFsOURlcUM5OHJpa0xQSHY2QlJranUyVXhDYl9XdGZwNXZJQ3J5bVRPRFRmcVVlSkQ4aGNwOWhIeDZHRktzMW51VE8xcU1aYy1tOElrcmN0bVJ6OWhCWmRoMWlNSmhGb1pHdWo4QnlKM1NVMW1BZURLMG1qQUFuNVNVUERMT3RMQVp4NmfSAcQBQVVfeXFMTVV4dWFRaUFUNkc1Mjk1ZUlMeF85QUxIcEEwM2hZbHlRajY2cUg4QzdoSXpqcENMM0NhdHJCcjk3Y0U2bTVhaXpwSi1SLTQ5S1ZfbGlzY2Z2TW5SX3ZESkpxenFDWDk5NXBHQWdaR1p1VVlscWVDWVZKeFo3M1JNMkNNTTQtOXFWZmlOSm9zdFd4T3gyQ01GRmZJeEpmZC12VDVhRmVzaHRzeEF2NUdFYlRHblpzaUc1UUczTmxEeEFGUDJQMQ?oc=5",
-     "at": "Mon, 17 Aug 2026 13:09:44 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "مالك سفينة قصفها الحوثيون: المليشيات تقطع أرزاق اليمنيين - العين الإخبارية",
-     "he": "",
-     "grade": "",
-     "src": "العين الإخبارية",
-     "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOWjFPWkxGVG5lei1CS2xGNEhpUDJuVVBzQm94TFhVNWlhUHJTblF0c0N4TGZNWkdaWTh2MmM1MU5FeGlNVGh0Q3F5TG9VLVUyM3hWRGxDMzd3clQ1MlRUYWFvbC1oYWlGa1hrTkV1Y1ZWZ0M5UjU5a25JeTk2ZmgwNQ?oc=5",
-     "at": "Tue, 18 Aug 2026 19:08:10 GMT",
-     "channel": "gnews"
+     "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOOVNyaTFIbUdUVExZZWE5MmR1YmRJOTZtXzY4eDhrUERXSzJoelFBMVNmVldBbTBDbFlqU0VfNzk1SjNPX2haTHl4SWpOQVBRbFdJZGpkZllZRTd2amVGeHlXSEl5cTBZVmJGX0tQanU4Q29JNkVmdHowQ3lYNVRwVUJpZk1mRWFfak1kTUthR3NKZW0zTmVQTFI0aGdKTGh6OGtR0gGuAUFVX3lxTE1ITmdOSFBSOVh3V3JKcGpCTndaWjkwV2pyZHMyR0c1NmNRTngwYUg1R2YzQlg1cWZ6ajN6WjdESmdLamQyZkRoUVNQTlVia2dVRHR5Y0l4b1Z5NXlOSUxRVHRXMzZlMUN5by0yenlnVDN5U0QwN0dROFZIVDNWalpCaGZIR00xek5ubHRlTktNWEJCemVNREhldDkyLUhIbXlNaUs3clZ2V3lQbm9XQQ?oc=5",
+     "at": "2026-08-16T11:05+00:00",
+     "channel": "sanad"
     }
    ]
   },
@@ -1057,355 +439,46 @@
    "en": "#Kuwait",
    "kind": "hashtag",
    "topic": "الخليج",
-   "heat": 42,
+   "heat": 10,
    "n_sanad": 1,
-   "n_open": 8,
+   "n_open": 0,
    "sahih": 0,
    "hasan": 1,
-   "summary": "«#الكويت»: 1 خبرًا مُسنَدًا من سَنَد (0 صحيح · 1 حسن) و8 إشارة مفتوحة من الأخبار.",
-   "summary_en": "“#Kuwait”: 1 graded Sanad hits (0 verified · 1 credible) and 8 open news signals.",
+   "summary": "«#الكويت»: 1 خبرًا مُسنَدًا من سَنَد (0 صحيح · 1 حسن).",
+   "summary_en": "“#Kuwait”: 1 graded Sanad hits (0 verified · 1 credible).",
    "hits": [
     {
      "head": "البرمجة العصبية والعلاج بالطاقة.. الكويت تحظر ممارسات نفسية غير علمية",
-     "he": "",
+     "he": "NLP and Energy Healing: Kuwait Bans Unscientific Psychological Practices",
      "grade": "حسن",
      "src": "الجزيرة نت",
      "link": "https://www.aljazeera.net/lifestyle/2026/8/20/%d8%a7%d9%84%d8%a8%d8%b1%d9%85%d8%ac%d8%a9-%d8%a7%d9%84%d8%b9%d8%b5%d8%a8%d9%8a%d8%a9-%d9%88%d8%a7%d9%84%d8%b9%d9%84%d8%a7%d8%ac-%d8%a8%d8%a7%d9%84%d8%b7%d8%a7%d9%82%d8%a9?traffic_source=rss",
      "at": "2026-08-19T18:15+00:00",
      "channel": "sanad"
-    },
-    {
-     "head": "ما علاقة حظر الكويت ممارسات للعلاج النفسي باليوغا؟ - BBC",
-     "he": "",
-     "grade": "",
-     "src": "BBC",
-     "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5PU01Ldlg5dThJU3NkWEVvYVF6X19LNTJUekFEN1Vwb1l4VUp6bHUwUDZUazhLZWlXc3kxLTJoQVVhWTFYNzVrUXdxcEI3ZGI3YVpRdDR0QlRyb0d30gFiQVVfeXFMT3FpRlNxcl9DNmpaU1FMN2hFSUVTX2FmaldYQXNULUZ2UzM5TTlWOVd1LV8wWm9GbC1RYjBUVVlNalA1aWxRckl1a09WYVRIdzlvXzV3b2lsVUJpMEVBb3JsblE?oc=5",
-     "at": "Wed, 19 Aug 2026 17:46:13 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "أرباح شركات بورصة الكويت تقفز 90% خلال الربع الثاني بدعم 8 قطاعات - mubasher.info",
-     "he": "",
-     "grade": "",
-     "src": "mubasher.info",
-     "link": "https://news.google.com/rss/articles/CBMi9ANBVV95cUxQSkN6Q2dITXJSYURIdFVBcGJmV3E1emNERzhlNkk1N1hrYzl1eUJQemdScFZob0dGdmkzY1dXbjMycHd3SnBFazE2WXpNNnB3V1hES3FGR0lwaDU4X0NMMHZXMUpPNlVNZ1N2cHkyWnZwbDY2VmpjV3pTRm5ucmRuNi1WU251RmR0aXA5Z1JDSU1EeWNqZHBPRFVpTGZKN1lnRkYzeGNyMkFCd1JYWjNSNTFOSVAxRU9tZWJ2U1JlY1BLVUJhZ0VNX2cwdHUxYjRpdC0wMTNlZUt6bkhBaklLOHdub0tpVXBuY053X3gzSTNNbTRZczhhN2k0bHduM2UzYnplVHM3UUlxdDdmTl9kQmx4TVNwSU5xRnRtcDgxamtoM2RleTN0NUVQM1QycFJDREdFLWt0NHhzYlJEVWc0MUJtd29DeDlHdXBMekNZX0hVam5CMXZOX2dlVFJWZ2MtWXptSVVGQVlNbDBtSDNhMG1KRTJ5REtqRFhfRGtUXzE2eWJQWnFtVjNRSFh4cHRDWUw1M1lrTGx6UHVmaEI5QlFPdW9CM3VrTWx2ZnZNbTdLakIwaUxWa1VRVW9LRkJEMFFkd1NaY1lZWjN6UERoSVV1dmlaRE8yaUZOOXdHRFhlNTBHN2JvbzU0dmlBXzkySkF4MA?oc=5",
-     "at": "Wed, 19 Aug 2026 10:50:58 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "الكويت تدين رفض سلطات الاحتلال استكمال تنفيذ خطة إنهاء النزاع في غزة - اليوم السابع",
-     "he": "",
-     "grade": "",
-     "src": "اليوم السابع",
-     "link": "https://news.google.com/rss/articles/CBMihgRBVV95cUxNblhaY0dKeDJ1ZGk1c2tSNUtRZmplbnl2cGxmeUNLcVdscG53Y1dKNTg5cU9tWmpud0tKdXQ0cWpOcVo0d29acGZaZ2NXaGxrek1jN0llcWVCYVdkM3p4MkpIbEdBOXh3UUpGSnREclNDQVc4Q3JXREs2Y2F1V0lCQ1VmLUNESlNqRFIzdDhCUy1zQmxVNnZONTVyUzhjeG5uZ0szVjFXMDhERGNDQmp6TkU1WUpUY2YxcnNBTDAzSXpnZk91NEhUZUMwcjg3T0IyTzFXZWdwX09ickZWdmdrT0wycmNvNjBfQUpjUEFhbEx2YkNuZlZKbFNoMU1aN2RoSk5zaE1lT014UzV6MkQxTmtHb0xlR2N6RXl0Y3Q5eEctQ2lXU2lnOENpT2ZvOTJ1WV9ZUXdkZTJYbDJUbjJJMzVna21iOEUxRDYxY01QQ2t5QVljdWRXR0FXM2dYbnF5c0VkQnh0Unk0a2JsWEM4Wk0zN2tNVW1DSGlubENVa3kwZ1ZHWDRaeE1FR3hjQ2FVZ2QtOXpxX0F2T09ZMmVGSExvSVdraG1vc2Fud1FqcjQ0bExPNlBFV1ViZnBBOHppbmVnUmx5Y1F5bDBuSnpJVHZyV2RtRjByczNHd3JQYVBjQXB5Uld5YUthTGI2ZEhWVVZYOGdLTmVmRER4UW9uLV84MEtvd9IBgARBVV95cUxNRXNMeVBCR0FxZ3lDYktnVV9ZcW5GMmhqTTZObFR0TUZ0QlNWazlaX185V3p2RzNCNnpxOEhQU0tBTmstdnF2OG1iMFVpRXZzMXdvWVdrWVFnVXMzRTEycUc1NjJGeVFnUzJYbzV1dXNXTmMzd2xiZXJiZWM1bzZlSGtnUUEzbTlBT1UzZnNtdUUxZ3dkTUhzMFVnVk43bVRqS3FJTTdPV1k5NFdhelhBOGhyeXdLYzk4ZGxOckJfaDdCRHpwcWhHOTdQcko4N25EWFJwR3RzWTczazBlbGlrOGlHYnQyWldablpyOUFDSjN1NkthM2d4Z0x2VTMxWjJaZnRTUGpneUl6RHRKRGVjUzZTbkNtLXJtVXAtb0FzeWZMdzNqeE1tY29Ya0tieklNY0tnWFkxSUhGeHdnaVJFek5IQ29xcXVzVEtEcmx4cDVIbWVGQ21idXZFZnB6LWhYOUJkR28talY0WVJsUEd1QkswOWVqSG1HZHJmOFJwcS11UmppcXVlZ1lqZm5GMks0M3A5QlZsMVhreDMxQ1dvYXhGWVJPRmtMTWxLUC1wM0EyU3NzLXl5c2p4ODJUUXdoM0JKU3ZlbWNKS0xVTllBM05xQjRkSGZOTzRuNElFTkhXazNFclh3STR5a0ZsTG80VTZXbnRBSnl1YmpUTDRxSA?oc=5",
-     "at": "Tue, 18 Aug 2026 22:00:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "وول ستريت تلجأ لأموال التأمين بدل البنوك في صفقة أنابيب الكويت - الشرق بلومبرغ",
-     "he": "",
-     "grade": "",
-     "src": "الشرق بلومبرغ",
-     "link": "https://news.google.com/rss/articles/CBMikARBVV95cUxNRUI3M2FaUTVxYUZYeVBTbDV1dHM3WmVVakJqMURVNDg5dGVSMHFuLTVFN1pNeHlMUndFOEtvOXJRTFdRdmdTR1dBWS0xQ0dYNmk5N0FucEhibGlFWHY0amxkYmpFWkpsX1daWmVDOEVwV19TdGtlWjFnU3kzSjhfNThPLVY0ZHBlOUZ4ZGVWWUZJN2N5bUZMdXBYc2lmYlZDdHhnZ1pBa0I1X1pHazlEUGdoOERpSDZBbjZveWg0dlY0dmRLanV3MFg2VTVpekRfdHp3TlRZcFp0bF9MSUN3ekk3NFcwaDNCYlRBYjRWZ0cyclBzLVkwZm53MXg2bTJWUERleUZ5OE0zMkhpcVJqUHFCWVRuM3lScGUwQk90QndCLUM3VnlpSURaUXpaWjk0dlp5d1pMRFNHREJWYmtBN1hiN3RwbGNmZksyWjB0MURxUjlSakxTRDZSa2hkV3dUcU5lbDdmcDNna3V4b29pVGJkNi1lT0ZQZHNxWE1JMU40U1pLdlFHX05HMG1wOVhZdm5UaVQ0RmxsOE8wNm83aXpzaVdiVlZKcmlSUG5TVlpPNVVJVlphTlF3QUFxbEt6Y0s0UW84WFNGblRpRV9Wc3R3UGxhT0VZakpELVQ5dzlHYmRXR1d1cHJaNG5jUExlUFVNTmJYemkyX1E1NFhXTW5oSjhBZnJTdkExN2N1RXU?oc=5",
-     "at": "Tue, 18 Aug 2026 02:58:45 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "رئيس أركان الكويت يبحث في البنتاغون تعزيز الشراكة العسكرية مع واشنطن - Anadolu Ajansı",
-     "he": "",
-     "grade": "",
-     "src": "Anadolu Ajansı",
-     "link": "https://news.google.com/rss/articles/CBMiiAVBVV95cUxOVkd4Rm1kUnEyYWlwTV9qaDRFeWVHdmhfNWNGdzdsNElwV1FYNWY4Nk95Y0hvQS1TZm9hMzVlM0U0dUNXazVBSXN1MjFoUjR4VDkxWlhYNFBaSkt2LTJGa0VSVFBMVHZhRWhKd1hVdjZaRVZTRXAyNThobWNrUVdkVWdRUXU0S3RURVBhNEVYTVZjMlo3clo5YWpKeHFqS3YtLXlaNWZRZDFhZ2Q0dUdtcmV0cTVNX0kzdXd5TkpKVzJvUVZrb2FLMWhILUV2NmdjdC1UQ1lqX3RYeWo3RDlBZUJEV1VaYUVpZGpFYWpVd0tvVTVZNnpFYVZTamRqbFFkeVFaZW5sUVFRd2d4S001OEFtTGhaYTVlandlbTFqT1BKNE5yRkFGVW1CaG00Ni0teFhIVGZ5ZXpacmtGU3dGd2dRdkZ6bjdXSHdlNXhsajNWS09zQWEzUjF4RFhzdk9aY3hIMzBQcHRwSDQ0Z19fbDR1bkprcnBvM2Q1UFZmdVFYVEt2bUNoc3k4eUl1TVhSTDRUSVo0ekthMGc3Qm5pRDExVlV4cFdOeVp3cWxVWmJycWlYWU9jbmMzVHYxY1NScDFwMmFRanNUSnU1QzkzdGR1Yy1hR1Q2dmZ4bUpIYWRlc3lMdjJacXY3RDNHUW5CcHNkVzdyS2x3QjhIbzFDdUIxMHZPbjhfdmdnbTlaUW0yc1ZvalVLazNYZmNYRDZyMnVwRHZWR0JISV84b09ZUUxvOEVmSXZsT0tvOUpCTE52aVpvdkN1RDQ2UV9vX1hucmZpRVgwUzQ0TVhJb2hzbEktZG1PQ3l6dnlQTU1jNVA2Z3RuNmVybEhVN1p2dFFGVC1Cb216UFg?oc=5",
-     "at": "Wed, 19 Aug 2026 18:44:14 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "إرنا: السفير الإيراني زار 4 معتقلين إيرانيين في الكويت - Masrawy",
-     "he": "",
-     "grade": "",
-     "src": "Masrawy",
-     "link": "https://news.google.com/rss/articles/CBMi6wNBVV95cUxQTnN5bDNTY3dIMXRKR21Ic1FJcFpNbGpjRWRNVGFKQWpsMXpVYi0zdWY5eUk3cjFSZFdGd2dsclMtQVJBa3RBdWpCREM5LVVaOWlocDhwWkxWOElMX19qaDc2OEwtQkp4bGtHbUh4Mk9nLUd3REMzRHFCR0lmd0dvX1N3RUZtcVRzSm1oRHp2N255RHJKZU1hRDZUcTVfSEJYYzlkWUl6WUdIRTlNSDdLdDl2VUxDYlJBVGZMLWV4OWVYc3NJanFJc2VyVHBMTTVWT3RHVUwwaVpsLTVEa1VLeUdNQ0Q1ZVVTRUJWNkpORE1MT2hvakdvcXI0bFBJanFheW9ITDBnNFlJaS1BS0NIS01PejMxRVB1dVdHNFE1S2hfZi1yanl5aUN4M2J1bnFhNllNUnBBZnRROTE5YTc5QW83eVJNdHc2ZmFZSnpFZWpHaWQ2VjIxcmJGYkpPbXlJM0lBUHNfYTd4bjNRY1Z4VDJVVWk2ekpHYU5GQy1HVk45UzEzcndWUlVlWHRGQVJTeXlScVhWWGEyaXN4dVgyOTlmNkVWMlFKSWFjSnEwOU1UQzNHM3Q3d3VueFh1TTdPZURfazJtTlQ4MW8xdmFwRzJjTE11QzBnMXMwMW8zZ05RckpFc0Q3Y3dqVdIB8ANBVV95cUxNZ3U2WkVOSklvMnEzUVNRaWV0LVMteG81SnFHdXJZd2FVcERFWjZNbFJSb2xMQWs5OVFReWlVeEVzeHFMQUo5amxXUmY4WngwUGpTcVZLWHdaZk5aQnByYWxIR1I2eHdLd1BpVHRoVTlBRW9jOEd5TFJtM1l6UEI0Y0VrZ3Bxekh3YlNkTjRuMXIzQ2lrNnBDdjhFZjdyS0dEUFUtNUc2N21LQlJXNGNsQUtINDRmYlMxSWFpWDAtTHFSdlluUVRJa0JuenlkVjhPdm83OGVpMllieDRZd2VYQnZ5RTBGQjRSVVE1a2xQejdlVExnZ0tKdTFJMU9Ya3Jmak1pNm1odGYtR0U4V2pleUxmS3NpdzBPcFVwZF92UUE2MzdKcVZiMXRCMDA4VmV1N3Q0OHplVThZalNGd0szS08ySnBiZ2pzdHNPazQ4Z3RIRjRjRU9sb1JUMS1HNGs3NU4wbU9SWVpFQkxlSHk2d0VIeW0tbW9LWFQySmZwQldhTGhVb0JSSVh3dF9zR3h4U0lSemxrYmVrMzdBeWtUNXkxajV3WUJiYkt6UXZwQ3ctNVhqY0MtU2Z0QnNHTWl4UzMtMHJ3Tzg2a1o3YWI3Y2VWUTUzRmhlNHg4cEpvUmZmNjNpcDFrdmZiTFdIOHlw?oc=5",
-     "at": "Tue, 18 Aug 2026 20:49:59 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "أمير الكويت وولي العهد يبحثان مع الأمين العام لمجلس التعاون تعزيز مسيرة العمل الخليجي المشترك - بوابة الأهرام",
-     "he": "",
-     "grade": "",
-     "src": "بوابة الأهرام",
-     "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1tLWxyQk9aVGNmdUs4VG9rZFQxSGJRUzRFTmJ2U0puNXUtdVNBdkU2SjNSUGd4SkxaZ1NfT2UzbkRDZ0dlRmEwbjVySUdkbTFqM1cxZE1R?oc=5",
-     "at": "Tue, 18 Aug 2026 15:34:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "الكويت تؤكد ضرورة تعزيز العاملين في المجال الإنساني وحمايتهم وتمكينهم من أداء مهامهم بأمان - صدى البلد",
-     "he": "",
-     "grade": "",
-     "src": "صدى البلد",
-     "link": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE1XclU1MjZrbHVXSUVSN0FFUUM0eUEtX2Z5dEtrSjRfWEwyTWE4UkUyQk5EUktEMjNKZnFWemlvSk9TR2dZVGFF?oc=5",
-     "at": "Wed, 19 Aug 2026 09:56:00 GMT",
-     "channel": "gnews"
     }
    ]
   },
   {
-   "term": "#مضيق_هرمز",
-   "en": "#StraitOfHormuz",
-   "kind": "hashtag",
-   "topic": "ملاحة",
-   "heat": 32,
-   "n_sanad": 0,
-   "n_open": 8,
-   "sahih": 0,
-   "hasan": 0,
-   "summary": "«#مضيق_هرمز»: 0 خبرًا مُسنَدًا من سَنَد و8 إشارة مفتوحة من الأخبار.",
-   "summary_en": "“#StraitOfHormuz”: 0 graded Sanad hits and 8 open news signals.",
-   "hits": [
-    {
-     "head": "ترامب: لا محادثات مع إيران.. مضيق هرمز مفتوح وتمت إزالة جميع الألغـــ.ام المائية #خمسينة_اقتصاد #مصر #مضيق_هرمز - facebook.com",
-     "he": "",
-     "grade": "",
-     "src": "facebook.com",
-     "link": "https://news.google.com/rss/articles/CBMipAVBVV95cUxPTUMwRURPQldZMjB0aTZkQWF5X2NKZVRTOXJVTENkZDRZU3VjOXRQOUEySFVuMmJ1OUVvODFvaFBFbnZkazYzOV9PRWprb2s0d1RwTlY3b2dCZXRrOGFnWHBfcW1na01jd3k3emVjeUZKNlBrZ015UGd0UUdKTW9kcXdELWlSbUEzQ2hMR1pHY1BCX1FwaXRuR1kxVEVQaDJsN28ya0dvYjZERzViUTdJb3NHUkgtWHYyVEkzUHBkczVMV3ZOVXRIbnVkblh1U0JqUjg4MTZSQ1J2Sk5CQ085MlBEUGF0Szd4dG9yRk1Qc2xmVkh6WFJxN3Z3Wm0zWmFhWW1aM2QybmZIbm5OcEZ0cnAtWk5vczhKZW95b1ZPMjd2WHNmWmdLUWpIWDJrYUM1T0c0YjE3NnpqdC1wN3RLRXJLXzZZWlc5bXlrc0ozc1ZTOVVuTlhScS14SzMwb3dLQ1VBNGhFanFic1BfOXp3ZUR4RWN5TklVYmNOYVdmbk1aN1pERmpvQXNwcDRKWlhfVzNVY2RSTVR5eHJtTlVJU05TS29WYW9nbi01NHRDNnNiTVVNZzNRUW5hTGVTTGZ1Mk5melN1eF9weVk5OEdCNUl1SXAxY1F6d1ZmMHFOUVpEMEJrUmtick5xUDlMV2lSSUNtcy1ZOEJ6cVRDTGY0NTNlMncyaVRPaTdwUFFYeTF1U0xvelRHakxvRkRMeEYyd2Y2TUV2R29RN3I4VkxVZXhIUFdiLTEzbFZLQkdlV0dfYmZRTHFJdHN4cVgwM211UkRXVThRLXJNb0lCSUpxTHFzNVVQMVA4VmRxUWhaUHRDbzBENDdRWDRqUWlVLTRyenlybVBrSmlyTWFNaEpWQndCa1lla3NYNkFaV01sc01Eb2Z0?oc=5",
-     "at": "Tue, 18 Aug 2026 14:47:17 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "إيران ردا على ترامب: هرمز لا ينتزع بتغريدة أو حاملة طائرات #خمسينة_اقتصاد #مصر #السيسي #مضيق_هرمز - facebook.com",
-     "he": "",
-     "grade": "",
-     "src": "facebook.com",
-     "link": "https://news.google.com/rss/articles/CBMiqwVBVV95cUxOQUVTZXZvc2RhaUxKRjNoeTFfR2xybjBoRzIxZ3gtSmxSRHkzVlRFZlNGV2FKOVlVd2RRZEFzbnF1amFER2U4TzhyMk51X25nT1BOODQzZUQwU05ab3BRZnJzQy1ZSWFCMXc4aUdLS3l1ZnhYY0YzeXI2MjhrcU1MbFNjS1MtVjZ0N3l2Z2U1VWJpa0JMWlRfaXFFd3ZVbmhobEEyZFI4RDFLOGZhOEVteTZOTU1VeUcxM0llSE4yNTZycEt1b0MzTk9kUVFWNmZaWkFnclE5aEZzM3NTYUdqNDc3VTdjb2k3bzlmekxPMEtNNHRXRE1BcEdneVgyX1d6UEpwcm05NTlGaDZsbkdDSFZJRkk5SkZfb1IzTXR6VjhqaHJwZl9pQlhiMXk0Y0M3dzBvUGZBdHFSWG9USlZHQkNzN3ZLSHRHV1lZZHlJc0M3aVFURTVHdEUxeXo0c09zM2NOS1JtX000RkFya2wxV2xwVUFPVnhVVDRBREtOcEVlMk9VU2dOSXNoNnc3b3lfQWpndVNXSzVXR1p1ekFlaFE2YTBqRVZlRk9NSDlxTUZ5VzRHb2JsbHpEWjJsTnpsSDdqWjVueUszMGpUVEs5SE04U3lWWG5wblNMS1dUMjhERHdXWG4tYjNDLThuTWlxbmNUS3E3LXlQS3lpQ0l6eDVlLWczOUYxNUpvUTAzVnllRUsxV2FjQTFzQjZTOWpka040THNsVkZuelNHWkcxS1ZtVFVMTFhWaVQyc3NuLWNrMnNaV2lvRnVmUDIwU2RMV0VpNEVITEVjcXAwdUpOcHNabFZZUmYydmJEVHk0WFhqZUtHaWF6NU5RQ25ydS1NODU5MzBVYXExY05YUW9hNGlnWjlhZXN4NFVQN3pkdzF0ZTgta0JWOUtnbw?oc=5",
-     "at": "Sat, 15 Aug 2026 13:58:36 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "شفق نيوز/#إيران تعلن احتجاز ناقلة نفط \"مخالفة للقوانين\" في #مضيق_هرمز. لقراءة المزيد #شفق_نيوز - تطبيق نبض",
-     "he": "",
-     "grade": "",
-     "src": "تطبيق نبض",
-     "link": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE1qOVZESTMxYUEyZHRVbldXbFhITGczZm51RklUN3JVTjZNM2pxVEQ4bU8wRkFGM1VyRG40Y3MyeEV2Tm8ydUE?oc=5",
-     "at": "Mon, 17 Aug 2026 18:17:58 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "وهج الخليج / (وهج_الخليج|) (إيران:) (مضيق_هرمز) سيظل مغلقا لحين التزام (أميركا) ببنود الاتفاق - تطبيق نبض",
-     "he": "",
-     "grade": "",
-     "src": "تطبيق نبض",
-     "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE5uSnlkUHRlWDQtbHlNYkJJazVxX3RUM0hhRjh0bHgwbDVHVXFPMFFqOVVVNG9XOUpIQWhZNWY1Qlp0VTFCWE42eUxB?oc=5",
-     "at": "Wed, 19 Aug 2026 00:01:05 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "عاجل | إغلاق مضيق هرمز: طهران تضع العالم أمام فوهة المدفع.. هل بدأت الحرب الشاملة؟ Lancashire Telegraph (t8vBimS32l) - Mshale",
-     "he": "",
-     "grade": "",
-     "src": "Mshale",
-     "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9LYl83WXdnMzZ4RTl4RkYyNklhQWFPYk1PUDJtc29nazVJazlvTFJkSWJTRzY3NEpJb1VPYVA0QUkxZlo1NjZQZV9zLTVoNUtzUjJ1U2pGUHhoQUk?oc=5",
-     "at": "Sun, 16 Aug 2026 20:13:34 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "الشارقة 24/#الكويت تدين بشدة هجوم #إيران العدواني على سفينة #أدنوك في #مضيق_هرمز #الشارقة24 - تطبيق نبض",
-     "he": "",
-     "grade": "",
-     "src": "تطبيق نبض",
-     "link": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE41SFFSd1E4NkdaM1N2SUZ0a3pPVGZXUl9aSHhneTR3MlFMZm05SjRVc09NQUVFOHAtWE44anpoekxOTkxfTVE?oc=5",
-     "at": "Sat, 15 Aug 2026 22:22:15 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "جريدة النهار الكويتية/#فيديو.. #ترامب: قريبا سأعلن #مضيق_هرمز أرضا تابعة للولايات المتحدة - #الحصار_البحري على #إيران متواصل ولن تعبر أي سفن إلا إذا سمحنا لها بذلك - تطبيق نبض",
-     "he": "",
-     "grade": "",
-     "src": "تطبيق نبض",
-     "link": "https://news.google.com/rss/articles/CBMiRkFVX3lxTFBmRWxHdDFWd04tWHo4YjVOQmpEWDR6SmRyWjVRMVpfbmNqbkNBeWRDc3A2TV91Q1V1cHZMU3hvdVpvcFhmb0E?oc=5",
-     "at": "Fri, 14 Aug 2026 23:09:57 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "وهج الخليج / (وهج_الخليج|) (إيران) تعلن عن اتفاق مع سلطنة عمان بشأن خريطة الملاحة بـ (مضيق_هرمز) - تطبيق نبض",
-     "he": "",
-     "grade": "",
-     "src": "تطبيق نبض",
-     "link": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE1UVVJaSjFoWDFIN2VYT0lmNkMwT3JrenlQZ2YxS09SNGtDRjNYWWlIdExqb1o5MjlTbzU4TlBIbWJQeVZhWlE?oc=5",
-     "at": "Sat, 15 Aug 2026 20:52:25 GMT",
-     "channel": "gnews"
-    }
-   ]
-  },
-  {
-   "term": "حزب الله",
-   "en": "Hezbollah",
+   "term": "الحوثي",
+   "en": "Houthi",
    "kind": "keyword",
-   "topic": "لبنان",
-   "heat": 32,
-   "n_sanad": 0,
-   "n_open": 8,
+   "topic": "اليمن",
+   "heat": 10,
+   "n_sanad": 1,
+   "n_open": 0,
    "sahih": 0,
-   "hasan": 0,
-   "summary": "«حزب الله»: 0 خبرًا مُسنَدًا من سَنَد و8 إشارة مفتوحة من الأخبار.",
-   "summary_en": "“Hezbollah”: 0 graded Sanad hits and 8 open news signals.",
+   "hasan": 1,
+   "summary": "«الحوثي»: 1 خبرًا مُسنَدًا من سَنَد (0 صحيح · 1 حسن).",
+   "summary_en": "“Houthi”: 1 graded Sanad hits (0 verified · 1 credible).",
    "hits": [
     {
-     "head": "المناطق التجريبية في لبنان.. سلام مؤجل وسلاح باق - سكاي نيوز عربية",
-     "he": "",
-     "grade": "",
-     "src": "سكاي نيوز عربية",
-     "link": "https://news.google.com/rss/articles/CBMijwNBVV95cUxPWlFhY0JPc195V0ZVWUhjYmllejFTMlJzb2RMTjBWaXpTS2NabzJpYXZmcmRGaUVua19CdmVPcTQ3dFJDb1Y5QWsyektnbHVCVnc2QTBIQkNwOG1uekhfWjJTbHQ4X2RvOFVWaGRzLXYwN1Z5ckRhV0toR2otNkQ2NzI2WTVPYklQb2hzTVFHS1gwTjBXQWN2VHIxQ0Q2RkFINzlTWHBkWUh0d0R1bGJzRzJIbldvZDg1T3AxOTZyMjJxR3ZLRVZhbGxZQS1PS3hwaW1hY3RTcGFDNlJsTjdtMUtQR1lURjVGWXN2RXN0ejRZMDIwMUdUbVJYdlgzaGFVcURqV1ZxRGhQR2tRaGxpOW5RRTlKVlFaYUdqQ25HTkd3ZFRmMnhuSTNEM1h6TDJ2YzNocWVvX3BndS1adlpzRTYxRmhoN3lzMml3aG9OTFFMVGlRSVRBbXNiVUVKUFplQ25WUjJFcEwxLU9fR3hKTUxSX2hxc0RpRVBlekFBOFh5OHROUEMwem5LcS1wT2vSAZQDQVVfeXFMTmZ2WUE3UlJMNm14TlNiT2Z4M0ljQWhjaGtHalExa19CSDRhZS1HaWFuMWI2a0pVbngtV2hlODQ5UU1EeF9NaERsTlBMa3F0NmI1SzBzVDlFd3lXcTlaaWt1M2Q2SEtpR1I0dkIxWmtJakQzZm1kMEg3V0VBeUFLdzNSZTlvUmlaZTVGbmRzR0V1TWxVTDQzNFlYNV9ZanVKcUY1SGE4VEhBcGplNzk5QVRPa1VYekRmN3hQYWQyM29FVkNxQTE0cExPWDVoRmR1T3hjZHZ3NU9mX1d3VEJfUVRWZGhmYVhCdk5LUXBlUC01bm1feUMwYlFnX2VoemhYSTFrQ2FXTUhrdjYwY3ozbVR2dTFEcU1ncWNVSEhNUVZmNk84ckxHb3lRd3JVbGVZMTBHcHpoNVFQTlJZUFBMdWRSWHVvS0VKcUY2RmNnbW5qdWt1Tm5NZE92eXRFdDVIQkdlUThnN2FOVFc5WmxSQ2ZCVVlvTE41aHVtU3VrNHVod25XU2pYbW9mR2c1ci1xU1lOREY?oc=5",
-     "at": "Wed, 19 Aug 2026 00:52:51 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "كتائب حزب الله تحذر الزيدي.. وتضع 3 شروط حول السلاح - العربية",
-     "he": "",
-     "grade": "",
-     "src": "العربية",
-     "link": "https://news.google.com/rss/articles/CBMirgNBVV95cUxNQ25OZnhaQWtlVEI5c2pIYmhDQmNwZUh5MGJTWWttVXA5T2M5a0l4MjlGLTdJT0Q2NGhfY01sbko4V2daeFg4eEptYTlUbENNX1BuYklxVWxKUkNzZm90MmYyVFBYU3BqMlotNFJpSkVBU2FLa2szdTQ0LXN6RFk3NDVyWDZyRFBUbUNMR2dVRzlBVFh5TzhuS000UFg3cHBsbUkxWFAzSkpQX1B6X3lsUUNIQmdjamZtQkNXSG9PLTJEZVROWUZaRDlSZzVMOW00Uk1WZWR0UmxlZlR3SjZ5Sl9CZU1HU0pKamVPR1B4eU90ckhpXzVodXdSU1lGRk5QczQzNGhGQlFBdnhBY3Mydk5Wdzg4MnFheVRad3h2b295RzFFNndRUEE0SDRWTmVxS2JuODllTTlpTzhsUjRyVGtJN3lDVVJJMFBSYU5PWGs3bmsxc3h3RXYxUTVQRlhfNDRHWDV3OVJvVEhfNkVhdmtrMGZEc3JnSTIyellycTFybVZQaFJlTEdJOHpucEZGdm05N0ZHbjZxSFVrNjhtMXpteUlkOHdYNXlOYV9R0gGzA0FVX3lxTE12WmxqSllmTDBWVGp4LUJYRjlvQjlUTlY5anltZmNsMVlRTWpoaHFMbW1LNGtfVmhCY2RlX0lDQThGNlF1TVkyLUhUc29BdExCV093YmRGdUdyVXIxZUx6U1dWOS1DMEFZSXZSMjlfRzJwVkljLXBjN1A5eHlPRmR1ZVNuZ2tadFlVNzRTc2w5aVlmRncxNXk1aF9JN1RnWVVMeVg4OWxsQWFKSjFaVUc1QlhZNF8zem9RbXJwRWFMUzc0WTItT1VVXzVNc3VtVjRkU1pKZlpIcHpkX2swck41Xzd5YVN1b2pnWlAtZ1l0OEF1cllWM0VTTV96bWFxOVZsc1ZOaXFJT2xyRGQxTkFuSTJVa3BXeDl3dFlWT25pZERfdTdGdm5qbUNaWFNzdGk1R05memdEZUMwekxsQlZjUXFYcEU1VVBTeHhMMW5YN1RDeWlQNkRGVHFibVZtRXhwd3pUUVpiRlRvelZ3WW9TZHF5eFQ5UTRHN1VoTlhXaDVYTV9GanJHc2xSWFUxLUtGY3ZWVkd5V3JoQ2VId3R3YmF4djdXZTh3bTlENXJyMFVVQQ?oc=5",
-     "at": "Tue, 18 Aug 2026 05:35:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "حزب الله بالعراق يهاجم رئيس الحكومة ويضع شروطا لأي مقاربة بشأن السلاح - الجزيرة نت",
-     "he": "",
-     "grade": "",
-     "src": "الجزيرة نت",
-     "link": "https://news.google.com/rss/articles/CBMiygJBVV95cUxOaVNfUERJdHhaRVFLelJoSDQ5cDg3cEVia2R2cWlsRlpQOElUZWRFeE55cVd2NjJpejlScTE3d2taUGdZTDF5c1VNY1U2OUdnUEgxbVFVVlNCSk9Kc0ZjRE5PMk1uZUpHOFpXVlFqNGN2cnNaOUU0bE9Bd0pFSXNabHQyQk43d21XX1dHRmhyM01fR3A1c1lBd3JvNjdJZXZJcXhGZkhsaDdPc3ZmM2JuT3hVYThwa1JCYjU5Zzh0MWRqNjU1S0pTVEtidGgyTjJnSU5HQkhncm9HOTVlZGhRME9yYTdESTUzOVY5ODYzQzh3X0FUMm9NR2lyZEdEQjdXNUU2V1VxbUV4WVM0c0xyU1ViaUNsVW1WSWdtWW9ESk1FWEVYTnpWSVVVRnlWSkdPMGRNT181c3BIRURWVFhaR19hVHcxOWlsdWfSAc8CQVVfeXFMTmFRcVlSZ1hBdTJvOFV1dTJEVFAxZjdYSHlITGlpUkNkaEI5akU5T0NZWG9fZHZ0N213T29XM2pPUF9lTmZDUEFoWHdRNUZ4akd1RkZfZFc1QnY0cU5MRmV1eE91T2VWS0tTX3ZzY3VJMHNaWjhEU0M2Y093c1BCWlVWbFI0V3JCZUNOeDR5VEd1OUVZeHJYeTlROE9zOUFjMDVHMmprMXR6MVpadjJhMHNyV0ppSWN2b2ZjeEFDZXdiU29PdGwyeGNEaV9QQjlHRFcyWWMzMG9MMmtTOVJWYTZ2b1d1V2ZIUHUtcWtaWGY1NW9rNWVXNkZKbmJsZlhHU092dFNTdTgzVGJiZEJDbzVxMER6TzNTQS1UUHVncW1BVVhHYVNBemR6aFMxNmRQRVRrcC1NNUhvY2RXcTRBXzVkRkpKbTBGTGpmZTVIX00?oc=5",
-     "at": "Wed, 19 Aug 2026 02:27:49 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "«حزب الله» العراقي للزيدي: «صبرنا بدأ ينفد تجاه استفزازاتك والعين بالعين» - القدس العربي",
-     "he": "",
-     "grade": "",
-     "src": "القدس العربي",
-     "link": "https://news.google.com/rss/articles/CBMirwJBVV95cUxPakZ2WkNoZkQ5SFJEcUZxR09ZSl9xNHB1ZnRRcVdtRDJxT1VlcUswNmxqeTBYbDhFTXdBNlhBQkh1ZGlETDROVHhiVVMxamhfNlNpb2ZKQ2RlaU5fd0hlM2UyZTVvX3BQVzRJWEJlQzltbzRSR0NYZnU2emhnc21MZmdRc0VMbTJHNm9TbTZZNWVnSDYtckY1Y1NiQmVwbEI3cXpXRXJuYnM2c1YxWEJfWExWamI4WllsTkxFcXFlandLQV9jM3ZoVFEtVlg4Y1pIb2xUYXNQc0FETXBMYmZyQkNLY0NEbDBnTUhtaFdfakhYWHE3ZGxQRTV6c25DMDU2YTdGN3F6bUNxWmI0Q1NsWXpjb010OXc2NzhIRFR3YjRVdHNaa0FoSmFZUnc3VHc?oc=5",
-     "at": "Tue, 18 Aug 2026 15:57:25 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "\"أنصار حزب الله\" يعودون إلى الظهور.. ودعوات لإقامة \"حكم إسلامي\" في إيران - الحرة",
-     "he": "",
-     "grade": "",
-     "src": "الحرة",
-     "link": "https://news.google.com/rss/articles/CBMiPkFVX3lxTE9ST0JJd2E3TEVLeG1ZSDYyLUhmalFnd0x3Tnh3QVFWd0t4UGFHMW1aYUhLQV82a2ppa3FueWp3?oc=5",
-     "at": "Tue, 18 Aug 2026 08:30:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "تهديد «حزب الله» بتحريك الشارع: تنفيس غضب أم ورقة ابتزاز؟ - الشرق الأوسط",
-     "he": "",
-     "grade": "",
-     "src": "الشرق الأوسط",
-     "link": "https://news.google.com/rss/articles/CBMi-gRBVV95cUxNdl85SlFzc3RMam5iWGJUck04ZGRIdGthbDNFdFc1QU5rZjBrNlFtVUI2djA1SThUT0dmTFBGa29LVENmeE84TzFBN09WVWhpNloxQTBsUTMtc0JnMklRcm5faWZvLTl4TDRCdU4tMmMzMC10c0VzcnNhaUJRNVdDSGpTTzZzcFlmUmlNUkVZYzVnejRGVWhWU0tDaVNqemZzNlo4c0NLV3ZYTVdXR3VVVDJjZks3WFJMM0NZT2FmZlJ0VzZlYVhaUHF0NTVtNVNjNTJ1NVIzaVVRQjVNUjlrNXhKR2JZSXVBY1NFUG02RFJnMGdYY1N2S2JWaktkcmlkWkt2WW0zZ3F4SFFiNEw0TWNSZS1ENUZTZmx5Z0RaSGFXNlczWEQ5ODcxYkRDMVhUSXQwSGxISzl0YzRBcHluZnE0N0IxZk5HQmVKbERocjVyd0lBMS1wUndtN0loZ0cwNk5IMXk0ejExd0NpWHJpSVQ0Y1J4VUxaOTZta1UwZ3RGREVHYlFYX3BGTTIwTjNvZ3BELTlnUmxCWkw3YUs1WEhFZ1VvbGU5S2NaUHNiVEtUVEI2WTBZckN1TlQ2NkhuakduOG1FTUtaMlh5TFBnT2JORkpmTnpCYWNTYjh4cWxGSU9GSG1aTDFTNXhzUHdfaXI3UVFUeExjYjBrRVFYOEhLZ3JJNmp1QzVpNmZyZlJFNGozTXVNaE1MOGVIRDZGdmw5RkRoaWo4SjFuZi02b1BaM3lmdm4wS2tlRW5odUZDU0NhVnBwUkhuRjdSVllRM2t1QmdXNDBvcC0tcmJYYlVleUNCQjFrMWotZS1BSkxqMmdFRnJBMXJR?oc=5",
-     "at": "Tue, 18 Aug 2026 14:06:01 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "فرصة لإضعاف \"حزب الله\": من قال إن احتلال الأرض يجلب الهدوء؟ - القدس العربي",
-     "he": "",
-     "grade": "",
-     "src": "القدس العربي",
-     "link": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxPckJfcHA2RXllQVl5d0pwUzZUd2JjYjZ2UG9waExlRTlucFhIVjNySDFYTEhaZFQ3TUtTUzY4Z0xwa2FudU9yV3hKdlpXQ2NBMXR3MkhqZmp6ZlNhU2tpRG1JSW9OR0ZPOTdFUHBjUWdjWnNoaG5MN2ZWdXZXN2o2aVp0MDZfd1RuMGs1OHlGUHBFSEFpWGFXTkRYaE43NUlpbUJHV2RBTjFJRXNBbXFqX0tORG13WkQ2R05EYzd0MUR4OUZKeXdXSkd2SG8tSzVTQnBkS0xSQ20xd2hWODNxWnR2UmhfbENreXBOYzY0cHd5WDJFa2xBeUNJMGZDenZ3Q0g4bEVRSUxYUEJZUUZxZV9YMVk1aUFDeVVBVUVfLVp4TS16YVZGRjlqWmQ0UGwxVEp1c0FyaG04WHc2MnowdFNn?oc=5",
-     "at": "Tue, 18 Aug 2026 12:31:28 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "الأقباط متحدون - بينيت: أي هجوم يشنه حزب الله يجب أن يتبعه رد مباشر على إيران - Copts United",
-     "he": "",
-     "grade": "",
-     "src": "Copts United",
-     "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBiOXZKMzdJdjIwclBkMk5XdnBOMVZFWVVIcFgwVGFhNk5XRlpFX0xqcnlpSXUyUjZHYndodnJUYm1ObXlZR29CTFJLMld3NVVqM2dMeExOVDVUZC1sMXJ2dGRScTBVdw?oc=5",
-     "at": "Wed, 19 Aug 2026 13:44:18 GMT",
-     "channel": "gnews"
-    }
-   ]
-  },
-  {
-   "term": "سنتكم",
-   "en": "CENTCOM",
-   "kind": "keyword",
-   "topic": "أمن",
-   "heat": 32,
-   "n_sanad": 0,
-   "n_open": 8,
-   "sahih": 0,
-   "hasan": 0,
-   "summary": "«سنتكم»: 0 خبرًا مُسنَدًا من سَنَد و8 إشارة مفتوحة من الأخبار.",
-   "summary_en": "“CENTCOM”: 0 graded Sanad hits and 8 open news signals.",
-   "hits": [
-    {
-     "head": "\"كنت بخاف منه أكتر من أي حد\".. ماذا قالت بسنت حميدة عن زوجها قبل إعلان الانفصال؟ - Masrawy",
-     "he": "",
-     "grade": "",
-     "src": "Masrawy",
-     "link": "https://news.google.com/rss/articles/CBMi8gRBVV95cUxQMmh0VFNRSmdoR1FRTFJzVV9yM1dsUlJ5QUY3MktETVdEM1ctM2FySDVCcDR3TGc5bm55aU8zdm5DMjZZbmI0NXdIa2UxYmpiQzlZYnpIRmt6LXB3OXhsbnAxekpXaEVYVlVzcG1FdUZhUjdEZC1XalNBUFZJbG9VYXRHdVgxSzFBRHlLV0QwUGc1eG5OeDN4RC1TY1NjN0ZyZFBqVkpDMXRZeFNmTEZYamVJa2NtYTJGZ0ZKNnNLN2c1SHl2bFVuY19OSjlKVmk1dG44MEgwZjhHOEtaNC0yMlJtaU52aVhjbEdTRXVoVU4zTkt5dEkyaHBucF9oYVRIeHJTQVZpcnQ2bG5QSE55NWVpenlpd0tySGNxYndFN3VtSXptMlN5SDFkdkRCZkdnbVZCcW5fUkE1b3hGVnRTY0pla3pQMzhodlNPcU41TEMwUFZwdERYNEx6aVFtekcxTGJlQldZYVdhVDdyM1JLazFmQURzVGI3R21RNmc3X2VSdm9TcWRDOHNrVG44YksyUEVaMThfVWZTOVBzQVJXazl6aGJrQWVTWnNLM3VQV1BBRnBlRUFSWV9jU0J3d0dZcDVJd3BuVXlQaFc2T29mazlMOWRmTEhTYk55NnRwVUxzVXJwUWQtM2tZRC1wREZTOTdFOUhFY1I2cDV0bE03aUUwY0gwX3o5TXpESU9vbFU2LUFlaE96VjhkWk1WZWYtSkt1OE9xZUluMGFTbGo2aG9oVDhuUXJLSWdId3ZZUmNXbEFXRFBCM1NkcnM2Tjg5cWF1SE9TMUJZTlRkOVo5S19pMmNWY1c4QnE4SGpxTUNsd9IB9wRBVV95cUxQcEtuX0FrVXJGTGR4S1NLdG5jTUtPcWRxNTJsRllMVzFOOTJKZC1hUFJHTk8tNG1CVzBuYWJZZnl0T1loRDhiV3kyaWhxOTRXQUxUelhxSUJrOWV4QWt6RzJpR0NSWVlWYVRSSG53d3JFVmxuZUdJUllTeGFVbnE3MkN2VUt4d3p4STJpcS1FT3dSaVppTzJTcy1NUmlzMk1RZ0xWa0ZmcW9TMEgzNGtqUWRoa3VCSk5EVVp6STFkTkYzLWxseWZyU002UW11LU0wbnVxTlBMRFFDd2hVX2VvRDZYUEtOcnRuQWRIRkJmc3otOTZMN0NRY050dkdMUEJ2cUZIcHFMUExBcWhfWDRnNjE5ZGtuNmlINW5NLXdjM1A0RlN6bm8zaVRZamdaR1FPeGtpMmQ0X21sTEd4Um93M3VKdXJYZDlyZE93SW5Wa0Jma1NTaXNDWXlNbUl6OGpfelJCQ1d5LWhFZDRDYnh5YlRWUXRmSm4wTHM3UWNqblpYNWN1UEptcHNObkptSS1URjdweEZIVHF0emhGN0d1ZXZfUlZZTkUtc2RVVlB2cTNJNU52SGp2WEU1aWV4WGJ0LXlwVlU0Wk5uQnFBd3ZkRGpxcTN4MHo0dVlmYjBrTVpIQzdER1dJZ1RLWlg4bTlMQmJKUkJ3LWRPMF8yRC1SNGNnZTU0MEJFeUtoZ3FQOUVHT1l1cm9EUUdxSXZfMmF1TW1sVlo3aUxBQzhCT29qM1ljbTFCdE9YYTRpYW53bHdiM0JZWEQyaUxYNVlIZEVza3FUNVFNazRPRkFKYWdjbkV0LXhvUG82VVJlaUh5RDAwQUkyZi1B?oc=5",
-     "at": "Thu, 30 Jul 2026 07:00:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "بعد مأساة بسنت سليمان: السيسي يسرّع تعديل قوانين الأحوال الشخصية في مصر - i24NEWS",
-     "he": "",
-     "grade": "",
-     "src": "i24NEWS",
-     "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOc3BxSkJEdl9vVU5iMFBjQXhrRGh5ZWhHQ085bWFMajFodzVIMS12Rzg4Unp1SUhwZ3F0b0lmbjQ0UjNUSk5mWVllbW4teV9wOHdSeWNUTGJvam9EVk1fbGFmRmRvTTA1WUV6eTk3Y2lXbThVTlRRUnk5OENKS2E1T2dsNmdWQXNPd3c?oc=5",
-     "at": "Tue, 14 Apr 2026 07:00:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "توطين زراعة 74 صنفا عالميا من العنب في بلدة سنت ببهلا - جريدة عمان",
-     "he": "",
-     "grade": "",
-     "src": "جريدة عمان",
-     "link": "https://news.google.com/rss/articles/CBMi6wNBVV95cUxNLXFBOXBzMmJBTFpPVm5TNVQwZlM2a0Ewek9DUjVSZ0V2Qkoxc254TFl0bk44djBBZTdtWGM3cldPN1YxWTRtdWlIbWFXaElhbmtFa1Q1MmlUU1YyeF96VXNGUl9oVU9CRU9BZ1dtV0ZJUGpYUDc4RlZVRFREYTR1RlU2Z3VqbnBGdnVMa3p3SVpaSE9xSElyLWNJdktSVjA4OTRFMVUzcFhRQkw1dDNCY1IxYXpDTEdzQ1NSazRFSTNtQjNHdjJrUTE2X2poeWgxRDZuVGN0UlYxNEdDOWh3OV9ISUx4ZC1hVWlKc2hFVHpaTVp0MlN4WlE2S3V4andHNVZLcWU0dlZFYWgwVXNuSE9DWlFRQlRnN3pTdTQydlJxamFpQXJReTJaRUk1MkNfd09OeHUwZmFNNmJ5YmMtN2E1bjFsWi1TWnBTUUxPWGJfbE83NVVRUDViVTU1VVBxdld0bUd5TUZxQWxmeW5welRZbUZtLVVYYVdQTmlpMnFWeHZBYXQxT2hGVXdQTW5qbUZoSzJzM2tGaTEwOVU4VExFMW5nMjYxeXdNVHlQLU5kVXN0RFNFTk9ZU3hwSmw5YlN2MWc2dUJ5dVR0NGx3U2JuY2xseUJiQTdBRnc5SldaNGFpYjVrMWVhd9IBVkFVX3lxTE9BZkM5U1VhUFR2SE1vbVppSGw4XzVjN2IwbkhRdzk3THRUa1pBWWphajVDMG5uSklVR1N3eERvTng2Nl8xOVpnY0x0OWdGMnI4YzFnYmF3?oc=5",
-     "at": "Sun, 05 Jul 2026 07:00:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "استدعاء طليق بسنت سليمان لسماع أقواله فى واقعة إلقاء نفسها من الطابق 13 - اليوم السابع",
-     "he": "",
-     "grade": "",
-     "src": "اليوم السابع",
-     "link": "https://news.google.com/rss/articles/CBMi7gNBVV95cUxPVkUtR04tSlBJb1F3TFdmSy1EVVIxT3J1bUY4cU5SdGoxNXlpNnJVc2ZzUmxhdTljaXgxUVB5eFd5bVBTZ1RMUU5iN3BIVWNVWHoxVkluVGM1MFgzOFFoRTdMYW9STVZaSXE0UUdxN3VfNDk1Q21WT0dWNUZ1ZlBqZEpOMU9seVMtOVdpWmd4d19zM0NHRllVcHRDeThJNl9qZV9pNGN4QzQ1eVlTaUN5b19NckQ2eXA2XzBlVUtTNGV3UURrb2xWMlJpMjR2emhzZ1JsMnRsaW1GUllNQy1mTFlybWQ5VVFQVWhvTGFFM1BMeWdWOWk2UTA4dEJWLWhuSmo5RWxkZDNBTE1vMmxXSHRpVHhoekF0Q0NOUVUyTkZmdUdVc1RiVllYVmV2LVpGNm5hNW4xelVPMllCWl9DMnVRTWU0QndfRXBqWC1pWXYxTmNhQmt4cDAycXVtS083MWI5ZFUybjlqcE1WZkJNbEd1TmExYkhWQi1MT0xpU3JUcV84WnJ1NzNHcnV0Znp0Q2NLTWpiUzRWcWRXTm5kRG5OdWNtTXI1OFo4MTRsd2RQYWhpcTNZU1g2QlJScGYwS2Z2aDVaTzA0LUZmUG1fYW9HUUNCWFk0RjRQVjRoNERWajNjSDN2OVI4dkowZ9IB6ANBVV95cUxOOEg1dHZYM254cndFR3h1d2dNeEVMUXdNbVRCbTBaTnM4RkpSck9qSVpDWWp1SmJXeVNOUzE0UDA0cURFS3VuZlF0TnhlRFkwX2luRDMwbTFaemw4TWJTNEI2dUdreU93TGprdHZOZWJPV05iR2d6YUxQSTFhQ2tlQThiN3lkOFhKNUdPdkc1ZE9yVGlLeE9WV2NlSGd4dl9JQkFrNTc3RW5YMGFnX2J6UEhlQ3hWRmM1V2paTXo0RlFTWjlLU19YRG5udEEtbHR6VGxhbWJuUEFwMXVkOEtLeGlPX1hFSkZ2c0RLMGd4VjBYSmJ0YjliVkdYZy1iZF82cEpyMkU5S3hkRDFDVHJieXg0SmpldVN2amk4WTZBVUN2R1Rfc2NzeDRjLS1NbFhQaV9wd0tPMThlcjhXeVdpNjFMeVJYNFUwdV85b3QzR2plTHg2b2hfTUZROWxYb3dSQXRCLW5QeXBIcVc0a0FxNzhKdVY4THd6NmxxeXVfbngybHJVTTZqcFNUZlV6NFZadnFYNWxTRm5qczZlREhYQjBJX3MxUlR6ZFJTOV9LdE1OZlZWQ2NKbURaajdnYXBaZjZVUjUxWTFnMU56ZldQWnkxQk9qaWJBZUNWeXFrRElJaXFJRUFtSQ?oc=5",
-     "at": "Sun, 12 Apr 2026 07:00:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "دكتور سنت تكشف عن تقنيات مبتكرة في أجهزة ومعطرات الجو لمستقبل أفضل - alwatan.ae",
-     "he": "",
-     "grade": "",
-     "src": "alwatan.ae",
-     "link": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE84NmFKX0ROZEVVbFYtY3JKVnJWc00tN29GV21iRHlrMjZ3MUgwU3VFUk5HbDVTSV9ham5xM21tSTJnUkMwSURz?oc=5",
-     "at": "Sun, 25 Jan 2026 08:00:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "من المحبة للعداء.. القصة الكاملة لخلافات ديدي و50 سنت على مدار سنوات - موقع 24",
-     "he": "",
-     "grade": "",
-     "src": "موقع 24",
-     "link": "https://news.google.com/rss/articles/CBMiQ0FVX3lxTE4xZXZmc3czN2NrS2RRaHNORnRtTW1SN2llTk5yaUZrVmctUHBJaWlUdnhJUFpJbjBaVEZaaFJzaVdWOUk?oc=5",
-     "at": "Wed, 03 Dec 2025 08:00:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "تنامي كابيتال الإماراتية تستثمر في جولدن سنت السعودية - wamda.com",
-     "he": "",
-     "grade": "",
-     "src": "wamda.com",
-     "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNSmwxQ3liM2c5TC1YQk4weXZ5VE94YncyclBsazdfcklSSlJZZVh1cVc3RWR4cTVuQ29yZmxOaFpiYmozcEtqQVpqOWstSkxrb1A0RlFwZVdhYVJYOXB3eHFPaDdlM1lVLWk4UFlLdl90d0RjQTZyRlZXTy1DcENORzV5U09nZ2lvM3FwYTR2OG1qUGtweDIwVUpOdS1vVFE2?oc=5",
-     "at": "Thu, 10 Aug 2023 07:00:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "أول الأحكام في القضية.. الحبس 5 سنوات لطفل روج صور بسنت ضحية الابتزاز - العربية",
-     "he": "",
-     "grade": "",
-     "src": "العربية",
-     "link": "https://news.google.com/rss/articles/CBMirARBVV95cUxQVVVnN1A2SThNVFY5bFNUUndwUnJZOHNKVnJ4RHlDMzN6TGxDcHE4X1R5MEZQcVA4MGJ3OG91YktDcVd5a1h1bkduZUFMQnhyNFFpSWpPQjFycEF4RlNKNjVYWThZaUU4blRLY29zNmwzUGJRMmY5NElIT0hrM0pDbC16WHMxMXVrMzdaX2RxbDhUbE5RLUotUWNFUEo0a3ZPZnVESE9QeDNiM2NHNUw1VmlzUlE0eUpnOFB6UVdPc0lkMnBuNTl2a2pYZ1UyOVp4UWxnQjJZQVRUaWtfVXg1cmVndHUtWE9kd2QzVEZzYV9yckd2ZV84TWE0RzByc0tueWp2UjZiUE4tZVFTN2Y3WWZCTURVWl9ncGhENWZ4d2xfUHdxVk00QmRGOHJXNWxMdE05TnhMWWJSNlhjXzcyRDI5R1FIOVpRWVpiRjhTQ1JxQmc4aWFaRXdKNERpN2k1Z0JYaF9kem03ZFowb0MyZWl2ZWtTSm5jZEpSZW1HeTczaUZwaV9IY2RpRnIzWTdKczh2U3BMTjcwNkl6RFJnUGVYenNYSXQxaExsbmZUMGxONHdnVEhYQUlkcGwzTzFxc1hjeFp0dFBtZHN6OFZHcERQYTBkcldmN3lFS3p6TUdBWDJqZW85T1FTc0VhNTVweWxyV2RLNXRZZkUwNGI2akJsSVdEY0V3OW1BRzFPQ29vc09WZDlITDdmUEMxend2U3dqWmhhM3ZMbEEy0gGyBEFVX3lxTFBGNTFnRFBxc3NSaU9JMmllZ2g2ZHZfOG9QSFFPbjFpVW00RGFXOEkwREVIT2NsX0d3eW80ZmRQU3JEYVVLbE43VlU5dXdKcEdaYkN4ZEpFUWtSYXZIeVlxZDN3a2lJTGdJX05HNDlwa0ZwQ1J5ZnAzQXk3Q0tBbGhySENjRlhHd0t0SElxbFBJQzFSM2U4aVNmWGM3WVoxRGRMTFJHdUZwLV82aUNDY0ljN1R4WGpyekp4Y2VIZUNHdWtMNXg4LVQ2N29jMTRhR0FwVEtNc3lvWUJ2bjUtYlVQbWNTUjlCRktIYW5JY1lmejdHWTRqNzAxSVpsLTBZYTNsSUZ6cVNBcWowcXNRU0Nuc2pta2JpMnIxWW5aUncwSXhWVTdISGRqQXFFMFU0c2hmWHhKc3RJamlVUDJ4bUZvbFFibTVjNldlLVJYYlh3R3NmQnJBb3JhUDloZnZfdDNvQWgtYU1fT0R6RXJxWTJyVHliaVVVLXVOZzRLbUVYV0RmQ1dWcU1PNmpQbHAzaXpIVE93WHQwcFo4cEV4YXhEcDJmU3R6d3o3d2pkQmR0VEprSHNaYkI2S3ZLdVByUk1sN3h5ajZmT3dZdEFEcXZkOUlwUnA1elpwMktZQW1xa3dVaTBLTUYxNXZ6OXF5UERQQlpDOVdKb0VmVWhKdnBselQ5YzNhVFhINnI4WlR2cGotcFV6SDdaMFB1cmpZU1VrUnR1M2s3cVdyZ0gybWV0R0E?oc=5",
-     "at": "Thu, 24 Mar 2022 07:00:00 GMT",
-     "channel": "gnews"
+     "head": "ترامب يصعّد بشأن هرمز وغارات إسرائيلية على سوريا والحوثيون يعلنون استهداف أرامكو",
+     "he": "Trump escalates on Hormuz, Israel strikes Syria, Houthis claim attack on Aramco",
+     "grade": "حسن",
+     "src": "فرانس ٢٤ عربي",
+     "link": "https://www.france24.com/ar/%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7/20260818-%D8%AA%D9%88%D8%AA%D8%B1-%D9%87%D8%B1%D9%85%D8%B2-%D8%BA%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A5%D8%B3%D8%B1%D8%A7%D8%A6%D9%8A%D9%84%D9%8A%D8%A9-%D8%B9%D9%84%D9%89-%D8%B3%D9%88%D8%B1%D9%8A%D8%A7-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%88%D9%86-%D9%8A%D8%B9%D9%84%D9%86%D9%88%D9%86-%D8%A7%D8%B3%D8%AA%D9%87%D8%AF%D8%A7%D9%81-%D8%A3%D8%B1%D8%A7%D9%85%D9%83%D9%88-%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7-%D8%AF%D9%88%D9%86%D8%A7%D9%84-%D8%AA%D8%B1%D8%A7%D9%85%D8%A8",
+     "at": "2026-08-18T22:18+00:00",
+     "channel": "sanad"
     }
    ]
   },
@@ -1414,348 +487,108 @@
    "en": "sanctions",
    "kind": "keyword",
    "topic": "اقتصاد",
-   "heat": 32,
-   "n_sanad": 0,
-   "n_open": 8,
+   "heat": 10,
+   "n_sanad": 1,
+   "n_open": 0,
    "sahih": 0,
-   "hasan": 0,
-   "summary": "«عقوبات»: 0 خبرًا مُسنَدًا من سَنَد و8 إشارة مفتوحة من الأخبار.",
-   "summary_en": "“sanctions”: 0 graded Sanad hits and 8 open news signals.",
+   "hasan": 1,
+   "summary": "«عقوبات»: 1 خبرًا مُسنَدًا من سَنَد (0 صحيح · 1 حسن).",
+   "summary_en": "“sanctions”: 1 graded Sanad hits (0 verified · 1 credible).",
    "hits": [
     {
-     "head": "أمريكا تفرض عقوبات على رئيسة المحكمة الجنائية الدولية - CNN Arabic",
-     "he": "",
-     "grade": "",
-     "src": "CNN Arabic",
-     "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxON2pLWVVUVHIwdG1ydVlSaHFTQmlySUFQd1JjaTd1X29STWhWSkpFNG9lcFRjQlNmX2xaUU80VEszRjV3aUJhaE5SaHc1dnVJWEVfUWtRNlNxYmVBMnVmU25lSWFkVWNJTGRfYzhNMlNPeEttZnN1cG5CS19DZ2Q5VkZxRlBuMlk2RThJaG05TXhqXy1GT0UxMFhzM2ZETzZWZ0std1llbHhrM3QxUGJPMWplTkh0ODVaZF9sYUt4akNRemlNMTFfTlhrWDNwd9IB2AFBVV95cUxNWkdKWjlTVE5IX1BvUmhvdXo0d0RKeTBYb2VfUnVJTFVLR0RKczJZd0NjWnRJZlMwMVhqT3NlV28waEV6eFlUNWpWVFUtNnVtVFRxQUgydVJWTGVPbVJkem9QYkRzZkdCQzVQNEk0RTlrbV8tT055aFVad1o0UEdEVjZCOGZZcDByazEwSmUzMVM5ZlNJcTQ5Q2ZGZll4OEg1SDEtM1NTdjlDdXpMMVpmMlBsQjJSRW1MbGcyYUtrTEVMSzc0eEJILW9LTWc4ckU0Mkswa2pIbTE?oc=5",
-     "at": "Tue, 18 Aug 2026 18:45:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "الزمالك: فرضنا عقوبات على بيزيرا.. وجاهزون للتصعيد - بوابة الشروق",
-     "he": "",
-     "grade": "",
-     "src": "بوابة الشروق",
-     "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNdHNuc2hLME1lR3J3MWJGb3FHZkhZaUtPb2p4MjlGeld3cC14NU5hdVd0bFJxeTNOaU03eGQ1blpPZTJOeXNBSGdWOVg5a2Fkd3k1YnVTWjhFTDNNZnBNODd4U1Z2Q2xiR1oxVWFpOUxJSG9jcllZZk1selliMHJILTQyakpndHhEQnhkRHFJSUc4TGNXUFdBVXNCeG9uQVFzeHBqYXVzaw?oc=5",
-     "at": "Wed, 19 Aug 2026 14:42:01 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "الزمالك: عقوبات مالية على بيزيرا بسبب غيابه عن التدريبات ومعسكر الفريق - الوطن",
-     "he": "",
-     "grade": "",
-     "src": "الوطن",
-     "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE8wZXczQ0huQUxZUVZDa25TWVdnVGE1WVRvVFFYRkxrTm13QlN3Rkt4bFFidEYtZWktcFZMR01YaXJEN3BGSWZEREtGZXNDVTJaRmVRSDlNYTJmSFRr?oc=5",
-     "at": "Wed, 19 Aug 2026 12:54:10 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "الزمالك: وقعنا عقوبات مالية على بيزيرا بسبب تغيبه عن الحضور والمعسكر - صدى البلد",
-     "he": "",
-     "grade": "",
-     "src": "صدى البلد",
-     "link": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE5SZGY1eE5wX1FkSGh1RzRsZWNSajBVZkJla1ZTMDBFNEpfTENfMjRZMVlTMXhfeFk4dnVOeHgyV2RuMEp5N0Vj?oc=5",
-     "at": "Wed, 19 Aug 2026 14:24:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "ترامب: لدينا عقوبات شديدة على إيران وسنرى ما سيحدث - المصري اليوم",
-     "he": "",
-     "grade": "",
-     "src": "المصري اليوم",
-     "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1SNzdyTEhDMnU0NG53dUMtU0I1QUNFT2FGN1Q5VWRxTFdUeXVFdnh2UVB6bWRwXzR2cWk3STBGR2N2V1d3VWhCSXpNcTQxb282RUZvUlRFazRabUlxWTBR?oc=5",
-     "at": "Wed, 19 Aug 2026 20:13:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "ألمانيا.. مطالبات بفرض عقوبات وحظر دخول على بن غفير بسبب دعوته لعمليات قتل ممنهجة في غزة - القدس العربي",
-     "he": "",
-     "grade": "",
-     "src": "القدس العربي",
-     "link": "https://news.google.com/rss/articles/CBMixgJBVV95cUxQSEwtalVKbVdhaGFzNU5pdVIzemh5bnFUV2FrdnZOSnM5bTJ5azRGc3BUeVdEMXhMRUtiMDBqZ3B4WTdkU2o2djEzeVZBMmRhZi1fS3pwVzJJemVxYnlmNFEtSGFPNmoyUEJzcnBQZVNrM3NfWkJOOEdCcXFQSWEwTkZYaHVud21PUklGbi1iLUx5MjlyWkxycGtDZTREUElibVdQMFdrY2lqZDJqTm5qSjg0bGM4RVlFYjRxMEtPOXBFWld4NGw2QmZfUE5vdkNHU1I5TUJDSVNVYUJCY1kxQllYN08zRGhtaE5LbzIxN19yMmVwUFQzYzd5OWJ5Q2RDMlhjSm94ZVVfLUd2WEpsM2dBUWlfbXpxdHU2SjkyN3ZyRjlWcUZNR0tia0lqdUR0R2V1MzhCUHNtODdjVjRvM0FobTRLUQ?oc=5",
-     "at": "Tue, 18 Aug 2026 15:57:28 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "مسئول ألماني يطالب الاتحاد الأوروبي بفرض عقوبات على بن غفير - بوابة الشروق",
-     "he": "",
-     "grade": "",
-     "src": "بوابة الشروق",
-     "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOLWJ1aWd6dWJta0p1MXBaMUp3NzZVTjN4X2x4QXBlRWhTdGZQSzZUWjBjX2pKYjA1X3BCMmJNdF9Bdkl4X1QzMkZySm9oTS1maUlMVll5SEptTkJVbmF3ak8yT3JXNHVyc2tWaDZrWG5nMm0tZHdENmR3NldvSTNsT0MtNHVMT3hZX0xOWHBzYjBPbnYxdi1COVhmZEREdUdrLVJqSTFyaw?oc=5",
-     "at": "Mon, 17 Aug 2026 18:09:40 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "فرنسا: العنف في الضفة الغربية يبرر العقوبات على بن غفير - بوابة الشروق",
-     "he": "",
-     "grade": "",
-     "src": "بوابة الشروق",
-     "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPa0VyYUhWMGZJZ2JXRmxlU3ZiXy1VRi1mNGUybHM4UVFlZ0laUG1NaEpYTm5uaVdvR1JFTFdremxpT1pHdGlmb01IaFpFZ3lxdmt5MmdhR3FhWWwzU0I3NUJDMm5VUHBfSXJkSk9MdFNiUTdJRXkyNDh2Qng0THVQRDhyZFl6YzB3ZmpoVEw2MVM5ZUFWcjVJN1FXTlB0R2h5bUROXzJVZw?oc=5",
-     "at": "Wed, 19 Aug 2026 14:35:41 GMT",
-     "channel": "gnews"
+     "head": "ثورة تحكيمية بالبريميرليغ.. تعديلات قانونية وعقوبات صارمة ضد \"فوضى\" الكرات الثابتة",
+     "he": "Premier League Refereeing Overhaul: Rule Changes and Strict Sanctions Against Set-Piece 'Chaos'",
+     "grade": "حسن",
+     "src": "الجزيرة نت",
+     "link": "https://www.aljazeera.net/sport/2026/8/20/%d8%ab%d9%88%d8%b1%d8%a9-%d8%aa%d8%ad%d9%83%d9%8a%d9%85%d9%8a%d8%a9-%d8%a8%d8%a7%d9%84%d8%a8%d8%b1%d9%8a%d9%85%d9%8a%d8%b1%d9%84%d9%8a%d8%ba-%d8%aa%d8%b9%d8%af%d9%8a%d9%84%d8%a7%d8%aa?traffic_source=rss",
+     "at": "2026-08-19T18:34+00:00",
+     "channel": "sanad"
     }
    ]
+  },
+  {
+   "term": "#مضيق_هرمز",
+   "en": "#StraitOfHormuz",
+   "kind": "hashtag",
+   "topic": "ملاحة",
+   "heat": 0,
+   "n_sanad": 0,
+   "n_open": 0,
+   "sahih": 0,
+   "hasan": 0,
+   "summary": "«#مضيق_هرمز»: 0 خبرًا مُسنَدًا من سَنَد.",
+   "summary_en": "“#StraitOfHormuz”: 0 graded Sanad hits.",
+   "hits": []
+  },
+  {
+   "term": "حزب الله",
+   "en": "Hezbollah",
+   "kind": "keyword",
+   "topic": "لبنان",
+   "heat": 0,
+   "n_sanad": 0,
+   "n_open": 0,
+   "sahih": 0,
+   "hasan": 0,
+   "summary": "«حزب الله»: 0 خبرًا مُسنَدًا من سَنَد.",
+   "summary_en": "“Hezbollah”: 0 graded Sanad hits.",
+   "hits": []
+  },
+  {
+   "term": "سنتكم",
+   "en": "CENTCOM",
+   "kind": "keyword",
+   "topic": "أمن",
+   "heat": 0,
+   "n_sanad": 0,
+   "n_open": 0,
+   "sahih": 0,
+   "hasan": 0,
+   "summary": "«سنتكم»: 0 خبرًا مُسنَدًا من سَنَد.",
+   "summary_en": "“CENTCOM”: 0 graded Sanad hits.",
+   "hits": []
   },
   {
    "term": "عقوبات إيران",
    "en": "Iran sanctions",
    "kind": "keyword",
    "topic": "اقتصاد",
-   "heat": 32,
+   "heat": 0,
    "n_sanad": 0,
-   "n_open": 8,
+   "n_open": 0,
    "sahih": 0,
    "hasan": 0,
-   "summary": "«عقوبات إيران»: 0 خبرًا مُسنَدًا من سَنَد و8 إشارة مفتوحة من الأخبار.",
-   "summary_en": "“Iran sanctions”: 0 graded Sanad hits and 8 open news signals.",
-   "hits": [
-    {
-     "head": "ترامب يتوعد إيران بـ\"عقوبات قاسية\" وحصار بحري يمنع دخول السفن - Masrawy",
-     "he": "",
-     "grade": "",
-     "src": "Masrawy",
-     "link": "https://news.google.com/rss/articles/CBMinARBVV95cUxQaWZFZGtUMkdGYWEtY1E3S05LTjd1dUVGb3pac2gzU2p3SWEzM0ZOaXQ1ZFo2SG9ad0hWdUtTc2NrbG13RVo4dHpyTFhMNXFPQ1hUVGZGSDlwS29LMVFoT041MDY0WUhhS1RwbmZSWGdTcFVvaE5ZX2tiVnVxM3NxTjhXaVprVVdnc3Z5M3FsczFUTkR3WEx2ZEpKbHhDeHJuRUFsamRWcWs3dGViMW9ZOUhMT0kwcnAtT3poOWg3cExvYm5rSnV3dm1PNmtpamZFSDJpUXNOMTRrNHpoVDZlUFloZzhKRHVUcVFaU25wczlRNkstTWdhUFMtanF0TjJ3UEQyZV9wbXRBR1Etdks2OU85eVJPRmhrbXRqTHJzQm1BMi0xdGx0UGN3ci1VTDF6R2VXeDFJZTlSMzZHTXZkQ1BzaXdNRzl0Y2xjTHVUdzJERHhhVExFdlM2WmxJVkxybnR1S3pMT1JFeG5wX1VlaTZuYlRJYnk3Q19IT09YYV9kUXhGaWdZVXJnY1hwRzN6TmltQ0JFNE4waEk0cEw3Z1lRdV85aXc0ZHBWUmp3MExoOGE5OUJTaThsRVhVcDFKc2dleHVPVGVENE95RDhNYmhGV3ZweHVMU05EQVMzWkhiQmY0QjA4RHlTYVN1US1GZXE5R214QVdmaVpvSk1WZE5FWllQYnk2OENzRTRaOHBxdXVXSmY1QVdaaTDSAaIEQVVfeXFMTlQyRkNfY21XeXlUczljZlh0aFgtR19mQ1l5OEFCMW1uMWM1UzMwYS16YkpJZ1phNXo2ZHVxNmlqS3ZTY1B2SHdMTEdFdnl2Q29pZE4wdFhEUlpmYmZLM2FETFJsN24zaU12TFp1TGtRdUU1ME9qTHQ4bndyclhsVzVVWnNWQ1VqMHlVeDVWOHZSdnBXNDNKWnJjRHFmLVYwa1ptM0w5amVNZUhQbzV6VUR4N21FSUhUd1F1aFlYT0lIQUFaUmlPUUxjdEpmVGllcFpwWFFZUWpHZmE5NlFwVnhlZ1B0X2JDNHNDekNpRmhrdi1jMXNmbTFCOFhlWXJMQktRWDVkeU0xSm12bGhCR3NmaGFIeXZWUHE4QjZ0b1ZkOVZUOFhQT2RZeTdnTHg5QTZWTEN4QlA1UkpzdUNSUTFta0JnZGpjbmxReGJMWEpELXN3VGFZMDlaWm5pQ2x6OUstUEFkbjdDcFBuMGo0NDlaNTFadWFEa1VDMktrSWw2N2c2eDlOZ3N3Wk1adUpNX0UtT0duekRDcmZYTjY3ZzZJMXdkMnB2cUpRcEEzRDRGaGNFNlEtWnJTdHcwOVpKYWRLVzVxejFfTG9JTm5PQ3BjNFBVTzRDQWlpR3VEd0otZ2h3WkdRRl9mTmFrdm4zclhlS2ZMSm9aOFFBR1hEX0EwZG9NV0dNV3dqLW96Nm9lNVJhNXN1X3N3cXVHcHU2QUlR?oc=5",
-     "at": "Wed, 19 Aug 2026 21:07:33 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "ترامب: لدينا عقوبات شديدة على إيران وسنرى ما سيحدث - المصري اليوم",
-     "he": "",
-     "grade": "",
-     "src": "المصري اليوم",
-     "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1SNzdyTEhDMnU0NG53dUMtU0I1QUNFT2FGN1Q5VWRxTFdUeXVFdnh2UVB6bWRwXzR2cWk3STBGR2N2V1d3VWhCSXpNcTQxb282RUZvUlRFazRabUlxWTBR?oc=5",
-     "at": "Wed, 19 Aug 2026 20:13:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "ترامب: الحصار البحري المفروض على إيران فعال للغاية وعقوبات إضافية محتملة - الهيئة الوطنية للإعلام",
-     "he": "",
-     "grade": "",
-     "src": "الهيئة الوطنية للإعلام",
-     "link": "https://news.google.com/rss/articles/CBMi3ARBVV95cUxNZmNrYXJYQXVnUTRYRVZNOThURkY1MVpxYnEwZXVGRHFseURoYk53WEhETC1hMUcyQS1yVjJqVDJDaGE1OEo0NVdrcU81N0hzeDlkVVljeTVaQXVkZDNBa09ldXZkZS14clhFbEp6NERxLTk4WXd6SzlORVFWVWd0TGlBblNuelZvM1g2TmRRWi1KQmJwakh4NGVfclJIQ3JvcnljNFk5VF9BMnFGZ0pOY1pHWG85OU0xSnBmQ0VOZTFObDg5Rmx3eVVaeDU1NHhmVGpWbUFGUXVIRkh1bjM2SDNRSk56bDdJUmU1Wmx0UFhwMno4RG51NFF2R2QxZjBxNzBlVmNNX0g1bGFPN29KSGdtWFlockxxQUdGRzk0UjBpUEdJRWhaNjRkdU1sOF9yTklRWlJpamhaY3dXSVpnTzBtdC1qelBjVHBwNEhHOWFSRFZFZ25zV1ZNaGlWQnA0OERYQUc2dG45TVp3SHRBMDJQV0l6OWRIclhJaU9IVEtEbGNtUS1Xd0JjWnZVdWV3MU9UNE9rWHJNTF9CMDUzT1h6a0hncFhvOGNvVnBIMTRkMUp6akZ1ejMwS3RhbWtlTldLcTFCR3NETXRLWG1PZ2lrc2Rac3dmNHk1UXd4YmZpVDF3QXFoZXVQbjZuWE9vWEY1dlV5U2x2MkF5cmFvMFctMy0yc05aSHI5dlppWU5NbXZPdURaV245aU41M19USXpEOVJhRTQ5TDh3aldYZVI3RlB0ZE1Ya0xJWUNob0JSekhOakxncjVqbkRsdTVPTi13bHE2b05zZ3dY?oc=5",
-     "at": "Wed, 19 Aug 2026 21:25:04 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "الاتحاد الأوروبي يفرض عقوبات على إيرانيين لعرقلة الملاحة البحرية - الشرق الأوسط",
-     "he": "",
-     "grade": "",
-     "src": "الشرق الأوسط",
-     "link": "https://news.google.com/rss/articles/CBMi5gRBVV95cUxOOVZ3ZTU1ckNOek0wYU8zM1RkQWdSNWxKeDJNazhDRFlZY0xqak9NSG1RUGQ4cGtPSzI5RWVFVVR5TjN0NFBBeGNuaWpRYmNManBpSU1LY19XTUVXRS1rT3NLRzQ1aTdxdzhRVXNmMm9VbjdqTGFrMGxNQ0N3blZVX1pSOGY2Z3B3RkVHbkZOOEhhY0FFc1kyeGNnOEF5MGRJMlY5cmxvRmNMZnFoWFdmWDhIX01HamNLanZSSWpYdUM4Q1ZIQ1BZRnBTT2pLSmlMcEUzUzRkVVFOMXVqQk5kenlZc25qbS1rbkkzaDdBcmdKY0RtWGVwNkVyd2I0NGp3Y25fWGdtTW9KcDFkWXpmd0Nuak9GeFRxUWx1OU9aZEp4eDBXU1czdmgzU0paanBCMGN6MldXSllUU3U5a1c1TVZxTXFJVkNXekJjaDVLRk95NlBZbnBqSE50cVF4dmFzVmlSMHhoVWZTT2lFYXBGczJ4dHpZQVhhbWxGSVdIOHV5cFZkMktTdWRvU2tlS0ZKRFMxNUZTS1NyTEx5QS1jUHlndXRCSEYyOS00OGZDZnBkaHhub2JsU0haaUtXZUkyaHQ2dWxKT0xhb2RtTlVYeTQ1NDZwMWl6NEYtdlRBQWhFWjg3Y3RWdVkwMDNBTndhdFM4QVZmT0RPVzZReDhzd0RERjVJNWRFeTlVNy1pUnphZGhxYi1idTRRRy1HNjVZWWpjTm1JN1dwQkdyMFBqMXpLb2NGTUJ5V2Z3QmhNUDBkSUtDRGRUVlNaRjFDS2VlYmNVR2FSU2VkbUdfRkVGdmlOWWRTdw?oc=5",
-     "at": "Mon, 17 Aug 2026 10:45:12 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "ترمب يضغط اقتصاديا على إيران.. ما الخيارات المتاحة؟ - الجزيرة نت",
-     "he": "",
-     "grade": "",
-     "src": "الجزيرة نت",
-     "link": "https://news.google.com/rss/articles/CBMisAJBVV95cUxNTU1SM0VpTl9qY2tpVXhnbktCcXFpRTJCTlZwSkxpUFNTVlUwNFRfN09xVmJvVko4OVBjZEplMlYtWjg2Q0FxLXJqMkNtOWN0TGJlY0xQc3duTk5QS3JaSHQ5U2tBcHJKSU9tVmxXT2tuNzJxV1I4SFltS2ZPbzk2VC1pLVJ6Ml9ORXE4LXZRb3Y5QzhZU2h2eTBDUlZsdGRKdndaWkZtQy15bGFJRmFPYk95S2FndTEwN2hOZFh5RjdhcVYyTHprb3dPUXB2eXgtZ3AxNE11akZpc1I2R1pGcXpBOGlxY09XMDNUSXpTVFl6bktudGpfZDRrTTVvellYWEJpbEozYXZDQmExTEZDdFoyNzZUcW9ndHdkU25IN0VodF93VlZTY1lQNURBb29P0gG2AkFVX3lxTFAtSGhFNzI3ZnNPM3pxM0dVdUFWWnU1Qm9RMGRSZnpmMWp0SDJIQXh1YmlxT3lEV1BxdlZObnE3VmJKbnd4UEFOTGh0ZXF0TW1tbUtPdmM0R0lfeE5mS0NUNXRxLTJ3alZnTHNTTWlCcEdnNG8takJ6bjA5cVdUbGl3WlQtOWZwNzlzRGJFMVVvYzZsRWl0eldmVVBkci1lWVdBVE1VM2lEeUZwdGdhNm1mQS0wS0dzaVNBazkwUnFCRFBCakVyWFFLdGh1dWRyNDVpeE5IbUY2ZVdRa0lwbHV0VzY3eGkydnJKNk5uc1U4QlU2OHFrYXdzZG42c1hkLTBPOVpLeGs4T19OcWw3MkJ0cUF5Uy1hdnpOUGlvQ1AzUER5cHJZQTVqVUZQWDJsNi1JUXZRUEE?oc=5",
-     "at": "Sun, 16 Aug 2026 15:49:33 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "عقوبات طالت كل القطاعات.. ماذا تبقى أمام واشنطن لخنق اقتصاد إيران؟ - إرم بزنس",
-     "he": "",
-     "grade": "",
-     "src": "إرم بزنس",
-     "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1adTlfWWVpYXJjcmFyR0NtcnVvY0g5RktoSjVxdkJ0VWgxbWRIMzdTZEtjVmNpQVo1RXBtLVQwVUZsbGo3cW05c1U4SU5CVEZNdEZDZTVpdw?oc=5",
-     "at": "Wed, 19 Aug 2026 05:13:05 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "من «مصافي أبريق الشاي» إلى الأصول.. 5 خيارات أمام ترامب لضرب اقتصاد إيران - اليوم السابع",
-     "he": "",
-     "grade": "",
-     "src": "اليوم السابع",
-     "link": "https://news.google.com/rss/articles/CBMivwNBVV95cUxNQXh2QXlRY2JLWjBGMTIwMW1FdW56X1Rjd1p2Q0dIOFFzQVlSc0dQaUI1YzlCUnk5bmtUOFY3NV9FQ09ITUdXSGJTZWZSaFhleVdnbloyazkyQXdvcVNGdXdDNXAwV1lNamtVX2ZEeFRfUm95WEhOLTl6aDhWSGpoSlpBZ1JGRWF1RFl6UEo2Q2syU1pQSmhUdzVyX2JzTW5RbGZ5Y0lfOUQ3THpNUXpMM1RITVNBbEVwakRiTmViOVNsRjR6WnVuaUppWmhXcXRLdDl1NGhMQUtSYXRmYVdzenNGN29HRGVNaC1KczMyZ3pXclM3Y29kT0hOSXZfMTdCOEhyUVhLcTliR0hSZmxrYzlBRkhyVEl0RTlBclZPN3JfalprdkFnUnZqYnhtR2pjaTZDZTd5SGFTUmdQbEhjWE1lYWxtQ0ZWV0hXNnltMVlFMEZpeEIwQUkzOVdMTTZwWmo1VlpvbldlbVdWUndCdDIwMzFxVzEwdzU5ekJaM1BTcVhwSERhQ0ZwTzlTUlFSNHdvVVo2VjZyLXRHX1RZXzgzREVpci1NRzE1SllwdVJLeXBXNFlITjZpSkNvWFHSAboDQVVfeXFMTUdsN254dFJaSGJDNmw0VU9xV3F6VkVNU1E5VnNoM3VabGhDdTVTSm5NRFRuZUNlMVlfQUZfZHhFTmFsdzdYSWZmcVRiMnRINmp1X2UyY2lqYzdfOFRDMncxWk9WQ3R6dGFCU2tCdk5nZDkzOVNpR1pXRTdtWkREOUVxLWJqR3p5NWFDLXZ0NWxxZ1lrc294aU9QaWhMQm9GY0Z0NmF4dTlQbzdOZF9LVHVPZjdpY092SkdtMzhsNEdHR2hsc2hSdVVVNVppRWFFMXNXTTBVQzYxUERWTUFIWlEzb2hYM1h2RnVNV1FTYUVyZDZDdVFoMzl2eDVUNE5BTzdZbnNlTXQ4aTFQNGM1T2pJNXNYUzNHWEdWNTBqVWdQa3l3ZWRoSnJIRHpEVHN0ZkV1dHNKaXM0NVd5OEhncGdfYnlTUnZQbFZJS2E2QngtV0dCVThwWmVBQjAzQzZGM1IzSW9RLUZjN0hvT1RFMDA1akNJNWFsdHpQS1E4cEFiUzE3RFRFTG5pcEtuNkk1TVF2Q1o5VVRQcnpEVEswLW5NNEZtQUN3aXM0d3RMdUlUZldHSUtVYTNxQQ?oc=5",
-     "at": "Mon, 17 Aug 2026 09:16:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "ترامب يفتح جبهة اقتصادية جديدة ضد إيران.. عقوبات تستهدف النفط والبنوك والشحن - العربية",
-     "he": "",
-     "grade": "",
-     "src": "العربية",
-     "link": "https://news.google.com/rss/articles/CBMiqAZBVV95cUxPb1pvN1hsM19DeTMtRGZqVDRpTWZOV0JyMFdMY2NmT0NuUm5UTS13NTFXcUh0OXp2blpOc29jejNCeVBxTzhEWk5NdG1NQm9ZamN4cS1PMVN3cWZ5ZC05SlJYcVU5a0trYVVtTG1fOC1ZTGxfUGNDZ3JoRVZDSmVyZWpTUVNwVzhyUE5vVXg4ZWJRdG1yODUzZ3FObUZrcXpOWWticWs0Q2lqV3pDUzdSSnNoYmoxNXBCdGRCc2ladTJuajZzQ1NoYjdmUnpkcEpEOHZVZUcxbHZlMDZHOHZPYzd1MGhKNUN4amZQU2FPMm9IcXk0NHlTelFSazlkSkZNZ1hNZU9RaTd6RTliRjNIZDNmY1VmYXd0YkNSNGNxbDlKVjFrVVRGVVNpTHBDbHBubnk0cFFqaktaOEFJZFhiQ2c1SmRmc0xQOUJ0MlRqSjVNWlFxV1pzZmFac0xiR3Flek5DTjdWa3hnMmp5T2V4TXVfZl9adUFITnFrQkx6cDh3VFNtdzB3M2wxWlBoZFFXc2lrZlAzbGZIcVU1UEprUmVYRjhrQkQwRDB4dmoyVkt1WjJFV01NV3hBSzk4ZTRpbU13UldEajlZeV96RlJIRXFHQzBabUtFZXdVNmllcDRiVTNsTm5mYkVhRGd2ZkxUbm9LM2Nrc2FldjJqY1FrVDBuVFplS3VJTUE0bmI2bWpTWWpuNHRlLWhxZzV3Q0pPbmI3SGRhNDF4QmY1eElxNHllYVZ6ZW9LcTN1QXI3d3hQZFZYeExJUkxRSkwxbDhFT3hlOHRmU0FqOVhqekE4V0s2YmVRbVk5VmxBVjNRZ2JMZ2QxcHN3Y3dKdERvMTFvdmtHTmVBVE9xRElYRFlHcTk5ZzhkVGxUZGJOM1AxU19vOGNmcDhYa21hZk4xSTNRNllDcVZOWE45R3gzdHdoY2hnTnBaRUxSdnZoUWxDSm5mOU84NkxiUzB2WDNHMHZISHV3SXNtYlFEV3djV0FWYVlFRG1uWWtBM21OUDQyY1huSUR4TVRuVTJaTkdQYzhIUzUwZzlQUkZ0WVpzZVJiWTN6NlVKMnh20gGuBkFVX3lxTE1JR1pDTVhQOXU2eXN0cWtMbWYwOVZYMWJnQjVnSnFhUXBqazFfdGpKeV8wdmp6NWxoaVg3bzF6NFRoSmRQeU50NDUyS2dTSGt1Mjh2V2VQWUZNc21nSkl6YXl4SXBpQWRVMDBBdzJYRnZiazVFcUtKY3hIRmktaVNIVFI1S05RYThmb1pHZHBRa0s2S3JJeTZVRzl1dWhLTGdPT211aktheVJSLV9LRUgxNVFTMDZfNDBTTWFRTDhsVmV6b2ttY09SOFViZmJHTnVzUEtKZmhTd0xJbGhDSi1CLWtmdmw0RUl3YUpZYkJTVUxlWEdfT0l2WE5ObmNwak1HUDlGX0pDNWNEMWc4VGZhZHZvRkxZRDBya05BSGNzODVEOFJuNUR3aXN2YVRLeks4Z2pyQ2hiSWZTN3lveVhJSlNzaXUzYXRDUGF3cEtFMk5UaGZQSzAxaU1CTThoNW41UXYzenVtbTRkelZJUk81ZXdpb01rdWVLNFJId2VZTDQ0a2g0WFBYQUNXZTZ6aE04N0g4U2ZCM2FSNndOS1hnajFDZ2NmMkdDODM3blFxM1NsaVJKUU9DdTRmNXlULXhTemdjN29hbE1jWEJDdDJUbkQ2M2RRV2g1UENTLXYxT19zNDd2UmE2VVlZZVhkWVI4anNsM3REVzFGZUdHMGh5N3h3aHRRSUs1c3JPREhXQ28xSExWWkVIVGRYNmhpTGRKT0VIN1h1VEVMVHN3Tlh1djV3bFFQRTJsMk44bzYtRDFMZDBwNUJIWDMyTkNadlpVRGdpaFBZOWY2VnVJejFlYS1qUmZQYzJZQ21hY1UtaHZkOG8wWmM5OUp6czJTTTdObm1DVTVnWlc0NldXaHFuaU8xbUU2LUdZbUJRenBfQ2R2QVJJbHdGNnJxVEszLWhia0NRbXd2T180ODFMQ1JILVNjWmRMdWFwREhyazJCOVVpVFhNcFB5bjRhQ3ZjWmdyaThsWFFhYnRmclYxcWttbERadW1GVGZ1ZjFtbnRUYWRVcHlSZExub2UyUWlWUkNKUy1fbkpXa21vdlBsQmppX1lwbFZhLUxUR0ZkM1E?oc=5",
-     "at": "Sun, 16 Aug 2026 15:49:00 GMT",
-     "channel": "gnews"
-    }
-   ]
+   "summary": "«عقوبات إيران»: 0 خبرًا مُسنَدًا من سَنَد.",
+   "summary_en": "“Iran sanctions”: 0 graded Sanad hits.",
+   "hits": []
   },
   {
    "term": "ناقلة",
    "en": "tanker",
    "kind": "keyword",
    "topic": "طاقة",
-   "heat": 32,
+   "heat": 0,
    "n_sanad": 0,
-   "n_open": 8,
+   "n_open": 0,
    "sahih": 0,
    "hasan": 0,
-   "summary": "«ناقلة»: 0 خبرًا مُسنَدًا من سَنَد و8 إشارة مفتوحة من الأخبار.",
-   "summary_en": "“tanker”: 0 graded Sanad hits and 8 open news signals.",
-   "hits": [
-    {
-     "head": "ناقلات الغاز تختبر مساراً بديلاً لإبقاء الشحنات خارج مرمى توترات هرمز - الشرق بلومبرغ",
-     "he": "",
-     "grade": "",
-     "src": "الشرق بلومبرغ",
-     "link": "https://news.google.com/rss/articles/CBMirgNBVV95cUxNZWdGSVZVS2NKRDR0ei1FYUxORmRGX2RpT3Z3ZmYza0hPQUk4bXMyY3o4ZnNyOHB2MWtNWGF5dkQxWVNJWHk5MVN3M2VUYWNjc2dHalVvRDIyaHZvdjc1TmdYSGNkc1c1V3dKbXNGdHBMSlpQbUpZUkQzWnB6WWpqMEhqRUs1QWIzUkdxdEZOY0dYSE5nZzBqOFByUWwzeF83b05zeGQ3WHUwRkN6NEZVRFNpYWNfMTdCRmJPRU5yUlUxcVQ0OU9sbEpQQkY5cHRnTWJRZHp2U3NQV2Z0QXAzb0hITV9xNnEwWlk0cHc0UzBmN0EzWS00am1Wa1BpVDR6OXJuNUkxNWlDMkc3WkpITzBBaE82Vll4OFNfUDhIUWN6YUphdUZUZ0hwZVJMSWlPQjJzVks4c0RxWTR6QmZlb080ZEJHOFk4cUtVNlFwUHJqT3RJdENEV1UyUk5fR3Fjbm1pWUYxaWozN0NVQW5EQXd2SEgzb3huWFFGd3lOb1RNTmNoS2dKZnlDSHFzNnZTenRweE9NM3JnUExVQkRsemM3WjZyZ0ZUMUFQY0RR?oc=5",
-     "at": "Mon, 17 Aug 2026 14:32:37 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "إعلام إيراني: الحرس الثوري يسيطر على ناقلة نفط إماراتية - mubasher.info",
-     "he": "",
-     "grade": "",
-     "src": "mubasher.info",
-     "link": "https://news.google.com/rss/articles/CBMizANBVV95cUxPQlU2VGI4bDdZbFVhT2F2N0Nhc0RqdXE4MEZPWFd3MmlVQl9TcXBDdm5EVG9yMHV1b1FOa2t5LVR5TWphRlRCdVA5Skl3WXI0XzJDSkF4QUdmTEdXbmtpcGd1ZlBhTnBENFpoVV8ySU1ZTndFaHVpVG1RYzlXVkRPajY1LTM0RVZqYWFVYnVLZTZPV3AtQU42dHVZVHJPenBWX05aZXZCR3FvaFM0QmQyb25GZXdVQzBXa0VOMnpGdVB6WFZJbkpwQUMxQ0RqdnN6X19UaDZwSEZuYWNub24xWmFaUDdjbGpkY3BueXFka0oxR2JJQTdZMGdoX0lzczBoZzFvSE92M1F5aXFQSUx2Sk9OSloxbEtkbGMxZHhUbkhVTWt0V0k5MGxYSnE0MnlBLURZQlhwQTY0UEFpOFVaMDIyTThIOUJtcUVsSXhXQmtoOHpoWHYtYXhZQlBfY3JtYm1pZThRYVpRdWxQczRpQVRJb1BHalBiT3RIMk1BeF9kNHpPakFLcEhUUlFvcm43UFR3Z1JWa1c2cmQ3bHZTMTBId28tZGdmdUxpM0htU1lCbU1qcXVnZWh1YTBrNzFaWWI5QVZ5TjhSZjB0?oc=5",
-     "at": "Wed, 19 Aug 2026 16:56:13 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "وزير النقل: تدعيم أسطول «ناقلات البترول» بشراء ناقلة منتجات وبناء «أفرامكس» - المصري اليوم",
-     "he": "",
-     "grade": "",
-     "src": "المصري اليوم",
-     "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE85dlZrMl9NdVRfTDhqNUM3akl5QTNGNTlJdEQyV1Vaby13N2theWRnYWVFemtFY0lXSnJSVVEtYW5DMXdqOS0xamZfY085YkdyT2NFTUJxR1BRNE8wVHlr?oc=5",
-     "at": "Wed, 19 Aug 2026 13:24:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "\"النقل\": 3.8 مليون دولار أرباح «ناقلات البترول» خلال 2025 - Masrawy",
-     "he": "",
-     "grade": "",
-     "src": "Masrawy",
-     "link": "https://news.google.com/rss/articles/CBMisgNBVV95cUxQcVluUjlWLUM1Z19fVEM1TWlZaDV0QVF5Q1VWRkNrRlhUU1hyWlE4cDNETnNMeGRQc2IweHlkZHdJZnNUVlluQVdmVWhvdThlcFI0azFRZS03SFRhNHpKNDNCaTVVQUxTQTk4eHZQeE92Rjdhc1M0ZmdYb0lja1Q0X0paUHNkV2dkYzVqaE5yaFF2WGhFc0h2d1FBT2szd3hTVloxRWI2dk9odTktSS00YkFHUUxRSk96WVJBR2htRmxTeElSamhheGtwMTFKNWltTDZFc2xaMGJhX2RRc1UwdkxuVjI5V2RFRXdfSzUtaFc0Z1lEN1lsVUloLUQ4RWJMOTI4aVlBa1YxM3pObmlKTWNGVkxXQzBDN3JpZzNmQlZ5MGRuWmc5OUhqMWpHbTFDZDlmbGVKX1lZTzNVTVQ0LXVzQlduX2VEcGdfREwtaDFzOGdXMXNrZ3o1a094V3J4WW95bHc2OXhkZy1yS3Y0WHdpbFlDZWJyY0VkT0dMT1IyeU1iWklhZG1CMlk2eENSMzNzd3RWZzVleDBZUDZ5R3VPaFdqN3h5REo2UXFfREd0UdIBtwNBVV95cUxQM3VZNU1MZUNNMmJIWGdtYmZtOXpzY0h1WC1hU3JTTjBnUXZaalM1ZmdNaHBDcjVuS0ZOejZqbnB6Q19nNkFjSERhdFVRSUFOWXRpWU1BVUpXcHlqZUFoeWtWYl9kMkZxMmVOREZIWkgtVVRzeWpSTEF3U3JqNUZzR0ZRMnJCX3piR3R0ZFJTWmdIT1VTUlJPeUkyOS0xTXBERWtzZmV0UmtEVmZsS0RTa0lZT3ZaWV8xYUlzNkFqT1hOZ2dnRzBobm9wRHNMamtya1Z6UW1hdEF1UUdSRktieTNSX3ZaNWNpa2EtdHJLTjJ3c0h6aDctUGZhNm15YU9nbi1aUXV1X0xPTm1TSzJpRzRpak9wZl9lMWtuellHeDVvck96M1RBcEdmWGJhU2E3cTZEbmVtUF9tNjMzNHlKem5LNVhySmo1ZW93UHNnQXVQeUNWeEJYc25LbldrcUtGWnlDdDVVandRUlBiU3d3OUkyekNMZ0VidDJObjBFcnJwUHAwTFZZSGZ5cHp2Qm9BY0NsN0lDc1Z5ZnQ3alJ1NDVWaTVsUThDY0hwQlF0bDBmZGxKMURB?oc=5",
-     "at": "Wed, 19 Aug 2026 13:12:35 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "ناقلة منتجات وبناء «أفرامكس»| وزير النقل يعلن تدعيم أسطول ناقلات البترول - بوابة أخبار اليوم الإلكترونية",
-     "he": "",
-     "grade": "",
-     "src": "بوابة أخبار اليوم الإلكترونية",
-     "link": "https://news.google.com/rss/articles/CBMi8AJBVV95cUxOYWs0VWhKN2paZE1od0VPejhkd1ZhVWx4Ni1FUXNsdGpjMDNaLXZ2eVZtM2VHY29fallfd3NQU1IxNk5wa0dvaUwxeF9ISUEwZW5DblJ4bXU0SGg3eVpSYlFRS0dpVUV0MEdqRlYzQmZhSHV0UnNjdE4ycHUyVjlRa3h0eVMySlB3LU0yblZSZnNZTjdSZVBIVFZ4XzNZWVZPZjdDc2QzVW5aZFlyOFZmMmlFTmt1d3FQM3E1cHZ3UUw2OVZlZV84MWRuazFxcVpsakxGdDgyaE55VkhKTFY5OGpTRzNPdkZnTy1zdDdwRXByUk5jZG5jM000ZXBIUjl2X2EzVVBGbnhKdEU1YVNYNU9aN2JZMXN4dHpheW44dVEwTFlNaEE0TkxHZ3JHU2EySlpnYmxkbE5VdnMtVGc1ZjVDc3VVNlFlelNFckc2RDc3QV9KWTdacUtka2haaUZTMGdiTW5wRWpvLVpqTlV1Yg?oc=5",
-     "at": "Wed, 19 Aug 2026 14:07:58 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "مضيق هرمز يشهد إصابة ناقلة بضائع ومقتل أحد أفراد طاقمها - المتداول العربي",
-     "he": "",
-     "grade": "",
-     "src": "المتداول العربي",
-     "link": "https://news.google.com/rss/articles/CBMi4wNBVV95cUxOWWZ4ZDNaZEI1Nl9MQzZyRzJtb0tnMUNtLW5QaXpvM21ONXVzODVmNGtWTlpONUtYRVFJaXNFdnZPeVE1RnNTdjdjQzdfdk1keDloUS1pdWhha0hiWlBUeW03Q0tSZlBXN09UUmxvRXZ6RFB6SE5wdDZIMGh1U2FUOXltTzJXaVJCVnUycHFxN1hhdE45NlFTX2dFQjlMZ0Qzd3FUYnVTWDdzMlhHMjdVRXpxOXhnclg2bUM0ZkpueUVPR3g1NFA5NG8yU0dLREV4dEwxWm9pZ1dyeDhpRERlRFlTVm56Vmg5Z0U5M3VNUWNnZmZqT1J2cHVsYS12V1NzZUhNS3QtMVpRdWVUTE9NMFktRXB6bGxDdzdiT2VXMUtWWVpPcjRWN2lmejFFLXJkQllsclhvU3hZRmJsLVdMR2FHam40OEI2bDh4aUYzM3k3d1kwc1NZSktQWHppbDZhYnlzdUdKbVZQMGNDTkRlVC1BNGdTUGoxa2UzRk9QNzA2ZHpNdnhhdDJ6MmZqUjhJblZWZVJ6MkdvNGdoanB6LWdmb1poVnFpRi0wekVzZ2FuNnpXVTFRUjAtSnRwQ1V6REt6MnRWUG1rVjQwbXdabDhyYnRJbnc0QmpSNzQzOXh5dms?oc=5",
-     "at": "Tue, 18 Aug 2026 17:46:04 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "ناقلات النفط الكورية تستخدم قناة السويس مسارا بديلا بعد إغلاق هرمز - جريدة المال",
-     "he": "",
-     "grade": "",
-     "src": "جريدة المال",
-     "link": "https://news.google.com/rss/articles/CBMihgNBVV95cUxOSE1xd01hUHB0Vm9LRWlBS3otblEwMVZTTF82YmpKR2daZXZxYWZ0MWdwV0pESU13STQyWU5fc3lwLXdhNW1OLUd2LWo1NF9TYVdaZVFwZk94SFNVcGRnZk9MeElCOVRNNjJTcHVXaldocWxocXdZSzY2dGliNkpoVHJreE9LZWVwSllzNWstdDlfcjUxbVFlUjZ6QlpoMFQ0NkFpNVdwMXhVV0pBaFFLcmstYzcwcHZNNGVVSTRkV2NKSXJHMkY0djZfNnQ3bzRRcmp6M0N4eWJOSWhwZUg0dWE0dEVJSVZNc05QN3k5alVmekJETTB0dlJHcmR6NGw2cGZ3N29jelZ5dW02eF9JUlhkR2hwZFAtTkktNnBocDBnVk0yY1VfU0w0dWRWYngzOTd1Nzl2WC1CSUt0ZmZPZmdMbHlZbmZDQXRzTmlXOHRCaFZ3TUQ1YTJ5ajNTYWtDOVRxaklLNXpFNFo4MThRQWNOOTBjQjBWeXFJN29sbzhwZmg2MHc?oc=5",
-     "at": "Wed, 19 Aug 2026 07:35:37 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "الصين تعيد رسم مسارات النفط... ناقلاتها تتجنب مضيقي هرمز وباب المندب - الشرق الأوسط",
-     "he": "",
-     "grade": "",
-     "src": "الشرق الأوسط",
-     "link": "https://news.google.com/rss/articles/CBMixwRBVV95cUxOVFNIVFlDMVNoRzRsNFRGZ3M2aTA4V3JvYzdQOHhaUUhJVzlSWFpEdloxNXNTbnkyUmlfTFBTbG5pV29wdWcxSEtTRGl3eFRlVm92MDNrbDhEWUZQUFB6VU5mSGN3WlpTOGJTT0hGdm5OWEtzOE81Zlc3Z3pfbHhwY0hpNHNDcHV1NVlUNW01RmJGWkQ1ckNsZGd6aXNWZ2NfZVRSQ21MVk5Zcml6UHVTcmJyWGZmUFJGTW9nUnJROVZTcXBmZkFFaFFtNzdLVXptdm54bEQ1blFVaWFldlJfQTRXbWhfSTlHQmJLZGNYOTZ6ejFUaUF0bEZ6V2gtdUMxQ2ZoV0IzNFZHMUQwTzVYUTNqQUF1WWFUX1N4aFR4QUhoZlpVU2JKV0V1ZkhmY0psUkJiTjdzdnFpMWhacFBadFEzRVVON042alNFR1ZBWE9xRUZSdEtwTkh5UmJod0FWdHF3ZGtrU1kyX1JPR1V0djRqNVB3djM4eFJxWEM4OGxZSkU2ZW54NEFrUkNYQzN4eG5qVEZKN2FBTWowLWFMMWFLZHBxNUFFcy0yQllaYjdKbmhLcG1Pc1RuMzBoNi1kS0oxaDBpSkxaTjc4d0hSU0x1SEJ5a2hSQTRnOXNGMjh2UjIzTWNEN09NVmE4Ql84LWM5NFlTeU0zVXZMOG5GdHFZYjBsQ2xDZ1RDT091Vi1IYzhvU25TYlV2a1FhUERRbXZ0SXh2SVZXT01NUG9NRWE2YmRSaUd5UGxXZzJwUEhFc0pMM1lv?oc=5",
-     "at": "Wed, 19 Aug 2026 07:03:54 GMT",
-     "channel": "gnews"
-    }
-   ]
+   "summary": "«ناقلة»: 0 خبرًا مُسنَدًا من سَنَد.",
+   "summary_en": "“tanker”: 0 graded Sanad hits.",
+   "hits": []
   },
   {
    "term": "ناقلة نفط",
    "en": "oil tanker",
    "kind": "keyword",
    "topic": "طاقة",
-   "heat": 32,
+   "heat": 0,
    "n_sanad": 0,
-   "n_open": 8,
+   "n_open": 0,
    "sahih": 0,
    "hasan": 0,
-   "summary": "«ناقلة نفط»: 0 خبرًا مُسنَدًا من سَنَد و8 إشارة مفتوحة من الأخبار.",
-   "summary_en": "“oil tanker”: 0 graded Sanad hits and 8 open news signals.",
-   "hits": [
-    {
-     "head": "أكسيوس: أميركا أنشأت ممر شحن عبر هرمز لنقل ملايين البراميل من النفط يوميا - العربية",
-     "he": "",
-     "grade": "",
-     "src": "العربية",
-     "link": "https://news.google.com/rss/articles/CBMi0ARBVV95cUxPMnBPemdsMmJ1aldXUmdEeTE5Zm45SWQzZk1OTlBBMUdETk41aE1Zcm15MUU3VzJUbTM4MEYtbW1BQzdKTFAxRXZPS19xTVlhU2xzdlQtaE44bkVWQVVHUFctUER1cHFsRXZ2MjdKRXl3MHQxQzJQS2djaUlzMUlkNTlERE9pWEdhUlU0NWN3MmlkOGwwVGxHdXNKdFVVaDdrR2x2eTI1Z2gyUTAzS21OTlYwRFMwQ3E5WTlZdk9Ya1pxVTJ5d1NhR0lxcFZSUk9GMk5hWkVYdjdjeHBIMjlHWjVzZEZ1cVNOTHN0NURFRjJ4d04ybGRpNkEycUc2UFRmd3U4VmtPczZvaXBYVVdHZjVsWnEtMkhhTFZvWldSUzRmazZuX3NnYmhnRWFkLUxSMUVSc1U2WkZyUFgxSHIxX1BTWERuMVo2MHFTWW9QSVlDTEFpRGYwRDJoSFd5djMyT0ZXNUdyZGl2bXF2ZWY2enB5eHhLZkVxYzNEdkxhUkxfWWdfbXNIaWlCOUdpSWt6WUVuSmdRWGRkOGVkekU2YUVlaXd3Z1dycFBEa1YwNDVvQ2VnWGVEY1MxbGxETUZob3lPRjNaa3NiNXd3TkpiNWI5WEl4V3VoZDlxbUhQNEVwSFh6UnZCdWhpTEFFSGxxZURoQUVuNEhvajBmZ25jbS1UM1luc21fZlp2REh3R041aHdfVUZoRmt3aEMweXk5czRVRlRyM3NrdWhMNlV3eU92WDVCal9QemRkQVFuckVfQ0xFak9ldUR4a1F0Tnll0gHWBEFVX3lxTE9KLWRNYm1reGtIVlFTbGJwRkh3LVJab2gxc3E1MFp3U3d6YWUwNDNqRWMtNUZTcHZIcUdNTC1HV1VLaWNGSjRiSVA0U3RlalF6aUFGRnE1aTlsaHp3RlkzTjBHMVhLaC1xTlBTN2tJN0VQNHlNVWczTEcxZ2EyanF3V2djeVJyRUdpTlJzcnl4elpzd0loX1BFdm02d1VBTHJNOFhydjAxZ09LY0ltV1VzMHNHOWRWaXlDUkZHb0pwTl9DYUJNQXN4MHNpMDgyd0JJQ09kQlYwWk1GVVRzVVBuODZOTnBvNUVpTWp5X2lmVjgtZERtUTlaZmNBU0t3ZVpjWXZfeXZuTUdzMG9uQUFfSEx0RXFVWTdhQmtlN0R5UXU3NVVvY3VhUktTU2lhSVdxdzdFWGlnN3VaT3JUVmEydlhxaXNodGwzb2ZXNnEtNzdpQkpGSEt0NlI2ZUZnQzNXbWpEY2xza3pUcHFTVl9McHVmT2JyLS1rc09TXzI2a2VIUGFtdmFOYUhVcWQ2cDZrRURUbElRcEJMakNMN2VKSlo2U28yT3Z6S3E1UVJVYWpoVGFZTkpWaFFKRFZCZkZFU1lEd2ppSDA1N3duYjUyckhlWGdnZF9qZ0ZoQVBWeHh4OVpOWm9CRkZCbXNqMTB1NUMwNXE1ajRHUnpjc0ppQ0xZWHFvV3F4VHAwSkVKWDBmVGxlcUNLZ3luLWtFQ0VMOTFJR29QVHQ3YzNDMzA4bE96SG90cTdSNFAyZ2hIM1dzVWNHck8yV0NOU3NFRGFrbjVRUUE?oc=5",
-     "at": "Wed, 19 Aug 2026 19:46:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "الكشف عن طريق شحن نفط سري تديره واشنطن عبر مضيق هرمز.. ما القصة؟ - بوابة الشروق",
-     "he": "",
-     "grade": "",
-     "src": "بوابة الشروق",
-     "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNTVRpWGtxeElMeGhvNVdzU1V3RjNJYzRYMzNzUF9JbjNuZ1cwN0RULXZ5N0pQREhpbDNnZ1lyUFM3V0VsVmpsZUpKUExyRzNvSUVCUnllYnZPd3huS1RkdWNubEVxVUVLaUhfSzEwOTY3YVhDa3ZCRUFzRWZOb2FjRnc2SXhFb0pHYmZ3OXdBTGpvVU9Oa2pTQmswWnROUU9QUDRNdVVuOA?oc=5",
-     "at": "Wed, 19 Aug 2026 21:26:57 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "بيانات: تباطؤ حركة الشحن عبر مضيق هرمز عقب هجمات على ناقلات النفط - Reuters",
-     "he": "",
-     "grade": "",
-     "src": "Reuters",
-     "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1hRzl6ak8yWlpXSE1sNHNIbXRreW42TmlUelJRNUJaRzBNQ2Mya3czY1NXWU9qY1RZcFRsbmVPUkhQODdLT1BVUWdJVHpFN3hWdnI3bHdGV1ZaTVNoS1F3Y0o4dHFvSDI1SldsN2tQdW84RTRBdTdEUFV6akZyRnM?oc=5",
-     "at": "Sun, 16 Aug 2026 23:47:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "إعلام إيراني: الحرس الثوري يسيطر على ناقلة نفط إماراتية - mubasher.info",
-     "he": "",
-     "grade": "",
-     "src": "mubasher.info",
-     "link": "https://news.google.com/rss/articles/CBMizANBVV95cUxPQlU2VGI4bDdZbFVhT2F2N0Nhc0RqdXE4MEZPWFd3MmlVQl9TcXBDdm5EVG9yMHV1b1FOa2t5LVR5TWphRlRCdVA5Skl3WXI0XzJDSkF4QUdmTEdXbmtpcGd1ZlBhTnBENFpoVV8ySU1ZTndFaHVpVG1RYzlXVkRPajY1LTM0RVZqYWFVYnVLZTZPV3AtQU42dHVZVHJPenBWX05aZXZCR3FvaFM0QmQyb25GZXdVQzBXa0VOMnpGdVB6WFZJbkpwQUMxQ0RqdnN6X19UaDZwSEZuYWNub24xWmFaUDdjbGpkY3BueXFka0oxR2JJQTdZMGdoX0lzczBoZzFvSE92M1F5aXFQSUx2Sk9OSloxbEtkbGMxZHhUbkhVTWt0V0k5MGxYSnE0MnlBLURZQlhwQTY0UEFpOFVaMDIyTThIOUJtcUVsSXhXQmtoOHpoWHYtYXhZQlBfY3JtYm1pZThRYVpRdWxQczRpQVRJb1BHalBiT3RIMk1BeF9kNHpPakFLcEhUUlFvcm43UFR3Z1JWa1c2cmQ3bHZTMTBId28tZGdmdUxpM0htU1lCbU1qcXVnZWh1YTBrNzFaWWI5QVZ5TjhSZjB0?oc=5",
-     "at": "Wed, 19 Aug 2026 16:56:13 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "إيران تقتاد ناقلة نفط إماراتية إلى ميناء بندر عباس بعد احتجازها - Masrawy",
-     "he": "",
-     "grade": "",
-     "src": "Masrawy",
-     "link": "https://news.google.com/rss/articles/CBMitARBVV95cUxQVzZRT29HQmJxU19hOEFmUFRvWERLVzIzbVhnVnhwSG50dHFYTFNkaEd2U2lYWnE2ZHVMY3RkUm1MZ3N5WTBWa3I0WkxYRTEtYUd3d294S3g5OWtpZkRIVHZrYzN4OW1oRldQaTFqUmRHZklBVHhFOWJwTk1zX21TcFVkMjRGWG5VVWlLNnMzZWE5YThzNlpqd3VpMFRaOTJNVDEzYUNscE84ZzZKYnp5YkdNaFZwVkxPQTJGT3pOX3RTaHdlaVV1dTdjU2tKUEUwR3dSUmRJZ1Y3dmh4bFpzYmhtUGE5N1ZFSUg1eEhmejZNZ3JNTVVweUpWa1U1Ylg0X1FPS0dxcWpVQkx1U1dQTS04b19YZG5KeFJIejlNemZBUkplODhqeFRRWmRWTWNQWTJSaFJ1YkJnQmVqS1J1dm41Z1ViU2pYTWFlV2xJUGt5LUlNOS1NQ2UwSzMtRnhlZXJyRlZjNzhjT3VwdVd1WEhpM1d4YWxfbUdaVzdDaWtENi1GTWFQNjhibTk1dm5wVjlIc2NXT3I2NW43bVFvc2hxWXZoZVFhcFM5TEFlRUJnOEFIU0RLLS13bXRNQk9kazNkN2FfSlE0Qk5feGRoLW5oZWNoUURiVE9PY2NQR0xQU3djaFJYMDVuMVFlOG5qYm9pZm0yUnd4elp2b3JTWDd3WkliRUd5X2pvSG1oejJOLVV1M096Tmc0WU4zcV91QjJzNEx4bExKcEhyZml6MHlKOVDSAboEQVVfeXFMUEdOVGJxYVpvU0FaaFc3cERta0ppQ3BXOXZhZDhkUDFhaEFvcm5QLXhhdkpzTWhMREdCRjZoYWF2Y3R4eHpEQzJpYjZZVkk1STVaSTBmU0dUTEloYy1IcXVVcXRJWVlqQ0I4aGhsREVlenl5MWd5NVJpeHdqMmF4aGVqNEEteVd3VXVzM3JrWnVrdUxKNUJzSnBYVzBhNkpWZ1BuYW14YkJRci1Mc2k1ZlFYckJVZU1CN0EydEpLNkIwTkJsZnJnS0lRODZidjlKUDY4RWpMcmhUTzdvM2pjbmdwRXpWeHQ4T1ZYWml2N1laem9hQWRmT2RBX1Zya2kzMWNOa1ZSSVMxTnVCR0h3YlhocWtXdU1ERDJ0dS1YMDB0TTlLU0U2WUwteVRxWlhJeFotZy1maWw5dHFKRlQ5SWhSWGdTZzlXeHJZQ2k0MzJIaDRRaUJya2JHY19FM25XSVg2WHllUkwwTmVHQXk0d1g4ZWdoTkxvLU1wN0tRa1R2TXRYSW5zZjFIR2Q4ZHlZem9vRHZaUUxNaWtzZ213TDRYMFVZOWFVRHJZY1VDeFpPZmNNYUJoZHVhWGc0SlBkQWpUeFpoSzNwRG4xZFlKaXVfVTFRSXJuOUtwbl9wa1JsdC1RSk1zRmsyeXZQcjNmamtzUHZRWmNCOHpnX2JYNFdKOGxUajhERld1bkk4ckRoY1pMQnNhMzFmSml2LWgtRTVmb2Rpb0NsUWxFR0F5czllQTZ1Y1ZZQkVn?oc=5",
-     "at": "Wed, 19 Aug 2026 10:21:13 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "أرباح أسطول ناقلات النفط.. 3 شركات عربية تحقق قفزة - الطاقة - أول منصة عربية متخصصة في أخبار الطاقة",
-     "he": "",
-     "grade": "",
-     "src": "الطاقة - أول منصة عربية متخصصة في أخبار الطاقة",
-     "link": "https://news.google.com/rss/articles/CBMixwJBVV95cUxPZkNqWEVGVGhLM2xaSjhWRE5xZUY5VDVyZGhDMFZsZXdWbk90X2gwb2NHU0owaW11b0FPc09PZDkySXdXSS04QU5VY0NHSFhqZG1adnEzaDhBcHgwSkVGY3V0MVQ2cWRzTjVkVm5VUko2d3NlSXR4UWE0eEdyb0tBWXhjRjktYU9yYTVRMER0LWVIWkpXbFlYcVdUSGE2MWVtdWR3NHloSTR2SXNiVGdqYTU1UU5FNTB4ZnRNS19UdklMeXVnWEdycEdPVEZNVVBndExZRm4tVk5UcVh4S2FhMVJXYTYwTVg0UkVkSVM4UHMtMkVWUmpXYzBMcDBPMklsbFdYUWU2OHhLMEFFb1pRZl9Tekc1emRXT3hXSzJSMDVBT05VVUhLUmFfb2pFNEdFb3luaS16Y2xmaXlYeEx4Ym8xQTkzLWs?oc=5",
-     "at": "Tue, 18 Aug 2026 21:00:34 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "الصين تعيد رسم مسارات النفط... ناقلاتها تتجنب مضيقي هرمز وباب المندب - الشرق الأوسط",
-     "he": "",
-     "grade": "",
-     "src": "الشرق الأوسط",
-     "link": "https://news.google.com/rss/articles/CBMixwRBVV95cUxOVFNIVFlDMVNoRzRsNFRGZ3M2aTA4V3JvYzdQOHhaUUhJVzlSWFpEdloxNXNTbnkyUmlfTFBTbG5pV29wdWcxSEtTRGl3eFRlVm92MDNrbDhEWUZQUFB6VU5mSGN3WlpTOGJTT0hGdm5OWEtzOE81Zlc3Z3pfbHhwY0hpNHNDcHV1NVlUNW01RmJGWkQ1ckNsZGd6aXNWZ2NfZVRSQ21MVk5Zcml6UHVTcmJyWGZmUFJGTW9nUnJROVZTcXBmZkFFaFFtNzdLVXptdm54bEQ1blFVaWFldlJfQTRXbWhfSTlHQmJLZGNYOTZ6ejFUaUF0bEZ6V2gtdUMxQ2ZoV0IzNFZHMUQwTzVYUTNqQUF1WWFUX1N4aFR4QUhoZlpVU2JKV0V1ZkhmY0psUkJiTjdzdnFpMWhacFBadFEzRVVON042alNFR1ZBWE9xRUZSdEtwTkh5UmJod0FWdHF3ZGtrU1kyX1JPR1V0djRqNVB3djM4eFJxWEM4OGxZSkU2ZW54NEFrUkNYQzN4eG5qVEZKN2FBTWowLWFMMWFLZHBxNUFFcy0yQllaYjdKbmhLcG1Pc1RuMzBoNi1kS0oxaDBpSkxaTjc4d0hSU0x1SEJ5a2hSQTRnOXNGMjh2UjIzTWNEN09NVmE4Ql84LWM5NFlTeU0zVXZMOG5GdHFZYjBsQ2xDZ1RDT091Vi1IYzhvU25TYlV2a1FhUERRbXZ0SXh2SVZXT01NUG9NRWE2YmRSaUd5UGxXZzJwUEhFc0pMM1lv?oc=5",
-     "at": "Tue, 18 Aug 2026 08:50:46 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "ناقلات النفط الكورية تستخدم قناة السويس مسارا بديلا بعد إغلاق هرمز - جريدة المال",
-     "he": "",
-     "grade": "",
-     "src": "جريدة المال",
-     "link": "https://news.google.com/rss/articles/CBMihgNBVV95cUxOSE1xd01hUHB0Vm9LRWlBS3otblEwMVZTTF82YmpKR2daZXZxYWZ0MWdwV0pESU13STQyWU5fc3lwLXdhNW1OLUd2LWo1NF9TYVdaZVFwZk94SFNVcGRnZk9MeElCOVRNNjJTcHVXaldocWxocXdZSzY2dGliNkpoVHJreE9LZWVwSllzNWstdDlfcjUxbVFlUjZ6QlpoMFQ0NkFpNVdwMXhVV0pBaFFLcmstYzcwcHZNNGVVSTRkV2NKSXJHMkY0djZfNnQ3bzRRcmp6M0N4eWJOSWhwZUg0dWE0dEVJSVZNc05QN3k5alVmekJETTB0dlJHcmR6NGw2cGZ3N29jelZ5dW02eF9JUlhkR2hwZFAtTkktNnBocDBnVk0yY1VfU0w0dWRWYngzOTd1Nzl2WC1CSUt0ZmZPZmdMbHlZbmZDQXRzTmlXOHRCaFZ3TUQ1YTJ5ajNTYWtDOVRxaklLNXpFNFo4MThRQWNOOTBjQjBWeXFJN29sbzhwZmg2MHc?oc=5",
-     "at": "Wed, 19 Aug 2026 07:35:37 GMT",
-     "channel": "gnews"
-    }
-   ]
+   "summary": "«ناقلة نفط»: 0 خبرًا مُسنَدًا من سَنَد.",
+   "summary_en": "“oil tanker”: 0 graded Sanad hits.",
+   "hits": []
   }
  ]
 }
