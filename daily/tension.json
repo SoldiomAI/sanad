@@ -1,153 +1,38 @@
 {
- "updated": "2026-08-20T17:28+00:00",
+ "updated": "2026-08-20T17:58+00:00",
  "note": "مؤشرٌ حسابيٌّ شفّافٌ من كثافة المواد المُسنَدة وحدَها — ليس تقييمًا استخباراتيًّا رسميًّا",
  "formula": "score = min(100, 4·عاجل + 3·ألفاظ تصعيد + 8·تحذيرات + 4·شائعات + 2·أخبار أخرى + بيانات رسمية)",
  "countries": [
-  {
-   "id": "ae",
-   "name": "الإمارات",
-   "en": "UAE",
-   "lat": 24.2,
-   "lon": 54.3,
-   "score": 44,
-   "level": "مترقّب",
-   "delta": -2,
-   "parts": {
-    "n": 8,
-    "u": 0,
-    "w": 1,
-    "a": 3,
-    "r": 0,
-    "o": 1
-   },
-   "events": [
-    {
-     "h": "إغلاق بوابة التجارة العالمية؛ كلفة باهظة لوقف التجارة الإماراتية مع إيران",
-     "g": "حسن",
-     "u": "https://www.iranintl.com/202608207244",
-     "at": "2026-08-20T15:15+00:00",
-     "src": "إيران إنترناشونال"
-    },
-    {
-     "h": "موقع سبورت 24 يفيد: طارمي ودع أولمبياكوس وتوجه إلى الوصل الإماراتي",
-     "g": "حسن",
-     "u": "https://www.iranintl.com/202608202759",
-     "at": "2026-08-20T14:53+00:00",
-     "src": "إيران إنترناشونال"
-    },
-    {
-     "h": "هل تستطيع الإمارات تغيير معادلة الضغط على إيران؟",
-     "g": "حسن",
-     "u": "https://www.bbc.com/persian/articles/cm2g4ggme1ro?at_medium=RSS&at_campaign=rss",
-     "at": "2026-08-20T07:19+00:00",
-     "src": "بي بي سي فارسي"
-    },
-    {
-     "h": "ماذا يعني إغلاق بوابة دبي أمام إيران؟",
-     "g": "حسن",
-     "u": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1kRG90OHVkYmN6VTJvVGRaMmp1dEgwZWJwWXpIYUs4aThOOTBCZWFURHhpMVM2VFQ4M0pCQTJBbnBVWFpCRklUSEtuc0pQcWstX0wtVVpxY0duVU9Q0gFiQVVfeXFMTm45a1F6a2V3X2RpRjFtWFI4WUdDZmhDdFpfSFd6Y2VUOGcxdm5CMXVqeksxV0txYWk2Q25FWjl1RlZmeXdVUUFDVmw3eW9JYU1xZ2RLUklGckNRT1RhaTNZb0E?oc=5",
-     "at": "2026-08-20T04:31+00:00",
-     "src": "BBC"
-    },
-    {
-     "h": "الإمارات توقف جميع التعاملات التجارية والمالية مع إيران",
-     "g": "حسن",
-     "u": "https://news.google.com/rss/articles/CBMitgNBVV95cUxPcVhLWTFwMUtsMGxxS2Z6Q3BpUmFUYW9UVmF4bUoxck02S2txUldLUGt4QXhHbVhiNENIZVFReGNiYWVQMGNOTmNVWlhZUllMMVgxQUVMSkpZTThGVy1lLWZLbUItU1hoQU9oYVpLS0wtQWRYN0poc0VhLUlDemhzQm41VzQ0Y1lvNGNDZVI5S0xzb2FvSXVfNDBDX0daZzdHWk1XM19ST3FDN3J2TGxNdjh5cExzeUc0Mmc5VERzWDg4MmxkbGZZdFFyQnVNTnpXcks2NUVHT0JQbVVLbUFuT2VBZzkwdzJaYm5TQl9iMDN6RGN6cGtjMXo4RUI1SXV0ZWJFbEtoZlJTQUE4czFKZ2lhcXpsbGJQcWc0eXdaQXZvSGlxdFpGN20tUy1KbDRsLUxZZ2lUMFRxaEstUURIcFFkbzhETEJjbEhuMEtMUzVvLVcyTHpGc3pLX0ctLTJfal94VEdrcnJjaGR2TjVSbWRNeExYdmwtTHlaZGoxaF95QU1OWUJYRzhTV1RiSnV1U1laZ2FBV195ZldXbUF4d1U0MFJ3OVA1REZNZnZVdmJaQWRkeHfSAbsDQVVfeXFMTVFUZjd4WWZrQS1hUDlCS2h4WTY0QURpbEoydGFXZUdnV2NfWlUxS2VKdFFVRjFCRFctVHZudlJvcjBSS0tIYjFJMHNYdExHYmhZYUpfMm9fYWJXakFmU2poT2w1NlFEVDBRZnp1Q2w4elRPNUdhTEp6MUlhazJjSDhIWV9YUjBweTBFdFlyY082UHlVdTE0RWVzMGdiWGpqMkJWUmloenIwcm40RXNnZ3NhZTNVSURKUmlkQmxXWk0zSVlKWi00YTdYVEt2TXdlM3duZlJyX09oQmQ4dXh0eExWOWg1MUhqSXdNRW5NTmRXOHVtb191MG1PYWx0aEpuTGNXTlR0T2F5dWxyNk8wUFd3eWdVMnRhRU1nSHRhUmliQnNzbWFUSHFXWFlhZTl5bXo2V2c1ZVIyTjZ1UTVUZ3h5T2ZOWER6V1d1OWJYZlBkVFdZTVN3NkUyXy1aTzJzVXl5NkNzUDJ6MFd2VkxmQ0NfaGZqNjJPM3hBZ3BlWU5seTU5V0hZYjB4TEM1OUxwNWhXX3QtbEhrZWF1aERvakRjai0yc2MxdUNvRTNYMU5hZkdWRWlTYTF5QUE?oc=5",
-     "at": "2026-08-19T02:50+00:00",
-     "src": "سكاي نيوز عربية"
-    }
-   ],
-   "signals": [
-    {
-     "kind": "flight",
-     "src": "OpenSky",
-     "lat": 24.2,
-     "lon": 54.3,
-     "detail": "53 طائرةً في المجالِ الجوّيِّ الآن",
-     "url": "https://opensky-network.org/",
-     "at": "2026-08-20T17:28+00:00"
-    }
-   ]
-  },
-  {
-   "id": "ir",
-   "name": "إيران",
-   "en": "Iran",
-   "lat": 32.0,
-   "lon": 53.0,
-   "score": 44,
-   "level": "مترقّب",
-   "delta": 13,
-   "parts": {
-    "n": 18,
-    "u": 0,
-    "w": 2,
-    "a": 0,
-    "r": 0,
-    "o": 2
-   },
-   "events": [
-    {
-     "h": "طهران تراهن على التصعيد لكسر الجمود",
-     "g": "حسن",
-     "u": "https://aawsat.com/node/5309290",
-     "at": "2026-08-20T17:05+00:00",
-     "src": "الشرق الأوسط"
-    },
-    {
-     "h": "إغلاق بوابة التجارة العالمية؛ كلفة باهظة لوقف التجارة الإماراتية مع إيران",
-     "g": "حسن",
-     "u": "https://www.iranintl.com/202608207244",
-     "at": "2026-08-20T15:15+00:00",
-     "src": "إيران إنترناشونال"
-    },
-    {
-     "h": "ماذا بقي في جعبة ترمب من عقوبات اقتصادية على إيران؟",
-     "g": "حسن",
-     "u": "https://www.aljazeera.net/ebusiness/2026/8/20/%d9%85%d8%a7%d8%b0%d8%a7-%d8%a8%d9%82%d9%8a-%d9%81%d9%8a-%d8%ac%d8%b9%d8%a8%d8%a9-%d8%aa%d8%b1%d9%85%d8%a8-%d9%85%d9%86-%d8%b9%d9%82%d9%88%d8%a8%d8%a7%d8%aa?traffic_source=rss",
-     "at": "2026-08-20T14:09+00:00",
-     "src": "الجزيرة نت"
-    },
-    {
-     "h": "أزمة الذخائر الدقيقة.. هل استنزفت إيران قوة أمريكا الإستراتيجية؟",
-     "g": "حسن",
-     "u": "https://www.aljazeera.net/video/fromwashington/2026/8/20/%d8%a3%d8%b2%d9%85%d8%a9-%d8%a7%d9%84%d8%b0%d8%ae%d8%a7%d8%a6%d8%b1-%d8%a7%d9%84%d8%af%d9%82%d9%8a%d9%82%d8%a9-%d9%87%d9%84-%d8%a7%d8%b3%d8%aa%d9%86%d8%b2%d9%81%d8%aa-%d8%a5%d9%8a%d8%b1%d8%a7%d9%86?traffic_source=rss",
-     "at": "2026-08-20T13:34+00:00",
-     "src": "الجزيرة نت"
-    },
-    {
-     "h": "إعدام قائم حسيني، وهو مواطن «أفغاني» وأحد المتهمين في احتجاجات يناير 2026 في أصفهان",
-     "g": "حسن",
-     "u": "https://www.bbc.com/persian/articles/cx2r9rlnn98o?at_medium=RSS&at_campaign=rss",
-     "at": "2026-08-20T11:37+00:00",
-     "src": "بي بي سي فارسي"
-    }
-   ],
-   "signals": []
-  },
   {
    "id": "ps",
    "name": "فلسطين",
    "en": "Palestine",
    "lat": 31.9,
    "lon": 35.2,
-   "score": 44,
+   "score": 41,
    "level": "مترقّب",
-   "delta": 2,
+   "delta": -3,
    "parts": {
     "n": 16,
     "u": 0,
-    "w": 4,
+    "w": 3,
     "a": 0,
     "r": 0,
     "o": 0
    },
    "events": [
     {
-     "h": "دول الوساطة مصر وقطر وتركيا تدين بشدة الهجمات على غزة",
+     "h": "فرنسا وإيطاليا وبريطانيا وألمانيا تدعو إلى «وقف التوسع الاستيطاني في الضفة الغربية»",
      "g": "حسن",
-     "u": "https://aawsat.com/node/5309294",
-     "at": "2026-08-20T17:22+00:00",
+     "u": "https://aawsat.com/node/5309303",
+     "at": "2026-08-20T17:55+00:00",
+     "src": "الشرق الأوسط"
+    },
+    {
+     "h": "الأحزاب العربية الثلاثة بإسرائيل تتحالف في قائمة انتخابية مشتركة",
+     "g": "حسن",
+     "u": "https://aawsat.com/node/5309302",
+     "at": "2026-08-20T17:50+00:00",
      "src": "الشرق الأوسط"
     },
     {
@@ -170,13 +55,6 @@
      "u": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE81azZpTVdlQ3ptYy1HQm0tUmlCeEhvZ2N0cFdOMnZ0VW51MFltV3ZBaHJzZnlJMEQ5Q3QyY0txODhsazZEOGFtb2NSRkZONEM0YmNyT3FheVVRem11SU9xTldlaw?oc=5",
      "at": "2026-08-20T15:26+00:00",
      "src": "BBC"
-    },
-    {
-     "h": "جدة الطفلة الفلسطينية هند رجب تكشف موقفها من القضاء الإسرائيلي.. ماذا قالت؟",
-     "g": "حسن",
-     "u": "https://arabic.cnn.com/middle-east/video/2026/08/20/v200409-hind-rajab-israel-gaza-investigation-vrtc-ldn-digvid",
-     "at": "2026-08-20T14:40+00:00",
-     "src": "CNN بالعربية"
     }
    ],
    "signals": [
@@ -185,70 +63,67 @@
      "src": "OpenSky",
      "lat": 31.9,
      "lon": 35.2,
-     "detail": "76 طائرةً في المجالِ الجوّيِّ الآن",
+     "detail": "83 طائرةً في المجالِ الجوّيِّ الآن",
      "url": "https://opensky-network.org/",
-     "at": "2026-08-20T17:28+00:00"
+     "at": "2026-08-20T17:58+00:00"
     }
    ]
   },
   {
-   "id": "qa",
-   "name": "قطر",
-   "en": "Qatar",
-   "lat": 25.3,
-   "lon": 51.2,
-   "score": 34,
+   "id": "ir",
+   "name": "إيران",
+   "en": "Iran",
+   "lat": 32.0,
+   "lon": 53.0,
+   "score": 39,
    "level": "مترقّب",
-   "delta": 3,
+   "delta": -5,
    "parts": {
-    "n": 4,
+    "n": 17,
     "u": 0,
-    "w": 3,
-    "a": 2,
+    "w": 1,
+    "a": 0,
     "r": 0,
-    "o": 1
+    "o": 2
    },
    "events": [
     {
-     "h": "دول الوساطة مصر وقطر وتركيا تدين بشدة الهجمات على غزة",
+     "h": "«محكمة التاريخ»؛ تمرين على العدالة في إيران ما بعد الجمهورية الإسلامية",
      "g": "حسن",
-     "u": "https://aawsat.com/node/5309294",
-     "at": "2026-08-20T17:22+00:00",
-     "src": "الشرق الأوسط"
+     "u": "https://www.iranintl.com/202608206021",
+     "at": "2026-08-20T17:48+00:00",
+     "src": "إيران إنترناشونال"
     },
     {
-     "h": "مصر وقطر وتركيا تدين هجمات إسرائيل الأخيرة على غزة",
+     "h": "\"وجه آخر لعملة الحرب\".. إيران تعلق على حملة ترامب الاقتصادية ضدها",
      "g": "حسن",
-     "u": "https://news.google.com/rss/articles/CBMirwRBVV95cUxQTzJjM0w1VGVTdEZDS0I4R25TQ3hIaFlvMmhySS1pNUQtdHVFYkJyUjJDX1JCWFBHQTY2WGxKRTduOGFuSW1KTnlMWGpKQ2dxdTBsLVpGTkJvQWY4bUtTN2p5OHAxVjhmVnJPa0dBLVF6c2kyNXNYZ2h6ZWJoQW9hanBxVTRubDhqMmhROFZNV2JQQkY2NWtUWllMSWZiM3pGUVUxNWY1OUdoQjVWVEUzT0diVnY3V3Q5dkt6MUYyT3FvdDJEMTRiWmNfMzh1b1N1ZGo3NzlPeE0wZWx2eXhPZTVGbkF2NDhSZEE2dUc3Um00ZUx5anZzdnROd3B2ZkFEYy1lLXRESUJLOF9tXy1TMlpzUHpZRC1GY3RvVy0zX1RXd21ubGhCTnA5T1ZNWlhCSzNtTERNU0VFNkh3VmtCalRVV2VCMkpYSkJmdVF6dkNRbWlBSmVUS1FCcW9LWFJJSjlJN0FIeVQ3ZGh2Y2VZLUZwVGVvTUFhdlJqcjFfZ25vbWNnVmcyTnVsN3dDM3Rrd2o3UGFjRVpRcVg1NFllV0puT3pyVDZqNVdkWXEyQzQ0RU04QmNrWi0xN0VYNFlJS2xhTkFYTmJUX0NPVE8xTWQ3WVdGSFRzWk1BOE5zUnhiTThsUFlfYkg3R1l4ZzY1Ylk1c1ZTMDJuMWh1NWMyZkl0aVZ5Y19zUGxhaWhkcjRZaUxpMDJySjh0N0R5ZER4SzlPb3pzUElMbldfbHlj0gG0BEFVX3lxTE16ejNIRGNYX1VuNHBtWTNyN01hVjA2cHBZUnl5TGt3WXI3NkUyeFhrU2lNWTh0YUV4bm1wYlB2WXQxbHBHYTFkdjcxMEFscEZoY0ZhUEUzVXdyc2xydGQzRWZUWlM1cFRsVGJmclQ2OFJUTjVrc2JiUUNjY2JXaEhhTVVsYXJrSEc5bDRINnVhSVAweE9pYkVleGI2THNKZWZoWkhVOE93RzAzcFhmalYxYjJQTTZJQklTbWtEbVcxek5ZRkJYMDZ0cGhfZkh5WUtEdDNMSjNiQkt4Y3RLcFZmaWR4LVBZXzZXMWxtUTgzRzkwVXhXMl9tX3pzTjFBcEt3amZwU2ZHX05ZU2F1ZllwSmc3RWdPX0I0U1d3RzZYaFBxaXRXYjdsNndXNDB0RVQyXzdjZUZ0YmNrQ214Y2JtaEF1ZlVObEphdmFjazNsU1g2N3VIZjZmVzhhUDhsNUFHR2VyZENMYzBPVTQxRnBaYnlwMnhVOWZxQW9YN3ZXVl9zdm1ZbTBxam5MYzVhc2ptSGZKX0p4bHYwZXhuTVJkYXBRZlhVM0V3OGtkV1h0S0JMV0VBQUVKTzN1VXJNZnJlaUJTeld5RURNNTk3blZya0xNcDZqd0ZyVEhDYXpubHAzNTFON3hTRzBFR2JMd2stTHpmeG9XR19tb2R5a0JmcEVGczdWb0RNRlhwcThTTmlfSjdUallNWmQ2LWg2aFo1MGpPdm9Jbzcwd3RzU25aSVdHRg?oc=5",
-     "at": "2026-08-20T12:54+00:00",
+     "u": "https://arabic.cnn.com/middle-east/article/2026/08/20/iran-pans-trumps-economic-threat-as-other-side-of-the-coin-of-war",
+     "at": "2026-08-20T17:44+00:00",
+     "src": "CNN بالعربية"
+    },
+    {
+     "h": "وزير الخزانة الأميركي: العقوبات على إيران ستؤدي إلى \"انهيار النظام\"",
+     "g": "حسن",
+     "u": "https://news.google.com/rss/articles/CBMixwRBVV95cUxQR0VrNlJ3OG5pU2p6S3ZaOFRXZEx2THpnUDNwNEdkUWNZdDZiaEFHU19SeEV2MkpPbmZ3YkpMbnVYT0VwVktlblhKaFFzN214dEcwX3JQRWNOUzB6dUNVSGRJdjVwWkxSZGpWM3c0NVNQWGRnRnhVQkJkOWxRcG1EVnJ4SC0wUDc2TE5BdVJJWE42RmN3U24xUXJlTndjekFraDZzLWlBTjdFNDVtVWZVU3FJeG5KVHpVb3BIWkVydHFjdVRQNmgxc0xScjVqS2RaUzVRMFB6b09tZG5zT0Vzakc0YlE2bzZmRjVYZ0FrcXJKdU5YZ0g0anJNNFYxQmd4QWYza2dlMEdIZUY2U2tPMWNOd0dEc1FDaU9yOF92UjdvY3pLNUUzZVE0b2hrUlk0RlE3M1h4QlQ4SUxXQkZ5MnVMcHpoaG5ETmxzSFN6UHh0dkFuQnBvR3o3OTYxSGNaSkxCVGRGREFwMGxkVWI1STlFeGlVY2U3ZWxqNi1OVXZKMldPQTJYNU1uLTQyOTMyMDVTMEVGTVg1dWsycFZKb19lYjMyUHFsNTlwbDlvRnpzVGdfMVMxYUpWSldUWFpnY09ad3dsZTFhRE83eElFMGlfdEExU0RGV3ZMTzdhcURsWFVBMEVIbTFld1dpN19SSzlFeVF4VnVHbkQ4c0d4OGQxZC14aVA0SndMZUpNd1JNNW9sbUhJYllFcnpza3lDTkdkTGk1YXRncmZkVzQ2QTI1RDlwem52Z3hJZ1NSU2F4MUM2WHhB0gHMBEFVX3lxTE9idUdyNjZ5cjl6V2FVcnZNZ2c1V3RTWU9CR3YwX1dZTF9ONm5fX29SUUV1bkVfWm5xOThGYmI1b0VfRklGWTZUZ3VZakFoTlpqSE5Sd3pDZGQ5NXZCWG5VZlV4YndsaXVBQTNjMmwwS2sySk9peUJtYTFxTUpydzRDczRZb0tzTVZHT3luajVWY0NyVGdVbUhERnFabzdLNkk1WXI2R0pxYjF2TTZPdWhnVDZMd1B4ZkFxZE5qc2tRNUp2cjdwVHMwcGJnQ3dzbTZhbjVjNk8xbndQZmttSjY4NEtxZlFkLVlSLVZhR01zWHh2TDdOWnNKSi1TMnk0WXhxSGtTTTJFTXNhbDBOZXg4cHZVZF9vSjgzU2thV3Ywemhna1d5X2pEQURvbkhJZC16YnY0YmRxY21IRHVyNDhvQXR1MHVmLUJjdldkZ2praUE4eDQ2dU8wRFFEQTZmQ0kzODBJVTZNOFg0WUlkSGsxMXM0SWNUZFdvemhRNWFRVkVSa19ZMWpWd2JaU1pNWUJnWGtWamVnUWk3RExNb1NSQ2UxeWVWZEtfVFNGcHBqZHMyXzJjbFJMTjZYWTJmYjZrSmZCLXZfbm9lZy1GOTZ1YnpOeE8ySGs5d1dYWVVCYzBkQzFQNDFrS2dpSVVqMlJYVVpfeF9BUFF5YTBGT2FlcU1rU3hQSHRkTElQdWk5NzJIUWdQZ3RJdW9remw4UXFjRFJLSUZMcnZQWmZxNG1uT0J4ZnV1MlExZjhTQXNlcE5YY0lCbjl2SXo5dg?oc=5",
+     "at": "2026-08-20T15:42+00:00",
      "src": "العربية"
     },
     {
-     "h": "مصر وقطر وتركيا تدين الهجمات الإسرائيلية الأخيرة في غزة",
-     "g": "صحيح",
-     "u": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9ybnVIOVA4MnRTYTJRbUlld1ZQYnNiWml5VzRmM09QYmRCU0lzUnlENG1hYURwOGRPdW5aTTNLTUUxdVNHT2ZnNDliZXpXM0U4ZGlNVVN3czZYZHJTOFhPLWk5TlNjU182MDU3LXB2d0dMMUYyQU5ZaDR5cw?oc=5",
-     "at": "2026-08-20T12:42+00:00",
-     "src": "Reuters"
+     "h": "إعدام قائم حسيني، المواطن «الأفغاني» وأحد المتهمين في احتجاجات دي 1404 في أصفهان",
+     "g": "حسن",
+     "u": "https://www.bbc.com/persian/articles/cx2r9rlnn98o?at_medium=RSS&at_campaign=rss",
+     "at": "2026-08-20T11:37+00:00",
+     "src": "بي بي سي فارسي"
     },
     {
-     "h": "رغم تهديد ترامب.. قطر تدعم محادثات عُمان وإيران بشأن مضيق هرمز",
+     "h": "ترامب يعلن عن \"العملية الاقتصادية الأكثر سحقاً\" ضد إيران، وطهران تصفها بالـ \"سياسات الفاشلة\"",
      "g": "حسن",
-     "u": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQQmhtdHhvdXRwanRjY3d3QXlNdzRyZ3g5NVlIbk5DaFJtZHowemJEZS1uRi14MVNBQUU3d2NJa2NvenY5TG1fR2RLQTMtaUE0d3ZXRGd4NHhid3l5UldiUjYycUhhTUNSSkNVeGNMTl80VXFHWjg4M3RvOUlRV3c2cFl3ckszTFl5WEpCdU12cF9WWENaWVZzcUNNV0ZrYzFGWGFrOTROS2FjeDNXM2lOclh6NjZpS0ZKdk56YjJ3cmfSAcsBQVVfeXFMUEwxUGtIQXRnRmZzamdDR3RQLV9rbUR4dHc2dmFCLU1PRmZqblNtY01kaXR0LXR3TF9NU3Y0ZXA5ZVZZdXlkYmtSa2x4bEh6VnNpQmkxRnZhMTJLVGk3TURrZDNnWkVnaDZGa2llOGdCUGpPdncyNTQ2R3Y0d2Q2MG1xMlpyNWNkNWVfMUVPdWxZZkFTQ1VGczBhd2lodklnLTI5R0M2a1pBNnBubEVOZmZ4cXQtdUlPenFab2kwS3N2UFBmcVpaRjdxVU0?oc=5",
-     "at": "2026-08-18T17:39+00:00",
-     "src": "CNN Arabic"
+     "u": "https://www.bbc.com/arabic/articles/c8dnz068y8vo?at_medium=RSS&at_campaign=rss",
+     "at": "2026-08-20T07:25+00:00",
+     "src": "بي بي سي عربي"
     }
    ],
-   "signals": [
-    {
-     "kind": "flight",
-     "src": "OpenSky",
-     "lat": 25.3,
-     "lon": 51.2,
-     "detail": "22 طائرةً في المجالِ الجوّيِّ الآن",
-     "url": "https://opensky-network.org/",
-     "at": "2026-08-20T17:28+00:00"
-    }
-   ]
+   "signals": []
   },
   {
    "id": "sa",
@@ -256,24 +131,38 @@
    "en": "Saudi Arabia",
    "lat": 24.0,
    "lon": 45.0,
-   "score": 20,
+   "score": 23,
    "level": "هادئ",
-   "delta": 0,
+   "delta": 3,
    "parts": {
     "n": 6,
     "u": 0,
-    "w": 2,
+    "w": 3,
     "a": 0,
     "r": 0,
     "o": 2
    },
    "events": [
     {
-     "h": "الرياض ثانية محطات مقابلات متطوعي «كأس آسيا 2027 - السعودية»",
+     "h": "اجتماع خليجي - صيني في الرياض يبحث التعاون الاقتصادي والأمن الإقليمي",
      "g": "حسن",
-     "u": "https://aawsat.com/node/5309291",
-     "at": "2026-08-20T17:09+00:00",
+     "u": "https://aawsat.com/node/5309305",
+     "at": "2026-08-20T17:56+00:00",
      "src": "الشرق الأوسط"
+    },
+    {
+     "h": "السعودية: 30 ألف طلب للتطوع في «كأس آسيا 2027»",
+     "g": "حسن",
+     "u": "https://aawsat.com/node/5309298",
+     "at": "2026-08-20T17:37+00:00",
+     "src": "الشرق الأوسط"
+    },
+    {
+     "h": "الحوثيون: استهدفنا مطارًا ومنشأة نفطية بالسعودية بطائرات مسيرة",
+     "g": "حسن",
+     "u": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPU3ZRaG53NFVmUXdfVHBSNWtscjVzS1hxc2tJQktsLU91UzhSbUpJSzFwWFY5ckJTdFZOUE5OVC1vVW9WQjJsMVVTMkR6bjZzTGlEaHRmZUVCclI1RUh5bEJSRFZYUlpuWWtGOUlGU3pBMjBUQkRpYnJOdS0ySndiTThJNWk4a2l0eTdvOExpNmJaZnJ4bXBuV0s3dVBMUUhpaEc1QTNDbkh2MkJ2cXhPNldWMFNuS3hJN0lNRzZad9IBygFBVV95cUxOM3RMOUdZNFpSc0k5VjBHZDByeWtaM2loUGIydW95RzJLWmxPN21PRDBDbVJ1YkNnQjd1RjB1UTRnNy1fcDBUM2tGaEdTT2liX25PeW1fOTk0TjlUS19namlaa09nbWt3MW1rdmdsWWRDN1NlUTZpU1lHU3FyY0JVSGdoamtKMXJxUzNTVW00MXZ5Rk92cTFfa3RFWkN6UG5Sa1ZBWlVYNTY1MDJTVFoxaXBvZUdOXzRoSlkyamFGQjBJLU9IVnNsMmVB?oc=5",
+     "at": "2026-08-20T15:23+00:00",
+     "src": "CNN Arabic"
     },
     {
      "h": "الحوثيون: استهدفنا مطارًا ومنشأة نفطية في السعودية بطائرات مسيّرة",
@@ -281,20 +170,6 @@
      "u": "https://arabic.cnn.com/middle-east/article/2026/08/20/yemens-houthis-claim-drone-attacks-on-saudi-airport-and-oil-facility",
      "at": "2026-08-20T15:23+00:00",
      "src": "CNN بالعربية"
-    },
-    {
-     "h": "جدة الطفلة الفلسطينية هند رجب تكشف موقفها من القضاء الإسرائيلي.. ماذا قالت؟",
-     "g": "حسن",
-     "u": "https://arabic.cnn.com/middle-east/video/2026/08/20/v200409-hind-rajab-israel-gaza-investigation-vrtc-ldn-digvid",
-     "at": "2026-08-20T14:40+00:00",
-     "src": "CNN بالعربية"
-    },
-    {
-     "h": "\"على قلبنا زي العسل\".. كيف تفاعل الشارع الرياضي مع تألق حمزة عبد الكريم ضد الأهلي؟",
-     "g": "حسن",
-     "u": "https://www.aljazeera.net/sport/2026/8/20/%d8%ad%d9%85%d8%b2%d8%a9-%d8%b9%d8%a8%d8%af-%d8%a7%d9%84%d9%83%d8%b1%d9%8a%d9%85-%d9%85%d8%b5%d8%b1-%d8%a8%d8%b1%d8%b4%d9%84%d9%88%d9%86%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9?traffic_source=rss",
-     "at": "2026-08-20T13:57+00:00",
-     "src": "الجزيرة نت"
     },
     {
      "h": "\"هيوماين\" السعودية تكشف عن أول حاسوب ذكاء اصطناعي",
@@ -366,11 +241,202 @@
      "src": "OpenSky",
      "lat": 21.0,
      "lon": 57.0,
-     "detail": "2 طائرةً في المجالِ الجوّيِّ الآن",
+     "detail": "5 طائرةً في المجالِ الجوّيِّ الآن",
      "url": "https://opensky-network.org/",
-     "at": "2026-08-20T17:28+00:00"
+     "at": "2026-08-20T17:58+00:00"
     }
    ]
+  },
+  {
+   "id": "ae",
+   "name": "الإمارات",
+   "en": "UAE",
+   "lat": 24.2,
+   "lon": 54.3,
+   "score": 14,
+   "level": "هادئ",
+   "delta": -30,
+   "parts": {
+    "n": 5,
+    "u": 0,
+    "w": 1,
+    "a": 0,
+    "r": 0,
+    "o": 1
+   },
+   "events": [
+    {
+     "h": "هل تستطيع الإمارات تغيير معادلة الضغط على إيران؟",
+     "g": "حسن",
+     "u": "https://www.bbc.com/persian/articles/cm2g4ggme1ro?at_medium=RSS&at_campaign=rss",
+     "at": "2026-08-20T07:19+00:00",
+     "src": "بي بي سي فارسي"
+    },
+    {
+     "h": "ماذا يعني إغلاق بوابة دبي أمام إيران؟",
+     "g": "حسن",
+     "u": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1kRG90OHVkYmN6VTJvVGRaMmp1dEgwZWJwWXpIYUs4aThOOTBCZWFURHhpMVM2VFQ4M0pCQTJBbnBVWFpCRklUSEtuc0pQcWstX0wtVVpxY0duVU9Q0gFiQVVfeXFMTm45a1F6a2V3X2RpRjFtWFI4WUdDZmhDdFpfSFd6Y2VUOGcxdm5CMXVqeksxV0txYWk2Q25FWjl1RlZmeXdVUUFDVmw3eW9JYU1xZ2RLUklGckNRT1RhaTNZb0E?oc=5",
+     "at": "2026-08-20T04:31+00:00",
+     "src": "BBC"
+    },
+    {
+     "h": "الإمارات توقف جميع التعاملات التجارية والمالية مع إيران",
+     "g": "حسن",
+     "u": "https://news.google.com/rss/articles/CBMitgNBVV95cUxPcVhLWTFwMUtsMGxxS2Z6Q3BpUmFUYW9UVmF4bUoxck02S2txUldLUGt4QXhHbVhiNENIZVFReGNiYWVQMGNOTmNVWlhZUllMMVgxQUVMSkpZTThGVy1lLWZLbUItU1hoQU9oYVpLS0wtQWRYN0poc0VhLUlDemhzQm41VzQ0Y1lvNGNDZVI5S0xzb2FvSXVfNDBDX0daZzdHWk1XM19ST3FDN3J2TGxNdjh5cExzeUc0Mmc5VERzWDg4MmxkbGZZdFFyQnVNTnpXcks2NUVHT0JQbVVLbUFuT2VBZzkwdzJaYm5TQl9iMDN6RGN6cGtjMXo4RUI1SXV0ZWJFbEtoZlJTQUE4czFKZ2lhcXpsbGJQcWc0eXdaQXZvSGlxdFpGN20tUy1KbDRsLUxZZ2lUMFRxaEstUURIcFFkbzhETEJjbEhuMEtMUzVvLVcyTHpGc3pLX0ctLTJfal94VEdrcnJjaGR2TjVSbWRNeExYdmwtTHlaZGoxaF95QU1OWUJYRzhTV1RiSnV1U1laZ2FBV195ZldXbUF4d1U0MFJ3OVA1REZNZnZVdmJaQWRkeHfSAbsDQVVfeXFMTVFUZjd4WWZrQS1hUDlCS2h4WTY0QURpbEoydGFXZUdnV2NfWlUxS2VKdFFVRjFCRFctVHZudlJvcjBSS0tIYjFJMHNYdExHYmhZYUpfMm9fYWJXakFmU2poT2w1NlFEVDBRZnp1Q2w4elRPNUdhTEp6MUlhazJjSDhIWV9YUjBweTBFdFlyY082UHlVdTE0RWVzMGdiWGpqMkJWUmloenIwcm40RXNnZ3NhZTNVSURKUmlkQmxXWk0zSVlKWi00YTdYVEt2TXdlM3duZlJyX09oQmQ4dXh0eExWOWg1MUhqSXdNRW5NTmRXOHVtb191MG1PYWx0aEpuTGNXTlR0T2F5dWxyNk8wUFd3eWdVMnRhRU1nSHRhUmliQnNzbWFUSHFXWFlhZTl5bXo2V2c1ZVIyTjZ1UTVUZ3h5T2ZOWER6V1d1OWJYZlBkVFdZTVN3NkUyXy1aTzJzVXl5NkNzUDJ6MFd2VkxmQ0NfaGZqNjJPM3hBZ3BlWU5seTU5V0hZYjB4TEM1OUxwNWhXX3QtbEhrZWF1aERvakRjai0yc2MxdUNvRTNYMU5hZkdWRWlTYTF5QUE?oc=5",
+     "at": "2026-08-19T02:50+00:00",
+     "src": "سكاي نيوز عربية"
+    },
+    {
+     "h": "الإمارات تعلن وقف التبادل التجاري والمالي مع إيران",
+     "g": "حسن",
+     "u": "https://news.google.com/rss/articles/CBMiqgJBVV95cUxQVmxRWjRFRDNYMHdJend4aTdVSFl0cTliaWctOXRsZEs4bWRNd2wycXV3T1JkcDA4NmUyQlpyVjJzMXhEWVluWkRUVUJVOEdNbTRMNnVKNUNGZDIzSHdKRVJ5ZWVrOEs4eXllOXlFbGJPTk56Zk9FcWFkQTIzb3Z3blpBWTZHT2szQXBwcWdDZ0w0QzF5WG5YYk1VMXloTDVzM2FXSnN1UzUzNTVLRk9KaFdxMXY2d1BUMWs0ZTVpTVVQUXpmb1R5RDZHVkx5S0hfMUlrMkE4ZEY4YlI1SWRLXzM2QklaZGlaa2VzVEZPVHRINnIwTDh6U1FFcnpKZlFveGFjM3NrakpyRmQ5V2dsazdiaXV4RExJdWlpdGxVVUx1X0FXajYycDFB0gGvAkFVX3lxTFBlUHM1elpWZHMybi12bXN0UDJmM2NlNWVxeTRwZjBTaFRMTkE3UmtGT3lIWUlGa1lrZjhMenYxcVZvanJKMWs0SnZlUTEzbHFhb3VQRFdPUEZLdE9uTWpweTUyRmFUZWZhcTNCVWFXd003a2FkeERsNjhFOWJaWF96OHRpZ2Z4QS1fdHQ5MmxDSmp1QXFjSk1UODF5YkJJWmtHSWdqa2tTemlvZjB2RG9zMDg3Z2MzSEpqTUxBT0NvSFBlMVlULXVEMUlEYk9wV0xPYkY2SkVUVjdxMll3dUloakhqWEFFTm1tX0lzM01QWFN0QXZZM3d5RFd5bkRLUThrcy05SkR3clNMdE1VcFNoZVBpMWNrWW83V0hLcFhNazUzZTdHUE1fbUVTcDZ2VQ?oc=5",
+     "at": "2026-08-18T23:04+00:00",
+     "src": "الجزيرة نت"
+    },
+    {
+     "h": "الإمارات ترصد صاروخين باليستيين قادمين من إيران",
+     "g": "حسن",
+     "u": "https://news.google.com/rss/articles/CBMingNBVV95cUxPZDgwVjkyM3o5Z0FYWEh3UVlaVjliRS0zN2U3N1BpaHFVdzFMSTlTbTJrbUlPNW1CYlJBeTBWeXhvV1NDS1dwRGhkd3cwOWJWMjJrc2huWGFyd2h0Q29RMGxvV0FBTVgxOGplRUJqSTZPMlhST045YTRfNXBHUUVlLWZEMEJlaUJGZUg1Um42clpxX01JUHl3M2J2NHp1MUdGdFJCVlZhRW1IZnJjN3puLWdDbE1OTDd4MkllSGt6RjhfUjhzWmV4Vm1MUmNlSEVLdW5LcmpZejF5dW5uNy1LUkxjRDM1RXlTS3ZvYkY1azZDaTdKZVc1cGVDNE9UcndyQVRYek1Xc2pVNUhJSXg0YnJKVERGMjA3U3pKMExOOU9hZWdfMXNta1Q4dmtEY2Z1eFFBYWRNV0xGTkQzWTF6WktfdFl6N043NnZTRVFUamdTbWdwcjBEV2d0MlZrRWZ2VnpweWUtTFh0U2RwaFZjREV2WEduS3lSMWQ4TmJCR0QxeGZId1RGNXBxUEE1TkVTVU5SRURseERCU2N2WmfSAaMDQVVfeXFMTmJzQ0s5dnJueEJobExKNjlrUkVoVUhCSWVKRnQ2Z0FQN2FnSGZWVjVLQ3o3MXFObnpqY24xdXUzUS1FMzJRU2VGTVNBZnFQZ0tVUFZ2bG56clZrTi1BWkRuQkxSeTN4czh1SUhybkFIYV9lNlZOMlZ1bG03TUJmV2xzb1NoX0hSck9UQXhLVVBCc05JQ3ptWjhwSTgzRmd3bEdERkRvV3NEazVqUkpnVEx5cmhza29WdEpTdFZBVl9SOTJwVWh3a1VacUtla0ZlMTBLOVZYck9YX0FGZGJaSEltVW13dVFCYTRsdkJqMWliLUl3NnpnV1ZPV1J5alVWdVItT3NVMlpKTnUyZnJIUVAwamtVemtINU9KU25jbU5YX0dLd2JubjZTdks0MkE4UTVfd1JsZmNSMDc3M0hYQlczQktuYzd3VHlhT1JWaW5oVWhYbkZHSXpqZ3RKUUhZcmFkcVdOQ3B1cU1fYzJLMUVmeVBfYUtDcU9zU2lkblA2Y0ZyVEEyUDRfR1I3UFZRNVhMcDcwLS12X0JUZE5HckJCNFU?oc=5",
+     "at": "2026-08-18T15:12+00:00",
+     "src": "سكاي نيوز عربية"
+    }
+   ],
+   "signals": [
+    {
+     "kind": "flight",
+     "src": "OpenSky",
+     "lat": 24.2,
+     "lon": 54.3,
+     "detail": "56 طائرةً في المجالِ الجوّيِّ الآن",
+     "url": "https://opensky-network.org/",
+     "at": "2026-08-20T17:58+00:00"
+    }
+   ]
+  },
+  {
+   "id": "kw",
+   "name": "الكويت",
+   "en": "Kuwait",
+   "lat": 29.3,
+   "lon": 47.8,
+   "score": 11,
+   "level": "هادئ",
+   "delta": 8,
+   "parts": {
+    "n": 1,
+    "u": 0,
+    "w": 0,
+    "a": 1,
+    "r": 0,
+    "o": 1
+   },
+   "events": [
+    {
+     "h": "الكويت.. الداخلية تعلن ضبط 22 متهما وتكشف ما عثرت عليه بحوزتهم",
+     "g": "حسن",
+     "u": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOSWRlWUxuMVVkSWoxeGVlSi1zMm5ITVFoazFFcnB0N0F3eEwyZVhha2tIOGZpQ0l3SHZTLU9Jc0FDN045ZDJ6empvSmp3Vmsya2Y0VjJyS2pWS1plV09wZk9nMmNtYVNEdzB3WHdWRVZkX3RrREpzWU51T1czQ1VyTE5hdnpGYTdHVmVseF9UUTg1bjl4VnfSAaABQVVfeXFMUDRPMTMwbEswMXZ2eGg3bGNuanJKRk9OU1JfZS1MemZ5aTcwY0ZHTDRjOV9pdGRUT3RkcjluUHEwNVlNVDRwbFRzakxsY2NlRnp2QUVSQnNNS0szQUNVRGRBTjR4S19jRzVscVJVSEVNU1drNG5iYjRkdkxoRVpiamZBcFRGVFJFTkJJd1BYVU1LQ3hRbk1vZlh3QndYbXpvNg?oc=5",
+     "at": "2026-08-20T05:59+00:00",
+     "src": "CNN Arabic"
+    }
+   ],
+   "signals": [
+    {
+     "kind": "flight",
+     "src": "OpenSky",
+     "lat": 29.3,
+     "lon": 47.8,
+     "detail": "4 طائرةً في المجالِ الجوّيِّ الآن",
+     "url": "https://opensky-network.org/",
+     "at": "2026-08-20T17:58+00:00"
+    }
+   ]
+  },
+  {
+   "id": "qa",
+   "name": "قطر",
+   "en": "Qatar",
+   "lat": 25.3,
+   "lon": 51.2,
+   "score": 10,
+   "level": "هادئ",
+   "delta": -24,
+   "parts": {
+    "n": 3,
+    "u": 0,
+    "w": 1,
+    "a": 0,
+    "r": 0,
+    "o": 1
+   },
+   "events": [
+    {
+     "h": "أكدتا على حرية الملاحة بالمنطقة.. قطر ومصر تطالبان ترمب إلزام إسرائيل بخطة غزة",
+     "g": "حسن",
+     "u": "https://news.google.com/rss/articles/CBMiugJBVV95cUxORmRvY2hPdWtacEpGNFZMSzEtMlpTYTJJeG1CVWlBVUM5S2JXaDFtblNGNkFwNzNRSmdlbW9ORF9FZ09majlGbkhBVFBsdW94YnhodkQ3X2s2dFN3eXNqZkwzQVpNdnBuUzNUbGk5TjY4ZDU3b3RjOUlMOGZ5a1drdmY3WFdLWFBYRFlhSExPT2NOVnZwOFlQYU5pZ3dkYWd2dHIyZzVjSnZjX2pDMXNESVFONUdKQi1wTHhYRE1jYlU4SEFiWUNZM3I2b21yVHVBV3ZjaTNVUDl2SllxNXBSeTVpajhnT2V5Y2VySDB1Wnh0R1lfcGs4THpvV2NIbXdudVE5YkwtQTM0LW1TNkQ5YzMzeWRvaGwxblc1dEdCWEFWdDVCWVQteFJjOEpKdS1ZeW9JcnRoM0JoUdIBvwJBVV95cUxQNWpjNUtSdUxoeERnZnlreDUwcHJNRzFjWkZoZmZTUEZuQVI2ZUZrN1Bmb2VFM1JyMUpnMGxSeTJlU0tfc2xjREQ3blRhN3dvc1BfWDRNcGt5d2p6OXhLbGZRQmhHLURVaF9IZW9qS1ZTTzcwVnpzbFNXV0NGS0VSd28yZUZZUkNWUU1DdHdtbWhmYTJmNUFIdHdFV0VEQ1NOWWZIYlVEVUVjYVQxWjVmLUh5TFkxWWJHREFMTzNFV25ObFY0MEo1aFZrdjA4dWxsdXRyWTlhZDhWdlYzbnlmd213YzQyeXR3RlNvMENxZ21sNVlLX2Y4YmI1MzdvUmI5SHFlX0huNFd4UjVZVm1pclN4ZWFHQVM0VkpqUnplMmNSTnpIOWNGc0s2eHl3Z0cyTkZCUEFSNHRMOFVSWmFB?oc=5",
+     "at": "2026-08-20T12:59+00:00",
+     "src": "الجزيرة نت"
+    },
+    {
+     "h": "مصر وقطر وتركيا تدين هجمات إسرائيل الأخيرة على غزة",
+     "g": "حسن",
+     "u": "https://news.google.com/rss/articles/CBMirwRBVV95cUxQTzJjM0w1VGVTdEZDS0I4R25TQ3hIaFlvMmhySS1pNUQtdHVFYkJyUjJDX1JCWFBHQTY2WGxKRTduOGFuSW1KTnlMWGpKQ2dxdTBsLVpGTkJvQWY4bUtTN2p5OHAxVjhmVnJPa0dBLVF6c2kyNXNYZ2h6ZWJoQW9hanBxVTRubDhqMmhROFZNV2JQQkY2NWtUWllMSWZiM3pGUVUxNWY1OUdoQjVWVEUzT0diVnY3V3Q5dkt6MUYyT3FvdDJEMTRiWmNfMzh1b1N1ZGo3NzlPeE0wZWx2eXhPZTVGbkF2NDhSZEE2dUc3Um00ZUx5anZzdnROd3B2ZkFEYy1lLXRESUJLOF9tXy1TMlpzUHpZRC1GY3RvVy0zX1RXd21ubGhCTnA5T1ZNWlhCSzNtTERNU0VFNkh3VmtCalRVV2VCMkpYSkJmdVF6dkNRbWlBSmVUS1FCcW9LWFJJSjlJN0FIeVQ3ZGh2Y2VZLUZwVGVvTUFhdlJqcjFfZ25vbWNnVmcyTnVsN3dDM3Rrd2o3UGFjRVpRcVg1NFllV0puT3pyVDZqNVdkWXEyQzQ0RU04QmNrWi0xN0VYNFlJS2xhTkFYTmJUX0NPVE8xTWQ3WVdGSFRzWk1BOE5zUnhiTThsUFlfYkg3R1l4ZzY1Ylk1c1ZTMDJuMWh1NWMyZkl0aVZ5Y19zUGxhaWhkcjRZaUxpMDJySjh0N0R5ZER4SzlPb3pzUElMbldfbHlj0gG0BEFVX3lxTE16ejNIRGNYX1VuNHBtWTNyN01hVjA2cHBZUnl5TGt3WXI3NkUyeFhrU2lNWTh0YUV4bm1wYlB2WXQxbHBHYTFkdjcxMEFscEZoY0ZhUEUzVXdyc2xydGQzRWZUWlM1cFRsVGJmclQ2OFJUTjVrc2JiUUNjY2JXaEhhTVVsYXJrSEc5bDRINnVhSVAweE9pYkVleGI2THNKZWZoWkhVOE93RzAzcFhmalYxYjJQTTZJQklTbWtEbVcxek5ZRkJYMDZ0cGhfZkh5WUtEdDNMSjNiQkt4Y3RLcFZmaWR4LVBZXzZXMWxtUTgzRzkwVXhXMl9tX3pzTjFBcEt3amZwU2ZHX05ZU2F1ZllwSmc3RWdPX0I0U1d3RzZYaFBxaXRXYjdsNndXNDB0RVQyXzdjZUZ0YmNrQ214Y2JtaEF1ZlVObEphdmFjazNsU1g2N3VIZjZmVzhhUDhsNUFHR2VyZENMYzBPVTQxRnBaYnlwMnhVOWZxQW9YN3ZXVl9zdm1ZbTBxam5MYzVhc2ptSGZKX0p4bHYwZXhuTVJkYXBRZlhVM0V3OGtkV1h0S0JMV0VBQUVKTzN1VXJNZnJlaUJTeld5RURNNTk3blZya0xNcDZqd0ZyVEhDYXpubHAzNTFON3hTRzBFR2JMd2stTHpmeG9XR19tb2R5a0JmcEVGczdWb0RNRlhwcThTTmlfSjdUallNWmQ2LWg2aFo1MGpPdm9Jbzcwd3RzU25aSVdHRg?oc=5",
+     "at": "2026-08-20T12:54+00:00",
+     "src": "العربية"
+    },
+    {
+     "h": "رغم تهديد ترامب.. قطر تدعم محادثات عُمان وإيران بشأن مضيق هرمز",
+     "g": "حسن",
+     "u": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQQmhtdHhvdXRwanRjY3d3QXlNdzRyZ3g5NVlIbk5DaFJtZHowemJEZS1uRi14MVNBQUU3d2NJa2NvenY5TG1fR2RLQTMtaUE0d3ZXRGd4NHhid3l5UldiUjYycUhhTUNSSkNVeGNMTl80VXFHWjg4M3RvOUlRV3c2cFl3ckszTFl5WEpCdU12cF9WWENaWVZzcUNNV0ZrYzFGWGFrOTROS2FjeDNXM2lOclh6NjZpS0ZKdk56YjJ3cmfSAcsBQVVfeXFMUEwxUGtIQXRnRmZzamdDR3RQLV9rbUR4dHc2dmFCLU1PRmZqblNtY01kaXR0LXR3TF9NU3Y0ZXA5ZVZZdXlkYmtSa2x4bEh6VnNpQmkxRnZhMTJLVGk3TURrZDNnWkVnaDZGa2llOGdCUGpPdncyNTQ2R3Y0d2Q2MG1xMlpyNWNkNWVfMUVPdWxZZkFTQ1VGczBhd2lodklnLTI5R0M2a1pBNnBubEVOZmZ4cXQtdUlPenFab2kwS3N2UFBmcVpaRjdxVU0?oc=5",
+     "at": "2026-08-18T17:39+00:00",
+     "src": "CNN Arabic"
+    }
+   ],
+   "signals": [
+    {
+     "kind": "flight",
+     "src": "OpenSky",
+     "lat": 25.3,
+     "lon": 51.2,
+     "detail": "19 طائرةً في المجالِ الجوّيِّ الآن",
+     "url": "https://opensky-network.org/",
+     "at": "2026-08-20T17:58+00:00"
+    }
+   ]
+  },
+  {
+   "id": "ye",
+   "name": "اليمن",
+   "en": "Yemen",
+   "lat": 15.5,
+   "lon": 47.5,
+   "score": 10,
+   "level": "هادئ",
+   "delta": 5,
+   "parts": {
+    "n": 2,
+    "u": 0,
+    "w": 2,
+    "a": 0,
+    "r": 0,
+    "o": 0
+   },
+   "events": [
+    {
+     "h": "الحوثيون: استهدفنا مطارًا ومنشأة نفطية بالسعودية بطائرات مسيرة",
+     "g": "حسن",
+     "u": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPU3ZRaG53NFVmUXdfVHBSNWtscjVzS1hxc2tJQktsLU91UzhSbUpJSzFwWFY5ckJTdFZOUE5OVC1vVW9WQjJsMVVTMkR6bjZzTGlEaHRmZUVCclI1RUh5bEJSRFZYUlpuWWtGOUlGU3pBMjBUQkRpYnJOdS0ySndiTThJNWk4a2l0eTdvOExpNmJaZnJ4bXBuV0s3dVBMUUhpaEc1QTNDbkh2MkJ2cXhPNldWMFNuS3hJN0lNRzZad9IBygFBVV95cUxOM3RMOUdZNFpSc0k5VjBHZDByeWtaM2loUGIydW95RzJLWmxPN21PRDBDbVJ1YkNnQjd1RjB1UTRnNy1fcDBUM2tGaEdTT2liX25PeW1fOTk0TjlUS19namlaa09nbWt3MW1rdmdsWWRDN1NlUTZpU1lHU3FyY0JVSGdoamtKMXJxUzNTVW00MXZ5Rk92cTFfa3RFWkN6UG5Sa1ZBWlVYNTY1MDJTVFoxaXBvZUdOXzRoSlkyamFGQjBJLU9IVnNsMmVB?oc=5",
+     "at": "2026-08-20T15:23+00:00",
+     "src": "CNN Arabic"
+    },
+    {
+     "h": "الحوثيون: استهدفنا مطارًا ومنشأة نفطية في السعودية بطائرات مسيّرة",
+     "g": "حسن",
+     "u": "https://arabic.cnn.com/middle-east/article/2026/08/20/yemens-houthis-claim-drone-attacks-on-saudi-airport-and-oil-facility",
+     "at": "2026-08-20T15:23+00:00",
+     "src": "CNN بالعربية"
+    }
+   ],
+   "signals": []
   },
   {
    "id": "iq",
@@ -400,79 +466,13 @@
    ],
    "signals": [
     {
-     "kind": "quake",
-     "src": "USGS",
-     "lat": 34.2005,
-     "lon": 46.3162,
-     "detail": "زلزال M4.4 — 50 km SE of Sarpol-e Z̄ahāb, Iran",
-     "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tlym",
-     "at": "2026-08-19T17:36+00:00"
-    }
-   ]
-  },
-  {
-   "id": "ye",
-   "name": "اليمن",
-   "en": "Yemen",
-   "lat": 15.5,
-   "lon": 47.5,
-   "score": 5,
-   "level": "هادئ",
-   "delta": -2,
-   "parts": {
-    "n": 1,
-    "u": 0,
-    "w": 1,
-    "a": 0,
-    "r": 0,
-    "o": 0
-   },
-   "events": [
-    {
-     "h": "الحوثيون: استهدفنا مطارًا ومنشأة نفطية في السعودية بطائرات مسيّرة",
-     "g": "حسن",
-     "u": "https://arabic.cnn.com/middle-east/article/2026/08/20/yemens-houthis-claim-drone-attacks-on-saudi-airport-and-oil-facility",
-     "at": "2026-08-20T15:23+00:00",
-     "src": "CNN بالعربية"
-    }
-   ],
-   "signals": []
-  },
-  {
-   "id": "kw",
-   "name": "الكويت",
-   "en": "Kuwait",
-   "lat": 29.3,
-   "lon": 47.8,
-   "score": 3,
-   "level": "هادئ",
-   "delta": 0,
-   "parts": {
-    "n": 1,
-    "u": 0,
-    "w": 0,
-    "a": 0,
-    "r": 0,
-    "o": 1
-   },
-   "events": [
-    {
-     "h": "الكويت.. الداخلية تعلن ضبط 22 متهما وتكشف ما عثرت عليه بحوزتهم",
-     "g": "حسن",
-     "u": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOSWRlWUxuMVVkSWoxeGVlSi1zMm5ITVFoazFFcnB0N0F3eEwyZVhha2tIOGZpQ0l3SHZTLU9Jc0FDN045ZDJ6empvSmp3Vmsya2Y0VjJyS2pWS1plV09wZk9nMmNtYVNEdzB3WHdWRVZkX3RrREpzWU51T1czQ1VyTE5hdnpGYTdHVmVseF9UUTg1bjl4VnfSAaABQVVfeXFMUDRPMTMwbEswMXZ2eGg3bGNuanJKRk9OU1JfZS1MemZ5aTcwY0ZHTDRjOV9pdGRUT3RkcjluUHEwNVlNVDRwbFRzakxsY2NlRnp2QUVSQnNNS0szQUNVRGRBTjR4S19jRzVscVJVSEVNU1drNG5iYjRkdkxoRVpiamZBcFRGVFJFTkJJd1BYVU1LQ3hRbk1vZlh3QndYbXpvNg?oc=5",
-     "at": "2026-08-20T05:59+00:00",
-     "src": "CNN Arabic"
-    }
-   ],
-   "signals": [
-    {
      "kind": "flight",
      "src": "OpenSky",
-     "lat": 29.3,
-     "lon": 47.8,
+     "lat": 33.0,
+     "lon": 44.0,
      "detail": "2 طائرةً في المجالِ الجوّيِّ الآن",
      "url": "https://opensky-network.org/",
-     "at": "2026-08-20T17:28+00:00"
+     "at": "2026-08-20T17:58+00:00"
     }
    ]
   },
@@ -500,16 +500,15 @@
      "src": "OpenSky",
      "lat": 26.0,
      "lon": 50.5,
-     "detail": "22 طائرةً في المجالِ الجوّيِّ الآن",
+     "detail": "20 طائرةً في المجالِ الجوّيِّ الآن",
      "url": "https://opensky-network.org/",
-     "at": "2026-08-20T17:28+00:00"
+     "at": "2026-08-20T17:58+00:00"
     }
    ]
   }
  ],
  "signals_sources": [
-  "OpenSky",
-  "USGS"
+  "OpenSky"
  ],
  "signals_note": "إشاراتٌ ميدانيّةٌ مفتوحةٌ منسوبةٌ لمصدرِها ووقتِها — بياناتٌ لا أحكام، ولا تدخلُ رقمَ المؤشّر"
 }
