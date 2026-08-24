@@ -52,12 +52,16 @@ jobs:
       - name: نشر البيانات للمستودع العام
         if: always() && steps.save.outcome == 'success'
         env:
-          DATA_PUSH_TOKEN: ${{ secrets.DATA_PUSH_TOKEN }}
+          DATA_DEPLOY_KEY: ${{ secrets.DATA_DEPLOY_KEY }}
         run: |
-          [ -z "$DATA_PUSH_TOKEN" ] && exit 0
+          [ -z "$DATA_DEPLOY_KEY" ] && exit 0
           python3 .github/scripts/guard-social-publish.py --soft || true
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$DATA_DEPLOY_KEY" > ~/.ssh/sanad_deploy; chmod 600 ~/.ssh/sanad_deploy
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/sanad_deploy -o IdentitiesOnly=yes"
           rm -rf /tmp/pub && git clone -q --depth 1 \
-            "https://x-access-token:${DATA_PUSH_TOKEN}@github.com/Soldiom/sanad-data.git" /tmp/pub
+            git@github.com:SoldiomAI/sanad-data.git /tmp/pub
           mkdir -p /tmp/pub/daily
           cp -r daily/* /tmp/pub/daily/ 2>/dev/null || true
           cd /tmp/pub
