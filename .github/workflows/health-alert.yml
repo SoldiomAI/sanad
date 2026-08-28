@@ -17,6 +17,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_ALERT_CHAT: ${{ secrets.TELEGRAM_ALERT_CHAT }}
+          GH_API_TOKEN: ${{ github.token }}
           STALL_MAX_H: "3"
         run: |
           set -u
@@ -24,7 +25,9 @@ jobs:
           ALERTS=""
 
           # ١ — عمرُ آخرِ التزامٍ في المستودعِ العامّ (يجب ألّا يتجاوزَ STALL_MAX_H)
-          LAST=$(curl -fsS "https://api.github.com/repos/SoldiomAI/sanad-data/commits/main" \
+          LAST=$(curl -fsS -H "Authorization: Bearer ${GH_API_TOKEN}" \
+                 -H "User-Agent: sanad-health-alert" \
+                 "https://api.github.com/repos/SoldiomAI/sanad-data/commits/main" \
                  | python3 -c "import sys,json;print(json.load(sys.stdin)['commit']['committer']['date'])" || echo "")
           if [ -n "$LAST" ]; then
             AGE_H=$(python3 -c "from datetime import datetime,timezone;print(round((${NOW}-datetime.fromisoformat('${LAST}'.replace('Z','+00:00')).timestamp())/3600,1))")

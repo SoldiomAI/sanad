@@ -29,7 +29,7 @@ EVERY_H = float(os.environ.get("WARRAQ_EVERY_H", "12"))
 MAX_PAPERS = int(os.environ.get("WARRAQ_MAX", "6"))
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "")
 
-ARXIV_URL = ("http://export.arxiv.org/api/query?"
+ARXIV_URL = ("https://export.arxiv.org/api/query?"
              "search_query=cat:cs.AI+OR+cat:cs.CL+OR+cat:cs.LG"
              "&sortBy=submittedDate&sortOrder=descending&max_results=10")
 HF_URL = "https://huggingface.co/api/daily_papers?limit=8"
