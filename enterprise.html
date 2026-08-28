@@ -184,7 +184,7 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 const SB_URL = "https://uewqsczvyglahnqjhuvx.supabase.co";
 const SB_KEY = "sb_publishable_vkQkzJ5s86bWd7lxPSeGTA_xNoahNaV";
 const API_FN = SB_URL + "/functions/v1/sanad-enterprise-api";
-const RAW = "https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/";
+const RAW = "https://raw.githubusercontent.com/SoldiomAI/sanad-data/main/daily/";
 const sb = createClient(SB_URL, SB_KEY);
 
 const esc = s => String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));

@@ -11,12 +11,14 @@ TIER2=["aljazeera","الجزيرة","alarabiya","العربية","skynews","سك
 FEEDS=[("الخليج","https://news.google.com/rss/search?q=%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA+OR+%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9+OR+%D8%A7%D9%84%D8%A5%D9%85%D8%A7%D8%B1%D8%A7%D8%AA&hl=ar&gl=KW&ceid=KW:ar"),
        ("فلسطين","https://news.google.com/rss/search?q=%D8%BA%D8%B2%D8%A9+OR+%D9%81%D9%84%D8%B3%D8%B7%D9%8A%D9%86&hl=ar&gl=KW&ceid=KW:ar"),
        ("عالم","https://news.google.com/rss/headlines/section/topic/WORLD?hl=ar&gl=KW&ceid=KW:ar"),
-       ("تقنية","https://news.google.com/rss/search?q=%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1+%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A&hl=ar&gl=KW&ceid=KW:ar"),
-       ("تقنية","https://news.google.com/rss/search?q=%22%D9%86%D9%85%D9%88%D8%B0%D8%AC+%D9%85%D9%81%D8%AA%D9%88%D8%AD+%D8%A7%D9%84%D9%85%D8%B5%D8%AF%D8%B1%22+OR+%22%D8%A5%D8%B5%D8%AF%D8%A7%D8%B1+%D9%86%D9%85%D9%88%D8%B0%D8%AC%22&hl=ar&ceid=KW:ar"),
-       ("تقنية","https://huggingface.co/blog/feed.xml"),
-       ("تقنية","https://openai.com/blog/rss.xml"),
-       ("تقنية","https://deepmind.google/blog/rss.xml"),
-       ("تقنية","https://blog.google/technology/ai/rss/"),
+       # مكتبُ الذكاءِ الاصطناعيّ — قسمٌ مستقلٌّ: أخبارُ المختبراتِ من منابعِها مباشرةً
+       ("ذكاء اصطناعي","https://news.google.com/rss/search?q=%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1+%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A&hl=ar&gl=KW&ceid=KW:ar"),
+       ("ذكاء اصطناعي","https://news.google.com/rss/search?q=%22%D9%86%D9%85%D9%88%D8%B0%D8%AC+%D9%85%D9%81%D8%AA%D9%88%D8%AD+%D8%A7%D9%84%D9%85%D8%B5%D8%AF%D8%B1%22+OR+%22%D8%A5%D8%B5%D8%AF%D8%A7%D8%B1+%D9%86%D9%85%D9%88%D8%B0%D8%AC%22&hl=ar&ceid=KW:ar"),
+       ("ذكاء اصطناعي","https://huggingface.co/blog/feed.xml"),
+       ("ذكاء اصطناعي","https://openai.com/blog/rss.xml"),
+       ("ذكاء اصطناعي","https://deepmind.google/blog/rss.xml"),
+       ("ذكاء اصطناعي","https://blog.google/technology/ai/rss/"),
+       ("تقنية","https://news.google.com/rss/search?q=%D8%AA%D9%82%D9%86%D9%8A%D8%A9+OR+%D8%AA%D9%83%D9%86%D9%88%D9%84%D9%88%D8%AC%D9%8A%D8%A7&hl=ar&gl=KW&ceid=KW:ar"),
        ("اقتصاد","https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=ar&gl=KW&ceid=KW:ar"),
        ("إيران","https://feeds.bbci.co.uk/persian/rss.xml"),
        ("إيران","https://www.iranintl.com/feed"),
@@ -93,6 +95,7 @@ AGENTS=[
  ("mudawwin","المُدوِّن","🖋️","يكتبُ عمودَ الجريدة اليوميّ من أخبار اليوم المُسنَدة"),
  ("rawi","الرَّاوِي","🎙️","يؤدّي النشرة اليومية بصوت المذيع"),
  ("mawj","المَوّاج","🌊","يتتبّعُ موجاتِ الأخبارِ المُسنَدةَ ويُوكِّلُ وكيلًا فرعيًّا لكلِّ موجةٍ حيّة"),
+ ("warraq","الورّاق","📚","باحثُ الأوراق: ينقلُ أحدثَ أوراقِ الذكاءِ الاصطناعيّ من منابعِها (arXiv وHugging Face) بملخّصٍ عربيٍّ مُسنَدٍ لرابطِ الورقة"),
 ]
 # أسماءٌ وأدوارٌ إنجليزيّةٌ للوكلاءِ الثابتين — كي تُعرَضَ نسخةُ EN سليمةً في الواجهة
 # (الوكلاءُ الديناميكيّون يحملون name_en/role_en في ملفّهم). المفتاحُ = مُعرِّفُ الوكيل.
@@ -117,6 +120,7 @@ AGENTS_EN={
  "mudawwin":("Al-Mudawwin","Writes the daily newspaper column from verified news"),
  "rawi":("Al-Rawi","Delivers the daily bulletin in the anchor's voice"),
  "mawj":("Al-Mawwaj","Tracks verified news waves; delegates a sub-agent to each live wave"),
+ "warraq":("Al-Warraq","Papers researcher: relays the latest AI papers from arXiv & Hugging Face with sourced Arabic digests"),
 }
 _LOG={}
 def _load_log():
@@ -841,6 +845,7 @@ _HEALTH_SPEC={
  "wave":     (26,  0,  "cards",  "viral_wave"),
  "waves":    (3,   0,  "waves",  "mawj"),
  "latest":   (30,  0,  None,     "rawi"),
+ "papers":   (30,  0,  "items",  "warraq"),
  # قسمان يُشحَنان في الحزمةِ ولا تقرؤهما الواجهةُ إطلاقًا — يُرصَدان كي لا يُنسَيا
  "corrections":(26, 0, "log",    "rasid"),
  "verify":   (26,  0,  "rows",   "mutabiq"),
@@ -936,13 +941,13 @@ def bundle():
         _lp=f"{OUT}/latest.json"
         _loc=json.load(open(_lp)) if os.path.exists(_lp) else {}
         _pub=json.load(urllib.request.urlopen(
-            "https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/latest.json",timeout=25))
+            "https://raw.githubusercontent.com/SoldiomAI/sanad-data/main/daily/latest.json",timeout=25))
         if str(_pub.get("date","")) > str(_loc.get("date","")):
             json.dump(_pub,open(_lp,"w"),ensure_ascii=False,indent=1)
             print(f"🛡️ نشرةُ اليوم: أُبقيت الأحدث ({_pub.get('date')}) بدل الأقدم ({_loc.get('date')})")
     except Exception as _e: print(f"guard_latest: {str(_e)[:80]}")
     keys=["news","intel","official","forecast","analyst","dua","verify",
-          "alerts","corrections","latest","agents","cost","evolution","council","gpu","rumors","column","tension","map","osint","wave","waves","health","comments","posts"]
+          "alerts","corrections","latest","agents","cost","evolution","council","gpu","rumors","column","tension","map","osint","wave","waves","health","comments","posts","papers"]
     b={"built":datetime.now(timezone.utc).isoformat(timespec="minutes")}
     for k in keys:
         try: b[k]=json.load(open(f"{OUT}/{k}.json"))
@@ -1080,6 +1085,12 @@ def _run_wave():
     # المَوّاجُ وكيلٌ مُعلَنٌ في AGENTS — تُنقَلُ حالتُه إلى طبقةِ الوكلاء أيضًا
     a=_AUX.get("wave_agents") or {}
     mark("mawj", a.get("status","fail"), a.get("note","") or "تتبّعُ الموجات")
+
+def _run_warraq():
+    """يشغّلُ «الورّاق» (باحثَ الأوراق) — وكيلٌ مُعلَنٌ فتُنقَلُ حالتُه لطبقةِ الوكلاء."""
+    _run_aux("warraq","warraq","warraq")
+    a=_AUX.get("warraq") or {}
+    mark("warraq", a.get("status","fail"), a.get("note","") or "أوراقُ الذكاءِ الاصطناعيّ")
 
 def bill(d,who):
     """يسجّل التكلفة الفعلية من رد الـAPI."""
@@ -1427,6 +1438,19 @@ def _gnews_b64(u):
     except Exception: pass
     return ""
 
+def resolve_gnews_links(lst):
+    """«من المنبع بلا واسطة» فعلًا: يستبدلُ رابطَ وسيطِ غوغل برابطِ الناشرِ الأصليّ
+    حيثما أمكنَ فكُّه محلّيًّا (الصيغةُ القديمة) — بلا شبكةٍ ولا كلفة، فيصدُقُ
+    معيارُ الاتصالِ ويصلُ القارئُ للمقالِ رأسًا."""
+    n=0
+    for it in lst:
+        L=str(it.get("link",""))
+        if "news.google.com" in L:
+            r=_gnews_b64(L)
+            if r: it["link"]=r; n+=1
+    if n: print(f"🔗 فُكَّ {n} رابطَ وسيطٍ إلى ناشرِه الأصليّ")
+    return n
+resolve_gnews_links(items)
 
 def fetch_og_images(items, cap=24):
     """يجلبُ og:image لأوّل العناصر بلا كلفةٍ (urllib متوازٍ + كاشٌ بالرابط) —
@@ -1579,7 +1603,7 @@ def grok_intel():
         ref=old
         try:
             pub=json.load(urllib.request.urlopen(
-                "https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/intel.json",timeout=25))
+                "https://raw.githubusercontent.com/SoldiomAI/sanad-data/main/daily/intel.json",timeout=25))
             if _numc(pub.get("toll",[])) > _numc((old or {}).get("toll",[])): ref=pub
         except Exception: pass
         new_n=_numc(j.get("toll",[])); ref_n=_numc((ref or {}).get("toll",[]))
@@ -3139,6 +3163,7 @@ if os.environ.get("NEWS_ONLY"):
     _run_aux("viral_wave","viral_wave","viral_wave")
     _run_wave()
     _run_aux("correspondents","correspondents","correspondents")
+    _run_warraq()
     hirasa()
     bundle()
     _run_aux("social_pack","social_pack","social_pack")
@@ -3153,7 +3178,8 @@ CLOSE_L="تحقَّقْ قبلَ أن تنشُر، فالكلمةُ أمانة."
 def template_script():
     news=[]
     for it in items[:3]:
-        tag="خبرٌ صحيحٌ مؤكَّد" if it["grade"]=="صحيح" else "خبرٌ حسنٌ من مصدرٍ معتبَر"
+        # «حسن/صحيح» صفةُ الإسنادِ لا مضمونِ الخبر — فلا يُقرأُ خبرٌ جَللٌ «خبرًا حسنًا»
+        tag="خبرٌ صحيحُ الإسنادِ مؤكَّد" if it["grade"]=="صحيح" else "خبرٌ حسنُ الإسنادِ من مصدرٍ معتبَر"
         news.append(f"{tag}: {it['head']}."+(f" نقلًا عن {it['src']}." if it["src"] else ""))
     return " ".join([OPEN_L]+news+[CLOSE_L])
 
@@ -3163,20 +3189,24 @@ def gemini_script():
     prompt=(f"أنت رئيس تحرير نشرة «سَنَد» الإخبارية العربية. من العناوين التالية اختر أهم ثلاثة أخبار متنوعة، "
         f"واكتب نشرة إذاعية قصيرة بالفصحى الرصينة.\n\nالقواعد الصارمة:\n"
         f"1) ابدأ حرفيًا بـ: {OPEN_L}\n2) اختم حرفيًا بـ: {CLOSE_L}\n"
-        f"3) صدّر كل خبر بدرجته حرفيًا: «خبرٌ صحيحٌ مؤكَّد:» للصحيح و«خبرٌ حسنٌ من مصدرٍ معتبَر:» للحسن.\n"
+        f"3) صدّر كل خبر بدرجته حرفيًا: «خبرٌ صحيحُ الإسنادِ مؤكَّد:» للصحيح و«خبرٌ حسنُ الإسنادِ من مصدرٍ معتبَر:» للحسن.\n"
         f"4) اذكر المصدر بصيغة «نقلًا عن …».\n5) جمل قصيرة (يُفضَّل ≤ ٦٥ حرفًا للجملة) تناسب القراءة الصوتية.\n"
         f"6) لا تُضِف أي معلومة غير موجودة في العناوين. لا رموز، لا نجوم، لا إنجليزي.\n"
         f"7) الطول إلزامي: لا تقل النشرة عن ٣٥٠ كلمة ولا تزيد عن ٤٨٠. "
         f"غطِّ كل عنوان من العناوين الاثني عشر بجملتين على الأقل، بترتيب الأهمية، "
         f"مع جملة ربط قصيرة بين المحاور (الأزمة ثم الخليج ثم التقنية).\n\nالعناوين:\n{heads}\n\nأخرج نص النشرة فقط.")
     body={"contents":[{"parts":[{"text":prompt}]}],
-          "generationConfig":{"maxOutputTokens":2600,"temperature":0.4,"thinkingConfig":{"thinkingBudget":0}}}
+          "generationConfig":{"maxOutputTokens":4096,"temperature":0.4,"thinkingConfig":{"thinkingBudget":0}}}
     try:
         d=gemini_post(body, timeout=60)
         txt=d["candidates"][0]["content"]["parts"][0]["text"].strip()
         txt=re.sub(r"[\*#`]","",txt)
-        if OPEN_L.split(".")[0] in txt and len(txt)>80:
+        # 🛡️ حارسُ الاكتمال: نشرةٌ بلا خاتمتِها نشرةٌ مبتورةٌ (سبقَ أن نُشرت نشرةٌ
+        # قُطعت في منتصفِ جملةٍ لأنّ التحقّقَ اكتفى بالافتتاحيّة) — فلا تُقبَلُ إلّا
+        # ببدايتِها وخاتمتِها معًا، وإلّا عُدنا لقالبٍ مضمونِ الاكتمال.
+        if OPEN_L.split(".")[0] in txt and CLOSE_L.split("،")[0] in txt and len(txt)>80:
             print("🧠 النشرة بقلم Gemini"); return txt
+        print(f"Gemini↘ القالب: نصٌّ مبتورٌ بلا خاتمة ({len(txt)} حرفًا)")
     except Exception as e: print(f"Gemini↘ القالب: {str(e)[:100]}")
     return None
 
@@ -3191,10 +3221,16 @@ if os.environ.get("VIDEO_ONLY"):
 else:
     full = gemini_script() or template_script()
 open(f"{OUT}/script-{today}.txt","w").write(full); print("SCRIPT:",full)
-json.dump({"date":today,"script":full,
-    "audio":f"bulletin-{today}.mp3","video":"latest.mp4",
-    "items":[{"head":i["head"],"src":i["src"],"grade":i["grade"]} for i in items[:12]]},
-    open(f"{OUT}/latest.json","w"),ensure_ascii=False,indent=1)
+# 🛡️ لا يُذكَرُ الفيديو إلّا إن كان فيديو اليومِ نفسِه — كان latest.mp4 يُقدَّمُ
+# شهرًا كاملًا على أنّه «الأحدث» بينما هو فيديو ١٩ يوليو، لأنّ المفتاحَ كان يُكتَبُ
+# قبلَ أن يُبنى الفيديو أصلًا. القاعدة: المفتاحُ يظهرُ عندَ اكتمالِ فيديو اليومِ فقط.
+try: _prev_meta=json.load(open(f"{OUT}/latest.json"))
+except Exception: _prev_meta={}
+_meta={"date":today,"script":full,"audio":f"bulletin-{today}.mp3",
+    "items":[{"head":i["head"],"src":i["src"],"grade":i["grade"]} for i in items[:12]]}
+if _prev_meta.get("video_date")==today and _prev_meta.get("video"):
+    _meta["video"]=_prev_meta["video"]; _meta["video_date"]=today
+json.dump(_meta, open(f"{OUT}/latest.json","w"),ensure_ascii=False,indent=1)
 
 # جُمل ≤٦٥ حرفًا (≈ ≤٤.٧ ثانية = تحت سقف الـ٥ث)
 SEGLEN=int(os.environ.get("SEG_LEN","95"))
@@ -3306,6 +3342,7 @@ if not os.environ.get("ENABLE_VIDEO"):
     _run_aux("viral_wave","viral_wave","viral_wave")
     _run_wave()
     _run_aux("correspondents","correspondents","correspondents")
+    _run_warraq()
     hirasa()
     bundle(); broadcast_bulletin(); broadcast_official(); broadcast_alerts(); broadcast_news(); save_agents()
     print("🎙️ النشرة الصوتية جاهزة — الفيديو معطَّل في هذه النسخة")
@@ -3386,7 +3423,7 @@ with open(lst,"w") as f:
 subprocess.run(["ffmpeg","-v","quiet","-y","-f","concat","-safe","0","-i",lst,"-c:v","libx264","-crf","20",
     "-pix_fmt","yuv420p","-c:a","aac","-movflags","+faststart",f"{OUT}/bulletin-{today}.mp4"])
 shutil.copy(f"{OUT}/bulletin-{today}.mp4",f"{OUT}/latest.mp4")
-meta=json.load(open(f"{OUT}/latest.json")); meta["video_date"]=today
+meta=json.load(open(f"{OUT}/latest.json")); meta["video"]="latest.mp4"; meta["video_date"]=today
 json.dump(meta,open(f"{OUT}/latest.json","w"),ensure_ascii=False,indent=1)
 mark("rawi","ok","فيديو اليوم مكتمل")
 print(f"🎬 اكتمل الفيديو: bulletin-{today}.mp4 ({len(need)} مقطعًا)")
@@ -3396,6 +3433,7 @@ _run_aux("osint_watch","osint_watch","osint_watch")
 _run_aux("viral_wave","viral_wave","viral_wave")
 _run_wave()
 _run_aux("correspondents","correspondents","correspondents")
+_run_warraq()
 hirasa()
 bundle()
 _run_aux("social_pack","social_pack","social_pack")

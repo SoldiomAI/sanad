@@ -1,0 +1,26 @@
+# سَنَد — SANAD Sovereign News Intelligence
+> منصّة إخبارية عربية تطبّق علم الإسناد من علم الحديث على الأخبار: لكلِّ خبرٍ درجةٌ
+> (صحيح / حسن / ضعيف الإسناد) محسوبةٌ من خمسة معايير معلنة، ومصدرٌ معروضٌ للقارئ.
+> An Arabic news platform applying hadith-science chain-of-transmission (isnad)
+> grading to news: every story carries a computed grade and a visible source.
+
+## Data (JSON, machine-readable, CC-attribution)
+- News (graded, by section): https://raw.githubusercontent.com/SoldiomAI/sanad-data/main/daily/news.json
+- Daily bulletin (script + audio ref): https://raw.githubusercontent.com/SoldiomAI/sanad-data/main/daily/latest.json
+- Official wire (state agencies): https://raw.githubusercontent.com/SoldiomAI/sanad-data/main/daily/official.json
+- Rumor rulings with sources: https://raw.githubusercontent.com/SoldiomAI/sanad-data/main/daily/rumors.json
+- Official public alerts: https://raw.githubusercontent.com/SoldiomAI/sanad-data/main/daily/alerts.json
+- AI research papers digest (Al-Warraq): https://raw.githubusercontent.com/SoldiomAI/sanad-data/main/daily/papers.json
+- Regional instability index: https://raw.githubusercontent.com/SoldiomAI/sanad-data/main/daily/tension.json
+- Pipeline health (honest status): https://raw.githubusercontent.com/SoldiomAI/sanad-data/main/daily/health.json
+- Everything in one request: https://raw.githubusercontent.com/SoldiomAI/sanad-data/main/daily/bundle.json
+
+## Method
+- Grades: صحيح (authentic, first-degree source + corroboration), حسن (sound outlet),
+  ضعيف الإسناد (weak chain). Five criteria: الاتصال (connection), عدالة المصدر
+  (source integrity), الضبط (precision), عدم الشذوذ (non-anomaly), انتفاء العلة (no defect).
+- Fully automated agent newsroom; agents and their live status: /daily/agents.json
+- Verification guide for readers: https://isnad.news/
+
+## Attribution
+Data may be reused with attribution to سَنَد (SANAD) — https://isnad.news

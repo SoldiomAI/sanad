@@ -7,7 +7,7 @@
 
 const crypto = require('crypto');
 
-const RAW_BASE = 'https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily';
+const RAW_BASE = 'https://raw.githubusercontent.com/SoldiomAI/sanad-data/main/daily';
 const GROK_URL = 'https://api.x.ai/v1/responses';
 const CACHE_MAX = 200;
 const ACTIVITY_MAX = 40;

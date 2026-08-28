@@ -31,7 +31,7 @@
 <meta name="author" content="SOLDIOM">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-{"@type":"NewsMediaOrganization","@id":"https://isnad.news/#org","name":"سَنَد","alternateName":"SANAD","url":"https://isnad.news","logo":{"@type":"ImageObject","url":"https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/og.jpg"},"description":"منصة إخبارية عربية تطبّق علم الإسناد من علم الحديث: لكلِّ خبرٍ درجةٌ (صحيح/حسن/ضعيف الإسناد) مبنيّة على خمسة معايير، ومصدرٌ معروض.","inLanguage":"ar","foundingLocation":{"@type":"Place","name":"الكويت"},"sameAs":["https://t.me/sanad_news","https://instagram.com/alialthowaikh"]},
+{"@type":"NewsMediaOrganization","@id":"https://isnad.news/#org","name":"سَنَد","alternateName":"SANAD","url":"https://isnad.news","logo":{"@type":"ImageObject","url":"https://raw.githubusercontent.com/SoldiomAI/sanad-data/main/daily/og.jpg"},"description":"منصة إخبارية عربية تطبّق علم الإسناد من علم الحديث: لكلِّ خبرٍ درجةٌ (صحيح/حسن/ضعيف الإسناد) مبنيّة على خمسة معايير، ومصدرٌ معروض.","inLanguage":"ar","foundingLocation":{"@type":"Place","name":"الكويت"},"sameAs":["https://t.me/sanad_news","https://instagram.com/alialthowaikh"]},
 {"@type":"WebSite","@id":"https://isnad.news/#site","url":"https://isnad.news","name":"سَنَد | SANAD","publisher":{"@id":"https://isnad.news/#org"},"inLanguage":"ar","potentialAction":{"@type":"ReadAction","target":"https://www.isnad.news/"}},
 {"@type":"BreadcrumbList","@id":"https://isnad.news/#crumbs","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://www.isnad.news/"}]}
 ]}
@@ -653,6 +653,7 @@ body.map-mode .app{max-width:min(960px,100%)}
       <div id="briefInsight"></div>
       <div id="briefAnalyst"></div>
       <div id="briefColumn"></div>
+      <div id="briefPapers"></div>
       <div id="briefOfficial"></div>
       <div id="briefHero"></div>
       <details class="more"><summary>ما معنى درجة الإسناد؟</summary>
@@ -750,7 +751,7 @@ addEventListener("DOMContentLoaded",()=>{
   const bb=document.getElementById("lngBtn"); if(bb) bb.textContent=EN?"ع":"EN";
   applyChromeI18n();
 });
-const RAW="https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/";
+const RAW="https://raw.githubusercontent.com/SoldiomAI/sanad-data/main/daily/";
 const SAVE_KEY="sanad_saved_v1";
 const SEEN_KEY="sanad_desk_seen_v1";
 
@@ -936,7 +937,7 @@ function celebrateShare(){
 function openSheet(html){sheetC.innerHTML=html; sheet.classList.add("on"); document.body.style.overflow="hidden"}
 function closeSheet(){sheet.classList.remove("on"); document.body.style.overflow=""}
 
-let DATA=null, AGENTS=null, CONTROL=null, OFFICIAL=null, ANALYST=null, COLUMN=null, COLUMNS_IX=null, COLUMN_CACHE={}, COLUMN_DATE=null, FORECAST=null, EVOLUTION=null, TENSION=null, COMMENTS=null, APOSTS=null, MAP=null, WAVE=null, MAP_FOCUS=null, deskFilter=null, VIEW="live";
+let DATA=null, AGENTS=null, CONTROL=null, OFFICIAL=null, ANALYST=null, COLUMN=null, COLUMNS_IX=null, COLUMN_CACHE={}, COLUMN_DATE=null, FORECAST=null, EVOLUTION=null, TENSION=null, COMMENTS=null, APOSTS=null, MAP=null, WAVE=null, PAPERS=null, MAP_FOCUS=null, deskFilter=null, VIEW="live";
 let AGENT_POSTS=[];
 let PROFILE=null; /* {kind:'agent'|'desk', id, tab:'grid'|'feed', from} */
 
@@ -1628,7 +1629,7 @@ function deskFor(i){
   if(c==="الخليج") return DESKS[0];
   if(c==="فلسطين") return DESKS[1];
   if(c==="إيران") return DESKS[2];
-  if(c==="عالم"||c==="اقتصاد"||c==="تقنية") return DESKS[3];
+  if(c==="عالم"||c==="اقتصاد"||c==="تقنية"||c==="ذكاء اصطناعي") return DESKS[3];
   if(i.grade && i.isnad) return DESKS[4];
   return DESKS[3];
 }
@@ -2575,12 +2576,30 @@ function shareColumn(){
   sharePack({title:EN?"Sanad · Column":"سَنَد · عمود المُدوِّن", text, url});
 }
 
+function renderPapersSection(){
+  /* «الورّاق» — أوراقُ الذكاءِ الاصطناعيّ من منبعِها: الرابطُ يُحيلُ للورقةِ نفسِها */
+  const el=document.getElementById("briefPapers"); if(!el) return;
+  const items=(PAPERS&&PAPERS.items)||[];
+  if(!items.length){ el.innerHTML=""; return }
+  el.innerHTML=`<div class="team-sec">${EN?"AI research · Al-Warraq":"أبحاثُ الذكاءِ الاصطناعيّ · الورّاق"}</div>`
+    +`<div class="card">`+items.slice(0,4).map(p=>{
+      const t=EN?(p.title||p.title_ar||""):(p.title_ar||p.title||"");
+      const s=EN?((p.abstract||"").slice(0,180)):(p.summary_ar||(p.abstract||"").slice(0,180));
+      return `<div style="padding:8px 0;border-bottom:1px solid var(--border)">
+        <a href="${esc(p.link)}" target="_blank" rel="noopener" style="font-weight:700;font-size:13.5px">${esc(t)}</a>
+        ${s?`<div style="font-size:12px;color:var(--mut);margin-top:3px">${esc(s)}</div>`:""}
+        <div style="font-size:11px;color:var(--dim);margin-top:3px">${esc(p.src||"")}${p.published?" · "+esc(p.published.slice(0,10)):""} · ${EN?"primary source":"مصدرٌ أوّل"}</div>
+      </div>`}).join("")
+    +`</div>`;
+}
+
 function renderBrief(){
   const lead=liveList(1)[0]||allItems().filter(isAuthItem)[0]||allItems()[0];
   renderInsight();
   const ba=document.getElementById("briefAnalyst");
   if(ba) ba.innerHTML=analystCardHTML(false);
   renderColumnSection();
+  renderPapersSection();
   renderBriefOfficial();
   if(lead){ briefHero.innerHTML=`<div class="team-sec">${EN?"Lead story":"أبرز خبر"}</div>`+postHTML(lead,0,"brief"); bindPosts(briefHero,[lead],"brief"); }
   else briefHero.innerHTML="";
@@ -2985,6 +3004,7 @@ async function load(){
   try{ APOSTS=await grab("posts"); }catch(e){ APOSTS=null }
   try{ MAP=await grab("map"); }catch(e){ MAP=null }
   try{ WAVE=await grab("wave"); }catch(e){ WAVE=null }
+  try{ PAPERS=await grab("papers"); }catch(e){ PAPERS=null }
   try{
     const ta=document.getElementById("teamAuto"), tl=document.getElementById("teamLead");
     if(tl) tl.textContent=EN?"Agents run on their own — posts and cycles without hand edits.":"وكلاء يعملون آليًّا — منشوراتهم ودُوراتهم بلا تدخّل يدوي.";
