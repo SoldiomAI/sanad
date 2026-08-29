@@ -238,6 +238,30 @@ class TestHealthWatchdog(unittest.TestCase):
         self.assertEqual(g["_count_items"]({"cats": {"a": [1], "b": [2, 3]}}, "cats"), 3)
         self.assertIsNone(g["_count_items"]({"x": 1}, None))
 
+    def test_downstream_export_uses_its_updated_timestamp(self):
+        h, _ = self._run({
+            "ontime-signals": {
+                "schema_version": "1.0",
+                "updated_at": iso_ago(minutes=5),
+                "signals": [],
+            }
+        })
+        section = [s for s in h["sections"] if s["key"] == "ontime-signals"][0]
+        self.assertEqual(section["state"], "fresh")
+
+    def test_failed_aux_module_degrades_overall_health(self):
+        d = tempfile.mkdtemp()
+        health = os.path.join(d, "health.json")
+        aux = {"intelligence_signals": {"status": "fail", "note": "generation failed"}}
+        g = load(["_age_h", "_count_items", "_HEALTH_SPEC", "_HEALTH_DORMANT", "hirasa"], extra={
+            "OUT": d, "HEALTH_F": health, "_LOG": {}, "_AUX": aux,
+            "mark": lambda *args, **kwargs: None,
+        })
+        g["_HEALTH_SPEC"] = {}
+        g["hirasa"]()
+        with open(health, encoding="utf-8") as fh:
+            self.assertEqual(json.load(fh)["overall"], "degraded")
+
 
 class TestLatestVideoMetadata(unittest.TestCase):
     """latest.json لا يعلن فيديوً لا يخصُّ النشرة المنشورة أو لا وجود له."""

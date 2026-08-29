@@ -847,6 +847,9 @@ _HEALTH_SPEC={
  "latest":   (30,  0,  None,     "rawi"),
  "papers":   (30,  0,  "items",  "warraq"),
  "repos":    (30,  1,  "items",  "ai_repos"),
+ "events":   (3,   0,  "events", "intelligence_signals"),
+ "signals":  (3,   0,  "signals","intelligence_signals"),
+ "ontime-signals":(3, 0, "signals","intelligence_signals"),
  # قسمان يُشحَنان في الحزمةِ ولا تقرؤهما الواجهةُ إطلاقًا — يُرصَدان كي لا يُنسَيا
  "corrections":(26, 0, "log",    "rasid"),
  "verify":   (26,  0,  "rows",   "mutabiq"),
@@ -906,7 +909,7 @@ def hirasa():
         except Exception as e:
             _push(key,"dead","تعذّرت القراءة: "+str(e)[:50],owner); continue
         # بعضُ الملفّاتِ تختمُ بـdate (يوم) لا updated (لحظة) — نقبلُ الاثنين
-        age=_age_h(doc.get("updated"))
+        age=_age_h(doc.get("updated") or doc.get("updated_at") or doc.get("generated_at"))
         if age is None and doc.get("date"):
             age=_age_h(str(doc["date"])[:10]+"T23:59+00:00")
             if age is not None and age<0: age=0.0
@@ -926,7 +929,9 @@ def hirasa():
         else: ef=0
         _push(key,state,note,owner,age,n,ef)
     bad=[s for s in secs if s["state"] in ("dead","stale","empty")]
-    overall="ok" if not bad else ("dead" if any(s["state"]=="dead" for s in bad) else "degraded")
+    aux_failed=[name for name,row in _AUX.items() if row.get("status")=="fail"]
+    overall=("dead" if any(s["state"]=="dead" for s in bad) else
+             "degraded" if bad or aux_failed else "ok")
     with open(HEALTH_F,"w",encoding="utf-8") as _fh:
         json.dump({"updated":now,"updated_at":now,"overall":overall,
             "note":"حالةُ كلِّ قسمٍ من نتيجتِه لا من نجاحِ تشغيلِه",
@@ -974,7 +979,7 @@ def bundle():
     except Exception as _e: print(f"guard_latest: {str(_e)[:80]}")
     _sanitize_latest_file()
     keys=["news","intel","official","forecast","analyst","dua","verify",
-          "alerts","corrections","latest","agents","cost","evolution","council","gpu","rumors","column","tension","map","osint","wave","waves","health","comments","posts","papers","repos"]
+          "alerts","corrections","latest","agents","cost","evolution","council","gpu","rumors","column","tension","map","osint","wave","waves","health","comments","posts","papers","repos","events","signals","ontime-signals"]
     b={"built":datetime.now(timezone.utc).isoformat(timespec="minutes")}
     for k in keys:
         try:
@@ -3256,6 +3261,7 @@ if os.environ.get("NEWS_ONLY"):
     _run_aux("correspondents","correspondents","correspondents")
     _run_warraq()
     _run_aux("ai_repos","ai_repos","ai_repos")
+    _run_aux("intelligence_signals","intelligence_signals","intelligence_signals")
     hirasa()
     bundle()
     _run_aux("social_pack","social_pack","social_pack")
@@ -3443,6 +3449,7 @@ if not os.environ.get("ENABLE_VIDEO"):
     _run_aux("correspondents","correspondents","correspondents")
     _run_warraq()
     _run_aux("ai_repos","ai_repos","ai_repos")
+    _run_aux("intelligence_signals","intelligence_signals","intelligence_signals")
     hirasa()
     bundle(); broadcast_bulletin(); broadcast_official(); broadcast_alerts(); broadcast_news(); save_agents()
     print("🎙️ النشرة الصوتية جاهزة — الفيديو معطَّل في هذه النسخة")
@@ -3535,6 +3542,7 @@ _run_wave()
 _run_aux("correspondents","correspondents","correspondents")
 _run_warraq()
 _run_aux("ai_repos","ai_repos","ai_repos")
+_run_aux("intelligence_signals","intelligence_signals","intelligence_signals")
 hirasa()
 bundle()
 _run_aux("social_pack","social_pack","social_pack")
