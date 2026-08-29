@@ -846,6 +846,7 @@ _HEALTH_SPEC={
  "waves":    (3,   0,  "waves",  "mawj"),
  "latest":   (30,  0,  None,     "rawi"),
  "papers":   (30,  0,  "items",  "warraq"),
+ "repos":    (30,  1,  "items",  "ai_repos"),
  # قسمان يُشحَنان في الحزمةِ ولا تقرؤهما الواجهةُ إطلاقًا — يُرصَدان كي لا يُنسَيا
  "corrections":(26, 0, "log",    "rasid"),
  "verify":   (26,  0,  "rows",   "mutabiq"),
@@ -973,7 +974,7 @@ def bundle():
     except Exception as _e: print(f"guard_latest: {str(_e)[:80]}")
     _sanitize_latest_file()
     keys=["news","intel","official","forecast","analyst","dua","verify",
-          "alerts","corrections","latest","agents","cost","evolution","council","gpu","rumors","column","tension","map","osint","wave","waves","health","comments","posts","papers"]
+          "alerts","corrections","latest","agents","cost","evolution","council","gpu","rumors","column","tension","map","osint","wave","waves","health","comments","posts","papers","repos"]
     b={"built":datetime.now(timezone.utc).isoformat(timespec="minutes")}
     for k in keys:
         try:
@@ -3254,6 +3255,7 @@ if os.environ.get("NEWS_ONLY"):
     _run_wave()
     _run_aux("correspondents","correspondents","correspondents")
     _run_warraq()
+    _run_aux("ai_repos","ai_repos","ai_repos")
     hirasa()
     bundle()
     _run_aux("social_pack","social_pack","social_pack")
@@ -3440,6 +3442,7 @@ if not os.environ.get("ENABLE_VIDEO"):
     _run_wave()
     _run_aux("correspondents","correspondents","correspondents")
     _run_warraq()
+    _run_aux("ai_repos","ai_repos","ai_repos")
     hirasa()
     bundle(); broadcast_bulletin(); broadcast_official(); broadcast_alerts(); broadcast_news(); save_agents()
     print("🎙️ النشرة الصوتية جاهزة — الفيديو معطَّل في هذه النسخة")
@@ -3531,6 +3534,7 @@ _run_aux("viral_wave","viral_wave","viral_wave")
 _run_wave()
 _run_aux("correspondents","correspondents","correspondents")
 _run_warraq()
+_run_aux("ai_repos","ai_repos","ai_repos")
 hirasa()
 bundle()
 _run_aux("social_pack","social_pack","social_pack")
