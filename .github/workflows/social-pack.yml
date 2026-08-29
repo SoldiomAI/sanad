@@ -64,6 +64,7 @@ jobs:
             git@github.com:SoldiomAI/sanad-data.git /tmp/pub
           mkdir -p /tmp/pub/daily
           cp -r daily/* /tmp/pub/daily/ 2>/dev/null || true
+          bash .github/scripts/publish-hygiene.sh /tmp/pub/daily
           cd /tmp/pub
           git config user.name "SANAD Bot"; git config user.email "soldiom@gmail.com"
           git add -A

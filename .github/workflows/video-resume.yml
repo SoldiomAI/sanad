@@ -72,6 +72,7 @@ jobs:
           elif [ "$GUARD" != "0" ]; then
             echo "❌ social guard failed"; exit 1
           fi
+          bash .github/scripts/publish-hygiene.sh /tmp/pub/daily
           cd /tmp/pub
           git config user.name "SANAD Bot"; git config user.email "soldiom@gmail.com"
           git add -A

@@ -1,0 +1,61 @@
+name: 🩺 حارس السكون
+# إنذارُ توقّفِ الأنبوب: يفحصُ كلَّ ٣ ساعاتٍ عمرَ آخرِ نشرٍ للمستودعِ العامّ
+# وحالةَ health.json — ويُنذرُ عبر تيليغرام إن سكتَ الأنبوبُ أو تدهورَ وضعُه.
+# بلا سرِّ تيليغرام: يكتفي بإفشالِ التشغيلةِ لتظهرَ حمراءَ في Actions.
+on:
+  schedule:
+    - cron: '17 */3 * * *'
+  workflow_dispatch: {}
+permissions:
+  contents: read
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: فحص النبض والإنذار
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_ALERT_CHAT: ${{ secrets.TELEGRAM_ALERT_CHAT }}
+          GH_API_TOKEN: ${{ github.token }}
+          STALL_MAX_H: "3"
+        run: |
+          set -u
+          NOW=$(date -u +%s)
+          ALERTS=""
+
+          # ١ — عمرُ آخرِ التزامٍ في المستودعِ العامّ (يجب ألّا يتجاوزَ STALL_MAX_H)
+          LAST=$(curl -fsS -H "Authorization: Bearer ${GH_API_TOKEN}" \
+                 -H "User-Agent: sanad-health-alert" \
+                 "https://api.github.com/repos/SoldiomAI/sanad-data/commits/main" \
+                 | python3 -c "import sys,json;print(json.load(sys.stdin)['commit']['committer']['date'])" || echo "")
+          if [ -n "$LAST" ]; then
+            AGE_H=$(python3 -c "from datetime import datetime,timezone;print(round((${NOW}-datetime.fromisoformat('${LAST}'.replace('Z','+00:00')).timestamp())/3600,1))")
+            echo "آخرُ نشرٍ قبلَ ${AGE_H} ساعة"
+            if python3 -c "import sys;sys.exit(0 if ${AGE_H}>float('${STALL_MAX_H}') else 1)"; then
+              ALERTS="⏸️ أنبوبُ سَنَد ساكتٌ منذ ${AGE_H} ساعةً (السقف ${STALL_MAX_H}س) — افحص news-refresh."
+            fi
+          else
+            ALERTS="❓ تعذّر فحصُ آخرِ نشرٍ لـ sanad-data."
+          fi
+
+          # ٢ — حالةُ الحِراسةِ المنشورة (health.overall)
+          OVERALL=$(curl -fsS "https://raw.githubusercontent.com/SoldiomAI/sanad-data/main/daily/health.json" \
+                    | python3 -c "import sys,json;print(json.load(sys.stdin).get('overall','?'))" || echo "?")
+          echo "حالةُ الحِراسة: $OVERALL"
+          if [ "$OVERALL" = "dead" ]; then
+            ALERTS="$ALERTS
+          💀 الحِراسة: قسمٌ ميّتٌ في health.json — افحص التفاصيل."
+          fi
+
+          [ -z "$ALERTS" ] && { echo "✅ النبضُ سليم"; exit 0; }
+          echo "$ALERTS"
+
+          # الإنذار — تيليغرام إن توفّر السرّان، وإلّا فشلٌ أحمرُ مرئيّ
+          if [ -n "${TELEGRAM_BOT_TOKEN:-}" ] && [ -n "${TELEGRAM_ALERT_CHAT:-}" ]; then
+            curl -fsS "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+              --data-urlencode "chat_id=${TELEGRAM_ALERT_CHAT}" \
+              --data-urlencode "text=${ALERTS}" >/dev/null \
+              && echo "📨 أُرسل الإنذار" || echo "⚠️ تعذّر إرسالُ تيليغرام"
+          fi
+          exit 1

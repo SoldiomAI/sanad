@@ -288,7 +288,7 @@ function renderVerify(){
 /* لوحةُ الحِراسة: الحالةُ من نتيجةِ كلِّ قسمٍ (عُمر + عدد) لا من نجاحِ التشغيل.
    وُلدت بعد أن بقيَ قسمُ التحذيراتِ فارغًا ٦ أيّامٍ وكلُّ المؤشّراتِ خضراء. */
 let HEALTH=null;
-const HEALTH_RAW="https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/health.json";
+const HEALTH_RAW="https://raw.githubusercontent.com/SoldiomAI/sanad-data/main/daily/health.json";
 async function loadHealth(){
   try{ const r=await fetch(HEALTH_RAW+"?t="+Date.now()); HEALTH=r.ok?await r.json():null; }
   catch(e){ HEALTH=null }
@@ -337,7 +337,7 @@ function renderFeed(){
     </div></div>`;
 }
 
-const SOCIAL_RAW="https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/social/";
+const SOCIAL_RAW="https://raw.githubusercontent.com/SoldiomAI/sanad-data/main/daily/social/";
 const SOCIAL_LOCAL="/daily/social/";
 async function renderSocial(){
   const el=document.getElementById("tab-social"); if(!el) return;

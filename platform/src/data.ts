@@ -1,9 +1,9 @@
 // طبقة البيانات: نفس منبع isnad.news — مستودع sanad-data العام.
 // كلُّ ما يصل من هنا بياناتٌ حقيقيّةٌ من أنبوب سَنَد المُسنَد؛ لا تُختلَق قيمٌ هنا أبدًا.
-const RAW = "https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily/";
+const RAW = "https://raw.githubusercontent.com/SoldiomAI/sanad-data/main/daily/";
 // حدودُ الدول (Natural Earth، ملكٌ عام) مُخزَّنةٌ في مستودع سَنَد — نفس مُضيفِ البيانات.
 export const WORLD_URL =
-  "https://raw.githubusercontent.com/Soldiom/sanad/main/platform/public/world.geojson";
+  "https://raw.githubusercontent.com/SoldiomAI/sanad/main/platform/public/world.geojson";
 
 export interface CountryTension {
   id: string; name: string; en: string; lat: number; lon: number;

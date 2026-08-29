@@ -7,7 +7,7 @@
 
 const crypto = require('crypto');
 
-const RAW_BASE = 'https://raw.githubusercontent.com/Soldiom/sanad-data/main/daily';
+const RAW_BASE = 'https://raw.githubusercontent.com/SoldiomAI/sanad-data/main/daily';
 const GH_API = 'https://api.github.com';
 
 const DEFAULT_CONTROL = {
@@ -32,12 +32,12 @@ function dataRepo() {
   return (
     process.env.GITHUB_REPO_DATA ||
     process.env.SANAD_DATA_REPO ||
-    'Soldiom/sanad-data'
+    'SoldiomAI/sanad-data'
   );
 }
 
 function codeRepo() {
-  return process.env.GITHUB_REPO_CODE || process.env.SANAD_CODE_REPO || 'Soldiom/sanad';
+  return process.env.GITHUB_REPO_CODE || process.env.SANAD_CODE_REPO || 'SoldiomAI/sanad';
 }
 
 function ghToken() {
