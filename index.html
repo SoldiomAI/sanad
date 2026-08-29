@@ -198,7 +198,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 
 /* Bottom nav */
 .bnav{position:fixed;bottom:0;inset-inline:0;z-index:50;background:var(--topbar);backdrop-filter:blur(16px);
-  border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(6,1fr);height:var(--nav-h);
+  border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(7,1fr);height:var(--nav-h);
   padding-bottom:env(safe-area-inset-bottom,0)}
 .bnav button{border:0;background:transparent;color:var(--dim);font-family:'Noto Kufi Arabic',sans-serif;
   font-size:9.5px;font-weight:600;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
@@ -440,6 +440,19 @@ details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--m
 .team-auto{margin:0 0 14px;padding:10px 12px;border-radius:12px;border:1px solid rgba(62,155,114,.28);
   background:rgba(62,155,114,.07);font-size:12.5px;line-height:1.75;color:var(--mut)}
 .team-auto b{color:var(--verify-l);font-family:'Noto Kufi Arabic',sans-serif}
+.ai-actions{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0}
+.ai-actions button,.ai-actions a{border:1px solid var(--border);background:var(--card2);color:var(--txt);
+  border-radius:10px;padding:9px 11px;font-weight:700;font-size:12px;text-decoration:none;cursor:pointer}
+.repo-stack{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.repo-card{display:block;text-decoration:none;color:inherit;border:1px solid var(--border);border-radius:14px;
+  background:linear-gradient(180deg,var(--card2),rgba(201,162,39,.05));padding:12px}
+.repo-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.repo-name{font-family:'Noto Kufi Arabic',sans-serif;font-weight:800;color:var(--vellum);font-size:13.5px;word-break:break-word}
+.repo-stars{font-size:11px;color:var(--gold-l);white-space:nowrap;font-weight:700}
+.repo-desc{font-size:12.5px;color:var(--mut);line-height:1.75;margin-top:6px}
+.repo-fit{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.repo-use{font-size:12px;line-height:1.75;color:var(--txt);border-top:1px solid var(--border);margin-top:9px;padding-top:8px}
+.repo-use b{color:var(--gold-l)}
 .prof-actions{display:flex;gap:8px;margin-top:12px}
 .prof-actions button,.prof-actions a{flex:1;border:1px solid var(--border);background:var(--card2);border-radius:10px;padding:10px;
   font-weight:700;font-size:12px;cursor:pointer;color:var(--txt);font-family:'Noto Kufi Arabic',sans-serif;text-align:center;text-decoration:none}
@@ -565,6 +578,7 @@ body.map-mode .app{max-width:min(960px,100%)}
     <span class="brand">🛡️ <span class="gold">سَنَد</span></span>
     <nav class="desk-nav" id="deskNav" aria-label="التنقّل">
       <button type="button" data-view="live" class="on">حيّ</button>
+      <button type="button" data-view="ai">ذكاء</button>
       <button type="button" data-view="brief">نشرة</button>
       <button type="button" data-view="map">خريطة</button>
       <button type="button" data-view="verify" id="navVerifyD">تحقّق</button>
@@ -612,6 +626,22 @@ body.map-mode .app{max-width:min(960px,100%)}
     <div id="feed">
       <div class="sk media"></div><div class="sk" style="width:70%"></div><div class="sk" style="width:40%"></div>
       <div class="sk media" style="margin-top:16px"></div><div class="sk" style="width:60%"></div>
+    </div>
+  </section>
+
+  <section class="view" id="view-ai" data-view="ai">
+    <div class="panel">
+      <h2 class="amiri gold" id="aiTitle">ذكاء اصطناعي</h2>
+      <p class="lead" id="aiLead">أخبار الذكاء الاصطناعي، أوراق الورّاق، وأهم مستودعات GitHub القابلة للتحويل إلى حالات عمل.</p>
+      <div class="team-auto" id="aiAuto"><b>أين أخبار الذكاء؟</b> هنا، وفي مكتب «ذكاء» داخل الحيّ. نعرض الخبر، الورقة، والمستودع مع مصدره ورابطه.</div>
+      <div class="ai-actions">
+        <button type="button" onclick="goLiveDesk('ai')">افتح أخبار الذكاء في الحيّ</button>
+        <button type="button" onclick="openProfile('agent','warraq','feed')">ملف الورّاق</button>
+        <a href="https://github.com/trending?spoken_language_code=&since=daily" target="_blank" rel="noopener">GitHub Trending</a>
+      </div>
+      <div id="aiNews"></div>
+      <div id="aiRepos"></div>
+      <div id="aiPapers"></div>
     </div>
   </section>
 
@@ -719,6 +749,7 @@ body.map-mode .app{max-width:min(960px,100%)}
 
 <nav class="bnav" id="bnav" aria-label="القائمة">
   <button type="button" data-view="live" class="on"><i>◎</i>حيّ</button>
+  <button type="button" data-view="ai"><i>AI</i>ذكاء</button>
   <button type="button" data-view="brief"><i>◈</i>نشرة</button>
   <button type="button" data-view="map"><i>▣</i>خريطة</button>
   <button type="button" data-view="verify" id="navVerifyM"><i>✓</i>تحقّق</button>
@@ -760,6 +791,7 @@ const DESKS=[
   {id:"samir",name:"سامر",en:"Samir",region:"فلسطين",regionEn:"Palestine",role:"مكتب فلسطين",blurb:"يتابع فلسطين وما حولها.",blurbEn:"Follows Palestine and the surrounding file.",cat:"فلسطين",letter:"ف",color:"#9E2B37"},
   {id:"laith",name:"ليث",en:"Laith",region:"المشرق",regionEn:"Mashreq",role:"مكتب المشرق",blurb:"يرصد المشرق وما يُترجم عنه.",blurbEn:"Tracks the Mashreq and translations from it.",cat:"إيران",letter:"م",color:"#C9A227"},
   {id:"huda",name:"هدى",en:"Huda",region:"العالم",regionEn:"World",role:"مكتب الأمّة",blurb:"تجمع أهم ما يهمّ القارئ العربي من العالم.",blurbEn:"Surfaces world stories that matter to readers.",cat:"عالم",letter:"ع",color:"#3A66A8"},
+  {id:"ai",name:"نور",en:"Nour",region:"ذكاء",regionEn:"AI",role:"مكتب الذكاء الاصطناعي",blurb:"يجمع أخبار المختبرات والنماذج والمستودعات المفتوحة.",blurbEn:"Tracks AI labs, model releases, and open-source repos.",cat:"ذكاء اصطناعي",letter:"ذ",color:"#7C4DFF"},
   {id:"hakim",name:"الحاكم",en:"Al-Hakim",region:"مُسنَد",regionEn:"Graded",role:"حاكم الإسناد",blurb:"يمنح كلَّ خبرٍ حكمَ إسناده الظاهر.",blurbEn:"Issues the visible attribution grade on each story.",cat:"__grade__",letter:"س",color:"#8A6F1B"},
 ];
 function regionOf(d){return EN?(d.regionEn||d.en):(d.region||d.name)}
@@ -814,7 +846,7 @@ function enText(s, fallback){ if(!EN) return s||""; if(!s) return fallback||""; 
 /** Rewrite static Arabic chrome when EN is on — no Arabic leftovers in shell UI */
 function applyChromeI18n(){
   if(!EN) return;
-  const nav={live:"Live",brief:"Brief",map:"Map",verify:"Verify",team:"Agents",saved:"Saved"};
+  const nav={live:"Live",ai:"AI",brief:"Brief",map:"Map",verify:"Verify",team:"Agents",saved:"Saved"};
   document.querySelectorAll("#deskNav [data-view], #bnav [data-view]").forEach(b=>{
     const lab=nav[b.dataset.view]; if(!lab) return;
     const ic=b.querySelector("i");
@@ -839,6 +871,13 @@ function applyChromeI18n(){
     const p=root.querySelector("p.lead:not([id])"); if(p&&lead) p.textContent=lead;
   };
   setH2("brief","Sanad bulletin");
+  setH2("ai","AI intelligence","AI news, Al-Warraq research, and GitHub repositories turned into practical work cases.");
+  const aiAuto=document.getElementById("aiAuto");
+  if(aiAuto) aiAuto.innerHTML=`<b>Where is AI news?</b> Here, and in the AI desk inside Live. Each item keeps its source link and practical next step.`;
+  const aiActions=document.querySelector("#view-ai .ai-actions");
+  if(aiActions) aiActions.innerHTML=`<button type="button" onclick="goLiveDesk('ai')">Open AI news in Live</button>
+    <button type="button" onclick="openProfile('agent','warraq','feed')">Al-Warraq profile</button>
+    <a href="https://github.com/trending?spoken_language_code=&since=daily" target="_blank" rel="noopener">GitHub Trending</a>`;
   setH2("verify","Verify","Paste a news, image, or video link — we review it and issue a clear verdict, without exposing the newsroom toolkit.");
   const vt=document.getElementById("verifyTitle"); if(vt) vt.textContent="Verify";
   const vl=document.getElementById("verifyLead"); if(vl) vl.textContent="Paste a news, image, or video link — we review it and issue a clear verdict, without exposing the newsroom toolkit.";
@@ -938,7 +977,7 @@ function celebrateShare(){
 function openSheet(html){sheetC.innerHTML=html; sheet.classList.add("on"); document.body.style.overflow="hidden"}
 function closeSheet(){sheet.classList.remove("on"); document.body.style.overflow=""}
 
-let DATA=null, AGENTS=null, CONTROL=null, OFFICIAL=null, ANALYST=null, COLUMN=null, COLUMNS_IX=null, COLUMN_CACHE={}, COLUMN_DATE=null, FORECAST=null, EVOLUTION=null, TENSION=null, COMMENTS=null, APOSTS=null, MAP=null, WAVE=null, PAPERS=null, MAP_FOCUS=null, deskFilter=null, VIEW="live";
+let DATA=null, AGENTS=null, CONTROL=null, OFFICIAL=null, ANALYST=null, COLUMN=null, COLUMNS_IX=null, COLUMN_CACHE={}, COLUMN_DATE=null, FORECAST=null, EVOLUTION=null, TENSION=null, COMMENTS=null, APOSTS=null, MAP=null, WAVE=null, PAPERS=null, REPOS=null, MAP_FOCUS=null, deskFilter=null, VIEW="live";
 let AGENT_POSTS=[];
 let PROFILE=null; /* {kind:'agent'|'desk', id, tab:'grid'|'feed', from} */
 
@@ -1652,12 +1691,14 @@ function markSeen(id){const m=seenMap(); m[id]=Date.now(); sessionStorage.setIte
 
 function deskFor(i){
   const c=i.cat||"";
-  if(c==="الخليج") return DESKS[0];
-  if(c==="فلسطين") return DESKS[1];
-  if(c==="إيران") return DESKS[2];
-  if(c==="عالم"||c==="اقتصاد"||c==="تقنية"||c==="ذكاء اصطناعي") return DESKS[3];
-  if(i.grade && i.isnad) return DESKS[4];
-  return DESKS[3];
+  const byId=id=>DESKS.find(d=>d.id===id)||DESKS[0];
+  if(c==="الخليج") return byId("noura");
+  if(c==="فلسطين") return byId("samir");
+  if(c==="إيران") return byId("laith");
+  if(c==="ذكاء اصطناعي") return byId("ai");
+  if(c==="عالم"||c==="اقتصاد"||c==="تقنية") return byId("huda");
+  if(i.grade && i.isnad) return byId("hakim");
+  return byId("huda");
 }
 function allItems(){
   if(!DATA) return [];
@@ -1914,6 +1955,7 @@ function setView(v){
   if(v==="team") renderTeam();
   if(v==="saved") renderSaved();
   if(v==="brief") renderBrief();
+  if(v==="ai") renderAI();
   if(v==="map") renderMap();
   if(v==="verify"){ renderVerifyRecent(); try{document.getElementById("vUrl").focus()}catch(e){} }
   if(v==="live"){
@@ -1945,7 +1987,7 @@ function syncRoute(){
     if(PROFILE.kind==="agent"&&PROFILE.id==="mudawwin") path=COLUMN_DATE?("column/"+COLUMN_DATE):"column";
     else path=PROFILE.kind+"/"+PROFILE.id+(PROFILE.tab==="feed"?"/feed":"");
   }
-  else if(VIEW==="brief"||VIEW==="verify"||VIEW==="team"||VIEW==="saved"||VIEW==="search"||VIEW==="map"){
+  else if(VIEW==="brief"||VIEW==="ai"||VIEW==="verify"||VIEW==="team"||VIEW==="saved"||VIEW==="search"||VIEW==="map"){
     path=VIEW==="map"&&MAP_FOCUS?("map/"+MAP_FOCUS):VIEW;
   }
   else if(deskFilter) path="desk/"+deskFilter;
@@ -2015,7 +2057,7 @@ function applyRoute(){
       setView("map");
       if(MAP_FOCUS) openCountryMap(MAP_FOCUS);
     }
-    else if(a==="verify"||a==="brief"||a==="team"||a==="saved"||a==="live"||a==="search") setView(a);
+    else if(a==="verify"||a==="brief"||a==="ai"||a==="team"||a==="saved"||a==="live"||a==="search") setView(a);
   } finally { ROUTE_LOCK=false; }
 }
 function shareTextForItem(i){
@@ -2618,6 +2660,77 @@ function renderPapersSection(){
     +`</div>`;
 }
 
+function fmtInt(n){
+  try{return new Intl.NumberFormat(EN?"en":"ar").format(+n||0)}catch(e){return String(+n||0)}
+}
+function aiNewsItems(){
+  return allItems().filter(i=>i.cat==="ذكاء اصطناعي").slice(0,8);
+}
+function renderAINews(){
+  const el=document.getElementById("aiNews"); if(!el) return;
+  const items=aiNewsItems();
+  if(!items.length){
+    el.innerHTML=`<div class="team-sec">${EN?"AI news":"أخبار الذكاء الاصطناعي"}</div>`
+      +`<div class="empty">${EN?"No AI headlines in this cycle yet. Use the AI desk when the next refresh lands.":"لا عناوين ذكاء في هذه الدورة بعد. يظهر مكتب «ذكاء» مع أول تحديث جديد."}</div>`;
+    return;
+  }
+  el.innerHTML=`<div class="team-sec">${EN?"AI news":"أخبار الذكاء الاصطناعي"} · ${items.length}</div>`
+    +items.map((i,n)=>postHTML(i,n,"ai")).join("");
+  bindPosts(el, items, "ai");
+}
+function repoCard(r,n){
+  const title=r.full_name||r.name||"repo";
+  const desc=EN?(r.description||""):(r.description||"");
+  const why=EN?(r.why_en||""):(r.why_ar||r.why_en||"");
+  const use=EN?(r.use_case_en||""):(r.use_case_ar||r.use_case_en||"");
+  const steps=(EN?(r.steps_en||[]):(r.steps_ar||r.steps_en||[])).slice(0,3).join(" · ");
+  const fit=EN?(r.fit_en||"AI repo"):(r.fit_ar||"مستودع ذكاء");
+  const pushed=r.pushed_at?ago(r.pushed_at):"";
+  const topics=(r.topics||[]).slice(0,3).map(t=>`<span class="badge b-src">${esc(t)}</span>`).join("");
+  return `<a class="repo-card" href="${safeUrl(r.url)}" target="_blank" rel="noopener" aria-label="${esc(title)}">
+    <div class="repo-top"><div class="repo-name">${n+1}. ${esc(title)}</div><div class="repo-stars">★ ${fmtInt(r.stars)}</div></div>
+    ${desc?`<div class="repo-desc">${esc(desc)}</div>`:""}
+    <div class="repo-fit"><span class="badge b-hasan">${esc(fit)}</span>${r.language?`<span class="badge b-src">${esc(r.language)}</span>`:""}${r.license?`<span class="badge b-src">${esc(r.license)}</span>`:""}${topics}</div>
+    ${why?`<div class="repo-use"><b>${EN?"Why it matters":"لماذا يهم؟"}</b> ${esc(why)}</div>`:""}
+    ${use?`<div class="repo-use"><b>${EN?"Work-case example":"مثال حالة عمل"}</b> ${esc(use)}</div>`:""}
+    ${steps?`<div class="repo-use"><b>${EN?"How to use":"كيف تستخدمه؟"}</b> ${esc(steps)}</div>`:""}
+    <div class="repo-desc">${EN?"Updated":"آخر دفع"} ${esc(pushed||((r.pushed_at||"").slice(0,10)||"—"))} · Forks ${fmtInt(r.forks)}</div>
+  </a>`;
+}
+function renderAIRepos(){
+  const el=document.getElementById("aiRepos"); if(!el) return;
+  const items=(REPOS&&REPOS.items)||[];
+  const basis=REPOS?(EN?(REPOS.basis_en||"GitHub trend scan"):(REPOS.basis_ar||"رصد GitHub")):"";
+  if(!items.length){
+    el.innerHTML=`<div class="team-sec">${EN?"Top trending AI repos":"أهم مستودعات AI الرائجة"}</div>`
+      +`<div class="empty">${EN?"Repo radar has not published yet.":"لم يُنشر مرصد المستودعات بعد."}</div>`;
+    return;
+  }
+  el.innerHTML=`<div class="team-sec">${EN?"Top trending AI repos":"أهم مستودعات AI الرائجة"} · GitHub</div>`
+    +`<div class="card" style="font-size:12px;color:var(--mut);line-height:1.8">${esc(basis)}${REPOS.updated?" · "+esc(ago(REPOS.updated)||REPOS.updated):""}${REPOS.status==="fallback"?` · ${EN?"fallback":"نسخة احتياطية"}`:""}</div>`
+    +`<div class="repo-stack">${items.slice(0,10).map(repoCard).join("")}</div>`;
+}
+function renderAIPapers(){
+  const el=document.getElementById("aiPapers"); if(!el) return;
+  const items=(PAPERS&&PAPERS.items)||[];
+  if(!items.length){ el.innerHTML=""; return; }
+  el.innerHTML=`<div class="team-sec">${EN?"AI research papers":"أوراق بحثية للذكاء الاصطناعي"} · ${EN?"Al-Warraq":"الورّاق"}</div>`
+    +`<div class="repo-stack">`+items.slice(0,4).map((p,n)=>{
+      const t=EN?(p.title||p.title_ar||""):(p.title_ar||p.title||"");
+      const s=EN?((p.abstract||"").slice(0,220)):(p.summary_ar||(p.abstract||"").slice(0,220));
+      return `<a class="repo-card" href="${safeUrl(p.link)}" target="_blank" rel="noopener">
+        <div class="repo-top"><div class="repo-name">${n+1}. ${esc(t)}</div><div class="repo-stars">📄</div></div>
+        ${s?`<div class="repo-desc">${esc(s)}</div>`:""}
+        <div class="repo-fit"><span class="badge b-src">${esc(p.src||"paper")}</span>${p.published?`<span class="badge b-src">${esc(p.published.slice(0,10))}</span>`:""}<span class="badge b-hasan">${EN?"Primary source":"مصدر أوّل"}</span></div>
+      </a>`;
+    }).join("")+`</div>`;
+}
+function renderAI(){
+  renderAINews();
+  renderAIRepos();
+  renderAIPapers();
+}
+
 function renderBrief(){
   const lead=liveList(1)[0]||allItems().filter(isAuthItem)[0]||allItems()[0];
   renderInsight();
@@ -3033,6 +3146,7 @@ async function load(){
   try{ MAP=await grab("map"); }catch(e){ MAP=null }
   try{ WAVE=await grab("wave"); }catch(e){ WAVE=null }
   try{ PAPERS=await grab("papers"); }catch(e){ PAPERS=null }
+  try{ REPOS=await grab("repos"); }catch(e){ REPOS=null }
   try{
     const ta=document.getElementById("teamAuto"), tl=document.getElementById("teamLead");
     if(tl) tl.textContent=EN?"Agents run on their own — posts and cycles without hand edits.":"وكلاء يعملون آليًّا — منشوراتهم ودُوراتهم بلا تدخّل يدوي.";
@@ -3040,7 +3154,7 @@ async function load(){
       ?`<b>Fully automated</b> — intake, grading, forecast, learning, comments, and posts refresh from the pipeline${APOSTS&&APOSTS.n?` · ${APOSTS.n} posts`:"."}`
       :`<b>آلي بالكامل</b> — الرصد، الإسناد، الاستقراء، التعلّم، التعليقات، والمنشورات تُحدَّث من خط الإنتاج${APOSTS&&APOSTS.n?` · ${APOSTS.n} منشورًا`:""}.`;
   }catch(e){}
-  try{ renderFeed(); if(VIEW==="brief") renderBrief(); if(VIEW==="team") renderTeam(); if(VIEW==="profile") renderProfile(); if(VIEW==="map") renderMap(); if(VIEW==="live"){ renderWave(); renderViralStrip(); } }
+  try{ renderFeed(); if(VIEW==="brief") renderBrief(); if(VIEW==="team") renderTeam(); if(VIEW==="profile") renderProfile(); if(VIEW==="map") renderMap(); if(VIEW==="ai") renderAI(); if(VIEW==="live"){ renderWave(); renderViralStrip(); } }
   catch(e){ console.warn("render after load", e); try{ renderFeed(); }catch(e2){ console.warn("renderFeed", e2) } }
   try{ if(document.getElementById("briefColumn")) renderColumnSection(); }catch(e){}
   try{
