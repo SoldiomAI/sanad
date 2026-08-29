@@ -1438,17 +1438,56 @@ def _gnews_b64(u):
     except Exception: pass
     return ""
 
-def resolve_gnews_links(lst):
-    """«من المنبع بلا واسطة» فعلًا: يستبدلُ رابطَ وسيطِ غوغل برابطِ الناشرِ الأصليّ
-    حيثما أمكنَ فكُّه محلّيًّا (الصيغةُ القديمة) — بلا شبكةٍ ولا كلفة، فيصدُقُ
-    معيارُ الاتصالِ ويصلُ القارئُ للمقالِ رأسًا."""
-    n=0
+def _gnews_batchexec(u):
+    """الصيغةُ الأحدث (AU_yqL…) لا تحملُ الرابطَ داخلَها — يُستخرَجُ عبر نداءِ
+    batchexecute العلنيِّ نفسِه الذي تستعمله صفحةُ غوغل الوسيطة: طلبان مجّانيّان
+    بلا مفتاح (الصفحةُ لتوقيعِها ثم النداء). فشلُ أيِّ خطوةٍ صامتٌ ويُخزَّن."""
+    try:
+        art=u.split("/articles/")[1].split("?")[0]
+        req=urllib.request.Request(u,headers={"User-Agent":"Mozilla/5.0"})
+        html=urllib.request.urlopen(req,timeout=12).read().decode("utf-8","ignore")
+        sg=re.search(r'data-n-a-sg="([^"]+)"',html); ts=re.search(r'data-n-a-ts="([^"]+)"',html)
+        if not (sg and ts): return ""
+        import urllib.parse as _up2
+        payload=('[[["Fbv4je","[\\"garturlreq\\",[[\\"X\\",\\"X\\",[\\"X\\",\\"X\\"],null,null,1,1,\\"US:en\\",'
+                 'null,1,null,null,null,null,null,0,1],\\"X\\",\\"X\\",1,[1,1,1],1,1,null,0,0,null,0],'
+                 f'\\"{art}\\",{ts.group(1)},\\"{sg.group(1)}\\"]",null,"generic"]]]')
+        req2=urllib.request.Request("https://news.google.com/_/DotsSplashUi/data/batchexecute",
+            data=_up2.urlencode({"f.req":payload}).encode(),
+            headers={"Content-Type":"application/x-www-form-urlencoded;charset=UTF-8","User-Agent":"Mozilla/5.0"})
+        resp=urllib.request.urlopen(req2,timeout=12).read().decode("utf-8","ignore")
+        real=[x for x in re.findall(r'https://[^\s"\\]+',resp) if "google" not in x.split("/")[2]]
+        return real[0] if real else ""
+    except Exception: return ""
+
+def resolve_gnews_links(lst, cap=40):
+    """«من المنبع بلا واسطة» فعلًا: يستبدلُ رابطَ وسيطِ غوغل برابطِ الناشرِ الأصليّ —
+    فكٌّ محلّيٌّ رخيصٌ للصيغةِ القديمة، ونداءُ batchexecute للصيغةِ الأحدث، والنتيجةُ
+    (حتى الفشلُ) تُخزَّنُ في imgcache فلا يُعادُ نداءٌ لرابطٍ سبقَ فكُّه."""
+    try: cache=json.load(open(IMGCACHE))
+    except Exception: cache={}
+    todo=[]
     for it in lst:
         L=str(it.get("link",""))
-        if "news.google.com" in L:
-            r=_gnews_b64(L)
-            if r: it["link"]=r; n+=1
-    if n: print(f"🔗 فُكَّ {n} رابطَ وسيطٍ إلى ناشرِه الأصليّ")
+        if "news.google.com" not in L: continue
+        rk="r:"+hashlib.md5(L.encode()).hexdigest()[:12]
+        if rk in cache:
+            if cache[rk]: it["link"]=cache[rk]
+            continue
+        r=_gnews_b64(L)
+        if r: cache[rk]=r; it["link"]=r
+        else: todo.append((rk,it))
+    from concurrent.futures import ThreadPoolExecutor
+    def one(pair):
+        rk,it=pair
+        cache[rk]=_gnews_batchexec(it["link"])
+        if cache[rk]: it["link"]=cache[rk]
+    with ThreadPoolExecutor(max_workers=6) as ex: list(ex.map(one,todo[:cap]))
+    try: json.dump(dict(list(cache.items())[-500:]),open(IMGCACHE,"w"))
+    except Exception: pass
+    n=sum(1 for it in lst if it.get("link","").startswith("http") and "news.google.com" not in it["link"])
+    g=sum(1 for it in lst if "news.google.com" in it.get("link",""))
+    print(f"🔗 روابطُ الناشرِ الأصليّ: {n} · بقيَ وسيطًا: {g}")
     return n
 resolve_gnews_links(items)
 
