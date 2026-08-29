@@ -28,6 +28,10 @@ PAPERS_F = f"{OUT}/papers.json"
 EVERY_H = float(os.environ.get("WARRAQ_EVERY_H", "12"))
 MAX_PAPERS = int(os.environ.get("WARRAQ_MAX", "6"))
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "")
+# نفسُ دفترِ المنصّة: أسعارٌ تقديريّةٌ قابلةٌ للضبط وسقفُ اليومِ المعتاد
+GEM_IN_PER_M = float(os.environ.get("GEMINI_IN_PER_M", "0.10"))
+GEM_OUT_PER_M = float(os.environ.get("GEMINI_OUT_PER_M", "0.40"))
+DAILY_BUDGET = float(os.environ.get("DAILY_BUDGET_USD", "0.80"))
 
 ARXIV_URL = ("https://export.arxiv.org/api/query?"
              "search_query=cat:cs.AI+OR+cat:cs.CL+OR+cat:cs.LG"
@@ -52,6 +56,54 @@ def _fresh_enough():
         return age < EVERY_H, age
     except Exception:
         return False, None
+
+
+def _paused():
+    """لوحةُ التحكّم تُطفئُ الورّاقَ كأيِّ وكيلٍ آخر — paused_agents في control.json."""
+    try:
+        c = json.load(open(f"{OUT}/control.json", encoding="utf-8"))
+        return "warraq" in (c.get("paused_agents") or [])
+    except Exception:
+        return False
+
+
+def _spent_today():
+    """إنفاقُ اليومِ من دفترِ cost.json — صفرٌ إن كان الدفترُ ليومٍ آخر."""
+    try:
+        c = json.load(open(f"{OUT}/cost.json", encoding="utf-8"))
+        day = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        return float(c.get("usd", 0)) if c.get("day") == day else 0.0
+    except Exception:
+        return 0.0
+
+
+def _bill(usage):
+    """يقيّدُ رموزَ Gemini في دفترِ cost.json نفسِه — لا نداءَ مدفوعًا خارجَ الحساب.
+    (الدرسُ القديم: bill() كان يقرأ حقلَ xAI وحدَه فبقيَ إنفاقُ Gemini خفيًّا.)"""
+    day = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    try:
+        pin = int(usage.get("promptTokenCount") or 0)
+        pout = int(usage.get("candidatesTokenCount") or 0) + int(usage.get("thoughtsTokenCount") or 0)
+        if not (pin or pout):
+            return 0
+        usd = (pin / 1e6) * GEM_IN_PER_M + (pout / 1e6) * GEM_OUT_PER_M
+        try:
+            c = json.load(open(f"{OUT}/cost.json", encoding="utf-8"))
+        except Exception:
+            c = {"day": day, "usd": 0, "calls": 0, "by": {}}
+        if c.get("day") != day:
+            c = {"day": day, "usd": 0, "calls": 0, "by": {}}
+        c["usd"] = round(c.get("usd", 0) + usd, 4)
+        c["calls"] = c.get("calls", 0) + 1
+        c["by"]["الورّاق"] = round(c["by"].get("الورّاق", 0) + usd, 4)
+        c["gem_tokens"] = int(c.get("gem_tokens", 0)) + pin + pout
+        c["month_est"] = round(c["usd"] * 30, 2)
+        c["budget"] = DAILY_BUDGET
+        json.dump(c, open(f"{OUT}/cost.json", "w", encoding="utf-8"),
+                  ensure_ascii=False, indent=1)
+        return usd
+    except Exception:
+        return 0
 
 
 def _fetch(url, timeout=25):
@@ -113,8 +165,12 @@ def _hf_papers():
 
 def _arabize(papers):
     """تعريبٌ أمينٌ اختياريّ: عنوانٌ وملخّصٌ من سطرين لكلِّ ورقة — نداءٌ واحدٌ للجميع.
-    غيابُ المفتاحِ أو فشلُ النداءِ لا يمنعُ النشرَ: يُعرَضُ الأصلُ الإنجليزيّ."""
+    غيابُ المفتاحِ أو فشلُ النداءِ لا يمنعُ النشرَ: يُعرَضُ الأصلُ الإنجليزيّ.
+    وتحت سقفِ اليوم: بلوغُ الميزانيّةِ يُبقي الأوراقَ بالإنجليزيّةِ لا أن يمنعَها."""
     if not GEMINI_KEY or not papers:
+        return 0
+    if _spent_today() >= DAILY_BUDGET:
+        print(f"⛔ الورّاق: سقفُ اليومِ (${DAILY_BUDGET}) بولغ — الأوراقُ بلا تعريبٍ هذه الدورة")
         return 0
     lst = "\n".join(f"{n}| {p['title']} :: {p['abstract'][:300]}"
                     for n, p in enumerate(papers))
@@ -131,6 +187,7 @@ def _arabize(papers):
             headers={"Content-Type": "application/json", "x-goog-api-key": GEMINI_KEY},
             method="POST")
         d = json.loads(urllib.request.urlopen(req, timeout=60).read())
+        _bill(d.get("usageMetadata") or {})
         txt = d["candidates"][0]["content"]["parts"][0]["text"]
         n = 0
         for ln in txt.splitlines():
@@ -149,6 +206,8 @@ def _arabize(papers):
 
 
 def warraq():
+    if _paused():
+        return {"skipped": 1, "why": "متوقف من لوحة التحكّم"}
     fresh, age = _fresh_enough()
     if fresh:
         left = max(0, round(EVERY_H - (age or 0), 1))

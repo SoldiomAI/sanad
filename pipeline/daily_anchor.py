@@ -1655,11 +1655,15 @@ def isnad(it, heads_all):
     """يحسب المعايير الخمسة ويعيد (درجة, تفصيل) — لا شارة تُمنح بلا حساب."""
     h=it.get("head",""); src=(it.get("src") or "").lower()
     c={}
+    # مصدرٌ مؤسّسيٌّ أوّل: تدوينةُ المختبرِ عن نفسِه (en=True من مغذّياتِ EN_SRC
+    # المباشرة: OpenAI/DeepMind/غوغل/HF) — القائلُ نفسُه يعلنُ خبرَه، فالاتصالُ
+    # والعدالةُ في أعلاهما؛ ويبقى بلوغُ «صحيح» رهنَ الضبطِ أو الشاهدِ الثاني.
+    _lab = bool(it.get("en"))
     # ١ الاتصال: مصدر أول بلا واسطة — الجهات الرسمية والوكالات الأم
     _t1 = any(t in src for t in TIER1)
-    c["الاتصال"] = 2 if (it.get("official") or _t1) else (1 if it.get("link") else 0)
+    c["الاتصال"] = 2 if (it.get("official") or _t1 or _lab) else (1 if it.get("link") else 0)
     # ٢ عدالة المصدر: طبقة الناشر
-    c["عدالة المصدر"] = 2 if any(t in src for t in TIER1) else (1 if any(t in src for t in TIER2) else 0)
+    c["عدالة المصدر"] = 2 if (any(t in src for t in TIER1) or _lab) else (1 if any(t in src for t in TIER2) else 0)
     # ٣ الضبط: تحديد زمني أو رقمي يقبل التحقق
     c["الضبط"] = 1 if re.search(r"\d", h) else 0
     # ٤ عدم الشذوذ: لا يتفرّد عن بقية ما جُمع
@@ -3185,7 +3189,13 @@ def template_script():
 
 def gemini_script():
     if not GEMINI_KEY or not items: return None
-    heads="\n".join(f"- [{it['grade']}] ({it['cat']}) {it['head']} — المصدر: {it['src'] or 'غير مذكور'}" for it in items[:10])
+    sel=list(items[:10])
+    # مكتبُ الذكاءِ الاصطناعيّ حاضرٌ في النشرة: إن خلت العناوينُ العشرُ الأولى
+    # من قسمِه أُلحقَ أوّلُ خبرٍ منه — حضورٌ مضمونٌ بلا مزاحمةِ عناوينِ الأزمة.
+    if not any(i.get("cat") in ("ذكاء اصطناعي","تقنية") for i in sel):
+        _ai=next((i for i in items if i.get("cat") in ("ذكاء اصطناعي","تقنية")), None)
+        if _ai: sel.append(_ai)
+    heads="\n".join(f"- [{it['grade']}] ({it['cat']}) {it['head']} — المصدر: {it['src'] or 'غير مذكور'}" for it in sel)
     prompt=(f"أنت رئيس تحرير نشرة «سَنَد» الإخبارية العربية. من العناوين التالية اختر أهم ثلاثة أخبار متنوعة، "
         f"واكتب نشرة إذاعية قصيرة بالفصحى الرصينة.\n\nالقواعد الصارمة:\n"
         f"1) ابدأ حرفيًا بـ: {OPEN_L}\n2) اختم حرفيًا بـ: {CLOSE_L}\n"
