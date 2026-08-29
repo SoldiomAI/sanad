@@ -165,9 +165,9 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .post-media.seal{display:grid;place-items:center;min-height:180px}
 .post-media .seal-mark{font-family:'Amiri',serif;font-size:42px;color:var(--gold);opacity:.85}
 .post-actions{display:flex;gap:4px;padding:6px 8px}
-.post-actions button{flex:1;border:0;background:transparent;color:var(--vellum);min-height:44px;cursor:pointer;
-  font-size:18px;border-radius:10px}
-.post-actions button:active{background:rgba(201,162,39,.1);transform:scale(.96)}
+.post-actions button,.post-actions a{flex:1;border:0;background:transparent;color:var(--vellum);min-height:44px;cursor:pointer;
+  font-size:18px;border-radius:10px;display:flex;align-items:center;justify-content:center;text-decoration:none}
+.post-actions button:active,.post-actions a:active{background:rgba(201,162,39,.1);transform:scale(.96)}
 .post-actions button.saved{color:var(--gold-l)}
 .post-cap{padding:0 14px 6px}
 .post-cap h2{font-family:'Amiri',serif;font-size:clamp(18px,4.6vw,22px);line-height:1.55;font-weight:700;color:var(--vellum);text-wrap:balance}
@@ -441,9 +441,9 @@ details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--m
   background:rgba(62,155,114,.07);font-size:12.5px;line-height:1.75;color:var(--mut)}
 .team-auto b{color:var(--verify-l);font-family:'Noto Kufi Arabic',sans-serif}
 .prof-actions{display:flex;gap:8px;margin-top:12px}
-.prof-actions button{flex:1;border:1px solid var(--border);background:var(--card2);border-radius:10px;padding:10px;
-  font-weight:700;font-size:12px;cursor:pointer;color:var(--txt);font-family:'Noto Kufi Arabic',sans-serif}
-.prof-actions button.primary{background:var(--gold);color:#1A1206;border-color:transparent}
+.prof-actions button,.prof-actions a{flex:1;border:1px solid var(--border);background:var(--card2);border-radius:10px;padding:10px;
+  font-weight:700;font-size:12px;cursor:pointer;color:var(--txt);font-family:'Noto Kufi Arabic',sans-serif;text-align:center;text-decoration:none}
+.prof-actions button.primary,.prof-actions a.primary{background:var(--gold);color:#1A1206;border-color:transparent}
 .prof-tabs{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--card)}
 .prof-tabs button{border:0;background:transparent;padding:12px;cursor:pointer;color:var(--dim);font-size:18px;border-bottom:2px solid transparent}
 .prof-tabs button.on{color:var(--vellum);border-bottom-color:var(--gold)}
@@ -500,7 +500,7 @@ details.more .body{margin-top:10px;font-size:13px;line-height:1.85;color:var(--m
 .ig-post .ig-media .pct-badge{position:absolute;top:12px;inset-inline-end:12px;background:rgba(8,11,18,.65);color:var(--gold-l);
   font-weight:700;font-size:13px;padding:6px 10px;border-radius:20px}
 .ig-post .ig-acts{display:flex;gap:4px;padding:6px 8px}
-.ig-post .ig-acts button{flex:1;border:0;background:transparent;color:var(--vellum);min-height:40px;cursor:pointer;font-size:18px;border-radius:10px}
+.ig-post .ig-acts button,.ig-post .ig-acts a{flex:1;border:0;background:transparent;color:var(--vellum);min-height:40px;cursor:pointer;font-size:18px;border-radius:10px;display:flex;align-items:center;justify-content:center;text-decoration:none}
 .ig-post .ig-cap{display:block;width:100%;padding:0 14px 14px;font-size:13.5px;line-height:1.85;color:var(--vellum);cursor:pointer}
 .ig-post .ig-cap .by{font-weight:700;font-family:'Noto Kufi Arabic',sans-serif;margin-inline-end:6px}
 .ig-post .ig-cap .more{color:var(--dim);font:inherit}
@@ -893,6 +893,7 @@ function hd(i){
 }
 
 function badge(g){
+  if(!g||g==="—") return EN?'<span class="badge b-src">No grade</span>':'<span class="badge b-src">بلا حكم</span>';
   if(EN) return g==="صحيح"?'<span class="badge b-sahih">Verified ✓</span>'
     :g==="ضعيف الإسناد"?'<span class="badge b-daif">Weak chain</span>':'<span class="badge b-hasan">Credible</span>';
   return g==="صحيح"?'<span class="badge b-sahih">صحيح ✓</span>'
@@ -1198,6 +1199,26 @@ function collectorPosts(id, who){
   if(pool.length<5) pool=all;
   return newsAsPosts(shardItems(id, pool, 12), who);
 }
+function paperPosts(who){
+  const papers=(PAPERS&&PAPERS.items)||[];
+  return papers.slice(0,12).map(p=>{
+    const title=EN?(p.title||p.title_ar||"AI paper"):(p.title_ar||p.title||"ورقة ذكاء اصطناعي");
+    const summary=EN?((p.abstract||"").slice(0,260)):(p.summary_ar||(p.abstract||"").slice(0,260));
+    return {
+      kind:"paper",
+      title,
+      title_en:p.title||p.title_ar||title,
+      caption: summary ? `${who} · ${summary}` : `${who} · ${title}`,
+      caption_en: `${EN?"Al-Warraq":"Al-Warraq"} · ${p.abstract ? p.abstract.slice(0,260) : (p.title||title)}`,
+      link:p.link||"",
+      src:p.src||"Research",
+      at:p.published||p.updated||((PAPERS&&PAPERS.updated)||""),
+      img:"",
+      authors:p.authors||[],
+      item:null,
+    };
+  });
+}
 function packToPosts(pack){
   if(!pack||!(pack.posts||[]).length) return null;
   return pack.posts.map(p=>{
@@ -1244,6 +1265,10 @@ function localEvoPosts(who, n){
 const COLLECTOR_IDS=new Set(["hurr","rasid","multaqit","munabbih","shahid","mustaqsi","mutabiq","mukharrij","munaqqih","turjuman"]);
 function buildProfilePosts(kind, id){
   const who=(profilePerson(kind,id)||{}).name||id;
+  if(kind==="agent" && id==="warraq"){
+    const papers=paperPosts(who);
+    if(papers.length) return papers;
+  }
   /* Collectors: always unique role pools — never mirror the same full feed */
   if(kind==="agent" && COLLECTOR_IDS.has(id)){
     if(APOSTS&&APOSTS.agents&&APOSTS.agents[id]){
@@ -1392,6 +1417,7 @@ function setProfileTab(tab){
 function profileMedia(p){
   const src=p.img?mediaUrl(p.img):"";
   if(src) return `<img src="${src}" alt="" loading="lazy" decoding="async" onerror="this.parentElement.innerHTML='<div class=\'ph\'>سَنَد</div>'">`;
+  if(p.kind==="paper") return `<div class="ph">📄</div>`;
   if(p.kind==="scenario"||p.kind==="tension") return `<div class="ph">${esc(p.pct!=null?p.pct+"%":"◈")}</div>`;
   if(p.kind==="evo") return `<div class="ph">🧬</div>`;
   if(p.kind==="signal") return `<div class="ph">📡</div>`;
@@ -1416,7 +1442,7 @@ function igPostHTML(p, n, person){
     <button type="button" class="ig-media" data-act="post" aria-label="${EN?"Open post":"افتح المنشور"}">${mediaInner}${p.pct!=null&&p.kind==="scenario"?`<span class="pct-badge">${esc(p.pct)}%</span>`:""}</button>
     <div class="ig-acts">
       <button type="button" data-act="share" aria-label="${EN?"Share":"مشاركة"}">↗</button>
-      <button type="button" data-act="open" aria-label="${EN?"Open":"فتح"}">⧉</button>
+      ${safeUrl(p.link)!=="#"?`<a href="${safeUrl(p.link)}" target="_blank" rel="noopener" data-act="source" aria-label="${EN?"Open source":"افتح المصدر"}" title="${EN?"Open source":"افتح المصدر"}">⧉</a>`:`<button type="button" data-act="open" aria-label="${EN?"Open":"فتح"}">⧉</button>`}
       ${p.item?`<button type="button" data-act="isnad" aria-label="${EN?"Attribution":"الإسناد"}">☰</button>`:""}
       ${p.item?`<button type="button" data-act="save" aria-label="${EN?"Save":"حفظ"}">${isSaved(p.item)?"♥":"♡"}</button>`:""}
       <button type="button" data-act="post" aria-label="${EN?"Comments":"تعليقات"}">💬 ${cmts.length||""}</button>
@@ -1450,7 +1476,7 @@ function openProfilePost(n){
     ${p.item?`<div style="padding:0 14px 8px">${isnadBar(p.item.isnad,p.item.grade)}</div>`:""}
     ${commentsHTML(cmts, true)}
     <div class="prof-actions" style="padding:8px 14px 0;display:flex;flex-wrap:wrap;gap:8px">
-      ${p.link?`<button type="button" class="primary" id="ppOpen">${EN?"Open source":"افتح المصدر"}</button>`:""}
+      ${safeUrl(p.link)!=="#"?`<a class="primary" id="ppOpen" href="${safeUrl(p.link)}" target="_blank" rel="noopener">${EN?"Open source":"افتح المصدر"}</a>`:""}
       ${p.item?`<button type="button" id="ppIsnad">${EN?"Attribution":"الإسناد"}</button>`:""}
       ${p.item?`<button type="button" id="ppSave">${isSaved(p.item)?(EN?"Saved":"محفوظ"):(EN?"Save":"حفظ")}</button>`:""}
       ${p.kind==="action"?`<button type="button" class="primary" id="ppVerify">${EN?"Verify":"تحقّق"}</button>`:""}
@@ -1464,7 +1490,6 @@ function openProfilePost(n){
     </div>
   </article>`);
   const bind=(id,fn)=>{const el=document.getElementById(id); if(el) el.onclick=fn};
-  bind("ppOpen",()=>{const u=safeUrl(p.link); if(u!=="#") window.open(u,"_blank","noopener")});
   bind("ppIsnad",()=>{if(p.item) showIsnad(p.item)});
   bind("ppSave",()=>{if(p.item){toggleSave(p.item); openProfilePost(n)}});
   bind("ppVerify",()=>{closeSheet(); setView("verify"); syncRoute()});
@@ -1484,6 +1509,7 @@ function bindIgPosts(root, list, person){
         const a=btn.dataset.act;
         if(a==="post"||a==="more"){ openProfilePost(n); return; }
         if(a==="share"){ shareAgentPost(p, person); }
+        else if(a==="source"){ return; }
         else if(a==="open"){
           if(p.kind==="official") openOfficial(p.oi);
           else if(p.kind==="action") setView("verify");
@@ -1513,7 +1539,7 @@ function renderProfile(){
   let body="";
   if(tab==="grid"){
     if(!posts.length) body=`<div class="empty">${EN?"No posts yet.":"لا منشورات بعد."}</div>`;
-    else body=`<div class="prof-grid">${posts.map((p,n)=>`<button type="button" class="prof-cell" onclick="openProfilePost(${n})">
+    else body=`<div class="prof-grid">${posts.map((p,n)=>`<button type="button" class="prof-cell" onclick="openProfilePost(${n})" aria-label="${esc(p.title||p.caption||person.name)}">
       ${profileMedia(p)}${p.pct!=null?`<span class="tag">${esc(p.pct)}%</span>`:""}</button>`).join("")}</div>`;
   } else {
     if(!posts.length) body=`<div class="empty">${EN?"No posts yet.":"لا منشورات بعد."}</div>`;
@@ -1907,7 +1933,7 @@ document.getElementById("deskNav").addEventListener("click",e=>{
 });
 
 function gradeLabel(g){
-  if(!g) return EN?"Ungraded":"بلا درجة";
+  if(!g||g==="—") return EN?"Ungraded":"بلا درجة";
   if(EN) return g==="صحيح"?"Verified ✓":g==="ضعيف الإسناد"?"Weak chain":"Credible";
   return g;
 }
@@ -1942,14 +1968,13 @@ function openSharedPost(i){
     <div class="prof-actions" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
       <button type="button" class="primary" id="spShare">${EN?"Share":"مشاركة"}</button>
       <button type="button" id="spWa">${EN?"WhatsApp":"واتساب"}</button>
-      <button type="button" id="spSrc">${EN?"Source":"المصدر"}</button>
+      ${safeUrl(i.link)!=="#"?`<a id="spSrc" href="${safeUrl(i.link)}" target="_blank" rel="noopener">${EN?"Source":"المصدر"}</a>`:""}
       <button type="button" id="spSave">${isSaved(i)?(EN?"Saved":"محفوظ"):(EN?"Save":"حفظ")}</button>
       <button type="button" class="sheet-x" onclick="closeSheet()">${EN?"Close":"إغلاق"}</button>
     </div>`);
   const bind=(id,fn)=>{const el=document.getElementById(id); if(el) el.onclick=fn};
   bind("spShare",()=>shareItem(i));
   bind("spWa",()=>shareWhatsApp(shareTextForItem(i), url));
-  bind("spSrc",()=>{const u=safeUrl(i.link); if(u!=="#") window.open(u,"_blank","noopener")});
   bind("spSave",()=>{toggleSave(i); openSharedPost(i)});
 }
 function applyRoute(){
@@ -2252,7 +2277,7 @@ function postHTML(i,n,bucket){
     ${media}
     <div class="post-actions">
       <button type="button" data-act="share" aria-label="${EN?"Share":"مشاركة"}">↗</button>
-      <button type="button" data-act="source" aria-label="${EN?"Source":"المصدر"}">⧉</button>
+      ${safeUrl(i.link)!=="#"?`<a href="${safeUrl(i.link)}" target="_blank" rel="noopener" data-act="source" aria-label="${EN?"Open source":"افتح المصدر"}" title="${EN?"Open source":"افتح المصدر"}">⧉</a>`:`<button type="button" data-act="source" disabled aria-label="${EN?"No source link":"لا رابط مصدر"}">⧉</button>`}
       <button type="button" data-act="isnad" aria-label="${EN?"Attribution":"الإسناد"}">☰</button>
       <button type="button" data-act="save" class="${saved?"saved":""}" aria-label="${EN?"Save":"حفظ"}">${saved?"♥":"♡"}</button>
       <button type="button" data-act="comments" aria-label="${EN?"Comments":"تعليقات"}">💬</button>
@@ -2272,7 +2297,7 @@ function bindPosts(root, list, bucket){
         const a=btn.dataset.act;
         if(a==="profile") openProfile("desk", deskFor(i).id);
         else if(a==="share") shareItem(i);
-        else if(a==="source"){ const u=safeUrl(i.link); if(u!=="#") window.open(u,"_blank","noopener") }
+        else if(a==="source"){ return; }
         else if(a==="isnad") showIsnad(i);
         else if(a==="save"){ toggleSave(i); }
         else if(a==="comments"){
@@ -2674,13 +2699,15 @@ function verdictLabel(v){
     if(x==="صحّ"||x==="صح") return "Holds";
     if(x==="لم يصحّ"||x==="لم يصح") return "Does not hold";
     if(x==="قيد التحقق") return "Under review";
+    if(x==="غير كاف") return "Insufficient evidence";
+    if(x==="غير مدعوم") return "Unsupported link";
     return x||"Under review";
   }
   return x||"قيد التحقق";
 }
 function verdictClass(v, grade){
   const x=String(v||"");
-  if(x==="صحّ"||x==="صح"||grade==="صحيح"||grade==="حسن") return "v-sahih";
+  if(x==="صحّ"||x==="صح") return "v-sahih";
   if(x==="لم يصحّ"||x==="لم يصح"||grade==="ضعيف الإسناد") return "v-daif";
   return "v-wait";
 }
@@ -2749,17 +2776,18 @@ function renderVerifyResult(j, url){
   const claim=EN?(enText(j.claim,"")||enText(n.why,"")||(hasAr(j.claim)?"":j.claim)||""):(j.claim||"");
   const claimShow=claim||(EN?"Link reviewed.":"تُراجع الرابط.");
   const verdict=n.verdict||(EN?"Under review":"قيد التحقق");
+  const showGrade=(j.grade&&j.grade!=="—")?j.grade:"";
   const vCls=verdictClass(verdict, j.grade);
   const srcName=s.name||"—";
   const live=s.live?(EN?"reachable":"حيّ"):(EN?"unreachable":"غير متاح");
   const openUrl=safeUrl(url||j.url||"");
   const shareTxt=EN
-    ? `Sanad Verify\n${verdictLabel(verdict)} · ${gradeLabel(j.grade)}\n${claimShow}\n${url||j.url||""}`
-    : `تحقّق سَنَد\n${verdictLabel(verdict)} · ${gradeLabel(j.grade)}\n${claimShow}\n${url||j.url||""}`;
+    ? `Sanad Verify\n${verdictLabel(verdict)}${showGrade?" · "+gradeLabel(showGrade):""}\n${claimShow}\n${url||j.url||""}`
+    : `تحقّق سَنَد\n${verdictLabel(verdict)}${showGrade?" · "+gradeLabel(showGrade):""}\n${claimShow}\n${url||j.url||""}`;
   vOut.innerHTML=`<div class="v-result ${vCls}">
     <div class="vr-top">
       <div class="vr-verdict">${esc(verdictLabel(verdict))}</div>
-      <div class="vr-grade">${badge(j.grade||"—")}</div>
+      <div class="vr-grade">${showGrade?badge(showGrade):""}</div>
     </div>
     <p class="vr-claim amiri">${esc(claimShow)}</p>
     ${why?`<p class="vr-why">${esc(why)}</p>`:""}
