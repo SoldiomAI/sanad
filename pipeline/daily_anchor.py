@@ -1423,6 +1423,13 @@ if _rr: print(f"🧭 أعاد النظام توجيه {_rr} خبرًا وفق ق
 
 # ═══ صورُ المقالات مجّانًا: og:image من صفحةِ المقال نفسِها — للقصّة الرئيسيّة والشبكة ═══
 IMGCACHE=f"{OUT}/imgcache.json"
+# نطاقاتُ غوغل وأصولُها الساكنة — لا تُقبَلُ «ناشرًا أصليًّا» عند فكِّ الوسيط
+_G_HOSTS=("google.","googleusercontent.","gstatic.","ggpht.","googleapis.","youtube.","youtu.be","doubleclick.")
+def _pub_host(x):
+    """يقبلُ الرابطَ ناشرًا إن لم يكن مضيفُه من عائلةِ غوغل/أصولِها."""
+    try: h=x.split("/")[2].lower()
+    except Exception: return False
+    return bool(h) and not any(k in h for k in _G_HOSTS)
 def _gnews_b64(u):
     """الصيغةُ القديمةُ لروابط أخبار غوغل تحملُ رابطَ الناشرِ خامًا داخل base64 —
     فكٌّ رخيصٌ بلا شبكة؛ الصيغةُ الأحدث (AU_yqL…) لا تحمله فنكتفي بصورةِ غوغل."""
@@ -1433,7 +1440,7 @@ def _gnews_b64(u):
         m=re.search(rb'https?://[\x20-\x7e]+?(?=[\x00-\x1f\xd2\xd8]|$)',raw)
         if m:
             cand=m.group(0).decode("ascii","ignore").rstrip("\\'\"R")
-            if cand.startswith("https://") and "google" not in cand.split("/")[2]:
+            if cand.startswith("https://") and _pub_host(cand):
                 return cand
     except Exception: pass
     return ""
@@ -1456,7 +1463,7 @@ def _gnews_batchexec(u):
             data=_up2.urlencode({"f.req":payload}).encode(),
             headers={"Content-Type":"application/x-www-form-urlencoded;charset=UTF-8","User-Agent":"Mozilla/5.0"})
         resp=urllib.request.urlopen(req2,timeout=12).read().decode("utf-8","ignore")
-        real=[x for x in re.findall(r'https://[^\s"\\]+',resp) if "google" not in x.split("/")[2]]
+        real=[x for x in re.findall(r'https://[^\s"\\]+',resp) if _pub_host(x)]
         return real[0] if real else ""
     except Exception: return ""
 
