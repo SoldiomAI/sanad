@@ -654,7 +654,7 @@ ${extract || '(فارغ)'}
 أعد كائن JSON بهذه الحقول فقط:
 {
   "claim": "نص الادعاء المختصر",
-  "verdict": "صحّ" | "لم يصحّ" | "قيد التحقق",
+  "verdict": "صحّ" | "لم يصحّ" | "قيد التحقق" | "غير كاف" | "غير مدعوم",
   "why": "سبب موجز بالعربية",
   "sources": [{"u":"url","t":"اسم"}],
   "deepfake_risk": "منخفض" | "متوسط" | "مرتفع" | "غير مقيّم",
@@ -740,6 +740,30 @@ function fromFeedItem(url, item) {
 function fromFetchHeuristic(url, page, source) {
   const grade = gradeFromRank(source.rank);
   const claim = page.title || page.description || '';
+  if (source.rank === 'مجهول') {
+    const unsupported = !page.live || (!page.title && !page.description && !page.snippet);
+    return {
+      url,
+      tier: 'free',
+      source: { ...source, live: !!page.live },
+      claim,
+      news: {
+        verdict: unsupported ? 'غير مدعوم' : 'غير كاف',
+        why: unsupported
+          ? 'لم نتمكن من قراءة صفحة إخبارية قابلة للفحص من هذا الرابط.'
+          : 'الرابط حيّ، لكن المصدر غير معروف في سجلّ الرواة ولا يكفي لمنح حكم إسناد.',
+        sources: [],
+      },
+      media: {
+        kind: page.kind || 'none',
+        deepfake_risk: page.kind === 'none' ? 'غير مقيّم' : 'غير مقيّم',
+        note: page.ogImage ? 'وُجدت صورة مرفقة بالرابط — لم يُقيَّم خطر التزييف بعد.' : '',
+      },
+      grade: '—',
+      agent: 'الفاحِص',
+      cost_tier: 'fetch',
+    };
+  }
   const why =
     source.rank === 'رسمي' || source.rank === 'وكالة'
       ? `المصدر مصنَّف ضمن فئة «${source.rank}» بعد مراجعة الرابط.`
@@ -769,7 +793,7 @@ function mergeGrok(base, grokParsed, usd) {
   const g = grokParsed || {};
   const rank = g.source_rank || base.source.rank;
   const grade = g.grade || gradeFromRank(rank);
-  return {
+  const out = {
     ...base,
     tier: 'grok',
     source: {
@@ -779,7 +803,9 @@ function mergeGrok(base, grokParsed, usd) {
     },
     claim: g.claim || base.claim,
     news: {
-      verdict: ['صحّ', 'لم يصحّ', 'قيد التحقق'].includes(g.verdict) ? g.verdict : base.news.verdict,
+      verdict: ['صحّ', 'لم يصحّ', 'قيد التحقق', 'غير كاف', 'غير مدعوم'].includes(g.verdict)
+        ? g.verdict
+        : base.news.verdict,
       why: g.why || base.news.why,
       sources: Array.isArray(g.sources) && g.sources.length
         ? g.sources
@@ -799,6 +825,13 @@ function mergeGrok(base, grokParsed, usd) {
     cost_tier: 'grok',
     _usd: usd,
   };
+  if (out.source.rank === 'مجهول' && out.grade !== 'ضعيف الإسناد') {
+    out.grade = '—';
+    if (out.news.verdict === 'صحّ') out.news.verdict = 'غير كاف';
+    out.news.why =
+      out.news.why || 'المصدر غير معروف في سجلّ الرواة ولا يكفي لمنح حكم إسناد.';
+  }
+  return out;
 }
 
 function blockedResult(url, why) {
@@ -982,17 +1015,23 @@ module.exports = async function handler(req, res) {
       'اكتفينا بمراجعة الرابط الظاهرة.';
   } else if (wantGrok && (kill || !underBudget || !hasKey)) {
     result.cost_tier = kill || !underBudget ? 'blocked' : result.cost_tier;
-    if (kill || !underBudget) {
+    if (source.rank === 'مجهول') {
+      result.grade = '—';
+      if (!['غير كاف', 'غير مدعوم'].includes(result.news.verdict)) {
+        result.news.verdict = result.source.live ? 'غير كاف' : 'غير مدعوم';
+      }
+      if (!result.news.why || result.news.why === 'الحكم أوليّ ضمن الحد اليومي للمراجعات المعمّقة.') {
+        result.news.why = result.source.live
+          ? 'الرابط حيّ، لكن المصدر غير معروف في سجلّ الرواة ولا يكفي لمنح حكم إسناد.'
+          : 'لم نتمكن من قراءة صفحة إخبارية قابلة للفحص من هذا الرابط.';
+      }
+    } else if (kill || !underBudget) {
       result.news.why = 'الحكم أوليّ ضمن الحد اليومي للمراجعات المعمّقة.';
     } else if (!hasKey) {
       result.news.why =
         (result.news.why || '') +
         (result.news.why ? ' ' : '') +
         'الحكم أوليّ من مراجعة الرابط الظاهرة.';
-    }
-    if (source.rank === 'مجهول') {
-      result.grade = '—';
-      result.news.verdict = 'قيد التحقق';
     }
   }
 
