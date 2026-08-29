@@ -61,7 +61,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--border);
 </header>
 
 <h1>سياسةُ الخصوصيّة</h1>
-<p class="upd">آخرُ تحديث: ٩ أغسطس ٢٠٢٦</p>
+<p class="upd">آخرُ تحديث: ٣٠ أغسطس ٢٠٢٦</p>
 <p class="lead">تسري على موقع <b>isnad.news</b> وتطبيقِ <b>سَنَد</b> على أندرويد وiOS.</p>
 
 <div class="box no">
@@ -129,7 +129,9 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--border);
 
 <h2>بوّابةُ المؤسسات</h2>
 <p><code>/enterprise</code> منفصلةٌ عن الموقعِ العامّ و<b>بالدعوةِ فقط</b>. تتطلّبُ تسجيلَ دخولٍ
-عبرَ Supabase، وتحفظُ البريدَ وعضويّةَ المؤسسةِ وسجلَّ تدقيقٍ للوصول. لا علاقةَ لهذا
+عبرَ Supabase، وتحفظُ البريدَ وعضويّةَ المؤسسةِ وسجلَّ تدقيقٍ للوصول واستخدامِ واجهة API.
+مفاتيحُ API تُحفَظ كبصماتٍ مشفّرة لا كنصٍّ خام، ويُسجَّل مع الطلب معرّفُ المفتاحِ
+والمؤسسةِ والمسارُ والوقتُ وحالةُ حدِّ الاستخدام، دون تسجيلِ المفتاح الخام. لا علاقةَ لهذا
 بالقراءةِ العامّةِ ولا بتطبيقِ الجوّال.</p>
 
 <h2>الأطفال</h2>
@@ -147,7 +149,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--border);
 <!-- ═══════════════════ EN ═══════════════════ -->
 <div class="en" lang="en" dir="ltr">
 <h1>Privacy Policy</h1>
-<p class="upd">Last updated: 9 August 2026</p>
+<p class="upd">Last updated: 30 August 2026</p>
 <p class="lead">Applies to <b>isnad.news</b> and the <b>SANAD</b> app for Android and iOS.</p>
 
 <div class="box no">
@@ -208,7 +210,9 @@ saved articles (<code>sanad_saved_v1</code>, up to 80), your last 6 Verify check
 
 <h2>Enterprise portal</h2>
 <p><code>/enterprise</code> is separate and <b>invitation-only</b>. It requires sign-in via Supabase
-and stores your email, organisation membership, and an access audit log. It is unrelated to
+and stores your email, organisation membership, and an audit log for portal and API access.
+API keys are stored as hashes, never plaintext; API audit records contain the key and organisation
+identifiers, route, time, and rate-limit result, never the raw key. It is unrelated to
 public reading or the mobile app.</p>
 
 <h2>Children</h2>

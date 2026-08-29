@@ -157,6 +157,13 @@ th{color:var(--dim);font-weight:600;font-size:11px}
       <table id="keysTbl" style="margin-top:12px"><thead><tr><th>الاسم</th><th>البادئة</th><th></th></tr></thead><tbody></tbody></table>
     </section>
 
+    <section class="panel" id="apiPanel" style="display:none">
+      <h3>واجهةُ الاستخبارات v1 <span class="tag">مقروءة فقط</span></h3>
+      <p class="note" style="margin-top:0">أحداثٌ وإشاراتٌ مُسنَدة، وفهارسُ الدول والموضوعات، وموجزٌ حتميٌّ يفصلُ الواقعةَ المرصودةَ عن تقييمِ سَنَد والاستنتاجِ وعدمِ اليقين.</p>
+      <div class="reveal" style="display:block">GET /api/v1/events<br>GET /api/v1/signals<br>GET /api/v1/countries<br>GET /api/v1/topics<br>GET /api/v1/briefings</div>
+      <div class="note">يلزمُ مفتاحُ مؤسستك في <code>x-api-key</code>. لا تكشفُ الواجهةُ قواعدَ التحرير أو حالةَ التحكّم الداخليّة.</div>
+    </section>
+
     <section class="panel wide">
       <h3>قوائمُ المتابعة <span class="tag">دول · كلمات</span></h3>
       <p class="note" style="margin-top:0">تابِعْ دولًا بعتبةِ توتّر، و/أو كلماتٍ وهاشتاقاتٍ للتنبيه عند الظهور في رصدِ OSINT.</p>
@@ -183,7 +190,7 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 
 const SB_URL = "https://uewqsczvyglahnqjhuvx.supabase.co";
 const SB_KEY = "sb_publishable_vkQkzJ5s86bWd7lxPSeGTA_xNoahNaV";
-const API_FN = SB_URL + "/functions/v1/sanad-enterprise-api";
+const API_ROOT = "/api/v1";
 const RAW = "https://raw.githubusercontent.com/SoldiomAI/sanad-data/main/daily/";
 const sb = createClient(SB_URL, SB_KEY);
 
@@ -227,7 +234,7 @@ async function boot(){
   $("who").innerHTML = esc(USER.email)+" · <b>"+esc(ORG.name)+"</b> · "+esc(ROLE);
   await sb.from("sanad_audit_log").insert({ org_id:ORG.id, user_id:USER.id, action:"portal_view", target:"dashboard", meta:{} });
   await renderIndex();
-  await Promise.all([renderKeys(), renderWatch(), renderOsint(), renderAudit()]);
+  await Promise.all([renderKeys(), renderWatch(), renderOsint(), renderAudit(), renderEnterpriseApi()]);
 }
 $("logout").onclick = async () => { await sb.auth.signOut(); location.reload(); };
 
@@ -309,11 +316,19 @@ $("genKey").onclick = async () => {
   if(error){ alert("تعذّر التوليد: "+error.message); return; }
   const rev=$("keyReveal"); rev.style.display="block";
   rev.innerHTML="مفتاحُك (يُعرَض مرّةً واحدة — انسخه الآن):<br>"+esc(raw)+
-    `<br><span class="note">الاستعلام: curl -H "x-api-key: ${esc(raw)}" ${esc(API_FN)}</span>`;
+    `<br><span class="note">الاستعلام: curl -H "x-api-key: ${esc(raw)}" ${esc(location.origin+API_ROOT+"/signals")}</span>`;
   $("keyName").value="";
   await sb.from("sanad_audit_log").insert({org_id:ORG.id,user_id:USER.id,action:"api_key_create",target:prefix,meta:{}});
   renderKeys();
 };
+
+async function renderEnterpriseApi(){
+  try{
+    const r=await fetch(API_ROOT+"/status",{cache:"no-store"});
+    const data=await r.json();
+    $("apiPanel").style.display=r.ok&&data.available===true?"block":"none";
+  }catch(e){ $("apiPanel").style.display="none"; }
+}
 
 // ── OSINT keyword / hashtag intel ──
 let OSINT=null, OSINT_FOCUS=null;

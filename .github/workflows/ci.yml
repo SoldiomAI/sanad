@@ -41,3 +41,7 @@ jobs:
           for f in index.html admin.html enterprise.html; do
             [ -f "/tmp/$f.js" ] && node --check "/tmp/$f.js" && echo "✓ $f"
           done
+      - name: اختباراتُ واجهةِ المؤسسات
+        run: node --test tests/enterprise_api.test.js
+      - name: فحصُ صياغةِ وظائف Vercel
+        run: node --check api/admin.js && node --check api/verify.js && node --check api/_enterprise-v1.js && node --check api/v1.js
