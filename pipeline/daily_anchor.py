@@ -698,7 +698,7 @@ def social_posts():
         "noura":{"name":"الخليج","en":"Gulf","cats":{"الخليج"}},
         "samir":{"name":"فلسطين","en":"Palestine","cats":{"فلسطين"}},
         "laith":{"name":"المشرق","en":"Mashreq","cats":{"إيران"}},
-        "huda":{"name":"العالم","en":"World","cats":{"عالم","اقتصاد","تقنية"}},
+        "huda":{"name":"العالم","en":"World","cats":{"عالم","اقتصاد","تقنية","ذكاء اصطناعي"}},
         "hakim":{"name":"مُسنَد","en":"Graded","cats":set()},
     }
     desk_posts={}
@@ -860,6 +860,31 @@ def _count_items(doc, path):
     if isinstance(v,dict): return sum(len(x) for x in v.values() if isinstance(x,list))
     return 0
 
+def _sanitize_latest_video_meta(meta, base_dir=None):
+    if not isinstance(meta, dict):
+        return meta
+    video=meta.get("video")
+    ok=bool(video and meta.get("video_date")==meta.get("date"))
+    if ok and base_dir and not str(video).startswith(("http://","https://")):
+        ok=os.path.exists(os.path.join(base_dir, str(video)))
+    if ok:
+        return meta
+    cleaned=dict(meta)
+    cleaned.pop("video", None)
+    cleaned.pop("video_date", None)
+    return cleaned
+
+def _sanitize_latest_file():
+    p=f"{OUT}/latest.json"
+    try:
+        meta=json.load(open(p,encoding="utf-8"))
+    except Exception:
+        return
+    cleaned=_sanitize_latest_video_meta(meta, OUT)
+    if cleaned!=meta:
+        json.dump(cleaned,open(p,"w",encoding="utf-8"),ensure_ascii=False,indent=1)
+        print("🧹 نُزِعَت إشارةُ فيديوٍ غير صالحٍ من latest.json")
+
 def hirasa():
     """يفحصُ نتيجةَ كلِّ قسمٍ ويكتبُ health.json، ويُصحّحُ حالةَ الوكيلِ المالك."""
     secs=[]; now=datetime.now(timezone.utc).isoformat(timespec="minutes")
@@ -946,11 +971,15 @@ def bundle():
             json.dump(_pub,open(_lp,"w"),ensure_ascii=False,indent=1)
             print(f"🛡️ نشرةُ اليوم: أُبقيت الأحدث ({_pub.get('date')}) بدل الأقدم ({_loc.get('date')})")
     except Exception as _e: print(f"guard_latest: {str(_e)[:80]}")
+    _sanitize_latest_file()
     keys=["news","intel","official","forecast","analyst","dua","verify",
           "alerts","corrections","latest","agents","cost","evolution","council","gpu","rumors","column","tension","map","osint","wave","waves","health","comments","posts","papers"]
     b={"built":datetime.now(timezone.utc).isoformat(timespec="minutes")}
     for k in keys:
-        try: b[k]=json.load(open(f"{OUT}/{k}.json"))
+        try:
+            b[k]=json.load(open(f"{OUT}/{k}.json"))
+            if k=="latest":
+                b[k]=_sanitize_latest_video_meta(b[k], OUT)
         except Exception: pass
     try: b["archive_index"]=json.load(open(f"{OUT}/archive/index.json"))
     except Exception: pass
@@ -1098,14 +1127,17 @@ def bill(d,who):
     try:
         usd=d.get("usage",{}).get("cost_in_usd_ticks",0)/1e10
         if not usd: return 0
-        try: c=json.load(open(f"{OUT}/cost.json"))
+        try:
+            with open(f"{OUT}/cost.json", encoding="utf-8") as _fh:
+                c=json.load(_fh)
         except Exception: c={"day":day,"usd":0,"calls":0,"by":{}}
         if c.get("day")!=day: c={"day":day,"usd":0,"calls":0,"by":{}}
         c["usd"]=round(c.get("usd",0)+usd,4); c["calls"]=c.get("calls",0)+1
         c["by"][who]=round(c["by"].get(who,0)+usd,4)
         c["month_est"]=round(c["usd"]*30,2)
         c["budget"]=float(os.environ.get("DAILY_BUDGET_USD","0.80"))
-        json.dump(c,open(f"{OUT}/cost.json","w"),ensure_ascii=False,indent=1)
+        with open(f"{OUT}/cost.json","w",encoding="utf-8") as _fh:
+            json.dump(c,_fh,ensure_ascii=False,indent=1)
         print(f"💵 {who}: ${usd:.4f} · اليوم ${c['usd']:.3f} ({c['calls']} نداء) · الشهر ~${c['month_est']}")
         return usd
     except Exception as e:
@@ -1126,7 +1158,9 @@ def bill_gem(d, who="Gemini"):
         pout=int(u.get("candidatesTokenCount") or 0)+int(u.get("thoughtsTokenCount") or 0)
         if not (pin or pout): return 0
         usd=(pin/1e6)*GEM_IN_PER_M+(pout/1e6)*GEM_OUT_PER_M
-        try: c=json.load(open(f"{OUT}/cost.json"))
+        try:
+            with open(f"{OUT}/cost.json", encoding="utf-8") as _fh:
+                c=json.load(_fh)
         except Exception: c={"day":day,"usd":0,"calls":0,"by":{}}
         if c.get("day")!=day: c={"day":day,"usd":0,"calls":0,"by":{}}
         c["usd"]=round(c.get("usd",0)+usd,4); c["calls"]=c.get("calls",0)+1
@@ -1134,7 +1168,8 @@ def bill_gem(d, who="Gemini"):
         c["gem_tokens"]=int(c.get("gem_tokens",0))+pin+pout
         c["month_est"]=round(c["usd"]*30,2)
         c["budget"]=float(os.environ.get("DAILY_BUDGET_USD","0.80"))
-        json.dump(c,open(f"{OUT}/cost.json","w"),ensure_ascii=False,indent=1)
+        with open(f"{OUT}/cost.json","w",encoding="utf-8") as _fh:
+            json.dump(c,_fh,ensure_ascii=False,indent=1)
         return usd
     except Exception:
         return 0
@@ -1145,7 +1180,8 @@ def bill_gem(d, who="Gemini"):
 DAILY_BUDGET=float(os.environ.get("DAILY_BUDGET_USD","0.80"))
 def spent_today():
     try:
-        c=json.load(open(f"{OUT}/cost.json"))
+        with open(f"{OUT}/cost.json", encoding="utf-8") as _fh:
+            c=json.load(_fh)
         return c.get("usd",0) if c.get("day")==datetime.now(timezone.utc).strftime("%Y-%m-%d") else 0.0
     except Exception: return 0.0
 def over_budget(who):
@@ -3192,7 +3228,10 @@ except Exception: pass
 naqid()
 
 # ═══ الإسناد يُحسب دائمًا — حتى لو تُخطّي التدقيق ═══
-for _k in [k for k,v in cats.items() if len(v)<3 and k not in ("عاجل",)]:
+_SPARSE_KEEP_CATS={"عاجل","ذكاء اصطناعي"}
+def _hide_sparse_cat(cat, rows):
+    return len(rows)<3 and cat not in _SPARSE_KEEP_CATS
+for _k in [k for k,v in cats.items() if _hide_sparse_cat(k,v)]:
     print(f"🔇 أُخفي قسم «{_k}» ({len(cats[_k])} خبرًا فقط)"); del cats[_k]
 apply_isnad()
 json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"cats":cats},
@@ -3200,6 +3239,7 @@ json.dump({"updated":datetime.now(timezone.utc).isoformat(timespec="minutes"),"c
 
 if os.environ.get("NEWS_ONLY"):
     try:
+        _sanitize_latest_file()
         _m=json.load(open(f"{OUT}/latest.json")); _t=datetime.now(timezone.utc).strftime("%Y-%m-%d")
         if _m.get("video_date")==_t: mark("rawi","ok","فيديو اليوم جاهز")
         elif _m.get("date")==_t:     mark("rawi","ok","نشرة اليوم صوتيًا")
@@ -3286,6 +3326,7 @@ _meta={"date":today,"script":full,"audio":f"bulletin-{today}.mp3",
     "items":[{"head":i["head"],"src":i["src"],"grade":i["grade"]} for i in items[:12]]}
 if _prev_meta.get("video_date")==today and _prev_meta.get("video"):
     _meta["video"]=_prev_meta["video"]; _meta["video_date"]=today
+_meta=_sanitize_latest_video_meta(_meta, OUT)
 json.dump(_meta, open(f"{OUT}/latest.json","w"),ensure_ascii=False,indent=1)
 
 # جُمل ≤٦٥ حرفًا (≈ ≤٤.٧ ثانية = تحت سقف الـ٥ث)

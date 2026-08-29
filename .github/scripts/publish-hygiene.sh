@@ -14,6 +14,18 @@ RETAIN_DAYS="${RETAIN_DAYS:-30}"
 [ -d "$PUB" ] || exit 0
 cd "$PUB"
 
+pick_python() {
+  for py in python3 python; do
+    if command -v "$py" >/dev/null 2>&1 && "$py" -c 'import json, os, sys' >/dev/null 2>&1; then
+      printf '%s\n' "$py"
+      return 0
+    fi
+  done
+  return 1
+}
+PYTHON_BIN="${PYTHON_BIN:-$(pick_python)}"
+[ -n "$PYTHON_BIN" ] || { echo "❌ Python is required for publish hygiene"; exit 1; }
+
 # ١ — مخلّفاتُ التشغيل
 rm -rf seg
 rm -f list.txt rp_budget.json rumors_backfill.done
@@ -31,12 +43,49 @@ done
 
 # ٣ — لا فيديو بائتًا
 if [ -f latest.mp4 ] && [ -f latest.json ]; then
-  python3 - <<'PY' || { rm -f latest.mp4; echo "🧹 حُذف latest.mp4 البائت (ليس فيديو نشرةِ اليوم)"; }
+  "$PYTHON_BIN" - <<'PY' || { rm -f latest.mp4; echo "🧹 حُذف latest.mp4 البائت (ليس فيديو نشرةِ اليوم)"; }
 import json,sys
 m=json.load(open("latest.json",encoding="utf-8"))
 sys.exit(0 if (m.get("video") and m.get("video_date")==m.get("date")) else 1)
 PY
 fi
+
+"$PYTHON_BIN" - <<'PY'
+import json, os
+
+def clean(meta):
+    if not isinstance(meta, dict):
+        return meta, False
+    video = meta.get("video")
+    ok = bool(video and meta.get("video_date") == meta.get("date") and os.path.exists(str(video)))
+    if ok:
+        return meta, False
+    out = dict(meta)
+    changed = ("video" in out) or ("video_date" in out)
+    out.pop("video", None)
+    out.pop("video_date", None)
+    return out, changed
+
+changed = False
+if os.path.exists("latest.json"):
+    doc = json.load(open("latest.json", encoding="utf-8"))
+    doc, did = clean(doc)
+    if did:
+        json.dump(doc, open("latest.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+        changed = True
+
+if os.path.exists("bundle.json"):
+    doc = json.load(open("bundle.json", encoding="utf-8"))
+    latest = doc.get("latest")
+    latest, did = clean(latest)
+    if did:
+        doc["latest"] = latest
+        json.dump(doc, open("bundle.json", "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
+        changed = True
+
+if changed:
+    print("cleaned invalid latest video metadata")
+PY
 
 # الملفّاتُ المحذوفةُ محلّيًّا تُحذَفُ من المستودعِ عبر git add -A في خطوةِ النشر
 exit 0

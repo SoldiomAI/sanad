@@ -239,6 +239,41 @@ class TestHealthWatchdog(unittest.TestCase):
         self.assertIsNone(g["_count_items"]({"x": 1}, None))
 
 
+class TestLatestVideoMetadata(unittest.TestCase):
+    """latest.json لا يعلن فيديوً لا يخصُّ النشرة المنشورة أو لا وجود له."""
+
+    def setUp(self):
+        self.g = load(["_sanitize_latest_video_meta"])
+
+    def test_stale_video_date_is_removed(self):
+        meta = {"date": "2026-08-29", "video": "latest.mp4", "video_date": "2026-08-28"}
+        self.assertNotIn("video", self.g["_sanitize_latest_video_meta"](meta))
+
+    def test_missing_video_file_is_removed(self):
+        d = tempfile.mkdtemp()
+        meta = {"date": "2026-08-29", "video": "latest.mp4", "video_date": "2026-08-29"}
+        self.assertNotIn("video", self.g["_sanitize_latest_video_meta"](meta, d))
+
+    def test_same_day_existing_video_is_kept(self):
+        d = tempfile.mkdtemp()
+        open(os.path.join(d, "latest.mp4"), "wb").close()
+        meta = {"date": "2026-08-29", "video": "latest.mp4", "video_date": "2026-08-29"}
+        self.assertEqual(self.g["_sanitize_latest_video_meta"](meta, d)["video"], "latest.mp4")
+
+
+class TestSparseDeskVisibility(unittest.TestCase):
+    """خبرٌ واحدٌ من مختبر AI يكفي لإظهار المكتب بدل طمره بحدّ الأقسام العام."""
+
+    def setUp(self):
+        self.g = load(["_SPARSE_KEEP_CATS", "_hide_sparse_cat"])
+
+    def test_sparse_ai_desk_is_kept(self):
+        self.assertFalse(self.g["_hide_sparse_cat"]("ذكاء اصطناعي", [{"head": "إعلان مختبر"}]))
+
+    def test_sparse_regular_desk_is_hidden(self):
+        self.assertTrue(self.g["_hide_sparse_cat"]("رياضة", [{"head": "خبر يتيم"}]))
+
+
 class TestGeminiBilling(unittest.TestCase):
     """الدرس: bill() يقرأ حقلَ xAI وحدَه، فبقيَ كلُّ إنفاقِ Gemini خارجَ سقفِ اليوم."""
 
