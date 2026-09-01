@@ -1,6 +1,6 @@
 {
- "updated": "2026-09-01T08:20+00:00",
- "updated_at": "2026-09-01T08:20+00:00",
+ "updated": "2026-09-01T11:08+00:00",
+ "updated_at": "2026-09-01T11:08+00:00",
  "overall": "degraded",
  "note": "حالةُ كلِّ قسمٍ من نتيجتِه لا من نجاحِ تشغيلِه",
  "sections": [
@@ -16,19 +16,19 @@
   {
    "key": "official",
    "state": "fresh",
-   "age_h": 7.8,
-   "items": 4,
+   "age_h": 10.6,
+   "items": 5,
    "owner": "manba",
    "note": "",
    "empty_for_h": 0
   },
   {
    "key": "alerts",
-   "state": "fresh",
-   "age_h": 24.9,
+   "state": "stale",
+   "age_h": 27.7,
    "items": 2,
    "owner": "munabbih",
-   "note": "",
+   "note": "أقدمُ من مهلتِه (27.7س > 26س)",
    "empty_for_h": 0
   },
   {
@@ -52,7 +52,7 @@
   {
    "key": "forecast",
    "state": "fresh",
-   "age_h": 0.0,
+   "age_h": 2.8,
    "items": 3,
    "owner": "mustaqri",
    "note": "",
@@ -61,7 +61,7 @@
   {
    "key": "analyst",
    "state": "fresh",
-   "age_h": 0.0,
+   "age_h": 2.8,
    "items": null,
    "owner": "murtajil",
    "note": "",
@@ -70,7 +70,7 @@
   {
    "key": "column",
    "state": "fresh",
-   "age_h": 7.8,
+   "age_h": 10.6,
    "items": null,
    "owner": "mudawwin",
    "note": "",
@@ -124,7 +124,7 @@
   {
    "key": "papers",
    "state": "fresh",
-   "age_h": 2.8,
+   "age_h": 5.6,
    "items": 6,
    "owner": "warraq",
    "note": "",
@@ -143,7 +143,7 @@
    "key": "events",
    "state": "fresh",
    "age_h": 0.0,
-   "items": 235,
+   "items": 229,
    "owner": "intelligence_signals",
    "note": "",
    "empty_for_h": 0
@@ -152,7 +152,7 @@
    "key": "signals",
    "state": "fresh",
    "age_h": 0.0,
-   "items": 14,
+   "items": 13,
    "owner": "intelligence_signals",
    "note": "",
    "empty_for_h": 0
@@ -161,7 +161,7 @@
    "key": "ontime-signals",
    "state": "fresh",
    "age_h": 0.0,
-   "items": 14,
+   "items": 13,
    "owner": "intelligence_signals",
    "note": "",
    "empty_for_h": 0
@@ -169,82 +169,76 @@
   {
    "key": "corrections",
    "state": "dormant",
-   "age_h": 999.5,
+   "age_h": 1002.3,
    "items": 0,
    "owner": "rasid",
    "note": "مُغذّيه مُعطَّلٌ عمدًا — ولا تقرؤه الواجهة",
-   "empty_for_h": 272.0
+   "empty_for_h": 272.5
   },
   {
    "key": "verify",
    "state": "dormant",
-   "age_h": 944.5,
+   "age_h": 947.3,
    "items": 0,
    "owner": "mutabiq",
    "note": "مُغذّيه مُعطَّلٌ عمدًا — ولا تقرؤه الواجهة",
-   "empty_for_h": 272.0
+   "empty_for_h": 272.5
   }
  ],
  "modules": {
   "push_fcm": {
    "status": "skip",
    "note": "لا سرَّ Firebase — الإشعاراتُ معطّلة",
-   "ms": 4,
-   "at": "2026-09-01T08:19+00:00"
-  },
-  "social_pack": {
-   "status": "fail",
-   "note": "Pillow/arabic deps missing: No module named 'PIL'",
-   "ms": 5,
-   "at": "2026-09-01T08:19+00:00"
+   "ms": 3,
+   "at": "2026-09-01T11:08+00:00"
   },
   "map_week": {
    "status": "ok",
    "note": "",
-   "ms": 261,
-   "at": "2026-09-01T08:19+00:00"
+   "ms": 243,
+   "at": "2026-09-01T11:08+00:00"
   },
   "osint_watch": {
    "status": "ok",
    "note": "",
-   "ms": 7452,
-   "at": "2026-09-01T08:20+00:00"
+   "ms": 12014,
+   "at": "2026-09-01T11:08+00:00"
   },
   "viral_wave": {
    "status": "ok",
    "note": "",
-   "ms": 124,
-   "at": "2026-09-01T08:20+00:00"
+   "ms": 229,
+   "at": "2026-09-01T11:08+00:00"
   },
   "wave_agents": {
    "status": "ok",
    "note": "6 موجةً حيّة · 6 وكيلًا فرعيًّا",
-   "ms": 10,
-   "at": "2026-09-01T08:20+00:00"
+   "ms": 9,
+   "at": "2026-09-01T11:08+00:00"
   },
   "correspondents": {
    "status": "ok",
    "note": "12 مراسلًا · 12 متمرّس",
    "ms": 12,
-   "at": "2026-09-01T08:20+00:00"
+   "at": "2026-09-01T11:08+00:00"
   },
   "warraq": {
    "status": "skip",
-   "note": "نوبتُه بعد ~9.2س",
+   "note": "نوبتُه بعد ~6.4س",
    "ms": 2,
-   "at": "2026-09-01T08:20+00:00"
+   "at": "2026-09-01T11:08+00:00"
   },
   "ai_repos": {
    "status": "ok",
    "note": "10 repos · live",
-   "ms": 3550,
-   "at": "2026-09-01T08:20+00:00"
+   "ms": 3456,
+   "at": "2026-09-01T11:08+00:00"
   },
   "intelligence_signals": {
    "status": "ok",
-   "note": "235 events / 14 signals",
-   "ms": 2607,
-   "at": "2026-09-01T08:20+00:00"
+   "note": "229 events / 13 signals",
+   "ms": 2172,
+   "at": "2026-09-01T11:08+00:00"
   }
  }
 }
