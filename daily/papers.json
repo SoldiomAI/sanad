@@ -1,108 +1,106 @@
 {
- "updated": "2026-09-01T05:34+00:00",
+ "updated": "2026-09-01T19:13+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2608.28600",
-   "title": "SHAPE of Chain-of-Thought in Math Reasoning",
-   "abstract": "Large language models (LLMs) achieve strong performance on mathematical reasoning benchmarks, yet the mathematically meaningful skills underlying their reasoning remain underexplored. We introduce SHAPE, a framework that analyzes Chain-of-Thought (CoT) trajectories through two lenses developed in mathematics education: (1) semantic spaces: the model's evolving mathematical interpretations of a problem (e.g., algebraic, geometric), and (2) heuristics: the specific mathematical actions taken within those spaces (e.g., simplifying the problem, working backward). We first use SHAPE to analyze the ",
+   "id": "2608.28958",
+   "title": "CoVA-SFT: A Large-Scale Dataset for Chain of Visual Abstractions",
+   "abstract": "Chain-of-thought (CoT) reasoning has dramatically improved large language models (LLMs) by allowing them to decompose problems into intermediate steps. While CoT is widely effective for linguistic tasks, text-only CoT forces models to serialize visual problems into awkward prose. Although architectural solutions exist to process visual inputs, the community lacks a massive, multi-step, self-corrected dataset to teach models how to build and maintain internal visual workspaces when solving purely textual reasoning problems. To address this limitation, we introduce CoVA-SFT, a highly structured ",
    "authors": [
-    "Jonghyun Song",
-    "Sangjun Song",
-    "Minjae Oh",
-    "Haesung Pyun"
+    "Tsung-Han Wu",
+    "Heekyung Lee",
+    "Anya Ji",
+    "Haoming Chen"
    ],
-   "link": "https://huggingface.co/papers/2608.28600",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-06-28T00:00",
-   "title_ar": "شكل سلسلة الأفكار في الاستدلال الرياضي",
-   "summary_ar": "تحقق نماذج اللغة الكبيرة أداءً قويًا في معايير الاستدلال الرياضي، ومع ذلك لا تزال المهارات ذات الأهمية الرياضية الكامنة وراء استدلالها غير مدروسة بالشكل الكافي. نقدم \"SHAPE\"، وهو إطار عمل يحلل مسارات سلسلة الأفكار عبر منظورين تم تطويرهما في هذا المجال."
-  },
-  {
-   "id": "2608.29252",
-   "title": "Dynamic Important Example Mining for Reinforcement Finetuning",
-   "abstract": "Reinforcement fine-tuning (RFT) is increasingly used to strengthen the reasoning abilities of large models, yet its effectiveness is bound by how training data are selected and used. Most data-centric RFT methods rely on static or heuristic sample selection, implicitly assuming a sample's value is fixed over training. This overlooks the non-stationary dynamics of policy learning and can lead to suboptimal updates. We propose Dynamic Important Example Mining (DIEM), a principled and fully automated framework that makes data utilization adaptive throughout RFT. DIEM integrates two components int",
-   "authors": [
-    "Haoru Tan",
-    "Sitong Wu",
-    "Yanfeng Chen",
-    "Shizhen Zhao"
-   ],
-   "link": "https://huggingface.co/papers/2608.29252",
+   "link": "https://huggingface.co/papers/2608.28958",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-08-29T00:00",
-   "title_ar": "التعدين الديناميكي للأمثلة المهمة للضبط الدقيق بالتعزيز",
-   "summary_ar": "يُستخدم الضبط الدقيق بالتعزيز بشكل متزايد لتعزيز قدرات الاستدلال لدى النماذج الكبيرة، ومع ذلك فإن فعاليته مقيدة بكيفية اختيار بيانات التدريب واستخدامها. تعتمد معظم طرق هذا الضبط المتمحورة حول البيانات على اختيار ثابت أو إرشادي للعينات، مع افتراض ضمني أن قيمة العينة محددة وثابتة."
+   "title_ar": "CoVA-SFT: مجموعة بيانات واسعة النطاق لسلسلة التجريدات البصرية",
+   "summary_ar": "حسّن الاستدلال عبر سلسلة الأفكار النماذج اللغوية الكبيرة بشكل كبير بالسماح لها بتفكيك المشكلات إلى خطوات وسيطة، ومع فاعليته الواسعة للمهام اللغوية، فإنه يُجبر النماذج على تحويل المشكلات البصرية نصيًا إلى نثريات غير ملائمة."
   },
   {
-   "id": "2608.31106",
-   "title": "DreamX-Creator: Democratizing Native Audio-Video Generation at 2K Resolution",
-   "abstract": "Recent video generators often omit audio or synthesize it in a separate stage, limiting reciprocal modeling of visual dynamics and acoustic events. We present DreamX-Creator 1.0, a compact native joint audio-video generation system centered on a 7B generator. Conditioned on a first frame and a text prompt, the generator jointly denoises modality-specialized audio and video streams. The streams are processed independently in the first half of the network and coupled in the latter half through Gated Cross-Modal Attention, whose token- and head-wise output gates modulate each active cross-modal a",
+   "id": "2608.29681",
+   "title": "MMMMM: A Unified Taxonomy for Investigating the Mechanisms of Multilingual MultiModal Misinformation",
+   "abstract": "Multimodal misinformation on social media is highly prevalent, potent, and harmful, yet difficult to detect and counter, and still poorly understood compared to its text-only counterpart. Research on the properties and deceptive strategies of multimodal misinformation is hindered by a lack of taxonomies grounded in real-world contexts and by the limitations of current multimodal machine learning models, which prevent the automation of annotation and analysis at scale. We address these shortcomings in three steps. First, we collect a large-scale, high-quality dataset of real-world misinformatio",
    "authors": [
-    "Jiashu Zhu",
-    "Yanhao Zheng",
-    "Ruitian Tian",
-    "Rujing Dang"
+    "Nadav Borenstein",
+    "Greta Warren",
+    "Desmond Elliott",
+    "Isabelle Augenstein"
    ],
-   "link": "https://huggingface.co/papers/2608.31106",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-31T00:00",
-   "title_ar": "DreamX-Creator: إتاحة التوليد الصوتي والمرئي الأصلي بدقة 2K للجميع",
-   "summary_ar": "غالبًا ما تُسقط مولدات الفيديو الحديثة الصوت أو تصنعه في مرحلة منفصلة، مما يحد من النمذجة المتبادلة للديناميكيات البصرية والأحداث الصوتية. نقدم DreamX-Creator 1.0، وهو نظام مدمج لتوليد الصوت والفيديو معًا بشكل أصلي يتمحور حول مولد بسعة 7 مليارات معلمة، ومشروط بإطار أول ونص."
-  },
-  {
-   "id": "2608.31036",
-   "title": "Normalized Low-Rank Adaptation",
-   "abstract": "While low-rank adaptation (LoRA) is widely used for parameter-efficient model adaptation, how to regularize its training dynamics for stable and effective optimization remains underexplored. Because LoRA initializes the up-projection to zero, its early optimization dynamics are largely governed by the down-projection. Building on this observation, we introduce Normalized Low-Rank Adaptation (NoRA), a simple yet effective method that normalizes the down-projection matrices during training. We further show that the same normalization can be applied only at initialization, improving standard LoRA",
-   "authors": [
-    "Jiale Kang",
-    "Ziyin Yue",
-    "Zheng Zhan",
-    "Yangyi Huang"
-   ],
-   "link": "https://huggingface.co/papers/2608.31036",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-31T00:00",
-   "title_ar": "التكيف منخفض الرتبة المعيَّر",
-   "summary_ar": "على الرغم من استخدام التكيف منخفض الرتبة (LoRA) على نطاق واسع لملاءمة النماذج بكفاءة من حيث المعلمات، إلا أن كيفية تنظيم ديناميكيات تدريبه لتحقيق تحسين مستقر وفعال لا تزال غير مدروسة بالشكل الكافي. ونظرًا لأن LoRA يبدأ الإسقاط التصاعدي عند الصفر، فإن ديناميكيات التحسين المبكرة تخضع بشكل أساسي لهذا الإعداد."
-  },
-  {
-   "id": "2608.29910",
-   "title": "Matrix-Game 3.5: Enhancing Real-Time Streaming Interactive World Models with Patch Memory",
-   "abstract": "Interactive world models extend video generation from offline clip synthesis toward persistent simulation of interactive virtual worlds, enabling applications in games, robotics, embodied agents, and XR. Achieving stable long-horizon interactive generation, however, remains challenging, as the model must simultaneously preserve scene geometry, dynamic consistency, and camera control while supporting real-time autoregressive generation. Building upon Matrix-Game 3.0, we present Matrix-Game 3.5, as shown in Figure 1, which advances real-time interactive world generation toward geometry-aware and",
-   "authors": [
-    "Runjia Qian",
-    "Zile Wang",
-    "Jihai Zhang",
-    "Kai Zou"
-   ],
-   "link": "https://huggingface.co/papers/2608.29910",
+   "link": "https://huggingface.co/papers/2608.29681",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-08-30T00:00",
-   "title_ar": "Matrix-Game 3.5: تعزيز نماذج العالم التفاعلية للبث المباشر في الوقت الفعلي باستخدام ذاكرة الرقع",
-   "summary_ar": "توسع نماذج العالم التفاعلية توليد الفيديو من تجميع المقاطع دون اتصال بالإنترنت نحو المحاكاة المستمرة للعوالم الافتراضية التفاعلية، مما يتيح تطبيقات في الألعاب والروبوتات والوكلاء المتجسدين والواقع الممتد. ومع ذلك، يظل تحقيق توليد تفاعلي مستقر طويل المدى أمرًا صعبًا."
+   "title_ar": "MMMMM: تصنيف موحد لدراسة آليات التضليل متعدد اللغات والوسائط",
+   "summary_ar": "ينتشر التضليل متعدد الوسائط على وسائل التواصل الاجتماعي بقوة وضرر كبيرين مع صعوبة اكتشافه ومواجهته، ولا يزال غير مفهوم جيدًا مقارنة بنظيره النصي فقط. وتتعطل الأبحاث المتعلقة بخصائص التضليل متعدد الوسائط واستراتيجياته الخداعية بسبب غياب التصنيفات المناسبة."
   },
   {
-   "id": "2608.30241",
-   "title": "PaperBanana-Interact: Scientific Diagram Refinement with Multi-Turn Human Feedback",
-   "abstract": "Recent efforts have aimed to automate scientific diagram generation from paper content (Lin et al., 2026; Zhu et al., 2026a). However, fully satisfying an author's visual and communicative preferences in a single turn is challenging: in our formative user study (N = 14), all participants requested further revisions after viewing an initial draft, and 86% of them rated the refined diagrams as more satisfactory. Despite the clear demand, the multi-turn workflow remains largely underexplored. To bridge this gap, we present MTPaperBananaBench, a benchmark for multi-turn diagram generation containi",
+   "id": "2608.29974",
+   "title": "SpanCalib-VLM: Calibrated Hallucination Span Detection in Vision-Language Models",
+   "abstract": "Detecting hallucinations in Large Vision-Language Models (LVLMs) requires both accurate span localization and well-calibrated confidence scores. Fine-tuned generative VLMs excel at identifying hallucinated text spans but suffer from overconfidence and high inference latency. Discriminative sequence taggers offer deterministic speed and superior calibration but exhibit conservative span recall. We present SpanCalib-VLM, a hybrid dual-system for the SHROOM-Visions Shared Task that combines a multimodal sequence tagger, consisting of XLM-RoBERTa-Large fused with a SigLIP vision encoder via cross-",
    "authors": [
-    "Xueqing Wu",
-    "Ashwin Balasubramanian",
-    "Bingxuan Li",
-    "Dawei Zhu"
+    "Amanuel Gizachew Abebe",
+    "Yasmin Moslem"
    ],
-   "link": "https://huggingface.co/papers/2608.30241",
+   "link": "https://huggingface.co/papers/2608.29974",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-31T00:00",
-   "title_ar": "PaperBanana-Interact: تحسين المخططات العلمية عبر التغذية الراجعة البشرية متعددة الجولات",
-   "summary_ar": "سعت الجهود الأخيرة إلى أتمتة توليد المخططات العلمية من محتوى الأوراق البحثية. ومع ذلك، فإن تلبية تفضيلات المؤلف البصرية والتواصلية بالكامل في جولة واحدة يمثل تحديًا؛ حيث طلب جميع المشاركين في دراستنا للمستخدمين تعديلات إضافية."
+   "published": "2026-08-30T00:00",
+   "title_ar": "SpanCalib-VLM: الكشف المعاير لنطاقات الهلوسة في نماذج الرؤية واللغة",
+   "summary_ar": "يتطلب كشف الهلوسة في نماذج الرؤية واللغة الكبيرة تحديدًا دقيقًا لموضع النطاق ودرجات ثقة معايرة جيدًا. تتفوق نماذج الرؤية واللغة التوليدية المضبوطة بدقة في تحديد نطاقات النصوص المهلوسة، لكنها تعاني من فرط الثقة وزمن انتقال مرتفع في الاستدلال."
+  },
+  {
+   "id": "2608.29847",
+   "title": "ContextBias: Controlled Evaluation of Bias Persistence Under Context Shift in Text-to-Image Models",
+   "abstract": "Text-to-image models learn associations between concepts - in the case of this paper, people's professions, which we refer to as roles - and visual attributes. These associations can underpin many observed forms of stereotypical bias. A key open question in this area is whether these associations are stable or change when visual representations of people in professional roles are placed in different prompted contexts. We introduce ContextBias, a controlled evaluation framework, and ContextBench, a benchmark spanning 92 roles and 1,656 semantically controlled prompts, designed to isolate the ef",
+   "authors": [
+    "Shaghayegh Kolli",
+    "Sina Emami",
+    "Moreno D&#39;Incà",
+    "Pouyan Nejadi"
+   ],
+   "link": "https://huggingface.co/papers/2608.29847",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-08-30T00:00",
+   "title_ar": "ContextBias: تقييم محكوم لاستمرارية التحيز تحت تحول السياق في نماذج تحويل النص إلى صورة",
+   "summary_ar": "تتعلم نماذج تحويل النص إلى صورة روابط بين المفاهيم - كمهن الأشخاص التي تشير إليها هذه الورقة بالأدوار - والسمات البصرية، وهي روابط قد تعزز أشكالًا متعددة من التحيز النمطي المرصود. ويظل السؤال المفتوح الرئيسي في هذا المجال هو ما إذا كانت هذه الروابط مستمرة تحت تحول السياق."
+  },
+  {
+   "id": "2608.29464",
+   "title": "Chain-of-Thought Faithfulness of Reasoning Models Varies with Where and How Preference Cues Are Delivered",
+   "abstract": "Chain-of-thought (CoT) monitoring assumes that reasoning traces faithfully record the information that shapes a model's answer. Existing faithfulness tests often place explicit bias cues in the user message, while agents may encounter preferences through tool returns or raw artifacts. We introduce FACE-Eval (Faithful Attribution of Cue Effects Evaluation), a 5,100-sample evaluation that varies cue location (user message or tool return) and explicitness (direct summary or raw artifact). We measure verbalized commitment among cue-following answers and unverbalized adoption among all cued samples",
+   "authors": [
+    "Aryo Pradipta Gema",
+    "Neel Rajani",
+    "Rohit Saxena",
+    "Wai-Chung Kwan"
+   ],
+   "link": "https://huggingface.co/papers/2608.29464",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-08-29T00:00",
+   "title_ar": "إخلاص سلسلة الأفكار لنماذج الاستدلال يتفاوت بتفاوت مكان وكيفية تقديم إشارات التفضيل",
+   "summary_ar": "تفترض مراقبة سلسلة الأفكار أن مسارات الاستدلال تسجل بأمانة المعلومات التي تشكل إجابة النموذج. وغالبًا ما تضع اختبارات الإخلاص الحالية إشارات انحياز صريحة في رسالة المستخدم، في حين قد تصادف الوكلاء التفضيلات عبر مخرجات الأدوات أو العناصر الخام."
+  },
+  {
+   "id": "2608.29387",
+   "title": "EvoGenUI-Bench: Evaluating LLMs as Multi-Turn Generative UI Assistants",
+   "abstract": "Large language models can generate interactive web interfaces, but reliable generative UI requires maintaining an executable artifact as user requests evolve. We introduce EvoGenUI-Bench, a benchmark for multi-turn interface maintenance comprising 150 five-turn tasks and 750 turns across three scenarios: information presentation, executable interaction, and tool-grounded external state. We execute generated artifacts in a browser and evaluate them using screenshots, source and DOM evidence, actor traces, and runtime logs. Beyond turn-level and episode-level success, we measure cross-turn reten",
+   "authors": [
+    "Yue Peng",
+    "Lanke Xia",
+    "Zihan Wang",
+    "Jiahao Ye"
+   ],
+   "link": "https://huggingface.co/papers/2608.29387",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-08-29T00:00",
+   "title_ar": "EvoGenUI-Bench: تقييم النماذج اللغوية الكبيرة كمساعدات توليدية لواجهات المستخدم متعددة الجولات",
+   "summary_ar": "تستطيع النماذج اللغوية الكبيرة توليد واجهات ويب تفاعلية، ولكن واجهات المستخدم التوليدية الموثوقة تتطلب الحفاظ على عنصر قابل للتنفيذ مع تطور طلبات المستخدمين. ولهذا نقدّم EvoGenUI-Bench، وهو معيار قياسي لصيانة الواجهات متعددة الجولات يضم 150 مهمة خماسية الجولات و750 جولة عبر ثلاثة سيناريوهات."
   }
  ],
  "n": 6
