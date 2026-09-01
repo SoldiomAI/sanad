@@ -1,104 +1,108 @@
 {
- "updated": "2026-08-31T15:19+00:00",
+ "updated": "2026-09-01T05:34+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2608.28444",
-   "title": "Sliding-window beats linear attention",
-   "abstract": "Due to the nature of quadratic attention, Large Language Models (LLMs) consume a lot of memory and energy. Every new token costs more than the previous one. For each additional token, the keys and values must be stored in memory indefinitely, which is unsustainable. Several alternatives have been proposed to fix the quadratic scaling problem, one of which is retrofitting LLMs to use Linear Attention. This idea has attracted a lot of attention, given its promise to solve the quadratic scaling problem with state-of-the-art performance at low cost. However, this line of research has not been prop",
+   "id": "2608.28600",
+   "title": "SHAPE of Chain-of-Thought in Math Reasoning",
+   "abstract": "Large language models (LLMs) achieve strong performance on mathematical reasoning benchmarks, yet the mathematically meaningful skills underlying their reasoning remain underexplored. We introduce SHAPE, a framework that analyzes Chain-of-Thought (CoT) trajectories through two lenses developed in mathematics education: (1) semantic spaces: the model's evolving mathematical interpretations of a problem (e.g., algebraic, geometric), and (2) heuristics: the specific mathematical actions taken within those spaces (e.g., simplifying the problem, working backward). We first use SHAPE to analyze the ",
    "authors": [
-    "Alexia Jolicoeur-Martineau",
-    "Rhea Sanjay Sukthanker",
-    "Pashmina Cameron",
-    "Emy Gervais"
+    "Jonghyun Song",
+    "Sangjun Song",
+    "Minjae Oh",
+    "Haesung Pyun"
    ],
-   "link": "https://huggingface.co/papers/2608.28444",
+   "link": "https://huggingface.co/papers/2608.28600",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-28T00:00",
-   "title_ar": "النافذة المنزلقة تتفوق على الانتباه الخطي",
-   "summary_ar": "تستهلك النماذج اللغوية الكبيرة الكثير من الذاكرة والطاقة بسبب طبيعة الانتباه التربيعي، حيث تصبح تكلفة كل رمز جديد أعلى من سابقه. كما يجب تخزين المفاتيح والقيم في الذاكرة إلى أجل غير مسمى لكل رمز إضافي، وهو أمر غير مستدام، مما دفع لاقتراح عدة بدائل."
+   "published": "2026-06-28T00:00",
+   "title_ar": "شكل سلسلة الأفكار في الاستدلال الرياضي",
+   "summary_ar": "تحقق نماذج اللغة الكبيرة أداءً قويًا في معايير الاستدلال الرياضي، ومع ذلك لا تزال المهارات ذات الأهمية الرياضية الكامنة وراء استدلالها غير مدروسة بالشكل الكافي. نقدم \"SHAPE\"، وهو إطار عمل يحلل مسارات سلسلة الأفكار عبر منظورين تم تطويرهما في هذا المجال."
   },
   {
-   "id": "2608.26175",
-   "title": "Lost in Compression: A Controlled Cross-Lingual Audit of Extractive Prompt Compressors",
-   "abstract": "Extractive prompt compression promises to cut LLM inference costs by removing low-information tokens, and learned compressors such as LLMLingua-2 report strong results on English benchmarks. Most other languages already pay a token premium: the same content costs 1.3-1.8x more tokens than in English. We ask whether compression closes or widens this gap. Using fully parallel data in ten languages spanning five scripts, with controls budget-matched in the target model's tokenizer, we audit four learned compressors against four deterministic baselines, on eleven target models from ten vendors (ov",
+   "id": "2608.29252",
+   "title": "Dynamic Important Example Mining for Reinforcement Finetuning",
+   "abstract": "Reinforcement fine-tuning (RFT) is increasingly used to strengthen the reasoning abilities of large models, yet its effectiveness is bound by how training data are selected and used. Most data-centric RFT methods rely on static or heuristic sample selection, implicitly assuming a sample's value is fixed over training. This overlooks the non-stationary dynamics of policy learning and can lead to suboptimal updates. We propose Dynamic Important Example Mining (DIEM), a principled and fully automated framework that makes data utilization adaptive throughout RFT. DIEM integrates two components int",
    "authors": [
-    "Mantas Lukauskas"
+    "Haoru Tan",
+    "Sitong Wu",
+    "Yanfeng Chen",
+    "Shizhen Zhao"
    ],
-   "link": "https://huggingface.co/papers/2608.26175",
+   "link": "https://huggingface.co/papers/2608.29252",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-07-27T00:00",
-   "title_ar": "ضائع في الضغط: تدقيق مضبوط متعدد اللغات لضواغط المطالبات الاستخراجية",
-   "summary_ar": "يَعد ضغط المطالبات الاستخراجي بخفض تكاليف استدلال النماذج اللغوية الكبيرة عبر إزالة الرموز منخفضة المعلومات، وتُحقق الضواغط المُدربة مثل LLMLingua-2 نتائج قوية في التقييمات الإنجليزية. ومع ذلك، تدفع معظم اللغات الأخرى تكلفة إضافية للرموز، إذ يتطلب المحتوى نفسه رموزًا أكثر بنحو 1.3 إلى 1.8 مرة مقارنة بالإنجليزية."
+   "published": "2026-08-29T00:00",
+   "title_ar": "التعدين الديناميكي للأمثلة المهمة للضبط الدقيق بالتعزيز",
+   "summary_ar": "يُستخدم الضبط الدقيق بالتعزيز بشكل متزايد لتعزيز قدرات الاستدلال لدى النماذج الكبيرة، ومع ذلك فإن فعاليته مقيدة بكيفية اختيار بيانات التدريب واستخدامها. تعتمد معظم طرق هذا الضبط المتمحورة حول البيانات على اختيار ثابت أو إرشادي للعينات، مع افتراض ضمني أن قيمة العينة محددة وثابتة."
   },
   {
-   "id": "2608.23478",
-   "title": "Act with Intent: Distilling Behavior Intent for Vision-Language-Action Models",
-   "abstract": "Vision-Language-Action (VLA) models can turn multimodal context into robot actions, but their action decoders are still trained largely by behavior cloning. This supervises which motor command was demonstrated while leaving implicit the local objective served by the behavior under the instruction. Future-based supervision enriches action learning with frames, latent observations, trajectories, or motion representations, but these signals capture particular realizations of what may happen rather than the shared semantic objective of the forthcoming behavior. We propose Intention Distillation (I",
+   "id": "2608.31106",
+   "title": "DreamX-Creator: Democratizing Native Audio-Video Generation at 2K Resolution",
+   "abstract": "Recent video generators often omit audio or synthesize it in a separate stage, limiting reciprocal modeling of visual dynamics and acoustic events. We present DreamX-Creator 1.0, a compact native joint audio-video generation system centered on a 7B generator. Conditioned on a first frame and a text prompt, the generator jointly denoises modality-specialized audio and video streams. The streams are processed independently in the first half of the network and coupled in the latter half through Gated Cross-Modal Attention, whose token- and head-wise output gates modulate each active cross-modal a",
    "authors": [
-    "Sangoh Lee",
-    "Sangwoo Mo",
-    "Wook-Shin Han"
+    "Jiashu Zhu",
+    "Yanhao Zheng",
+    "Ruitian Tian",
+    "Rujing Dang"
    ],
-   "link": "https://huggingface.co/papers/2608.23478",
+   "link": "https://huggingface.co/papers/2608.31106",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-24T00:00",
-   "title_ar": "التصرف بنية: تقطير نية السلوك لنماذج الرؤية واللغة والعمل",
-   "summary_ar": "تستطيع نماذج الرؤية واللغة والعمل تحويل السياق متعدد الوسائط إلى أفعال روبوتية، لكن مفككات شفرة أفعالها لا تزال تُدرّب أساسًا بواسطة استنساخ السلوك. يُشرف هذا الأسلوب على الأوامر الحركية الموضحة فقط، بينما يترك الهدف المحلي الذي يخدمه السلوك تحت التعليمات ضمنيًا."
+   "published": "2026-08-31T00:00",
+   "title_ar": "DreamX-Creator: إتاحة التوليد الصوتي والمرئي الأصلي بدقة 2K للجميع",
+   "summary_ar": "غالبًا ما تُسقط مولدات الفيديو الحديثة الصوت أو تصنعه في مرحلة منفصلة، مما يحد من النمذجة المتبادلة للديناميكيات البصرية والأحداث الصوتية. نقدم DreamX-Creator 1.0، وهو نظام مدمج لتوليد الصوت والفيديو معًا بشكل أصلي يتمحور حول مولد بسعة 7 مليارات معلمة، ومشروط بإطار أول ونص."
   },
   {
-   "id": "2608.28281",
-   "title": "LoopArena: Benchmarking Models as Runtime Controllers for Loop Engineering",
-   "abstract": "Loop Engineering is emerging as a practice for organizing development work around coding agents. Instead of writing each prompt by hand, practitioners design loops that monitor progress, assign work, run checks, and decide what the agent should do next. Even with a capable coding agent, a loop may trust a stale progress note, skip needed verification, spend its budget in the wrong direction, or stop before the task is safe to submit. Yet the final outcome of one end-to-end run cannot tell whether success or failure reflects the loop's guidance or the coding agent's ability to carry out the tas",
+   "id": "2608.31036",
+   "title": "Normalized Low-Rank Adaptation",
+   "abstract": "While low-rank adaptation (LoRA) is widely used for parameter-efficient model adaptation, how to regularize its training dynamics for stable and effective optimization remains underexplored. Because LoRA initializes the up-projection to zero, its early optimization dynamics are largely governed by the down-projection. Building on this observation, we introduce Normalized Low-Rank Adaptation (NoRA), a simple yet effective method that normalizes the down-projection matrices during training. We further show that the same normalization can be applied only at initialization, improving standard LoRA",
    "authors": [
-    "Yi Wang",
-    "Haopeng Zhang",
-    "Chengxiang Huang",
-    "Rui Dai"
+    "Jiale Kang",
+    "Ziyin Yue",
+    "Zheng Zhan",
+    "Yangyi Huang"
    ],
-   "link": "https://huggingface.co/papers/2608.28281",
+   "link": "https://huggingface.co/papers/2608.31036",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-28T00:00",
-   "title_ar": "LoopArena: قياس أداء النماذج كمتحكمات وقت التشغيل لهندسة الحلقات",
-   "summary_ar": "تبرز \"هندسة الحلقات\" كممارسة لتنظيم أعمال التطوير حول وكلاء البرمجة. وبدلاً من كتابة كل مطالبة يدويًا، يصمم الممارسون حلقات تراقب التقدم، وتسند المهام، وتجري الفحوصات، وتقرر الخطوة التالية للوكيل، مع إمكانية تعثر الحلقة حتى مع وجود وكيل برمجة كفء."
+   "published": "2026-08-31T00:00",
+   "title_ar": "التكيف منخفض الرتبة المعيَّر",
+   "summary_ar": "على الرغم من استخدام التكيف منخفض الرتبة (LoRA) على نطاق واسع لملاءمة النماذج بكفاءة من حيث المعلمات، إلا أن كيفية تنظيم ديناميكيات تدريبه لتحقيق تحسين مستقر وفعال لا تزال غير مدروسة بالشكل الكافي. ونظرًا لأن LoRA يبدأ الإسقاط التصاعدي عند الصفر، فإن ديناميكيات التحسين المبكرة تخضع بشكل أساسي لهذا الإعداد."
   },
   {
-   "id": "2608.25375",
-   "title": "GGSS: Geodesic-Gated Spherical Steering for Inference-Time Debiasing of Generative Vision-Language Models",
-   "abstract": "Generative vision-language models (VLMs) are increasingly used in human-centered settings, yet they can produce demographically biased outputs even when images differ only in controlled attributes such as perceived race or gender. However, existing inference-time debiasers were largely designed for static embeddings or CLIP-like models rather than generative VLMs. We propose GGSS---Geodesic-Gated Spherical Steering---a norm-preserving intervention that discovers a counterfactual bias subspace on the unit hypersphere, steers visual tokens along geodesic arcs, and uses an adaptive gate to focus ",
+   "id": "2608.29910",
+   "title": "Matrix-Game 3.5: Enhancing Real-Time Streaming Interactive World Models with Patch Memory",
+   "abstract": "Interactive world models extend video generation from offline clip synthesis toward persistent simulation of interactive virtual worlds, enabling applications in games, robotics, embodied agents, and XR. Achieving stable long-horizon interactive generation, however, remains challenging, as the model must simultaneously preserve scene geometry, dynamic consistency, and camera control while supporting real-time autoregressive generation. Building upon Matrix-Game 3.0, we present Matrix-Game 3.5, as shown in Figure 1, which advances real-time interactive world generation toward geometry-aware and",
    "authors": [
-    "Yiqun Sun",
-    "Junyu Chen",
-    "Pengfei Wei",
-    "Lawrence B. Hsieh"
+    "Runjia Qian",
+    "Zile Wang",
+    "Jihai Zhang",
+    "Kai Zou"
    ],
-   "link": "https://huggingface.co/papers/2608.25375",
+   "link": "https://huggingface.co/papers/2608.29910",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-26T04:58",
-   "title_ar": "GGSS: التوجيه الكروي ذو البوابات الجيوديسية لإزالة التحيز أثناء الاستدلال من نماذج الرؤية واللغة التوليدية",
-   "summary_ar": "يتزايد استخدام نماذج الرؤية واللغة التوليدية في البيئات الموجهة للبشر، غير أنها قد تنتج مخرجات متحيزة ديموغرافيًا حتى لو اقتصر اختلاف الصور على سمات مضبوطة مثل العرق أو الجنس المتصور. ومع ذلك، فإن أدوات إزالة التحيز الحالية أثناء الاستدلال صُممت أساسًا لـ..."
+   "published": "2026-08-30T00:00",
+   "title_ar": "Matrix-Game 3.5: تعزيز نماذج العالم التفاعلية للبث المباشر في الوقت الفعلي باستخدام ذاكرة الرقع",
+   "summary_ar": "توسع نماذج العالم التفاعلية توليد الفيديو من تجميع المقاطع دون اتصال بالإنترنت نحو المحاكاة المستمرة للعوالم الافتراضية التفاعلية، مما يتيح تطبيقات في الألعاب والروبوتات والوكلاء المتجسدين والواقع الممتد. ومع ذلك، يظل تحقيق توليد تفاعلي مستقر طويل المدى أمرًا صعبًا."
   },
   {
-   "id": "2608.23149",
-   "title": "Language Chain in Alignment: Cross-lingual Ranking Preference Optimization",
-   "abstract": "The alignment of Large Language Models heavily relies on English-centric high-quality preference data, which often leads to suboptimal performance in other languages. In this paper, we propose Cross-lingual Ranking Preference Optimization~(CRPO), a novel framework that leverages robust preference knowledge from English to facilitate preference alignment in the target language. We design a hierarchical structure within parallel preference pairs across the target language and English to jointly optimize intra- and inter-lingual preferences, thereby enhancing language adaptation and output qualit",
+   "id": "2608.30241",
+   "title": "PaperBanana-Interact: Scientific Diagram Refinement with Multi-Turn Human Feedback",
+   "abstract": "Recent efforts have aimed to automate scientific diagram generation from paper content (Lin et al., 2026; Zhu et al., 2026a). However, fully satisfying an author's visual and communicative preferences in a single turn is challenging: in our formative user study (N = 14), all participants requested further revisions after viewing an initial draft, and 86% of them rated the refined diagrams as more satisfactory. Despite the clear demand, the multi-turn workflow remains largely underexplored. To bridge this gap, we present MTPaperBananaBench, a benchmark for multi-turn diagram generation containi",
    "authors": [
-    "Seungyoon Lee",
-    "Minhyuk Kim",
-    "Jungseob Lee",
-    "Heuiseok Lim"
+    "Xueqing Wu",
+    "Ashwin Balasubramanian",
+    "Bingxuan Li",
+    "Dawei Zhu"
    ],
-   "link": "https://huggingface.co/papers/2608.23149",
+   "link": "https://huggingface.co/papers/2608.30241",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-24T11:54",
-   "title_ar": "سلسلة اللغة في المحاذاة: تحسين تفضيل الترتيب عبر اللغات",
-   "summary_ar": "تعتمد محاذاة النماذج اللغوية الكبيرة بشكل كبير على بيانات التفضيل عالية الجودة المتمركزة حول الإنجليزية، مما يؤدي غالبًا إلى أداء دون المستوى في اللغات الأخرى. نقترح في هذه الورقة إطار عمل جديد يُدعى \"تحسين تفضيل الترتيب عبر اللغات\" (CRPO) للاستفادة من معرفة التفضيل القوية."
+   "published": "2026-08-31T00:00",
+   "title_ar": "PaperBanana-Interact: تحسين المخططات العلمية عبر التغذية الراجعة البشرية متعددة الجولات",
+   "summary_ar": "سعت الجهود الأخيرة إلى أتمتة توليد المخططات العلمية من محتوى الأوراق البحثية. ومع ذلك، فإن تلبية تفضيلات المؤلف البصرية والتواصلية بالكامل في جولة واحدة يمثل تحديًا؛ حيث طلب جميع المشاركين في دراستنا للمستخدمين تعديلات إضافية."
   }
  ],
  "n": 6
