@@ -1,106 +1,108 @@
 {
- "updated": "2026-09-01T19:13+00:00",
+ "updated": "2026-09-02T07:40+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2608.28958",
-   "title": "CoVA-SFT: A Large-Scale Dataset for Chain of Visual Abstractions",
-   "abstract": "Chain-of-thought (CoT) reasoning has dramatically improved large language models (LLMs) by allowing them to decompose problems into intermediate steps. While CoT is widely effective for linguistic tasks, text-only CoT forces models to serialize visual problems into awkward prose. Although architectural solutions exist to process visual inputs, the community lacks a massive, multi-step, self-corrected dataset to teach models how to build and maintain internal visual workspaces when solving purely textual reasoning problems. To address this limitation, we introduce CoVA-SFT, a highly structured ",
+   "id": "2608.30478",
+   "title": "Agents in the Large: Perception-Centered Architecture for Persistent Agents",
+   "abstract": "Cognitive language agents have achieved substantial progress by equipping language models with memory, tools, and decision-making procedures, enabling agents to reason and act in interactive environments. Existing frameworks largely cast these agents as systems for solving user-specified, bounded tasks. An increasingly important goal is for language agents to provide persistent assistance in long-lived settings where user needs, context, and service procedures persist and change, and to remain useful across the broad range of tasks that arise over time. Yet we still lack a framework to charact",
    "authors": [
-    "Tsung-Han Wu",
-    "Heekyung Lee",
-    "Anya Ji",
-    "Haoming Chen"
+    "Shihan Dou",
+    "Haoxiang Jia",
+    "Shichun Liu",
+    "Feng Chen"
    ],
-   "link": "https://huggingface.co/papers/2608.28958",
+   "link": "https://huggingface.co/papers/2608.30478",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-29T00:00",
-   "title_ar": "CoVA-SFT: مجموعة بيانات واسعة النطاق لسلسلة التجريدات البصرية",
-   "summary_ar": "حسّن الاستدلال عبر سلسلة الأفكار النماذج اللغوية الكبيرة بشكل كبير بالسماح لها بتفكيك المشكلات إلى خطوات وسيطة، ومع فاعليته الواسعة للمهام اللغوية، فإنه يُجبر النماذج على تحويل المشكلات البصرية نصيًا إلى نثريات غير ملائمة."
+   "published": "2026-08-31T00:00",
+   "title_ar": "الوكلاء على نطاق واسع: بنية متمحورة حول الإدراك للوكلاء الدائمين",
+   "summary_ar": "حقق وكلاء اللغة الإدراكية تقدمًا كبيرًا من خلال تزويد النماذج اللغوية بالذاكرة والأدوات وإجراءات اتخاذ القرار، مما يتيح لها التفكير والتصرف في البيئات التفاعلية. غير أن الأطر الحالية تصنف هؤلاء الوكلاء في الغالب كأنظمة لحل مهام محددة ومحدودة من قِبل المستخدم."
   },
   {
-   "id": "2608.29681",
-   "title": "MMMMM: A Unified Taxonomy for Investigating the Mechanisms of Multilingual MultiModal Misinformation",
-   "abstract": "Multimodal misinformation on social media is highly prevalent, potent, and harmful, yet difficult to detect and counter, and still poorly understood compared to its text-only counterpart. Research on the properties and deceptive strategies of multimodal misinformation is hindered by a lack of taxonomies grounded in real-world contexts and by the limitations of current multimodal machine learning models, which prevent the automation of annotation and analysis at scale. We address these shortcomings in three steps. First, we collect a large-scale, high-quality dataset of real-world misinformatio",
+   "id": "2609.00768",
+   "title": "DiagEvo: Diagnosis-Guided Self-Evolution via Hierarchical Error Memory",
+   "abstract": "Self-play is an effective paradigm for language-model self-evolution, but without guidance, solver performance can plateau or decline across rounds. Unguided methods steer question generation with signals such as difficulty, learnability, or diversity. These signals keep questions challenging and varied but do not specify which unresolved reasoning weaknesses later rounds should target. Guided methods obtain direction from external task resources, including human examples, document corpora, or specified difficulty targets, and therefore rely on task information supplied outside the self-play l",
    "authors": [
-    "Nadav Borenstein",
-    "Greta Warren",
-    "Desmond Elliott",
-    "Isabelle Augenstein"
+    "Xincheng Wei",
+    "Yifan Ding",
+    "Yoshua Li",
+    "Dongsheng Ma"
    ],
-   "link": "https://huggingface.co/papers/2608.29681",
+   "link": "https://huggingface.co/papers/2609.00768",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-30T00:00",
-   "title_ar": "MMMMM: تصنيف موحد لدراسة آليات التضليل متعدد اللغات والوسائط",
-   "summary_ar": "ينتشر التضليل متعدد الوسائط على وسائل التواصل الاجتماعي بقوة وضرر كبيرين مع صعوبة اكتشافه ومواجهته، ولا يزال غير مفهوم جيدًا مقارنة بنظيره النصي فقط. وتتعطل الأبحاث المتعلقة بخصائص التضليل متعدد الوسائط واستراتيجياته الخداعية بسبب غياب التصنيفات المناسبة."
+   "published": "2026-09-01T00:00",
+   "title_ar": "DiagEvo: التطور الذاتي الموجه بالتشخيص عبر ذاكرة الأخطاء الهرمية",
+   "summary_ar": "يُعد اللعب الذاتي نموذجًا فعالًا للتطور الذاتي للنماذج اللغوية، لكن بدون توجيه قد يستقر أداء نظام الحل أو يتراجع عبر الجولات. تعتمد الطرق غير الموجهة على إشارات كالصعوبة وقابلية التعلم والتنوع لإبقاء الأسئلة صعبة ومتنوعة."
   },
   {
-   "id": "2608.29974",
-   "title": "SpanCalib-VLM: Calibrated Hallucination Span Detection in Vision-Language Models",
-   "abstract": "Detecting hallucinations in Large Vision-Language Models (LVLMs) requires both accurate span localization and well-calibrated confidence scores. Fine-tuned generative VLMs excel at identifying hallucinated text spans but suffer from overconfidence and high inference latency. Discriminative sequence taggers offer deterministic speed and superior calibration but exhibit conservative span recall. We present SpanCalib-VLM, a hybrid dual-system for the SHROOM-Visions Shared Task that combines a multimodal sequence tagger, consisting of XLM-RoBERTa-Large fused with a SigLIP vision encoder via cross-",
+   "id": "2609.00092",
+   "title": "Safin-1: Safety from Within through Memory-Native State Evolution",
+   "abstract": "Long-horizon complex tasks require foundation models to accumulate information, maintain internal states, and adapt over extended interactions. Safety should be an intrinsic property of the model itself, rather than a behavioral constraint relying solely on external safeguards or post-hoc alignment such as supervised fine-tuning. This motivates Safety from Within, where safety-relevant capabilities are represented and invoked through the model's native computation. We present Safin-1, a family of foundation models realizing this principle through memory routing and state evolution. Safin-1 is ",
    "authors": [
-    "Amanuel Gizachew Abebe",
-    "Yasmin Moslem"
+    "Ming Zhang",
+    "Kaisen Yang",
+    "Shu Yu",
+    "Ermo Hua"
    ],
-   "link": "https://huggingface.co/papers/2608.29974",
+   "link": "https://huggingface.co/papers/2609.00092",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-30T00:00",
-   "title_ar": "SpanCalib-VLM: الكشف المعاير لنطاقات الهلوسة في نماذج الرؤية واللغة",
-   "summary_ar": "يتطلب كشف الهلوسة في نماذج الرؤية واللغة الكبيرة تحديدًا دقيقًا لموضع النطاق ودرجات ثقة معايرة جيدًا. تتفوق نماذج الرؤية واللغة التوليدية المضبوطة بدقة في تحديد نطاقات النصوص المهلوسة، لكنها تعاني من فرط الثقة وزمن انتقال مرتفع في الاستدلال."
+   "published": "2026-08-31T00:00",
+   "title_ar": "Safin-1: الأمان من الداخل عبر تطور الحالة الأصيلة في الذاكرة",
+   "summary_ar": "تتطلب المهام المعقدة طويلة المدى من النماذج التأسيسية تجميع المعلومات، والحفاظ على الحالات الداخلية، والتكيف عبر تفاعلات ممتدة. ويجب أن يكون الأمان خاصية جوهرية للنموذج نفسه، بدلًا من اعتباره قيدًا سلوكيًا يعتمد فقط على الضمانات الخارجية أو المحاذاة اللاحقة."
   },
   {
-   "id": "2608.29847",
-   "title": "ContextBias: Controlled Evaluation of Bias Persistence Under Context Shift in Text-to-Image Models",
-   "abstract": "Text-to-image models learn associations between concepts - in the case of this paper, people's professions, which we refer to as roles - and visual attributes. These associations can underpin many observed forms of stereotypical bias. A key open question in this area is whether these associations are stable or change when visual representations of people in professional roles are placed in different prompted contexts. We introduce ContextBias, a controlled evaluation framework, and ContextBench, a benchmark spanning 92 roles and 1,656 semantically controlled prompts, designed to isolate the ef",
+   "id": "2609.01343",
+   "title": "SMELT: Scaling Laws for Compute-Matched MoE Looped Transformers",
+   "abstract": "Looped Transformers increase effective depth by iterating a shared block of layers, but most evaluations compare at fixed model size, conflating architectural advantage with extra FLOPs. We study looping on Mixture-of-Experts Transformers while closely matching per-token FLOPs, total non-embedding parameters, and KV cache. Through a series of ablations, we arrive at a recipe we call SMELT (Sparse MoE Transformer, middle layers Loop Twice), which loops the middle half of layers twice while matching the unlooped Baseline on all three budgets. We scale SMELT across four sizes up to 54B non-embedd",
    "authors": [
-    "Shaghayegh Kolli",
-    "Sina Emami",
-    "Moreno D&#39;Incà",
-    "Pouyan Nejadi"
+    "Shaowen Wang",
+    "Ge Zhang",
+    "Kairong Luo",
+    "Yuhao Wu"
    ],
-   "link": "https://huggingface.co/papers/2608.29847",
+   "link": "https://huggingface.co/papers/2609.01343",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-30T00:00",
-   "title_ar": "ContextBias: تقييم محكوم لاستمرارية التحيز تحت تحول السياق في نماذج تحويل النص إلى صورة",
-   "summary_ar": "تتعلم نماذج تحويل النص إلى صورة روابط بين المفاهيم - كمهن الأشخاص التي تشير إليها هذه الورقة بالأدوار - والسمات البصرية، وهي روابط قد تعزز أشكالًا متعددة من التحيز النمطي المرصود. ويظل السؤال المفتوح الرئيسي في هذا المجال هو ما إذا كانت هذه الروابط مستمرة تحت تحول السياق."
+   "published": "2026-09-01T00:00",
+   "title_ar": "SMELT: قوانين التوسع لمحولات الحلقات القائمة على خليط الخبراء والمتطابقة في الحوسبة",
+   "summary_ar": "تزيد محولات الحلقات من العمق الفعلي عبر تكرار كتلة طبقات مشتركة، لكن معظم التقييمات تقارن عند حجم نموذج ثابت فتخلط بين الميزة المعمارية والعمليات الحسابية الإضافية. تبحث هذه الدراسة التكرار الحلقي على محولات خليط الخبراء مع مطابقة دقيقة للعمليات الحسابية لكل رمز وإجمالي المعلمات غير المدمجة."
   },
   {
-   "id": "2608.29464",
-   "title": "Chain-of-Thought Faithfulness of Reasoning Models Varies with Where and How Preference Cues Are Delivered",
-   "abstract": "Chain-of-thought (CoT) monitoring assumes that reasoning traces faithfully record the information that shapes a model's answer. Existing faithfulness tests often place explicit bias cues in the user message, while agents may encounter preferences through tool returns or raw artifacts. We introduce FACE-Eval (Faithful Attribution of Cue Effects Evaluation), a 5,100-sample evaluation that varies cue location (user message or tool return) and explicitness (direct summary or raw artifact). We measure verbalized commitment among cue-following answers and unverbalized adoption among all cued samples",
+   "id": "2609.01481",
+   "title": "Harness-of-Harness: Multi-Day Autonomous Software Development with Continual Improvement",
+   "abstract": "This paper studies autonomous software development, in which LLM-based coding agents transform high-level requirements into complete, functional, and usable software systems without human intervention. We introduce Harness-of-Harness (HoH), a framework that enables coding agents to continually improve software during autonomous development. HoH operates on existing coding-agent harnesses, and organizes their executions into iterative planning-coding-testing loops. To sustain improvement across loops, HoH balances repair with capability growth, scopes development into small and verifiable incre",
    "authors": [
-    "Aryo Pradipta Gema",
-    "Neel Rajani",
-    "Rohit Saxena",
-    "Wai-Chung Kwan"
+    "Haoyang Yan",
+    "Min-le Su",
+    "Hangfan Zhang",
+    "Zhanhao Li"
    ],
-   "link": "https://huggingface.co/papers/2608.29464",
+   "link": "https://huggingface.co/papers/2609.01481",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-29T00:00",
-   "title_ar": "إخلاص سلسلة الأفكار لنماذج الاستدلال يتفاوت بتفاوت مكان وكيفية تقديم إشارات التفضيل",
-   "summary_ar": "تفترض مراقبة سلسلة الأفكار أن مسارات الاستدلال تسجل بأمانة المعلومات التي تشكل إجابة النموذج. وغالبًا ما تضع اختبارات الإخلاص الحالية إشارات انحياز صريحة في رسالة المستخدم، في حين قد تصادف الوكلاء التفضيلات عبر مخرجات الأدوات أو العناصر الخام."
+   "published": "2026-09-01T00:00",
+   "title_ar": "تسخير التسخير: تطوير برمجيات ذاتي لعدة أيام مع التحسين المستمر",
+   "summary_ar": "تبحث هذه الورقة في تطوير البرمجيات ذاتيًا، حيث يحول وكلاء البرمجة المعتمدون على النماذج اللغوية الكبيرة المتطلبات العامة إلى أنظمة برمجية كاملة وقابلة للاستخدام دون تدخل بشري. ونقدم إطار \"تسخير التسخير\" (HoH) الذي يمكّن وكلاء البرمجة من التحسن المستمر."
   },
   {
-   "id": "2608.29387",
-   "title": "EvoGenUI-Bench: Evaluating LLMs as Multi-Turn Generative UI Assistants",
-   "abstract": "Large language models can generate interactive web interfaces, but reliable generative UI requires maintaining an executable artifact as user requests evolve. We introduce EvoGenUI-Bench, a benchmark for multi-turn interface maintenance comprising 150 five-turn tasks and 750 turns across three scenarios: information presentation, executable interaction, and tool-grounded external state. We execute generated artifacts in a browser and evaluate them using screenshots, source and DOM evidence, actor traces, and runtime logs. Beyond turn-level and episode-level success, we measure cross-turn reten",
+   "id": "2609.00028",
+   "title": "UI-Venus-2 Technical Report",
+   "abstract": "Multimodal GUI agents have emerged as a promising paradigm for digital task automation, yet transitioning from benchmark-oriented models to dependable real-world applications remains challenging due to limited environment coverage, brittle task construction, and unreliable reward verification. In this work, we present UI-Venus-2, a general-purpose foundation GUI agent designed to operate across mobile, web, and desktop environments through a unified closed-loop reasoning-action framework. To bridge the gap toward practical deployment, we jointly scale three critical dimensions: (1) Environment",
    "authors": [
-    "Yue Peng",
-    "Lanke Xia",
-    "Zihan Wang",
-    "Jiahao Ye"
+    "Venus Team",
+    "Zhuohan Cai",
+    "Haoxing Chen",
+    "Jiaxuan Chen"
    ],
-   "link": "https://huggingface.co/papers/2608.29387",
+   "link": "https://huggingface.co/papers/2609.00028",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-29T00:00",
-   "title_ar": "EvoGenUI-Bench: تقييم النماذج اللغوية الكبيرة كمساعدات توليدية لواجهات المستخدم متعددة الجولات",
-   "summary_ar": "تستطيع النماذج اللغوية الكبيرة توليد واجهات ويب تفاعلية، ولكن واجهات المستخدم التوليدية الموثوقة تتطلب الحفاظ على عنصر قابل للتنفيذ مع تطور طلبات المستخدمين. ولهذا نقدّم EvoGenUI-Bench، وهو معيار قياسي لصيانة الواجهات متعددة الجولات يضم 150 مهمة خماسية الجولات و750 جولة عبر ثلاثة سيناريوهات."
+   "published": "2026-08-27T00:00",
+   "title_ar": "التقرير الفني لـ UI-Venus-2",
+   "summary_ar": "برز وكلاء واجهات المستخدم الرسومية متعددة الوسائط كنموذج واعد لأتمتة المهام الرقمية، لكن الانتقال من النماذج الموجهة نحو المعايير المرجعية إلى تطبيقات واقعية موثوقة لا يزال يمثل تحديًا. ويعود ذلك إلى محدودية تغطية البيئات، وهشاشة بناء المهام، وعدم موثوقية التحقق من المكافآت."
   }
  ],
  "n": 6
