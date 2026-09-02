@@ -1,108 +1,105 @@
 {
- "updated": "2026-09-02T07:40+00:00",
+ "updated": "2026-09-02T19:42+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2608.30478",
-   "title": "Agents in the Large: Perception-Centered Architecture for Persistent Agents",
-   "abstract": "Cognitive language agents have achieved substantial progress by equipping language models with memory, tools, and decision-making procedures, enabling agents to reason and act in interactive environments. Existing frameworks largely cast these agents as systems for solving user-specified, bounded tasks. An increasingly important goal is for language agents to provide persistent assistance in long-lived settings where user needs, context, and service procedures persist and change, and to remain useful across the broad range of tasks that arise over time. Yet we still lack a framework to charact",
+   "id": "2608.26623",
+   "title": "AgentJudgeBench: A Multi-Difficulty Benchmark for Evaluating LLM Judges on Agentic Tool-Calling",
+   "abstract": "LLM judges are widely used to evaluate agentic tool-calling systems, yet their reliability on structured, dependency-driven workflows remains largely unexamined. We present AgentJudgeBench, the first benchmark to systematically study LLM-as-a-judge reliability for agentic tool-calling over workflow DAGs, as distinct from the broader LLM-as-a-judge task of open-ended text or preference evaluation. The benchmark comprises 3,808 instances spanning six DAG topologies and three difficulty tiers, evaluated with five generators (3B-70B open-weight models and GPT-5.4) and six judges (20B to frontier s",
    "authors": [
-    "Shihan Dou",
-    "Haoxiang Jia",
-    "Shichun Liu",
-    "Feng Chen"
+    "Abhigya Verma",
+    "Amit Kumar Saha",
+    "Seganrasan Subramanian",
+    "Sai Harshitha Aluru"
    ],
-   "link": "https://huggingface.co/papers/2608.30478",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-31T00:00",
-   "title_ar": "الوكلاء على نطاق واسع: بنية متمحورة حول الإدراك للوكلاء الدائمين",
-   "summary_ar": "حقق وكلاء اللغة الإدراكية تقدمًا كبيرًا من خلال تزويد النماذج اللغوية بالذاكرة والأدوات وإجراءات اتخاذ القرار، مما يتيح لها التفكير والتصرف في البيئات التفاعلية. غير أن الأطر الحالية تصنف هؤلاء الوكلاء في الغالب كأنظمة لحل مهام محددة ومحدودة من قِبل المستخدم."
-  },
-  {
-   "id": "2609.00768",
-   "title": "DiagEvo: Diagnosis-Guided Self-Evolution via Hierarchical Error Memory",
-   "abstract": "Self-play is an effective paradigm for language-model self-evolution, but without guidance, solver performance can plateau or decline across rounds. Unguided methods steer question generation with signals such as difficulty, learnability, or diversity. These signals keep questions challenging and varied but do not specify which unresolved reasoning weaknesses later rounds should target. Guided methods obtain direction from external task resources, including human examples, document corpora, or specified difficulty targets, and therefore rely on task information supplied outside the self-play l",
-   "authors": [
-    "Xincheng Wei",
-    "Yifan Ding",
-    "Yoshua Li",
-    "Dongsheng Ma"
-   ],
-   "link": "https://huggingface.co/papers/2609.00768",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-01T00:00",
-   "title_ar": "DiagEvo: التطور الذاتي الموجه بالتشخيص عبر ذاكرة الأخطاء الهرمية",
-   "summary_ar": "يُعد اللعب الذاتي نموذجًا فعالًا للتطور الذاتي للنماذج اللغوية، لكن بدون توجيه قد يستقر أداء نظام الحل أو يتراجع عبر الجولات. تعتمد الطرق غير الموجهة على إشارات كالصعوبة وقابلية التعلم والتنوع لإبقاء الأسئلة صعبة ومتنوعة."
-  },
-  {
-   "id": "2609.00092",
-   "title": "Safin-1: Safety from Within through Memory-Native State Evolution",
-   "abstract": "Long-horizon complex tasks require foundation models to accumulate information, maintain internal states, and adapt over extended interactions. Safety should be an intrinsic property of the model itself, rather than a behavioral constraint relying solely on external safeguards or post-hoc alignment such as supervised fine-tuning. This motivates Safety from Within, where safety-relevant capabilities are represented and invoked through the model's native computation. We present Safin-1, a family of foundation models realizing this principle through memory routing and state evolution. Safin-1 is ",
-   "authors": [
-    "Ming Zhang",
-    "Kaisen Yang",
-    "Shu Yu",
-    "Ermo Hua"
-   ],
-   "link": "https://huggingface.co/papers/2609.00092",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-31T00:00",
-   "title_ar": "Safin-1: الأمان من الداخل عبر تطور الحالة الأصيلة في الذاكرة",
-   "summary_ar": "تتطلب المهام المعقدة طويلة المدى من النماذج التأسيسية تجميع المعلومات، والحفاظ على الحالات الداخلية، والتكيف عبر تفاعلات ممتدة. ويجب أن يكون الأمان خاصية جوهرية للنموذج نفسه، بدلًا من اعتباره قيدًا سلوكيًا يعتمد فقط على الضمانات الخارجية أو المحاذاة اللاحقة."
-  },
-  {
-   "id": "2609.01343",
-   "title": "SMELT: Scaling Laws for Compute-Matched MoE Looped Transformers",
-   "abstract": "Looped Transformers increase effective depth by iterating a shared block of layers, but most evaluations compare at fixed model size, conflating architectural advantage with extra FLOPs. We study looping on Mixture-of-Experts Transformers while closely matching per-token FLOPs, total non-embedding parameters, and KV cache. Through a series of ablations, we arrive at a recipe we call SMELT (Sparse MoE Transformer, middle layers Loop Twice), which loops the middle half of layers twice while matching the unlooped Baseline on all three budgets. We scale SMELT across four sizes up to 54B non-embedd",
-   "authors": [
-    "Shaowen Wang",
-    "Ge Zhang",
-    "Kairong Luo",
-    "Yuhao Wu"
-   ],
-   "link": "https://huggingface.co/papers/2609.01343",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-01T00:00",
-   "title_ar": "SMELT: قوانين التوسع لمحولات الحلقات القائمة على خليط الخبراء والمتطابقة في الحوسبة",
-   "summary_ar": "تزيد محولات الحلقات من العمق الفعلي عبر تكرار كتلة طبقات مشتركة، لكن معظم التقييمات تقارن عند حجم نموذج ثابت فتخلط بين الميزة المعمارية والعمليات الحسابية الإضافية. تبحث هذه الدراسة التكرار الحلقي على محولات خليط الخبراء مع مطابقة دقيقة للعمليات الحسابية لكل رمز وإجمالي المعلمات غير المدمجة."
-  },
-  {
-   "id": "2609.01481",
-   "title": "Harness-of-Harness: Multi-Day Autonomous Software Development with Continual Improvement",
-   "abstract": "This paper studies autonomous software development, in which LLM-based coding agents transform high-level requirements into complete, functional, and usable software systems without human intervention. We introduce Harness-of-Harness (HoH), a framework that enables coding agents to continually improve software during autonomous development. HoH operates on existing coding-agent harnesses, and organizes their executions into iterative planning-coding-testing loops. To sustain improvement across loops, HoH balances repair with capability growth, scopes development into small and verifiable incre",
-   "authors": [
-    "Haoyang Yan",
-    "Min-le Su",
-    "Hangfan Zhang",
-    "Zhanhao Li"
-   ],
-   "link": "https://huggingface.co/papers/2609.01481",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-01T00:00",
-   "title_ar": "تسخير التسخير: تطوير برمجيات ذاتي لعدة أيام مع التحسين المستمر",
-   "summary_ar": "تبحث هذه الورقة في تطوير البرمجيات ذاتيًا، حيث يحول وكلاء البرمجة المعتمدون على النماذج اللغوية الكبيرة المتطلبات العامة إلى أنظمة برمجية كاملة وقابلة للاستخدام دون تدخل بشري. ونقدم إطار \"تسخير التسخير\" (HoH) الذي يمكّن وكلاء البرمجة من التحسن المستمر."
-  },
-  {
-   "id": "2609.00028",
-   "title": "UI-Venus-2 Technical Report",
-   "abstract": "Multimodal GUI agents have emerged as a promising paradigm for digital task automation, yet transitioning from benchmark-oriented models to dependable real-world applications remains challenging due to limited environment coverage, brittle task construction, and unreliable reward verification. In this work, we present UI-Venus-2, a general-purpose foundation GUI agent designed to operate across mobile, web, and desktop environments through a unified closed-loop reasoning-action framework. To bridge the gap toward practical deployment, we jointly scale three critical dimensions: (1) Environment",
-   "authors": [
-    "Venus Team",
-    "Zhuohan Cai",
-    "Haoxing Chen",
-    "Jiaxuan Chen"
-   ],
-   "link": "https://huggingface.co/papers/2609.00028",
+   "link": "https://huggingface.co/papers/2608.26623",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-08-27T00:00",
-   "title_ar": "التقرير الفني لـ UI-Venus-2",
-   "summary_ar": "برز وكلاء واجهات المستخدم الرسومية متعددة الوسائط كنموذج واعد لأتمتة المهام الرقمية، لكن الانتقال من النماذج الموجهة نحو المعايير المرجعية إلى تطبيقات واقعية موثوقة لا يزال يمثل تحديًا. ويعود ذلك إلى محدودية تغطية البيئات، وهشاشة بناء المهام، وعدم موثوقية التحقق من المكافآت."
+   "title_ar": "معيار AgentJudgeBench: معيار متعدد مستويات الصعوبة لتقييم حُكّام النماذج اللغوية الكبيرة في استدعاء الأدوات للوكلاء الذكاء الاصطناعي",
+   "summary_ar": "يُستخدم حُكّام النماذج اللغوية الكبيرة على نطاق واسع لتقييم أنظمة استدعاء الأدوات لدى الوكلاء، غير أن موثوقيتها في مهام سير العمل المنظمة القائمة على التبعيات تظل غير مفحوصة إلى حد كبير. نقدم AgentJudgeBench، وهو أول معيار يدرس بشكل منهجي موثوقية اتخاذ النماذج اللغوية الكبيرة كحكام في استدعاء الأدوات للوكلاء عبر سير العمل."
+  },
+  {
+   "id": "2608.31082",
+   "title": "Token-Efficient Data Reasoning Agents via Adaptive Structuring of Unstructured Data",
+   "abstract": "Valuable data remains embedded in unstructured sources: web pages, reports, contracts, filings, earnings calls, and PDFs. The big bet in enterprise AI is deploying LLM agents that reason over this data to answer complex questions for every knowledge worker. Agents can do this today, but at prohibitive cost. Each question repeatedly opens large documents to recover scattered evidence, consuming up to a million tokens. However, if the data were already structured, the same question would reduce to a cheap database lookup. For example, on FanOutQA benchmark, reasoning over an ideal pre-structured",
+   "authors": [
+    "Milad Rezaei Hajidehi",
+    "Qitong Wang",
+    "Stratos Idreos"
+   ],
+   "link": "https://huggingface.co/papers/2608.31082",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-08-31T00:00",
+   "title_ar": "وكلاء استدلال بيانات عالي الكفاءة في استهلاك الرموز عبر الهيكلة التكيفية للبيانات غير المنظمة",
+   "summary_ar": "تظل البيانات القيّمة مدمجة في مصادر غير منظمة مثل صفحات الويب والتقارير والعقود والملفات والنتائج المالية وملفات PDF. يكمن الرهان الأكبر في الذكاء الاصطناعي للمؤسسات في نشر وكلاء نماذج لغوية كبيرة تستدل عبر هذه البيانات للإجابة عن أسئلة معقدة لجميع العاملين في المعرفة، وهو ما يمكن للوكلاء فعله اليوم لكن بتكلفة باهظة."
+  },
+  {
+   "id": "2609.00374",
+   "title": "Adapting Without Gradients: Affine Statistics Transport and What Its Certificate Can Tell You",
+   "abstract": "Test-time adaptation (TTA) typically assumes that model parameters can be updated at inference time. This assumption is restrictive for inference-only accelerators, frozen or third-party models, and memory-constrained deployments, and standard BatchNorm-based TTA configurations may also become inactive on architectures without BatchNorm. We study adaptation when the learned model must remain frozen. We introduce CASTER, a gradient-free method that stores source class statistics in a discriminative subspace, estimates a class-shared affine transformation from target-batch moments, and analytica",
+   "authors": [
+    "Salim Khazem",
+    "Ibrahim Mohamed Serouis"
+   ],
+   "link": "https://huggingface.co/papers/2609.00374",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-08-31T00:00",
+   "title_ar": "التكيف بدون تدرجات: نقل الإحصاءات التآلفية وما يمكن أن تخبرك به وثيقة اعتماده",
+   "summary_ar": "يفترض التكيف في وقت الاختبار عادةً إمكانية تحديث معلمات النموذج أثناء الاستدلال، وهو افتراض مقيد للمسرعات المخصصة للاستدلال فقط، أو النماذج المجمدة والتابعة لأطراف ثالثة، أو عمليات النشر المقيدة بالذاكرة. كما قد تصبح تكوينات التكيف الشائعة المعتمدة على تسوية الدفعات غير فعالة في هذه الحالات."
+  },
+  {
+   "id": "2609.00646",
+   "title": "DramaChain Bench: An End-to-End Benchmark for Short-Drama Generation",
+   "abstract": "Commercial short-drama production follows a multi-stage chain: script, storyboard, keyframe imagery, shot-level video, and the finished short drama. Most existing benchmarks evaluate solely the video-generation stage using pre-authored inputs instead of real upstream pipeline outputs. This leaves two critical questions unanswerable: whether each stage adheres to the original script intent (rather than only its immediate input prompt), and whether disparate shots remain coherent after assembly into multi-episode releases. We present DramaChain Bench, the first short-drama benchmark that evaluat",
+   "authors": [
+    "Haoyuan Shi",
+    "Mingtao Chen",
+    "Shuo Jiang",
+    "Ziyan Chen"
+   ],
+   "link": "https://huggingface.co/papers/2609.00646",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-01T00:00",
+   "title_ar": "معيار DramaChain Bench: معيار شامل من البداية إلى النهاية لتوليد الدراما القصيرة",
+   "summary_ar": "يتبع إنتاج الدراما القصيرة التجارية سلسلة متعددة المراحل تشمل السيناريو، والقصة المصورة، وصور الإطارات الرئيسية، ومقاطع الفيديو على مستوى اللقطات، والدراما القصيرة المكتملة. تقيّم معظم المعايير الحالية مرحلة توليد الفيديو فقط باستخدام مدخلات مُعدة مسبقاً بدلاً من مخرجات خط الإنتاج الفعلية السابقة."
+  },
+  {
+   "id": "2608.30457",
+   "title": "Learning Where Outcomes Change:Credit-Addressable Reasoning for Multimodal Geometry",
+   "abstract": "Multimodal geometry reasoning requires VLMs to extract precise visual relations and preserve them through multi-step deduction. Existing free-form traces obscure the decisions that determine the answer, and trajectory-level reinforcement learning distributes a single terminal signal across the entire response. We introduce credit-addressable reasoning, in which the semantic units exposed during inference also define where learning compares alternatives and assigns credit. We instantiate this principle with Code-CoT, which retains the diagram, represents visual relations as line-addressable exe",
+   "authors": [
+    "Jiani Guo",
+    "Junjie Wang",
+    "Jie Wu",
+    "Pengxiang Zhao"
+   ],
+   "link": "https://huggingface.co/papers/2608.30457",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-08-31T00:00",
+   "title_ar": "تعلم مواضع تغير النتائج: استدلال موجه بتخصيص الفضل للهندسة متعددة الوسائط",
+   "summary_ar": "يتطلب استدلال الهندسة متعدد الوسائط من نماذج الرؤية واللغة استخراج علاقات بصرية دقيقة والحفاظ عليها عبر استنتاج متعدد الخطوات. تحجب مسارات الاستدلال الحرة الحالية القرارات التي تحدد الإجابة، في حين يوزع التعلم التعزيزي على مستوى المسار إشارة نهائية واحدة عبر المسار بأكمله."
+  },
+  {
+   "id": "2609.01572",
+   "title": "From Production Traffic to Post-Training: Building a Self-Hosted LLM That Covers the Corporate Request Mix",
+   "abstract": "Data-residency constraints force enterprises to self-host LLMs, but continuous adoption of newer models without decommissioning their predecessors expands the serving fleet, fragmenting a finite GPU pool. We consolidate traffic from over 200 internal applications onto a single model by closing quality gaps identified through production error analysis along three axes: instruction following, function-calling, and internal task distribution. Quality is tracked by offline benchmarks stratified to production traffic and scored by deterministic verifiers or calibrated LLM judges. Rather than optimi",
+   "authors": [
+    "Olga Tsymboi",
+    "Dmitrii Stoianov",
+    "Ramil Latypov",
+    "Danil Taranets"
+   ],
+   "link": "https://huggingface.co/papers/2609.01572",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-01T00:00",
+   "title_ar": "من حركة الإنتاج إلى ما بعد التدريب: بناء نموذج لغوي كبير مستضاف ذاتياً يغطي مزيج الطلبات المؤسسية",
+   "summary_ar": "تفرض قيود إقامة البيانات على المؤسسات استضافة النماذج اللغوية الكبيرة ذاتياً، لكن الاعتماد المستمر لنماذج أحدث دون إيقاف سابقاتها يوسع أسطول الخدمة ويفتت موارد وحدات معالجة الرسوميات المحدودة. قمنا بدمج حركة البيانات من أكثر من 200 تطبيق داخلي في نموذج واحد من خلال سد فجوة الجودة."
   }
  ],
  "n": 6
