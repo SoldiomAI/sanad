@@ -1,105 +1,107 @@
 {
- "updated": "2026-09-02T19:42+00:00",
+ "updated": "2026-09-03T09:31+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2608.26623",
-   "title": "AgentJudgeBench: A Multi-Difficulty Benchmark for Evaluating LLM Judges on Agentic Tool-Calling",
-   "abstract": "LLM judges are widely used to evaluate agentic tool-calling systems, yet their reliability on structured, dependency-driven workflows remains largely unexamined. We present AgentJudgeBench, the first benchmark to systematically study LLM-as-a-judge reliability for agentic tool-calling over workflow DAGs, as distinct from the broader LLM-as-a-judge task of open-ended text or preference evaluation. The benchmark comprises 3,808 instances spanning six DAG topologies and three difficulty tiers, evaluated with five generators (3B-70B open-weight models and GPT-5.4) and six judges (20B to frontier s",
+   "id": "2608.21450",
+   "title": "Beyond Visual Similarity: Entity-Aligned Retrieval for Knowledge-Based Visual Question Answering",
+   "abstract": "Knowledge-Based Visual Question Answering (KB-VQA) relies on retrieving external information to answer queries involving long-tail entities. However, existing retrieval pipelines predominantly employ CLIP-style dual encoders, which prioritize surface-level visual similarity over entity-level semantic alignment. This paradigm often fails when semantically identical concepts exhibit large visual variations or when distinct entities appear visually similar. To address this, we propose KBMR, the first MLLM-based embedding retriever tailored for KB-VQA. Leveraging the robust autoregressive capabili",
    "authors": [
-    "Abhigya Verma",
-    "Amit Kumar Saha",
-    "Seganrasan Subramanian",
-    "Sai Harshitha Aluru"
+    "Hangrui Xu",
+    "Zhengxian Wu",
+    "Yunyao Yu",
+    "Zhuohong Chen"
    ],
-   "link": "https://huggingface.co/papers/2608.26623",
+   "link": "https://huggingface.co/papers/2608.21450",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-27T00:00",
-   "title_ar": "معيار AgentJudgeBench: معيار متعدد مستويات الصعوبة لتقييم حُكّام النماذج اللغوية الكبيرة في استدعاء الأدوات للوكلاء الذكاء الاصطناعي",
-   "summary_ar": "يُستخدم حُكّام النماذج اللغوية الكبيرة على نطاق واسع لتقييم أنظمة استدعاء الأدوات لدى الوكلاء، غير أن موثوقيتها في مهام سير العمل المنظمة القائمة على التبعيات تظل غير مفحوصة إلى حد كبير. نقدم AgentJudgeBench، وهو أول معيار يدرس بشكل منهجي موثوقية اتخاذ النماذج اللغوية الكبيرة كحكام في استدعاء الأدوات للوكلاء عبر سير العمل."
+   "published": "2026-08-19T00:00",
+   "title_ar": "ما وراء التشابه البصري: استرجاع محاذٍ للكيانات للإجابة البصرية عن الأسئلة القائمة على المعرفة",
+   "summary_ar": "تعتمد الإجابة البصرية عن الأسئلة القائمة على المعرفة على استرجاع معلومات خارجية للإجابة عن الاستفسارات المتعلقة بكيانات ذيل التوزيع الطويل. ومع ذلك، تستخدم مسارات الاسترجاع الحالية في الغالب مشفرات مزدوجة بأسلوب CLIP، والتي تفضل التشابه البصري السطحي على دلالات مستوى الكيان."
   },
   {
-   "id": "2608.31082",
-   "title": "Token-Efficient Data Reasoning Agents via Adaptive Structuring of Unstructured Data",
-   "abstract": "Valuable data remains embedded in unstructured sources: web pages, reports, contracts, filings, earnings calls, and PDFs. The big bet in enterprise AI is deploying LLM agents that reason over this data to answer complex questions for every knowledge worker. Agents can do this today, but at prohibitive cost. Each question repeatedly opens large documents to recover scattered evidence, consuming up to a million tokens. However, if the data were already structured, the same question would reduce to a cheap database lookup. For example, on FanOutQA benchmark, reasoning over an ideal pre-structured",
+   "id": "2608.30751",
+   "title": "Autoregressive Mosaics: Probing 2D Spatial Reasoning in Text-Only Language Models",
+   "abstract": "Large language models (LLMs) trained only on text and code can sometimes generate programs that draw recognizable images. However, it is unclear whether this reflects an internal representation of 2D spatial layout or simply the ability to translate spatial descriptions into code. We introduce Autoregressive Mosaics (AM-Bench), a benchmark that separates these factors: First, a translation task gives a model a fully specified geometry of a picture in words as a prompt and asks for the code that produces it. Second, a layout task requires the model to compose an image from an underspecified pro",
    "authors": [
-    "Milad Rezaei Hajidehi",
-    "Qitong Wang",
-    "Stratos Idreos"
+    "Ashwin Nedungadi",
+    "Stefan Oehmcke",
+    "Stefan Lüdtke"
    ],
-   "link": "https://huggingface.co/papers/2608.31082",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-31T00:00",
-   "title_ar": "وكلاء استدلال بيانات عالي الكفاءة في استهلاك الرموز عبر الهيكلة التكيفية للبيانات غير المنظمة",
-   "summary_ar": "تظل البيانات القيّمة مدمجة في مصادر غير منظمة مثل صفحات الويب والتقارير والعقود والملفات والنتائج المالية وملفات PDF. يكمن الرهان الأكبر في الذكاء الاصطناعي للمؤسسات في نشر وكلاء نماذج لغوية كبيرة تستدل عبر هذه البيانات للإجابة عن أسئلة معقدة لجميع العاملين في المعرفة، وهو ما يمكن للوكلاء فعله اليوم لكن بتكلفة باهظة."
-  },
-  {
-   "id": "2609.00374",
-   "title": "Adapting Without Gradients: Affine Statistics Transport and What Its Certificate Can Tell You",
-   "abstract": "Test-time adaptation (TTA) typically assumes that model parameters can be updated at inference time. This assumption is restrictive for inference-only accelerators, frozen or third-party models, and memory-constrained deployments, and standard BatchNorm-based TTA configurations may also become inactive on architectures without BatchNorm. We study adaptation when the learned model must remain frozen. We introduce CASTER, a gradient-free method that stores source class statistics in a discriminative subspace, estimates a class-shared affine transformation from target-batch moments, and analytica",
-   "authors": [
-    "Salim Khazem",
-    "Ibrahim Mohamed Serouis"
-   ],
-   "link": "https://huggingface.co/papers/2609.00374",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-31T00:00",
-   "title_ar": "التكيف بدون تدرجات: نقل الإحصاءات التآلفية وما يمكن أن تخبرك به وثيقة اعتماده",
-   "summary_ar": "يفترض التكيف في وقت الاختبار عادةً إمكانية تحديث معلمات النموذج أثناء الاستدلال، وهو افتراض مقيد للمسرعات المخصصة للاستدلال فقط، أو النماذج المجمدة والتابعة لأطراف ثالثة، أو عمليات النشر المقيدة بالذاكرة. كما قد تصبح تكوينات التكيف الشائعة المعتمدة على تسوية الدفعات غير فعالة في هذه الحالات."
-  },
-  {
-   "id": "2609.00646",
-   "title": "DramaChain Bench: An End-to-End Benchmark for Short-Drama Generation",
-   "abstract": "Commercial short-drama production follows a multi-stage chain: script, storyboard, keyframe imagery, shot-level video, and the finished short drama. Most existing benchmarks evaluate solely the video-generation stage using pre-authored inputs instead of real upstream pipeline outputs. This leaves two critical questions unanswerable: whether each stage adheres to the original script intent (rather than only its immediate input prompt), and whether disparate shots remain coherent after assembly into multi-episode releases. We present DramaChain Bench, the first short-drama benchmark that evaluat",
-   "authors": [
-    "Haoyuan Shi",
-    "Mingtao Chen",
-    "Shuo Jiang",
-    "Ziyan Chen"
-   ],
-   "link": "https://huggingface.co/papers/2609.00646",
+   "link": "https://huggingface.co/papers/2608.30751",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-01T00:00",
-   "title_ar": "معيار DramaChain Bench: معيار شامل من البداية إلى النهاية لتوليد الدراما القصيرة",
-   "summary_ar": "يتبع إنتاج الدراما القصيرة التجارية سلسلة متعددة المراحل تشمل السيناريو، والقصة المصورة، وصور الإطارات الرئيسية، ومقاطع الفيديو على مستوى اللقطات، والدراما القصيرة المكتملة. تقيّم معظم المعايير الحالية مرحلة توليد الفيديو فقط باستخدام مدخلات مُعدة مسبقاً بدلاً من مخرجات خط الإنتاج الفعلية السابقة."
+   "title_ar": "الفسيفساء ذاتية الانحدار: فحص الاستدلال المكاني ثنائي الأبعاد في النماذج اللغوية المقتصرة على النصوص",
+   "summary_ar": "يمكن للنماذج اللغوية الكبيرة المدربة على النصوص والأكواد البرمجية فقط أن تُنتج أحيانًا برامج ترسم صورًا يمكن تمييزها. غير أنه من غير الواضح ما إذا كان هذا يعكس تمثيلًا داخليًا للتخطيط المكاني ثنائي الأبعاد أو مجرد قدرة على ترجمة الأوصاف المكانية إلى كود، لذا نقدّم الفسيفساء ذاتية الانحدار."
   },
   {
-   "id": "2608.30457",
-   "title": "Learning Where Outcomes Change:Credit-Addressable Reasoning for Multimodal Geometry",
-   "abstract": "Multimodal geometry reasoning requires VLMs to extract precise visual relations and preserve them through multi-step deduction. Existing free-form traces obscure the decisions that determine the answer, and trajectory-level reinforcement learning distributes a single terminal signal across the entire response. We introduce credit-addressable reasoning, in which the semantic units exposed during inference also define where learning compares alternatives and assigns credit. We instantiate this principle with Code-CoT, which retains the diagram, represents visual relations as line-addressable exe",
+   "id": "2609.01740",
+   "title": "ZipTok3D: High-Fidelity 3D Tokenization with Compact Token Prefixes",
+   "abstract": "Compact token sequences are essential for efficient 3D generation. However, existing 3D tokenizers typically organize latent representations either over spatial regions or as fixed-size sets of global tokens, both suffering sharp reconstruction degradation when compressed to extremely low token budgets. In this paper, we present ZipTok3D, a 3D tokenizer designed for high-fidelity reconstruction from extremely short token sequences. Its key idea is to organize object geometry into progressively informative global-token prefixes and unfold these compact representations through iterative decoding",
    "authors": [
-    "Jiani Guo",
-    "Junjie Wang",
-    "Jie Wu",
-    "Pengxiang Zhao"
+    "Mingda Lin",
+    "Weijie Wang",
+    "Zeyu Zhang",
+    "Bowen Cui"
    ],
-   "link": "https://huggingface.co/papers/2608.30457",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-31T00:00",
-   "title_ar": "تعلم مواضع تغير النتائج: استدلال موجه بتخصيص الفضل للهندسة متعددة الوسائط",
-   "summary_ar": "يتطلب استدلال الهندسة متعدد الوسائط من نماذج الرؤية واللغة استخراج علاقات بصرية دقيقة والحفاظ عليها عبر استنتاج متعدد الخطوات. تحجب مسارات الاستدلال الحرة الحالية القرارات التي تحدد الإجابة، في حين يوزع التعلم التعزيزي على مستوى المسار إشارة نهائية واحدة عبر المسار بأكمله."
-  },
-  {
-   "id": "2609.01572",
-   "title": "From Production Traffic to Post-Training: Building a Self-Hosted LLM That Covers the Corporate Request Mix",
-   "abstract": "Data-residency constraints force enterprises to self-host LLMs, but continuous adoption of newer models without decommissioning their predecessors expands the serving fleet, fragmenting a finite GPU pool. We consolidate traffic from over 200 internal applications onto a single model by closing quality gaps identified through production error analysis along three axes: instruction following, function-calling, and internal task distribution. Quality is tracked by offline benchmarks stratified to production traffic and scored by deterministic verifiers or calibrated LLM judges. Rather than optimi",
-   "authors": [
-    "Olga Tsymboi",
-    "Dmitrii Stoianov",
-    "Ramil Latypov",
-    "Danil Taranets"
-   ],
-   "link": "https://huggingface.co/papers/2609.01572",
+   "link": "https://huggingface.co/papers/2609.01740",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-01T00:00",
-   "title_ar": "من حركة الإنتاج إلى ما بعد التدريب: بناء نموذج لغوي كبير مستضاف ذاتياً يغطي مزيج الطلبات المؤسسية",
-   "summary_ar": "تفرض قيود إقامة البيانات على المؤسسات استضافة النماذج اللغوية الكبيرة ذاتياً، لكن الاعتماد المستمر لنماذج أحدث دون إيقاف سابقاتها يوسع أسطول الخدمة ويفتت موارد وحدات معالجة الرسوميات المحدودة. قمنا بدمج حركة البيانات من أكثر من 200 تطبيق داخلي في نموذج واحد من خلال سد فجوة الجودة."
+   "title_ar": "ZipTok3D: ترميز ثلاثي الأبعاد عالي الدقة باستخدام بادئات رموز مدمجة",
+   "summary_ar": "تُعد متتاليات الرموز المدمجة أساسية للتوليد ثلاثي الأبعاد الفعال. ومع ذلك، تُنظم مرمزات الأبعاد الثلاثية الحالية التمثيلات الكامنة إما عبر مناطق مكانية أو كمجموعات ثابتة الحجم من الرموز العامة، وكلاهما يعاني تدهورًا حادًا في إعادة البناء عند الضغط إلى ميزانية رموز منخفضة للغاية."
+  },
+  {
+   "id": "2608.29607",
+   "title": "SnapBench: Benchmarking Snap-and-Ask Multimodal Retrieval for Mobile Interactions",
+   "abstract": "Mobile AI acts as a visual oracle, empowering users to snap a picture of something and ask for information. Snap-and-ask retrieval is now one of the most common entry points for mobile AI, yet photos are often blurry, while text questions may be short or mistyped. Existing benchmarks only test on clean inputs or do not isolate paired robustness in snap-and-ask retrieval. Therefore, we introduce SnapBench, the first paired benchmark for robust snap-and-ask multimodal retrieval, spanning 1,145 queries, 9,085 gallery items under 53 controlled corruption conditions with human annotations. We evalu",
+   "authors": [
+    "Zirong Chen",
+    "Fuda Ye",
+    "Kuan Zhang",
+    "Enjun Du"
+   ],
+   "link": "https://huggingface.co/papers/2608.29607",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-08-30T00:00",
+   "title_ar": "SnapBench: قياس أداء الاسترجاع متعدد الوسائط لأسلوب \"التقط واسأل\" لتفاعلات الأجهزة المحمولة",
+   "summary_ar": "يعمل الذكاء الاصطناعي للأجهزة المحمولة كمرشد بصري يُمكّن المستخدمين من التقاط صورة لشيء ما وطلب معلومات عنه، وهو ما يعد من أكثر نقاط الدخول شيوعًا. ومع ذلك، غالبًا ما تكون الصور ضبابية والأسئلة النصية قصيرة أو مكتوبة بشكل خاطئ، في حين لا تختبر معايير التقييم الحالية سوى الحالات الواضحة."
+  },
+  {
+   "id": "2609.02812",
+   "title": "VibeVoice-ASR-Streaming Technical Report",
+   "abstract": "Traditional speaker-attributed ASR systems treated ASR and speaker diarization as two separate tasks. Recently, end-to-end models such as VibeVoice-ASR have unified the two tasks within a single model. However, existing unified models still mainly support offline recognition, making it difficult to meet the low-latency requirements of real-time voice assistants and agents. To tackle this issue, we present VibeVoice-ASR-Streaming, one of the first LLM-based end-to-end approaches to streaming speaker-attributed ASR. It interleaves fixed-size audio chunks, a small amount of lookahead audio and pr",
+   "authors": [
+    "Yujie Tu",
+    "Zhiliang Peng",
+    "Jianwei Yu",
+    "Li Dong"
+   ],
+   "link": "https://huggingface.co/papers/2609.02812",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-02T00:00",
+   "title_ar": "التقرير التقني لنظام VibeVoice-ASR-Streaming",
+   "summary_ar": "تعاملت أنظمة التعرف التلقائي على الكلام المنسوب للمتحدث التقليدية مع التعرف على الكلام وفصل المتحدثين كمهمتين منفصلتين. ومؤخرًا، وحّدت النماذج الشاملة مثل VibeVoice-ASR المهمتين داخل نموذج واحد، إلا أن النماذج الموحدة الحالية لا تزال تدعم في الغالب التعرف غير المتصل بالإنترنت."
+  },
+  {
+   "id": "2609.00591",
+   "title": "A Glance Is All You Need: Single-Pass Fine-Grained Image Captioning with SimLoss",
+   "abstract": "An image may be worth a thousand words, but most captioning models describe it in only a few. Modern vision-language models produce fluent high-level captions, yet routinely miss the attributes, counts, textures, materials, and spatial relations that make an image visually specific. Recent multi-stage systems recover some of these details through generation, decomposition, verification, and rewriting, but they do so at the expense of substantially higher inference latency. We propose SimLoss, a reference-free embedding-space objective for single-pass fine-grained image captioning. SimLoss trai",
+   "authors": [
+    "Suryaansh Jain",
+    "Rahasya Barkur",
+    "Vishal G",
+    "Ryan Rossi"
+   ],
+   "link": "https://huggingface.co/papers/2609.00591",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-01T00:00",
+   "title_ar": "نظرة خاطفة هي كل ما تحتاجه: توليد شروح توضيحية دقيقة للصور بتمريرة واحدة باستخدام SimLoss",
+   "summary_ar": "قد تعادل الصورة ألف كلمة، لكن معظم نماذج التسمية التوضيحية تصفها في بضع كلمات فقط. وتنتج النماذج البصرية اللغوية الحديثة شروحًا بليغة عالية المستوى، لكنها تغفل بانتظام السمات، والأعداد، والقوام، والمواد، والعلاقات المكانية التي تجعل الصورة مميزة بصريًا."
   }
  ],
  "n": 6
