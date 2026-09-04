@@ -1,106 +1,103 @@
 {
- "updated": "2026-09-03T23:01+00:00",
+ "updated": "2026-09-04T14:49+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2504.15476",
-   "title": "An Empirical Study on Zero-Data Bootstrapping for Conversational Recommender Systems",
-   "abstract": "Conversational Recommender Systems (CRS) typically require domain-specific dialogue data, which is costly, scarce, and often unavailable in new domains. We conduct a systematic empirical study of zero-data CRS bootstrapping: generating synthetic conversational supervision from non-conversational signals---item reviews, metadata, and user-item interactions---without any in-domain dialogue corpus. We compare two information-theoretic selection strategies, Jensen-Shannon diversity and Fisher information, across domain signals, model architectures, datasets, and fine-tuning paradigms. Our results ",
+   "id": "2609.04173",
+   "title": "Last Translation Benchmark",
+   "abstract": "For scientific progress, we need benchmarks that test the limits of state-of-the-art models, and evaluation methods that inform us about failure cases. As models get stronger, standard benchmarks for machine translation are approaching saturation. Further, automatic translation metrics are unreliable, vulnerable to reward-hacking, and provide unactionable assessments. Even gold human evaluation is not problem-free, because it often lacks reproducibility, objectivity, and scalability. Overall, this prevents us from tracking objective progress in the field and identifying pathways for improvemen",
    "authors": [
-    "Rohan Surana",
-    "Junda Wu",
-    "Zhouhang Xie",
-    "Yu Xia"
+    "Vilém Zouhar",
+    "Niyati Bafna",
+    "Mukund Choudhary",
+    "Maike Züfle"
    ],
-   "link": "https://huggingface.co/papers/2504.15476",
+   "link": "https://huggingface.co/papers/2609.04173",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-28T00:00",
-   "title_ar": "دراسة تجريبية حول الإقلاع الأولي دون بيانات لأنظمة التوصية الحوارية",
-   "summary_ar": "تتطلب أنظمة التوصية الحوارية عادةً بيانات حوارية خاصة بالمجال، وهي مكلفة ونادرة وغالبًا ما تكون غير متوفرة في المجالات الجديدة. وتُجري الورقة دراسة تجريبية منهجية للإقلاع الأولي دون بيانات عبر توليد إشراف حواري تركيبي من إشارات غير حوارية."
+   "published": "2026-09-03T00:00",
+   "title_ar": "معيار الترجمة الأخير",
+   "summary_ar": "يتطلب التقدم العلمي معايير تختبر حدود أحدث النماذج وطرائق تقييم تكشف حالات الفشل، خاصة مع اقتراب المعايير القياسية للترجمة الآلية من الإشباع مع زيادة قوة النماذج. وعلاوة على ذلك، فإن مقاييس الترجمة التلقائية غير موثوقة."
   },
   {
-   "id": "2609.01936",
-   "title": "Sparse Readout Prism: Explaining Logit-Lens Scores in Features Instead of Tokens",
-   "abstract": "A language model's prediction of its next token develops across layers, and lens methods track this process by decoding intermediate hidden states into tokens. But a lens reading reflects both the hidden state and the readout (the unembedding matrix) used to decode it. Many lenses are fit on a corpus, and we show that two lenses differing only in their fitting corpus can report different tokens for the same hidden states. We call this dependence corpus conditionality. To examine readout structure independently of the fitting corpus, we introduce Sparse Readout Prism (SRP), which decomposes the",
+   "id": "2608.29253",
+   "title": "QCell: Recombining and Aligning Cell Queries for Overlapping Instance Segmentation",
+   "abstract": "Instance segmentation of overlapping cells in microscopy remains challenging due to semi-transparent structures that produce weak boundaries and mixed visual evidence in overlap regions. Existing methods address this through local regions of interest or shape priors but lack global reasoning across overlapping objects. We present QCell, a novel query-based model that de-overlaps cell instances in microscopy scenes. Our approach combines (i) an instance recombination module that decomposes and recombines query representations in latent space, enabling the model to reason about complete object s",
    "authors": [
-    "Matteo He",
-    "William F. Shen",
-    "Xinchi Qiu",
-    "Nicholas D. Lane"
+    "Yaroslav Prytula",
+    "Anton Popov",
+    "Dmytro Fishman"
    ],
-   "link": "https://huggingface.co/papers/2609.01936",
+   "link": "https://huggingface.co/papers/2608.29253",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-01T00:00",
-   "title_ar": "موشور القراءة المتناثرة: تفسير درجات عدسة اللوجيت عبر الخصائص بدلاً من الرموز",
-   "summary_ar": "يتطور تنبؤ نموذج اللغة بالرمز التالي عبر الطبقات، وتتتبع طرق العدسات هذه العملية عبر فك ترميز الحالات المخفية الوسيطة إلى رموز. ومع ذلك، فإن قراءة العدسة تعكس كلاً من الحالة المخفية ومصفوفة القراءة غير المضمنة المستخدمة لفك ترميزها، كما يُلائم العديد من العدسات على مجموعة بيانات."
+   "published": "2026-08-29T00:00",
+   "title_ar": "كيو سيل: إعادة دمج ومحاذاة استعلامات الخلايا للتجزئة الدلالية للعينات المتداخلة",
+   "summary_ar": "يظل تقسيم عينات الخلايا المتداخلة في الفحص المجهري تحدياً بسبب الهياكل شبه الشفافة التي تُنتج حدوداً ضعيفة وأدلة بصرية مختلطة في مناطق التداخل. وتتعامل الطرق الحالية مع ذلك عبر مناطق اهتمام محلية أو نماذج شكلية مسبقة، لكنها تفتقر إلى الاستدلال الشامل."
   },
   {
-   "id": "2609.00196",
-   "title": "WHALE: A Simple Recipe for Joint Harness-Weight Optimization",
-   "abstract": "Agent performance depends jointly on the model parameters and the executable harness code that manages context and control flow. Optimizing either component in isolation can leave the system bottlenecked by its frozen counterpart: weight updates can change which harness is effective, while harness updates can change which model capabilities are exposed. Existing joint-adaptation methods optimize weights and textual prompts but leave the broader harness fixed. We propose Weight-Harness Alternating LEarning (WHALE), a simple recipe that alternates two phases: updating the model under the current",
+   "id": "2609.03820",
+   "title": "Select, Compress, Reinvest: A Controlled Study of Visual-Token Allocation in Long-Video MLLMs",
+   "abstract": "Long-video language models cannot look at every frame: an hour sampled once per second is 3,600 images, and a system keeps only a small fixed slice of that pool. Which frames survive that slice is usually treated as a preprocessing detail; we test whether it should be. Published selectors make the comparison hard because they change the frame scorer, the prompt boundary, the resolution policy, and the answering model all at once. We hold each fixed and vary one decision at a time: selection, spatial compression, and reinvestment of the savings, across six training-free selection rules, three l",
    "authors": [
-    "Haechan Kim",
-    "Yoonho Lee",
-    "Gisang Lee",
-    "Chelsea Finn"
+    "Prakhar Khatri"
    ],
-   "link": "https://huggingface.co/papers/2609.00196",
+   "link": "https://huggingface.co/papers/2609.03820",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-03T00:00",
+   "title_ar": "اختر، واضغط، وأعد الاستثمار: دراسة مضبوطة لتخصيص الرموز البصرية في النماذج اللغوية متعددة الأنماط للفيديوهات الطويلة",
+   "summary_ar": "لا تستطيع نماذج الفيديو الطويل تفحص كل إطار، حيث يُحتفظ فقط بشريحة ثابتة وصغيرة من الإطارات. وعادة ما يُعامل تحديد الإطارات التي تنجو ضمن هذه الشريحة كإجراء معالجة أولية، لكن هذه الدراسة تختبر ما إذا كان ينبغي التعامل معه كذلك."
+  },
+  {
+   "id": "2608.30391",
+   "title": "Using Grounded Theory for Agent Behavior Analysis at Scale",
+   "abstract": "Understanding agent behavior requires methods that scale to thousands of trajectories and surface new patterns in long, often unfamiliar tasks where pre-built classifiers fall short. We propose to bring grounded theory into agent trajectory analysis: a six-decade-old qualitative method from the social sciences, with a principled saturation criterion and an auditable trail from data to theory. We propose AutoTraceGT (Automated Trace analysis through Grounded Theory), the first multi-agent pipeline that automates grounded theory on agent trajectories. It iteratively performs open, axial, and the",
+   "authors": [
+    "Zhuoran Lu",
+    "Yangyang Yu",
+    "Zhuoyan Li",
+    "Yibo Meng"
+   ],
+   "link": "https://huggingface.co/papers/2608.30391",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-08-31T00:00",
-   "title_ar": "WHALE: وصفة بسيطة للتحسين المشترك للعتاد البرمجي والأوزان",
-   "summary_ar": "يعتمد أداء الوكيل بشكل مشترك على معاملات النموذج وشفرة العتاد القابلة للتنفيذ التي تدير السياق وتدفق التحكم. ويمكن أن يؤدي تحسين أي من المكونين بمعزل عن الآخر إلى إعاقة النظام بسبب نظيره المجمد، حيث يمكن لتحديثات الأوزان تغيير مدى فعالية العتاد البرمجي."
+   "title_ar": "استخدام النظرية المجذرة لتحليل سلوك الوكلاء على نطاق واسع",
+   "summary_ar": "يتطلب فهم سلوك الوكيل أساليب تتوسع لآلاف المسارات وتُظهر أنماطاً جديدة في المهام الطويلة وغير المألوفة التي تقصر فيها المصنفات الجاهزة. ونقترح إدخال النظرية المجذرة في تحليل مسار الوكيل، وهي طريقة نوعية تمتد لستة عقود من العلوم الاجتماعية."
   },
   {
-   "id": "2608.30005",
-   "title": "Small Language Models as Judges for Rubric-Based Reinforcement Learning",
-   "abstract": "Rubric-based reinforcement learning extends RL beyond tasks with exact answers or rule-based verifiers by scoring responses against instance-specific criteria. However, this makes reward computation expensive: training requires repeated rubric judging, often with proprietary APIs or local generative LLM judges with 7B parameters or more. We study whether smaller language models can serve as efficient and reliable rubric-based judges. To make this question measurable, we construct PointRubric and RaR-Science-Static, two pointwise rubric-based evaluation datasets with instance-specific criteria ",
+   "id": "2609.04201",
+   "title": "Scal3R: Learning Efficient Multi-Relative Pose Query for Scalable Online 3D Reconstruction",
+   "abstract": "Online 3D reconstruction models perform poorly on long videos. This happens because regressing poses relative to a fixed first-frame anchor forces extrapolation far beyond the training distribution. Small drifts accumulate and amplify into significant geometric collapse. However, we observe that per-frame depth remains stable throughout this failure. The backbone's local geometry remains intact; only the global pose head breaks down. Motivated by this decoupling, we introduce Scal3R. This approach reformulates online reconstruction as multi-reference relative pose querying. We use lightweight ",
    "authors": [
-    "Fengyu Xie",
-    "Yilun Zhao",
-    "Bingsen Chen",
-    "Arman Cohan"
+    "Chin-Yang Lin",
+    "Yang-Che Sun",
+    "Cheng Sun",
+    "Fu-En Yang"
    ],
-   "link": "https://huggingface.co/papers/2608.30005",
+   "link": "https://huggingface.co/papers/2609.04201",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-30T00:00",
-   "title_ar": "نماذج اللغة الصغيرة كحكام للتعلم المعزز القائم على قواعد التقييم",
-   "summary_ar": "يوسع التعلم المعزز القائم على قواعد التقييم نطاق التعلم المعزز إلى ما هو أبعد من المهام ذات الإجابات الدقيقة أو أدوات التحقق القائمة على القواعد، وذلك من خلال تقييم الاستجابات وفقًا لمعايير خاصة بكل حالة. غير أن هذا يجعل حساب المكافأة مكلفًا، حيث يتطلب التدريب تحكيمًا متكررًا لقواعد التقييم، وغالبًا ما يتم عبر واجهات برمجة تطبيقات مملوكة أو نماذج توليدية محلية."
+   "published": "2026-09-03T00:00",
+   "title_ar": "سكيل 3 آر: تعلم استعلام فعال للوضعيات النسبية المتعددة لإعادة البناء ثلاثي الأبعاد المتزامن والقابل للتوسع",
+   "summary_ar": "تؤدي نماذج إعادة البناء ثلاثي الأبعاد المتزامنة أداءً ضعيفاً في مقاطع الفيديو الطويلة، حيث يؤدي تراجع الوضعيات بالنسبة لإطار مرجعي أول وثابت إلى فرض استقراء يتجاوز توزيع التدريب. ويؤدي ذلك إلى تراكم الانحرافات الطفيفة وتضخمها لتتحول إلى انهيار هندسي كبير، ومع ذلك لوحظ أن ذلك يحدث لكل إطار."
   },
   {
-   "id": "2609.02496",
-   "title": "Debias-SparseGPT: Bias-Aware Pruning for Large Language Models",
-   "abstract": "Model compression techniques such as pruning and quantization facilitate the efficient deployment and acceleration of Large Language Models (LLMs). However, recent studies show that weight sparsification methods, such as SparseGPT, can amplify existing biases in models, with outputs varying significantly depending on persona cues in the prompt. In this paper, we introduce Debias-SparseGPT, a post-training pruning method incorporating representational debiasing using a second-order term defined over demographically contrasting inputs. We perform empirical validation of our method over a wide ra",
+   "id": "2609.01072",
+   "title": "Let Confidence Change, Not the Prediction: Prediction-Preserving Repair for Post-hoc Calibration",
+   "abstract": "Post-hoc calibration corrects reported confidence, yet a multiclass calibrator can also change the associated top-1 prediction. Accuracy captures only the net effect of these changes on correctness, not how often predictions change; the Top-1 Prediction Change Rate (TPCR) instead measures this frequency. We propose Calibrator-Output Repair for Top-1 Decision Preservation (CORD), the first post-fit adapter to impose exact prediction preservation by repairing the full calibrated probability vector. From the original and calibrated outputs alone, CORD determines the mass assigned to the original ",
    "authors": [
-    "Irina Proskurina",
-    "Guillaume Metzler",
-    "Antoine Gourru",
-    "Julien Velcin"
+    "Daehwan Kim",
+    "Haejun Chung",
+    "Ikbeom Jang"
    ],
-   "link": "https://huggingface.co/papers/2609.02496",
+   "link": "https://huggingface.co/papers/2609.01072",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-02T00:00",
-   "title_ar": "Debias-SparseGPT: تشذيب واعٍ بالتحيز للنماذج اللغوية الكبيرة",
-   "summary_ar": "تُسهم تقنيات ضغط النماذج مثل التشذيب والتكميم في تسهيل النشر الفعال للنماذج اللغوية الكبيرة وتسريعها. ومع ذلك، تُظهر دراسات حديثة أن طرق إضفاء التناثر على الأوزان، مثل SparseGPT، يمكن أن تضخم التحيزات القائمة في النماذج، مع تباين المخرجات بشكل كبير."
-  },
-  {
-   "id": "2608.29692",
-   "title": "Portfolio Risk Bounds without Cross-Asset Return Covariances: Distributional Fields from Language-Model Representations",
-   "abstract": "Portfolio risk assessment ordinarily relies on reliable estimates of cross-asset return covariances, which are difficult to obtain in short, high-dimensional panels. We show that firm-level distribution-valued characteristics can instead provide one-sided certificates of portfolio risk. Under maintained links from characteristics to systematic exposures and from exposures to returns, multi-firm Wasserstein-2 dispersion yields a sharp upper bound on systematic portfolio variance and a corresponding bound for standardized returns. A weighted pairwise relaxation produces an objective that is conv",
-   "authors": [
-    "Marcus Gawronsky",
-    "Chun-Sung Huang"
-   ],
-   "link": "https://huggingface.co/papers/2608.29692",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-30T00:00",
-   "title_ar": "حدود مخاطر المحفظة الاستثمارية دون التغايرات المشتركة لعوائد الأصول: الحقول التوزيعية من تمثيلات نماذج اللغة",
-   "summary_ar": "يعتمد تقييم مخاطر المحفظة الاستثمارية عادةً على تقديرات موثوقة للتغايرات المشتركة لعوائد الأصول، والتي يصعب الحصول عليها في البيانات اللوحية القصيرة وعالية الأبعاد. وتوضح الورقة أن الخصائص ذات القيم التوزيعية على مستوى الشركات يمكن أن توفر بدلاً من ذلك شهادات أحادية الجانب لمخاطر المحفظة."
+   "title_ar": "دع الثقة تتغير لا التنبؤ: إصلاح يحفظ التنبؤ من أجل المعايرة اللاحقة",
+   "summary_ar": "تُصحح المعايرة اللاحقة مستوى الثقة المُبلغ عنه، ومع ذلك يمكن للمُعايِر متعدد الفئات أيضاً تغيير التنبؤ الأساسي ذي الأولوية الأولى المرتبط بها. تقيس الدقة فقط التأثير الصافي لهذه التغييرات على الصوابية وليس تكرار تغير التنبؤات، في حين يقيس \"معدل تغير تنبؤ الأولوية الأولى\" هذا التكرار."
   }
  ],
  "n": 6
