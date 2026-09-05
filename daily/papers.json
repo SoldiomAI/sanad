@@ -1,7 +1,89 @@
 {
- "updated": "2026-09-04T14:49+00:00",
+ "updated": "2026-09-05T05:16+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
+  {
+   "id": "2609.03199",
+   "title": "RoboTok: An Internet-Scale Data Engine for Human Demonstration Retrieval and Dexterous Manipulation Learning",
+   "abstract": "Robot learning increasingly depends on broad and diverse demonstrations, yet collecting robot data remains expensive and poorly suited to covering the long tail of real-world tasks. To address this bottleneck, we introduce RoboTok, an internet-scale data engine that, given a query human manipulation video, retrieves manipulation-relevant human demonstrations from web videos for training dexterous robot policies. Specifically, we learn a latent motion space from 3D hand trajectories expressed in estimated actor-centered reference frames. This representation enables manipulation behaviors to be ",
+   "authors": [
+    "Howard Qian",
+    "Yiting Chen",
+    "Yunfei Xie",
+    "Kejia Ren"
+   ],
+   "link": "https://huggingface.co/papers/2609.03199",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-02T00:00",
+   "title_ar": "روبوتوك: محرك بيانات بحجم الإنترنت لاسترجاع العروض البشرية وتعلم التلاعب البارع",
+   "summary_ar": "يعتمد تعلم الروبوتات بشكل متزايد على عروض توضيحية واسعة ومتنوعة، إلا أن جمع بياناتها يظل مكلفًا وغير ملائم لتغطية الذيل الطويل لمهام العالم الحقيقي. ولمعالجة هذا العائق، نقدم \"روبوتوك\" (RoboTok)، وهو محرك بيانات بحجم الإنترنت يعمل استنادًا إلى استعلام لتلاعب بشري."
+  },
+  {
+   "id": "2609.02887",
+   "title": "A Common Measure of Communication for Speech Brain-Computer Interfaces",
+   "abstract": "Speech brain-computer interfaces (speech BCIs) translate neural activity into language, offering a path towards restoring speech for people with paralysis and, more broadly, enabling new forms of natural human-computer interaction. Despite this promise, the field lacks a common measure of progress because systems use different datasets, recording methods, types of speech, and vocabularies, so their reported scores are rarely comparable. Underlying this measurement problem are two unresolved questions: (i) what distribution of words should a speech BCI enable a user to communicate, and (ii) how",
+   "authors": [
+    "Dulhan Jayalath",
+    "Benjamin Ballyk",
+    "Oiwi Parker Jones"
+   ],
+   "link": "https://huggingface.co/papers/2609.02887",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-02T00:00",
+   "title_ar": "مقياس تواصل مشترك لواجهات الدماغ والحاسوب للكلام",
+   "summary_ar": "تترجم واجهات الدماغ والحاسوب للكلام النشاط العصبي إلى لغة، مما يمهد الطريق لاستعادة النطق للمصابين بالشلل، ويتيح عمومًا أشكالًا جديدة من التفاعل الطبيعي بين الإنسان والحاسوب. ورغم هذه الآفاق الواعدة، يفتقر هذا المجال إلى مقياس مشترك للتقدم."
+  },
+  {
+   "id": "2609.03153",
+   "title": "VeriPhy: Agentic Physical Reasoning for World Model Evaluation and Refinement",
+   "abstract": "Visual fluency in generated video does not imply physical reliability, and a scalar quality score alone is incapable of indicating the obligation a clip violates or the moment it fails. We present VeriPhy, an auditable physical-verification system in which a text-only planner compiles the prompt into typed physical obligations and a statically validated execution plan before any frame is observed. During execution, observations gate and scope only declared calls to frozen low-level experts (e.g., segmentation and tracking, counting, eleven typed physical measurements over the resulting tracks,",
+   "authors": [
+    "Wenzhuo Xu",
+    "Yuchen Zhu",
+    "Chongjian Ge",
+    "Xuan Shen"
+   ],
+   "link": "https://huggingface.co/papers/2609.03153",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-02T00:00",
+   "title_ar": "فيري فاي: استدلال فيزيائي قائم على الوكلاء لتقييم نماذج العالم وتحسينها",
+   "summary_ar": "لا تعني السلاسة البصرية في الفيديو المُولَّد موثوقية فيزيائية، كما تعجز درجة الجودة العددية وحدها عن توضيح الالتزام الذي ينتهكه المقطع أو لحظة فشله. نقدم \"فيريفاي\" (VeriPhy)، وهو نظام تدقيق وتحقق فيزيائي يُحوّل فيه مخطط نصي فقط التعليمات الموجهة."
+  },
+  {
+   "id": "2608.29188",
+   "title": "Locked at the Entrance, Open Inside: Where RLVR Narrows the Solution Space",
+   "abstract": "Reinforcement learning with verifiable rewards (RLVR) substantially improves single-sample accuracy (pass@1) but causes the policy's solution space to contract, diminishing the returns of test-time scaling. In this work, we investigate where inside a reasoning trajectory this breadth is lost: does the policy fail to access a valid solution family, or does it fail to execute computation once initiated? To disentangle access from execution, we analyze the Countdown task, whose solution space can be exhaustively enumerated into discrete entrance families defined by the first operand and operator,",
+   "authors": [
+    "Qiancheng Zhou",
+    "Ruizhe Li"
+   ],
+   "link": "https://huggingface.co/papers/2608.29188",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-08-29T00:00",
+   "title_ar": "مغلق عند المدخل، ومفتوح في الداخل: أين يضيق التعلم التعزيزي بمكافآت قابلة للتحقق فضاء الحلول؟",
+   "summary_ar": "يُحسّن التعلم التعزيزي ذو المكافآت القابلة للتحقق دقة العينة الفردية بدرجة كبيرة، لكنه يؤدي إلى انكماش فضاء حلول السياسة، مما يقلل من عوائد التوسع أثناء وقت الاختبار. نبحث في هذا العمل في الموضع الذي يُفقد فيه هذا الاتساع داخل مسار الاستدلال."
+  },
+  {
+   "id": "2609.04094",
+   "title": "DRACO: Fine-Grained Credit Assignment with Dynamic Rubrics for Long-Horizon Agent Training",
+   "abstract": "Reinforcement Learning from Verifiable Rewards works well when a task has a programmatic checker, but most long-horizon agent domains have none. We work in the outcome-blind setting, where ground-truth success signals are not available. Multi-criteria rubrics are a popular way to supply such a reward; they are scored once per trajectory, but a single scalar is a poor signal across tens of steps. We propose DRACO: Distributing Rubric-based Advantage for Credit Optimization. It generates rubrics dynamically during training to track the policy's evolving capability, scores those rubrics once per ",
+   "authors": [
+    "Shubham Gandhi",
+    "Saurabh Goyal",
+    "Kiran Kate",
+    "Yara Rizk"
+   ],
+   "link": "https://huggingface.co/papers/2609.04094",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-03T00:00",
+   "title_ar": "دراكو: إسناد دقيق للفضل باستخدام قواعد تقييم ديناميكية لتدريب الوكلاء ممتدي المدى",
+   "summary_ar": "يعمل التعلم التعزيزي من مكافآت قابلة للتحقق بكفاءة عند وجود مدقق برمجي للمهمة، إلا أن غالبية مجالات الوكلاء ممتدة المدى تفتقر إلى ذلك. نعمل في بيئة عمياء عن النتائج لا تتوفر فيها إشارات نجاح يقينية، وتعد قواعد التقييم متعددة المعايير وسيلة شائعة لتوفير هذه المكافأة."
+  },
   {
    "id": "2609.04173",
    "title": "Last Translation Benchmark",
@@ -17,87 +99,7 @@
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-03T00:00",
    "title_ar": "معيار الترجمة الأخير",
-   "summary_ar": "يتطلب التقدم العلمي معايير تختبر حدود أحدث النماذج وطرائق تقييم تكشف حالات الفشل، خاصة مع اقتراب المعايير القياسية للترجمة الآلية من الإشباع مع زيادة قوة النماذج. وعلاوة على ذلك، فإن مقاييس الترجمة التلقائية غير موثوقة."
-  },
-  {
-   "id": "2608.29253",
-   "title": "QCell: Recombining and Aligning Cell Queries for Overlapping Instance Segmentation",
-   "abstract": "Instance segmentation of overlapping cells in microscopy remains challenging due to semi-transparent structures that produce weak boundaries and mixed visual evidence in overlap regions. Existing methods address this through local regions of interest or shape priors but lack global reasoning across overlapping objects. We present QCell, a novel query-based model that de-overlaps cell instances in microscopy scenes. Our approach combines (i) an instance recombination module that decomposes and recombines query representations in latent space, enabling the model to reason about complete object s",
-   "authors": [
-    "Yaroslav Prytula",
-    "Anton Popov",
-    "Dmytro Fishman"
-   ],
-   "link": "https://huggingface.co/papers/2608.29253",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-29T00:00",
-   "title_ar": "كيو سيل: إعادة دمج ومحاذاة استعلامات الخلايا للتجزئة الدلالية للعينات المتداخلة",
-   "summary_ar": "يظل تقسيم عينات الخلايا المتداخلة في الفحص المجهري تحدياً بسبب الهياكل شبه الشفافة التي تُنتج حدوداً ضعيفة وأدلة بصرية مختلطة في مناطق التداخل. وتتعامل الطرق الحالية مع ذلك عبر مناطق اهتمام محلية أو نماذج شكلية مسبقة، لكنها تفتقر إلى الاستدلال الشامل."
-  },
-  {
-   "id": "2609.03820",
-   "title": "Select, Compress, Reinvest: A Controlled Study of Visual-Token Allocation in Long-Video MLLMs",
-   "abstract": "Long-video language models cannot look at every frame: an hour sampled once per second is 3,600 images, and a system keeps only a small fixed slice of that pool. Which frames survive that slice is usually treated as a preprocessing detail; we test whether it should be. Published selectors make the comparison hard because they change the frame scorer, the prompt boundary, the resolution policy, and the answering model all at once. We hold each fixed and vary one decision at a time: selection, spatial compression, and reinvestment of the savings, across six training-free selection rules, three l",
-   "authors": [
-    "Prakhar Khatri"
-   ],
-   "link": "https://huggingface.co/papers/2609.03820",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-03T00:00",
-   "title_ar": "اختر، واضغط، وأعد الاستثمار: دراسة مضبوطة لتخصيص الرموز البصرية في النماذج اللغوية متعددة الأنماط للفيديوهات الطويلة",
-   "summary_ar": "لا تستطيع نماذج الفيديو الطويل تفحص كل إطار، حيث يُحتفظ فقط بشريحة ثابتة وصغيرة من الإطارات. وعادة ما يُعامل تحديد الإطارات التي تنجو ضمن هذه الشريحة كإجراء معالجة أولية، لكن هذه الدراسة تختبر ما إذا كان ينبغي التعامل معه كذلك."
-  },
-  {
-   "id": "2608.30391",
-   "title": "Using Grounded Theory for Agent Behavior Analysis at Scale",
-   "abstract": "Understanding agent behavior requires methods that scale to thousands of trajectories and surface new patterns in long, often unfamiliar tasks where pre-built classifiers fall short. We propose to bring grounded theory into agent trajectory analysis: a six-decade-old qualitative method from the social sciences, with a principled saturation criterion and an auditable trail from data to theory. We propose AutoTraceGT (Automated Trace analysis through Grounded Theory), the first multi-agent pipeline that automates grounded theory on agent trajectories. It iteratively performs open, axial, and the",
-   "authors": [
-    "Zhuoran Lu",
-    "Yangyang Yu",
-    "Zhuoyan Li",
-    "Yibo Meng"
-   ],
-   "link": "https://huggingface.co/papers/2608.30391",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-31T00:00",
-   "title_ar": "استخدام النظرية المجذرة لتحليل سلوك الوكلاء على نطاق واسع",
-   "summary_ar": "يتطلب فهم سلوك الوكيل أساليب تتوسع لآلاف المسارات وتُظهر أنماطاً جديدة في المهام الطويلة وغير المألوفة التي تقصر فيها المصنفات الجاهزة. ونقترح إدخال النظرية المجذرة في تحليل مسار الوكيل، وهي طريقة نوعية تمتد لستة عقود من العلوم الاجتماعية."
-  },
-  {
-   "id": "2609.04201",
-   "title": "Scal3R: Learning Efficient Multi-Relative Pose Query for Scalable Online 3D Reconstruction",
-   "abstract": "Online 3D reconstruction models perform poorly on long videos. This happens because regressing poses relative to a fixed first-frame anchor forces extrapolation far beyond the training distribution. Small drifts accumulate and amplify into significant geometric collapse. However, we observe that per-frame depth remains stable throughout this failure. The backbone's local geometry remains intact; only the global pose head breaks down. Motivated by this decoupling, we introduce Scal3R. This approach reformulates online reconstruction as multi-reference relative pose querying. We use lightweight ",
-   "authors": [
-    "Chin-Yang Lin",
-    "Yang-Che Sun",
-    "Cheng Sun",
-    "Fu-En Yang"
-   ],
-   "link": "https://huggingface.co/papers/2609.04201",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-03T00:00",
-   "title_ar": "سكيل 3 آر: تعلم استعلام فعال للوضعيات النسبية المتعددة لإعادة البناء ثلاثي الأبعاد المتزامن والقابل للتوسع",
-   "summary_ar": "تؤدي نماذج إعادة البناء ثلاثي الأبعاد المتزامنة أداءً ضعيفاً في مقاطع الفيديو الطويلة، حيث يؤدي تراجع الوضعيات بالنسبة لإطار مرجعي أول وثابت إلى فرض استقراء يتجاوز توزيع التدريب. ويؤدي ذلك إلى تراكم الانحرافات الطفيفة وتضخمها لتتحول إلى انهيار هندسي كبير، ومع ذلك لوحظ أن ذلك يحدث لكل إطار."
-  },
-  {
-   "id": "2609.01072",
-   "title": "Let Confidence Change, Not the Prediction: Prediction-Preserving Repair for Post-hoc Calibration",
-   "abstract": "Post-hoc calibration corrects reported confidence, yet a multiclass calibrator can also change the associated top-1 prediction. Accuracy captures only the net effect of these changes on correctness, not how often predictions change; the Top-1 Prediction Change Rate (TPCR) instead measures this frequency. We propose Calibrator-Output Repair for Top-1 Decision Preservation (CORD), the first post-fit adapter to impose exact prediction preservation by repairing the full calibrated probability vector. From the original and calibrated outputs alone, CORD determines the mass assigned to the original ",
-   "authors": [
-    "Daehwan Kim",
-    "Haejun Chung",
-    "Ikbeom Jang"
-   ],
-   "link": "https://huggingface.co/papers/2609.01072",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-02T00:00",
-   "title_ar": "دع الثقة تتغير لا التنبؤ: إصلاح يحفظ التنبؤ من أجل المعايرة اللاحقة",
-   "summary_ar": "تُصحح المعايرة اللاحقة مستوى الثقة المُبلغ عنه، ومع ذلك يمكن للمُعايِر متعدد الفئات أيضاً تغيير التنبؤ الأساسي ذي الأولوية الأولى المرتبط بها. تقيس الدقة فقط التأثير الصافي لهذه التغييرات على الصوابية وليس تكرار تغير التنبؤات، في حين يقيس \"معدل تغير تنبؤ الأولوية الأولى\" هذا التكرار."
+   "summary_ar": "يتطلب التقدم العلمي معايير تختبر حدود أحدث النماذج المتطورة، وطرائق تقييم تكشف عن حالات الفشل. ومع تزايد قوة النماذج، تقترب معايير الترجمة الآلية القياسية من التشبع، علاوة على أن مقاييس الترجمة التلقائية غير موثوقة."
   }
  ],
  "n": 6
