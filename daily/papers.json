@@ -1,105 +1,108 @@
 {
- "updated": "2026-09-06T20:01+00:00",
+ "updated": "2026-09-07T10:37+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.03199",
-   "title": "RoboTok: An Internet-Scale Data Engine for Human Demonstration Retrieval and Dexterous Manipulation Learning",
-   "abstract": "Robot learning increasingly depends on broad and diverse demonstrations, yet collecting robot data remains expensive and poorly suited to covering the long tail of real-world tasks. To address this bottleneck, we introduce RoboTok, an internet-scale data engine that, given a query human manipulation video, retrieves manipulation-relevant human demonstrations from web videos for training dexterous robot policies. Specifically, we learn a latent motion space from 3D hand trajectories expressed in estimated actor-centered reference frames. This representation enables manipulation behaviors to be ",
+   "id": "2609.04753",
+   "title": "Beneath the Surface of Chains-of-Thought: A Mechanistic Interpretation of Reasoning Operations in LLMs",
+   "abstract": "Reasoning in large language models unfolds through diverse functional operations, such as problem formulation, goal decomposition, and deduction. Although these operations are explicitly distinguished in text, little is known about how they are geometrically organized in representation spaces. To this end, we investigate whether distinct reasoning operations exhibit corresponding geometric structure in hidden representations. We find that operations are separable in held-out representations, with separability peaking in middle layers, and verify that this structure is not explained by lexical ",
    "authors": [
-    "Howard Qian",
-    "Yiting Chen",
-    "Yunfei Xie",
-    "Kejia Ren"
+    "Seogyeong Jeong",
+    "Jaehui Hwang",
+    "Dongyoon Han",
+    "Geonmo Gu"
    ],
-   "link": "https://huggingface.co/papers/2609.03199",
+   "link": "https://huggingface.co/papers/2609.04753",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-04T00:00",
+   "title_ar": "تحت سطح سلاسل الأفكار: تفسير آلي لعمليات الاستدلال في نماذج اللغة الكبيرة",
+   "summary_ar": "يتجلى الاستدلال في نماذج اللغة الكبيرة عبر عمليات وظيفية متنوعة كصياغة المشكلات وتفكيك الأهداف والاستنباط. ورغم وضوح تمييز هذه العمليات في النص، لا يُعرف سوى القليل عن كيفية تنظيمها هندسيًا في فضاءات التمثيل."
+  },
+  {
+   "id": "2609.04242",
+   "title": "Training-Free Speech-Centric Omni Understanding with Frozen VLMs",
+   "abstract": "Audio-visual understanding remains challenging because models must jointly interpret spoken content, visual events, and their temporal relationships. Existing omni models typically introduce dedicated audio encoders and rely on expensive audio-video-text training, tightly coupling omni capability to specific VLM backbones and potentially weakening their existing visual and reasoning abilities. This raises three questions: whether native omni training is necessary for every new VLM, whether speech-centric omni capability can be added while preserving the original backbone, and where richer acou",
+   "authors": [
+    "Ankan Deria",
+    "Hanoona Rasheed",
+    "Xilin He",
+    "Fahad Shahbaz Khan"
+   ],
+   "link": "https://huggingface.co/papers/2609.04242",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-08-07T00:00",
+   "title_ar": "فهم شامل متمحور حول الكلام دون تدريب باستخدام نماذج لغوية بصرية مجمّدة",
+   "summary_ar": "يظل الفهم السمعي البصري تحديًا لأن النماذج يجب أن تفسر المحتوى المنطوق والأحداث البصرية وعلاقاتها الزمنية معًا. وتقدم النماذج الشاملة الحالية عادةً مشفرات صوتية مخصصة وتعتمد على تدريب سمعي-بصري-نصي مكلف يربط القدرة الشاملة به بإحكام."
+  },
+  {
+   "id": "2609.02750",
+   "title": "Bilevel Coordinated Reflection: A Game-Theoretic Approach to Multi-Agent LLM Systems",
+   "abstract": "Multi-agent LLM systems commonly use an orchestrator to decompose a task for a team of workers and then improve through textual reflection. Despite strong empirical results, these systems lack a unified account of coordination, memory improvement, and the role of external verification. We model orchestrator-worker interaction as a bilevel coordination game: under bounded coupling, the workers' local-update game is an approximate potential game whose equilibrium slack is controlled by decomposition quality. We then analyse reflection as stochastic movement over semantic memory states. For free-",
+   "authors": [
+    "Yihang Chen",
+    "Yuxiang Chen",
+    "Yuxuan Huang",
+    "Meng Fang"
+   ],
+   "link": "https://huggingface.co/papers/2609.02750",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-02T00:00",
-   "title_ar": "روبوتوك: محرك بيانات على نطاق الإنترنت لاسترجاع العروض البشرية وتعلّم المناولة البارعة",
-   "summary_ar": "يعتمد تعلّم الروبوتات بشكل متزايد على عروض توضيحية واسعة ومتنوعة، إلا أن جمع بياناتها يظل مكلفاً وغير ملائم لتغطية مهام العالم الحقيقي النادرة. ولمعالجة هذا العائق، نقدّم \"RoboTok\"، وهو محرك بيانات على نطاق الإنترنت يستجيب لطلبات مناولة بشرية معينة."
+   "title_ar": "التأمل المنسق ثنائي المستوى: نهج قائم على نظرية الألعاب لأنظمة نماذج اللغة الكبيرة متعددة الوكلاء",
+   "summary_ar": "تستخدم أنظمة نماذج اللغة الكبيرة متعددة الوكلاء عادةً منسقًا لتفكيك المهام لفريق من العمال ثم التحسن عبر التأمل النصي. ورغم النتائج التجريبية القوية، تفتقر هذه الأنظمة إلى توصيف موحد للتنسيق وتحسين الذاكرة ودور التحقق الخارجي، وهو ما نقوم بنمذجته."
   },
   {
-   "id": "2609.02887",
-   "title": "A Common Measure of Communication for Speech Brain-Computer Interfaces",
-   "abstract": "Speech brain-computer interfaces (speech BCIs) translate neural activity into language, offering a path towards restoring speech for people with paralysis and, more broadly, enabling new forms of natural human-computer interaction. Despite this promise, the field lacks a common measure of progress because systems use different datasets, recording methods, types of speech, and vocabularies, so their reported scores are rarely comparable. Underlying this measurement problem are two unresolved questions: (i) what distribution of words should a speech BCI enable a user to communicate, and (ii) how",
+   "id": "2609.03586",
+   "title": "The Attention Triangle in Audio-Video Models",
+   "abstract": "Audio-video diffusion models rely on cross-modal attention to coordinate text, sound, and visual content, yet this same mechanism can introduce subtle and systematic semantic leakage. We study these models by probing and analyzing the ``attention triangle,'' comprising the three cross-attention edges connecting the text, audio, and video streams, and examine how semantic information is routed across modalities during generation. Our analysis reveals that routing along the audio-video edge is bidirectional: audio can influence video generation, while video can influence audio generation. This e",
    "authors": [
-    "Dulhan Jayalath",
-    "Benjamin Ballyk",
-    "Oiwi Parker Jones"
+    "Sagi Polaczek",
+    "Noa Kraicer",
+    "Gal Metzer",
+    "Zhuo Ning"
    ],
-   "link": "https://huggingface.co/papers/2609.02887",
+   "link": "https://huggingface.co/papers/2609.03586",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-02T00:00",
-   "title_ar": "مقياس تواصل مشترك لواجهات الدماغ والحاسوب الكلامية",
-   "summary_ar": "تترجم واجهات الدماغ والحاسوب الكلامية النشاط العصبي إلى لغة، مما يتيح استعادة النطق للمصابين بالشلل ويمكّن تفاعلات طبيعية جديدة بين الإنسان والحاسوب. ورغم هذه الآفاق الواعدة، يفتقر هذا المجال إلى مقياس مشترك لقياس التقدم المحرز."
+   "published": "2026-09-03T00:00",
+   "title_ar": "مثلث الانتباه في نماذج الصوت والفيديو",
+   "summary_ar": "تعتمد نماذج انتشار الصوت والفيديو على الانتباه عبر الوسائط لتنسيق النص والصوت والمحتوى البصري، إلا أن هذه الآلية ذاتها قد تُحدث تسربًا دلاليًا دقيقًا ومنهجيًا. ندرس هذه النماذج من خلال استكشاف وتحليل \"مثلث الانتباه\" الذي يشمل حواف الانتباه المتبادل الثلاثة."
   },
   {
-   "id": "2609.03153",
-   "title": "VeriPhy: Agentic Physical Reasoning for World Model Evaluation and Refinement",
-   "abstract": "Visual fluency in generated video does not imply physical reliability, and a scalar quality score alone is incapable of indicating the obligation a clip violates or the moment it fails. We present VeriPhy, an auditable physical-verification system in which a text-only planner compiles the prompt into typed physical obligations and a statically validated execution plan before any frame is observed. During execution, observations gate and scope only declared calls to frozen low-level experts (e.g., segmentation and tracking, counting, eleven typed physical measurements over the resulting tracks,",
+   "id": "2608.05879",
+   "title": "To See a World in a Living Context: Unified Indoor-Outdoor Urban World Generation",
+   "abstract": "Text-driven 3D generation has advanced rapidly in creating large-scale outdoor environments and detailed indoor scenes, but these domains are usually synthesized independently, lacking the correspondence required for a coherent urban world. We present HoloWorld, a unified indoor-outdoor urban world generation framework built on a continuously updated cross-scale world context. Initializing from a user description, HoloWorld progressively represents and updates the diverse world information, from city-scale planning to individual buildings, allowing generated interiors to maintain explicit corr",
    "authors": [
-    "Wenzhuo Xu",
-    "Yuchen Zhu",
-    "Chongjian Ge",
-    "Xuan Shen"
+    "Xiaobin Huang",
+    "Zilong Huang",
+    "Yang Luo",
+    "Hongchao Fan"
    ],
-   "link": "https://huggingface.co/papers/2609.03153",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-02T00:00",
-   "title_ar": "فيري فاي: استدلال فيزيائي قائم على الوكلاء لتقييم نماذج العالم وتحسينها",
-   "summary_ar": "لا تعني السلاسة البصرية في الفيديو المُولّد موثوقية فيزيائية، كما تعجز نقاط الجودة العددية وحدها عن توضيح الالتزام الذي ينتهكه المقطع أو لحظة فشله. نقدّم \"VeriPhy\"، وهو نظام تحقق فيزيائي قابل للتدقيق يقوم فيه مخطط نصي بتحويل المدخلات إلى متطلبات محددة."
-  },
-  {
-   "id": "2608.29188",
-   "title": "Locked at the Entrance, Open Inside: Where RLVR Narrows the Solution Space",
-   "abstract": "Reinforcement learning with verifiable rewards (RLVR) substantially improves single-sample accuracy (pass@1) but causes the policy's solution space to contract, diminishing the returns of test-time scaling. In this work, we investigate where inside a reasoning trajectory this breadth is lost: does the policy fail to access a valid solution family, or does it fail to execute computation once initiated? To disentangle access from execution, we analyze the Countdown task, whose solution space can be exhaustively enumerated into discrete entrance families defined by the first operand and operator,",
-   "authors": [
-    "Qiancheng Zhou",
-    "Ruizhe Li"
-   ],
-   "link": "https://huggingface.co/papers/2608.29188",
+   "link": "https://huggingface.co/papers/2608.05879",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-08-29T00:00",
-   "title_ar": "موصد عند المدخل ومفتوح في الداخل: أين يُضيّق التعلم المعزز بمكافآت قابلة للتحقق فضاء الحلول",
-   "summary_ar": "يُحسّن التعلم المعزز بمكافآت قابلة للتحقق دقة العينة الفردية بشكل كبير، لكنه يتسبب في انكماش فضاء الحلول للسياسة، مما يقلل من عوائد التوسع أثناء الاختبار. نبحث في هذا العمل عن الموضع الذي يُفقد فيه هذا الاتساع داخل مسار الاستدلال."
+   "title_ar": "رؤية العالم في سياق حي: توليد موحد لعوالم حضرية داخلية وخارجية",
+   "summary_ar": "تقدم التوليد ثلاثي الأبعاد الموجه بالنصوص سريعًا في إنشاء بيئات خارجية واسعة ومشاهد داخلية مفصلة، غير أن هذه المجالات تُخلّق عادةً بشكل مستقل وتفتقر للتوافق المطلوب لبناء عالم حضري متماسك. نقدم HoloWorld، وهو إطار موحد لتوليد العوالم الحضرية الداخلية والخارجية."
   },
   {
-   "id": "2609.04094",
-   "title": "DRACO: Fine-Grained Credit Assignment with Dynamic Rubrics for Long-Horizon Agent Training",
-   "abstract": "Reinforcement Learning from Verifiable Rewards works well when a task has a programmatic checker, but most long-horizon agent domains have none. We work in the outcome-blind setting, where ground-truth success signals are not available. Multi-criteria rubrics are a popular way to supply such a reward; they are scored once per trajectory, but a single scalar is a poor signal across tens of steps. We propose DRACO: Distributing Rubric-based Advantage for Credit Optimization. It generates rubrics dynamically during training to track the policy's evolving capability, scores those rubrics once per ",
+   "id": "2609.04611",
+   "title": "τ^τ-Bench: An Environment for End-To-End, Realistic Agent Construction",
+   "abstract": "LLM agents are rapidly becoming production software, deployed to handle customer service, adjudicate disputes, and operate internal systems. Notably, the work of building them is increasingly handed to coding agents, yet existing benchmarks say little about whether an AI system can deliver one under the conditions of a real client engagement. We introduce τ^τ-bench (pronounced hyper-tau-bench), a benchmark that makes agent construction the task. A developer agent is given the records a business actually keeps, a client who holds requirements, a production API that operations must run through, ",
    "authors": [
-    "Shubham Gandhi",
-    "Saurabh Goyal",
-    "Kiran Kate",
-    "Yara Rizk"
+    "Quan Shi",
+    "Keshav Dhandhania",
+    "Karthik Narasimhan",
+    "Victor Barres"
    ],
-   "link": "https://huggingface.co/papers/2609.04094",
+   "link": "https://huggingface.co/papers/2609.04611",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-03T00:00",
-   "title_ar": "دراكو: إسناد دقيق للفضل باستخدام معايير تقييم ديناميكية لتدريب الوكلاء طويلي المدى",
-   "summary_ar": "يعمل التعلم المعزز بمكافآت قابلة للتحقق جيداً بوجود مدقق برمجي للمهمة، وهو ما تفتقر إليه معظم مجالات الوكلاء ذات المدى الطويل. نعمل في بيئة محجوبة النتائج تنعدم فيها إشارات النجاح الحقيقية، وتُعد معايير التقييم متعددة الشروط وسيلة شائعة لتوفير مثل هذه المكافأة."
-  },
-  {
-   "id": "2609.04173",
-   "title": "Last Translation Benchmark",
-   "abstract": "For scientific progress, we need benchmarks that test the limits of state-of-the-art models, and evaluation methods that inform us about failure cases. As models get stronger, standard benchmarks for machine translation are approaching saturation. Further, automatic translation metrics are unreliable, vulnerable to reward-hacking, and provide unactionable assessments. Even gold human evaluation is not problem-free, because it often lacks reproducibility, objectivity, and scalability. Overall, this prevents us from tracking objective progress in the field and identifying pathways for improvemen",
-   "authors": [
-    "Vilém Zouhar",
-    "Niyati Bafna",
-    "Mukund Choudhary",
-    "Maike Züfle"
-   ],
-   "link": "https://huggingface.co/papers/2609.04173",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-03T00:00",
-   "title_ar": "معيار الترجمة الأخير",
-   "summary_ar": "يتطلب التقدم العلمي معايير تختبر حدود أحدث النماذج، وطرق تقييم تكشف عن حالات الفشل. ومع تزايد قوة النماذج، تقترب معايير الترجمة الآلية القياسية من مرحلة التشبع، علاوة على أن مقاييس الترجمة التلقائية غير موثوقة."
+   "published": "2026-09-04T00:00",
+   "title_ar": "منصة τ^τ-Bench: بيئة واقعية وشاملة لبناء الوكلاء",
+   "summary_ar": "أصبحت وكلاء نماذج اللغة الكبيرة برمجيات إنتاجية متسارعة تُنشر لخدمة العملاء والبت في النزاعات وتشغيل الأنظمة الداخلية. ومما يسترعي الانتباه أن مهمة بنائها تُسند باطراد إلى وكلاء البرمجة، مع أن معايير التقييم الحالية لا تبين بوضوح مدى قدرة نظام الذكاء الاصطناعي على تسليم أحدها."
   }
  ],
  "n": 6
