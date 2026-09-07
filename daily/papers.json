@@ -1,108 +1,105 @@
 {
- "updated": "2026-09-07T10:37+00:00",
+ "updated": "2026-09-07T22:59+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.04753",
-   "title": "Beneath the Surface of Chains-of-Thought: A Mechanistic Interpretation of Reasoning Operations in LLMs",
-   "abstract": "Reasoning in large language models unfolds through diverse functional operations, such as problem formulation, goal decomposition, and deduction. Although these operations are explicitly distinguished in text, little is known about how they are geometrically organized in representation spaces. To this end, we investigate whether distinct reasoning operations exhibit corresponding geometric structure in hidden representations. We find that operations are separable in held-out representations, with separability peaking in middle layers, and verify that this structure is not explained by lexical ",
+   "id": "2609.04444",
+   "title": "HarvestBench: Measuring Whether LLM Agents Will Pay to Avoid Killing Animals",
+   "abstract": "Benchmarks for the side effects an agent causes on the way to a goal already exist, but HarvestBench is the first to put a price on avoiding the side effect and to name that side effect as a living creature. It is a farm simulation: LLM sub-agents drive a crew of two tractors through a cooperative corn harvest, with animals in the field. The environment is a reinforcement learning gridworld, every decision is made without memory, and the harm is never named in the goal. When an animal blocks a tractor's route the autopilot stops and asks the model whether to drive on, at no fuel cost, or swerv",
    "authors": [
-    "Seogyeong Jeong",
-    "Jaehui Hwang",
-    "Dongyoon Han",
-    "Geonmo Gu"
+    "Jasmine Brazilek",
+    "Miles Tidmarsh",
+    "Matthias Endres",
+    "Anshuman Singh"
    ],
-   "link": "https://huggingface.co/papers/2609.04753",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-04T00:00",
-   "title_ar": "تحت سطح سلاسل الأفكار: تفسير آلي لعمليات الاستدلال في نماذج اللغة الكبيرة",
-   "summary_ar": "يتجلى الاستدلال في نماذج اللغة الكبيرة عبر عمليات وظيفية متنوعة كصياغة المشكلات وتفكيك الأهداف والاستنباط. ورغم وضوح تمييز هذه العمليات في النص، لا يُعرف سوى القليل عن كيفية تنظيمها هندسيًا في فضاءات التمثيل."
-  },
-  {
-   "id": "2609.04242",
-   "title": "Training-Free Speech-Centric Omni Understanding with Frozen VLMs",
-   "abstract": "Audio-visual understanding remains challenging because models must jointly interpret spoken content, visual events, and their temporal relationships. Existing omni models typically introduce dedicated audio encoders and rely on expensive audio-video-text training, tightly coupling omni capability to specific VLM backbones and potentially weakening their existing visual and reasoning abilities. This raises three questions: whether native omni training is necessary for every new VLM, whether speech-centric omni capability can be added while preserving the original backbone, and where richer acou",
-   "authors": [
-    "Ankan Deria",
-    "Hanoona Rasheed",
-    "Xilin He",
-    "Fahad Shahbaz Khan"
-   ],
-   "link": "https://huggingface.co/papers/2609.04242",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-07T00:00",
-   "title_ar": "فهم شامل متمحور حول الكلام دون تدريب باستخدام نماذج لغوية بصرية مجمّدة",
-   "summary_ar": "يظل الفهم السمعي البصري تحديًا لأن النماذج يجب أن تفسر المحتوى المنطوق والأحداث البصرية وعلاقاتها الزمنية معًا. وتقدم النماذج الشاملة الحالية عادةً مشفرات صوتية مخصصة وتعتمد على تدريب سمعي-بصري-نصي مكلف يربط القدرة الشاملة به بإحكام."
-  },
-  {
-   "id": "2609.02750",
-   "title": "Bilevel Coordinated Reflection: A Game-Theoretic Approach to Multi-Agent LLM Systems",
-   "abstract": "Multi-agent LLM systems commonly use an orchestrator to decompose a task for a team of workers and then improve through textual reflection. Despite strong empirical results, these systems lack a unified account of coordination, memory improvement, and the role of external verification. We model orchestrator-worker interaction as a bilevel coordination game: under bounded coupling, the workers' local-update game is an approximate potential game whose equilibrium slack is controlled by decomposition quality. We then analyse reflection as stochastic movement over semantic memory states. For free-",
-   "authors": [
-    "Yihang Chen",
-    "Yuxiang Chen",
-    "Yuxuan Huang",
-    "Meng Fang"
-   ],
-   "link": "https://huggingface.co/papers/2609.02750",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-02T00:00",
-   "title_ar": "التأمل المنسق ثنائي المستوى: نهج قائم على نظرية الألعاب لأنظمة نماذج اللغة الكبيرة متعددة الوكلاء",
-   "summary_ar": "تستخدم أنظمة نماذج اللغة الكبيرة متعددة الوكلاء عادةً منسقًا لتفكيك المهام لفريق من العمال ثم التحسن عبر التأمل النصي. ورغم النتائج التجريبية القوية، تفتقر هذه الأنظمة إلى توصيف موحد للتنسيق وتحسين الذاكرة ودور التحقق الخارجي، وهو ما نقوم بنمذجته."
-  },
-  {
-   "id": "2609.03586",
-   "title": "The Attention Triangle in Audio-Video Models",
-   "abstract": "Audio-video diffusion models rely on cross-modal attention to coordinate text, sound, and visual content, yet this same mechanism can introduce subtle and systematic semantic leakage. We study these models by probing and analyzing the ``attention triangle,'' comprising the three cross-attention edges connecting the text, audio, and video streams, and examine how semantic information is routed across modalities during generation. Our analysis reveals that routing along the audio-video edge is bidirectional: audio can influence video generation, while video can influence audio generation. This e",
-   "authors": [
-    "Sagi Polaczek",
-    "Noa Kraicer",
-    "Gal Metzer",
-    "Zhuo Ning"
-   ],
-   "link": "https://huggingface.co/papers/2609.03586",
+   "link": "https://huggingface.co/papers/2609.04444",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-03T00:00",
-   "title_ar": "مثلث الانتباه في نماذج الصوت والفيديو",
-   "summary_ar": "تعتمد نماذج انتشار الصوت والفيديو على الانتباه عبر الوسائط لتنسيق النص والصوت والمحتوى البصري، إلا أن هذه الآلية ذاتها قد تُحدث تسربًا دلاليًا دقيقًا ومنهجيًا. ندرس هذه النماذج من خلال استكشاف وتحليل \"مثلث الانتباه\" الذي يشمل حواف الانتباه المتبادل الثلاثة."
+   "title_ar": "هارفست بنش: قياس ما إذا كانت وكلاء النماذج اللغوية الكبيرة ستدفع لتجنب قتل الحيوانات",
+   "summary_ar": "توجد بالفعل مقاييس للآثار الجانبية التي يُحدثها الوكيل في طريقه نحو هدفه، لكن \"هارفست بنش\" هو أول مقياس يضع ثمنًا لتجنب الأثر الجانبي ويُسميه كائنًا حيًا. المقياس عبارة عن محاكاة لمزرعة يقود فيها وكلاء فرعيون من النماذج اللغوية الكبيرة طاقمًا من جرارين عبر عملية تعاونية."
   },
   {
-   "id": "2608.05879",
-   "title": "To See a World in a Living Context: Unified Indoor-Outdoor Urban World Generation",
-   "abstract": "Text-driven 3D generation has advanced rapidly in creating large-scale outdoor environments and detailed indoor scenes, but these domains are usually synthesized independently, lacking the correspondence required for a coherent urban world. We present HoloWorld, a unified indoor-outdoor urban world generation framework built on a continuously updated cross-scale world context. Initializing from a user description, HoloWorld progressively represents and updates the diverse world information, from city-scale planning to individual buildings, allowing generated interiors to maintain explicit corr",
+   "id": "2609.00365",
+   "title": "Dr. Claw: An AI Scientist Workspace for Vibe Research",
+   "abstract": "Command-line coding agents (e.g., Claude Code, Gemini CLI) can already read and write files and sustain long sessions, yet end-to-end research still fragments across chat tools, IDEs, terminals, and writing environments, and the decisions that make it auditable are rarely preserved. We present Dr. Claw, an open-source workspace that wraps existing coding-agent executors in a controllable and auditable human-in-the-loop workflow rather than introducing another autonomous agent. Persistent state objects, a reusable skill library, and multi-executor coordination link human decisions to AI executi",
    "authors": [
-    "Xiaobin Huang",
-    "Zilong Huang",
-    "Yang Luo",
-    "Hongchao Fan"
+    "Dingjie Song",
+    "Hanrong Zhang",
+    "Dawei Liu",
+    "Yixin Liu"
    ],
-   "link": "https://huggingface.co/papers/2608.05879",
+   "link": "https://huggingface.co/papers/2609.00365",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-29T00:00",
-   "title_ar": "رؤية العالم في سياق حي: توليد موحد لعوالم حضرية داخلية وخارجية",
-   "summary_ar": "تقدم التوليد ثلاثي الأبعاد الموجه بالنصوص سريعًا في إنشاء بيئات خارجية واسعة ومشاهد داخلية مفصلة، غير أن هذه المجالات تُخلّق عادةً بشكل مستقل وتفتقر للتوافق المطلوب لبناء عالم حضري متماسك. نقدم HoloWorld، وهو إطار موحد لتوليد العوالم الحضرية الداخلية والخارجية."
+   "published": "2026-08-31T00:00",
+   "title_ar": "دكتور كلو: بيئة عمل للعالِم الاصطناعي لأبحاث الفايب",
+   "summary_ar": "تستطيع وكلاء البرمجة عبر سطر الأوامر قراءة الملفات وكتابتها ومواصلة الجلسات الطويلة، ومع ذلك لا تزال الأبحاث المتكاملة مشتتة عبر أدوات الدردشة، وبيئات التطوير، ومحطات الأوامر، وبيئات الكتابة، ونادرًا ما تُحفظ القرارات التي تجعلها قابلة للتدقيق. يقدم هذا العمل نظام \"دكتور كلو\"."
   },
   {
-   "id": "2609.04611",
-   "title": "τ^τ-Bench: An Environment for End-To-End, Realistic Agent Construction",
-   "abstract": "LLM agents are rapidly becoming production software, deployed to handle customer service, adjudicate disputes, and operate internal systems. Notably, the work of building them is increasingly handed to coding agents, yet existing benchmarks say little about whether an AI system can deliver one under the conditions of a real client engagement. We introduce τ^τ-bench (pronounced hyper-tau-bench), a benchmark that makes agent construction the task. A developer agent is given the records a business actually keeps, a client who holds requirements, a production API that operations must run through, ",
+   "id": "2609.04720",
+   "title": "Knowing What Not to Answer: Selective Non-Compliance in Vision-Language Models",
+   "abstract": "Vision-language models (VLMs) are expected to respond helpfully to appropriate requests while withholding compliance with requests that are incorrect, unsafe, infeasible, or unanswerable. However, existing benchmarks predominantly evaluate non-compliance at the level of the query as a whole, assuming that each request either warrants compliance or requires withholding compliance. In practice, real-world queries can contain a mixture of answerable content and components for which compliance should be withheld. In this paper, we introduce KoNA, a benchmark for evaluating selective non-compliance",
    "authors": [
-    "Quan Shi",
-    "Keshav Dhandhania",
-    "Karthik Narasimhan",
-    "Victor Barres"
+    "Minji Kim",
+    "Jihyoung Jang",
+    "Hyounghun Kim"
    ],
-   "link": "https://huggingface.co/papers/2609.04611",
+   "link": "https://huggingface.co/papers/2609.04720",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-04T00:00",
-   "title_ar": "منصة τ^τ-Bench: بيئة واقعية وشاملة لبناء الوكلاء",
-   "summary_ar": "أصبحت وكلاء نماذج اللغة الكبيرة برمجيات إنتاجية متسارعة تُنشر لخدمة العملاء والبت في النزاعات وتشغيل الأنظمة الداخلية. ومما يسترعي الانتباه أن مهمة بنائها تُسند باطراد إلى وكلاء البرمجة، مع أن معايير التقييم الحالية لا تبين بوضوح مدى قدرة نظام الذكاء الاصطناعي على تسليم أحدها."
+   "title_ar": "معرفة ما لا يجب الإجابة عنه: عدم الامتثال الانتقائي في نماذج الرؤية واللغة",
+   "summary_ar": "يُتوقع من نماذج الرؤية واللغة أن تجيب بإفادة على الطلبات المناسبة بينما تمتنع عن الامتثال للطلبات غير الصحيحة أو غير الآمنة أو غير القابلة للتنفيذ أو التي لا يمكن الإجابة عنها. ورغم ذلك، تُقيّم المعايير الحالية عدم الامتثال في الغالب على مستوى الاستعلام ككل بافتراض معين."
+  },
+  {
+   "id": "2609.04714",
+   "title": "Refuse without Refusal: A Structural Analysis of Safety-Tuning Responses for Reducing False Refusals in Language Models",
+   "abstract": "Striking a balance between helpfulness and safety remains a fundamental challenge in aligning large language models. To achieve this balance, models should refuse harmful queries (e.g., \"How do I shoot someone?\") while remaining responsive to benign inputs, even those superficially resembling harmful queries (e.g., \"Where can I shoot a good photo?\"). However, models often struggle to distinguish genuinely harmful queries from benign queries that contain superficially risky language, resulting in false refusals. In this paper, we address the issue by decomposing a response in the safety-tuning ",
+   "authors": [
+    "Minji Kim",
+    "Hyounghun Kim"
+   ],
+   "link": "https://huggingface.co/papers/2609.04714",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-04T00:00",
+   "title_ar": "الرفض دون عبارات الرفض: تحليل بنيوي لاستجابات ضبط السلامة لتقليل الرفض الخاطئ في النماذج اللغوية",
+   "summary_ar": "يظل تحقيق التوازن بين تقديم المساعدة والسلامة تحديًا أساسيًا في محاذاة النماذج اللغوية الكبيرة. ولتحقيق هذا التوازن، ينبغي على النماذج رفض الاستعلامات الضارة مع الاستمرار في الاستجابة للمدخلات الحميدة، حتى تلك التي تشبه المدخلات الضارة ظاهريًا."
+  },
+  {
+   "id": "2609.03231",
+   "title": "The 2026 PNPL Competition: Word Classification and Efficient Cross-Subject Generalisation in LibriBrain100",
+   "abstract": "The ambition of the 2025 PNPL competition (Landau et al., 2025) was to launch a multi-year curriculum for non-invasive speech decoding. Designed to progress from foundational tasks toward the linguistic complexity required for a practical brain-computer interface (BCI), it set the stage with speech detection and phoneme classification tasks. Winning submissions reached F1-macro scores of 95.6% and 73.6% on the respective tasks (Elvers et al., 2026), highly significant advances. This success was built on the LibriBrain dataset (Özdogan et al., 2025), the largest within-subject MEG dataset recor",
+   "authors": [
+    "Francesco Mantegna",
+    "Gereon Elvers",
+    "Dulhan Jayalath",
+    "Gilad Landau"
+   ],
+   "link": "https://huggingface.co/papers/2609.03231",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-03T00:00",
+   "title_ar": "مسابقة بي إن بي إل 2026: تصنيف الكلمات والتعميم الفعال عبر الأفراد في ليبراي برين 100",
+   "summary_ar": "كان طموح مسابقة \"بي إن بي إل 2025\" إطلاق مسار تعليمي لعدة سنوات لفك تشفير الكلام غير الجراحي، والتدرج من المهام التأسيسية نحو التعقيد اللغوي المطلوب لواجهات الدماغ والحاسوب العملية. وقد مهدت تلك المسابقة الطريق للتعامل مع الكلام."
+  },
+  {
+   "id": "2609.05415",
+   "title": "UniMate: One Unified Model to Animate Diverse Skeletons",
+   "abstract": "Recent advances in automatic rigging now deliver animation-ready 3D assets at scale, yet generating the motion to drive them remains a bottleneck. Existing learned animators are topology-constrained: they rely on category-specific templates or require per-skeleton fine-tuning and reference motions at inference. We present UniMate, a unified foundation model that synthesizes articulated motion for arbitrary skeletons from a rigged 3D asset and a text prompt, with no test-time optimization or per-skeleton retraining. UniMate introduces a topology-aware diffusion transformer, which integrates ske",
+   "authors": [
+    "Linzhan Mou",
+    "Jiahui Lei",
+    "Zhiyang Dou",
+    "Chenyue Cai"
+   ],
+   "link": "https://huggingface.co/papers/2609.05415",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-04T00:00",
+   "title_ar": "يوني ميت: نموذج موحد لتحريك هياكل عظمية متنوعة",
+   "summary_ar": "توفر التطورات الحديثة في التجهيز التلقائي للهياكل أصولًا ثلاثية الأبعاد جاهزة للتحريك على نطاق واسع، إلا أن توليد الحركة لقيادتها لا يزال يمثل عقبة. وتقيد الطوبولوجيا أدوات التحريك المُدربة الحالية، حيث تعتمد على قوالب خاصة بكل فئة أو تتطلب ضبطًا دقيقًا لكل هيكل عظمي وحركات مرجعية."
   }
  ],
  "n": 6
