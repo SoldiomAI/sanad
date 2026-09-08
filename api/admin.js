@@ -13,6 +13,7 @@ const GH_API = 'https://api.github.com';
 const DEFAULT_CONTROL = {
   verify_enabled: true,
   verify_daily_budget_usd: 0.5,
+  verify_require_shared_budget: false,
   verify_per_ip_hour: 5,
   pipeline_daily_budget_usd: 0.8,
   paid_kill_switch: false,
