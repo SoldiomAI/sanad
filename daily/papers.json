@@ -1,105 +1,106 @@
 {
- "updated": "2026-09-07T22:59+00:00",
+ "updated": "2026-09-08T14:55+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.04444",
-   "title": "HarvestBench: Measuring Whether LLM Agents Will Pay to Avoid Killing Animals",
-   "abstract": "Benchmarks for the side effects an agent causes on the way to a goal already exist, but HarvestBench is the first to put a price on avoiding the side effect and to name that side effect as a living creature. It is a farm simulation: LLM sub-agents drive a crew of two tractors through a cooperative corn harvest, with animals in the field. The environment is a reinforcement learning gridworld, every decision is made without memory, and the harm is never named in the goal. When an animal blocks a tractor's route the autopilot stops and asks the model whether to drive on, at no fuel cost, or swerv",
+   "id": "2609.04482",
+   "title": "Safety for Whom? Boundary-Aware Self-Distillation for Controlled LLM Safety Refusal",
+   "abstract": "Safety alignment is usually posed as a topic-level question: is this subject harmful? Deployments ask a narrower one. A civics tutor and a public-sector assistant may share a base model yet need different boundaries inside the same topic, refusing targeted political manipulation while still answering factual questions about the same election. We formulate this as narrow-boundary safety and introduce an offline self-generated framework combining controlled topic generation, coverage repair, in-distribution compensation data, and harmful-benign pairs for training and evaluation. Single-shot gene",
    "authors": [
-    "Jasmine Brazilek",
-    "Miles Tidmarsh",
-    "Matthias Endres",
-    "Anshuman Singh"
+    "Alejo López-Ávila",
+    "Iker García-Ferrero",
+    "Jezabel Garcia",
+    "Antonio Tiene"
    ],
-   "link": "https://huggingface.co/papers/2609.04444",
+   "link": "https://huggingface.co/papers/2609.04482",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-03T00:00",
-   "title_ar": "هارفست بنش: قياس ما إذا كانت وكلاء النماذج اللغوية الكبيرة ستدفع لتجنب قتل الحيوانات",
-   "summary_ar": "توجد بالفعل مقاييس للآثار الجانبية التي يُحدثها الوكيل في طريقه نحو هدفه، لكن \"هارفست بنش\" هو أول مقياس يضع ثمنًا لتجنب الأثر الجانبي ويُسميه كائنًا حيًا. المقياس عبارة عن محاكاة لمزرعة يقود فيها وكلاء فرعيون من النماذج اللغوية الكبيرة طاقمًا من جرارين عبر عملية تعاونية."
+   "title_ar": "أمان لمن؟ التقطير الذاتي المدرك للحدود من أجل رفض أمان مضبوط في النماذج اللغوية الكبيرة",
+   "summary_ar": "يُطرح محاذاة الأمان عادةً على مستوى الموضوع حول ما إذا كان ضارًا، بينما تتطلب التطبيقات العملية حدودًا أضيق داخل الموضوع نفسه. فقد يتشارك تطبيقان نموذجًا أساسيًا واحدًا مع حاجتهما لحدود متباينة، كالرفض للمناورات السياسية المستهدفة مع الاستمرار في الإجابة."
   },
   {
-   "id": "2609.00365",
-   "title": "Dr. Claw: An AI Scientist Workspace for Vibe Research",
-   "abstract": "Command-line coding agents (e.g., Claude Code, Gemini CLI) can already read and write files and sustain long sessions, yet end-to-end research still fragments across chat tools, IDEs, terminals, and writing environments, and the decisions that make it auditable are rarely preserved. We present Dr. Claw, an open-source workspace that wraps existing coding-agent executors in a controllable and auditable human-in-the-loop workflow rather than introducing another autonomous agent. Persistent state objects, a reusable skill library, and multi-executor coordination link human decisions to AI executi",
+   "id": "2609.03756",
+   "title": "ENEAS: Embedding-guided Neural Ensemble for Adaptive Segmentation",
+   "abstract": "We present ENEAS, a unified, text-promptable method for instance tracking and semantic discovery. Text-promptable segmentation models, including the latest foundation models such as SAM 3, still suffer from temporal hallucinations, spatial fragmentation, and semantic misclassification: they fail to report target absence when an object leaves the field of view, segment local textures instead of the complete object during extreme close-ups, and prioritize visual features over ontological reality, so that visually similar artifacts such as statues, paintings, or reflections are segmented as targe",
    "authors": [
-    "Dingjie Song",
-    "Hanrong Zhang",
-    "Dawei Liu",
-    "Yixin Liu"
+    "Javier del Pino",
+    "Salvador Rodríguez",
+    "Alejandro Garabito",
+    "Javier Álvarez"
    ],
-   "link": "https://huggingface.co/papers/2609.00365",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-31T00:00",
-   "title_ar": "دكتور كلو: بيئة عمل للعالِم الاصطناعي لأبحاث الفايب",
-   "summary_ar": "تستطيع وكلاء البرمجة عبر سطر الأوامر قراءة الملفات وكتابتها ومواصلة الجلسات الطويلة، ومع ذلك لا تزال الأبحاث المتكاملة مشتتة عبر أدوات الدردشة، وبيئات التطوير، ومحطات الأوامر، وبيئات الكتابة، ونادرًا ما تُحفظ القرارات التي تجعلها قابلة للتدقيق. يقدم هذا العمل نظام \"دكتور كلو\"."
-  },
-  {
-   "id": "2609.04720",
-   "title": "Knowing What Not to Answer: Selective Non-Compliance in Vision-Language Models",
-   "abstract": "Vision-language models (VLMs) are expected to respond helpfully to appropriate requests while withholding compliance with requests that are incorrect, unsafe, infeasible, or unanswerable. However, existing benchmarks predominantly evaluate non-compliance at the level of the query as a whole, assuming that each request either warrants compliance or requires withholding compliance. In practice, real-world queries can contain a mixture of answerable content and components for which compliance should be withheld. In this paper, we introduce KoNA, a benchmark for evaluating selective non-compliance",
-   "authors": [
-    "Minji Kim",
-    "Jihyoung Jang",
-    "Hyounghun Kim"
-   ],
-   "link": "https://huggingface.co/papers/2609.04720",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-04T00:00",
-   "title_ar": "معرفة ما لا يجب الإجابة عنه: عدم الامتثال الانتقائي في نماذج الرؤية واللغة",
-   "summary_ar": "يُتوقع من نماذج الرؤية واللغة أن تجيب بإفادة على الطلبات المناسبة بينما تمتنع عن الامتثال للطلبات غير الصحيحة أو غير الآمنة أو غير القابلة للتنفيذ أو التي لا يمكن الإجابة عنها. ورغم ذلك، تُقيّم المعايير الحالية عدم الامتثال في الغالب على مستوى الاستعلام ككل بافتراض معين."
-  },
-  {
-   "id": "2609.04714",
-   "title": "Refuse without Refusal: A Structural Analysis of Safety-Tuning Responses for Reducing False Refusals in Language Models",
-   "abstract": "Striking a balance between helpfulness and safety remains a fundamental challenge in aligning large language models. To achieve this balance, models should refuse harmful queries (e.g., \"How do I shoot someone?\") while remaining responsive to benign inputs, even those superficially resembling harmful queries (e.g., \"Where can I shoot a good photo?\"). However, models often struggle to distinguish genuinely harmful queries from benign queries that contain superficially risky language, resulting in false refusals. In this paper, we address the issue by decomposing a response in the safety-tuning ",
-   "authors": [
-    "Minji Kim",
-    "Hyounghun Kim"
-   ],
-   "link": "https://huggingface.co/papers/2609.04714",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-04T00:00",
-   "title_ar": "الرفض دون عبارات الرفض: تحليل بنيوي لاستجابات ضبط السلامة لتقليل الرفض الخاطئ في النماذج اللغوية",
-   "summary_ar": "يظل تحقيق التوازن بين تقديم المساعدة والسلامة تحديًا أساسيًا في محاذاة النماذج اللغوية الكبيرة. ولتحقيق هذا التوازن، ينبغي على النماذج رفض الاستعلامات الضارة مع الاستمرار في الاستجابة للمدخلات الحميدة، حتى تلك التي تشبه المدخلات الضارة ظاهريًا."
-  },
-  {
-   "id": "2609.03231",
-   "title": "The 2026 PNPL Competition: Word Classification and Efficient Cross-Subject Generalisation in LibriBrain100",
-   "abstract": "The ambition of the 2025 PNPL competition (Landau et al., 2025) was to launch a multi-year curriculum for non-invasive speech decoding. Designed to progress from foundational tasks toward the linguistic complexity required for a practical brain-computer interface (BCI), it set the stage with speech detection and phoneme classification tasks. Winning submissions reached F1-macro scores of 95.6% and 73.6% on the respective tasks (Elvers et al., 2026), highly significant advances. This success was built on the LibriBrain dataset (Özdogan et al., 2025), the largest within-subject MEG dataset recor",
-   "authors": [
-    "Francesco Mantegna",
-    "Gereon Elvers",
-    "Dulhan Jayalath",
-    "Gilad Landau"
-   ],
-   "link": "https://huggingface.co/papers/2609.03231",
+   "link": "https://huggingface.co/papers/2609.03756",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-03T00:00",
-   "title_ar": "مسابقة بي إن بي إل 2026: تصنيف الكلمات والتعميم الفعال عبر الأفراد في ليبراي برين 100",
-   "summary_ar": "كان طموح مسابقة \"بي إن بي إل 2025\" إطلاق مسار تعليمي لعدة سنوات لفك تشفير الكلام غير الجراحي، والتدرج من المهام التأسيسية نحو التعقيد اللغوي المطلوب لواجهات الدماغ والحاسوب العملية. وقد مهدت تلك المسابقة الطريق للتعامل مع الكلام."
+   "title_ar": "ENEAS: تجميع عصبي موجه بالتضمين للتجزئة التكيفية",
+   "summary_ar": "يقدم البحث طريقة ENEAS الموحدة والقابلة للتوجيه نصيًا لتتبع الحالات والاكتشاف الدلالي. ولا تزال نماذج التجزئة القابلة للتوجيه بالنص، بما فيها النماذج التأسيسية مثل SAM 3، تعاني من الهلوسات الزمنية والتجزؤ المكاني وسوء التصنيف الدلالي."
   },
   {
-   "id": "2609.05415",
-   "title": "UniMate: One Unified Model to Animate Diverse Skeletons",
-   "abstract": "Recent advances in automatic rigging now deliver animation-ready 3D assets at scale, yet generating the motion to drive them remains a bottleneck. Existing learned animators are topology-constrained: they rely on category-specific templates or require per-skeleton fine-tuning and reference motions at inference. We present UniMate, a unified foundation model that synthesizes articulated motion for arbitrary skeletons from a rigged 3D asset and a text prompt, with no test-time optimization or per-skeleton retraining. UniMate introduces a topology-aware diffusion transformer, which integrates ske",
+   "id": "2609.04010",
+   "title": "Unlocking Lossless Speedups in LLMs via Discrete Diffusion",
+   "abstract": "Large Language Models (LLMs) owe much of their success to next-token prediction (NTP), but their autoregressive (AR) structure requires slow, sequential token generation. To overcome this bottleneck, we introduce diffusion-augmented LLMs, a new class of models that defines an AR model distribution while using diffusion to draw multiple tokens in parallel from that distribution. We decouple the parameters of these models into two sets: AR weights, trained using the standard NTP objective, and lightweight diffusion weights, trained to generate multiple tokens simultaneously. The diffusion weight",
    "authors": [
-    "Linzhan Mou",
-    "Jiahui Lei",
-    "Zhiyang Dou",
-    "Chenyue Cai"
+    "Subham Sekhar Sahoo",
+    "Lingjie Chen",
+    "Khiem Pham",
+    "Jonathan Geuter"
    ],
-   "link": "https://huggingface.co/papers/2609.05415",
+   "link": "https://huggingface.co/papers/2609.04010",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-04T00:00",
-   "title_ar": "يوني ميت: نموذج موحد لتحريك هياكل عظمية متنوعة",
-   "summary_ar": "توفر التطورات الحديثة في التجهيز التلقائي للهياكل أصولًا ثلاثية الأبعاد جاهزة للتحريك على نطاق واسع، إلا أن توليد الحركة لقيادتها لا يزال يمثل عقبة. وتقيد الطوبولوجيا أدوات التحريك المُدربة الحالية، حيث تعتمد على قوالب خاصة بكل فئة أو تتطلب ضبطًا دقيقًا لكل هيكل عظمي وحركات مرجعية."
+   "published": "2026-09-03T00:00",
+   "title_ar": "إطلاق تسريع غير منقوص في النماذج اللغوية الكبيرة عبر الانتشار المتقطع",
+   "summary_ar": "تدين النماذج اللغوية الكبيرة بنجاحها للتنبؤ بالرمز التالي، غير أن بنيتها ذاتية الانحدار تتطلب توليدًا متسلسلًا وبطيئًا للرموز. ولتجاوز عنق الزجاجة هذا، يقدم البحث نماذج لغوية معززة بالانتشار تمثل فئة جديدة تعرّف توزيع نموذج ذاتي الانحدار."
+  },
+  {
+   "id": "2608.25936",
+   "title": "One Symptom, Three Levers: A Critical Review of On-Policy Self-Distillation",
+   "abstract": "On-policy distillation trains a language model on its own generations while a teacher scores them token by token. It combines the dense supervision of imitation learning with the on-policy sampling of reinforcement learning. But it requires a second, larger model to act as teacher. On-Policy Self-Distillation (OPSD) removes that cost. The teacher is the model itself, conditioned on privileged information the student will not have at test time, such as a reference solution, a plan, or environment feedback. The teacher is no stronger than the student, only better informed. Early results were pro",
+   "authors": [
+    "Justin Robert",
+    "Raheel Qader"
+   ],
+   "link": "https://huggingface.co/papers/2608.25936",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-08-26T00:00",
+   "title_ar": "عَرَض واحد وثلاث روافع: مراجعة نقدية للتقطير الذاتي وفق السياسة الحالية",
+   "summary_ar": "يدرّب التقطير وفق السياسة الحالية النموذج اللغوي على توليداته الخاصة بينما يقيّمها نموذج مُعلّم رمزًا برمز، جامعًا بين الإشراف الكثيف للتعلم بالتقليد وأخذ العينات وفق السياسة في التعلم المعزز. غير أن هذه الطريقة تتطلب نموذجًا ثانيًا أكبر حجمًا ليعمل كمعلّم."
+  },
+  {
+   "id": "2609.01281",
+   "title": "EmbodiedSkills: A Unified Framework for Orchestrating, Training, and Deploying VLA Agents",
+   "abstract": "Vision-language-action (VLA) models map visual observations and language instructions directly to robot actions, but long-horizon tasks require more than action prediction. An agent must coordinate perception, planning, execution, progress verification, and recovery as the physical state evolves. An action prediction or a model-generated skill decision does not, by itself, guarantee that the proposed operation is valid in the current state or that its outcome will be verified. We propose EmbodiedSkills, a unified framework that treats each skill decision as an execution proposal: the runtime c",
+   "authors": [
+    "Wei Wang",
+    "Wenqiao Zhang",
+    "Yutong Lin",
+    "Yuqian Yuan"
+   ],
+   "link": "https://huggingface.co/papers/2609.01281",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-01T00:00",
+   "title_ar": "EmbodiedSkills: إطار موحد لتنسيق وتدريب ونشر وكلاء الرؤية واللغة والعمل",
+   "summary_ar": "تربط نماذج الرؤية واللغة والعمل الملاحظات البصرية والتعليمات اللغوية بأفعال الروبوت مباشرة، إلا أن المهام ذات الأفق الطويل تتطلب ما هو أكثر من مجرد التنبؤ بالفعل. إذ يجب على الوكيل تنسيق الإدراك والتخطيط والتنفيذ والتحقق من التقدم والتعافي مع تطور الحالة المادية."
+  },
+  {
+   "id": "2609.03241",
+   "title": "FlowBalance: Verifier-Grounded Self-Improvement from On-Policy Reasoning Experience",
+   "abstract": "A reasoning model can improve from its own on-policy experience, but this inner loop is fragile: terminal verifiers provide reliable yet sparse supervision, while dense same-model guidance can reinforce false confidence or overconcentrate learning on a narrow solution mode. We introduce FlowBalance, a verifier-grounded self-improvement method that learns a normalized distribution over complete responses. For each on-policy trajectory, a frozen training-time view of the same policy uses privileged context to produce token-level log-probability gains, which are aggregated into a trajectory-level",
+   "authors": [
+    "Zixun Huang",
+    "Kishan Panaganti",
+    "Haitao Mi",
+    "Leowei Liang"
+   ],
+   "link": "https://huggingface.co/papers/2609.03241",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-03T00:00",
+   "title_ar": "FlowBalance: تحسين ذاتي قائم على أداة التحقق انطلاقًا من خبرة الاستدلال وفق السياسة الحالية",
+   "summary_ar": "يمكن لنموذج الاستدلال أن يتحسن من خبرته الخاصة وفق السياسة المتبعة، لكن هذه الحلقة الداخلية تتسم بالهشاشة؛ إذ توفر أدوات التحقق النهائية إشرافًا موثوقًا ولكنه متناثر، بينما قد يعزز التوجيه الكثيف من النموذج نفسه الثقة الزائفة أو يُركّز التعلم على نمط حل ضيق. يقدم هذا البحث أسلوب FlowBalance لمعالجة ذلك."
   }
  ],
  "n": 6
