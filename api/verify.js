@@ -16,15 +16,19 @@ const {
 const RAW_BASE = 'https://raw.githubusercontent.com/SoldiomAI/sanad-data/main/daily';
 const GROK_URL = 'https://api.x.ai/v1/responses';
 const CACHE_MAX = 200;
+const CACHE_TTL_MS = 10 * 60 * 1000;
+const CACHE_ENTRY_MAX_BYTES = 256 * 1024;
 const ACTIVITY_MAX = 40;
 const URL_MAX = 2000;
 const REQUEST_MAX_BYTES = 16 * 1024;
 const EXTRACT_MAX = 2500;
 const USD_TICKS = 1e10;
+const PROVIDER_RESERVATION_USD = 0.02;
 
 const DEFAULT_CONTROL = {
   verify_enabled: true,
   verify_daily_budget_usd: 0.5,
+  verify_require_shared_budget: false,
   verify_per_ip_hour: 5,
   pipeline_daily_budget_usd: 0.8,
   paid_kill_switch: false,
@@ -123,6 +127,10 @@ function urlHash(url) {
 function cacheGet(key) {
   const hit = cache.get(key);
   if (!hit) return null;
+  if (!Number.isFinite(hit.at) || Date.now() - hit.at > CACHE_TTL_MS) {
+    cache.delete(key);
+    return null;
+  }
   // LRU touch
   cache.delete(key);
   cache.set(key, hit);
@@ -130,12 +138,41 @@ function cacheGet(key) {
 }
 
 function cacheSet(key, payload) {
+  let serialized;
+  try {
+    serialized = JSON.stringify(payload);
+  } catch (_) {
+    return false;
+  }
+  if (Buffer.byteLength(serialized, 'utf8') > CACHE_ENTRY_MAX_BYTES) return false;
   if (cache.has(key)) cache.delete(key);
   cache.set(key, { at: Date.now(), payload });
   while (cache.size > CACHE_MAX) {
     const oldest = cache.keys().next().value;
     cache.delete(oldest);
   }
+  return true;
+}
+
+function reserveProviderBudget(limit) {
+  ensureSpendDay();
+  const budget = Number.isFinite(limit) ? Math.max(0, limit) : DEFAULT_CONTROL.verify_daily_budget_usd;
+  if (spend.usd + PROVIDER_RESERVATION_USD > budget) return null;
+  spend.usd += PROVIDER_RESERVATION_USD;
+  syncGlobal();
+  return { day: spend.day, usd: PROVIDER_RESERVATION_USD };
+}
+
+function settleProviderBudget(reservation, actualUsd) {
+  if (!reservation) return;
+  ensureSpendDay();
+  if (reservation.day === spend.day) {
+    spend.usd = Math.max(0, spend.usd - reservation.usd);
+  }
+  const actual = Number(actualUsd);
+  spend.usd += Number.isFinite(actual) && actual > 0 ? actual : reservation.usd;
+  spend.calls += 1;
+  syncGlobal();
 }
 
 function pushActivity(entry) {
@@ -174,9 +211,7 @@ function validateUrl(raw) {
 function providerSafeUrl(value) {
   try {
     const parsed = new URL(value);
-    parsed.search = '';
-    parsed.hash = '';
-    return parsed.href;
+    return parsed.origin;
   } catch (_) {
     return '';
   }
@@ -195,6 +230,7 @@ function hasSensitiveQuery(value) {
       'jwt',
       'key-pair-id',
       'policy',
+      's',
       'sas_token',
       'session',
       'session_id',
@@ -207,6 +243,7 @@ function hasSensitiveQuery(value) {
       'x-amz-signature',
       'x-goog-credential',
       'x-goog-signature',
+      'hdnts',
     ]);
     return [...new URL(value).searchParams.keys()].some((key) => {
       const normalized = key.toLowerCase();
@@ -214,8 +251,55 @@ function hasSensitiveQuery(value) {
         /(?:^|[_-])(auth|credential|jwt|key|policy|secret|session|sig|signature|token)(?:$|[_-])/.test(normalized);
     });
   } catch (_) {
-    return false;
+    return true;
   }
+}
+
+function hasCapabilityPath(value) {
+  try {
+    const pathname = decodeURIComponent(new URL(value).pathname);
+    return pathname.split('/').some((segment) => {
+      if (!segment) return false;
+      if (/(?:^|[-_.])(auth|credential|download|jwt|private|secret|session|sig|signature|token)(?:$|[-_.])/i.test(segment)) {
+        return true;
+      }
+      return segment.length >= 32 &&
+        /^[a-z0-9_=-]+$/i.test(segment) &&
+        /[a-z]/i.test(segment) &&
+        /\d/.test(segment);
+    });
+  } catch (_) {
+    return true;
+  }
+}
+
+function hasAnyQuery(value) {
+  try {
+    return new URL(value).search.length > 1;
+  } catch (_) {
+    return true;
+  }
+}
+
+function providerExposureRisk(initialUrl, page, media) {
+  const redirectUrls = (redirects) => (Array.isArray(redirects) ? redirects : [])
+    .flatMap((item) => [item?.from, item?.to])
+    .filter(Boolean);
+  const generalUrls = [
+    initialUrl,
+    page?.finalUrl,
+    ...redirectUrls(page?.redirects),
+    media?.url,
+    media?.inspected_url,
+    ...redirectUrls(media?.redirects),
+  ].filter(Boolean);
+  const mediaUrls = [
+    media?.url,
+    media?.inspected_url,
+    ...redirectUrls(media?.redirects),
+  ].filter(Boolean);
+  return generalUrls.some((value) => hasSensitiveQuery(value) || hasCapabilityPath(value)) ||
+    mediaUrls.some(hasAnyQuery);
 }
 
 function hostMatches(hostname, domain) {
@@ -617,6 +701,7 @@ function publicMedia(details, forensics, note = '', mediaReason = null) {
     limitations: Array.isArray(evidence.limitations) ? evidence.limitations : [],
     provider: evidence.provider || 'none',
     provider_status: evidence.provider_status || 'not_run',
+    budget_scope: 'soft_per_instance',
     checked_at: evidence.checked_at || new Date().toISOString(),
     note,
     reason: mediaReason
@@ -808,7 +893,23 @@ function createHandler(deps = {}) {
     const ip = clientIp(req);
     const ipH = hashIp(ip);
 
-  // 2. Cache
+    const control = await (deps.loadControl || loadControl)();
+    ensureSpendDay();
+
+    if (control.verify_enabled === false) {
+      const result = blockedResult(url, control.maintenance || 'خدمة التحقق متوقفة مؤقتًا.');
+      pushActivity({
+        at: new Date().toISOString(),
+        host: validated.parsed.hostname,
+        tier: 'free',
+        verdict: result.news.verdict,
+        usd: 0,
+        ipHash: ipH,
+      });
+      return json(res, 200, result);
+    }
+
+  // 2. Cache (only after checking the current service control).
     const cached = cacheGet(key);
     if (cached) {
       pushActivity({
@@ -820,23 +921,6 @@ function createHandler(deps = {}) {
         ipHash: ipH,
       });
       return json(res, 200, { ...cached, cost_tier: 'cache', url });
-    }
-
-    const control = await (deps.loadControl || loadControl)();
-    ensureSpendDay();
-
-    if (control.verify_enabled === false) {
-      const result = blockedResult(url, control.maintenance || 'خدمة التحقق متوقفة مؤقتًا.');
-      cacheSet(key, result);
-      pushActivity({
-        at: new Date().toISOString(),
-        host: validated.parsed.hostname,
-        tier: 'free',
-        verdict: result.news.verdict,
-        usd: 0,
-        ipHash: ipH,
-      });
-      return json(res, 200, result);
     }
 
     const perIp = Number(control.verify_per_ip_hour ?? DEFAULT_CONTROL.verify_per_ip_hour);
@@ -896,49 +980,54 @@ function createHandler(deps = {}) {
       page.live &&
       !!(page.title || page.description || page.snippet);
     const kill = !!control.paid_kill_switch;
-    const budget = Number(control.verify_daily_budget_usd ?? 0.5);
-    const underBudget = spend.usd < (Number.isFinite(budget) ? budget : 0.5);
+    const configuredBudget = Number(control.verify_daily_budget_usd ?? 0.5);
+    const budget = Number.isFinite(configuredBudget) ? configuredBudget : 0.5;
     const hasKey = !!(deps.apiKey || process.env.GROK_API_KEY);
-    const paidAllowed = !kill && underBudget && hasKey;
-    const sensitiveProviderUrl =
-      hasSensitiveQuery(url) ||
-      hasSensitiveQuery(mediaDetails.inspected_url || mediaDetails.url);
+    const sharedBudgetUnavailable = control.verify_require_shared_budget === true;
+    const sensitiveProviderUrl = providerExposureRisk(url, page, mediaDetails);
+    const providerEligible =
+      !kill && hasKey && !sharedBudgetUnavailable && !sensitiveProviderUrl;
+    const skippedStatus = (reserved) => sensitiveProviderUrl
+      ? 'skipped_sensitive_url'
+      : kill
+        ? 'skipped_kill_switch'
+        : sharedBudgetUnavailable
+          ? 'skipped_shared_budget_unavailable'
+          : !hasKey
+            ? 'skipped_no_key'
+            : !reserved
+              ? 'skipped_budget'
+              : 'not_run';
+    const skippedLimitation = (status) => ({
+      skipped_no_key: 'Paid AI analysis was skipped because no provider key is configured.',
+      skipped_budget: 'Paid AI analysis was skipped because the soft per-instance daily verification budget was reached.',
+      skipped_kill_switch: 'Paid AI analysis was skipped by the configured kill switch.',
+      skipped_shared_budget_unavailable: 'Paid AI analysis was skipped because shared-budget enforcement is required but unavailable.',
+      skipped_sensitive_url: 'Paid AI analysis was skipped because a fetched URL may contain access credentials or capability-bearing data.',
+    }[status] || 'Paid AI analysis was not run.');
 
     if (wantMediaGrok) {
       let evidence;
-      if (paidAllowed && !sensitiveProviderUrl) {
-        evidence = await (deps.analyzeImage || analyzeImageWithGrok)(
-          mediaDetails,
-          { title: page.title, description: page.description },
-          deps,
-          { apiKey: deps.apiKey }
-        );
+      const reservation = providerEligible ? reserveProviderBudget(budget) : null;
+      if (reservation) {
+        try {
+          evidence = await (deps.analyzeImage || analyzeImageWithGrok)(
+            mediaDetails,
+            {},
+            deps,
+            { apiKey: deps.apiKey }
+          );
+        } finally {
+          settleProviderBudget(reservation, evidence?.usd);
+        }
         if (evidence.provider_status === 'completed') {
-          ensureSpendDay();
-          spend.usd += evidence.usd || 0;
-          spend.calls += 1;
-          syncGlobal();
           result.tier = 'grok';
           result.cost_tier = 'grok';
         }
       } else {
-        const status = sensitiveProviderUrl
-          ? 'skipped_sensitive_url'
-          : kill
-          ? 'skipped_kill_switch'
-          : !underBudget
-            ? 'skipped_budget'
-            : 'skipped_no_key';
+        const status = skippedStatus(reservation);
         evidence = baseForensics(mediaDetails, status);
-        evidence.limitations.push(
-          status === 'skipped_no_key'
-            ? 'Paid AI analysis was skipped because no provider key is configured.'
-            : status === 'skipped_budget'
-              ? 'Paid AI analysis was skipped because the daily verification budget was reached.'
-              : status === 'skipped_kill_switch'
-                ? 'Paid AI analysis was skipped by the configured kill switch.'
-                : 'Paid AI analysis was skipped because the URL contains access or signature parameters.'
-        );
+        evidence.limitations.push(skippedLimitation(status));
         if (status !== 'skipped_no_key') result.cost_tier = 'blocked';
       }
       result.media = publicMedia(mediaDetails, evidence, result.media.note, page.mediaReason);
@@ -953,38 +1042,41 @@ function createHandler(deps = {}) {
       result.media = publicMedia(mediaDetails, evidence, result.media.note, page.mediaReason);
     }
 
-    if (wantTextGrok && paidAllowed && !sensitiveProviderUrl) {
-      const grok = await (deps.callGrok || callGrok)({
-        url,
-        title: page.title,
-        description: page.description,
-        snippet: page.snippet,
-        source,
-        mediaKind: page.kind,
-      });
+    const textReservation = wantTextGrok && providerEligible
+      ? reserveProviderBudget(budget)
+      : null;
+    if (wantTextGrok && textReservation) {
+      let grok;
+      try {
+        grok = await (deps.callGrok || callGrok)({
+          url: page.finalUrl || url,
+          title: page.title,
+          description: page.description,
+          snippet: page.snippet,
+          source,
+          mediaKind: page.kind,
+        });
+      } finally {
+        settleProviderBudget(textReservation, grok?.usd);
+      }
       if (grok.ok) {
-        ensureSpendDay();
-        spend.usd += grok.usd || 0;
-        spend.calls += 1;
-        syncGlobal();
         result = mergeGrok(result, grok.parsed, grok.usd);
       }
-    } else if (wantTextGrok && (!paidAllowed || sensitiveProviderUrl)) {
-      result.cost_tier = kill || !underBudget || sensitiveProviderUrl ? 'blocked' : result.cost_tier;
+    } else if (wantTextGrok) {
+      const status = skippedStatus(textReservation);
+      result.cost_tier = status === 'skipped_no_key' ? result.cost_tier : 'blocked';
       result.grade = '—';
       if (!['غير كاف', 'غير مدعوم'].includes(result.news.verdict)) {
         result.news.verdict = result.source.live ? 'غير كاف' : 'غير مدعوم';
       }
-      if (sensitiveProviderUrl) {
-        result.media = {
-          ...result.media,
-          provider_status: 'skipped_sensitive_url',
-          limitations: [
-            ...(result.media.limitations || []),
-            'Paid AI analysis was skipped because the URL contains access or signature parameters.',
-          ],
-        };
-      }
+      result.media = {
+        ...result.media,
+        provider_status: status,
+        limitations: [
+          ...(result.media.limitations || []),
+          skippedLimitation(status),
+        ],
+      };
     }
 
     cacheSet(key, result);
@@ -1004,9 +1096,13 @@ const handler = createHandler();
 module.exports = handler;
 module.exports.createHandler = createHandler;
 module.exports._internals = {
+  cacheGet,
+  cacheSet,
   clearCache,
   fromFetchHeuristic,
+  hasCapabilityPath,
   hasSensitiveQuery,
+  providerExposureRisk,
   providerSafeUrl,
   publicMedia,
   validateUrl,

@@ -9,6 +9,7 @@ const verify = require('../api/verify');
 const {
   REASONS,
   analyzeImageWithGrok,
+  baseForensics,
   extractPageMetadata,
   inspectPublicUrl,
   isPublicIp,
@@ -28,6 +29,10 @@ const JPEG = Buffer.concat([
 const MP4 = Buffer.concat([
   Buffer.from('000000186674797069736f6d', 'hex'),
   Buffer.alloc(32, 3),
+]);
+const M4A = Buffer.concat([
+  Buffer.from('00000018667479704d344120', 'hex'),
+  Buffer.alloc(32, 5),
 ]);
 const MP3 = Buffer.concat([Buffer.from('494433', 'hex'), Buffer.alloc(32, 4)]);
 
@@ -258,7 +263,34 @@ test('classifies direct image, video, and audio media by allowed MIME and signat
         assert.equal(page.media.buffer, null);
       }
     });
+
   }
+});
+
+test('keeps ISO-BMFF MIME compatibility directional', async () => {
+  const genericAudio = await secureFetchResource('https://example.test/audio.m4a', {}, {
+    lookup: PUBLIC_DNS,
+    requestUrl: network({
+      'https://example.test/audio.m4a': {
+        headers: { 'content-type': 'audio/mp4' },
+        body: MP4,
+      },
+    }),
+  });
+  assert.equal(genericAudio.ok, true);
+  assert.equal(genericAudio.kind, 'audio');
+
+  const mislabeledVideo = await secureFetchResource('https://example.test/video.mp4', {}, {
+    lookup: PUBLIC_DNS,
+    requestUrl: network({
+      'https://example.test/video.mp4': {
+        headers: { 'content-type': 'video/mp4' },
+        body: M4A,
+      },
+    }),
+  });
+  assert.equal(mislabeledVideo.ok, false);
+  assert.equal(mislabeledVideo.reason.code, 'type_mismatch');
 });
 
 test('extracts attributable OpenGraph, markup, and bounded JSON-LD media candidates', () => {
@@ -291,6 +323,23 @@ test('extracts attributable OpenGraph, markup, and bounded JSON-LD media candida
     'https://example.test/story'
   );
   assert.equal(malformedEntity.title, '\ufffd');
+});
+
+test('caps extracted page metadata fields and candidate URLs', () => {
+  const long = 'x'.repeat(10_000);
+  const result = extractPageMetadata(
+    Buffer.from(`<html><head>
+      <meta property="og:title" content="${long}">
+      <meta property="og:description" content="${long}">
+      <meta property="og:site_name" content="${long}">
+      <meta property="og:image" content="https://example.test/${long}.png">
+    </head></html>`),
+    'https://example.test/story'
+  );
+  assert.equal(result.title.length, 512);
+  assert.equal(result.description.length, 2000);
+  assert.equal(result.siteName.length, 256);
+  assert.equal(result.candidates.length, 0);
 });
 
 test('inspects a page video poster but keeps the video analysis scope thumbnail-only', async () => {
@@ -686,12 +735,17 @@ test('provider output cannot elevate an unknown source rank or grade', async () 
 test('provider URLs omit query data and signed URLs skip paid analysis', async () => {
   assert.equal(
     verify._internals.providerSafeUrl('https://example.test/story?token=secret#fragment'),
-    'https://example.test/story'
+    'https://example.test'
   );
   assert.equal(verify._internals.hasSensitiveQuery('https://example.test/story?X-Amz-Signature=secret'), true);
-  for (const key of ['api_key', 'apikey', 'auth_token', 'jwt', 'session_id']) {
+  for (const key of ['api_key', 'apikey', 'auth_token', 'jwt', 'session_id', 's', 'hdnts']) {
     assert.equal(verify._internals.hasSensitiveQuery(`https://example.test/story?${key}=secret`), true, key);
   }
+  assert.equal(verify._internals.hasCapabilityPath('https://example.test/private/download/file.png'), true);
+  assert.equal(
+    verify._internals.hasCapabilityPath('https://example.test/Abcdefghijklmnopqrstuvwxyz0123456789/file.png'),
+    true
+  );
 
   verify._internals.clearCache();
   const pageUrl = 'https://example.test/story?X-Amz-Signature=secret';
@@ -721,7 +775,7 @@ test('provider URLs omit query data and signed URLs skip paid analysis', async (
   assert.equal(res.statusCode, 200);
   assert.equal(providerCalled, false);
   assert.equal(res.json.media.provider_status, 'skipped_sensitive_url');
-  assert.match(res.json.media.limitations.join(' '), /signature parameters/i);
+  assert.match(res.json.media.limitations.join(' '), /access credentials|capability-bearing/i);
 
   verify._internals.clearCache();
   const imageUrl = 'https://example.test/photo.png?api_key=secret';
@@ -752,6 +806,210 @@ test('provider URLs omit query data and signed URLs skip paid analysis', async (
   assert.equal(imageRes.json.media.provider_status, 'skipped_sensitive_url');
 });
 
+test('redirect, capability-path, and query-bearing media URLs never reach paid providers', async (t) => {
+  const control = async () => ({
+    verify_enabled: true,
+    verify_per_ip_hour: 50,
+    verify_daily_budget_usd: 1,
+    paid_kill_switch: false,
+  });
+
+  await t.test('redirect-acquired query token', async () => {
+    verify._internals.clearCache();
+    const start = 'https://example.test/story';
+    const final = 'https://example.test/story?s=secret';
+    let providerCalled = false;
+    const handler = verify.createHandler({
+      apiKey: 'test-key',
+      matchFeed: async () => null,
+      loadControl: control,
+      lookup: PUBLIC_DNS,
+      requestUrl: network({
+        [start]: { status: 302, headers: { location: final } },
+        [final]: {
+          headers: { 'content-type': 'text/html' },
+          body: Buffer.from('<html><head><title>Redirected report</title></head><body>Text.</body></html>'),
+        },
+      }),
+      callGrok: async () => {
+        providerCalled = true;
+        return { ok: true, parsed: {} };
+      },
+    });
+    const res = await invoke(handler, start, '198.51.100.21');
+    assert.equal(providerCalled, false);
+    assert.equal(res.json.media.provider_status, 'skipped_sensitive_url');
+  });
+
+  await t.test('query-bearing embedded media', async () => {
+    verify._internals.clearCache();
+    const pageUrl = 'https://example.test/page';
+    const imageUrl = 'https://cdn.example.test/photo.png?width=1200';
+    let providerCalled = false;
+    const handler = verify.createHandler({
+      apiKey: 'test-key',
+      matchFeed: async () => null,
+      loadControl: control,
+      lookup: PUBLIC_DNS,
+      requestUrl: network({
+        [pageUrl]: {
+          headers: { 'content-type': 'text/html' },
+          body: Buffer.from(`<meta property="og:image" content="${imageUrl}">`),
+        },
+        [imageUrl]: { headers: { 'content-type': 'image/png' }, body: PNG },
+      }),
+      analyzeImage: async () => {
+        providerCalled = true;
+        return baseForensics({});
+      },
+    });
+    const res = await invoke(handler, pageUrl, '198.51.100.22');
+    assert.equal(providerCalled, false);
+    assert.equal(res.json.media.provider_status, 'skipped_sensitive_url');
+  });
+
+  await t.test('capability-bearing direct media path', async () => {
+    verify._internals.clearCache();
+    const imageUrl = 'https://example.test/private/download/photo.png';
+    let providerCalled = false;
+    const handler = verify.createHandler({
+      apiKey: 'test-key',
+      matchFeed: async () => null,
+      loadControl: control,
+      lookup: PUBLIC_DNS,
+      requestUrl: network({
+        [imageUrl]: { headers: { 'content-type': 'image/png' }, body: PNG },
+      }),
+      analyzeImage: async () => {
+        providerCalled = true;
+        return baseForensics({});
+      },
+    });
+    const res = await invoke(handler, imageUrl, '198.51.100.23');
+    assert.equal(providerCalled, false);
+    assert.equal(res.json.media.provider_status, 'skipped_sensitive_url');
+  });
+});
+
+test('cache entries are size-bounded, expire, and never bypass the live service control', async () => {
+  verify._internals.clearCache();
+  assert.equal(verify._internals.cacheSet('small', { ok: true }), true);
+  assert.deepEqual(verify._internals.cacheGet('small'), { ok: true });
+  globalThis.__SANAD_VERIFY__.cache.get('small').at = Date.now() - 11 * 60 * 1000;
+  assert.equal(verify._internals.cacheGet('small'), null);
+  assert.equal(
+    verify._internals.cacheSet('oversized', { value: 'x'.repeat(300 * 1024) }),
+    false
+  );
+  assert.equal(verify._internals.cacheGet('oversized'), null);
+
+  const mediaUrl = 'https://example.test/cache.mp3';
+  let enabled = true;
+  const handler = verify.createHandler({
+    matchFeed: async () => null,
+    loadControl: async () => ({
+      verify_enabled: enabled,
+      verify_per_ip_hour: 50,
+      verify_daily_budget_usd: 0,
+      paid_kill_switch: true,
+      maintenance: 'Disabled for test.',
+    }),
+    lookup: PUBLIC_DNS,
+    requestUrl: network({
+      [mediaUrl]: { headers: { 'content-type': 'audio/mpeg' }, body: MP3 },
+    }),
+  });
+  const first = await invoke(handler, mediaUrl, '198.51.100.24');
+  assert.equal(first.json.media.kind, 'audio');
+  enabled = false;
+  const disabled = await invoke(handler, mediaUrl, '198.51.100.24');
+  assert.equal(disabled.json.cost_tier, 'blocked');
+  assert.equal(disabled.json.media.kind, 'none');
+  assert.match(disabled.json.news.why, /Disabled for test/);
+});
+
+test('provider budget reservations prevent concurrent overspend and expose their scope', async () => {
+  verify._internals.clearCache();
+  const state = globalThis.__SANAD_VERIFY__.spend;
+  state.day = new Date().toISOString().slice(0, 10);
+  state.usd = 0;
+  state.calls = 0;
+
+  const firstUrl = 'https://example.test/first.png';
+  const secondUrl = 'https://example.test/second.png';
+  let releaseFirst;
+  let markStarted;
+  const firstStarted = new Promise((resolve) => { markStarted = resolve; });
+  const firstGate = new Promise((resolve) => { releaseFirst = resolve; });
+  let providerCalls = 0;
+  const handler = verify.createHandler({
+    apiKey: 'test-key',
+    matchFeed: async () => null,
+    loadControl: async () => ({
+      verify_enabled: true,
+      verify_per_ip_hour: 50,
+      verify_daily_budget_usd: 0.02,
+      paid_kill_switch: false,
+    }),
+    lookup: PUBLIC_DNS,
+    requestUrl: network({
+      [firstUrl]: { headers: { 'content-type': 'image/png' }, body: PNG },
+      [secondUrl]: { headers: { 'content-type': 'image/png' }, body: PNG },
+    }),
+    analyzeImage: async (media) => {
+      providerCalls += 1;
+      markStarted();
+      await firstGate;
+      return {
+        ...baseForensics(media, 'completed'),
+        provider: 'xai',
+        provider_status: 'completed',
+        usd: 0.001,
+      };
+    },
+  });
+
+  const firstPromise = invoke(handler, firstUrl, '198.51.100.25');
+  await firstStarted;
+  const second = await invoke(handler, secondUrl, '198.51.100.26');
+  assert.equal(second.json.media.provider_status, 'skipped_budget');
+  assert.equal(second.json.media.budget_scope, 'soft_per_instance');
+  releaseFirst();
+  const first = await firstPromise;
+  assert.equal(first.json.media.provider_status, 'completed');
+  assert.equal(providerCalls, 1);
+  assert.equal(state.calls, 1);
+  assert.equal(state.usd, 0.001);
+});
+
+test('required shared-budget enforcement fails closed when unavailable', async () => {
+  verify._internals.clearCache();
+  const imageUrl = 'https://example.test/shared-budget.png';
+  let providerCalled = false;
+  const handler = verify.createHandler({
+    apiKey: 'test-key',
+    matchFeed: async () => null,
+    loadControl: async () => ({
+      verify_enabled: true,
+      verify_per_ip_hour: 50,
+      verify_daily_budget_usd: 1,
+      verify_require_shared_budget: true,
+      paid_kill_switch: false,
+    }),
+    lookup: PUBLIC_DNS,
+    requestUrl: network({
+      [imageUrl]: { headers: { 'content-type': 'image/png' }, body: PNG },
+    }),
+    analyzeImage: async () => {
+      providerCalled = true;
+      return baseForensics({});
+    },
+  });
+  const result = await invoke(handler, imageUrl, '198.51.100.27');
+  assert.equal(providerCalled, false);
+  assert.equal(result.json.media.provider_status, 'skipped_shared_budget_unavailable');
+});
+
 test('UI includes bilingual media scope, evidence, limitations, and live-region contract', () => {
   const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
   for (const marker of [
@@ -760,6 +1018,7 @@ test('UI includes bilingual media scope, evidence, limitations, and live-region 
     'signals_against',
     'limitations',
     'provider_status',
+    'budget_scope',
     'aria-live="polite"',
     'What was inspected',
     'ما الذي فُحص',
