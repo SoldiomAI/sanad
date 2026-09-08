@@ -275,6 +275,17 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .vr-grade{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:4px}
 .vr-claim{font-size:14px;line-height:1.75;color:var(--txt);padding:0 16px 12px;text-wrap:balance}
 .vr-why{font-size:13px;line-height:1.8;color:var(--mut);padding:0 16px 14px}
+.vr-kicker{font-family:'Noto Kufi Arabic',sans-serif;font-size:10.5px;color:var(--mut);
+  letter-spacing:.04em;text-transform:uppercase;margin-bottom:5px}
+.vr-media{margin:0 14px 14px;padding:14px;border:1px solid var(--border);border-radius:14px;background:var(--card2)}
+.vr-media h3{font-family:'Noto Kufi Arabic',sans-serif;font-size:12px;color:var(--gold-l);margin:0 0 8px}
+.vr-media-verdict{font-family:'Amiri',serif;font-size:22px;font-weight:700;color:var(--vellum);line-height:1.4}
+.vr-media-meta{font-size:11.5px;line-height:1.7;color:var(--mut);margin-top:4px}
+.vr-evidence{display:grid;gap:9px;margin-top:12px}
+.vr-evidence section{border-top:1px solid var(--border);padding-top:8px}
+.vr-evidence b{display:block;font-family:'Noto Kufi Arabic',sans-serif;font-size:10.5px;color:var(--mut);margin-bottom:4px}
+.vr-evidence ul{margin:0;padding-inline-start:20px;color:var(--txt);font-size:12px;line-height:1.75}
+.vr-evidence .limits{color:var(--mut)}
 .vr-rows{border-top:1px solid var(--border);padding:4px 16px}
 .vr-rows .row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;
   border-bottom:1px solid var(--border);font-size:13px}
@@ -703,7 +714,7 @@ body.map-mode .app{max-width:min(960px,100%)}
       <div class="verify-hero">
         <div class="verify-mark" aria-hidden="true">✓</div>
         <h2 class="amiri gold" id="verifyTitle">تحقّق</h2>
-        <p class="lead" id="verifyLead">الصق رابط خبر أو صورة أو فيديو — نراجعُه ونُصدر حكمًا واضحًا، دون أن نكشف أدوات الغرفة.</p>
+        <p class="lead" id="verifyLead">الصق رابط خبر أو صفحة عامة أو صورة أو فيديو أو صوت — نفحص ما يمكن الوصول إليه، ونوضح ما نعرفه وما لا تكفي الأدلة لحسمه.</p>
       </div>
       <form id="vForm" class="v-form" action="#" onsubmit="runVerify();return false">
         <div class="v-box">
@@ -713,9 +724,10 @@ body.map-mode .app{max-width:min(960px,100%)}
         </div>
       </form>
       <div class="v-hints" id="vHints">
-        <span>خبر</span><span>صورة</span><span>فيديو</span><span>مصدر ظاهر</span>
+        <span>خبر أو صفحة</span><span>صورة</span><span>فيديو</span><span>صوت أو صوت بشري</span>
       </div>
-      <div id="vOut"></div>
+      <p class="lead" id="verifyPrivacy">لا نحتفظ بملفات الوسائط. قد يُتخطّى التحليل المدفوع عند غياب المفتاح أو بلوغ الميزانية، وسنذكر ذلك صراحةً.</p>
+      <div id="vOut" role="status" aria-live="polite" aria-atomic="false"></div>
       <div class="v-recent" id="vRecent" hidden></div>
     </div>
   </section>
@@ -878,11 +890,13 @@ function applyChromeI18n(){
   if(aiActions) aiActions.innerHTML=`<button type="button" onclick="goLiveDesk('ai')">Open AI news in Live</button>
     <button type="button" onclick="openProfile('agent','warraq','feed')">Al-Warraq profile</button>
     <a href="https://github.com/trending?spoken_language_code=&since=daily" target="_blank" rel="noopener">GitHub Trending</a>`;
-  setH2("verify","Verify","Paste a news, image, or video link — we review it and issue a clear verdict, without exposing the newsroom toolkit.");
+  setH2("verify","Verify","Paste a story, public page, image, video, or audio link. We inspect what is publicly reachable and state what the evidence can and cannot support.");
   const vt=document.getElementById("verifyTitle"); if(vt) vt.textContent="Verify";
-  const vl=document.getElementById("verifyLead"); if(vl) vl.textContent="Paste a news, image, or video link — we review it and issue a clear verdict, without exposing the newsroom toolkit.";
+  const vl=document.getElementById("verifyLead"); if(vl) vl.textContent="Paste a story, public page, image, video, or audio link. We inspect what is publicly reachable and state what the evidence can and cannot support.";
   const vh=document.getElementById("vHints");
-  if(vh) vh.innerHTML="<span>Story</span><span>Image</span><span>Video</span><span>Visible source</span>";
+  if(vh) vh.innerHTML="<span>Story or page</span><span>Image</span><span>Video</span><span>Audio or voice</span>";
+  const vpriv=document.getElementById("verifyPrivacy");
+  if(vpriv) vpriv.textContent="SANAD does not retain media files. Paid analysis may be skipped when no key is configured or the budget is reached; the result will say so explicitly.";
   const vp=document.getElementById("vPaste"); if(vp){ vp.title="Paste"; vp.setAttribute("aria-label","Paste link"); }
   const vu=document.getElementById("vUrl"); if(vu) vu.setAttribute("aria-label","Link to verify");
   setH2("team","Team");
@@ -2831,8 +2845,26 @@ function mediaKindLabel(k){
 }
 function deepfakeLabel(r){
   const x=String(r||"");
-  if(!EN) return x||"غير مقيّم";
-  return ({منخفض:"Low",متوسط:"Medium",مرتفع:"High","غير مقيّم":"Unrated","غير مقيم":"Unrated"}[x]||x||"Unrated");
+  const ar={low:"منخفض",moderate:"متوسط",high:"مرتفع",unknown:"غير مقيّم",منخفض:"منخفض",متوسط:"متوسط",مرتفع:"مرتفع","غير مقيّم":"غير مقيّم","غير مقيم":"غير مقيّم"};
+  const en={low:"Low",moderate:"Moderate",high:"High",unknown:"Unrated",منخفض:"Low",متوسط:"Moderate",مرتفع:"High","غير مقيّم":"Unrated","غير مقيم":"Unrated"};
+  return (EN?en:ar)[x]||(EN?"Unrated":"غير مقيّم");
+}
+function mediaVerdictLabel(m){
+  if(EN) return m.verdict_label_en||({likely_real:"Likely real",likely_manipulated:"Likely manipulated",insufficient:"Insufficient evidence",not_applicable:"Not applicable"}[m.verdict])||"Insufficient evidence";
+  return m.verdict_label_ar||({likely_real:"يبدو حقيقيًا",likely_manipulated:"يبدو مُعالَجًا أو مُتلاعَبًا به",insufficient:"أدلة غير كافية",not_applicable:"لا ينطبق"}[m.verdict])||"أدلة غير كافية";
+}
+function analysisScopeLabel(scope){
+  const x=String(scope||"none");
+  const ar={original_media:"الوسائط الأصلية المباشرة",embedded_media:"وسائط الصفحة المرتبطة",poster_or_thumbnail:"ملصق أو صورة مصغّرة فقط",metadata_only:"البيانات الوصفية أو عيّنة محدودة فقط",none:"لا شيء"};
+  const en={original_media:"Original media bytes",embedded_media:"Linked page media",poster_or_thumbnail:"Poster or thumbnail only",metadata_only:"Metadata or bounded sample only",none:"Nothing"};
+  return (EN?en:ar)[x]||x;
+}
+function providerStatusLabel(status){
+  const x=String(status||"not_run");
+  const ar={completed:"اكتمل",not_run:"لم يُشغّل",skipped_no_key:"تُخطّي: لا مفتاح مزوّد",skipped_budget:"تُخطّي: بلغت الميزانية",skipped_kill_switch:"تُخطّي: مفتاح الإيقاف",unsupported_media_kind:"غير متاح لهذا النوع",unsupported_image_format:"صيغة الصورة غير مدعومة",timeout:"انتهت مهلة المزود",failed:"فشل المزود",invalid_response:"استجابة المزود غير صالحة",unavailable:"المزود غير متاح"};
+  const en={completed:"Completed",not_run:"Not run",skipped_no_key:"Skipped: no provider key",skipped_budget:"Skipped: budget reached",skipped_kill_switch:"Skipped: kill switch",unsupported_media_kind:"Unavailable for this media type",unsupported_image_format:"Unsupported image format",timeout:"Provider timed out",failed:"Provider failed",invalid_response:"Invalid provider response",unavailable:"Provider unavailable"};
+  if(/^http_\d+$/.test(x)) return EN?`Provider error ${x.slice(5)}`:`خطأ المزود ${x.slice(5)}`;
+  return (EN?en:ar)[x]||x;
 }
 function rankLabel(r){
   const x=String(r||"");
@@ -2878,7 +2910,8 @@ function renderVerifyProgress(step){
     ["الوسائط","يفحص الوسائط المرفقة…"],
     ["الحكم","يُصدر الحكم…"],
   ];
-  vOut.innerHTML=`<div class="v-steps">${steps.map((s,i)=>`
+  vOut.setAttribute("aria-busy","true");
+  vOut.innerHTML=`<div class="v-steps" aria-label="${EN?"Verification progress":"تقدّم الفحص"}">${steps.map((s,i)=>`
     <div class="v-step${i<step?" done":""}${i===step?" on":""}">
       <b>${esc(s[0])}</b><p>${i<=step?esc(s[1]):"…"}</p>
     </div>`).join("")}</div>`;
@@ -2893,21 +2926,49 @@ function renderVerifyResult(j, url){
   const vCls=verdictClass(verdict, j.grade);
   const srcName=s.name||"—";
   const live=s.live?(EN?"reachable":"حيّ"):(EN?"unreachable":"غير متاح");
+  const mediaVerdict=mediaVerdictLabel(m);
+  const confidence=(typeof m.confidence==="number"&&isFinite(m.confidence))?Math.round(Math.max(0,Math.min(1,m.confidence))*100):null;
+  const signalsFor=Array.isArray(m.signals_for)?m.signals_for.filter(Boolean).slice(0,6):[];
+  const signalsAgainst=Array.isArray(m.signals_against)?m.signals_against.filter(Boolean).slice(0,6):[];
+  const limitations=Array.isArray(m.limitations)?m.limitations.filter(Boolean).slice(0,8):[];
+  const evidenceList=(title,items,cls="")=>items.length?`<section><b>${esc(title)}</b><ul class="${cls}">${items.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></section>`:"";
+  const inspected=m.inspected_url||m.url||"";
+  const mediaReason=m.reason?(EN?(m.reason.en||m.reason.ar):(m.reason.ar||m.reason.en)):"";
+  const mediaNote=EN&&hasAr(m.note)?"":String(m.note||"");
   const openUrl=safeUrl(url||j.url||"");
   const shareTxt=EN
     ? `Sanad Verify\n${verdictLabel(verdict)}${showGrade?" · "+gradeLabel(showGrade):""}\n${claimShow}\n${url||j.url||""}`
     : `تحقّق سَنَد\n${verdictLabel(verdict)}${showGrade?" · "+gradeLabel(showGrade):""}\n${claimShow}\n${url||j.url||""}`;
+  vOut.removeAttribute("aria-busy");
   vOut.innerHTML=`<div class="v-result ${vCls}">
     <div class="vr-top">
+      <div class="vr-kicker">${EN?"Link / source assessment":"حكم الرابط / المصدر"}</div>
       <div class="vr-verdict">${esc(verdictLabel(verdict))}</div>
       <div class="vr-grade">${showGrade?badge(showGrade):""}</div>
     </div>
     <p class="vr-claim amiri">${esc(claimShow)}</p>
     ${why?`<p class="vr-why">${esc(why)}</p>`:""}
+    <div class="vr-media" aria-label="${EN?"Media assessment":"حكم الوسائط"}">
+      <h3>${EN?"Media forensics":"فحص الوسائط"}</h3>
+      <div class="vr-media-verdict">${esc(mediaVerdict)}</div>
+      <div class="vr-media-meta">
+        ${esc(mediaKindLabel(m.kind))} · ${EN?"What was inspected":"ما الذي فُحص"}: ${esc(analysisScopeLabel(m.analysis_scope))}
+        ${confidence!=null?` · ${EN?"Confidence":"الثقة"}: ${confidence}%`:""}
+        · ${EN?"Deepfake risk":"خطر التزييف"}: ${esc(deepfakeLabel(m.deepfake_risk_code||m.deepfake_risk))}
+      </div>
+      <div class="vr-media-meta">${EN?"Analysis provider":"مزوّد التحليل"}: ${esc(m.provider&&m.provider!=="none"?m.provider:"—")} · ${esc(providerStatusLabel(m.provider_status))}</div>
+      ${inspected?`<div class="vr-media-meta">${EN?"Inspected resource":"المورد المفحوص"}: ${esc(inspected)}</div>`:""}
+      ${mediaReason?`<div class="vr-media-meta">${esc(mediaReason)}</div>`:""}
+      <div class="vr-evidence">
+        ${evidenceList(EN?"Evidence supporting this assessment":"أدلة تؤيد هذا التقييم",signalsFor)}
+        ${evidenceList(EN?"Counter-signals or ambiguity":"أدلة مضادة أو مواضع غموض",signalsAgainst)}
+        ${evidenceList(EN?"Limitations":"القيود",limitations,"limits")}
+      </div>
+    </div>
     <div class="vr-rows">
-      <div class="row"><b>${EN?"Source":"المصدر"}</b><span>${esc(srcName)} · ${esc(rankLabel(s.rank))} · ${esc(live)}</span></div>
-      <div class="row"><b>${EN?"Media":"الوسائط"}</b><span>${esc(mediaKindLabel(m.kind))} · ${EN?"Deepfake":"التزييف"}: ${esc(deepfakeLabel(m.deepfake_risk))}</span></div>
-      ${m.note?`<div class="row"><b>${EN?"Note":"ملاحظة"}</b><span>${esc(publicWhy(EN?(enText(m.note,"")||m.note):m.note))}</span></div>`:""}
+      <div class="row"><b>${EN?"Link / source":"الرابط / المصدر"}</b><span>${esc(srcName)} · ${esc(rankLabel(s.rank))} · ${esc(live)}</span></div>
+      <div class="row"><b>${EN?"Detected media":"الوسائط المكتشفة"}</b><span>${esc(mediaKindLabel(m.kind))} · ${esc(m.mime||"—")} · ${esc(m.extraction_method||"—")}</span></div>
+      ${mediaNote?`<div class="row"><b>${EN?"Note":"ملاحظة"}</b><span>${esc(publicWhy(mediaNote))}</span></div>`:""}
       <div class="row"><b>${EN?"Desk":"المكتب"}</b><span>${esc(agentName("fahis", j.agent||"الفاحِص"))}</span></div>
     </div>
     <div class="vr-actions">
@@ -2941,8 +3002,10 @@ async function runVerify(){
     const j=await r.json();
     clearInterval(tick);
     if(!r.ok){
+      vOut.removeAttribute("aria-busy");
+      const apiReason=j.reason?(EN?(j.reason.en||j.reason.ar):(j.reason.ar||j.reason.en)):"";
       vOut.innerHTML=`<div class="v-result v-daif"><div class="vr-top"><div class="vr-verdict">${EN?"Couldn't verify":"تعذّر التحقق"}</div></div>
-        <p class="vr-why">${esc(publicWhy(j.error||j.message||j.news&&j.news.why||r.status))}</p>
+        <p class="vr-why">${esc(publicWhy(apiReason||j.error||j.message||j.news&&j.news.why||r.status))}</p>
         <div class="vr-actions"><button type="button" class="primary" onclick="runVerify()">${EN?"Retry":"إعادة المحاولة"}</button></div></div>`;
       return;
     }
@@ -2950,6 +3013,7 @@ async function runVerify(){
     renderVerifyResult(j, url);
   }catch(e){
     clearInterval(tick);
+    vOut.removeAttribute("aria-busy");
     vOut.innerHTML=`<div class="v-result v-daif"><div class="vr-top"><div class="vr-verdict">${EN?"Error":"خطأ"}</div></div>
       <p class="vr-why">${esc(String(e).slice(0,120))}</p>
       <div class="vr-actions"><button type="button" class="primary" onclick="runVerify()">${EN?"Retry":"إعادة المحاولة"}</button></div></div>`;
