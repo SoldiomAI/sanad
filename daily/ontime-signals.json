@@ -1,21 +1,88 @@
 {
  "schema_version": "1.0",
- "generated_at": "2026-09-08T18:25+00:00",
- "updated_at": "2026-09-08T18:25+00:00",
- "cursor": "sha256:f1b8d4302dd24cb1ab277c7745c34955c8aeba9ef8be76628a10d55dda153f51",
+ "generated_at": "2026-09-08T21:22+00:00",
+ "updated_at": "2026-09-08T21:22+00:00",
+ "cursor": "sha256:b2c4a23201f020e9599e4260c5fe9f555f6a70359e65f062456a77d54767057e",
  "producer": "SANAD",
  "authority": "SANAD",
  "read_only": true,
  "signals": [
+  {
+   "id": "sig_00dd66c9d2c5c619",
+   "type": "watchlist-match",
+   "title": "Watch term active: ترامب إيران",
+   "title_en": "Watch term active: Trump Iran",
+   "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
+   "observed_at": "2026-09-08T21:21+00:00",
+   "observed_facts": [
+    "4 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 72."
+   ],
+   "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
+   "inference": "Term matching indicates attention, not intent, coordination, or threat.",
+   "uncertainty": "Keyword matching can include unrelated uses of the same term.",
+   "confidence": 0.7,
+   "severity": "info",
+   "countries": [],
+   "sectors": [],
+   "topics": [
+    "إيران"
+   ],
+   "evidence": [
+    {
+     "source_ref": "ev_3dc1fda9fabc2ee0",
+     "url": "https://www.alarabiya.net/iran/2026/09/06/%D8%AA%D8%B1%D8%A7%D9%85%D8%A8-%D9%8A%D8%B9%D9%84%D9%86-%D8%AA%D8%B9%D8%A7%D9%81%D9%8A-%D8%AA%D8%AF%D9%81%D9%82%D8%A7%D8%AA-%D8%A7%D9%84%D9%86%D9%81%D8%B7-%D8%B9%D8%A8%D8%B1-%D9%87%D8%B1%D9%85%D8%B2-%D9%88%D8%AE%D9%86%D9%82-%D8%B5%D8%A7%D8%AF%D8%B1%D8%A7%D8%AA-%D8%A7%D9%8A%D8%B1%D8%A7%D9%86",
+     "publisher": "العربية",
+     "grade": "حسن",
+     "published_at": "2026-09-06T19:12+00:00",
+     "title": "ترامب يعلن تعافي تدفقات النفط عبر هرمز وخنق صادرات إيران",
+     "title_en": "Trump Announces Recovery of Hormuz Oil Flows, Vows to Choke Iranian Exports",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_56565c40b68a15ea",
+     "url": "https://arabic.cnn.com/world/article/2026/09/08/trump-honors-9-11-first-responders-and-plugs-his-political-priorities",
+     "publisher": "CNN بالعربية",
+     "grade": "حسن",
+     "published_at": "2026-09-08T18:43+00:00",
+     "title": "ترامب يروج لسياساته ويهاجم إيران والشيوعية في فعالية عن ذكرى 11 سبتمبر",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_7c3dd81e88eda8e3",
+     "url": "https://www.bbc.com/persian/articles/cx2zxvgv0w4o?at_medium=RSS&at_campaign=rss",
+     "publisher": "بي بي سي فارسي",
+     "grade": "حسن",
+     "published_at": "2026-09-06T20:44+00:00",
+     "title": "هل يعزز ترامب مطالبة الأرجنتين بجزر فوكلاند؟",
+     "title_en": "Will Trump Back Argentina's Claim to the Falkland Islands?",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_996b44e2ff1082a4",
+     "url": "https://www.alarabiya.net/arab-and-world/iraq/2026/09/08/%D8%AA%D8%B1%D8%A7%D9%85%D8%A8-%D9%8A%D8%AA%D9%88%D9%82%D8%B9-%D9%87%D8%A8%D9%88%D8%B7%D8%A7-%D8%AD%D8%A7%D8%AF%D8%A7-%D9%84%D8%A7%D8%B3%D8%B9%D8%A7%D8%B1-%D8%A7%D9%84%D9%86%D9%81%D8%B7-%D8%A8%D8%B9%D8%AF-%D9%87%D8%B2%D9%8A%D9%85%D8%A9-%D8%A7%D9%8A%D8%B1%D8%A7%D9%86",
+     "publisher": "العربية",
+     "grade": "حسن",
+     "published_at": "2026-09-08T00:17+00:00",
+     "title": "ترامب يتوقع هبوطاً حاداً لأسعار النفط بعد \"هزيمة إيران\"",
+     "title_en": "Trump Predicts Sharp Drop in Oil Prices Following 'Defeat of Iran'",
+     "dataset": "osint"
+    }
+   ],
+   "contradictions": [],
+   "event_ids": [],
+   "created_at": "2026-09-08T21:22+00:00",
+   "updated_at": "2026-09-08T21:22+00:00"
+  },
   {
    "id": "sig_1f169b9e79a68432",
    "type": "watchlist-match",
    "title": "Watch term active: عقوبات",
    "title_en": "Watch term active: sanctions",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-09-08T18:25+00:00",
+   "observed_at": "2026-09-08T21:21+00:00",
    "observed_facts": [
-    "8 graded SANAD hit(s) and 0 attributable open-news hit(s); heat 80."
+    "5 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 82."
    ],
    "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
    "inference": "Term matching indicates attention, not intent, coordination, or threat.",
@@ -28,16 +95,6 @@
     "اقتصاد"
    ],
    "evidence": [
-    {
-     "source_ref": "ev_18d8046d32b9cf00",
-     "url": "https://www.france24.com/ar/%D9%81%D9%8A%D8%AF%D9%8A%D9%88/20260908-%D8%AA%D9%88%D8%AA%D8%B1-%D8%BA%D9%8A%D8%B1-%D9%85%D8%B3%D8%A8%D9%88%D9%82-%D8%A8%D9%8A%D9%86-%D8%A5%D8%B3%D8%B1%D8%A7%D8%A6%D9%8A%D9%84-%D9%88%D8%A8%D8%B1%D9%8A%D8%B7%D8%A7%D9%86%D9%8A%D8%A7-%D8%A5%D8%AB%D8%B1-%D9%81%D8%B1%D8%B6-%D9%84%D9%86%D8%AF%D9%86-%D8%B9%D9%82%D9%88%D8%A8%D8%A7%D8%AA-%D8%B9%D9%84%D9%89-%D9%85%D8%B3%D8%AA%D9%88%D8%B7%D9%86%D8%A7%D8%AA-%D8%A7%D9%84%D8%B6%D9%81%D8%A9-%D8%A7%D9%84%D8%BA%D8%B1%D8%A8%D9%8A%D8%A9",
-     "publisher": "فرانس ٢٤ عربي",
-     "grade": "حسن",
-     "published_at": "2026-09-08T15:33+00:00",
-     "title": "توتر غير مسبوق بين إسرائيل وبريطانيا إثر فرض لندن عقوبات على مستوطنات الضفة الغربية",
-     "title_en": "Unprecedented Tensions Between Israel and UK Following London's Sanctions on West Bank Settlements",
-     "dataset": "osint"
-    },
     {
      "source_ref": "ev_37f655283b7009c4",
      "url": "https://www.iranintl.com/202609061708",
@@ -55,27 +112,7 @@
      "grade": "حسن",
      "published_at": "2026-09-08T16:59+00:00",
      "title": "روبيو: واشنطن لن تنضم إلى عقوبات المستوطنات الإسرائيلية",
-     "title_en": "Rubio: US Will Not Join Sanctions on Israeli Settlements",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_7cbb455b1d40e870",
-     "url": "https://www.france24.com/ar/%D9%81%D9%8A%D8%AF%D9%8A%D9%88/20260908-%D8%A5%D8%B3%D8%B1%D8%A7%D8%A6%D9%8A%D9%84-%D9%88%D8%A7%D8%B4%D9%86%D8%B7%D9%86-%D8%AA%D9%84%D9%88%D9%91%D8%AD%D8%A7%D9%86-%D8%A8%D8%A7%D9%84%D8%B1%D8%AF-%D8%A8%D8%B9%D8%AF-%D9%81%D8%B1%D8%B6-%D8%A8%D8%B1%D9%8A%D8%B7%D8%A7%D9%86%D9%8A%D8%A7-%D8%B9%D9%82%D9%88%D8%A8%D8%A7%D8%AA-%D8%B9%D9%84%D9%89-%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%88%D8%B7%D9%86%D8%A7%D8%AA-%D9%81%D9%8A-%D8%A7%D9%84%D8%B6%D9%81%D8%A9-%D8%A7%D9%84%D8%BA%D8%B1%D8%A8%D9%8A%D8%A9",
-     "publisher": "فرانس ٢٤ عربي",
-     "grade": "حسن",
-     "published_at": "2026-09-08T15:18+00:00",
-     "title": "إسرائيل وواشنطن تلوّحان بالرد بعد فرض بريطانيا عقوبات على مستوطنات الضفة الغربية",
-     "title_en": "Israel and US Signal Retaliation After UK Sanctions West Bank Settlements",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_899826690f590dcb",
-     "url": "https://arabic.cnn.com/middle-east/article/2026/09/08/uk-france-and-canada-sanction-israeli-settlements",
-     "publisher": "CNN بالعربية",
-     "grade": "حسن",
-     "published_at": "2026-09-08T15:32+00:00",
-     "title": "\"طرد وإغلاق قنصلية\".. كيف ردت إسرائيل على العقوبات البريطانية؟",
-     "title_en": "'Expulsion and Consulate Closure': How Israel Responded to British Sanctions",
+     "title_en": "",
      "dataset": "osint"
     },
     {
@@ -85,7 +122,7 @@
      "grade": "حسن",
      "published_at": "2026-09-08T12:01+00:00",
      "title": "بريطانيا تعلن عقوبات ضد مستوطني الضفة الغربية وتتهمهم بـ«التطهير العرقي»",
-     "title_en": "UK Announces Sanctions Against West Bank Settlers, Accusing Them of 'Ethnic Cleansing'",
+     "title_en": "UK Sanctions West Bank Settlers, Accuses Them of 'Ethnic Cleansing'",
      "dataset": "osint"
     },
     {
@@ -93,26 +130,26 @@
      "url": "https://www.skynewsarabia.com/world/1890716-%D9%88%D8%A7%D8%B4%D9%86%D8%B7%D9%86-%D8%AA%D8%B7%D9%88%D9%82-%D8%B7%D9%8A%D8%B1%D8%A7%D9%86-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D8%A8%D8%B9%D9%82%D9%88%D8%A8%D8%A7%D8%AA-%D9%85%D8%A7%D9%84%D9%8A%D8%A9-%D9%88%D8%AA%D8%B4%D8%BA%D9%8A%D9%84%D9%8A%D8%A9",
      "publisher": "سكاي نيوز عربية",
      "grade": "حسن",
-     "published_at": "2026-09-08T14:48+00:00",
+     "published_at": "2026-09-08T15:16+00:00",
      "title": "واشنطن تطوق طيران إيران بعقوبات مالية وتشغيلية",
-     "title_en": "US Squeezes Iranian Aviation with Financial and Operational Sanctions",
+     "title_en": "Washington Targets Iranian Aviation with Financial and Operational Sanctions",
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_dc4e60a45ed6fd69",
-     "url": "https://www.bbc.co.uk/persian/live/cry8zg2q3e94t?at_medium=RSS&at_campaign=rss",
-     "publisher": "بي بي سي فارسي",
+     "source_ref": "ev_ea5e37a45082852b",
+     "url": "https://www.skynewsarabia.com/middle-east/1890718-%D8%B9%D9%82%D9%88%D8%A8%D8%A7%D8%AA-%D8%A8%D8%B1%D9%8A%D8%B7%D8%A7%D9%86%D9%8A%D8%A7-%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%88%D8%B7%D9%86%D8%A7%D8%AA-%D8%AA%D8%B1%D8%AD%D9%8A%D8%A8-%D9%81%D9%84%D8%B3%D8%B7%D9%8A%D9%86%D9%8A-%D9%88%D8%BA%D8%B6%D8%A8-%D8%A5%D8%B3%D8%B1%D8%A7%D8%A6%D9%8A%D9%84%D9%8A",
+     "publisher": "سكاي نيوز عربية",
      "grade": "حسن",
-     "published_at": "2026-09-08T18:25+00:00",
-     "title": "أمريكا تفرض عقوبات أيضاً على شركات الطيران الإيرانية غير الخاضعة للعقوبات",
-     "title_en": "US Sanctions Previously Unsanctioned Iranian Airlines",
+     "published_at": "2026-09-08T20:23+00:00",
+     "title": "عقوبات بريطانيا على المستوطنات.. ترحيب فلسطيني وغضب إسرائيلي",
+     "title_en": "",
      "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-09-08T07:51+00:00",
-   "updated_at": "2026-09-08T18:25+00:00"
+   "updated_at": "2026-09-08T21:22+00:00"
   },
   {
    "id": "sig_24c7c29a11f8a3ab",
@@ -120,9 +157,9 @@
    "title": "Watch term active: #السعودية",
    "title_en": "Watch term active: #Saudi",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-09-08T18:25+00:00",
+   "observed_at": "2026-09-08T21:21+00:00",
    "observed_facts": [
-    "8 graded SANAD hit(s) and 0 attributable open-news hit(s); heat 80."
+    "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
    "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
    "inference": "Term matching indicates attention, not intent, coordination, or threat.",
@@ -136,90 +173,90 @@
    ],
    "evidence": [
     {
-     "source_ref": "ev_1b6120c09e81700c",
-     "url": "https://arabic.cnn.com/middle-east/article/2026/09/07/egypt-occurrence-anticipated-incident-saudi-arabia",
-     "publisher": "CNN Arabic",
-     "grade": "حسن",
-     "published_at": "2026-09-07T06:17+00:00",
-     "title": "مصر تكشف تفاصيل حادث حافلة المعتمرين قرب مدينة الجموم بالسعودية",
-     "title_en": "Egypt Discloses Details of Umrah Pilgrim Bus Crash Near Saudi City of Al-Jumum",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_325807c5f155708b",
-     "url": "https://www.aljarida.com/article/143639",
-     "publisher": "جريدة الجريدة الكويتية",
-     "grade": "حسن",
-     "published_at": "2026-09-07T11:18+00:00",
-     "title": "عُمان أجلت 16 فرداً من الناقلة السعودية «سدر» بعد تعرضها لهجوم إيراني",
-     "title_en": "",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_47208c418ffa2633",
-     "url": "https://arabic.cnn.com/middle-east/article/2026/09/07/yemen-government-forces-launch-airstrikes-houthis-threaten-saudi-arabia",
-     "publisher": "CNN Arabic",
-     "grade": "حسن",
-     "published_at": "2026-09-07T16:01+00:00",
-     "title": "اليمن: القوات الحكومية تشن غارات جوية.. والحوثي يهدد السعودية",
-     "title_en": "Yemen: Government Forces Launch Airstrikes as Houthis Threaten Saudi Arabia",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_9627c6f55ecf41e9",
-     "url": "https://www.france24.com/ar/%D9%81%D9%8A%D8%AF%D9%8A%D9%88/20260908-%D8%B9%D8%B6%D9%88-%D8%A7%D9%84%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B3%D9%8A-%D9%84%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%8A%D9%86-%D9%85%D8%AD%D9%85%D8%AF-%D8%A7%D9%84%D8%A8%D8%AE%D9%8A%D8%AA%D9%8A-%D8%B3%D9%86%D8%B5%D8%B9%D8%AF-%D9%87%D8%AC%D9%85%D8%A7%D8%AA%D9%86%D8%A7-%D8%B6%D8%AF-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9",
-     "publisher": "فرانس ٢٤ عربي",
-     "grade": "حسن",
-     "published_at": "2026-09-08T17:30+00:00",
-     "title": "عضو المجلس السياسي للحوثيين محمد البخيتي: \"سنصعد هجماتنا ضد السعودية \"",
-     "title_en": "Houthi Political Bureau Member Mohammed Al-Bukhaiti: 'We Will Escalate Attacks on Saudi Arabia'",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_9e9c060021834056",
-     "url": "https://aawsat.com/%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A/%D8%A7%D9%84%D8%AE%D9%84%D9%8A%D8%AC/5267889-%D8%A7%D9%84%D8%AF%D8%A7%D8%AE%D9%84%D9%8A%D8%A9-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%A5%D8%AC%D8%B1%D8%A7%D8%A1%D8%A7%D8%AA-%D8%A8%D8%AD%D9%82-%D9%85%D8%AA%D9%88%D8%B1%D8%B7%D9%8A%D9%86-%D9%81%D9%8A-%D8%AC%D8%B1%D8%A7%D8%A6%D9%85-%D9%85%D9%8F%D9%87%D8%AF%D8%AF%D8%A9-%D9%84%D9%84%D9%88%D8%AD%D8%AF%D8%A9-%D8%A7%D9%84%D9%88%D8%B7%D9%86%D9%8A%D8%A9",
-     "publisher": "الشرق الأوسط",
-     "grade": "حسن",
-     "published_at": "2026-09-06T14:14+00:00",
-     "title": "«الداخلية» السعودية: إجراءات بحق متورطين في جرائم مُهددة للوحدة الوطنية",
-     "title_en": "",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_a5c874cbc7c881da",
-     "url": "https://www.bbc.com/arabic/articles/c2l8ep44xrpo?at_medium=RSS&at_campaign=rss",
-     "publisher": "بي بي سي عربي",
-     "grade": "حسن",
-     "published_at": "2026-09-08T17:50+00:00",
-     "title": "إنذارات سعودية جديدة \"للتحذير من خطر\"، وإصابة أكثر من 70 شخصاً في السعودية بهجمات للحوثيين",
-     "title_en": "New Saudi Threat Alerts Issued as Over 70 Injured in Houthi Attacks on Kingdom",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_e44fe18d1d23db95",
-     "url": "https://www.alarabiya.net/aswaq/videos/closing-bell/2026/09/06/blme-capital-%D8%A7%D9%84%D8%B3%D9%88%D9%82-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%B3%D8%AA%D9%88%D8%A7%D8%B5%D9%84-%D8%A7%D9%84%D8%A7%D8%B1%D8%AA%D9%81%D8%A7%D8%B9-%D8%A8%D8%AF%D8%B9%D9%85-%D9%85%D9%86-%D8%A7%D9%84%D8%AA%D8%B4%D8%B1%D9%8A%D8%B9%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D8%AA%D9%88%D9%82%D8%B9%D8%A9",
+     "source_ref": "ev_3c79ea514f57f835",
+     "url": "https://www.alarabiya.net/arab-and-world/egypt/2026/09/08/%D9%85%D8%B5%D8%B1-%D8%AA%D8%AF%D9%8A%D9%86-%D8%A7%D9%84%D9%87%D8%AC%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D9%8A-%D8%A7%D8%B3%D8%AA%D9%87%D8%AF%D9%81%D8%AA-%D8%B9%D8%AF%D8%AF%D8%A7-%D9%85%D9%86-%D8%A7%D9%84%D9%85%D8%AF%D9%86-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9",
      "publisher": "العربية",
      "grade": "حسن",
-     "published_at": "2026-09-06T14:17+00:00",
-     "title": "\"BLME Capital\": السوق السعودية ستواصل الارتفاع بدعم من التشريعات المتوقعة",
-     "title_en": "BLME Capital: Saudi Market to Extend Gains Backed by Anticipated Regulations",
+     "published_at": "2026-09-08T06:15+00:00",
+     "title": "مصر تدين الهجمات التي استهدفت عدداً من المدن السعودية",
+     "title_en": "Egypt Condemns Attacks Targeting Several Saudi Cities",
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_f5e303cdd777fb52",
-     "url": "https://arabic.cnn.com/middle-east/article/2026/09/08/rubio-us-watching-situation-between-saudi-arabia-and-houthis-very-closely",
+     "source_ref": "ev_47f79d4ad634a88d",
+     "url": "https://arabic.cnn.com/middle-east/article/2026/09/08/saudi-arabia-plans-retaliation-against-houthis",
+     "publisher": "CNN Arabic",
+     "grade": "حسن",
+     "published_at": "2026-09-08T13:27+00:00",
+     "title": "مصدر لـCNN: السعودية تخطط للرد على الحوثيين وإشراك دول أخرى معها",
+     "title_en": "CNN Source: Saudi Arabia Plans Response to Houthis, Involving Other Nations",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_7732bb9d48e522df",
+     "url": "https://aawsat.com/node/5316189",
+     "publisher": "الشرق الأوسط",
+     "grade": "حسن",
+     "published_at": "2026-09-08T20:47+00:00",
+     "title": "السعودية تؤكد مضيها في الدفاع عن سيادتها ورفضها الإجرام الحوثي",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_7ba58cf095db340b",
+     "url": "https://www.aljazeera.net/news/2026/9/8/%D8%A5%D8%AF%D8%A7%D9%86%D8%A7%D8%AA-%D9%88%D8%A7%D8%B3%D8%B9%D8%A9-%D9%84%D9%87%D8%AC%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%8A%D9%86-%D8%B9%D9%84%D9%89",
+     "publisher": "الجزيرة نت",
+     "grade": "حسن",
+     "published_at": "2026-09-08T17:46+00:00",
+     "title": "إدانات واسعة لهجمات الحوثيين على السعودية ودعوة لموقف حازم",
+     "title_en": "Widespread Condemnation of Houthi Attacks on Saudi Arabia Amid Calls for Decisive Action",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_8b580157061427a4",
+     "url": "https://www.alarabiya.net/aswaq/oil-and-gas/2026/09/08/%D8%A7%D9%84%D8%B7%D8%A7%D9%82%D8%A9-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%A7%D8%B3%D8%AA%D9%87%D8%AF%D8%A7%D9%81-%D8%B9%D8%AF%D8%AF-%D9%85%D9%86-%D8%A7%D9%84%D9%85%D9%86%D8%B4%D8%A7%D8%AA-%D9%88%D8%A7%D9%84%D9%85%D8%B1%D8%A7%D9%81%D9%82-%D9%81%D9%8A-%D8%A7%D9%84%D9%85%D9%86%D8%B7%D9%82%D8%A9-%D8%A7%D9%84%D8%AC%D9%86%D9%88%D8%A8%D9%8A%D8%A9-%D8%A8%D8%A7%D9%84%D9%85%D9%85%D9%84%D9%83%D8%A9",
+     "publisher": "العربية",
+     "grade": "حسن",
+     "published_at": "2026-09-08T05:25+00:00",
+     "title": "\"الطاقة\" السعودية: استهداف عدد من منشآت ومرافق الطاقة جنوب المملكة",
+     "title_en": "Saudi Energy Ministry: Several Energy Facilities Targeted in Southern Kingdom",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_a91155f53445c046",
+     "url": "https://arabic.cnn.com/middle-east/article/2026/09/08/saudi-foreign-ministry-after-73-civilians-were-injured-houthi-attacks-4-cities",
+     "publisher": "CNN Arabic",
+     "grade": "حسن",
+     "published_at": "2026-09-08T06:40+00:00",
+     "title": "أول تعليق من الخارجية السعودية بعد هجمات الحوثيين على 4 مدن",
+     "title_en": "First Statement from Saudi Foreign Ministry Following Houthi Attacks on 4 Cities",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_a99fa7205025991a",
+     "url": "https://arabic.cnn.com/entertainment/article/2026/09/08/saudi-arabia-abdulmajeed-abdullahs-new-album-features-21-songs",
      "publisher": "CNN بالعربية",
      "grade": "حسن",
-     "published_at": "2026-09-08T16:13+00:00",
-     "title": "التصعيد بين السعودية والحوثيين.. ماذا قال وزير الخارجية الأمريكي؟",
-     "title_en": "Saudi-Houthi Escalation: What Did the US Secretary of State Say?",
+     "published_at": "2026-09-08T19:35+00:00",
+     "title": "السعودية.. ألبوم جديد لعبدالمجيد عبدالله من 21 أغنية",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_cd940fbc9a104ddc",
+     "url": "https://arabic.cnn.com/middle-east/article/2026/09/08/arab-condemnations-houthis-attacks-saudi",
+     "publisher": "CNN Arabic",
+     "grade": "حسن",
+     "published_at": "2026-09-08T08:29+00:00",
+     "title": "بينها مصر وقطر والأردن.. هكذا جاءت ردود فعل دول عربية على استهداف السعودية",
+     "title_en": "Egypt, Qatar, Jordan Among Arab States Reacting to Attacks on Saudi Arabia",
      "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-09-08T18:25+00:00"
+   "updated_at": "2026-09-08T21:22+00:00"
   },
   {
    "id": "sig_25d4dc8c032b76c2",
@@ -227,7 +264,7 @@
    "title": "AI repository activity: Models / inference",
    "title_en": "AI repository activity: Models / inference",
    "summary": "The live GitHub radar contains a repeated repository class after deterministic ranking and deduplication.",
-   "observed_at": "2026-09-08T18:21:00Z",
+   "observed_at": "2026-09-08T21:21:19Z",
    "observed_facts": [
     "3 recently pushed, non-fork repositories share this SANAD radar classification."
    ],
@@ -261,7 +298,7 @@
      "url": "https://github.com/huggingface/transformers",
      "publisher": "GitHub Search API",
      "grade": "",
-     "published_at": "2026-09-08T18:21:00Z",
+     "published_at": "2026-09-08T21:21:19Z",
      "title": "huggingface/transformers",
      "title_en": "🤗 Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training.",
      "dataset": "repos"
@@ -271,7 +308,7 @@
      "url": "https://github.com/ollama/ollama",
      "publisher": "GitHub Search API",
      "grade": "",
-     "published_at": "2026-09-08T17:55:25Z",
+     "published_at": "2026-09-08T21:16:19Z",
      "title": "ollama/ollama",
      "title_en": "Get up and running with Kimi-K2.6, GLM-5.2, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models.",
      "dataset": "repos"
@@ -280,7 +317,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-09-08T18:25+00:00"
+   "updated_at": "2026-09-08T21:22+00:00"
   },
   {
    "id": "sig_32c738617239f618",
@@ -288,7 +325,7 @@
    "title": "AI repository activity: Agents / workflows",
    "title_en": "AI repository activity: Agents / workflows",
    "summary": "The live GitHub radar contains a repeated repository class after deterministic ranking and deduplication.",
-   "observed_at": "2026-09-08T18:13:15Z",
+   "observed_at": "2026-09-08T21:19:36Z",
    "observed_facts": [
     "5 recently pushed, non-fork repositories share this SANAD radar classification."
    ],
@@ -312,7 +349,7 @@
      "url": "https://github.com/Significant-Gravitas/AutoGPT",
      "publisher": "GitHub Search API",
      "grade": "",
-     "published_at": "2026-09-08T18:05:37Z",
+     "published_at": "2026-09-08T21:09:01Z",
      "title": "Significant-Gravitas/AutoGPT",
      "title_en": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
      "dataset": "repos"
@@ -332,7 +369,7 @@
      "url": "https://github.com/firecrawl/firecrawl",
      "publisher": "GitHub Search API",
      "grade": "",
-     "published_at": "2026-09-08T14:41:25Z",
+     "published_at": "2026-09-08T18:29:26Z",
      "title": "firecrawl/firecrawl",
      "title_en": "The context API to search, scrape, and interact with the web at scale. 🔥",
      "dataset": "repos"
@@ -342,7 +379,7 @@
      "url": "https://github.com/NousResearch/hermes-agent",
      "publisher": "GitHub Search API",
      "grade": "",
-     "published_at": "2026-09-08T18:13:15Z",
+     "published_at": "2026-09-08T21:19:36Z",
      "title": "NousResearch/hermes-agent",
      "title_en": "The agent that grows with you",
      "dataset": "repos"
@@ -352,7 +389,7 @@
      "url": "https://github.com/affaan-m/ECC",
      "publisher": "GitHub Search API",
      "grade": "",
-     "published_at": "2026-09-08T17:39:44Z",
+     "published_at": "2026-09-08T21:10:58Z",
      "title": "affaan-m/ECC",
      "title_en": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
      "dataset": "repos"
@@ -361,7 +398,195 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-09-08T18:25+00:00"
+   "updated_at": "2026-09-08T21:22+00:00"
+  },
+  {
+   "id": "sig_34a63e60e757a938",
+   "type": "watchlist-match",
+   "title": "Watch term active: #الكويت",
+   "title_en": "Watch term active: #Kuwait",
+   "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
+   "observed_at": "2026-09-08T21:21+00:00",
+   "observed_facts": [
+    "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
+   ],
+   "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
+   "inference": "Term matching indicates attention, not intent, coordination, or threat.",
+   "uncertainty": "Keyword matching can include unrelated uses of the same term.",
+   "confidence": 0.7,
+   "severity": "info",
+   "countries": [],
+   "sectors": [],
+   "topics": [
+    "الخليج"
+   ],
+   "evidence": [
+    {
+     "source_ref": "ev_1cb3b86058027112",
+     "url": "https://www.aljarida.com/article/143760",
+     "publisher": "جريدة الجريدة الكويتية",
+     "grade": "حسن",
+     "published_at": "2026-09-08T10:29+00:00",
+     "title": "علي الشنفري سفيراً لسلطنة عُمان لدى الكويت",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_23abe5e472be1f88",
+     "url": "https://www.iranintl.com/202609089239",
+     "publisher": "إيران إنترناشونال",
+     "grade": "حسن",
+     "published_at": "2026-09-08T19:53+00:00",
+     "title": "الحرس الثوري يعلن في تحذير فوري أنه سيهاجم ناقلات النفط في مراسي الكويت والبحرين",
+     "title_en": "IRGC Issues Immediate Threat to Attack Oil Tankers at Kuwait and Bahrain Anchorages",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_31d2320d028836b8",
+     "url": "https://alqabas.com/article/5969491",
+     "publisher": "جريدة القبس",
+     "grade": "حسن",
+     "published_at": "2026-09-08T18:01+00:00",
+     "title": "علي الشنفري سفيراً لسلطنة عمان لدى الكويت",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_325807c5f155708b",
+     "url": "https://www.aljarida.com/article/143639",
+     "publisher": "جريدة الجريدة الكويتية",
+     "grade": "حسن",
+     "published_at": "2026-09-07T11:18+00:00",
+     "title": "عُمان أجلت 16 فرداً من الناقلة السعودية «سدر» بعد تعرضها لهجوم إيراني",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_6ae70c145f2d1efa",
+     "url": "https://www.aljarida.com/article/143514",
+     "publisher": "جريدة الجريدة الكويتية",
+     "grade": "حسن",
+     "published_at": "2026-09-06T11:52+00:00",
+     "title": "الكويت تشارك في منتدى الشباب الخليجي الرابع بسلطنة عُمان",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_c540fbdf92003b85",
+     "url": "https://www.bbc.com/arabic/articles/cm2mk06lzkro?at_medium=RSS&at_campaign=rss",
+     "publisher": "بي بي سي عربي",
+     "grade": "حسن",
+     "published_at": "2026-09-08T20:46+00:00",
+     "title": "طهران تتوعد باستهداف ناقلات نفط في الكويت والبحرين بعد هجمات أمريكية على ناقلات نفط إيرانية",
+     "title_en": "Tehran Vows to Target Oil Tankers in Kuwait and Bahrain Following US Strikes on Iranian Ships",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_dc4e60a45ed6fd69",
+     "url": "https://www.bbc.co.uk/persian/live/cry8zg2q3e94t?at_medium=RSS&at_campaign=rss",
+     "publisher": "بي بي سي فارسي",
+     "grade": "حسن",
+     "published_at": "2026-09-08T21:21+00:00",
+     "title": "تحذير من الحرس الثوري لطواقم ناقلات النفط في موانئ البحرين والكويت: أخلوا فورا، ستكونون هدفا",
+     "title_en": "IRGC Warns Tanker Crews at Bahrain and Kuwait Ports: Evacuate Immediately or Be Targeted",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_f94ebf17fbaec365",
+     "url": "https://www.independentarabia.com/node/657377/%D8%A7%D9%84%D8%A3%D8%AE%D8%A8%D8%A7%D8%B1/%D8%A3%D8%B9%D8%B7%D8%A7%D9%84-%D9%85%D8%AA%D9%84%D8%A7%D8%AD%D9%82%D8%A9-%D8%AA%D8%B2%D9%8A%D8%AF-%D8%A7%D9%84%D8%B6%D8%BA%D9%88%D8%B7-%D8%B9%D9%84%D9%89-%D8%B4%D8%A8%D9%83%D8%A9-%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A1-%D9%81%D9%8A-%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA",
+     "publisher": "اندبندنت عربية",
+     "grade": "حسن",
+     "published_at": "2026-09-06T12:06+00:00",
+     "title": "أعطال متلاحقة تزيد الضغوط على شبكة الكهرباء في الكويت",
+     "title_en": "Consecutive Outages Pile Pressure on Kuwait's Power Grid",
+     "dataset": "osint"
+    }
+   ],
+   "contradictions": [],
+   "event_ids": [],
+   "created_at": "2026-09-08T21:22+00:00",
+   "updated_at": "2026-09-08T21:22+00:00"
+  },
+  {
+   "id": "sig_414363770b1b205d",
+   "type": "country-risk-threshold",
+   "title": "السعودية: SANAD tension score crossed 60",
+   "title_en": "Saudi Arabia: SANAD tension score crossed 60",
+   "summary": "The deterministic SANAD tension output crossed its documented export threshold.",
+   "observed_at": "2026-09-08T21:20+00:00",
+   "observed_facts": [
+    "Published tension score: 61; published level: متوتّر."
+   ],
+   "assessment": "The deterministic SANAD tension output crossed its documented export threshold.",
+   "inference": "This is a threshold notification, not a prediction of violence or a government warning.",
+   "uncertainty": "The score reflects the inputs and weights published by SANAD and can change as source coverage changes.",
+   "confidence": 0.75,
+   "severity": "medium",
+   "countries": [
+    "sa"
+   ],
+   "sectors": [
+    "government"
+   ],
+   "topics": [
+    "risk-threshold"
+   ],
+   "evidence": [
+    {
+     "source_ref": "ev_7732bb9d48e522df",
+     "url": "https://aawsat.com/node/5316189",
+     "publisher": "الشرق الأوسط",
+     "grade": "حسن",
+     "published_at": "2026-09-08T20:47+00:00",
+     "title": "السعودية تؤكد مضيها في الدفاع عن سيادتها ورفضها الإجرام الحوثي",
+     "title_en": "",
+     "dataset": "tension"
+    },
+    {
+     "source_ref": "ev_7ba58cf095db340b",
+     "url": "https://www.aljazeera.net/news/2026/9/8/%D8%A5%D8%AF%D8%A7%D9%86%D8%A7%D8%AA-%D9%88%D8%A7%D8%B3%D8%B9%D8%A9-%D9%84%D9%87%D8%AC%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%8A%D9%86-%D8%B9%D9%84%D9%89",
+     "publisher": "الجزيرة نت",
+     "grade": "حسن",
+     "published_at": "2026-09-08T17:46+00:00",
+     "title": "إدانات واسعة لهجمات الحوثيين على السعودية ودعوة لموقف حازم",
+     "title_en": "",
+     "dataset": "tension"
+    },
+    {
+     "source_ref": "ev_a5c874cbc7c881da",
+     "url": "https://www.bbc.com/arabic/articles/c2l8ep44xrpo?at_medium=RSS&at_campaign=rss",
+     "publisher": "بي بي سي عربي",
+     "grade": "حسن",
+     "published_at": "2026-09-08T20:34+00:00",
+     "title": "إنذارات سعودية جديدة \"للتحذير من خطر\" بعد هجمات الحوثيين، والخارجية الأمريكية تحمّل إيران المسؤولية",
+     "title_en": "",
+     "dataset": "tension"
+    },
+    {
+     "source_ref": "ev_a99fa7205025991a",
+     "url": "https://arabic.cnn.com/entertainment/article/2026/09/08/saudi-arabia-abdulmajeed-abdullahs-new-album-features-21-songs",
+     "publisher": "CNN بالعربية",
+     "grade": "حسن",
+     "published_at": "2026-09-08T19:35+00:00",
+     "title": "السعودية.. ألبوم جديد لعبدالمجيد عبدالله من 21 أغنية",
+     "title_en": "",
+     "dataset": "tension"
+    },
+    {
+     "source_ref": "ev_b183fea6cda177b0",
+     "url": "https://www.aljazeera.net/opinions/2026/9/8/%D8%A7%D9%84%D9%8A%D9%85%D9%86-%D9%85%D8%AC%D8%AF%D8%AF%D8%A7-%D8%A3%D9%85%D8%A7%D9%85-%D8%A7%D9%84%D8%AD%D8%B1%D8%A8-%D8%A5%D9%84%D9%89-%D8%A3%D9%8A%D9%86-%D9%8A%D8%AA%D8%AC%D9%87",
+     "publisher": "الجزيرة نت",
+     "grade": "حسن",
+     "published_at": "2026-09-08T15:57+00:00",
+     "title": "اليمن مجددا أمام الحرب.. إلى أين يتجه الموقف السعودي؟",
+     "title_en": "",
+     "dataset": "tension"
+    }
+   ],
+   "contradictions": [],
+   "event_ids": [],
+   "created_at": "2026-09-08T21:22+00:00",
+   "updated_at": "2026-09-08T21:22+00:00"
   },
   {
    "id": "sig_5ed86e4817d42ba7",
@@ -439,9 +664,9 @@
    "title": "Watch term active: #غزة",
    "title_en": "Watch term active: #Gaza",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-09-08T18:25+00:00",
+   "observed_at": "2026-09-08T21:21+00:00",
    "observed_facts": [
-    "8 graded SANAD hit(s) and 0 attributable open-news hit(s); heat 100."
+    "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
    "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
    "inference": "Term matching indicates attention, not intent, coordination, or threat.",
@@ -455,23 +680,13 @@
    ],
    "evidence": [
     {
-     "source_ref": "ev_3e449e7439a32035",
-     "url": "https://www.bbc.com/arabic/articles/cgmrjmz9yvmo?at_medium=RSS&at_campaign=rss",
-     "publisher": "بي بي سي عربي",
+     "source_ref": "ev_0552b7fc5119aeab",
+     "url": "https://aawsat.com/%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A/%D8%A7%D9%84%D9%85%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A/5292868-%D9%85%D8%A7%D8%B0%D8%A7-%D9%8A%D8%B9%D9%86%D9%8A-%D8%AD%D9%84-%D8%A7%D9%84%D9%84%D8%AC%D9%86%D8%A9-%D8%A7%D9%84%D8%AD%D9%83%D9%88%D9%85%D9%8A%D8%A9-%D9%84%D9%80%D8%AD%D9%85%D8%A7%D8%B3-%D9%81%D9%8A-%D8%BA%D8%B2%D8%A9%D8%9F-%D9%88%D9%85%D8%A7-%D8%A7%D9%84%D8%AE%D8%B7%D9%88%D8%A9-%D8%A7%D9%84%D8%AA%D8%A7%D9%84%D9%8A%D8%A9%D8%9F",
+     "publisher": "الشرق الأوسط",
      "grade": "حسن",
-     "published_at": "2026-09-06T18:59+00:00",
-     "title": "غزة تشيّع رفات أكثر من 100 فلسطيني انتشلوا من تحت الأنقاض",
-     "title_en": "Gaza Holds Funerals for Over 100 Palestinians Retrieved from Under Rubble",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_40147e542fb3f2e9",
-     "url": "https://www.aljazeera.net/news/2026/9/7/%d8%b9%d8%a7%d8%ac%d9%84-%d8%a7%d8%b3%d8%aa%d8%b4%d9%87%d8%a7%d8%af-4-%d9%81%d9%84%d8%b3%d8%b7%d9%8a%d9%86%d9%8a%d9%8a%d9%86-%d8%a3%d8%ad%d8%af%d9%87%d9%85-%d8%b7%d9%81%d9%84?traffic_source=rss",
-     "publisher": "الجزيرة نت",
-     "grade": "حسن",
-     "published_at": "2026-09-06T18:04+00:00",
-     "title": "استشهاد 5 فلسطينيين في غارات على مناطق متفرقة من قطاع غزة",
-     "title_en": "",
+     "published_at": "2026-09-08T17:10+00:00",
+     "title": "ماذا يعني حل اللجنة الحكومية لـ«حماس» في غزة؟ وما الخطوة التالية؟",
+     "title_en": "What Does Dissolving Hamas's Administrative Committee in Gaza Mean, and What Comes Next?",
      "dataset": "osint"
     },
     {
@@ -482,6 +697,16 @@
      "published_at": "2026-09-07T05:07+00:00",
      "title": "اعتبرتها إسرائيل \"تهديدا أمنيا\".. طائرات ورقية في سماء لندن تضامنا مع غزة",
      "title_en": "Israel Brands 'Security Threat' as Kites Fly Over London in Gaza Solidarity",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_6f35ede9fdc5f95b",
+     "url": "https://www.tasnimnews.ir/ar/news/2026/09/08/3692209/%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85-%D8%A3%D9%85%D8%A7%D9%85-%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1-%D8%BA%D8%B2%D8%A9-%D8%AD%D9%85%D8%A7%D8%B3-%D8%AA%D8%B7%D8%A7%D9%84%D8%A8-%D8%A8%D8%AE%D8%B7%D9%88%D8%A7%D8%AA-%D8%B9%D9%85%D9%84%DB%8C%D8%A9-%D9%84%D9%88%D9%82%D9%81-%D8%A7%D9%84%D8%A5%D8%A8%D8%A7%D8%AF%D8%A9",
+     "publisher": "تسنیم",
+     "grade": "حسن",
+     "published_at": "2026-09-08T20:45+00:00",
+     "title": "مجلس السلام أمام اختبار غزة.. حماس تطالب بخطوات عملية لوقف الإبادة",
+     "title_en": "Peace Council Tested by Gaza: Hamas Demands Concrete Steps to Stop Genocide",
      "dataset": "osint"
     },
     {
@@ -525,20 +750,20 @@
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_ef23b8396c6d5f25",
-     "url": "https://www.aljazeera.net/news/2026/9/6/5096",
+     "source_ref": "ev_e45061e794c5c079",
+     "url": "https://www.aljazeera.net/news/2026/9/8/%D8%AF%D8%B9%D9%88%D9%89-%D9%81%D9%8A-%D9%81%D8%B1%D9%86%D8%B3%D8%A7-%D8%B6%D8%AF-%D8%A5%D8%B3%D8%B1%D8%A7%D8%A6%D9%8A%D9%84-%D9%84%D8%AA%D8%B9%D8%B0%D9%8A%D8%A8%D9%87%D8%A7",
      "publisher": "الجزيرة نت",
      "grade": "حسن",
-     "published_at": "2026-09-06T20:20+00:00",
-     "title": "استشهاد فلسطيني وابنته باستهداف إسرائيلي لسيارة في غزة",
-     "title_en": "Palestinian and Daughter Killed in Israeli Strike on Car in Gaza",
+     "published_at": "2026-09-08T12:10+00:00",
+     "title": "دعوى في فرنسا ضد إسرائيل لتعذيبها مشاركين في أساطيل مساعدات إلى غزة",
+     "title_en": "Lawsuit in France Accuses Israel of Torturing Gaza Aid Flotilla Activists",
      "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-09-08T18:25+00:00"
+   "updated_at": "2026-09-08T21:22+00:00"
   },
   {
    "id": "sig_7ce5e1ca05c1e737",
@@ -546,9 +771,9 @@
    "title": "Watch term active: الحوثي",
    "title_en": "Watch term active: Houthi",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-09-08T18:25+00:00",
+   "observed_at": "2026-09-08T21:21+00:00",
    "observed_facts": [
-    "5 graded SANAD hit(s) and 0 attributable open-news hit(s); heat 50."
+    "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
    "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
    "inference": "Term matching indicates attention, not intent, coordination, or threat.",
@@ -592,30 +817,114 @@
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_ce09ff2d97449381",
-     "url": "https://www.france24.com/ar/%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7/20260906-%D8%A7%D9%84%D9%8A%D9%85%D9%86-%D9%85%D8%B9%D8%A7%D8%B1%D9%83-%D9%82%D9%88%D8%A7%D8%AA-%D8%A7%D9%84%D8%AD%D9%83%D9%88%D9%85%D8%A9-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%88%D9%86-%D8%A7%D9%84%D8%AA%D8%AD%D8%A7%D9%84%D9%81-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D8%AD%D8%B1%D8%A8-%D8%A3%D9%87%D9%84%D9%8A%D8%A9",
-     "publisher": "فرانس ٢٤ عربي",
+     "source_ref": "ev_47f79d4ad634a88d",
+     "url": "https://arabic.cnn.com/middle-east/article/2026/09/08/saudi-arabia-plans-retaliation-against-houthis",
+     "publisher": "CNN Arabic",
      "grade": "حسن",
-     "published_at": "2026-09-06T19:05+00:00",
-     "title": "اليمن: المعارك بين قوات الحكومة والحوثيين خلفت أكثر من 140 قتيلا منذ السبت",
-     "title_en": "Yemen: Clashes Between Government Forces and Houthis Leave Over 140 Dead Since Saturday",
+     "published_at": "2026-09-08T13:27+00:00",
+     "title": "مصدر لـCNN: السعودية تخطط للرد على الحوثيين وإشراك دول أخرى معها",
+     "title_en": "CNN Source: Saudi Arabia Plans Response to Houthis, Involving Other Nations",
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_f5e303cdd777fb52",
-     "url": "https://arabic.cnn.com/middle-east/article/2026/09/08/rubio-us-watching-situation-between-saudi-arabia-and-houthis-very-closely",
-     "publisher": "CNN بالعربية",
+     "source_ref": "ev_7732bb9d48e522df",
+     "url": "https://aawsat.com/node/5316189",
+     "publisher": "الشرق الأوسط",
      "grade": "حسن",
-     "published_at": "2026-09-08T16:13+00:00",
-     "title": "التصعيد بين السعودية والحوثيين.. ماذا قال وزير الخارجية الأمريكي؟",
-     "title_en": "Saudi-Houthi Escalation: What Did the US Secretary of State Say?",
+     "published_at": "2026-09-08T20:47+00:00",
+     "title": "السعودية تؤكد مضيها في الدفاع عن سيادتها ورفضها الإجرام الحوثي",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_7ba58cf095db340b",
+     "url": "https://www.aljazeera.net/news/2026/9/8/%D8%A5%D8%AF%D8%A7%D9%86%D8%A7%D8%AA-%D9%88%D8%A7%D8%B3%D8%B9%D8%A9-%D9%84%D9%87%D8%AC%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%8A%D9%86-%D8%B9%D9%84%D9%89",
+     "publisher": "الجزيرة نت",
+     "grade": "حسن",
+     "published_at": "2026-09-08T17:46+00:00",
+     "title": "إدانات واسعة لهجمات الحوثيين على السعودية ودعوة لموقف حازم",
+     "title_en": "Widespread Condemnation of Houthi Attacks on Saudi Arabia Amid Calls for Decisive Action",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_a5c874cbc7c881da",
+     "url": "https://www.bbc.com/arabic/articles/c2l8ep44xrpo?at_medium=RSS&at_campaign=rss",
+     "publisher": "بي بي سي عربي",
+     "grade": "حسن",
+     "published_at": "2026-09-08T20:34+00:00",
+     "title": "إنذارات سعودية جديدة \"للتحذير من خطر\" بعد هجمات الحوثيين، والخارجية الأمريكية تحمّل إيران المسؤولية",
+     "title_en": "Saudi Arabia Issues Threat Warnings Following Houthi Strikes; US Holds Iran Responsible",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_a91155f53445c046",
+     "url": "https://arabic.cnn.com/middle-east/article/2026/09/08/saudi-foreign-ministry-after-73-civilians-were-injured-houthi-attacks-4-cities",
+     "publisher": "CNN Arabic",
+     "grade": "حسن",
+     "published_at": "2026-09-08T06:40+00:00",
+     "title": "أول تعليق من الخارجية السعودية بعد هجمات الحوثيين على 4 مدن",
+     "title_en": "First Statement from Saudi Foreign Ministry Following Houthi Attacks on 4 Cities",
      "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-09-06T20:02+00:00",
-   "updated_at": "2026-09-08T18:25+00:00"
+   "updated_at": "2026-09-08T21:22+00:00"
+  },
+  {
+   "id": "sig_83c141813b4dba74",
+   "type": "multi-source-event",
+   "title": "علي الشنفري سفيراً لسلطنة عمان لدى الكويت",
+   "title_en": "",
+   "summary": "2 named sources and 2 distinct evidence URLs cluster conservatively.",
+   "observed_at": "2026-09-08T18:01+00:00",
+   "observed_facts": [
+    "جريدة الجريدة الكويتية published: علي الشنفري سفيراً لسلطنة عُمان لدى الكويت",
+    "جريدة القبس published: علي الشنفري سفيراً لسلطنة عمان لدى الكويت"
+   ],
+   "assessment": "2 named sources and 2 distinct evidence URLs cluster conservatively.",
+   "inference": "The sources may be reporting the same underlying event.",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.8,
+   "severity": "info",
+   "countries": [
+    "kw",
+    "om"
+   ],
+   "sectors": [],
+   "topics": [
+    "الخليج",
+    "الكويت"
+   ],
+   "evidence": [
+    {
+     "source_ref": "ev_1cb3b86058027112",
+     "url": "https://www.aljarida.com/article/143760",
+     "publisher": "جريدة الجريدة الكويتية",
+     "grade": "حسن",
+     "published_at": "2026-09-08T10:29+00:00",
+     "title": "علي الشنفري سفيراً لسلطنة عُمان لدى الكويت",
+     "title_en": "",
+     "dataset": "news"
+    },
+    {
+     "source_ref": "ev_31d2320d028836b8",
+     "url": "https://alqabas.com/article/5969491",
+     "publisher": "جريدة القبس",
+     "grade": "حسن",
+     "published_at": "2026-09-08T18:01+00:00",
+     "title": "علي الشنفري سفيراً لسلطنة عمان لدى الكويت",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "event_ids": [
+    "evt_ea25f6c95a9a61a6"
+   ],
+   "created_at": "2026-09-08T21:22+00:00",
+   "updated_at": "2026-09-08T21:22+00:00"
   },
   {
    "id": "sig_87c20191a60886e2",
@@ -623,7 +932,7 @@
    "title": "AI repository activity: RAG / knowledge",
    "title_en": "AI repository activity: RAG / knowledge",
    "summary": "The live GitHub radar contains a repeated repository class after deterministic ranking and deduplication.",
-   "observed_at": "2026-09-08T18:24:09Z",
+   "observed_at": "2026-09-08T21:20:21Z",
    "observed_facts": [
     "2 recently pushed, non-fork repositories share this SANAD radar classification."
    ],
@@ -647,7 +956,7 @@
      "url": "https://github.com/open-webui/open-webui",
      "publisher": "GitHub Search API",
      "grade": "",
-     "published_at": "2026-09-08T17:25:18Z",
+     "published_at": "2026-09-08T20:54:17Z",
      "title": "open-webui/open-webui",
      "title_en": "User-friendly AI Interface (Supports Ollama, OpenAI API, ...)",
      "dataset": "repos"
@@ -657,7 +966,7 @@
      "url": "https://github.com/langgenius/dify",
      "publisher": "GitHub Search API",
      "grade": "",
-     "published_at": "2026-09-08T18:24:09Z",
+     "published_at": "2026-09-08T21:20:21Z",
      "title": "langgenius/dify",
      "title_en": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
      "dataset": "repos"
@@ -666,7 +975,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-09-08T18:25+00:00"
+   "updated_at": "2026-09-08T21:22+00:00"
   },
   {
    "id": "sig_9fafb493aca3836e",
@@ -729,14 +1038,61 @@
    "updated_at": "2026-09-08T14:55+00:00"
   },
   {
+   "id": "sig_a0a992036c3c7f8a",
+   "type": "watchlist-match",
+   "title": "Watch term active: عقوبات إيران",
+   "title_en": "Watch term active: Iran sanctions",
+   "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
+   "observed_at": "2026-09-08T21:21+00:00",
+   "observed_facts": [
+    "2 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 52."
+   ],
+   "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
+   "inference": "Term matching indicates attention, not intent, coordination, or threat.",
+   "uncertainty": "Keyword matching can include unrelated uses of the same term.",
+   "confidence": 0.7,
+   "severity": "info",
+   "countries": [],
+   "sectors": [],
+   "topics": [
+    "اقتصاد"
+   ],
+   "evidence": [
+    {
+     "source_ref": "ev_37f655283b7009c4",
+     "url": "https://www.iranintl.com/202609061708",
+     "publisher": "إيران إنترناشونال",
+     "grade": "حسن",
+     "published_at": "2026-09-06T20:48+00:00",
+     "title": "محسن رضائي يعلن إنشاء «منطقة محظورة للعقوبات» حول مضيق هرمز",
+     "title_en": "Mohsen Rezaee Declares 'Sanctions Exclusion Zone' Around Strait of Hormuz",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_c3c0d371fdd4fcc4",
+     "url": "https://www.skynewsarabia.com/world/1890716-%D9%88%D8%A7%D8%B4%D9%86%D8%B7%D9%86-%D8%AA%D8%B7%D9%88%D9%82-%D8%B7%D9%8A%D8%B1%D8%A7%D9%86-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D8%A8%D8%B9%D9%82%D9%88%D8%A8%D8%A7%D8%AA-%D9%85%D8%A7%D9%84%D9%8A%D8%A9-%D9%88%D8%AA%D8%B4%D8%BA%D9%8A%D9%84%D9%8A%D8%A9",
+     "publisher": "سكاي نيوز عربية",
+     "grade": "حسن",
+     "published_at": "2026-09-08T15:16+00:00",
+     "title": "واشنطن تطوق طيران إيران بعقوبات مالية وتشغيلية",
+     "title_en": "Washington Targets Iranian Aviation with Financial and Operational Sanctions",
+     "dataset": "osint"
+    }
+   ],
+   "contradictions": [],
+   "event_ids": [],
+   "created_at": "2026-09-08T21:22+00:00",
+   "updated_at": "2026-09-08T21:22+00:00"
+  },
+  {
    "id": "sig_b74f715cc66b0048",
    "type": "watchlist-match",
    "title": "Watch term active: #إيران",
    "title_en": "Watch term active: #Iran",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-09-08T18:25+00:00",
+   "observed_at": "2026-09-08T21:21+00:00",
    "observed_facts": [
-    "8 graded SANAD hit(s) and 0 attributable open-news hit(s); heat 80."
+    "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
    "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
    "inference": "Term matching indicates attention, not intent, coordination, or threat.",
@@ -750,90 +1106,90 @@
    ],
    "evidence": [
     {
-     "source_ref": "ev_363e6cb247d58b75",
-     "url": "https://www.bbc.com/persian/articles/cyvzjvzrq6jo?at_medium=RSS&at_campaign=rss",
-     "publisher": "بي بي سي فارسي",
-     "grade": "حسن",
-     "published_at": "2026-09-08T11:48+00:00",
-     "title": "لماذا أثار اسم الطفل الثالث لمحمد صلاح جدلاً؟",
-     "title_en": "Why the Name of Mohamed Salah's Third Child Sparked Controversy",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_36c05ea004fddf65",
-     "url": "https://www.aljazeera.net/news/2026/9/8/%d9%86%d8%aa%d9%86%d9%8a%d8%a7%d9%87%d9%88-%d8%b3%d9%86%d9%86%d9%87%d9%8a-%d8%a7%d9%84%d9%85%d9%87%d9%85%d8%a9-%d9%81%d9%8a-%d8%a5%d9%8a%d8%b1%d8%a7%d9%86-%d9%88%d9%86%d8%b3%d9%82%d8%b7?traffic_source=rss",
-     "publisher": "الجزيرة نت",
-     "grade": "حسن",
-     "published_at": "2026-09-08T14:50+00:00",
-     "title": "نتنياهو: سننهي المهمة في إيران ونسقط النظام",
-     "title_en": "Netanyahu: We Will Finish the Mission in Iran and Topple the Regime",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_a48e91399b83e836",
-     "url": "https://www.bbc.com/persian/articles/cy9z84dg995o?at_medium=RSS&at_campaign=rss",
-     "publisher": "بي بي سي فارسي",
-     "grade": "حسن",
-     "published_at": "2026-09-08T16:18+00:00",
-     "title": "دوري أبطال أوروبا؛ من هم المرشحون وأي لاعبين ينبغي متابعتهم؟",
-     "title_en": "Champions League: Who Are the Contenders and Which Players to Watch?",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_ace62b3b7f584faf",
-     "url": "https://www.iranintl.com/202609080324",
+     "source_ref": "ev_23abe5e472be1f88",
+     "url": "https://www.iranintl.com/202609089239",
      "publisher": "إيران إنترناشونال",
      "grade": "حسن",
-     "published_at": "2026-09-08T16:56+00:00",
-     "title": "إسرائيل تغلق القنصلية البريطانية رداً على حظر استيراد بضائع المستوطنين",
-     "title_en": "Israel Shuts British Consulate in Response to Settlement Goods Ban",
+     "published_at": "2026-09-08T19:53+00:00",
+     "title": "الحرس الثوري يعلن في تحذير فوري أنه سيهاجم ناقلات النفط في مراسي الكويت والبحرين",
+     "title_en": "IRGC Issues Immediate Threat to Attack Oil Tankers at Kuwait and Bahrain Anchorages",
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_b3600b81a3138893",
-     "url": "https://www.iranintl.com/202609072502",
+     "source_ref": "ev_6141916e8c99376e",
+     "url": "https://www.iranintl.com/202609083316",
      "publisher": "إيران إنترناشونال",
      "grade": "حسن",
-     "published_at": "2026-09-07T22:00+00:00",
-     "title": "المدير التنفيذي لنادي غول غهر: من قال إن أوميد عاليشاه سبّ خداداد؟ لم يحدث أي شيء في غرفة تبديل الملابس الخاصة بنا على الإطلاق",
-     "title_en": "Gol Gohar CEO: Omid Alishah Did Not Insult Khodadad; Nothing Happened in Dressing Room",
+     "published_at": "2026-09-08T19:00+00:00",
+     "title": "فوز ثمين لأستون فيلا في بروج؛ كسر عقدة آيك أثينا الممتدة لـ8 سنوات في دوري أبطال أوروبا",
+     "title_en": "Aston Villa Clinch Vital Win in Bruges, Breaking AEK Athens' 8-Year Champions League Jinx",
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_c3c0d371fdd4fcc4",
-     "url": "https://www.skynewsarabia.com/world/1890716-%D9%88%D8%A7%D8%B4%D9%86%D8%B7%D9%86-%D8%AA%D8%B7%D9%88%D9%82-%D8%B7%D9%8A%D8%B1%D8%A7%D9%86-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D8%A8%D8%B9%D9%82%D9%88%D8%A8%D8%A7%D8%AA-%D9%85%D8%A7%D9%84%D9%8A%D8%A9-%D9%88%D8%AA%D8%B4%D8%BA%D9%8A%D9%84%D9%8A%D8%A9",
+     "source_ref": "ev_7a1668630ede3e7b",
+     "url": "https://arabic.cnn.com/middle-east/article/2026/09/09/us-targets-multiple-iranian-tankers-near-kharg-island",
+     "publisher": "CNN بالعربية",
+     "grade": "حسن",
+     "published_at": "2026-09-08T20:56+00:00",
+     "title": "مصدران لـCNN: الجيش الأمريكي استهدف ناقلات نفط إيرانية قرب جزيرة خرج",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_a33557af8ad35dee",
+     "url": "https://www.skynewsarabia.com/world/1890725-%D8%A7%D9%84%D8%AC%D9%8A%D8%B4-%D8%A7%D9%84%D8%A3%D9%85%D9%8A%D8%B1%D9%83%D9%8A-%D9%8A%D8%B4%D9%86-%D8%BA%D8%A7%D8%B1%D8%A7%D8%AA-%D9%86%D8%A7%D9%82%D9%84%D8%A7%D8%AA-%D9%86%D9%81%D8%B7-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86%D9%8A%D8%A9",
      "publisher": "سكاي نيوز عربية",
      "grade": "حسن",
-     "published_at": "2026-09-08T14:48+00:00",
-     "title": "واشنطن تطوق طيران إيران بعقوبات مالية وتشغيلية",
-     "title_en": "US Squeezes Iranian Aviation with Financial and Operational Sanctions",
+     "published_at": "2026-09-08T19:25+00:00",
+     "title": "الجيش الأميركي يشن غارات على ناقلات نفط إيرانية",
+     "title_en": "",
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_d037e78c2de37b80",
-     "url": "https://www.aljazeera.net/video/2026/9/8/%d9%85%d9%86-%d9%8a%d8%ad%d8%af%d8%af-%d9%82%d9%88%d8%a7%d8%b9%d8%af-%d8%a7%d9%84%d9%85%d8%b1%d9%88%d8%b1-%d8%b9%d8%a8%d8%b1-%d9%85%d8%b6%d9%8a%d9%82-%d9%87%d8%b1%d9%85%d8%b2?traffic_source=rss",
-     "publisher": "الجزيرة نت",
+     "source_ref": "ev_a5c874cbc7c881da",
+     "url": "https://www.bbc.com/arabic/articles/c2l8ep44xrpo?at_medium=RSS&at_campaign=rss",
+     "publisher": "بي بي سي عربي",
      "grade": "حسن",
-     "published_at": "2026-09-08T14:45+00:00",
-     "title": "من يحدد قواعد المرور عبر مضيق هرمز؟",
-     "title_en": "Who Determines the Rules of Transit Through the Strait of Hormuz?",
+     "published_at": "2026-09-08T20:34+00:00",
+     "title": "إنذارات سعودية جديدة \"للتحذير من خطر\" بعد هجمات الحوثيين، والخارجية الأمريكية تحمّل إيران المسؤولية",
+     "title_en": "Saudi Arabia Issues Threat Warnings Following Houthi Strikes; US Holds Iran Responsible",
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_dd3a47e64034293d",
-     "url": "https://www.bbc.com/persian/articles/cpwlq4y8gnxo?at_medium=RSS&at_campaign=rss",
-     "publisher": "بي بي سي فارسي",
+     "source_ref": "ev_a85891fe5f6266c8",
+     "url": "https://www.alkhaleej.ae/2026-09-08/%D8%B9%D8%B1%D8%A8-%D9%88%D8%B9%D8%A7%D9%84%D9%85/%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85/%D8%B3%D9%86%D8%AA%D9%83%D9%88%D9%85-%D8%A7%D9%84%D9%85%D8%B3%D9%8A%D8%B1%D8%A9-%D8%A7%D9%84%D8%A8%D8%AD%D8%B1%D9%8A%D8%A9-%D8%A7%D9%84%D9%85%D8%B5%D8%A7%D8%AF%D8%B1%D8%A9-%D9%85%D9%86-%D9%82%D8%A8%D9%84-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D8%A3%D8%B5%D9%8A%D8%A8%D8%AA-%D8%A8%D8%B9%D8%B7%D9%84",
+     "publisher": "صحيفة الخليج",
      "grade": "حسن",
-     "published_at": "2026-09-08T09:27+00:00",
-     "title": "سيول وعواصف في شمال إيران؛ إغلاق الدوائر الحكومية في مازندران وانقطاع الكهرباء في بعض المناطق",
-     "title_en": "Floods and Storms Hit Northern Iran; Government Offices Closed in Mazandaran, Power Outages Reported",
+     "published_at": "2026-09-08T20:48+00:00",
+     "title": "«سنتكوم»: المسيّرة البحرية المُصادرة من قبل إيران أصيبت بعطل",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_c540fbdf92003b85",
+     "url": "https://www.bbc.com/arabic/articles/cm2mk06lzkro?at_medium=RSS&at_campaign=rss",
+     "publisher": "بي بي سي عربي",
+     "grade": "حسن",
+     "published_at": "2026-09-08T20:46+00:00",
+     "title": "طهران تتوعد باستهداف ناقلات نفط في الكويت والبحرين بعد هجمات أمريكية على ناقلات نفط إيرانية",
+     "title_en": "Tehran Vows to Target Oil Tankers in Kuwait and Bahrain Following US Strikes on Iranian Ships",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_c540fbdf92003b85",
+     "url": "https://www.bbc.com/arabic/articles/cm2mk06lzkro",
+     "publisher": "BBC",
+     "grade": "حسن",
+     "published_at": "2026-09-08T20:27+00:00",
+     "title": "مضيق هرمز: كوريا الجنوبية تنفي قرار نشر قوات لها بعد تهديد إيراني",
+     "title_en": "Strait of Hormuz: South Korea Denies Troop Deployment Decision Following Iranian Threats",
      "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-09-08T18:25+00:00"
+   "updated_at": "2026-09-08T21:22+00:00"
   },
   {
    "id": "sig_c2b2530e95cae4b8",
@@ -884,6 +1240,53 @@
    "event_ids": [],
    "created_at": "2026-09-08T14:55+00:00",
    "updated_at": "2026-09-08T14:55+00:00"
+  },
+  {
+   "id": "sig_c4aa304287325e90",
+   "type": "watchlist-match",
+   "title": "Watch term active: ناقلة",
+   "title_en": "Watch term active: tanker",
+   "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
+   "observed_at": "2026-09-08T21:21+00:00",
+   "observed_facts": [
+    "2 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 52."
+   ],
+   "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
+   "inference": "Term matching indicates attention, not intent, coordination, or threat.",
+   "uncertainty": "Keyword matching can include unrelated uses of the same term.",
+   "confidence": 0.7,
+   "severity": "info",
+   "countries": [],
+   "sectors": [],
+   "topics": [
+    "طاقة"
+   ],
+   "evidence": [
+    {
+     "source_ref": "ev_2226bb5a3113702d",
+     "url": "https://www.alkhaleej.ae/2026-09-07/%D8%B9%D8%B1%D8%A8-%D9%88%D8%B9%D8%A7%D9%84%D9%85/%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85/%D8%B3%D9%86%D8%AA%D9%83%D9%88%D9%85-%D8%AA%D8%B9%D9%8A%D8%AF-%D8%AA%D9%88%D8%AC%D9%8A%D9%87-92-%D8%B3%D9%81%D9%8A%D9%86%D8%A9-%D9%88%D8%BA%D8%B1%D9%82-%D9%86%D8%A7%D9%82%D9%84%D8%A9-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86%D9%8A%D8%A9",
+     "publisher": "صحيفة الخليج",
+     "grade": "حسن",
+     "published_at": "2026-09-06T22:48+00:00",
+     "title": "«سنتكوم» تعيد توجيه 92 سفينة.. وغرق ناقلة إيرانية",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_325807c5f155708b",
+     "url": "https://www.aljarida.com/article/143639",
+     "publisher": "جريدة الجريدة الكويتية",
+     "grade": "حسن",
+     "published_at": "2026-09-07T11:18+00:00",
+     "title": "عُمان أجلت 16 فرداً من الناقلة السعودية «سدر» بعد تعرضها لهجوم إيراني",
+     "title_en": "",
+     "dataset": "osint"
+    }
+   ],
+   "contradictions": [],
+   "event_ids": [],
+   "created_at": "2026-09-08T21:22+00:00",
+   "updated_at": "2026-09-08T21:22+00:00"
   },
   {
    "id": "sig_c83a004d327c9b7b",
@@ -951,9 +1354,9 @@
    "title": "Watch term active: #هرمز",
    "title_en": "Watch term active: #Hormuz",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-09-08T18:25+00:00",
+   "observed_at": "2026-09-08T21:21+00:00",
    "observed_facts": [
-    "8 graded SANAD hit(s) and 0 attributable open-news hit(s); heat 80."
+    "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
    "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
    "inference": "Term matching indicates attention, not intent, coordination, or threat.",
@@ -967,33 +1370,13 @@
    ],
    "evidence": [
     {
-     "source_ref": "ev_029f0b182bb0103f",
-     "url": "https://www.france24.com/ar/%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7/20260906-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D9%85%D9%86%D8%B7%D9%82%D8%A9-%D9%85%D8%AD%D8%B8%D9%88%D8%B1%D8%A9-%D9%85%D8%B6%D9%8A%D9%82-%D9%87%D8%B1%D9%85%D8%B2-%D9%84%D8%A8%D9%86%D8%A7%D9%86-%D8%A3%D9%85%D8%B1%D9%8A%D9%83%D8%A7-%D8%A7%D9%84%D8%BA%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D8%A5%D8%B3%D8%B1%D8%A7%D8%A6%D9%8A%D9%84%D9%8A%D8%A9-%D8%BA%D8%B2%D8%A9",
-     "publisher": "فرانس ٢٤ عربي",
+     "source_ref": "ev_2a915180db7bc8ee",
+     "url": "https://www.skynewsarabia.com/middle-east/1890529-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D8%AA%D8%B9%D9%84%D9%86-%D8%A7%D8%AA%D9%81%D8%A7%D9%82-%D9%88%D8%B4%D9%8A%D9%83-%D8%B9%D9%85%D8%A7%D9%86-%D8%A8%D8%B4%D8%A3%D9%86-%D9%85%D8%B6%D9%8A%D9%82-%D9%87%D8%B1%D9%85%D8%B2",
+     "publisher": "سكاي نيوز عربية",
      "grade": "حسن",
-     "published_at": "2026-09-06T20:33+00:00",
-     "title": "إيران ستقيم \"منطقة محظورة\" قرب مضيق هرمز ولبنان يدعو واشنطن لوقف الغارات الإسرائيلية",
-     "title_en": "Iran to Establish 'Exclusion Zone' Near Hormuz; Lebanon Urges US to Halt Israeli Strikes",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_1ab4beb3bb64ef67",
-     "url": "https://aawsat.com/%D8%B4%D8%A4%D9%88%D9%86-%D8%A5%D9%82%D9%84%D9%8A%D9%85%D9%8A%D8%A9/5301039-%D9%84%D9%85%D8%A7%D8%B0%D8%A7-%D8%AA%D9%82%D8%AA%D8%B1%D8%AD-%D8%B3%D9%84%D8%B7%D9%86%D8%A9-%D8%B9%D9%85%D8%A7%D9%86-%D8%AE%D8%B7%D8%A9-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-%D9%84%D8%A5%D8%AF%D8%A7%D8%B1%D8%A9-%D9%85%D8%B6%D9%8A%D9%82-%D9%87%D8%B1%D9%85%D8%B2%D8%9F",
-     "publisher": "الشرق الأوسط",
-     "grade": "حسن",
-     "published_at": "2026-09-06T19:39+00:00",
-     "title": "لماذا تقترح سلطنة عمان خطة جديدة لإدارة مضيق هرمز؟",
+     "published_at": "2026-09-07T14:03+00:00",
+     "title": "إيران تعلن عن \"اتفاق وشيك\" مع عُمان بشأن مضيق هرمز",
      "title_en": "",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_37f655283b7009c4",
-     "url": "https://www.iranintl.com/202609061708",
-     "publisher": "إيران إنترناشونال",
-     "grade": "حسن",
-     "published_at": "2026-09-06T20:48+00:00",
-     "title": "محسن رضائي يعلن إنشاء «منطقة محظورة للعقوبات» حول مضيق هرمز",
-     "title_en": "Mohsen Rezaee Declares 'Sanctions Exclusion Zone' Around Strait of Hormuz",
      "dataset": "osint"
     },
     {
@@ -1023,7 +1406,37 @@
      "grade": "حسن",
      "published_at": "2026-09-07T10:59+00:00",
      "title": "إيران: سنعلن قريباً عن منطقة محظورة في الخليج وخرائط لممر ملاحي جديد عبر هرمز",
-     "title_en": "Iran: We Will Soon Announce Gulf Exclusion Zone, New Hormuz Transit Routes",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_55ec235ebe3e0090",
+     "url": "https://www.aljazeera.net/news/2026/9/8/%d9%83%d9%88%d8%b1%d9%8a%d8%a7-%d8%a7%d9%84%d8%ac%d9%86%d9%88%d8%a8%d9%8a%d8%a9-%d8%aa%d8%b1%d8%b3%d9%84-%d9%81%d8%b1%d9%8a%d9%82-%d8%aa%d9%81%d8%aa%d9%8a%d8%b4-%d8%a5%d9%84%d9%89?traffic_source=rss",
+     "publisher": "الجزيرة نت",
+     "grade": "حسن",
+     "published_at": "2026-09-08T17:50+00:00",
+     "title": "كوريا الجنوبية ترسل فريق تفتيش إلى مضيق هرمز",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_bbb88afaec1e27e1",
+     "url": "https://www.alarabiya.net/iran/2026/09/08/%D8%A7%D9%8A%D8%B1%D8%A7%D9%86-%D8%AA%D8%B9%D9%84%D9%86-%D8%AA%D9%82%D8%AF%D9%85%D8%A7-%D9%83%D8%A8%D9%8A%D8%B1%D8%A7-%D9%81%D9%8A-%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D8%AF%D8%AB%D8%A7%D8%AA-%D9%85%D8%B9-%D8%B9%D9%85%D8%A7%D9%86-%D8%A8%D8%B4%D8%A7%D9%86-%D9%85%D8%B6%D9%8A%D9%82-%D9%87%D8%B1%D9%85%D8%B2",
+     "publisher": "العربية",
+     "grade": "حسن",
+     "published_at": "2026-09-08T14:12+00:00",
+     "title": "إيران تعلن \"تقدماً كبيراً\" في المحادثات مع عمان بشأن مضيق هرمز",
+     "title_en": "Iran Reports 'Significant Progress' in Strait of Hormuz Talks with Oman",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_c540fbdf92003b85",
+     "url": "https://www.bbc.com/arabic/articles/cm2mk06lzkro",
+     "publisher": "BBC",
+     "grade": "حسن",
+     "published_at": "2026-09-08T20:27+00:00",
+     "title": "مضيق هرمز: كوريا الجنوبية تنفي قرار نشر قوات لها بعد تهديد إيراني",
+     "title_en": "Strait of Hormuz: South Korea Denies Troop Deployment Decision Following Iranian Threats",
      "dataset": "osint"
     },
     {
@@ -1035,22 +1448,12 @@
      "title": "نائب قائد القوة البحرية للحرس الثوري: حدود الحصانة في مضيق هرمز هي ميناء خصب العماني",
      "title_en": "IRGC Navy Deputy: Oman's Khasab Port Marks Limits of Hormuz Immunity",
      "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_d037e78c2de37b80",
-     "url": "https://www.aljazeera.net/video/2026/9/8/%d9%85%d9%86-%d9%8a%d8%ad%d8%af%d8%af-%d9%82%d9%88%d8%a7%d8%b9%d8%af-%d8%a7%d9%84%d9%85%d8%b1%d9%88%d8%b1-%d8%b9%d8%a8%d8%b1-%d9%85%d8%b6%d9%8a%d9%82-%d9%87%d8%b1%d9%85%d8%b2?traffic_source=rss",
-     "publisher": "الجزيرة نت",
-     "grade": "حسن",
-     "published_at": "2026-09-08T14:45+00:00",
-     "title": "من يحدد قواعد المرور عبر مضيق هرمز؟",
-     "title_en": "Who Determines the Rules of Transit Through the Strait of Hormuz?",
-     "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-09-06T20:02+00:00",
-   "updated_at": "2026-09-08T18:25+00:00"
+   "updated_at": "2026-09-08T21:22+00:00"
   },
   {
    "id": "sig_f28d27c3c609459d",
@@ -1058,9 +1461,9 @@
    "title": "Watch term active: مضيق هرمز",
    "title_en": "Watch term active: Strait of Hormuz",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-09-08T18:25+00:00",
+   "observed_at": "2026-09-08T21:21+00:00",
    "observed_facts": [
-    "8 graded SANAD hit(s) and 0 attributable open-news hit(s); heat 80."
+    "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
    "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
    "inference": "Term matching indicates attention, not intent, coordination, or threat.",
@@ -1084,12 +1487,12 @@
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_1ab4beb3bb64ef67",
-     "url": "https://aawsat.com/%D8%B4%D8%A4%D9%88%D9%86-%D8%A5%D9%82%D9%84%D9%8A%D9%85%D9%8A%D8%A9/5301039-%D9%84%D9%85%D8%A7%D8%B0%D8%A7-%D8%AA%D9%82%D8%AA%D8%B1%D8%AD-%D8%B3%D9%84%D8%B7%D9%86%D8%A9-%D8%B9%D9%85%D8%A7%D9%86-%D8%AE%D8%B7%D8%A9-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-%D9%84%D8%A5%D8%AF%D8%A7%D8%B1%D8%A9-%D9%85%D8%B6%D9%8A%D9%82-%D9%87%D8%B1%D9%85%D8%B2%D8%9F",
-     "publisher": "الشرق الأوسط",
+     "source_ref": "ev_2a915180db7bc8ee",
+     "url": "https://www.skynewsarabia.com/middle-east/1890529-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D8%AA%D8%B9%D9%84%D9%86-%D8%A7%D8%AA%D9%81%D8%A7%D9%82-%D9%88%D8%B4%D9%8A%D9%83-%D8%B9%D9%85%D8%A7%D9%86-%D8%A8%D8%B4%D8%A3%D9%86-%D9%85%D8%B6%D9%8A%D9%82-%D9%87%D8%B1%D9%85%D8%B2",
+     "publisher": "سكاي نيوز عربية",
      "grade": "حسن",
-     "published_at": "2026-09-06T19:39+00:00",
-     "title": "لماذا تقترح سلطنة عمان خطة جديدة لإدارة مضيق هرمز؟",
+     "published_at": "2026-09-07T14:03+00:00",
+     "title": "إيران تعلن عن \"اتفاق وشيك\" مع عُمان بشأن مضيق هرمز",
      "title_en": "",
      "dataset": "osint"
     },
@@ -1104,16 +1507,6 @@
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_3c5c124e73c162ab",
-     "url": "https://www.alarabiya.net/iran/2026/09/06/%D8%A7%D9%8A%D8%B1%D8%A7%D9%86-%D8%AA-%D8%B5%D8%B9%D8%AF-%D9%85%D9%86%D8%B7%D9%82%D8%A9-%D8%A8%D8%AD%D8%B1%D9%8A%D8%A9-%D9%85%D8%AD%D8%B8%D9%88%D8%B1%D8%A9-%D8%AE%D8%A7%D8%B1%D8%AC-%D9%85%D8%B6%D9%8A%D9%82-%D9%87%D8%B1%D9%85%D8%B2-%D8%AE%D9%84%D8%A7%D9%84-%D8%A7%D9%8A%D8%A7%D9%85",
-     "publisher": "العربية",
-     "grade": "حسن",
-     "published_at": "2026-09-06T18:40+00:00",
-     "title": "إيران تُصعد: منطقة بحرية \"محظورة\" خارج مضيق هرمز خلال أيام",
-     "title_en": "Iran Escalates: Maritime 'Exclusion Zone' Outside Strait of Hormuz Within Days",
-     "dataset": "osint"
-    },
-    {
      "source_ref": "ev_3d43e030727581da",
      "url": "https://www.tasnimnews.ir/ar/news/2026/09/07/3691273/%D8%B9%D8%B1%D8%A7%D9%82%D8%AC%DB%8C-%DB%8C%D8%B7%D9%84%D8%B9-%D8%A7%D9%84%D8%A8%D8%B1%D9%84%D9%85%D8%A7%D9%86-%D8%A7%D9%84%D8%A5%DB%8C%D8%B1%D8%A7%D9%86%DB%8C-%D8%B9%D9%84%D9%89-%D8%AA%D9%81%D8%A7%D8%B5%DB%8C%D9%84-%D8%A7%D9%84%D9%85%D9%81%D8%A7%D9%88%D8%B6%D8%A7%D8%AA-%D9%85%D8%B9-%D8%B9%D9%8F%D9%85%D8%A7%D9%86-%D8%A8%D8%B4%D8%A3%D9%86-%D9%85%D8%B6%DB%8C%D9%82-%D9%87%D8%B1%D9%85%D8%B2",
      "publisher": "تسنیم",
@@ -1124,13 +1517,33 @@
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_48e0be7db4e6cfe3",
-     "url": "https://www.bbc.com/arabic/articles/c0re194zqxno",
+     "source_ref": "ev_55ec235ebe3e0090",
+     "url": "https://www.aljazeera.net/news/2026/9/8/%d9%83%d9%88%d8%b1%d9%8a%d8%a7-%d8%a7%d9%84%d8%ac%d9%86%d9%88%d8%a8%d9%8a%d8%a9-%d8%aa%d8%b1%d8%b3%d9%84-%d9%81%d8%b1%d9%8a%d9%82-%d8%aa%d9%81%d8%aa%d9%8a%d8%b4-%d8%a5%d9%84%d9%89?traffic_source=rss",
+     "publisher": "الجزيرة نت",
+     "grade": "حسن",
+     "published_at": "2026-09-08T17:50+00:00",
+     "title": "كوريا الجنوبية ترسل فريق تفتيش إلى مضيق هرمز",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_bbb88afaec1e27e1",
+     "url": "https://www.alarabiya.net/iran/2026/09/08/%D8%A7%D9%8A%D8%B1%D8%A7%D9%86-%D8%AA%D8%B9%D9%84%D9%86-%D8%AA%D9%82%D8%AF%D9%85%D8%A7-%D9%83%D8%A8%D9%8A%D8%B1%D8%A7-%D9%81%D9%8A-%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D8%AF%D8%AB%D8%A7%D8%AA-%D9%85%D8%B9-%D8%B9%D9%85%D8%A7%D9%86-%D8%A8%D8%B4%D8%A7%D9%86-%D9%85%D8%B6%D9%8A%D9%82-%D9%87%D8%B1%D9%85%D8%B2",
+     "publisher": "العربية",
+     "grade": "حسن",
+     "published_at": "2026-09-08T14:12+00:00",
+     "title": "إيران تعلن \"تقدماً كبيراً\" في المحادثات مع عمان بشأن مضيق هرمز",
+     "title_en": "Iran Reports 'Significant Progress' in Strait of Hormuz Talks with Oman",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_c540fbdf92003b85",
+     "url": "https://www.bbc.com/arabic/articles/cm2mk06lzkro",
      "publisher": "BBC",
      "grade": "حسن",
-     "published_at": "2026-09-06T13:46+00:00",
-     "title": "إيران والولايات المتحدة تتبادلان الهجمات على ناقلات نفط قرب مضيق هرمز وجزيرة خرج",
-     "title_en": "US, Iran Exchange Attacks on Oil Tankers Near Strait of Hormuz and Kharg Island",
+     "published_at": "2026-09-08T20:27+00:00",
+     "title": "مضيق هرمز: كوريا الجنوبية تنفي قرار نشر قوات لها بعد تهديد إيراني",
+     "title_en": "Strait of Hormuz: South Korea Denies Troop Deployment Decision Following Iranian Threats",
      "dataset": "osint"
     },
     {
@@ -1142,22 +1555,12 @@
      "title": "نائب قائد القوة البحرية للحرس الثوري: حدود الحصانة في مضيق هرمز هي ميناء خصب العماني",
      "title_en": "IRGC Navy Deputy: Oman's Khasab Port Marks Limits of Hormuz Immunity",
      "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_d037e78c2de37b80",
-     "url": "https://www.aljazeera.net/video/2026/9/8/%d9%85%d9%86-%d9%8a%d8%ad%d8%af%d8%af-%d9%82%d9%88%d8%a7%d8%b9%d8%af-%d8%a7%d9%84%d9%85%d8%b1%d9%88%d8%b1-%d8%b9%d8%a8%d8%b1-%d9%85%d8%b6%d9%8a%d9%82-%d9%87%d8%b1%d9%85%d8%b2?traffic_source=rss",
-     "publisher": "الجزيرة نت",
-     "grade": "حسن",
-     "published_at": "2026-09-08T14:45+00:00",
-     "title": "من يحدد قواعد المرور عبر مضيق هرمز؟",
-     "title_en": "Who Determines the Rules of Transit Through the Strait of Hormuz?",
-     "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-09-06T20:02+00:00",
-   "updated_at": "2026-09-08T18:25+00:00"
+   "updated_at": "2026-09-08T21:22+00:00"
   }
  ]
 }
