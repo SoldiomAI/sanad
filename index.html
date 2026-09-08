@@ -2957,6 +2957,7 @@ function renderVerifyResult(j, url){
         · ${EN?"Deepfake risk":"خطر التزييف"}: ${esc(deepfakeLabel(m.deepfake_risk_code||m.deepfake_risk))}
       </div>
       <div class="vr-media-meta">${EN?"Analysis provider":"مزوّد التحليل"}: ${esc(m.provider&&m.provider!=="none"?m.provider:"—")} · ${esc(providerStatusLabel(m.provider_status))}</div>
+      ${m.budget_scope==="soft_per_instance"?`<div class="vr-media-meta">${EN?"Budget guard: soft per server instance":"ضبط الميزانية: تقديري لكل نسخة خادم"}</div>`:""}
       ${inspected?`<div class="vr-media-meta">${EN?"Inspected resource":"المورد المفحوص"}: ${esc(inspected)}</div>`:""}
       ${mediaReason?`<div class="vr-media-meta">${esc(mediaReason)}</div>`:""}
       <div class="vr-evidence">

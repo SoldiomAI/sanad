@@ -15,6 +15,10 @@ const DEFAULT_LIMITS = Object.freeze({
   avBytes: 1024 * 1024,
   jsonLdBytes: 64 * 1024,
   textChars: 2500,
+  metadataValueChars: 4096,
+  titleChars: 512,
+  descriptionChars: 2000,
+  siteNameChars: 256,
 });
 
 const MEDIA_MIMES = new Set([
@@ -491,9 +495,9 @@ async function secureFetchResource(rawUrl, options = {}, deps = {}) {
       new Set([declaredMime, sniffedMime]).size === 2 &&
         ['audio/wav', 'audio/x-wav'].includes(declaredMime) &&
         ['audio/wav', 'audio/x-wav'].includes(sniffedMime) ||
-      new Set([declaredMime, sniffedMime]).size === 2 &&
-        ['audio/mp4', 'video/mp4'].includes(declaredMime) &&
-        ['audio/mp4', 'video/mp4'].includes(sniffedMime);
+      // Generic ISO-BMFF brands sniff as video/mp4, but may validly carry audio.
+      // The reverse is unsafe: an explicit M4A brand must not satisfy video/mp4.
+      declaredMime === 'audio/mp4' && sniffedMime === 'video/mp4';
     if (
       declaredKind !== 'unknown' &&
       sniffedKind !== 'unknown' &&
@@ -603,8 +607,10 @@ function extractPageMetadata(buffer, baseUrl, limits = DEFAULT_LIMITS) {
   const metas = {};
   for (const tag of html.match(/<meta\b[^>]*>/gi) || []) {
     const a = attrs(tag);
-    const key = String(a.property || a.name || '').toLowerCase();
-    if (key && a.content && !metas[key]) metas[key] = a.content.trim();
+    const key = String(a.property || a.name || '').toLowerCase().slice(0, 128);
+    if (key && a.content && !metas[key]) {
+      metas[key] = a.content.trim().slice(0, limits.metadataValueChars);
+    }
   }
   const links = {};
   for (const tag of html.match(/<link\b[^>]*>/gi) || []) {
@@ -613,8 +619,17 @@ function extractPageMetadata(buffer, baseUrl, limits = DEFAULT_LIMITS) {
     if (rel && a.href && !links[rel]) links[rel] = absoluteUrl(a.href, baseUrl);
   }
   const titleMatch = html.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i);
-  const title = metas['og:title'] || metas['twitter:title'] || decodeEntities(titleMatch?.[1] || '').replace(/\s+/g, ' ').trim();
-  const description = metas['og:description'] || metas.description || metas['twitter:description'] || '';
+  const title = (
+    metas['og:title'] ||
+    metas['twitter:title'] ||
+    decodeEntities(titleMatch?.[1] || '').replace(/\s+/g, ' ').trim()
+  ).slice(0, limits.titleChars);
+  const description = (
+    metas['og:description'] ||
+    metas.description ||
+    metas['twitter:description'] ||
+    ''
+  ).slice(0, limits.descriptionChars);
   const candidates = [];
   const add = (value, kind, method, priority) => {
     const url = absoluteUrl(value, baseUrl);
@@ -670,7 +685,7 @@ function extractPageMetadata(buffer, baseUrl, limits = DEFAULT_LIMITS) {
   return {
     title,
     description,
-    siteName: metas['og:site_name'] || '',
+    siteName: (metas['og:site_name'] || '').slice(0, limits.siteNameChars),
     canonicalUrl: links.canonical || absoluteUrl(metas['og:url'], baseUrl) || baseUrl,
     candidates: unique,
     snippet,
@@ -692,6 +707,7 @@ function mediaShell(overrides = {}) {
     truncated: false,
     buffer: null,
     local_signals: [],
+    redirects: [],
     ...overrides,
   };
 }
@@ -802,6 +818,7 @@ async function inspectPublicUrl(rawUrl, deps = {}, options = {}) {
         local_signals: root.kind === 'image' && !root.truncated
           ? inspectImageMarkers(root.body)
           : [],
+        redirects: root.redirects || [],
       }),
       redirects: root.redirects,
     };
@@ -846,6 +863,7 @@ async function inspectPublicUrl(rawUrl, deps = {}, options = {}) {
         local_signals: selected.kind === 'image' && !fetched.truncated
           ? inspectImageMarkers(fetched.body)
           : [],
+        redirects: fetched.redirects || [],
       });
     } else {
       media = mediaShell({
@@ -872,6 +890,10 @@ async function inspectPublicUrl(rawUrl, deps = {}, options = {}) {
         buffer: fetchedPoster.body,
         mime: fetchedPoster.mime,
         local_signals: inspectImageMarkers(fetchedPoster.body),
+        redirects: [
+          ...(media.redirects || []),
+          ...(fetchedPoster.redirects || []),
+        ],
       });
     }
   }
@@ -890,6 +912,7 @@ async function inspectPublicUrl(rawUrl, deps = {}, options = {}) {
         content_digest: fetchedPoster.digest,
         buffer: fetchedPoster.body,
         local_signals: inspectImageMarkers(fetchedPoster.body),
+        redirects: fetchedPoster.redirects || [],
       });
     }
   }
