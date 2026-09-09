@@ -1,106 +1,104 @@
 {
- "updated": "2026-09-08T14:55+00:00",
+ "updated": "2026-09-09T03:09+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.04482",
-   "title": "Safety for Whom? Boundary-Aware Self-Distillation for Controlled LLM Safety Refusal",
-   "abstract": "Safety alignment is usually posed as a topic-level question: is this subject harmful? Deployments ask a narrower one. A civics tutor and a public-sector assistant may share a base model yet need different boundaries inside the same topic, refusing targeted political manipulation while still answering factual questions about the same election. We formulate this as narrow-boundary safety and introduce an offline self-generated framework combining controlled topic generation, coverage repair, in-distribution compensation data, and harmful-benign pairs for training and evaluation. Single-shot gene",
+   "id": "2609.08183",
+   "title": "NeoHorse-1: Towards Recursive Self-Improvement via Agentic Post-Training with Routing Harness",
+   "abstract": "Recursive self-improvement (RSI) requires a concrete mechanism through which an AI system observes its capabilities and converts that evidence into the next round of learning. We present NeoHorse-1, a family of agent-native models developed to explore this path through agentic post-training. Our system combines a heterogeneous model pool with intelligent routing, recording the predicted capability demand, selected service tier, and subsequent interaction for each user turn. These records are converted into training examples that preserve interleaved reasoning, tool calls, and harness context, ",
    "authors": [
-    "Alejo López-Ávila",
-    "Iker García-Ferrero",
-    "Jezabel Garcia",
-    "Antonio Tiene"
+    "NeoHorse Team",
+    "Guoliang Cao",
+    "Guohao Dai",
+    "Tianyu Guo"
    ],
-   "link": "https://huggingface.co/papers/2609.04482",
+   "link": "https://huggingface.co/papers/2609.08183",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-08T00:00",
+   "title_ar": "نيو هورس-1: نحو التحسين الذاتي التكراري عبر ما بعد التدريب الوكائلي مع تسخير التوجيه",
+   "summary_ar": "يتطلب التحسين الذاتي التكراري آلية ملموسة يرصد من خلالها نظام الذكاء الاصطناعي قدراته ويحول ذلك الدليل إلى الجولة التالية من التعلم. يقدم البحث \"نيو هورس-1\"، وهي عائلة من النماذج الأصيلة وكائليًا طُوِّرت لاستكشاف هذا المسار عبر ما بعد التدريب الوكائلي."
+  },
+  {
+   "id": "2609.06966",
+   "title": "MOLE: Detecting Insider Threats in AI Agents",
+   "abstract": "Model misalignment, prompt injection, or operator misuse could lead AI agents operating frontier-lab accounts to exfiltrate model weights, poison training data, or weaken release gates. Existing benchmarks do not test whether defenders can detect this activity among routine work under a limited review budget. We introduce MOLE, an open benchmark of 150 AI-operated accounts sharing 9 stateful services over 30 workdays, with 12 threats and 8 corpora from four models totaling roughly 20 billion tokens. Of 39 agent models, 72% complete most assigned harmful objectives and agent refusal does not pr",
+   "authors": [
+    "Aashiq Muhamed",
+    "Virginia Smith"
+   ],
+   "link": "https://huggingface.co/papers/2609.06966",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-07T00:00",
+   "title_ar": "مول: كشف التهديدات الداخلية في وكلاء الذكاء الاصطناعي",
+   "summary_ar": "قد يؤدي عدم محاذاة النموذج، أو حقن الأوامر، أو إساءة استخدام المشغل إلى قيام وكلاء الذكاء الاصطناعي بتسريب أوزان النماذج، أو تسميم بيانات التدريب، أو إضعاف بوابات الإطلاق أثناء إدارة حسابات المختبرات المتقدمة. لا تختبر المعايير الحالية ما إذا كان بإمكان المدافعين اكتشاف هذا النشاط وسط العمل الروتيني في ظل مراجعة محدودة."
+  },
+  {
+   "id": "2609.06055",
+   "title": "DriveZero: End-to-End Driving Beyond Human Demonstrations",
+   "abstract": "Most end-to-end autonomous-driving systems learn by imitating human driving logs, leaving their learned behavior constrained by the quality and behavioral coverage of the recorded trajectories. This report presents DriveZero, an end-to-end system that learns driving behavior beyond human demonstrations. It decomposes driving into a perception model and an action model, pretrains each in the regime best suited to it, and combines them into one end-to-end planner. The two models call for different learning recipes: perception must understand the world, and benefits from massive and diverse visua",
+   "authors": [
+    "Hao He",
+    "Chengcheng Hu",
+    "Zirun Su",
+    "Heng Zhang"
+   ],
+   "link": "https://huggingface.co/papers/2609.06055",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-05T00:00",
+   "title_ar": "درايف زيرو: القيادة الشاملة من البداية إلى النهاية بما يتجاوز العروض التوضيحية البشرية",
+   "summary_ar": "تتعلم معظم أنظمة القيادة الذاتية الشاملة عبر تقليد سجلات القيادة البشرية، مما يجعل سلوكها مقيدًا بجودة المسارات المسجلة ومدى تغطيتها السلوكية. يقدم هذا التقرير \"درايف زيرو\"، وهو نظام شامل يتعلم سلوك القيادة متجاوزًا العروض التوضيحية البشرية."
+  },
+  {
+   "id": "2609.05533",
+   "title": "SimpleMemVLA: A Simple but Effective Native-Video Memory for Vision-Language-Action Models",
+   "abstract": "Long-horizon manipulation is partially observable: the information needed to choose the next action may appear only in observations from minutes earlier. Existing memory mechanisms: retrieval banks, learned compressors, recurrent states must decide what to keep from the past before knowing what a future decision will require. This was motivated by the assumption that minute-scale history is too large to process directly, which modern VLM backbones no longer make true. In this work, we introduce SimpleMemVLA, a VLA without a dedicated memory module. It keeps the sampled history intact and passe",
+   "authors": [
+    "Cheng Yin",
+    "Wang Xu",
+    "Junpeng Yang",
+    "Sikyuen Tam"
+   ],
+   "link": "https://huggingface.co/papers/2609.05533",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-02T00:00",
+   "title_ar": "سيمبل ميم في إل إيه: ذاكرة فيديو أصلية بسيطة وفعالة لنماذج الرؤية واللغة والعمل",
+   "summary_ar": "تُعد المعالجة طويلة المدى قابلة للملاحظة جزئيًا، إذ قد تظهر المعلومات اللازمة لاختيار الإجراء التالي فقط في ملاحظات تعود لدقائق سابقة. تتطلب آليات الذاكرة الحالية، مثل بنوك الاسترجاع والضواغط المتعلمة والحالات المتكررة، اتخاذ قرار بشأن ما يجب الاحتفاظ به من الماضي قبل معرفة المستقبل."
+  },
+  {
+   "id": "2609.04382",
+   "title": "Privacy Failure in Split-LLM Training, The Returned Gradient Nullifies the Decoys",
+   "abstract": "We present a systems-security case study of a two-node split-LLM training system whose privacy evaluation passed while leaving an observable channel untested. The Trusted Local Node (TLN) sends protected activations to the Untrusted Cloud Node (UCN), the UCN returns its output, and TLN, holding the private loss, returns the output gradient. The frame the UCN receives mixes real rows with decoys, and the loss ignores the decoys. Their gradients are exactly zero, so the pattern of zeros reveals which rows were real. We measure it with a protocol fixed in advance: a leak injected at known strengt",
+   "authors": [
+    "Georgios Politis",
+    "Evangelos Pappas"
+   ],
+   "link": "https://huggingface.co/papers/2609.04382",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-03T00:00",
-   "title_ar": "أمان لمن؟ التقطير الذاتي المدرك للحدود من أجل رفض أمان مضبوط في النماذج اللغوية الكبيرة",
-   "summary_ar": "يُطرح محاذاة الأمان عادةً على مستوى الموضوع حول ما إذا كان ضارًا، بينما تتطلب التطبيقات العملية حدودًا أضيق داخل الموضوع نفسه. فقد يتشارك تطبيقان نموذجًا أساسيًا واحدًا مع حاجتهما لحدود متباينة، كالرفض للمناورات السياسية المستهدفة مع الاستمرار في الإجابة."
+   "title_ar": "فشل الخصوصية في تدريب النماذج اللغوية الكبيرة المقسمة، التدرج المُعاد يُبطل مفعول الشراك الخداعية",
+   "summary_ar": "يقدم البحث دراسة حالة لأمن الأنظمة لنظام تدريب مقسم لنماذج لغوية كبيرة عبر عقدتين، حيث اجتاز تقييم الخصوصية مع ترك قناة قابلة للملاحظة دون اختبار. تُرسل العقدة المحلية الموثوقة تنشيطات محمية إلى عقدة السحابة غير الموثوقة، وتُعيد الأخيرة مخرجاتها، في حين تحتفظ العقدة المحلية بالمعلومات."
   },
   {
-   "id": "2609.03756",
-   "title": "ENEAS: Embedding-guided Neural Ensemble for Adaptive Segmentation",
-   "abstract": "We present ENEAS, a unified, text-promptable method for instance tracking and semantic discovery. Text-promptable segmentation models, including the latest foundation models such as SAM 3, still suffer from temporal hallucinations, spatial fragmentation, and semantic misclassification: they fail to report target absence when an object leaves the field of view, segment local textures instead of the complete object during extreme close-ups, and prioritize visual features over ontological reality, so that visually similar artifacts such as statues, paintings, or reflections are segmented as targe",
+   "id": "2609.03005",
+   "title": "Unifying Conformal Language Tasks with In-Context Ensembles",
+   "abstract": "Many NLP tasks, such as summarization and extractive question answering, reduce to retrieving relevant content from documents under two constraints: coverage, retaining enough pertinent information to achieve some goal, and conciseness, removing as much irrelevant information as possible. Conformal prediction methods have been used to guarantee coverage, and must be optimized for conciseness through design of a score function. State-of-the-art scoring functions use hand-engineered LLM prompts asking the model to rate the importance of content, but manual prompt engineering is labor-intensive a",
    "authors": [
-    "Javier del Pino",
-    "Salvador Rodríguez",
-    "Alejandro Garabito",
-    "Javier Álvarez"
+    "Xiao Shi Huang",
+    "Chen-Yuan Lin",
+    "Bruce Kuwahara",
+    "Kin Kwan Leung"
    ],
-   "link": "https://huggingface.co/papers/2609.03756",
+   "link": "https://huggingface.co/papers/2609.03005",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-03T00:00",
-   "title_ar": "ENEAS: تجميع عصبي موجه بالتضمين للتجزئة التكيفية",
-   "summary_ar": "يقدم البحث طريقة ENEAS الموحدة والقابلة للتوجيه نصيًا لتتبع الحالات والاكتشاف الدلالي. ولا تزال نماذج التجزئة القابلة للتوجيه بالنص، بما فيها النماذج التأسيسية مثل SAM 3، تعاني من الهلوسات الزمنية والتجزؤ المكاني وسوء التصنيف الدلالي."
-  },
-  {
-   "id": "2609.04010",
-   "title": "Unlocking Lossless Speedups in LLMs via Discrete Diffusion",
-   "abstract": "Large Language Models (LLMs) owe much of their success to next-token prediction (NTP), but their autoregressive (AR) structure requires slow, sequential token generation. To overcome this bottleneck, we introduce diffusion-augmented LLMs, a new class of models that defines an AR model distribution while using diffusion to draw multiple tokens in parallel from that distribution. We decouple the parameters of these models into two sets: AR weights, trained using the standard NTP objective, and lightweight diffusion weights, trained to generate multiple tokens simultaneously. The diffusion weight",
-   "authors": [
-    "Subham Sekhar Sahoo",
-    "Lingjie Chen",
-    "Khiem Pham",
-    "Jonathan Geuter"
-   ],
-   "link": "https://huggingface.co/papers/2609.04010",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-03T00:00",
-   "title_ar": "إطلاق تسريع غير منقوص في النماذج اللغوية الكبيرة عبر الانتشار المتقطع",
-   "summary_ar": "تدين النماذج اللغوية الكبيرة بنجاحها للتنبؤ بالرمز التالي، غير أن بنيتها ذاتية الانحدار تتطلب توليدًا متسلسلًا وبطيئًا للرموز. ولتجاوز عنق الزجاجة هذا، يقدم البحث نماذج لغوية معززة بالانتشار تمثل فئة جديدة تعرّف توزيع نموذج ذاتي الانحدار."
-  },
-  {
-   "id": "2608.25936",
-   "title": "One Symptom, Three Levers: A Critical Review of On-Policy Self-Distillation",
-   "abstract": "On-policy distillation trains a language model on its own generations while a teacher scores them token by token. It combines the dense supervision of imitation learning with the on-policy sampling of reinforcement learning. But it requires a second, larger model to act as teacher. On-Policy Self-Distillation (OPSD) removes that cost. The teacher is the model itself, conditioned on privileged information the student will not have at test time, such as a reference solution, a plan, or environment feedback. The teacher is no stronger than the student, only better informed. Early results were pro",
-   "authors": [
-    "Justin Robert",
-    "Raheel Qader"
-   ],
-   "link": "https://huggingface.co/papers/2608.25936",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-26T00:00",
-   "title_ar": "عَرَض واحد وثلاث روافع: مراجعة نقدية للتقطير الذاتي وفق السياسة الحالية",
-   "summary_ar": "يدرّب التقطير وفق السياسة الحالية النموذج اللغوي على توليداته الخاصة بينما يقيّمها نموذج مُعلّم رمزًا برمز، جامعًا بين الإشراف الكثيف للتعلم بالتقليد وأخذ العينات وفق السياسة في التعلم المعزز. غير أن هذه الطريقة تتطلب نموذجًا ثانيًا أكبر حجمًا ليعمل كمعلّم."
-  },
-  {
-   "id": "2609.01281",
-   "title": "EmbodiedSkills: A Unified Framework for Orchestrating, Training, and Deploying VLA Agents",
-   "abstract": "Vision-language-action (VLA) models map visual observations and language instructions directly to robot actions, but long-horizon tasks require more than action prediction. An agent must coordinate perception, planning, execution, progress verification, and recovery as the physical state evolves. An action prediction or a model-generated skill decision does not, by itself, guarantee that the proposed operation is valid in the current state or that its outcome will be verified. We propose EmbodiedSkills, a unified framework that treats each skill decision as an execution proposal: the runtime c",
-   "authors": [
-    "Wei Wang",
-    "Wenqiao Zhang",
-    "Yutong Lin",
-    "Yuqian Yuan"
-   ],
-   "link": "https://huggingface.co/papers/2609.01281",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-01T00:00",
-   "title_ar": "EmbodiedSkills: إطار موحد لتنسيق وتدريب ونشر وكلاء الرؤية واللغة والعمل",
-   "summary_ar": "تربط نماذج الرؤية واللغة والعمل الملاحظات البصرية والتعليمات اللغوية بأفعال الروبوت مباشرة، إلا أن المهام ذات الأفق الطويل تتطلب ما هو أكثر من مجرد التنبؤ بالفعل. إذ يجب على الوكيل تنسيق الإدراك والتخطيط والتنفيذ والتحقق من التقدم والتعافي مع تطور الحالة المادية."
-  },
-  {
-   "id": "2609.03241",
-   "title": "FlowBalance: Verifier-Grounded Self-Improvement from On-Policy Reasoning Experience",
-   "abstract": "A reasoning model can improve from its own on-policy experience, but this inner loop is fragile: terminal verifiers provide reliable yet sparse supervision, while dense same-model guidance can reinforce false confidence or overconcentrate learning on a narrow solution mode. We introduce FlowBalance, a verifier-grounded self-improvement method that learns a normalized distribution over complete responses. For each on-policy trajectory, a frozen training-time view of the same policy uses privileged context to produce token-level log-probability gains, which are aggregated into a trajectory-level",
-   "authors": [
-    "Zixun Huang",
-    "Kishan Panaganti",
-    "Haitao Mi",
-    "Leowei Liang"
-   ],
-   "link": "https://huggingface.co/papers/2609.03241",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-03T00:00",
-   "title_ar": "FlowBalance: تحسين ذاتي قائم على أداة التحقق انطلاقًا من خبرة الاستدلال وفق السياسة الحالية",
-   "summary_ar": "يمكن لنموذج الاستدلال أن يتحسن من خبرته الخاصة وفق السياسة المتبعة، لكن هذه الحلقة الداخلية تتسم بالهشاشة؛ إذ توفر أدوات التحقق النهائية إشرافًا موثوقًا ولكنه متناثر، بينما قد يعزز التوجيه الكثيف من النموذج نفسه الثقة الزائفة أو يُركّز التعلم على نمط حل ضيق. يقدم هذا البحث أسلوب FlowBalance لمعالجة ذلك."
+   "published": "2026-09-02T00:00",
+   "title_ar": "توحيد مهام اللغة المطابقة باستخدام المجموعات المدمجة في السياق",
+   "summary_ar": "تُختزل العديد من مهام معالجة اللغة الطبيعية، كالتلخيص والإجابة الاستخراجية عن الأسئلة، في استرجاع المحتوى ذي الصلة من المستندات وفق قيدين هما: التغطية والإيجاز. تعتمد هذه المهام على الاحتفاظ بما يكفي من المعلومات وثيقة الصلة لتحقيق هدف ما، وإزالة أكبر قدر ممكن من المعلومات غير المهمة."
   }
  ],
  "n": 6
