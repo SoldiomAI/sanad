@@ -76,6 +76,35 @@ ARABIC_RISK = {
     "high": "مرتفع",
     "unknown": "غير مقيّم",
 }
+PROVIDER_RESPONSE_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "verdict": {
+            "type": "string",
+            "enum": ["likely_real", "likely_manipulated", "insufficient"],
+        },
+        "confidence": {"type": "number"},
+        "deepfake_risk_code": {
+            "type": "string",
+            "enum": ["low", "moderate", "high", "unknown"],
+        },
+        "manipulation_concern": {"type": "boolean"},
+        "conflicts": {"type": "boolean"},
+        "signals_for": {"type": "array", "items": {"type": "string"}},
+        "signals_against": {"type": "array", "items": {"type": "string"}},
+        "limitations": {"type": "array", "items": {"type": "string"}},
+    },
+    "required": [
+        "verdict",
+        "confidence",
+        "deepfake_risk_code",
+        "manipulation_concern",
+        "conflicts",
+        "signals_for",
+        "signals_against",
+        "limitations",
+    ],
+}
 class ProviderRefused(Exception):
     """The provider explicitly declined to produce an assessment."""
 
@@ -621,7 +650,7 @@ def ask_gemini(payload: AnalyzeRequest, media: bytes, facts: dict[str, Any], fra
         config=types.GenerateContentConfig(
             temperature=0,
             response_mime_type="application/json",
-            response_schema=GeminiResponse,
+            response_schema=PROVIDER_RESPONSE_SCHEMA,
         ),
     )
     try:
