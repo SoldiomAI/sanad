@@ -1,105 +1,104 @@
 {
- "updated": "2026-09-10T07:54+00:00",
+ "updated": "2026-09-10T20:27+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.09155",
-   "title": "SyncWorld: Visual Calibration Enables World Models as Zero-Shot Simulators",
-   "abstract": "World models are increasingly used as policy-in-the-loop imagination environments, where reliable rollouts require fine-grained controllability with respect to low-level robot actions. A key obstacle to scaling such models in robotics is that actions are not a universal language in pixel space: changes in visual environment, camera view, robot placement, or embodiment alter how the same numerical action manifests visually, leading to conflicting supervision under mixed training and brittle generalization at deployment. We introduce SyncWorld, an action-conditioned world model that serves as a ",
+   "id": "2609.06702",
+   "title": "PARSER: Read in Parallel, Reason in Depth for Long-Context LLM Agents",
+   "abstract": "Sequential memory agents process long documents by reading chunks one after another while maintaining a compact memory state, coupling document traversal to reasoning depth. This coupling introduces sensitivity to evidence placement and ties inference latency linearly to document length. We introduce PARSER, which decouples reading from reasoning. A bank of lightweight subagents each bound to a single chunk read the entire document in parallel, while a lead agent reasons in depth through iterative scatter--gather rounds: at each round it broadcasts a query to all subagents, aggregates the retu",
    "authors": [
-    "Yuncong Yang",
-    "Zhengtao Han",
-    "Furkan Ozyurt",
-    "Zeyuan Yang"
+    "Kun Li",
+    "Zexuan Qiu",
+    "Tianhua Zhang",
+    "Irwin King"
    ],
-   "link": "https://huggingface.co/papers/2609.09155",
+   "link": "https://huggingface.co/papers/2609.06702",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-06T00:00",
+   "title_ar": "بارسر (PARSER): القراءة بالتوازي والاستدلال بعمق لوكلاء النماذج اللغوية الكبيرة ذات السياق الطويل",
+   "summary_ar": "تُعالج وكلاء الذاكرة المتسلسلة المستندات الطويلة عبر قراءة الأجزاء تِباعًا مع الحفاظ على حالة ذاكرة مدمجة، مما يربط استعراض المستند بعمق الاستدلال. يُنتج هذا الربط حساسيةً لموضع الأدلة ويربط زمن تأخر الاستدلال خطيًا بطول المستند."
+  },
+  {
+   "id": "2609.05463",
+   "title": "A Three-Layer Caching Architecture for Low-Latency LLM Web Search on Commodity CPU Hardware",
+   "abstract": "AI-powered search products such as ChatGPT search, Google's AI Overviews, and Perplexity provide LLM-synthesized answers grounded in live web results. We developed OreoLook (formerly lixSearch), an open-source answer engine using automated browser agents and provider-routed LLM inference. Its local search, caching, session-management, and embedding stack runs on commodity CPU hardware; answer synthesis is performed by a remote inference provider. As usage grew, sessions lost context, equivalent queries triggered redundant work, and URLs were repeatedly embedded across sessions. We present a th",
+   "authors": [
+    "Ayushman Bhattacharya",
+    "Nihal Gazi"
+   ],
+   "link": "https://huggingface.co/papers/2609.05463",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-08-12T00:00",
+   "title_ar": "بنية تخزين مؤقت ثلاثية الطبقات للبحث على الويب باستخدام النماذج اللغوية الكبيرة وبزمن تأخر منخفض على معالجات السلع الاستهلاكية",
+   "summary_ar": "تُقدم منتجات البحث المدعومة بالذكاء الاصطناعي إجاباتٍ مُولّفة عبر النماذج اللغوية الكبيرة ومستندة إلى نتائج الويب المباشرة. طوّرنا \"OreoLook\"، وهو محرك إجابات مفتوح المصدر يستخدم وكلاء متصفحات مؤتمتة واستدلالاً للنماذج اللغوية الكبيرة مُوجّهاً عبر مزودين."
+  },
+  {
+   "id": "2609.08126",
+   "title": "SchemeArena: Factorized Stress Testing of Scheming in LLM Agents",
+   "abstract": "We study scheming in LLM agents, in which agents covertly pursue misaligned goals. Our focus is to understand how scheming arises from the interaction of key factors, such as instrumental goals, environmental affordances, oversight conditions, and perceived consequences. Prior work examines only a small number of scenarios, limiting the ability to isolate how these conditions shape an agent's propensity or capability to scheme. This limited scale and task diversity also restrict coverage of realistic deployment settings and the range of scheming strategies that can be observed. To this end, we",
+   "authors": [
+    "Jie Ruan",
+    "Inderjeet Nair",
+    "Amy Liu",
+    "Muhammad Khalifa"
+   ],
+   "link": "https://huggingface.co/papers/2609.08126",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-08T00:00",
-   "title_ar": "عالم التزامن (SyncWorld): المعايرة البصرية تمكّن نماذج العالم من العمل كمحاكيات دون تدريب مسبق",
-   "summary_ar": "تُستخدم نماذج العالم بصورة متزايدة كبيئات تخيلية لتوجيه السياسات، وتتطلب مخرجات موثوقة بتحكم دقيق في إجراءات الروبوت منخفضة المستوى. وتتمثل العقبة الأساسية لتوسيع هذه النماذج في الروبوتات في أن الإجراءات لا تُعد لغة عالمية في مساحة البكسل."
+   "title_ar": "سكيم أرينا (SchemeArena): اختبار إجهاد مُفصّل للتآمر في وكلاء النماذج اللغوية الكبيرة",
+   "summary_ar": "ندرس التآمر في وكلاء النماذج اللغوية الكبيرة، حيث يسعى هؤلاء الوكلاء خلسة وراء أهداف غير متوافقة. ينصب تركيزنا على فهم كيفية نشوء التآمر من خلال تفاعل عوامل رئيسية، في حين تقتصر الأعمال السابقة على فحص جانب ضيق فقط."
   },
   {
-   "id": "2609.07369",
-   "title": "DF26: We Cannot Tell Fake From Real Anymore",
-   "abstract": "We introduce DF26, a novel benchmark for detecting AI-generated videos containing fully synthetic clips produced by recent text-to-video and image-to-video models. The videos capture single-person public-speaking scenarios, spanning direct-to-camera recordings, official statements, and studio interviews - 271 real and 2,420 synthetic videos generated by seven modern video models. The study on DF26 shows that human performance in detecting AI-generated videos, as well as state-of-the-art deepfake detectors, is close to random chance. Our results highlight the limitations of current evaluation p",
+   "id": "2509.01809",
+   "title": "The Price of Sparsity: Sufficient Conditions for Sparse Recovery using Sparse and Sparsified Measurements",
+   "abstract": "We consider the problem of support recovery for sparse binary signals from noisy linear measurements. For sparse Gaussian measurement matrices we identify sufficient conditions on the minimal sample size for maximum-likelihood recovery in the high-SNR regime ds/p to infty, where p denotes the signal dimension, s the number of non-zero components of the signal, and d the expected number of non-zero components per row of measurement. Combined with known lower bounds, this yields an information-theoretic threshold of order slog(p/s) / log(ds/p), making explicit the price of measurement sparsity. ",
    "authors": [
-    "Severyn Shykula",
-    "Andrii Yermakov",
-    "Ivan Samarskyi",
-    "Dmytro Mishkin"
+    "Youssef Chaabouni",
+    "David Gamarnik"
    ],
-   "link": "https://huggingface.co/papers/2609.07369",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-07T00:00",
-   "title_ar": "دي إف 26 (DF26): لم نعد قادرين على التمييز بين الزائف والحقيقي",
-   "summary_ar": "نُقدّم DF26، وهو معيار تقييم جديد لكشف مقاطع الفيديو المولدة بالذكاء الاصطناعي والتي تحتوي على لقطات تركيبية بالكامل أُنتجت بنماذج حديثة لتوليد الفيديو من نصوص أو صور. تصوّر مقاطع الفيديو سيناريوهات خطابة لشخص واحد، شاملةً التسجيلات المباشرة للكاميرا والبيانات الرسمية والمقابلات في الاستوديو."
-  },
-  {
-   "id": "2609.05405",
-   "title": "WearableQA: A Benchmark for Health Reasoning over Real-World Wearable Data",
-   "abstract": "Recent advances in wearable sensing enable continuous monitoring of physiological and behavioral signals, yet existing benchmarks rarely evaluate whether AI systems can reason over a real user's longitudinal wearable record. We introduce WearableQA, a benchmark comprising 4,084 10-option multiple-choice questions constructed from the wearable time series, blood biomarkers, and demographics of 200 real users, each with up to 500 days of daily measurements. WearableQA preserves authentic wearable distributions that include device noise and inter-individual variability. To evaluate distinct reaso",
-   "authors": [
-    "Ji Soo Lee",
-    "Xilun Chen",
-    "Pierce Chuang",
-    "Ashish Shenoy"
-   ],
-   "link": "https://huggingface.co/papers/2609.05405",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-04T00:00",
-   "title_ar": "أسئلة وأجوبة الأجهزة القابلة للارتداء (WearableQA): معيار للاستدلال الصحي عبر بيانات الأجهزة القابلة للارتداء من العالم الحقيقي",
-   "summary_ar": "تتيح التطورات الحديثة في استشعار الأجهزة القابلة للارتداء مراقبة مستمرة للإشارات الفسيولوجية والسلوكية، ورغم ذلك نادراً ما تقيّم المعايير الحالية قدرة أنظمة الذكاء الاصطناعي على الاستدلال عبر السجل الطولي الحقيقي للمستخدم. نُقدّم WearableQA، وهو معيار تقييم يضم 4,084 سؤالاً من نوع الاختيار من متعدد بعشرة خيارات."
-  },
-  {
-   "id": "2609.09113",
-   "title": "SAEScientist-Bench: Can AI Agents Conduct Autonomous SAE Interpretability Research?",
-   "abstract": "While research on recursive self-improvement (RSI) has predominantly automated model training pipelines, reliable autonomous development demands a missing pillar: post-hoc monitoring and auditing to understand what models learn and ensure safe alignment. Mechanistic interpretability tools are essential to bridge this gap, among which Sparse Autoencoders (SAEs) serve as a cornerstone by isolating interpretable features for model inspection and steering. In this paper, we introduce SAEScientist-Bench to evaluate whether AI agents can act as scientists utilizing SAE tools for autonomous mechanist",
-   "authors": [
-    "Yuqiao Tan",
-    "Shizhu He",
-    "Jun Zhao",
-    "Kang Liu"
-   ],
-   "link": "https://huggingface.co/papers/2609.09113",
+   "link": "https://huggingface.co/papers/2509.01809",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-08T00:00",
-   "title_ar": "معيار عالم المشفرات التلقائية المتفرقة (SAEScientist-Bench): هل تستطيع وكلاء الذكاء الاصطناعي إجراء أبحاث ذاتية في قابلية تفسير المشفرات التلقائية المتفرقة؟",
-   "summary_ar": "بينما ركزت أبحاث التحسين الذاتي المتكرر أساساً على أتمتة مسارات تدريب النماذج، فإن التطوير الذاتي الموثوق يتطلب ركيزة مفقودة تتمثل في المراقبة والتدقيق اللاحقين لفهم ما تتعلمه النماذج وضمان محاذاتها بأمان. وتُعد أدوات التفسير الميكانيكية ضرورية لتحقيق ذلك."
+   "title_ar": "ثمن التناثر: شروط كافية للاسترداد المتناثر باستخدام قياسات متناثرة ومُتناثرة مُستحدثة",
+   "summary_ar": "نتناول مسألة استرداد الدعم للإشارات الثنائية المتناثرة من خلال قياسات خطية مشوبة بالضوضاء. نحدد لمصفوفات القياس الغاوسية المتناثرة الشروط الكافية لأدنى حجم عينة لازم لاسترداد الأرجحية القصوى في نظام نسبة الإشارة إلى الضوضاء العالية."
   },
   {
-   "id": "2609.05779",
-   "title": "Diffs vs. Whole Files: An Empirical Comparison of Iterative Edit-Based and Direct Generation for Flutter/Dart Code Models",
-   "abstract": "Large language models used for code editing can be trained and deployed in at least two output regimes: direct generation, where the model emits the entire modified file in one shot, and iterative diff-based generation (\"steps\"), where the model emits a sequence of localized search/replace edits applied one at a time until it signals completion or a step budget is exhausted. The diff-based regime is attractive because it mirrors how developers edit code and should require far fewer generated tokens per turn. We train two code models - a 100M-parameter model trained from scratch (Rainbow-Pony-1",
+   "id": "2609.02771",
+   "title": "From Reweighting to Rewriting: Unlocking the Intervention Effects of Influential Samples in Training Data Attribution",
+   "abstract": "Training data attribution (TDA) aims to identify training examples that shape model behavior, but its intervention value depends on both which examples are selected and how they are modified. Influence functions (IF) estimate behavioral changes under infinitesimal reweighting, yet IF-selected examples often show limited advantages over random selection under conventional weight-based interventions. This raises the question of whether influential examples lack intervention value or whether reweighting fails to realize their behavioral leverage.We introduce influence-guided response rewriting, w",
    "authors": [
-    "Andrej Andrejev"
+    "Yuzhang Luo",
+    "Chenpeng Wang",
+    "Jianhui Chen",
+    "Liangming Pan"
    ],
-   "link": "https://huggingface.co/papers/2609.05779",
+   "link": "https://huggingface.co/papers/2609.02771",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-05T00:00",
-   "title_ar": "الفروق البرمجية مقابل الملفات الكاملة: مقارنة تجريبية بين التوليد التكراري القائم على التعديل والتوليد المباشر لنماذج شفرات فلاتر/دارت",
-   "summary_ar": "يمكن تدريب ونشر نماذج اللغات الكبيرة المستخدمة في تعديل الشفرات البرمجية عبر نمطين من المخرجات على الأقل: التوليد المباشر حيث يُخرج النموذج الملف المعدل بالكامل دفعة واحدة، والتوليد التكراري القائم على الفروق حيث يُخرج سلسلة من تعديلات البحث والاستبدال الموضعية."
+   "published": "2026-09-02T00:00",
+   "title_ar": "من إعادة الوزن إلى إعادة الصياغة: إطلاق العنان لتأثيرات التدخل للعينات المؤثرة في إسناد بيانات التدريب",
+   "summary_ar": "يهدف إسناد بيانات التدريب إلى تحديد أمثلة التدريب التي تشكل سلوك النموذج، لكن قيمته التدخلية تعتمد على الأمثلة المختارة وطريقة تعديلها معًا. تُقدّر دوال التأثير التغيرات السلوكية في ظل إعادة وزن متناهية في الصغر، ورغم ذلك فإن الأمثلة المختارة بها تتأثر بالمعالجة."
   },
   {
-   "id": "2609.09134",
-   "title": "Co-Evolving Harnesses and Models: On-Policy Correction Helps Weaker Models Catch Up Where Imitation Fails",
-   "abstract": "Agent harnesses (the system prompt, tool set, execution hooks, and context-management scaffolding around a model) are a critical determinant of agentic task success. Automated harness evolution can enable smaller models to perform well on domain-specific tasks at a fraction of frontier-model cost. Since both the harness and model weights shape behavior, we ask how harness evolution and lightweight fine-tuning should be combined. Across seven enterprise agent tasks, we first evolve a harness with the weaker model, then find that a stronger expert often uses it more effectively, suggesting exper",
+   "id": "2609.09264",
+   "title": "StochBench: A Domain-Specific Benchmark for Stochastic Processes in Lean",
+   "abstract": "Leading benchmarks for formal theorem proving with large language models are small collections drawn from competition math, such as the IMO and Putnam, that poorly represent field-specific applications. We introduce StochBench, a Lean 4 benchmark of 450 graduate stochastic-processes problems at varying abstraction levels, each paired with its natural-language source. Addressing a field underrepresented in Mathlib, it covers finite and countable Markov chains, renewal processes, random walks, martingales, stopping times, queues, Brownian motion, stochastic calculus, weak convergence, and Poisso",
    "authors": [
-    "Zhou Yu",
-    "Bin Bi",
-    "Shiva Kumar Pentyala",
-    "Shubham Mehrotra"
+    "Idan Davidovich",
+    "Debargha Ganguly",
+    "Vikash Singh",
+    "Vipin Chaudhary"
    ],
-   "link": "https://huggingface.co/papers/2609.09134",
+   "link": "https://huggingface.co/papers/2609.09264",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-08T00:00",
-   "title_ar": "التطور المشترك للأُطر والنماذج: التصحيح أثناء السياسة يساعد النماذج الأضعف على اللحاق بالركب حين يفشل التقليد",
-   "summary_ar": "تُعد أُطر الوكلاء (التي تشمل التوجيه البرمجي للنظام، ومجموعة الأدوات، وخطافات التنفيذ، وسقالات إدارة السياق حول النموذج) عاملاً حاسماً في نجاح مهام الوكالة. كما يمكن للتطوير المؤتمت للأطر تمكين النماذج الأصغر من تحقيق أداء جيد في المهام المحددة بمجال معين وبجزء يسير من تكلفة النماذج الرائدة."
+   "title_ar": "ستوك بنش (StochBench): معيار قياسي مخصص لمجال العمليات العشوائية في لغة لين (Lean)",
+   "summary_ar": "تُعتبر المعايير الرائدة لإثبات النظريات شكليًا بواسطة النماذج اللغوية الكبيرة مجموعات صغيرة مأخوذة من رياضيات المسابقات التي لا تمثل التطبيقات الخاصة بالمجالات تمثيلاً جيدًا. نُقدّم \"StochBench\"، وهو معيار قياسي مبني بلغة \"Lean 4\" يتضمن 450 مسألة لطلاب الدراسات العليا في العمليات العشوائية."
   }
  ],
  "n": 6
