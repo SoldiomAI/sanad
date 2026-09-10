@@ -52,7 +52,7 @@ OIDC_ISSUER = "https://oidc.vercel.com/soldioms-projects"
 OIDC_AUDIENCE = "https://vercel.com/soldioms-projects"
 OIDC_SUBJECT = "owner:soldioms-projects:project:sanad:environment:production"
 WORKER_VERSION = os.getenv("WORKER_VERSION", "dev")
-GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-flash-latest")
 
 MIMES_BY_KIND = {
     "image": {"image/jpeg": ".jpg", "image/png": ".png"},
@@ -76,26 +76,6 @@ ARABIC_RISK = {
     "high": "مرتفع",
     "unknown": "غير مقيّم",
 }
-MODEL_RESPONSE_SCHEMA = {
-    "type": "object",
-    "properties": {
-        "verdict": {"type": "string", "enum": ["likely_real", "likely_manipulated", "insufficient"]},
-        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
-        "deepfake_risk_code": {"type": "string", "enum": ["low", "moderate", "high", "unknown"]},
-        "manipulation_concern": {"type": "boolean"},
-        "conflicts": {"type": "boolean"},
-        "signals_for": {"type": "array", "items": {"type": "string"}, "maxItems": 6},
-        "signals_against": {"type": "array", "items": {"type": "string"}, "maxItems": 6},
-        "limitations": {"type": "array", "items": {"type": "string"}, "maxItems": 6},
-    },
-    "required": [
-        "verdict", "confidence", "deepfake_risk_code", "manipulation_concern",
-        "conflicts", "signals_for", "signals_against", "limitations",
-    ],
-    "additionalProperties": False,
-}
-
-
 class ProviderRefused(Exception):
     """The provider explicitly declined to produce an assessment."""
 
@@ -641,7 +621,7 @@ def ask_gemini(payload: AnalyzeRequest, media: bytes, facts: dict[str, Any], fra
         config=types.GenerateContentConfig(
             temperature=0,
             response_mime_type="application/json",
-            response_schema=MODEL_RESPONSE_SCHEMA,
+            response_schema=GeminiResponse,
         ),
     )
     try:

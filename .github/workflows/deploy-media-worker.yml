@@ -21,7 +21,7 @@ jobs:
     timeout-minutes: 30
     env:
       SPACE_NAME: sanad-media-forensics
-      WORKER_MODEL: gemini-2.5-flash
+      WORKER_MODEL: gemini-flash-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -49,14 +49,43 @@ jobs:
           python - <<'PY'
           import json
           import os
+          import sys
           import time
           import urllib.request
+          from io import BytesIO
           from datetime import datetime, timezone
           from pathlib import Path
 
           from huggingface_hub import HfApi
+          from PIL import Image
 
           token = os.environ["HF_TOKEN"]
+          sys.path.insert(0, "media-worker")
+          from worker import AnalyzeRequest, ask_gemini, inspect_image
+
+          image_buffer = BytesIO()
+          Image.new("RGB", (2, 2), color=(128, 128, 128)).save(
+              image_buffer, format="JPEG"
+          )
+          image_bytes = image_buffer.getvalue()
+          smoke_payload = AnalyzeRequest(
+              media_base64=__import__("base64").b64encode(image_bytes).decode(),
+              digest=__import__("hashlib").sha256(image_bytes).hexdigest(),
+              mime="image/jpeg",
+              kind="image",
+              scope="original_media",
+          )
+          facts, _, _ = inspect_image(image_bytes, "image/jpeg")
+          try:
+              smoke = ask_gemini(smoke_payload, image_bytes, facts, [])
+              if not isinstance(smoke, dict) or "verdict" not in smoke:
+                  raise RuntimeError("Gemini smoke returned no structured verdict")
+          except Exception as exc:
+              message = str(exc).replace(os.environ["GEMINI_API_KEY"], "[redacted]")
+              raise RuntimeError(
+                  f"Gemini structured-image smoke failed: {type(exc).__name__}: {message[:300]}"
+              ) from None
+
           api = HfApi(token=token)
           identity = api.whoami()
           owner = identity.get("name") or identity.get("fullname")
