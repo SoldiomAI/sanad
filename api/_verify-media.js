@@ -12,7 +12,7 @@ const DEFAULT_LIMITS = Object.freeze({
   readTimeoutMs: 8000,
   htmlBytes: 512 * 1024,
   imageBytes: 5 * 1024 * 1024,
-  avBytes: 1024 * 1024,
+  avBytes: 6 * 1024 * 1024,
   jsonLdBytes: 64 * 1024,
   textChars: 2500,
   metadataValueChars: 4096,
@@ -792,7 +792,7 @@ async function inspectPublicUrl(rawUrl, deps = {}, options = {}) {
     };
   }
   if (['image', 'video', 'audio'].includes(root.kind)) {
-    const scope = root.kind === 'image' ? 'original_media' : 'metadata_only';
+    const scope = root.truncated ? 'metadata_only' : 'original_media';
     return {
       ok: true,
       live: true,
@@ -814,7 +814,7 @@ async function inspectPublicUrl(rawUrl, deps = {}, options = {}) {
         bytes_fetched: root.body.length,
         content_digest: root.digest,
         truncated: root.truncated,
-        buffer: root.kind === 'image' && !root.truncated ? root.body : null,
+        buffer: !root.truncated ? root.body : null,
         local_signals: root.kind === 'image' && !root.truncated
           ? inspectImageMarkers(root.body)
           : [],
@@ -854,12 +854,12 @@ async function inspectPublicUrl(rawUrl, deps = {}, options = {}) {
         mime: fetched.mime,
         source: 'page',
         extraction_method: selected.method,
-        analysis_scope: selected.kind === 'image' && !fetched.truncated ? 'embedded_media' : 'metadata_only',
+        analysis_scope: !fetched.truncated ? 'embedded_media' : 'metadata_only',
         inspected_url: fetched.finalUrl,
         bytes_fetched: fetched.body.length,
         content_digest: fetched.digest,
         truncated: fetched.truncated,
-        buffer: selected.kind === 'image' && !fetched.truncated ? fetched.body : null,
+        buffer: !fetched.truncated ? fetched.body : null,
         local_signals: selected.kind === 'image' && !fetched.truncated
           ? inspectImageMarkers(fetched.body)
           : [],
@@ -875,7 +875,7 @@ async function inspectPublicUrl(rawUrl, deps = {}, options = {}) {
       mediaReason = fetched.reason || REASONS.inaccessible;
     }
   }
-  if (selected?.kind === 'video' && poster) {
+  if (selected?.kind === 'video' && poster && (!media.buffer || media.truncated)) {
     const fetchedPoster = await secureFetchResource(poster.url, { limits }, deps);
     if (fetchedPoster.ok && fetchedPoster.kind === 'image' && !fetchedPoster.truncated) {
       media = mediaShell({

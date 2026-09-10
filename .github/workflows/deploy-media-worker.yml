@@ -1,0 +1,197 @@
+name: Deploy Gemini media worker
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "media-worker/**"
+      - ".github/workflows/deploy-media-worker.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sanad-media-worker-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      SPACE_NAME: sanad-media-forensics
+      WORKER_MODEL: gemini-2.5-flash
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Test worker before deployment
+        run: |
+          python -m pip install --quiet -r media-worker/requirements.txt pytest==8.3.5
+          python -m pytest media-worker/tests -q
+          python -m py_compile media-worker/worker.py media-worker/main.py
+
+      - name: Install Hugging Face deployment client
+        run: pip install --quiet "huggingface_hub>=0.34,<2"
+
+      - name: Create, configure, and deploy the Docker Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          WORKER_VERSION: ${{ github.sha }}
+        run: |
+          test -n "$HF_TOKEN"
+          test -n "$GEMINI_API_KEY"
+          python - <<'PY'
+          import json
+          import os
+          import time
+          import urllib.request
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          from huggingface_hub import HfApi
+
+          token = os.environ["HF_TOKEN"]
+          api = HfApi(token=token)
+          identity = api.whoami()
+          owner = identity.get("name") or identity.get("fullname")
+          if not owner:
+              raise RuntimeError("Hugging Face token owner was not returned by whoami")
+
+          space_name = os.environ["SPACE_NAME"]
+          repo_id = f"{owner}/{space_name}"
+          api.create_repo(
+              repo_id=repo_id,
+              repo_type="space",
+              space_sdk="docker",
+              private=False,
+              exist_ok=True,
+          )
+          api.add_space_secret(
+              repo_id=repo_id,
+              key="GEMINI_API_KEY",
+              value=os.environ["GEMINI_API_KEY"],
+          )
+          variables = {
+              "GEMINI_MODEL": os.environ["WORKER_MODEL"],
+              "WORKER_VERSION": os.environ["WORKER_VERSION"],
+              "VERCEL_OIDC_ISSUER": "https://oidc.vercel.com/soldioms-projects",
+              "VERCEL_OIDC_AUDIENCE": "https://vercel.com/soldioms-projects",
+              "VERCEL_OIDC_SUBJECT": "owner:soldioms-projects:project:sanad:environment:production",
+              "WORKER_DAILY_CALL_LIMIT": "200",
+              "WORKER_RATE_LIMIT_PER_MINUTE": "12",
+              "WORKER_CONCURRENCY": "2",
+          }
+          for key, value in variables.items():
+              api.add_space_variable(repo_id=repo_id, key=key, value=value)
+
+          api.upload_folder(
+              repo_id=repo_id,
+              repo_type="space",
+              folder_path="media-worker",
+              path_in_repo="",
+              commit_message=f"Deploy SANAD media worker {os.environ['WORKER_VERSION'][:12]}",
+          )
+
+          info = api.space_info(repo_id)
+          host = getattr(info, "host", None)
+          if not host:
+              host = f"{repo_id.replace('_', '-').replace('/', '-').lower()}.hf.space"
+          base_url = f"https://{host}"
+          health_url = f"{base_url}/health"
+          deadline = time.monotonic() + 15 * 60
+          last_error = "Space did not become healthy"
+          health = None
+          while time.monotonic() < deadline:
+              try:
+                  runtime = api.get_space_runtime(repo_id)
+                  stage = str(getattr(runtime, "stage", ""))
+                  if "RUNNING" not in stage.upper():
+                      last_error = f"runtime stage is {stage}"
+                      time.sleep(15)
+                      continue
+                  request = urllib.request.Request(
+                      health_url,
+                      headers={"User-Agent": "SANAD-Deploy/1.0", "Accept": "application/json"},
+                  )
+                  with urllib.request.urlopen(request, timeout=15) as response:
+                      health = json.load(response)
+                  if (
+                      health.get("status") == "ok"
+                      and health.get("ready") is True
+                      and health.get("worker_version") == os.environ["WORKER_VERSION"]
+                  ):
+                      break
+                  last_error = (
+                      "health response was not ready or served the previous revision"
+                  )
+              except Exception as exc:
+                  last_error = f"{type(exc).__name__}: {exc}"
+              time.sleep(15)
+          else:
+              raise RuntimeError(last_error)
+
+          manifest = {
+              "ready": True,
+              "endpoint": f"{base_url}/analyze",
+              "health": health_url,
+              "capabilities": ["image", "video", "audio"],
+              "deployed_at": datetime.now(timezone.utc).isoformat(),
+              "version": health["worker_version"],
+              "model": health.get("model_version", os.environ["WORKER_MODEL"]),
+              "authentication": "vercel_oidc_production",
+              "analysis_limit_bytes": 6 * 1024 * 1024,
+          }
+          Path("/tmp/media-worker.json").write_text(
+              json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+          Path(os.environ["GITHUB_OUTPUT"]).write_text(
+              f"repo_id={repo_id}\nbase_url={base_url}\n",
+              encoding="utf-8",
+          )
+          PY
+        id: space
+
+      - name: Publish healthy worker manifest
+        env:
+          DATA_DEPLOY_KEY: ${{ secrets.DATA_DEPLOY_KEY }}
+        run: |
+          test -n "$DATA_DEPLOY_KEY"
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$DATA_DEPLOY_KEY" > ~/.ssh/sanad_deploy
+          chmod 600 ~/.ssh/sanad_deploy
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/sanad_deploy -o IdentitiesOnly=yes"
+          rm -rf /tmp/pub
+          git clone -q --depth 1 git@github.com:SoldiomAI/sanad-data.git /tmp/pub
+          install -d /tmp/pub/daily
+          install -m 644 /tmp/media-worker.json /tmp/pub/daily/media-worker.json
+          cd /tmp/pub
+          git config user.name "SANAD Bot"
+          git config user.email "soldiom@gmail.com"
+          git add daily/media-worker.json
+          git diff --cached --quiet && exit 0
+          git commit -qm "Deploy SANAD media worker ${GITHUB_SHA::12}"
+          for i in 1 2 3 4 5; do
+            if git pull -q --rebase --autostash origin main && git push -q; then
+              exit 0
+            fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((i * 4))
+          done
+          exit 1
+
+      - name: Deployment summary
+        run: |
+          {
+            echo "### Gemini media worker"
+            echo "- Space: \`${{ steps.space.outputs.repo_id }}\`"
+            echo "- Health: ${{ steps.space.outputs.base_url }}/health"
+            echo "- Manifest: https://raw.githubusercontent.com/SoldiomAI/sanad-data/main/daily/media-worker.json"
+          } >> "$GITHUB_STEP_SUMMARY"

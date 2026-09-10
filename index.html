@@ -2850,8 +2850,8 @@ function deepfakeLabel(r){
   return (EN?en:ar)[x]||(EN?"Unrated":"غير مقيّم");
 }
 function mediaVerdictLabel(m){
-  if(EN) return m.verdict_label_en||({likely_real:"Likely real",likely_manipulated:"Likely manipulated",insufficient:"Insufficient evidence",not_applicable:"Not applicable"}[m.verdict])||"Insufficient evidence";
-  return m.verdict_label_ar||({likely_real:"يبدو حقيقيًا",likely_manipulated:"يبدو مُعالَجًا أو مُتلاعَبًا به",insufficient:"أدلة غير كافية",not_applicable:"لا ينطبق"}[m.verdict])||"أدلة غير كافية";
+  if(EN) return m.verdict_label_en||({likely_real:"No clear manipulation indicators detected",likely_manipulated:"Likely manipulated",insufficient:"Insufficient evidence",not_applicable:"Not applicable"}[m.verdict])||"Insufficient evidence";
+  return m.verdict_label_ar||({likely_real:"لم تُرصد مؤشرات تلاعب واضحة",likely_manipulated:"يبدو مُعالَجًا أو مُتلاعَبًا به",insufficient:"أدلة غير كافية",not_applicable:"لا ينطبق"}[m.verdict])||"أدلة غير كافية";
 }
 function analysisScopeLabel(scope){
   const x=String(scope||"none");
@@ -2861,8 +2861,8 @@ function analysisScopeLabel(scope){
 }
 function providerStatusLabel(status){
   const x=String(status||"not_run");
-  const ar={completed:"اكتمل",not_run:"لم يُشغّل",skipped_no_key:"تُخطّي: لا مفتاح مزوّد",skipped_budget:"تُخطّي: بلغت الميزانية",skipped_kill_switch:"تُخطّي: مفتاح الإيقاف",unsupported_media_kind:"غير متاح لهذا النوع",unsupported_image_format:"صيغة الصورة غير مدعومة",timeout:"انتهت مهلة المزود",failed:"فشل المزود",invalid_response:"استجابة المزود غير صالحة",unavailable:"المزود غير متاح"};
-  const en={completed:"Completed",not_run:"Not run",skipped_no_key:"Skipped: no provider key",skipped_budget:"Skipped: budget reached",skipped_kill_switch:"Skipped: kill switch",unsupported_media_kind:"Unavailable for this media type",unsupported_image_format:"Unsupported image format",timeout:"Provider timed out",failed:"Provider failed",invalid_response:"Invalid provider response",unavailable:"Provider unavailable"};
+  const ar={completed:"اكتمل",not_run:"لم يُشغّل",skipped_no_key:"تُخطّي: لا مفتاح مزوّد",skipped_budget:"تُخطّي: بلغت الميزانية",skipped_kill_switch:"تُخطّي: مفتاح الإيقاف",skipped_oidc_unavailable:"تُخطّي: هوية Vercel غير متاحة",skipped_incomplete_media:"تُخطّي: الوسائط غير مكتملة",skipped_media_too_large:"تُخطّي: الوسائط أكبر من الحد",skipped_sensitive_url:"تُخطّي: رابط ذو صلاحية حساسة",skipped_shared_budget_unavailable:"تُخطّي: ميزانية مشتركة غير متاحة",unsupported_media_kind:"غير متاح لهذا النوع",unsupported_image_format:"صيغة الصورة غير مدعومة",unsupported_media_format:"صيغة الوسائط غير مدعومة",worker_unavailable:"عامل التحليل غير متاح",worker_oidc_rejected:"رفض عامل التحليل الهوية",worker_timeout:"انتهت مهلة عامل التحليل",worker_failed:"فشل عامل التحليل",worker_invalid_response:"استجابة عامل التحليل غير صالحة",timeout:"انتهت مهلة المزود",failed:"فشل المزود",invalid_response:"استجابة المزود غير صالحة",unavailable:"المزود غير متاح"};
+  const en={completed:"Completed",not_run:"Not run",skipped_no_key:"Skipped: no provider key",skipped_budget:"Skipped: budget reached",skipped_kill_switch:"Skipped: kill switch",skipped_oidc_unavailable:"Skipped: Vercel identity unavailable",skipped_incomplete_media:"Skipped: incomplete media",skipped_media_too_large:"Skipped: media exceeds limit",skipped_sensitive_url:"Skipped: capability-bearing URL",skipped_shared_budget_unavailable:"Skipped: shared budget unavailable",unsupported_media_kind:"Unavailable for this media type",unsupported_image_format:"Unsupported image format",unsupported_media_format:"Unsupported media format",worker_unavailable:"Analysis worker unavailable",worker_oidc_rejected:"Worker rejected identity",worker_timeout:"Analysis worker timed out",worker_failed:"Analysis worker failed",worker_invalid_response:"Invalid worker response",timeout:"Provider timed out",failed:"Provider failed",invalid_response:"Invalid provider response",unavailable:"Provider unavailable"};
   if(/^http_\d+$/.test(x)) return EN?`Provider error ${x.slice(5)}`:`خطأ المزود ${x.slice(5)}`;
   return (EN?en:ar)[x]||x;
 }
