@@ -12,6 +12,10 @@ const {
   inspectPublicUrl,
   validatePublicUrl,
 } = require('./_verify-media');
+const {
+  analyzeWithWorker,
+  clearManifestCache,
+} = require('./_media-worker');
 
 const RAW_BASE = 'https://raw.githubusercontent.com/SoldiomAI/sanad-data/main/daily';
 const GROK_URL = 'https://api.x.ai/v1/responses';
@@ -48,6 +52,7 @@ const activity = [];
 
 function clearCache() {
   cache.clear();
+  clearManifestCache();
 }
 
 function syncGlobal() {
@@ -170,7 +175,7 @@ function settleProviderBudget(reservation, actualUsd) {
     spend.usd = Math.max(0, spend.usd - reservation.usd);
   }
   const actual = Number(actualUsd);
-  spend.usd += Number.isFinite(actual) && actual > 0 ? actual : reservation.usd;
+  spend.usd += Number.isFinite(actual) && actual >= 0 ? actual : reservation.usd;
   spend.calls += 1;
   syncGlobal();
 }
@@ -686,7 +691,10 @@ function publicMedia(details, forensics, note = '', mediaReason = null) {
     inspected_url: media.inspected_url || '',
     bytes_inspected: Number(media.bytes_fetched || 0),
     bytes_analyzed: evidence.provider_status === 'completed'
-      ? Number(media.bytes_fetched || 0)
+      ? Math.min(
+          Number(evidence.bytes_analyzed ?? media.bytes_fetched ?? 0),
+          Number(media.bytes_fetched || 0)
+        )
       : 0,
     content_digest: media.content_digest || '',
     truncated: !!media.truncated,
@@ -701,6 +709,9 @@ function publicMedia(details, forensics, note = '', mediaReason = null) {
     limitations: Array.isArray(evidence.limitations) ? evidence.limitations : [],
     provider: evidence.provider || 'none',
     provider_status: evidence.provider_status || 'not_run',
+    model_version: evidence.model_version || '',
+    worker_version: evidence.worker_version || '',
+    ...(evidence.sampling ? { sampling: evidence.sampling } : {}),
     budget_scope: 'soft_per_instance',
     checked_at: evidence.checked_at || new Date().toISOString(),
     note,
@@ -971,8 +982,22 @@ function createHandler(deps = {}) {
   // 4–9. Provider, budget, and evidence normalization.
     const mediaDetails = page.mediaDetails || { kind: page.kind || 'none', analysis_scope: 'none' };
     const providerImageMime = ['image/jpeg', 'image/png'].includes(mediaDetails.mime);
-    const canInspectPixels = !!mediaDetails.buffer && providerImageMime;
-    const wantMediaGrok = canInspectPixels && ['image', 'video'].includes(mediaDetails.kind);
+    const legacyMediaProvider = !!(deps.analyzeImage || deps.apiKey || process.env.GROK_API_KEY);
+    const oidcToken = String(req.headers['x-vercel-oidc-token'] || '');
+    const completeWorkerMedia =
+      !!mediaDetails.buffer &&
+      !mediaDetails.truncated &&
+      ['original_media', 'embedded_media'].includes(mediaDetails.analysis_scope) &&
+      ['image', 'video', 'audio'].includes(mediaDetails.kind);
+    const wantMediaWorker =
+      completeWorkerMedia &&
+      (!!oidcToken || !legacyMediaProvider);
+    const wantLegacyMediaGrok =
+      !wantMediaWorker &&
+      legacyMediaProvider &&
+      !!mediaDetails.buffer &&
+      providerImageMime &&
+      ['image', 'video'].includes(mediaDetails.kind);
     const wantTextGrok =
       source.rank === 'مجهول' &&
       page.kind === 'none' &&
@@ -1006,7 +1031,51 @@ function createHandler(deps = {}) {
       skipped_sensitive_url: 'Paid AI analysis was skipped because a fetched URL may contain access credentials or capability-bearing data.',
     }[status] || 'Paid AI analysis was not run.');
 
-    if (wantMediaGrok) {
+    if (wantMediaWorker) {
+      let evidence;
+      const workerEligible =
+        !!oidcToken &&
+        !kill &&
+        !sharedBudgetUnavailable &&
+        !sensitiveProviderUrl;
+      const reservation = workerEligible ? reserveProviderBudget(budget) : null;
+      if (reservation) {
+        try {
+          evidence = await (deps.analyzeWorker || analyzeWithWorker)(
+            mediaDetails,
+            oidcToken,
+            deps
+          );
+        } finally {
+          settleProviderBudget(reservation, evidence?.usd);
+        }
+        if (evidence.provider_status === 'completed') {
+          result.tier = 'gemini';
+          result.cost_tier = 'gemini';
+        } else {
+          result.cost_tier = 'blocked';
+        }
+      } else {
+        const status = kill
+          ? 'skipped_kill_switch'
+          : sensitiveProviderUrl
+            ? 'skipped_sensitive_url'
+            : sharedBudgetUnavailable
+              ? 'skipped_shared_budget_unavailable'
+              : !oidcToken
+                ? 'skipped_oidc_unavailable'
+                : 'skipped_budget';
+        evidence = baseForensics(mediaDetails, status);
+        evidence.provider = 'gemini';
+        evidence.limitations.push(
+          status === 'skipped_oidc_unavailable'
+            ? 'The production Vercel OIDC token was unavailable, so authenticated worker analysis was not attempted.'
+            : skippedLimitation(status)
+        );
+        result.cost_tier = 'blocked';
+      }
+      result.media = publicMedia(mediaDetails, evidence, result.media.note, page.mediaReason);
+    } else if (wantLegacyMediaGrok) {
       let evidence;
       const reservation = providerEligible ? reserveProviderBudget(budget) : null;
       if (reservation) {
@@ -1034,11 +1103,20 @@ function createHandler(deps = {}) {
     } else if (mediaDetails.kind !== 'none') {
       const evidence = baseForensics(
         mediaDetails,
-        mediaDetails.buffer && !providerImageMime ? 'unsupported_image_format' : 'unsupported_media_kind'
+        mediaDetails.truncated || mediaDetails.analysis_scope === 'poster_or_thumbnail'
+          ? 'skipped_incomplete_media'
+          : 'unsupported_media_format'
       );
-      if (mediaDetails.buffer && !providerImageMime) {
-        evidence.limitations.push('The configured image provider accepts JPEG and PNG only.');
+      if (
+        mediaDetails.truncated ||
+        !mediaDetails.buffer ||
+        mediaDetails.analysis_scope === 'poster_or_thumbnail'
+      ) {
+        evidence.limitations.push('Complete media bytes were not available for worker analysis.');
+      } else {
+        evidence.limitations.push('The media format is not supported by the configured worker.');
       }
+      evidence.provider = 'gemini';
       result.media = publicMedia(mediaDetails, evidence, result.media.note, page.mediaReason);
     }
 

@@ -64,7 +64,7 @@ function response() {
   };
 }
 
-async function invoke(handler, url, ip = '198.51.100.10') {
+async function invoke(handler, url, ip = '198.51.100.10', extraHeaders = {}) {
   const req = {
     method: 'POST',
     url: '/api/verify',
@@ -72,6 +72,7 @@ async function invoke(handler, url, ip = '198.51.100.10') {
     headers: {
       host: 'www.isnad.news',
       'x-forwarded-for': ip,
+      ...extraHeaders,
     },
   };
   const res = response();
@@ -255,13 +256,8 @@ test('classifies direct image, video, and audio media by allowed MIME and signat
       assert.equal(page.media.url, fixture.url);
       assert.equal(page.media.bytes_fetched, fixture.body.length);
       assert.ok(page.media.content_digest);
-      if (fixture.name === 'image') {
-        assert.equal(page.media.analysis_scope, 'original_media');
-        assert.ok(Buffer.isBuffer(page.media.buffer));
-      } else {
-        assert.equal(page.media.analysis_scope, 'metadata_only');
-        assert.equal(page.media.buffer, null);
-      }
+      assert.equal(page.media.analysis_scope, 'original_media');
+      assert.ok(Buffer.isBuffer(page.media.buffer));
     });
 
   }
@@ -342,7 +338,7 @@ test('caps extracted page metadata fields and candidate URLs', () => {
   assert.equal(result.candidates.length, 0);
 });
 
-test('inspects a page video poster but keeps the video analysis scope thumbnail-only', async () => {
+test('keeps complete embedded video bytes instead of replacing them with a poster', async () => {
   const pageUrl = 'https://example.test/story';
   const videoUrl = 'https://example.test/clip.mp4';
   const posterUrl = 'https://example.test/poster.png';
@@ -358,8 +354,9 @@ test('inspects a page video poster but keeps the video analysis scope thumbnail-
     }),
   });
   assert.equal(result.media.kind, 'video');
-  assert.equal(result.media.analysis_scope, 'poster_or_thumbnail');
-  assert.equal(result.media.inspected_url, posterUrl);
+  assert.equal(result.media.analysis_scope, 'embedded_media');
+  assert.equal(result.media.inspected_url, videoUrl);
+  assert.equal(result.media.mime, 'video/mp4');
   assert.ok(Buffer.isBuffer(result.media.buffer));
 });
 
@@ -610,7 +607,7 @@ test('API preserves unknown-source news semantics and emits the stable media con
   assert.equal(res.json.media.kind, 'image');
   assert.equal(res.json.media.verdict, 'insufficient');
   assert.equal(res.json.media.analysis_scope, 'embedded_media');
-  assert.equal(res.json.media.provider_status, 'skipped_no_key');
+  assert.equal(res.json.media.provider_status, 'skipped_oidc_unavailable');
   assert.equal(res.json.media.bytes_inspected, PNG.length);
   assert.equal(res.json.media.bytes_analyzed, 0);
   assert.equal('buffer' in res.json.media, false);
@@ -630,6 +627,100 @@ test('API preserves unknown-source news semantics and emits the stable media con
   }
   assert.equal(res.json.media.deepfake_risk, 'غير مقيّم');
   assert.equal(res.json.media.deepfake_risk_code, 'unknown');
+});
+
+test('API forwards production OIDC only to the worker for complete image, video, and audio bytes', async (t) => {
+  for (const fixture of [
+    { kind: 'image', url: 'https://example.test/worker.png', mime: 'image/png', body: PNG },
+    { kind: 'video', url: 'https://example.test/worker.mp4', mime: 'video/mp4', body: MP4 },
+    { kind: 'audio', url: 'https://example.test/worker.mp3', mime: 'audio/mpeg', body: MP3 },
+  ]) {
+    await t.test(fixture.kind, async () => {
+      verify._internals.clearCache();
+      let captured;
+      const handler = verify.createHandler({
+        matchFeed: async () => null,
+        loadControl: async () => ({
+          verify_enabled: true,
+          verify_per_ip_hour: 50,
+          verify_daily_budget_usd: 100,
+          paid_kill_switch: false,
+        }),
+        lookup: PUBLIC_DNS,
+        requestUrl: network({
+          [fixture.url]: {
+            headers: { 'content-type': fixture.mime },
+            body: fixture.body,
+          },
+        }),
+        analyzeWorker: async (mediaDetails, oidcToken) => {
+          captured = { mediaDetails, oidcToken };
+          return {
+            ...baseForensics(mediaDetails, 'completed'),
+            provider: 'gemini',
+            provider_status: 'completed',
+            analysis_scope: `${fixture.kind}_bounded_direct`,
+            bytes_analyzed: mediaDetails.buffer.length,
+            model_version: 'gemini-2.5-flash',
+            worker_version: 'test-worker',
+          };
+        },
+      });
+      const response = await invoke(
+        handler,
+        fixture.url,
+        `198.51.100.${30 + ['image', 'video', 'audio'].indexOf(fixture.kind)}`,
+        { 'x-vercel-oidc-token': 'production-oidc-token' }
+      );
+      assert.equal(captured.oidcToken, 'production-oidc-token');
+      assert.equal(captured.mediaDetails.kind, fixture.kind);
+      assert.ok(Buffer.isBuffer(captured.mediaDetails.buffer));
+      assert.equal(captured.mediaDetails.buffer.equals(fixture.body), true);
+      assert.equal(response.json.media.provider, 'gemini');
+      assert.equal(response.json.media.provider_status, 'completed');
+      assert.equal(response.json.media.bytes_analyzed, fixture.body.length);
+      assert.equal(response.json.media.model_version, 'gemini-2.5-flash');
+      assert.equal(JSON.stringify(response.json).includes('production-oidc-token'), false);
+    });
+  }
+});
+
+test('API never forwards truncated audio or video media to the worker', async () => {
+  verify._internals.clearCache();
+  const mediaUrl = 'https://example.test/truncated.mp4';
+  let workerCalled = false;
+  const handler = verify.createHandler({
+    matchFeed: async () => null,
+    loadControl: async () => ({
+      verify_enabled: true,
+      verify_per_ip_hour: 50,
+      verify_daily_budget_usd: 100,
+      paid_kill_switch: false,
+    }),
+    lookup: PUBLIC_DNS,
+    requestUrl: network({
+      [mediaUrl]: {
+        headers: { 'content-type': 'video/mp4' },
+        body: MP4,
+        truncated: true,
+      },
+    }),
+    analyzeWorker: async () => {
+      workerCalled = true;
+      return baseForensics({});
+    },
+  });
+  const response = await invoke(
+    handler,
+    mediaUrl,
+    '198.51.100.34',
+    { 'x-vercel-oidc-token': 'production-oidc-token' }
+  );
+  assert.equal(workerCalled, false);
+  assert.equal(response.json.media.kind, 'video');
+  assert.equal(response.json.media.truncated, true);
+  assert.equal(response.json.media.provider_status, 'skipped_incomplete_media');
+  assert.equal(response.json.media.verdict, 'insufficient');
 });
 
 test('feed-backed source verdict remains intact while linked page media is inspected', async () => {
@@ -980,6 +1071,32 @@ test('provider budget reservations prevent concurrent overspend and expose their
   assert.equal(providerCalls, 1);
   assert.equal(state.calls, 1);
   assert.equal(state.usd, 0.001);
+});
+
+test('missing OIDC never consumes the provider budget', async () => {
+  verify._internals.clearCache();
+  const state = globalThis.__SANAD_VERIFY__.spend;
+  state.day = new Date().toISOString().slice(0, 10);
+  state.usd = 0;
+  state.calls = 0;
+  const imageUrl = 'https://example.test/no-oidc.png';
+  const handler = verify.createHandler({
+    matchFeed: async () => null,
+    loadControl: async () => ({
+      verify_enabled: true,
+      verify_per_ip_hour: 50,
+      verify_daily_budget_usd: 0.5,
+      paid_kill_switch: false,
+    }),
+    lookup: PUBLIC_DNS,
+    requestUrl: network({
+      [imageUrl]: { headers: { 'content-type': 'image/png' }, body: PNG },
+    }),
+  });
+  const response = await invoke(handler, imageUrl, '198.51.100.27');
+  assert.equal(response.json.media.provider_status, 'skipped_oidc_unavailable');
+  assert.equal(state.usd, 0);
+  assert.equal(state.calls, 0);
 });
 
 test('required shared-budget enforcement fails closed when unavailable', async () => {

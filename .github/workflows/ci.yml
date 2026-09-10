@@ -20,6 +20,11 @@ jobs:
         run: python -m py_compile pipeline/*.py
       - name: اختباراتُ حرّاسِ النزاهةِ والطزاجة
         run: python -m unittest discover -s tests -v
+      - name: اختباراتُ عامل Gemini الإعلامي
+        run: |
+          python -m pip install --quiet -r media-worker/requirements.txt pytest==8.3.5
+          python -m pytest media-worker/tests -q
+          python -m py_compile media-worker/worker.py media-worker/main.py
       - uses: actions/setup-node@v4
         with: {node-version: '22'}
       - name: فحصُ جافاسكربت المضمَّنة في الصفحات
@@ -42,6 +47,6 @@ jobs:
             [ -f "/tmp/$f.js" ] && node --check "/tmp/$f.js" && echo "✓ $f"
           done
       - name: اختباراتُ واجهات المؤسسات والتحقق الإعلامي
-        run: node --test tests/enterprise_api.test.js tests/verify_api.test.js
+        run: node --test tests/enterprise_api.test.js tests/verify_api.test.js tests/media_worker_client.test.js
       - name: فحصُ صياغةِ وظائف Vercel
-        run: node --check api/admin.js && node --check api/verify.js && node --check api/_verify-media.js && node --check api/_enterprise-v1.js && node --check api/v1.js
+        run: node --check api/admin.js && node --check api/verify.js && node --check api/_verify-media.js && node --check api/_media-worker.js && node --check api/_enterprise-v1.js && node --check api/v1.js
