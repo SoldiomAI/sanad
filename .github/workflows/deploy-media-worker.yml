@@ -100,9 +100,13 @@ jobs:
 
           info = api.space_info(repo_id)
           host = getattr(info, "host", None)
-          if not host:
+          if host:
+              base_url = str(host).rstrip("/")
+              if not base_url.startswith("https://"):
+                  base_url = f"https://{base_url}"
+          else:
               host = f"{repo_id.replace('_', '-').replace('/', '-').lower()}.hf.space"
-          base_url = f"https://{host}"
+              base_url = f"https://{host}"
           health_url = f"{base_url}/health"
           deadline = time.monotonic() + 15 * 60
           last_error = "Space did not become healthy"
