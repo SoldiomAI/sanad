@@ -1,104 +1,105 @@
 {
- "updated": "2026-09-11T10:38+00:00",
+ "updated": "2026-09-11T23:28+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.11486",
-   "title": "FreeFlow: A Bias-free Hierarchical Transformer for Optical Flow Estimation",
-   "abstract": "Optical flow methods typically rely on task-specific inductive biases, such as correlation volumes, feature warping, and iterative refinement, among others, to reach high accuracy. While effective, such biases constrain the model to predefined heuristics, which can limit its expressivity and lead to more complex pipelines and additional computational cost. We present FreeFlow, a hierarchical transformer built without any flow-specific components, using instead a single feed-forward encoder--decoder. FreeFlow combines three attention variants: window attention for local processing, shifted-wind",
+   "id": "2609.09143",
+   "title": "Studying Image Tokenizers as Visual Languages in Unified Multimodal Models",
+   "abstract": "Image tokenizers define the ``visual language'' of unified multimodal models, yet are commonly studied through isolated metrics or generation-/understanding-only evaluations. These evaluations do not fully capture how visual tokens behave when modeled jointly with text. We build a controlled pure-autoregressive testbed and track task-specific validation losses during multimodal continual pretraining across text, image, text-to-image (T2I), and image-to-text (I2T) prediction. We examine how these losses scale and relate to downstream performance, then use them to study multimodal learnability--",
    "authors": [
-    "Vladislav Bargatin",
-    "Alexander Yakovenko",
-    "Khaled Abud",
-    "Dmitriy Vatolin"
+    "Siting Li",
+    "Zhengyang Wang",
+    "Simon Shaolei Du",
+    "Xi Chen"
    ],
-   "link": "https://huggingface.co/papers/2609.11486",
+   "link": "https://huggingface.co/papers/2609.09143",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-10T00:00",
-   "title_ar": "فري فلو (FreeFlow): محول هرمي خالٍ من التحيز لتقدير التدفق البصري",
-   "summary_ar": "تعتمد طرق التدفق البصري عادةً على انحيازات استقرائية مخصصة للمهمة للوصول إلى دقة عالية، مثل أحجام الارتباط وتشويه السمات والتحسين التكراري. ورغم فعاليتها، فإن هذه الانحيازات تقيد النموذج بقواعد استدلالية محددة مسبقاً، مما قد يحد من قدرته التعبيرية."
+   "published": "2026-09-08T00:00",
+   "title_ar": "دراسة مجزئات الصور كلغات بصرية في النماذج متعددة الوسائط الموحدة",
+   "summary_ar": "تحدد مجزئات الصور \"اللغة البصرية\" للنماذج متعددة الوسائط الموحدة، ومع ذلك تُدرس عادةً عبر مقاييس معزولة أو تقييمات تقتصر على التوليد أو الفهم فقط. لا تلتقط هذه التقييمات تمامًا كيفية تصرف الرموز البصرية عند نمذجتها بالاشتراك مع النص، لذا بنى الباحثون بيئة مضبوطة معتمدة كليًا على التوليد الذاتي."
   },
   {
-   "id": "2609.11317",
-   "title": "Mi-Ripple: Restoring Images Degraded by Iterative AI Editing",
-   "abstract": "Iterative reference-conditioned image editing can introduce grid-like and granular textures, commonly described as digital ripple. We present Mi-Ripple, a diagnosis-guided restoration workflow that suppresses this digital ripple while protecting image structure. Mi-Ripple separates periodic lattice artifacts from content-entangled granular texture, then combines selective spectral notching, structure-aware smoothing, and cleaned-reference regeneration. This separation enables low-distortion filtering when artifacts are spectrally isolated and visual reconstruction when filtering would erase le",
+   "id": "2609.10745",
+   "title": "Think Before You Link: Rarity, Reasoning, and Retrieval in Multilingual Entity Linking",
+   "abstract": "Multimodal entity linking grounds entity mentions in text and images to knowledge-base entries. These systems degrade on rare entities, but prior work measures rarity primarily through popularity-based metrics such as pageviews. We broaden this view using knowledge-graph structural metrics that capture how well an entity is documented and connected. These metrics identify many rare entities that popularity metrics miss. Across the resulting rare-entity slices, state-of-the-art accuracy drops by 15.4-39.9%, showing that different rarity definitions expose different failure modes. To address the",
    "authors": [
-    "Jiayin Chen",
-    "Yicheng Xu",
-    "Muting Wang"
+    "Parinthapat Pengpun",
+    "Simran Khanuja",
+    "Graham Neubig"
    ],
-   "link": "https://huggingface.co/papers/2609.11317",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-10T00:00",
-   "title_ar": "مي-ريبل (Mi-Ripple): استعادة الصور المتدهورة بسبب التحرير التكراري بالذكاء الاصطناعي",
-   "summary_ar": "يمكن أن يؤدي التحرير التكراري للصور المشروط بمرجع إلى ظهور أنسجة شبكية وحبيبية تُعرف بالتموج الرقمي. يقدم البحث \"Mi-Ripple\"، وهو سير عمل استعادة موجه بالتشخيص يثبط هذا التموج الرقمي مع حماية بنية الصورة عبر فصل الشبكة الدورية."
-  },
-  {
-   "id": "2609.11155",
-   "title": "DRG-MAPPO: Hierarchical Dynamic Role-Graph Multi-Agent Reinforcement Learning for Cooperative Air Combat",
-   "abstract": "Multi-Agent Reinforcement Learning (MARL) has emerged as a pivotal paradigm for complex decision-making in autonomous systems and air combat. While MARL has demonstrated significant potential in air combat, achieving sophisticated tactical coordination remains a non-trivial challenge. This difficulty is largely attributed to two primary limitations: (1) the absence of structured relational modeling hinders agents from capturing complex, time-varying interactions among battlefield entities; and (2) conventional flat architectures often lack the capability to explicitly model tactical roles, lea",
-   "authors": [
-    "Junlin Liu",
-    "Chengwei Li",
-    "Yang Gao",
-    "Hui Chang"
-   ],
-   "link": "https://huggingface.co/papers/2609.11155",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-10T00:00",
-   "title_ar": "دي آر جي-مابو (DRG-MAPPO): تعزيز التعلم متعدد الوكلاء برسم بياني هرمي وديناميكي للأدوار للقتال الجوي التعاوني",
-   "summary_ar": "برز التعلم التعزيزي متعدد الوكلاء كنموذج محوري لاتخاذ القرارات المعقدة في الأنظمة المستقلة والقتال الجوي. ورغم إظهاره إمكانات كبيرة في القتال الجوي، فإن تحقيق تنسيق تكتيكي متطور يظل تحدياً غير بسيط."
-  },
-  {
-   "id": "2609.10016",
-   "title": "MetroLLM-Bench: Evaluating Language Models as Transit Kiosk Runtimes",
-   "abstract": "We introduce MetroLLM-Bench, a 955-case benchmark for testing language models as the policy layer of a transit kiosk. It covers six real metro systems, ranging from 37 to 414 stations, and eleven categories that include routing, fare calculation, disruptions, accessibility, and adversarial input. In each case, the model must call structured tools and submit a machine-renderable terminal state containing an outcome, a per-ticket fare quote when applicable, and a kiosk action. Fourteen deterministic scoring components form Tier 1; eight semantic-quality components form Tier 2, six of which use a",
-   "authors": [
-    "Remco Hendriks"
-   ],
-   "link": "https://huggingface.co/papers/2609.10016",
+   "link": "https://huggingface.co/papers/2609.10745",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-09T00:00",
-   "title_ar": "مترو إل إل إم-بنش (MetroLLM-Bench): تقييم النماذج اللغوية كبيئات تشغيل لأكشاك النقل العام",
-   "summary_ar": "يقدم البحث \"MetroLLM-Bench\"، وهو معيار قياس يضم 955 حالة لاختبار النماذج اللغوية كطبقة سياسات لكشك النقل. يغطي المعيار ستة أنظمة مترو حقيقية تتراوح بين 37 و414 محطة، وإحدى عشرة فئة تشمل التوجيه وحساب الأجرة والاضطرابات وسهولة الوصول والمدخلات العدائية."
+   "title_ar": "فكّر قبل أن تربط: الندرة والاستدلال والاسترجاع في ربط الكيانات متعدد اللغات",
+   "summary_ar": "يربط نظام ربط الكيانات متعدد الوسائط إشارات الكيانات في النصوص والصور بمدخلات قواعد المعرفة، لكن هذه الأنظمة تتراجع مع الكيانات النادرة مع اقتصار قياس الندرة سابقًا على مقاييس الشعبية كالمشاهدات. يوسع هذا العمل هذا المنظور باستخدام مقاييس هيكلية للرسم البياني المعرفي ترصد جوانب أوسع للندرة."
   },
   {
-   "id": "2609.11156",
-   "title": "UniH^3: Unifying Hierarchical Homogeneity and Heterogeneity for All-in-One Medical Image Restoration",
-   "abstract": "All-in-One medical image restoration (MedIR) aims to address diverse tasks across modalities and degradation types using a single universal model. Existing methods typically prioritize modeling inter-task heterogeneity (e.g., distinct data distributions and degradation types). However, they largely neglect the inherent homogeneity present in medical images, such as widely shared anatomical structures within and across modalities, which can be leveraged to ease model training and improve generalization. To this end, we propose UniH3, a novel framework that Unifies Hierarchical Homogeneity and H",
+   "id": "2609.10445",
+   "title": "Building Multilingual Bridges: Data Mixing as the Pillar of Generalization for In-Language Reasoning",
+   "abstract": "Reasoning language models have made substantial advances on a variety of complex tasks, yet their capabilities remain overwhelmingly English-centric: models primarily reason in English regardless of the language they are prompted in. This is inaccessible for non-English-speaking users, risks losing the intent of the original question, and forgoes knowledge more readily expressed in the target language. In this work, we advance L2 reasoning, the ability of a model to reason consistently in the language of the user's prompt, thus building an in-language bridge between the prompt and the answer. ",
    "authors": [
-    "Zhiwen Yang",
-    "Jiayin Li",
-    "Chengyu Liu",
-    "Hui Zhang"
+    "Mehrnaz Mofakhami",
+    "Ananya Sahu",
+    "Alejandro R. Salamanca",
+    "Daniel D&#39;souza"
    ],
-   "link": "https://huggingface.co/papers/2609.11156",
+   "link": "https://huggingface.co/papers/2609.10445",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-09T00:00",
+   "title_ar": "بناء جسور متعددة اللغات: خلط البيانات كركيزة للتعميم في الاستدلال بنفس اللغة",
+   "summary_ar": "حققت نماذج اللغة الاستدلالية تقدمًا كبيرًا في مهام معقدة، غير أن قدراتها تظل متمركزة حول الإنجليزية بصورة طاغية حيث تستدل بها أساسًا بغض النظر عن لغة الإدخال. يتسبب ذلك في صعوبة وصول غير الناطقين بالإنجليزية إليها ويجازف بفقدان الدقة."
+  },
+  {
+   "id": "2608.15380",
+   "title": "Adaptive Bridge: A Proxy-Based Decoupling Layer for Mitigating DDS Backpressure in ROS 2",
+   "abstract": "In systems built on Robot Operating System 2 (ROS 2) and using Data Distribution Service (DDS), a single network-impaired or throttled subscriber on a RELIABLE topic can cause backpressure that degrades throughput and latency for all other subscribers, including safety-critical ones sharing the publisher, because the publisher's DDS writer can no longer accept new samples. We present Adaptive Bridge, a proxy-based layer that decouples critical subscribers from degraded or noncritical ones, thereby isolating the critical path through topic splitting and dynamic rate control. The proxy acts as a",
+   "authors": [
+    "Kaushalraj Puwar",
+    "B. Thangaraju"
+   ],
+   "link": "https://huggingface.co/papers/2608.15380",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-06T00:00",
+   "title_ar": "الجسر التكيفي: طبقة فك ارتباط قائمة على وكيل لتخفيف الضغط الارتدادي لـ DDS في ROS 2",
+   "summary_ar": "في أنظمة ROS 2 المعتمدة على DDS، يمكن لمشترك واحد يعاني من ضعف الشبكة في موضوع موثوق أن يُحدث ضغطًا ارتداديًا يخفض الإنتاجية ويزيد زمن الوصول لبقية المشتركين. يشمل ذلك المشتركين ذوي الأهمية الحرجة للسلامة الذين يتشاركون مع الناشر نفسه."
+  },
+  {
+   "id": "2609.11085",
+   "title": "Beyond Solver Verdicts: Generative Reward Models for Autoformalization",
+   "abstract": "Neurosymbolic systems rely on mathematical solvers to guarantee reasoning correctness, yet solvers are fundamentally blind to whether a formal translation maintains strict reference-equivalence to a designated formalization. We formalize this vulnerability as Verdict-Preserving-Unfaithfulness (VPU): a failure mode where an incorrect encoding executes successfully and matches the expected verdict. We theoretically prove that structural, verdict-only verification heuristics are mathematically bounded to chance-level detection on these deceptively valid traces. To resolve this, we introduce Gener",
+   "authors": [
+    "Vikash Singh",
+    "Debargha Ganguly",
+    "Aman Goel",
+    "Ali Torkamani"
+   ],
+   "link": "https://huggingface.co/papers/2609.11085",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-10T00:00",
-   "title_ar": "يوني إتش مكعب (UniH^3): توحيد التجانس والتباين الهرمي لاستعادة الصور الطبية الشاملة في نموذج واحد",
-   "summary_ar": "تهدف الاستعادة الشاملة للصور الطبية إلى معالجة مهام متنوعة عبر وسائط وأنواع تدهور متعددة باستخدام نموذج عالمي موحد. وتعطي الطرق الحالية الأولوية عادةً لنمذجة التباين بين المهام، مثل توزيعات البيانات المتمايزة وأنواع التدهور."
+   "title_ar": "ما وراء أحكام المحللات: نماذج المكافأة التوليدية للصياغة الرياضية الآلية",
+   "summary_ar": "تعتمد الأنظمة الرمزية العصبية على المحللات الرياضية لضمان صحة الاستدلال، لكن هذه المحللات عاجزة بطبيعتها عن معرفة ما إذا كانت الترجمة الصورية تحافظ على التكافؤ المرجعي الصارم للصياغة المحددة. يصوغ الباحثون نقطة الضعف هذه رسميًا تحت مسمى \"عدم الأمانة الحافظة للحكم\" (VPU)."
   },
   {
-   "id": "2609.01515",
-   "title": "TempCloze: Can Video-LLMs Identify the Missing Middle?",
-   "abstract": "Temporal reasoning benchmarks for Video-LLMs are often mediated by language, leaving room for linguistic shortcuts from option wording, answer correlations, or language priors. To reduce such shortcuts, we introduce TempCloze, a video cloze benchmark for evaluating visual temporal reasoning in Video-LLMs. Given the beginning and ending clips of a video, models must identify the true missing middle from four candidates. TempCloze contains 1,521 carefully filtered videos from seven sources, mainly long-take and egocentric videos. We construct same-source distractors along three dimensions: Seman",
+   "id": "2609.09076",
+   "title": "ActReview: Rebuttal-Guided Training Data and Rubric Rewards for Actionable Peer Review Generation",
+   "abstract": "As LLMs are increasingly used for pre-submission self-review, there is growing demand for feedback that not only identifies weaknesses but also guides authors toward concrete revisions. We study this as Actionable Peer-review Generation and decompose it into two subtasks: diagnostic claim generation and revision suggestion generation. We introduce ActReview, a rebuttal-guided post-training framework that connects paper-specific diagnoses to concrete, grounded revision plans. Our central insight is that author rebuttals reveal plausible actions for addressing reviewer concerns and can therefore",
    "authors": [
-    "Wenqi Pei",
-    "Henry Hengyuan Zhao",
-    "Yilai Liu",
-    "Jiahao Meng"
+    "Yiling Ma",
+    "Yilun Zhao",
+    "Sihong Wu",
+    "Ziyu Chen"
    ],
-   "link": "https://huggingface.co/papers/2609.01515",
+   "link": "https://huggingface.co/papers/2609.09076",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-01T00:00",
-   "title_ar": "تمب كلوز (TempCloze): هل تستطيع نماذج الفيديو اللغوية الكبيرة تحديد الجزء الأوسط المفقود؟",
-   "summary_ar": "غالباً ما تتم معايير الاستدلال الزمني لنماذج الفيديو اللغوية الكبيرة عبر اللغة، مما يتيح اختصارات لغوية ناجمة عن صياغة الخيارات أو ارتباطات الإجابات أو البديهيات اللغوية. ولتقليل هذه الاختصارات، يقدم البحث \"TempCloze\"، وهو معيار لاختبار ملء الفراغ في الفيديو لتقييم الاستدلال الزمني البصري."
+   "published": "2026-09-08T00:00",
+   "title_ar": "ActReview: بيانات تدريب موجهة بالردود ومكافآت قائمة على معايير لتوليد مراجعة أقران قابلة للتنفيذ",
+   "summary_ar": "مع تزايد استخدام نماذج اللغة الكبيرة للمراجعة الذاتية، يتنامى الطلب على ملاحظات تحدد نقاط الضعف وتوجه المؤلفين نحو تنقيحات ملموسة. يدرس البحث هذا الأمر بوصفه \"توليد مراجعة أقران قابلة للتنفيذ\" ويقسمه إلى مهمتين فرعيتين هما توليد الادعاء التشخيصي وغيره."
   }
  ],
  "n": 6
