@@ -1,104 +1,104 @@
 {
- "updated": "2026-09-10T20:27+00:00",
+ "updated": "2026-09-11T10:38+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.06702",
-   "title": "PARSER: Read in Parallel, Reason in Depth for Long-Context LLM Agents",
-   "abstract": "Sequential memory agents process long documents by reading chunks one after another while maintaining a compact memory state, coupling document traversal to reasoning depth. This coupling introduces sensitivity to evidence placement and ties inference latency linearly to document length. We introduce PARSER, which decouples reading from reasoning. A bank of lightweight subagents each bound to a single chunk read the entire document in parallel, while a lead agent reasons in depth through iterative scatter--gather rounds: at each round it broadcasts a query to all subagents, aggregates the retu",
+   "id": "2609.11486",
+   "title": "FreeFlow: A Bias-free Hierarchical Transformer for Optical Flow Estimation",
+   "abstract": "Optical flow methods typically rely on task-specific inductive biases, such as correlation volumes, feature warping, and iterative refinement, among others, to reach high accuracy. While effective, such biases constrain the model to predefined heuristics, which can limit its expressivity and lead to more complex pipelines and additional computational cost. We present FreeFlow, a hierarchical transformer built without any flow-specific components, using instead a single feed-forward encoder--decoder. FreeFlow combines three attention variants: window attention for local processing, shifted-wind",
    "authors": [
-    "Kun Li",
-    "Zexuan Qiu",
-    "Tianhua Zhang",
-    "Irwin King"
+    "Vladislav Bargatin",
+    "Alexander Yakovenko",
+    "Khaled Abud",
+    "Dmitriy Vatolin"
    ],
-   "link": "https://huggingface.co/papers/2609.06702",
+   "link": "https://huggingface.co/papers/2609.11486",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-06T00:00",
-   "title_ar": "بارسر (PARSER): القراءة بالتوازي والاستدلال بعمق لوكلاء النماذج اللغوية الكبيرة ذات السياق الطويل",
-   "summary_ar": "تُعالج وكلاء الذاكرة المتسلسلة المستندات الطويلة عبر قراءة الأجزاء تِباعًا مع الحفاظ على حالة ذاكرة مدمجة، مما يربط استعراض المستند بعمق الاستدلال. يُنتج هذا الربط حساسيةً لموضع الأدلة ويربط زمن تأخر الاستدلال خطيًا بطول المستند."
+   "published": "2026-09-10T00:00",
+   "title_ar": "فري فلو (FreeFlow): محول هرمي خالٍ من التحيز لتقدير التدفق البصري",
+   "summary_ar": "تعتمد طرق التدفق البصري عادةً على انحيازات استقرائية مخصصة للمهمة للوصول إلى دقة عالية، مثل أحجام الارتباط وتشويه السمات والتحسين التكراري. ورغم فعاليتها، فإن هذه الانحيازات تقيد النموذج بقواعد استدلالية محددة مسبقاً، مما قد يحد من قدرته التعبيرية."
   },
   {
-   "id": "2609.05463",
-   "title": "A Three-Layer Caching Architecture for Low-Latency LLM Web Search on Commodity CPU Hardware",
-   "abstract": "AI-powered search products such as ChatGPT search, Google's AI Overviews, and Perplexity provide LLM-synthesized answers grounded in live web results. We developed OreoLook (formerly lixSearch), an open-source answer engine using automated browser agents and provider-routed LLM inference. Its local search, caching, session-management, and embedding stack runs on commodity CPU hardware; answer synthesis is performed by a remote inference provider. As usage grew, sessions lost context, equivalent queries triggered redundant work, and URLs were repeatedly embedded across sessions. We present a th",
+   "id": "2609.11317",
+   "title": "Mi-Ripple: Restoring Images Degraded by Iterative AI Editing",
+   "abstract": "Iterative reference-conditioned image editing can introduce grid-like and granular textures, commonly described as digital ripple. We present Mi-Ripple, a diagnosis-guided restoration workflow that suppresses this digital ripple while protecting image structure. Mi-Ripple separates periodic lattice artifacts from content-entangled granular texture, then combines selective spectral notching, structure-aware smoothing, and cleaned-reference regeneration. This separation enables low-distortion filtering when artifacts are spectrally isolated and visual reconstruction when filtering would erase le",
    "authors": [
-    "Ayushman Bhattacharya",
-    "Nihal Gazi"
+    "Jiayin Chen",
+    "Yicheng Xu",
+    "Muting Wang"
    ],
-   "link": "https://huggingface.co/papers/2609.05463",
+   "link": "https://huggingface.co/papers/2609.11317",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-12T00:00",
-   "title_ar": "بنية تخزين مؤقت ثلاثية الطبقات للبحث على الويب باستخدام النماذج اللغوية الكبيرة وبزمن تأخر منخفض على معالجات السلع الاستهلاكية",
-   "summary_ar": "تُقدم منتجات البحث المدعومة بالذكاء الاصطناعي إجاباتٍ مُولّفة عبر النماذج اللغوية الكبيرة ومستندة إلى نتائج الويب المباشرة. طوّرنا \"OreoLook\"، وهو محرك إجابات مفتوح المصدر يستخدم وكلاء متصفحات مؤتمتة واستدلالاً للنماذج اللغوية الكبيرة مُوجّهاً عبر مزودين."
+   "published": "2026-09-10T00:00",
+   "title_ar": "مي-ريبل (Mi-Ripple): استعادة الصور المتدهورة بسبب التحرير التكراري بالذكاء الاصطناعي",
+   "summary_ar": "يمكن أن يؤدي التحرير التكراري للصور المشروط بمرجع إلى ظهور أنسجة شبكية وحبيبية تُعرف بالتموج الرقمي. يقدم البحث \"Mi-Ripple\"، وهو سير عمل استعادة موجه بالتشخيص يثبط هذا التموج الرقمي مع حماية بنية الصورة عبر فصل الشبكة الدورية."
   },
   {
-   "id": "2609.08126",
-   "title": "SchemeArena: Factorized Stress Testing of Scheming in LLM Agents",
-   "abstract": "We study scheming in LLM agents, in which agents covertly pursue misaligned goals. Our focus is to understand how scheming arises from the interaction of key factors, such as instrumental goals, environmental affordances, oversight conditions, and perceived consequences. Prior work examines only a small number of scenarios, limiting the ability to isolate how these conditions shape an agent's propensity or capability to scheme. This limited scale and task diversity also restrict coverage of realistic deployment settings and the range of scheming strategies that can be observed. To this end, we",
+   "id": "2609.11155",
+   "title": "DRG-MAPPO: Hierarchical Dynamic Role-Graph Multi-Agent Reinforcement Learning for Cooperative Air Combat",
+   "abstract": "Multi-Agent Reinforcement Learning (MARL) has emerged as a pivotal paradigm for complex decision-making in autonomous systems and air combat. While MARL has demonstrated significant potential in air combat, achieving sophisticated tactical coordination remains a non-trivial challenge. This difficulty is largely attributed to two primary limitations: (1) the absence of structured relational modeling hinders agents from capturing complex, time-varying interactions among battlefield entities; and (2) conventional flat architectures often lack the capability to explicitly model tactical roles, lea",
    "authors": [
-    "Jie Ruan",
-    "Inderjeet Nair",
-    "Amy Liu",
-    "Muhammad Khalifa"
+    "Junlin Liu",
+    "Chengwei Li",
+    "Yang Gao",
+    "Hui Chang"
    ],
-   "link": "https://huggingface.co/papers/2609.08126",
+   "link": "https://huggingface.co/papers/2609.11155",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-08T00:00",
-   "title_ar": "سكيم أرينا (SchemeArena): اختبار إجهاد مُفصّل للتآمر في وكلاء النماذج اللغوية الكبيرة",
-   "summary_ar": "ندرس التآمر في وكلاء النماذج اللغوية الكبيرة، حيث يسعى هؤلاء الوكلاء خلسة وراء أهداف غير متوافقة. ينصب تركيزنا على فهم كيفية نشوء التآمر من خلال تفاعل عوامل رئيسية، في حين تقتصر الأعمال السابقة على فحص جانب ضيق فقط."
+   "published": "2026-09-10T00:00",
+   "title_ar": "دي آر جي-مابو (DRG-MAPPO): تعزيز التعلم متعدد الوكلاء برسم بياني هرمي وديناميكي للأدوار للقتال الجوي التعاوني",
+   "summary_ar": "برز التعلم التعزيزي متعدد الوكلاء كنموذج محوري لاتخاذ القرارات المعقدة في الأنظمة المستقلة والقتال الجوي. ورغم إظهاره إمكانات كبيرة في القتال الجوي، فإن تحقيق تنسيق تكتيكي متطور يظل تحدياً غير بسيط."
   },
   {
-   "id": "2509.01809",
-   "title": "The Price of Sparsity: Sufficient Conditions for Sparse Recovery using Sparse and Sparsified Measurements",
-   "abstract": "We consider the problem of support recovery for sparse binary signals from noisy linear measurements. For sparse Gaussian measurement matrices we identify sufficient conditions on the minimal sample size for maximum-likelihood recovery in the high-SNR regime ds/p to infty, where p denotes the signal dimension, s the number of non-zero components of the signal, and d the expected number of non-zero components per row of measurement. Combined with known lower bounds, this yields an information-theoretic threshold of order slog(p/s) / log(ds/p), making explicit the price of measurement sparsity. ",
+   "id": "2609.10016",
+   "title": "MetroLLM-Bench: Evaluating Language Models as Transit Kiosk Runtimes",
+   "abstract": "We introduce MetroLLM-Bench, a 955-case benchmark for testing language models as the policy layer of a transit kiosk. It covers six real metro systems, ranging from 37 to 414 stations, and eleven categories that include routing, fare calculation, disruptions, accessibility, and adversarial input. In each case, the model must call structured tools and submit a machine-renderable terminal state containing an outcome, a per-ticket fare quote when applicable, and a kiosk action. Fourteen deterministic scoring components form Tier 1; eight semantic-quality components form Tier 2, six of which use a",
    "authors": [
-    "Youssef Chaabouni",
-    "David Gamarnik"
+    "Remco Hendriks"
    ],
-   "link": "https://huggingface.co/papers/2509.01809",
+   "link": "https://huggingface.co/papers/2609.10016",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-08T00:00",
-   "title_ar": "ثمن التناثر: شروط كافية للاسترداد المتناثر باستخدام قياسات متناثرة ومُتناثرة مُستحدثة",
-   "summary_ar": "نتناول مسألة استرداد الدعم للإشارات الثنائية المتناثرة من خلال قياسات خطية مشوبة بالضوضاء. نحدد لمصفوفات القياس الغاوسية المتناثرة الشروط الكافية لأدنى حجم عينة لازم لاسترداد الأرجحية القصوى في نظام نسبة الإشارة إلى الضوضاء العالية."
+   "published": "2026-09-09T00:00",
+   "title_ar": "مترو إل إل إم-بنش (MetroLLM-Bench): تقييم النماذج اللغوية كبيئات تشغيل لأكشاك النقل العام",
+   "summary_ar": "يقدم البحث \"MetroLLM-Bench\"، وهو معيار قياس يضم 955 حالة لاختبار النماذج اللغوية كطبقة سياسات لكشك النقل. يغطي المعيار ستة أنظمة مترو حقيقية تتراوح بين 37 و414 محطة، وإحدى عشرة فئة تشمل التوجيه وحساب الأجرة والاضطرابات وسهولة الوصول والمدخلات العدائية."
   },
   {
-   "id": "2609.02771",
-   "title": "From Reweighting to Rewriting: Unlocking the Intervention Effects of Influential Samples in Training Data Attribution",
-   "abstract": "Training data attribution (TDA) aims to identify training examples that shape model behavior, but its intervention value depends on both which examples are selected and how they are modified. Influence functions (IF) estimate behavioral changes under infinitesimal reweighting, yet IF-selected examples often show limited advantages over random selection under conventional weight-based interventions. This raises the question of whether influential examples lack intervention value or whether reweighting fails to realize their behavioral leverage.We introduce influence-guided response rewriting, w",
+   "id": "2609.11156",
+   "title": "UniH^3: Unifying Hierarchical Homogeneity and Heterogeneity for All-in-One Medical Image Restoration",
+   "abstract": "All-in-One medical image restoration (MedIR) aims to address diverse tasks across modalities and degradation types using a single universal model. Existing methods typically prioritize modeling inter-task heterogeneity (e.g., distinct data distributions and degradation types). However, they largely neglect the inherent homogeneity present in medical images, such as widely shared anatomical structures within and across modalities, which can be leveraged to ease model training and improve generalization. To this end, we propose UniH3, a novel framework that Unifies Hierarchical Homogeneity and H",
    "authors": [
-    "Yuzhang Luo",
-    "Chenpeng Wang",
-    "Jianhui Chen",
-    "Liangming Pan"
+    "Zhiwen Yang",
+    "Jiayin Li",
+    "Chengyu Liu",
+    "Hui Zhang"
    ],
-   "link": "https://huggingface.co/papers/2609.02771",
+   "link": "https://huggingface.co/papers/2609.11156",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-02T00:00",
-   "title_ar": "من إعادة الوزن إلى إعادة الصياغة: إطلاق العنان لتأثيرات التدخل للعينات المؤثرة في إسناد بيانات التدريب",
-   "summary_ar": "يهدف إسناد بيانات التدريب إلى تحديد أمثلة التدريب التي تشكل سلوك النموذج، لكن قيمته التدخلية تعتمد على الأمثلة المختارة وطريقة تعديلها معًا. تُقدّر دوال التأثير التغيرات السلوكية في ظل إعادة وزن متناهية في الصغر، ورغم ذلك فإن الأمثلة المختارة بها تتأثر بالمعالجة."
+   "published": "2026-09-10T00:00",
+   "title_ar": "يوني إتش مكعب (UniH^3): توحيد التجانس والتباين الهرمي لاستعادة الصور الطبية الشاملة في نموذج واحد",
+   "summary_ar": "تهدف الاستعادة الشاملة للصور الطبية إلى معالجة مهام متنوعة عبر وسائط وأنواع تدهور متعددة باستخدام نموذج عالمي موحد. وتعطي الطرق الحالية الأولوية عادةً لنمذجة التباين بين المهام، مثل توزيعات البيانات المتمايزة وأنواع التدهور."
   },
   {
-   "id": "2609.09264",
-   "title": "StochBench: A Domain-Specific Benchmark for Stochastic Processes in Lean",
-   "abstract": "Leading benchmarks for formal theorem proving with large language models are small collections drawn from competition math, such as the IMO and Putnam, that poorly represent field-specific applications. We introduce StochBench, a Lean 4 benchmark of 450 graduate stochastic-processes problems at varying abstraction levels, each paired with its natural-language source. Addressing a field underrepresented in Mathlib, it covers finite and countable Markov chains, renewal processes, random walks, martingales, stopping times, queues, Brownian motion, stochastic calculus, weak convergence, and Poisso",
+   "id": "2609.01515",
+   "title": "TempCloze: Can Video-LLMs Identify the Missing Middle?",
+   "abstract": "Temporal reasoning benchmarks for Video-LLMs are often mediated by language, leaving room for linguistic shortcuts from option wording, answer correlations, or language priors. To reduce such shortcuts, we introduce TempCloze, a video cloze benchmark for evaluating visual temporal reasoning in Video-LLMs. Given the beginning and ending clips of a video, models must identify the true missing middle from four candidates. TempCloze contains 1,521 carefully filtered videos from seven sources, mainly long-take and egocentric videos. We construct same-source distractors along three dimensions: Seman",
    "authors": [
-    "Idan Davidovich",
-    "Debargha Ganguly",
-    "Vikash Singh",
-    "Vipin Chaudhary"
+    "Wenqi Pei",
+    "Henry Hengyuan Zhao",
+    "Yilai Liu",
+    "Jiahao Meng"
    ],
-   "link": "https://huggingface.co/papers/2609.09264",
+   "link": "https://huggingface.co/papers/2609.01515",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-08T00:00",
-   "title_ar": "ستوك بنش (StochBench): معيار قياسي مخصص لمجال العمليات العشوائية في لغة لين (Lean)",
-   "summary_ar": "تُعتبر المعايير الرائدة لإثبات النظريات شكليًا بواسطة النماذج اللغوية الكبيرة مجموعات صغيرة مأخوذة من رياضيات المسابقات التي لا تمثل التطبيقات الخاصة بالمجالات تمثيلاً جيدًا. نُقدّم \"StochBench\"، وهو معيار قياسي مبني بلغة \"Lean 4\" يتضمن 450 مسألة لطلاب الدراسات العليا في العمليات العشوائية."
+   "published": "2026-09-01T00:00",
+   "title_ar": "تمب كلوز (TempCloze): هل تستطيع نماذج الفيديو اللغوية الكبيرة تحديد الجزء الأوسط المفقود؟",
+   "summary_ar": "غالباً ما تتم معايير الاستدلال الزمني لنماذج الفيديو اللغوية الكبيرة عبر اللغة، مما يتيح اختصارات لغوية ناجمة عن صياغة الخيارات أو ارتباطات الإجابات أو البديهيات اللغوية. ولتقليل هذه الاختصارات، يقدم البحث \"TempCloze\"، وهو معيار لاختبار ملء الفراغ في الفيديو لتقييم الاستدلال الزمني البصري."
   }
  ],
  "n": 6
