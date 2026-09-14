@@ -1,107 +1,102 @@
 {
- "updated": "2026-09-14T05:18+00:00",
+ "updated": "2026-09-14T20:46+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.11115",
-   "title": "Benchmark Radar: A Living Database and Search Engine for AI Benchmarks and Evaluation",
-   "abstract": "Benchmark researchers and developers of large language models (LLMs) and other AI systems need to find relevant evaluations, locate their benchmark datasets and code, and understand the settings behind reported scores. We present Benchmark Radar, a living database and search engine for retrieval and discovery of AI benchmarks, covering LLM evaluation, agentic and tool-use benchmarks, coding, reasoning, safety, and domain-specific evaluations. The system combines daily discovery of benchmark papers, repositories, datasets, and releases with a searchable benchmark catalog, mentions in model card",
+   "id": "2609.10728",
+   "title": "Towards a Deterministic Math Solver for Clinical Language Models",
+   "abstract": "Large language models are unreliable at arithmetic, which is a problem for clinical calculators where a single numerical error changes the recommendation. The standard response is to hardcode each calculator as a validated function, one at a time. We test an alternative: the model does not calculate. Instead, it writes case-specific Python that a restricted local executor runs as a deterministic solver, and the model's task reduces to deciding how to use it. We evaluate this Program-Solve interface on MedCalc-Bench Verified (1,100 cases, 55 calculators) against direct model arithmetic and a ha",
    "authors": [
-    "Koutian Wu",
-    "Junjie Zhou",
-    "Ergan Shang",
-    "Jiayu Wang"
+    "Felipe Ocampo Osorio",
+    "Sebastián Andrés Cajas Ordoñez",
+    "Maximin Lange",
+    "Rafi Al Attrach"
    ],
-   "link": "https://huggingface.co/papers/2609.11115",
+   "link": "https://huggingface.co/papers/2609.10728",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-09T00:00",
+   "title_ar": "نحو حلّال رياضي حتمي للنماذج اللغوية السريرية",
+   "summary_ar": "تُعدّ النماذج اللغوية الكبيرة غير موثوقة في الحساب، وهي مشكلة تواجه الآلات الحاسبة السريرية التي قد يغيّر فيها خطأ عددي واحد التوصية. بينما يتمثل الحل المعتاد في كتابة كود برمجي ثابت وموثق لكل حاسبة على حدة، يختبر الباحثون بديلاً لا يقوم فيه النموذج بالحساب بنفسه."
+  },
+  {
+   "id": "2609.07099",
+   "title": "Ambient @ EgoProactive 2026 : Proactive Egocentric Assistance with Visually Grounded Supervision",
+   "abstract": "We present our submission to the EgoProactive track of the ECCV 2026 Wearable AI Challenge, which ranked first in the large-model division and second in the <=2B division. The task requires a wearable assistant to decide after each eight-second segment of egocentric video whether to intervene or remain silent. Our approach has two main components. First, we reformulate intervention timing as single-token classification. Rather than generating either interrupt<utterance> or silent, the model predicts yes or no, and we derive the decision from the renormalised probabilities of these two tokens. ",
+   "authors": [
+    "Logesh Kumar Umapathi"
+   ],
+   "link": "https://huggingface.co/papers/2609.07099",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-10T00:00",
-   "title_ar": "رادار المقاييس المرجعية: قاعدة بيانات حية ومحرك بحث للمقاييس المرجعية وتقييم الذكاء الاصطناعي",
-   "summary_ar": "يحتاج باحثو المقاييس المرجعية ومطورو النماذج اللغوية الكبيرة وأنظمة الذكاء الاصطناعي الأخرى إلى إيجاد التقييمات ذات الصلة، وتحديد مواقع مجموعات بياناتها وأكوادها، وفهم إعدادات الدرجات المُعلنة. ويُقدّم البحث \"رادار المقاييس المرجعية\" كقاعدة بيانات حية ومحرك بحث للاسترجاع."
+   "title_ar": "أمبينت في تحدي إيغو برواكتيف 2026: المساعدة الاستباقية من منظور الشخص الأول بإشراف مرتكز بصريًا",
+   "summary_ar": "يقدّم البحث مشاركة الفريق في مسار \"EgoProactive\" ضمن تحدي الذكاء الاصطناعي للأجهزة القابلة للارتداء في مؤتمر ECCV 2026، والتي أحرزت المركز الأول في فئة النماذج الكبيرة والثاني في فئة 2 مليار معامِل فأقل. تتطلب المهمة من مساعد قابل للارتداء أن يقرر بعد كل مقطع فيديو مدته 8 ثوانٍ من منظور الشخص الأول ما إذا كان سيتدخل أم يبقى صامتًا."
   },
   {
-   "id": "2609.12641",
-   "title": "Breaking the Vision-Action Shortcut: Latent Interface Training for Generalizable Robotics Foundation Models",
-   "abstract": "Robot foundation models achieve strong in-distribution performance but often degrade under visual distribution shifts. When learning to generate actions from pretrained visual representations, models may exploit task-irrelevant visual cues that correlate with demonstrated actions within the training distribution. Such vision-action shortcuts can undermine generalization when these correlations change under distribution shifts. Mitigating these shortcuts requires constraining how visual information is used for action generation while preserving task-relevant spatial information. We propose Late",
+   "id": "2609.07154",
+   "title": "Ambient @ EgoLongQA 2026: Distilling Long-Video perception into a Sub-2B Model",
+   "abstract": "We describe our entry to the EgoLongQA track of the Wearable-AI Challenge in ECCV 2026, which placed first in the <=2B parameter division with 0.8279 on the held-out test set. Our system is a single 2B vision-language model that answers multiple-choice questions about ten-minute egocentric videos in one greedy forward pass; It is obtained by distilling the junior perception module of a tool-using agentic pipeline, not the agent itself into a small student, using teacher traces filtered to those that answered correctly. it reaches 89% of the accuracy of the large agentic pipeline using 1.1% of ",
    "authors": [
-    "Jianman Lin",
-    "Shailesh Shailesh",
-    "Zhongyi Luo",
-    "Jiafei Duan"
+    "Logesh Kumar Umapathi"
    ],
-   "link": "https://huggingface.co/papers/2609.12641",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-11T00:00",
-   "title_ar": "كسر المسار المختصر بين الرؤية والفعل: تدريب الواجهة الكامنة لنماذج تأسيسية روبوتية قابلة للتعميم",
-   "summary_ar": "تُحقق النماذج التأسيسية للروبوتات أداءً قويًا ضمن توزيع البيانات، لكنه غالبًا ما يتراجع في ظل التغيرات في التوزيع البصري. وتعود هذه المشكلة إلى احتمالية استغلال النماذج لإشارات بصرية غير مرتبطة بالمهمة لكنها تقترن بالأفعال المعروضة أثناء التدريب، وذلك عند تعلم توليد الأفعال من التمثيلات البصرية المدربة مسبقًا."
-  },
-  {
-   "id": "2609.11682",
-   "title": "COBRA-Skills: Contextual Bandit-Guided Evolution for Agent Skill Optimization",
-   "abstract": "Large language model (LLM) agents can benefit from reusable skills distilled from prior task experience, yet existing skill optimization methods often rely on costly execution-based evaluation and substantial task data. We introduce COBRA-Skills, an efficient framework that formulates skill optimization as budgeted sequential optimization over a dynamically evolving candidate space. COBRA-Skills couples contextual-bandit-guided prioritization with evidence-grounded skill evolution, selectively allocating evaluations to promising or informative candidates while continually refining the skill po",
-   "authors": [
-    "Pingchen Lu",
-    "Xiangyi Wang",
-    "Xiang Li",
-    "Jie Mao"
-   ],
-   "link": "https://huggingface.co/papers/2609.11682",
+   "link": "https://huggingface.co/papers/2609.07154",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-10T00:00",
-   "title_ar": "مهارات كوبر: تطور موجه بقطاع الطرق السياقي لتحسين مهارات الوكيل",
-   "summary_ar": "يُمكن لوكلاء النماذج اللغوية الكبيرة الاستفادة من المهارات القابلة لإعادة الاستخدام والمُستخلصة من تجارب المهام السابقة، لكن طرق تحسين المهارات الحالية غالبًا ما تعتمد على تقييم مكلف مبني على التنفيذ وعلى بيانات مهام ضخمة. ويُقدّم البحث إطار عمل فعال يُدعى \"COBRA-Skills\" يصيغ عملية تحسين المهارات."
+   "title_ar": "أمبينت في تحدي إيغو لونغ كيو إيه 2026: تقطير إدراك الفيديو الطويل في نموذج بحجم أقل من 2 مليار معامِل",
+   "summary_ar": "يصف البحث المشاركة في مسار \"EgoLongQA\" ضمن تحدي الذكاء الاصطناعي للأجهزة القابلة للارتداء في ECCV 2026، والتي احتلت المركز الأول في فئة المعامِلات الأقل من أو تساوي 2 مليار بنتيجة 0.8279 على مجموعة الاختبار المحجوبة. يعتمد النظام على نموذج رؤية ولغة فردي بحجم 2 مليار معامِل يجيب عن أسئلة الاختيار من متعدد حول مقاطع فيديو مدتها 10 دقائق من منظور الشخص الأول."
   },
   {
-   "id": "2608.30597",
-   "title": "PLC-DPO: Posterior Label Correction in Noisy and Ambiguous Preference Optimization",
-   "abstract": "Direct Preference Optimization (DPO) simplifies alignment through pairwise comparisons but assumes all observed preferences are reliable. Real data often violates this assumption, leading to reversed, weak, or ambiguous labels that cause harmful policy updates. To address this, we propose Posterior Label Correction DPO (PLC-DPO) to robustly optimize preferences by routing each pair's training signal as a clean, flip, or tie case. The key idea is to use the calibrated policy-reference margin as online evidence to take appropriate correction actions. This reframes noisy preference learning as ac",
+   "id": "2609.10824",
+   "title": "Studying Without a Syllabus: Task-Agnostic Environment Preprocessing",
+   "abstract": "Before an LLM agent tackles tasks in a new environment, it can inspect available corpora and tools and construct reusable resources such as indices, scripts, or procedural guidance. Most automated adaptation methods, however, rely on task examples, trajectories, or evaluation feedback to decide what to build. Existing task-agnostic approaches avoid this supervision but commit in advance to a preparation strategy for a particular type of environment. We study a more open-ended setting: can an agent study an unfamiliar environment without a syllabus, i.e. before test time and without knowledge o",
    "authors": [
-    "Boryeong Cho",
-    "Sumyeong Ahn",
-    "Se-Young Yun"
+    "Vinay Samuel",
+    "Varun Ursekar",
+    "Vijay S. Kalmath",
+    "Apaar Shanker"
    ],
-   "link": "https://huggingface.co/papers/2608.30597",
+   "link": "https://huggingface.co/papers/2609.10824",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-31T00:00",
-   "title_ar": "بي إل سي-دي بي أو: تصحيح التسميات البعدي في تحسين التفضيلات المشوشة والغامضة",
-   "summary_ar": "يُبسّط أسلوب التحسين المباشر للتفضيلات (DPO) عملية المحاذاة عبر المقارنات الزوجية، لكنه يفترض موثوقية جميع التفضيلات الملحوظة. وتخالف البيانات الواقعية هذا الافتراض غالبًا مما يؤدي إلى تسميات معكوسة أو ضعيفة أو غامضة تُسبب تحديثات ضارة للسياسة، ولحل ذلك يقترح البحث تصحيح التسميات البعدي."
+   "published": "2026-09-09T00:00",
+   "title_ar": "الدراسة دون منهج دراسي: المعالجة المسبقة للبيئة بشكل غير مرتبط بمهام محددة",
+   "summary_ar": "يمكن لوكيل النماذج اللغوية الكبيرة فحص النصوص والأدوات المتاحة وبناء موارد قابلة لإعادة الاستخدام كالفهارس والسكربتات قبل تنفيذ المهام في بيئة جديدة. ومع ذلك، فإن معظم أساليب التكيف الآلي تعتمد على أمثلة المهام، أو المسارات، أو التغذية الراجعة للتقييم لتحديد ما يجب بناؤه."
   },
   {
-   "id": "2609.13146",
-   "title": "SNAP3D: Physically Grounded 3D Parts for Assembly from a Single Image",
-   "abstract": "Part-aware 3D asset generation enables applications such as editing, articulation, simulation, and fabrication, yet existing methods can generate visually complete individual parts without ensuring that they form a valid physical assembly. Consequently, generated neighboring parts may interpenetrate, lack valid connections, or collapse under gravity. We propose a physics-guided framework for improving single-image part-aware 3D generation with physically compatible geometry and stable connections. Our method resolves inter-part penetration, recovers a contact graph between neighboring parts, a",
+   "id": "2609.10297",
+   "title": "TRACE: Trajectory-robust Admission with Evidence Ordering for Efficient GUI Agents",
+   "abstract": "GUI agents accumulate high-resolution screenshots as the trajectory unfolds, increasing inference latency and memory usage. Training-free visual token pruning can reduce this cost, but cache reuse introduces a fundamental constraint. Once tokens are discarded, the corresponding visual evidence cannot be recovered without re-encoding. Pruning therefore becomes an irreversible admission decision that must remain useful for unknown future targets while preserving coverage of operable regions under tight budgets. To address these challenges, we propose \\method{}, a training-free framework for \\tex",
    "authors": [
-    "Yu-Rou Tuan",
-    "Hao-Tang Tsui",
-    "Nicolas Ugrinovic",
-    "Kris Kitani"
+    "Yuhao Wang",
+    "Mu Qiao",
+    "Xindong Zhang",
+    "Yunzhi Zhuge"
    ],
-   "link": "https://huggingface.co/papers/2609.13146",
+   "link": "https://huggingface.co/papers/2609.10297",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-11T00:00",
-   "title_ar": "سناب ثري دي: أجزاء ثلاثية الأبعاد مؤصلة فيزيائيًا للتجميع من صورة واحدة",
-   "summary_ar": "يُتيح توليد الأصول ثلاثية الأبعاد المدركة للأجزاء تطبيقات مثل التعديل والتمفصل والمحاكاة والتصنيع، غير أن الطرق الحالية قد تُنتج أجزاءً فردية مكتملة بصريًا دون ضمان تشكيلها لتجميع فيزيائي صالح. ونتيجة لذلك، قد تتداخل الأجزاء المتجاورة المُولّدة مع بعضها البعض فيزيائيًا."
+   "published": "2026-09-09T00:00",
+   "title_ar": "تريس: قبول متين للمسار مع ترتيب الأدلة لوكلاء واجهات المستخدم الرسومية بكفاءة",
+   "summary_ar": "يجمع وكلاء واجهات المستخدم الرسومية لقطات شاشة عالية الدقة مع استمرار المسار، مما يرفع زمن استجابة الاستدلال واستهلاك الذاكرة. ورغم إمكانية خفض هذه التكلفة عبر تقليم الرموز البصرية دون تدريب، فإن إعادة استخدام الذاكرة المخبئية تفرض قيدًا أساسيًا؛ إذ لا يمكن استرجاع الأدلة البصرية بعد حذف رموزها."
   },
   {
-   "id": "2609.13141",
-   "title": "SAS: Simple Attention Sparsification via End-to-End Optimization of Context Ranking",
-   "abstract": "Post-training attention sparsification reduces the quadratic cumulative attention cost of pretrained Transformers by selecting a small set of context units (tokens or blocks) for each query. Existing trainable methods usually use a lightweight selector to score context units, followed by hard Top-K selection that blocks gradients from the language modeling loss. Consequently, these methods commonly distill layer-wise dense attention distributions. Although this encourages the selector to rank context units by dense attention weights in the original model, the ranking is not directly aligned wi",
+   "id": "2609.08230",
+   "title": "ActionSplice: In-Flight Action Editing for Interactive World Models",
+   "abstract": "Chunk-autoregressive video world models typically condition each generated chunk on one action. An action received during sampling must therefore wait for the next chunk, condition future solver evaluations on a state produced under the previous action, or trigger rollback that repeats completed evaluations. We introduce ActionSplice, an inference framework that formulates this problem as Counterfactual State Transport (CST). A lightweight corrector transports the interrupted backbone-native representation toward the matched state induced by the revised action at the same solver step. The worl",
    "authors": [
-    "Zhiwei Li",
-    "Lei Zhu",
-    "Hao Gu",
-    "Xiang Hu"
+    "Pardis Taghavi",
+    "Tingyu Guo",
+    "Jonas Lossner",
+    "Gaurav Pandey"
    ],
-   "link": "https://huggingface.co/papers/2609.13141",
+   "link": "https://huggingface.co/papers/2609.08230",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-11T00:00",
-   "title_ar": "إس إيه إس: ترقيق الانتباه البسيط عبر التحسين الشامل لترتيب السياق",
-   "summary_ar": "يُقلل ترقيق الانتباه اللاحق للتدريب من تكلفة الانتباه التراكمية التربيعية لنماذج المحولات المدربة مسبقًا، وذلك باختيار مجموعة صغيرة من وحدات السياق لكل استعلام. وتستخدم الطرق القابلة للتدريب الحالية عادةً محددًا خفيف الوزن لتسجيل درجات وحدات السياق، وتتبعه بانتقاء حتمي لأعلى العناصر (Top-K)."
+   "published": "2026-09-08T00:00",
+   "title_ar": "أكشن سبلايس: تعديل الإجراء أثناء التشغيل لنماذج العالم التفاعلية",
+   "summary_ar": "عادةً ما تشترط نماذج العالم للفيديو ذات التراجع الذاتي على دفعات وجود إجراء واحد لكل دفعة مفرغة. وبناءً على ذلك، يجب على أي إجراء يُستقبل أثناء أخذ العينات أن ينتظر الدفعة التالية، أو يُخضع تقييمات الحلّال المستقبلية لحالة أُنتجت تحت الإجراء السابق، أو يؤدي إلى تراجع يعيد التقييمات المنجزة."
   }
  ],
  "n": 6
