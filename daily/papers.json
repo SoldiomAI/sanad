@@ -1,107 +1,103 @@
 {
- "updated": "2026-09-15T08:54+00:00",
+ "updated": "2026-09-15T21:38+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.15863",
-   "title": "LynnReal-Omni: Native multi-modal Video Generation for Agentic Visual Workflows",
-   "abstract": "Video diffusion models are stochastic and hard to control: precise content often requires repeated sampling without guaranteed success, and long-horizon scenes drift in appearance, interactions, and temporal coherence. Agentic visual creation provides explicit references, editable 3D scenes, or executable game states for stable control, but does not by itself guarantee high object or character fidelity. Combining the two can enable stable, high-quality generation. To realize this combination, we present LynnReal-Omni, a native multimodal video generation framework built on a 32B shared multimo",
+   "id": "2609.13443",
+   "title": "Learning to Solve Hard Problems in RL for LLMs by Never Giving Up",
+   "abstract": "We demonstrate that training LLMs with RL does not improve performance equally across a dataset. RL shows large improvements on easy problems that an LLM is already good at solving, but small improvements on hard problems. We call this the Matthew Effect in RL for LLMs, after the phenomenon of cumulative advantage from economics and network science summarized as \"the rich get richer\". The naive explanation is that hard problems require more compute to find a solution. We argue that modern RL methods are exacerbating the issue by wasting too much compute on easy problems and instead should dyna",
    "authors": [
-    "Xiaofeng Mao",
-    "Peijia Lin",
-    "Shaohao Rui",
-    "Yibo Zhang"
+    "Michael Noukhovitch",
+    "Hamish Ivison",
+    "Nathan Lambert",
+    "Aaron Courville"
    ],
-   "link": "https://huggingface.co/papers/2609.15863",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-14T00:00",
-   "title_ar": "لين ريل-أومني: توليد فيديو متعدد الوسائط أصيل لمهام سير العمل البصرية الوكيلة",
-   "summary_ar": "تعد نماذج انتشار الفيديو عشوائية ويصعب التحكم فيها، إذ يتطلب المحتوى الدقيق غالبًا أخذ عينات متكررًا دون ضمان للنجاح، كما تنحرف المشاهد طويلة المدى في المظهر والتفاعلات والاتساق الزمني. ويوفر الإنشاء البصري الوكيل مراجع صريحة، أو مشاهد ثلاثية الأبعاد قابلة للتعديل، أو أطرًا تنفيذية."
-  },
-  {
-   "id": "2609.13058",
-   "title": "Expert-Space Exploration in MoE Reinforcement Learning",
-   "abstract": "Reinforcement learning (RL) has become central to post-training of large language models. Recent advances in RL for Mixture-of-Experts (MoE) models have primarily focused on improving optimization stability and training efficiency, while treating the expert selection as a fixed component. Since routing determines the sparse computation paths that induce output distributions, expert selection offers an additional source of rollout diversity. Through empirical analysis, we find that perturbing expert routing effectively alters model output and increases rollout diversity, which is similar to inc",
-   "authors": [
-    "Hongyi He",
-    "Zhenghao Lin",
-    "Xiao Liu",
-    "Peng Cheng"
-   ],
-   "link": "https://huggingface.co/papers/2609.13058",
+   "link": "https://huggingface.co/papers/2609.13443",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-11T00:00",
-   "title_ar": "استكشاف فضاء الخبراء في التعلم المعزز لنماذج خليط الخبراء",
-   "summary_ar": "أصبح التعلم المعزز ركيزة أساسية في مرحلة ما بعد تدريب النماذج اللغوية الكبيرة. وقد ركزت التطورات الحديثة في التعلم المعزز لنماذج خليط الخبراء بشكل أساسي على تحسين استقرار التحسين وكفاءة التدريب، مع التعامل مع اختيار الخبراء كعنصر ثابت."
+   "title_ar": "التعلم لحل المشكلات الصعبة في التعلم التعزيزي للنماذج اللغوية الكبيرة عبر عدم الاستسلام أبدًا",
+   "summary_ar": "نوضح أن تدريب النماذج اللغوية الكبيرة بالتعلم التعزيزي لا يحسن الأداء بالتساوي عبر مجموعة البيانات؛ إذ يُظهر تحسينات كبيرة في المشكلات السهلة التي يجيد النموذج حلها أصلًا، مقابل تحسينات طفيفة في المشكلات الصعبة. وقد أطلقنا على ذلك اسم \"تأثير متى\" في التعلم التعزيزي للنماذج اللغوية الكبيرة، نسبةً إلى ظاهرة التراكم."
   },
   {
-   "id": "2609.12419",
-   "title": "MInTRL: Off-policy Intervention can boost On-policy RL",
-   "abstract": "Reinforcement learning with verifiable rewards is typically performed on-policy, keeping training data close to the current policy but limiting learning to trajectories that the policy can discover itself. Off-policy methods such as supervised fine-tuning, on the other hand, can leverage external knowledge beyond the base model's capabilities, but may suffer from large distribution shift. The key challenge is thus to expand exploration without sacrificing learnability. In this work, we introduce Minimal Intervention Reinforcement Learning (MInTRL), which expands the exploration frontier throug",
+   "id": "2609.13463",
+   "title": "Root-Cause Attribution Is a Search Problem: Continual Search for Long-Horizon Agent Failures",
+   "abstract": "The increasing deployment of AI agents in long-horizon tasks yields massive execution logs. Diagnosing failures within these records is crucial for reliability, as it transforms outcome-level signals into actionable interventions. The sheer scale of the data renders human review impractical, driving the need for automated root-cause attribution (RCA). However, automated RCA methods using LLMs suffer from low diagnostic accuracy, especially as execution traces grow larger. They struggle because relevant information is often sparse, distributed across distant actions, and disconnected from the v",
    "authors": [
-    "Mingyu Chen",
-    "Yefan Tao",
-    "Gerald Friedland",
-    "Xuezhou Zhang"
+    "Harsh Raj",
+    "David Lee",
+    "Anas Mahmoud",
+    "Renxiong Wang"
    ],
-   "link": "https://huggingface.co/papers/2609.12419",
+   "link": "https://huggingface.co/papers/2609.13463",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-11T00:00",
-   "title_ar": "MInTRL: التدخل خارج السياسة يمكن أن يعزز التعلم المعزز القائم على السياسة",
-   "summary_ar": "يُنفذ التعلم المعزز ذو المكافآت القابلة للتحقق عادةً بنمط متسق مع السياسة الحالية، مما يبقي بيانات التدريب قريبة منها ولكنه يحد من التعلم ضمن المسارات التي تكتشفها السياسة بنفسها. وفي المقابل، يمكن للأساليب غير المتسقة مع السياسة، مثل الضبط الدقيق الخاضع للإشراف، الاستفادة من المعرفة الخارجية."
+   "title_ar": "إسناد السبب الجذري هو مشكلة بحث: البحث المستمر لإخفاقات الوكلاء طويلي المدى",
+   "summary_ar": "يؤدي التوسع في نشر وكلاء الذكاء الاصطناعي في المهام طويلة المدى إلى توليد سجلات تنفيذ ضخمة، ويعد تشخيص الإخفاقات داخلها أمرًا بالغ الأهمية للموثوقية لتحويل إشارات النتائج إلى تدخلات قابلة للتنفيذ. ونظرًا لأن الحجم الهائل لهذه البيانات يجعل المراجعة البشرية غير عملية، فإن ذلك يدفع نحو أتمتة هذه العملية."
   },
   {
-   "id": "2609.13285",
-   "title": "Grouped Value Attention: Efficient KV Caching via On-Demand Key Reconstruction",
-   "abstract": "The KV cache is a primary bottleneck for Transformer decoding: its memory footprint and cache-read traffic grow with sequence length. Grouped-query attention (GQA) reduces this cost by sharing key-value heads, but still stores both a key and a value at every step. We introduce Grouped Value Attention (GVA), which stores grouped values and reconstructs content keys with a learned linear map. At inference, the map can be absorbed into the query, eliminating the need to materialize content keys in the intended decode path. A small shared decoupled RoPE channel retains positional information throu",
+   "id": "2609.14302",
+   "title": "E2A-Bench: Benchmarking Evidence-to-Action Reliability in Financial Chart Reasoning",
+   "abstract": "Can financial vision-language models (VLMs) turn chart evidence into reliable action recommendations? Existing hallucination evaluations are mostly claim-centric; they assess whether generated statements are supported, but not whether evidence remains traceable through rationale, confidence, and final action. We introduce E2A-Bench, a 969-query benchmark for financial chart reasoning, constructed from 323 HS300 constituents under three input modalities with deterministic OHLCV-derived evidence anchors. E2A-Bench evaluates grounding, reasoning-action consistency, evidence-confidence calibration",
    "authors": [
-    "Vishesh Tripathi",
-    "Abhay Kumar",
-    "Ramsha Khan"
+    "Xiaoya Wang",
+    "Yutong Xu",
+    "Junjie Wang"
    ],
-   "link": "https://huggingface.co/papers/2609.13285",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-08T00:00",
-   "title_ar": "انتباه القيمة المجمعة: تخزين مؤقت كفؤ للمفتاح والقيمة عبر إعادة بناء المفتاح عند الطلب",
-   "summary_ar": "تشكل ذاكرة التخزين المؤقت للمفتاح والقيمة عنق زجاجة رئيسيًا لفك تشفير المحولات، حيث يتزايد استهلاكها للذاكرة وحركة قراءة التخزين المؤقت مع زيادة طول التسلسل. يقلل انتباه الاستعلام المجمع هذه التكلفة بمشاركة رؤوس المفتاح والقيمة، ولكنه يظل يخزن مفتاحًا وقيمة عند كل خطوة، لذا نقدم انتباه القيمة المجمعة."
-  },
-  {
-   "id": "2609.13498",
-   "title": "Building a Production Greek-English Speech Recognizer",
-   "abstract": "We report a multi-month engineering program to build Sophea, a production bilingual Greek-English automatic speech recognition system. We evaluate the system against nine production gates covering Greek and English word error rate, language identification, and hallucinations on non-speech audio. Across twenty-three training iterations and two model architectures, no training-data composition passed all nine gates simultaneously. Meeting the Greek noisy-environment target required about 1,500 steps of dense domain exposure, while preserving English language identification tolerated only about 2",
-   "authors": [
-    "Christos Petrocheilos",
-    "Cleopatra Papadopoulou",
-    "Chris Porikis",
-    "Ioakeim Perros"
-   ],
-   "link": "https://huggingface.co/papers/2609.13498",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-11T00:00",
-   "title_ar": "بناء نظام إنتاجي للتعرف على الكلام باللغتين اليونانية والإنجليزية",
-   "summary_ar": "نعرض برنامجًا هندسيًا استمر عدة أشهر لبناء \"سوفيا\"، وهو نظام إنتاجي ثنائي اللغة للتعرف التلقائي على الكلام باليونانية والإنجليزية. ونقيم النظام استنادًا إلى تسع بوابات إنتاجية تشمل معدل خطأ الكلمات باللغتين، وتحديد اللغة، والهلوسات في الصوت الخالي من الكلام."
-  },
-  {
-   "id": "2609.14462",
-   "title": "AlayaVista: Streaming World Modeling from Panoramic States to Perspective Video",
-   "abstract": "Interactive video world models must maintain broad scene context under camera motion while producing high-fidelity observations with low latency. Existing approaches face a representation trade-off: perspective models operate on local views and must preserve off-screen content over long rollouts, whereas broader spatial coverage is typically obtained by synthesizing full-sphere videos or constructing explicit 3D representations. Motivated by the complementary roles of global context and selective local acuity in visual perception, we present AlayaVista, a camera-controllable streaming video wo",
-   "authors": [
-    "Jiaming Tan",
-    "Mingliang Zhai",
-    "Zhen Li",
-    "Yuwei Wu"
-   ],
-   "link": "https://huggingface.co/papers/2609.14462",
+   "link": "https://huggingface.co/papers/2609.14302",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-13T00:00",
-   "title_ar": "ألايا فيستا: نمذجة عالمية متدفقة من الحالات البانورامية إلى منظور الفيديو",
-   "summary_ar": "يجب أن تحافظ نماذج العالم المرئية التفاعلية على سياق واسع للمشهد أثناء حركة الكاميرا، مع إنتاج مشاهدات عالية الدقة بزمن انتقال منخفض. وتواجه الأساليب الحالية مفاضلة في التمثيل؛ إذ تعمل نماذج المنظور على عروض محلية ويتحتم عليها الحفاظ على المحتوى الخارج عن الشاشة عبر فترات زمنية ممتدة."
+   "title_ar": "إي 2 إيه-بنش: قياس موثوقية الانتقال من الدليل إلى الإجراء في التفكير المالي المبني على الرسوم البيانية",
+   "summary_ar": "يتناول البحث قدرة نماذج الرؤية واللغة المالية على تحويل أدلة الرسوم البيانية إلى توصيات إجراءات موثوقة. وتركز تقييمات الهلوسة الحالية في الغالب على الادعاءات؛ إذ تقيم ما إذا كانت العبارات مدعومة، لكنها لا تقيم بقاء الدليل قابلاً للتتبع عبر التعليل، والثقة، والقرار النهائي."
+  },
+  {
+   "id": "2609.13948",
+   "title": "Thought without systematicity? Evaluating reasoning models on rule induction tasks",
+   "abstract": "A central tenet of human cognition is systematicity, the principle that understanding one concept is inherently tied to understanding close variations of that concept. Do reasoning models robustly exhibit such systematicity? If so, we would expect consistent performance on structurally equivalent variants of the same task. Here, we extend established rule induction tasks from cognitive science to assess the systematicity of thought in current reasoning models. Each task family has compositional structure that we use to create structurally equivalent task variations through task isomorphisms su",
+   "authors": [
+    "Simon Schug",
+    "Brenden M. Lake"
+   ],
+   "link": "https://huggingface.co/papers/2609.13948",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-12T00:00",
+   "title_ar": "تفكير بلا منهجية؟ تقييم نماذج الاستدلال في مهام استقراء القواعد",
+   "summary_ar": "يتمثل أحد المبادئ المركزية للإدراك البشري في المنهجية، وهي مبدأ أن فهم مفهوم ما يرتبط جوهريًا بفهم التنويعات القريبة منه، ويتساءل البحث عما إذا كانت نماذج الاستدلال تُظهر هذه المنهجية بمتانة. وإذا كان الأمر كذلك، فمن المتوقع أن نرى أداءً متسقًا عبر التنويعات المتكافئة بنيويًا."
+  },
+  {
+   "id": "2609.01430",
+   "title": "Learning Sparse Decision Trees via Transformer Variational Auto-Encoders",
+   "abstract": "Decision trees are among the most widely used models in machine learning, largely due to their transparent decision logic, making them well-suited for high-stakes decision-making contexts. However, most existing learning algorithms focus on predictive performance, overlooking the joint optimization of other desirable properties, such as structural sparsity. In this work we propose TREVIS, an approach for learning decision trees with respect to complex objectives, based on the exploration of the latent space of a Tree Transformer Variational Auto-Encoder (TTVAE). By mapping decision trees onto ",
+   "authors": [
+    "Giacomo Fidone",
+    "Alessio Cascione",
+    "Riccardo Guidotti"
+   ],
+   "link": "https://huggingface.co/papers/2609.01430",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-01T00:00",
+   "title_ar": "تعلم أشجار القرار المتناثرة عبر مشفرات المحولات التلقائية التباينية",
+   "summary_ar": "تُعد أشجار القرار من أكثر النماذج استخدامًا في تعلم الآلة، ويعود ذلك أساسًا إلى منطق اتخاذ القرار الشفاف فيها، مما يجعلها ملائمة لسياقات اتخاذ القرار الحساسة. ومع ذلك، تركز معظم خوارزميات التعلم الحالية على الأداء التنبؤي، متجاهلة التحسين المشترك."
+  },
+  {
+   "id": "2609.15504",
+   "title": "How Lossless Is Lossless Speculative Decoding? The Role of Numerical Precision in Orthrus",
+   "abstract": "Orthrus is a hybrid autoregressive-diffusion architecture that accelerates autoregressive language-model inference by generating multiple tokens in parallel while using a frozen autoregressive backbone. Its central claim is that an intra-model consensus mechanism enables lossless speculative decoding, producing the same output sequence as the autoregressive model. We independently reproduce Orthrus and examine this claim under different numerical precisions. Under BF16 inference, exact trajectory matching occurs in only 45% of cases for the authors' checkpoint and 43% for our independently tra",
+   "authors": [
+    "Ilya Koziev",
+    "Leonid Sinev",
+    "Ivan Oseledets"
+   ],
+   "link": "https://huggingface.co/papers/2609.15504",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-14T00:00",
+   "title_ar": "ما مدى دقة فك الترميز التخميني غير المنقوص؟ دور الدقة العددية في نموذج أوثروس",
+   "summary_ar": "يُعد \"أوثروس\" بنية هجينة تجمع بين الانحدار الذاتي والانتشار لتسريع استدلال نماذج اللغة ذاتية الانحدار عن طريق توليد عدة رموز بالتوازي مع استخدام عمود فقري مجمد للانحدار الذاتي. ويتمثل ادعاؤه المركزي في أن آلية الإجماع داخل النموذج تتيح فك ترميز تخمينيًا غير منقوص."
   }
  ],
  "n": 6
