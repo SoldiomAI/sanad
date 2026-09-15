@@ -1,102 +1,107 @@
 {
- "updated": "2026-09-14T20:46+00:00",
+ "updated": "2026-09-15T08:54+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.10728",
-   "title": "Towards a Deterministic Math Solver for Clinical Language Models",
-   "abstract": "Large language models are unreliable at arithmetic, which is a problem for clinical calculators where a single numerical error changes the recommendation. The standard response is to hardcode each calculator as a validated function, one at a time. We test an alternative: the model does not calculate. Instead, it writes case-specific Python that a restricted local executor runs as a deterministic solver, and the model's task reduces to deciding how to use it. We evaluate this Program-Solve interface on MedCalc-Bench Verified (1,100 cases, 55 calculators) against direct model arithmetic and a ha",
+   "id": "2609.15863",
+   "title": "LynnReal-Omni: Native multi-modal Video Generation for Agentic Visual Workflows",
+   "abstract": "Video diffusion models are stochastic and hard to control: precise content often requires repeated sampling without guaranteed success, and long-horizon scenes drift in appearance, interactions, and temporal coherence. Agentic visual creation provides explicit references, editable 3D scenes, or executable game states for stable control, but does not by itself guarantee high object or character fidelity. Combining the two can enable stable, high-quality generation. To realize this combination, we present LynnReal-Omni, a native multimodal video generation framework built on a 32B shared multimo",
    "authors": [
-    "Felipe Ocampo Osorio",
-    "Sebastián Andrés Cajas Ordoñez",
-    "Maximin Lange",
-    "Rafi Al Attrach"
+    "Xiaofeng Mao",
+    "Peijia Lin",
+    "Shaohao Rui",
+    "Yibo Zhang"
    ],
-   "link": "https://huggingface.co/papers/2609.10728",
+   "link": "https://huggingface.co/papers/2609.15863",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-09T00:00",
-   "title_ar": "نحو حلّال رياضي حتمي للنماذج اللغوية السريرية",
-   "summary_ar": "تُعدّ النماذج اللغوية الكبيرة غير موثوقة في الحساب، وهي مشكلة تواجه الآلات الحاسبة السريرية التي قد يغيّر فيها خطأ عددي واحد التوصية. بينما يتمثل الحل المعتاد في كتابة كود برمجي ثابت وموثق لكل حاسبة على حدة، يختبر الباحثون بديلاً لا يقوم فيه النموذج بالحساب بنفسه."
+   "published": "2026-09-14T00:00",
+   "title_ar": "لين ريل-أومني: توليد فيديو متعدد الوسائط أصيل لمهام سير العمل البصرية الوكيلة",
+   "summary_ar": "تعد نماذج انتشار الفيديو عشوائية ويصعب التحكم فيها، إذ يتطلب المحتوى الدقيق غالبًا أخذ عينات متكررًا دون ضمان للنجاح، كما تنحرف المشاهد طويلة المدى في المظهر والتفاعلات والاتساق الزمني. ويوفر الإنشاء البصري الوكيل مراجع صريحة، أو مشاهد ثلاثية الأبعاد قابلة للتعديل، أو أطرًا تنفيذية."
   },
   {
-   "id": "2609.07099",
-   "title": "Ambient @ EgoProactive 2026 : Proactive Egocentric Assistance with Visually Grounded Supervision",
-   "abstract": "We present our submission to the EgoProactive track of the ECCV 2026 Wearable AI Challenge, which ranked first in the large-model division and second in the <=2B division. The task requires a wearable assistant to decide after each eight-second segment of egocentric video whether to intervene or remain silent. Our approach has two main components. First, we reformulate intervention timing as single-token classification. Rather than generating either interrupt<utterance> or silent, the model predicts yes or no, and we derive the decision from the renormalised probabilities of these two tokens. ",
+   "id": "2609.13058",
+   "title": "Expert-Space Exploration in MoE Reinforcement Learning",
+   "abstract": "Reinforcement learning (RL) has become central to post-training of large language models. Recent advances in RL for Mixture-of-Experts (MoE) models have primarily focused on improving optimization stability and training efficiency, while treating the expert selection as a fixed component. Since routing determines the sparse computation paths that induce output distributions, expert selection offers an additional source of rollout diversity. Through empirical analysis, we find that perturbing expert routing effectively alters model output and increases rollout diversity, which is similar to inc",
    "authors": [
-    "Logesh Kumar Umapathi"
+    "Hongyi He",
+    "Zhenghao Lin",
+    "Xiao Liu",
+    "Peng Cheng"
    ],
-   "link": "https://huggingface.co/papers/2609.07099",
+   "link": "https://huggingface.co/papers/2609.13058",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-10T00:00",
-   "title_ar": "أمبينت في تحدي إيغو برواكتيف 2026: المساعدة الاستباقية من منظور الشخص الأول بإشراف مرتكز بصريًا",
-   "summary_ar": "يقدّم البحث مشاركة الفريق في مسار \"EgoProactive\" ضمن تحدي الذكاء الاصطناعي للأجهزة القابلة للارتداء في مؤتمر ECCV 2026، والتي أحرزت المركز الأول في فئة النماذج الكبيرة والثاني في فئة 2 مليار معامِل فأقل. تتطلب المهمة من مساعد قابل للارتداء أن يقرر بعد كل مقطع فيديو مدته 8 ثوانٍ من منظور الشخص الأول ما إذا كان سيتدخل أم يبقى صامتًا."
+   "published": "2026-09-11T00:00",
+   "title_ar": "استكشاف فضاء الخبراء في التعلم المعزز لنماذج خليط الخبراء",
+   "summary_ar": "أصبح التعلم المعزز ركيزة أساسية في مرحلة ما بعد تدريب النماذج اللغوية الكبيرة. وقد ركزت التطورات الحديثة في التعلم المعزز لنماذج خليط الخبراء بشكل أساسي على تحسين استقرار التحسين وكفاءة التدريب، مع التعامل مع اختيار الخبراء كعنصر ثابت."
   },
   {
-   "id": "2609.07154",
-   "title": "Ambient @ EgoLongQA 2026: Distilling Long-Video perception into a Sub-2B Model",
-   "abstract": "We describe our entry to the EgoLongQA track of the Wearable-AI Challenge in ECCV 2026, which placed first in the <=2B parameter division with 0.8279 on the held-out test set. Our system is a single 2B vision-language model that answers multiple-choice questions about ten-minute egocentric videos in one greedy forward pass; It is obtained by distilling the junior perception module of a tool-using agentic pipeline, not the agent itself into a small student, using teacher traces filtered to those that answered correctly. it reaches 89% of the accuracy of the large agentic pipeline using 1.1% of ",
+   "id": "2609.12419",
+   "title": "MInTRL: Off-policy Intervention can boost On-policy RL",
+   "abstract": "Reinforcement learning with verifiable rewards is typically performed on-policy, keeping training data close to the current policy but limiting learning to trajectories that the policy can discover itself. Off-policy methods such as supervised fine-tuning, on the other hand, can leverage external knowledge beyond the base model's capabilities, but may suffer from large distribution shift. The key challenge is thus to expand exploration without sacrificing learnability. In this work, we introduce Minimal Intervention Reinforcement Learning (MInTRL), which expands the exploration frontier throug",
    "authors": [
-    "Logesh Kumar Umapathi"
+    "Mingyu Chen",
+    "Yefan Tao",
+    "Gerald Friedland",
+    "Xuezhou Zhang"
    ],
-   "link": "https://huggingface.co/papers/2609.07154",
+   "link": "https://huggingface.co/papers/2609.12419",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-10T00:00",
-   "title_ar": "أمبينت في تحدي إيغو لونغ كيو إيه 2026: تقطير إدراك الفيديو الطويل في نموذج بحجم أقل من 2 مليار معامِل",
-   "summary_ar": "يصف البحث المشاركة في مسار \"EgoLongQA\" ضمن تحدي الذكاء الاصطناعي للأجهزة القابلة للارتداء في ECCV 2026، والتي احتلت المركز الأول في فئة المعامِلات الأقل من أو تساوي 2 مليار بنتيجة 0.8279 على مجموعة الاختبار المحجوبة. يعتمد النظام على نموذج رؤية ولغة فردي بحجم 2 مليار معامِل يجيب عن أسئلة الاختيار من متعدد حول مقاطع فيديو مدتها 10 دقائق من منظور الشخص الأول."
+   "published": "2026-09-11T00:00",
+   "title_ar": "MInTRL: التدخل خارج السياسة يمكن أن يعزز التعلم المعزز القائم على السياسة",
+   "summary_ar": "يُنفذ التعلم المعزز ذو المكافآت القابلة للتحقق عادةً بنمط متسق مع السياسة الحالية، مما يبقي بيانات التدريب قريبة منها ولكنه يحد من التعلم ضمن المسارات التي تكتشفها السياسة بنفسها. وفي المقابل، يمكن للأساليب غير المتسقة مع السياسة، مثل الضبط الدقيق الخاضع للإشراف، الاستفادة من المعرفة الخارجية."
   },
   {
-   "id": "2609.10824",
-   "title": "Studying Without a Syllabus: Task-Agnostic Environment Preprocessing",
-   "abstract": "Before an LLM agent tackles tasks in a new environment, it can inspect available corpora and tools and construct reusable resources such as indices, scripts, or procedural guidance. Most automated adaptation methods, however, rely on task examples, trajectories, or evaluation feedback to decide what to build. Existing task-agnostic approaches avoid this supervision but commit in advance to a preparation strategy for a particular type of environment. We study a more open-ended setting: can an agent study an unfamiliar environment without a syllabus, i.e. before test time and without knowledge o",
+   "id": "2609.13285",
+   "title": "Grouped Value Attention: Efficient KV Caching via On-Demand Key Reconstruction",
+   "abstract": "The KV cache is a primary bottleneck for Transformer decoding: its memory footprint and cache-read traffic grow with sequence length. Grouped-query attention (GQA) reduces this cost by sharing key-value heads, but still stores both a key and a value at every step. We introduce Grouped Value Attention (GVA), which stores grouped values and reconstructs content keys with a learned linear map. At inference, the map can be absorbed into the query, eliminating the need to materialize content keys in the intended decode path. A small shared decoupled RoPE channel retains positional information throu",
    "authors": [
-    "Vinay Samuel",
-    "Varun Ursekar",
-    "Vijay S. Kalmath",
-    "Apaar Shanker"
+    "Vishesh Tripathi",
+    "Abhay Kumar",
+    "Ramsha Khan"
    ],
-   "link": "https://huggingface.co/papers/2609.10824",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-09T00:00",
-   "title_ar": "الدراسة دون منهج دراسي: المعالجة المسبقة للبيئة بشكل غير مرتبط بمهام محددة",
-   "summary_ar": "يمكن لوكيل النماذج اللغوية الكبيرة فحص النصوص والأدوات المتاحة وبناء موارد قابلة لإعادة الاستخدام كالفهارس والسكربتات قبل تنفيذ المهام في بيئة جديدة. ومع ذلك، فإن معظم أساليب التكيف الآلي تعتمد على أمثلة المهام، أو المسارات، أو التغذية الراجعة للتقييم لتحديد ما يجب بناؤه."
-  },
-  {
-   "id": "2609.10297",
-   "title": "TRACE: Trajectory-robust Admission with Evidence Ordering for Efficient GUI Agents",
-   "abstract": "GUI agents accumulate high-resolution screenshots as the trajectory unfolds, increasing inference latency and memory usage. Training-free visual token pruning can reduce this cost, but cache reuse introduces a fundamental constraint. Once tokens are discarded, the corresponding visual evidence cannot be recovered without re-encoding. Pruning therefore becomes an irreversible admission decision that must remain useful for unknown future targets while preserving coverage of operable regions under tight budgets. To address these challenges, we propose \\method{}, a training-free framework for \\tex",
-   "authors": [
-    "Yuhao Wang",
-    "Mu Qiao",
-    "Xindong Zhang",
-    "Yunzhi Zhuge"
-   ],
-   "link": "https://huggingface.co/papers/2609.10297",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-09T00:00",
-   "title_ar": "تريس: قبول متين للمسار مع ترتيب الأدلة لوكلاء واجهات المستخدم الرسومية بكفاءة",
-   "summary_ar": "يجمع وكلاء واجهات المستخدم الرسومية لقطات شاشة عالية الدقة مع استمرار المسار، مما يرفع زمن استجابة الاستدلال واستهلاك الذاكرة. ورغم إمكانية خفض هذه التكلفة عبر تقليم الرموز البصرية دون تدريب، فإن إعادة استخدام الذاكرة المخبئية تفرض قيدًا أساسيًا؛ إذ لا يمكن استرجاع الأدلة البصرية بعد حذف رموزها."
-  },
-  {
-   "id": "2609.08230",
-   "title": "ActionSplice: In-Flight Action Editing for Interactive World Models",
-   "abstract": "Chunk-autoregressive video world models typically condition each generated chunk on one action. An action received during sampling must therefore wait for the next chunk, condition future solver evaluations on a state produced under the previous action, or trigger rollback that repeats completed evaluations. We introduce ActionSplice, an inference framework that formulates this problem as Counterfactual State Transport (CST). A lightweight corrector transports the interrupted backbone-native representation toward the matched state induced by the revised action at the same solver step. The worl",
-   "authors": [
-    "Pardis Taghavi",
-    "Tingyu Guo",
-    "Jonas Lossner",
-    "Gaurav Pandey"
-   ],
-   "link": "https://huggingface.co/papers/2609.08230",
+   "link": "https://huggingface.co/papers/2609.13285",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-08T00:00",
-   "title_ar": "أكشن سبلايس: تعديل الإجراء أثناء التشغيل لنماذج العالم التفاعلية",
-   "summary_ar": "عادةً ما تشترط نماذج العالم للفيديو ذات التراجع الذاتي على دفعات وجود إجراء واحد لكل دفعة مفرغة. وبناءً على ذلك، يجب على أي إجراء يُستقبل أثناء أخذ العينات أن ينتظر الدفعة التالية، أو يُخضع تقييمات الحلّال المستقبلية لحالة أُنتجت تحت الإجراء السابق، أو يؤدي إلى تراجع يعيد التقييمات المنجزة."
+   "title_ar": "انتباه القيمة المجمعة: تخزين مؤقت كفؤ للمفتاح والقيمة عبر إعادة بناء المفتاح عند الطلب",
+   "summary_ar": "تشكل ذاكرة التخزين المؤقت للمفتاح والقيمة عنق زجاجة رئيسيًا لفك تشفير المحولات، حيث يتزايد استهلاكها للذاكرة وحركة قراءة التخزين المؤقت مع زيادة طول التسلسل. يقلل انتباه الاستعلام المجمع هذه التكلفة بمشاركة رؤوس المفتاح والقيمة، ولكنه يظل يخزن مفتاحًا وقيمة عند كل خطوة، لذا نقدم انتباه القيمة المجمعة."
+  },
+  {
+   "id": "2609.13498",
+   "title": "Building a Production Greek-English Speech Recognizer",
+   "abstract": "We report a multi-month engineering program to build Sophea, a production bilingual Greek-English automatic speech recognition system. We evaluate the system against nine production gates covering Greek and English word error rate, language identification, and hallucinations on non-speech audio. Across twenty-three training iterations and two model architectures, no training-data composition passed all nine gates simultaneously. Meeting the Greek noisy-environment target required about 1,500 steps of dense domain exposure, while preserving English language identification tolerated only about 2",
+   "authors": [
+    "Christos Petrocheilos",
+    "Cleopatra Papadopoulou",
+    "Chris Porikis",
+    "Ioakeim Perros"
+   ],
+   "link": "https://huggingface.co/papers/2609.13498",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-11T00:00",
+   "title_ar": "بناء نظام إنتاجي للتعرف على الكلام باللغتين اليونانية والإنجليزية",
+   "summary_ar": "نعرض برنامجًا هندسيًا استمر عدة أشهر لبناء \"سوفيا\"، وهو نظام إنتاجي ثنائي اللغة للتعرف التلقائي على الكلام باليونانية والإنجليزية. ونقيم النظام استنادًا إلى تسع بوابات إنتاجية تشمل معدل خطأ الكلمات باللغتين، وتحديد اللغة، والهلوسات في الصوت الخالي من الكلام."
+  },
+  {
+   "id": "2609.14462",
+   "title": "AlayaVista: Streaming World Modeling from Panoramic States to Perspective Video",
+   "abstract": "Interactive video world models must maintain broad scene context under camera motion while producing high-fidelity observations with low latency. Existing approaches face a representation trade-off: perspective models operate on local views and must preserve off-screen content over long rollouts, whereas broader spatial coverage is typically obtained by synthesizing full-sphere videos or constructing explicit 3D representations. Motivated by the complementary roles of global context and selective local acuity in visual perception, we present AlayaVista, a camera-controllable streaming video wo",
+   "authors": [
+    "Jiaming Tan",
+    "Mingliang Zhai",
+    "Zhen Li",
+    "Yuwei Wu"
+   ],
+   "link": "https://huggingface.co/papers/2609.14462",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-13T00:00",
+   "title_ar": "ألايا فيستا: نمذجة عالمية متدفقة من الحالات البانورامية إلى منظور الفيديو",
+   "summary_ar": "يجب أن تحافظ نماذج العالم المرئية التفاعلية على سياق واسع للمشهد أثناء حركة الكاميرا، مع إنتاج مشاهدات عالية الدقة بزمن انتقال منخفض. وتواجه الأساليب الحالية مفاضلة في التمثيل؛ إذ تعمل نماذج المنظور على عروض محلية ويتحتم عليها الحفاظ على المحتوى الخارج عن الشاشة عبر فترات زمنية ممتدة."
   }
  ],
  "n": 6
