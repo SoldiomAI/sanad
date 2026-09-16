@@ -1,103 +1,105 @@
 {
- "updated": "2026-09-15T21:38+00:00",
+ "updated": "2026-09-16T14:19+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.13443",
-   "title": "Learning to Solve Hard Problems in RL for LLMs by Never Giving Up",
-   "abstract": "We demonstrate that training LLMs with RL does not improve performance equally across a dataset. RL shows large improvements on easy problems that an LLM is already good at solving, but small improvements on hard problems. We call this the Matthew Effect in RL for LLMs, after the phenomenon of cumulative advantage from economics and network science summarized as \"the rich get richer\". The naive explanation is that hard problems require more compute to find a solution. We argue that modern RL methods are exacerbating the issue by wasting too much compute on easy problems and instead should dyna",
+   "id": "2609.16816",
+   "title": "ImpossibleRubrics: Stress-Testing Generated Rubrics as Reward Signals",
+   "abstract": "Language model-generated rubrics are increasingly used as reward signals for rubric-based reinforcement learning, LLM-as-a-judge evaluation, and automated grading. Such rubrics are reliable only if they reward honest answers over adversarial answers optimized to exploit them. Yet their robustness to such optimization remains poorly understood. We isolate the hardest regime: impossible tasks, where the prompt pressures the model toward an unsupported conclusion, so the only honest response is to acknowledge the impossibility. We introduce ImpossibleRubrics, a benchmark of 169 impossible tasks s",
    "authors": [
-    "Michael Noukhovitch",
-    "Hamish Ivison",
-    "Nathan Lambert",
-    "Aaron Courville"
+    "Bowen Qin",
+    "Yi Xie",
+    "Yesheng Liu",
+    "Xi Yang"
    ],
-   "link": "https://huggingface.co/papers/2609.13443",
+   "link": "https://huggingface.co/papers/2609.16816",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-11T00:00",
-   "title_ar": "التعلم لحل المشكلات الصعبة في التعلم التعزيزي للنماذج اللغوية الكبيرة عبر عدم الاستسلام أبدًا",
-   "summary_ar": "نوضح أن تدريب النماذج اللغوية الكبيرة بالتعلم التعزيزي لا يحسن الأداء بالتساوي عبر مجموعة البيانات؛ إذ يُظهر تحسينات كبيرة في المشكلات السهلة التي يجيد النموذج حلها أصلًا، مقابل تحسينات طفيفة في المشكلات الصعبة. وقد أطلقنا على ذلك اسم \"تأثير متى\" في التعلم التعزيزي للنماذج اللغوية الكبيرة، نسبةً إلى ظاهرة التراكم."
+   "published": "2026-09-15T00:00",
+   "title_ar": "معايير التقييم المستحيلة: اختبار إجهاد معايير التقييم المُولَّدة كإشارات مكافأة",
+   "summary_ar": "تُستخدم معايير التقييم المُولَّدة بنماذج اللغة كإشارات مكافأة في التعلم التعزيزي والتقييم الآلي، ولا تكون موثوقة إلا إذا فضلت الإجابات الصادقة على الإجابات المعادية المصممة لاستغلالها. ومع ذلك، تبقى متانتها موضع تساؤل."
   },
   {
-   "id": "2609.13463",
-   "title": "Root-Cause Attribution Is a Search Problem: Continual Search for Long-Horizon Agent Failures",
-   "abstract": "The increasing deployment of AI agents in long-horizon tasks yields massive execution logs. Diagnosing failures within these records is crucial for reliability, as it transforms outcome-level signals into actionable interventions. The sheer scale of the data renders human review impractical, driving the need for automated root-cause attribution (RCA). However, automated RCA methods using LLMs suffer from low diagnostic accuracy, especially as execution traces grow larger. They struggle because relevant information is often sparse, distributed across distant actions, and disconnected from the v",
+   "id": "2609.14011",
+   "title": "Convergent Emergence of In-Context Learning Across Modalities",
+   "abstract": "Few-shot in-context learning (ICL), the capacity of a model to infer abstract patterns from input-output examples provided in its prompt and apply them to new inputs, has been extensively studied in large language models trained for next-token prediction on human text. Recently, few-shot ICL has been demonstrated in autoregressive genomic models as well. This raises a question: does ICL emerge broadly across domains, and if so, what common structure is shared? To address both, we develop a controlled cross-modality framework that instantiates the same task suite in a variety of modalities to t",
    "authors": [
-    "Harsh Raj",
-    "David Lee",
-    "Anas Mahmoud",
-    "Renxiong Wang"
+    "Nathan Breslow",
+    "Seungwook Han",
+    "Daniel Hyunsoo Lee",
+    "Aayush Mishra"
    ],
-   "link": "https://huggingface.co/papers/2609.13463",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-11T00:00",
-   "title_ar": "إسناد السبب الجذري هو مشكلة بحث: البحث المستمر لإخفاقات الوكلاء طويلي المدى",
-   "summary_ar": "يؤدي التوسع في نشر وكلاء الذكاء الاصطناعي في المهام طويلة المدى إلى توليد سجلات تنفيذ ضخمة، ويعد تشخيص الإخفاقات داخلها أمرًا بالغ الأهمية للموثوقية لتحويل إشارات النتائج إلى تدخلات قابلة للتنفيذ. ونظرًا لأن الحجم الهائل لهذه البيانات يجعل المراجعة البشرية غير عملية، فإن ذلك يدفع نحو أتمتة هذه العملية."
-  },
-  {
-   "id": "2609.14302",
-   "title": "E2A-Bench: Benchmarking Evidence-to-Action Reliability in Financial Chart Reasoning",
-   "abstract": "Can financial vision-language models (VLMs) turn chart evidence into reliable action recommendations? Existing hallucination evaluations are mostly claim-centric; they assess whether generated statements are supported, but not whether evidence remains traceable through rationale, confidence, and final action. We introduce E2A-Bench, a 969-query benchmark for financial chart reasoning, constructed from 323 HS300 constituents under three input modalities with deterministic OHLCV-derived evidence anchors. E2A-Bench evaluates grounding, reasoning-action consistency, evidence-confidence calibration",
-   "authors": [
-    "Xiaoya Wang",
-    "Yutong Xu",
-    "Junjie Wang"
-   ],
-   "link": "https://huggingface.co/papers/2609.14302",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-13T00:00",
-   "title_ar": "إي 2 إيه-بنش: قياس موثوقية الانتقال من الدليل إلى الإجراء في التفكير المالي المبني على الرسوم البيانية",
-   "summary_ar": "يتناول البحث قدرة نماذج الرؤية واللغة المالية على تحويل أدلة الرسوم البيانية إلى توصيات إجراءات موثوقة. وتركز تقييمات الهلوسة الحالية في الغالب على الادعاءات؛ إذ تقيم ما إذا كانت العبارات مدعومة، لكنها لا تقيم بقاء الدليل قابلاً للتتبع عبر التعليل، والثقة، والقرار النهائي."
-  },
-  {
-   "id": "2609.13948",
-   "title": "Thought without systematicity? Evaluating reasoning models on rule induction tasks",
-   "abstract": "A central tenet of human cognition is systematicity, the principle that understanding one concept is inherently tied to understanding close variations of that concept. Do reasoning models robustly exhibit such systematicity? If so, we would expect consistent performance on structurally equivalent variants of the same task. Here, we extend established rule induction tasks from cognitive science to assess the systematicity of thought in current reasoning models. Each task family has compositional structure that we use to create structurally equivalent task variations through task isomorphisms su",
-   "authors": [
-    "Simon Schug",
-    "Brenden M. Lake"
-   ],
-   "link": "https://huggingface.co/papers/2609.13948",
+   "link": "https://huggingface.co/papers/2609.14011",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-12T00:00",
-   "title_ar": "تفكير بلا منهجية؟ تقييم نماذج الاستدلال في مهام استقراء القواعد",
-   "summary_ar": "يتمثل أحد المبادئ المركزية للإدراك البشري في المنهجية، وهي مبدأ أن فهم مفهوم ما يرتبط جوهريًا بفهم التنويعات القريبة منه، ويتساءل البحث عما إذا كانت نماذج الاستدلال تُظهر هذه المنهجية بمتانة. وإذا كان الأمر كذلك، فمن المتوقع أن نرى أداءً متسقًا عبر التنويعات المتكافئة بنيويًا."
+   "title_ar": "الظهور المتقارب للتعلم داخل السياق عبر وسائط متعددة",
+   "summary_ar": "دُرست قدرة التعلم داخل السياق بأمثلة قليلة، وهي استنتاج الأنماط المجردة وتطبيقها على مدخلات جديدة، على نطاق واسع في النماذج اللغوية الكبيرة المدربة على التنبؤ بالرمز التالي للنصوص البشرية. ومؤخرًا، بدأ هذا النوع من التعلم بالظهور في وسائط أخرى."
   },
   {
-   "id": "2609.01430",
-   "title": "Learning Sparse Decision Trees via Transformer Variational Auto-Encoders",
-   "abstract": "Decision trees are among the most widely used models in machine learning, largely due to their transparent decision logic, making them well-suited for high-stakes decision-making contexts. However, most existing learning algorithms focus on predictive performance, overlooking the joint optimization of other desirable properties, such as structural sparsity. In this work we propose TREVIS, an approach for learning decision trees with respect to complex objectives, based on the exploration of the latent space of a Tree Transformer Variational Auto-Encoder (TTVAE). By mapping decision trees onto ",
+   "id": "2609.14803",
+   "title": "Another Blueprint In The Wall: How to Ask Frontier AI Like a Kid?",
+   "abstract": "This paper reports experiments across six frontier model types from OpenAI, Anthropic, xAI, and Google DeepMind. Ten independent sessions per model type used the same three stage prompt sequence, progressing from architectural preference to a full ASCII backbone. Under the school audience framing, responses repeatedly converged on a shared architectural pattern built around persistent latent state, adaptive computation, memory, specialist routing, verification, stopping control, and delayed decoding. Most runs remained close to this common structure, while a small number developed markedly gre",
    "authors": [
-    "Giacomo Fidone",
-    "Alessio Cascione",
-    "Riccardo Guidotti"
+    "Afshin Khadangi"
    ],
-   "link": "https://huggingface.co/papers/2609.01430",
+   "link": "https://huggingface.co/papers/2609.14803",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-01T00:00",
-   "title_ar": "تعلم أشجار القرار المتناثرة عبر مشفرات المحولات التلقائية التباينية",
-   "summary_ar": "تُعد أشجار القرار من أكثر النماذج استخدامًا في تعلم الآلة، ويعود ذلك أساسًا إلى منطق اتخاذ القرار الشفاف فيها، مما يجعلها ملائمة لسياقات اتخاذ القرار الحساسة. ومع ذلك، تركز معظم خوارزميات التعلم الحالية على الأداء التنبؤي، متجاهلة التحسين المشترك."
+   "published": "2026-09-13T00:00",
+   "title_ar": "مخطط آخر في الجدار: كيف تسأل نماذج الذكاء الاصطناعي الرائدة كطفل؟",
+   "summary_ar": "يقدم هذا البحث تجارب على ستة نماذج رائدة من شركات أوبن إيه آي وأنثروبيك وإكس إيه آي وجوجل ديب مايند. استخدمت التجارب تسلسل مطالبات من ثلاث مراحل، انطلق من التفضيل المعماري وصولاً إلى هيكل متكامل برمز أسكي، تحت إطار جمهور مدرسي."
   },
   {
-   "id": "2609.15504",
-   "title": "How Lossless Is Lossless Speculative Decoding? The Role of Numerical Precision in Orthrus",
-   "abstract": "Orthrus is a hybrid autoregressive-diffusion architecture that accelerates autoregressive language-model inference by generating multiple tokens in parallel while using a frozen autoregressive backbone. Its central claim is that an intra-model consensus mechanism enables lossless speculative decoding, producing the same output sequence as the autoregressive model. We independently reproduce Orthrus and examine this claim under different numerical precisions. Under BF16 inference, exact trajectory matching occurs in only 45% of cases for the authors' checkpoint and 43% for our independently tra",
+   "id": "2609.14857",
+   "title": "ModularRSI: Modular and Generalizable Recursive Harness Self-Improvement",
+   "abstract": "Recent work extends recursive self-improvement (RSI) to agent harnesses for long-horizon coding and terminal tasks, enabling agents to improve execution mechanisms from experience. However, generalizable harness RSI remains challenging. First, evolving harnesses on evaluation benchmarks or their subsets makes it difficult to distinguish reusable improvements from benchmark-specific adaptation. Second, single-trajectory updates can conflate systematic harness deficiencies with instance-specific reasoning and solution details, producing modifications that transfer poorly to unseen tasks. Third, ",
    "authors": [
-    "Ilya Koziev",
-    "Leonid Sinev",
-    "Ivan Oseledets"
+    "Siwei Wu",
+    "Jincheng Ren",
+    "Yizhi Li",
+    "Haau-Sing Li"
    ],
-   "link": "https://huggingface.co/papers/2609.15504",
+   "link": "https://huggingface.co/papers/2609.14857",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-14T00:00",
-   "title_ar": "ما مدى دقة فك الترميز التخميني غير المنقوص؟ دور الدقة العددية في نموذج أوثروس",
-   "summary_ar": "يُعد \"أوثروس\" بنية هجينة تجمع بين الانحدار الذاتي والانتشار لتسريع استدلال نماذج اللغة ذاتية الانحدار عن طريق توليد عدة رموز بالتوازي مع استخدام عمود فقري مجمد للانحدار الذاتي. ويتمثل ادعاؤه المركزي في أن آلية الإجماع داخل النموذج تتيح فك ترميز تخمينيًا غير منقوص."
+   "title_ar": "ModularRSI: تحسين ذاتي تكراري نمطي وقابل للتعميم لحواضن الوكلاء",
+   "summary_ar": "وسّعت أعمال حديثة التحسين الذاتي التكراري ليشمل حواضن الوكلاء لمهام البرمجة والطرفية طويلة المدى، مما مكنها من تحسين آليات التنفيذ عبر الخبرة. ومع ذلك، لا يزال التحسين الذاتي التكراري القابل للتعميم يواجه تحديات عند تطوير الحواضن على منصات التقييم."
+  },
+  {
+   "id": "2609.15195",
+   "title": "HarnessVLN: Unifying Training-Free Embodied Navigation through an Agent Harness",
+   "abstract": "Embodied navigation requires agents to interpret visual observations, accumulate spatial knowledge, and execute actions to follow instructions or locate objects. Training-based methods face generalization challenges, while training-free methods exploit multimodal large language models (MLLMs) but often lack mechanisms to reconcile proposed actions with spatial evidence, task progress, and execution failures. We present HarnessVLN, a zero-shot, training-free framework whose Agent Harness coordinates perception, retrieval, grounding, navigation, recovery, and termination through a unified tool i",
+   "authors": [
+    "Yang Chen",
+    "Lirong Che",
+    "Zhenyu Huang",
+    "Wenbo Fu"
+   ],
+   "link": "https://huggingface.co/papers/2609.15195",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-14T00:00",
+   "title_ar": "HarnessVLN: توحيد الملاحة المجسدة الخالية من التدريب عبر حاضنة وكيل",
+   "summary_ar": "تتطلب الملاحة المجسدة من الوكلاء تفسير الملاحظات البصرية ومراكمة المعرفة المكانية واتخاذ الإجراءات لتنفيذ التعليمات أو تحديد مواقع الأشياء. وتواجه الطرق المعتمدة على التدريب تحديات في التعميم، بينما تستغل الطرق الخالية من التدريب النماذج اللغوية الكبيرة متعددة الوسائط."
+  },
+  {
+   "id": "2609.14005",
+   "title": "StepAudio 3 Realtime Technical Report",
+   "abstract": "Realtime spoken interaction demands deep reasoning, prompt responses, and fluid turn-taking. We present StepAudio 3 Realtime, an audio-language foundation model organized around a continuous listen-converse-think-act loop. Deep Perception captures rich acoustic cues to interpret user intent, while Seamless Duplex models synchronized audio streams to handle pauses, backchannels, and interruptions naturally. Crucially, we resolve the tension between deep deliberation and latency via Think-While-Speaking, executing private reasoning in parallel with spoken delivery. In reasoning mode, StepAudio 3",
+   "authors": [
+    "Bin Lin",
+    "Bo Zhao",
+    "Boyang Zhang",
+    "Boyong Wu"
+   ],
+   "link": "https://huggingface.co/papers/2609.14005",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-12T00:00",
+   "title_ar": "التقرير التقني لنظام StepAudio 3 Realtime",
+   "summary_ar": "يتطلب التفاعل الصوتي اللحظي استدلالاً عميقاً واستجابات فورية وتبادلاً سلساً للأدوار. يقدم هذا التقرير نموذج \"StepAudio 3 Realtime\" اللغوي الصوتي المؤسس على حلقة مستمرة للاستماع والتحدث والتفكير والتصرف، مستفيداً من إدراك عميق لالتقاط الإشارات الصوتية وتفسير نية المستخدم."
   }
  ],
  "n": 6
