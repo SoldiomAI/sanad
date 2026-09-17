@@ -1,105 +1,108 @@
 {
- "updated": "2026-09-16T14:19+00:00",
+ "updated": "2026-09-17T05:09+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.16816",
-   "title": "ImpossibleRubrics: Stress-Testing Generated Rubrics as Reward Signals",
-   "abstract": "Language model-generated rubrics are increasingly used as reward signals for rubric-based reinforcement learning, LLM-as-a-judge evaluation, and automated grading. Such rubrics are reliable only if they reward honest answers over adversarial answers optimized to exploit them. Yet their robustness to such optimization remains poorly understood. We isolate the hardest regime: impossible tasks, where the prompt pressures the model toward an unsupported conclusion, so the only honest response is to acknowledge the impossibility. We introduce ImpossibleRubrics, a benchmark of 169 impossible tasks s",
+   "id": "2609.17909",
+   "title": "Zing-0.5: Toward Playable Worlds with Real-Time Joint Action and Text Control",
+   "abstract": "We introduce Zing-0.5, a 5B autoregressive world model designed for playability: users can explore generated worlds, influence unfolding events, and respond to the resulting feedback through joint keyboard and online text control. Our approach brings together three technical contributions: (1) Unified action and text conditioning, combining magnitude-aware keyboard inputs with temporally aligned text instructions and jointly annotated videos to learn navigation and event control within the same sequence; (2) Event-scale supervision for incremental generation, using a segment-level teacher trai",
    "authors": [
-    "Bowen Qin",
-    "Yi Xie",
-    "Yesheng Liu",
-    "Xi Yang"
+    "Mingyang Chen",
+    "Shengdong Chen",
+    "Xiaoxiao Fu",
+    "Bosheng Gong"
    ],
-   "link": "https://huggingface.co/papers/2609.16816",
+   "link": "https://huggingface.co/papers/2609.17909",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-15T00:00",
-   "title_ar": "معايير التقييم المستحيلة: اختبار إجهاد معايير التقييم المُولَّدة كإشارات مكافأة",
-   "summary_ar": "تُستخدم معايير التقييم المُولَّدة بنماذج اللغة كإشارات مكافأة في التعلم التعزيزي والتقييم الآلي، ولا تكون موثوقة إلا إذا فضلت الإجابات الصادقة على الإجابات المعادية المصممة لاستغلالها. ومع ذلك، تبقى متانتها موضع تساؤل."
+   "title_ar": "Zing-0.5: نحو عوالم قابلة للعب مع تحكم فوري مشترك عبر الإجراءات والنصوص",
+   "summary_ar": "نقدّم Zing-0.5، وهو نموذج عالم انحداري ذاتي بحجم 5 مليارات معامل مصمم ليكون قابلاً للعب؛ حيث يمكن للمستخدمين استكشاف العوالم المُولَّدة، والتأثير في الأحداث الجارية، والاستجابة للتغذية الراجعة الناتجة عبر تحكم مشترك بلوحة المفاتيح والنصوص المباشرة. يجمع نهجنا بين ثلاث مساهمات تقنية أولها التوحيد."
   },
   {
-   "id": "2609.14011",
-   "title": "Convergent Emergence of In-Context Learning Across Modalities",
-   "abstract": "Few-shot in-context learning (ICL), the capacity of a model to infer abstract patterns from input-output examples provided in its prompt and apply them to new inputs, has been extensively studied in large language models trained for next-token prediction on human text. Recently, few-shot ICL has been demonstrated in autoregressive genomic models as well. This raises a question: does ICL emerge broadly across domains, and if so, what common structure is shared? To address both, we develop a controlled cross-modality framework that instantiates the same task suite in a variety of modalities to t",
+   "id": "2609.15938",
+   "title": "HypoEvolve: Genetic Algorithms Enable Multi-Agent LLMs to Discover Scientific Hypotheses",
+   "abstract": "Scientific agents contribute to hypothesis discovery by synthesizing evidence, assessing proposals, and developing new explanations. Recent systems combine scientific agents with evolutionary search through critique, comparison, and revision. However, how different forms of agent collaboration affect hypothesis quality remains an open question. Answering this question requires separating the effects of agents' scientific capabilities from those of their collaboration. A framework must therefore preserve agents' scientific roles and support rules for combining, revising, and retaining hypothese",
    "authors": [
-    "Nathan Breslow",
-    "Seungwook Han",
-    "Daniel Hyunsoo Lee",
-    "Aayush Mishra"
+    "Jieyuan Liu",
+    "Mengzhou Hu",
+    "Jefferson Chen",
+    "JungHo Kong"
    ],
-   "link": "https://huggingface.co/papers/2609.14011",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-12T00:00",
-   "title_ar": "الظهور المتقارب للتعلم داخل السياق عبر وسائط متعددة",
-   "summary_ar": "دُرست قدرة التعلم داخل السياق بأمثلة قليلة، وهي استنتاج الأنماط المجردة وتطبيقها على مدخلات جديدة، على نطاق واسع في النماذج اللغوية الكبيرة المدربة على التنبؤ بالرمز التالي للنصوص البشرية. ومؤخرًا، بدأ هذا النوع من التعلم بالظهور في وسائط أخرى."
-  },
-  {
-   "id": "2609.14803",
-   "title": "Another Blueprint In The Wall: How to Ask Frontier AI Like a Kid?",
-   "abstract": "This paper reports experiments across six frontier model types from OpenAI, Anthropic, xAI, and Google DeepMind. Ten independent sessions per model type used the same three stage prompt sequence, progressing from architectural preference to a full ASCII backbone. Under the school audience framing, responses repeatedly converged on a shared architectural pattern built around persistent latent state, adaptive computation, memory, specialist routing, verification, stopping control, and delayed decoding. Most runs remained close to this common structure, while a small number developed markedly gre",
-   "authors": [
-    "Afshin Khadangi"
-   ],
-   "link": "https://huggingface.co/papers/2609.14803",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-13T00:00",
-   "title_ar": "مخطط آخر في الجدار: كيف تسأل نماذج الذكاء الاصطناعي الرائدة كطفل؟",
-   "summary_ar": "يقدم هذا البحث تجارب على ستة نماذج رائدة من شركات أوبن إيه آي وأنثروبيك وإكس إيه آي وجوجل ديب مايند. استخدمت التجارب تسلسل مطالبات من ثلاث مراحل، انطلق من التفضيل المعماري وصولاً إلى هيكل متكامل برمز أسكي، تحت إطار جمهور مدرسي."
-  },
-  {
-   "id": "2609.14857",
-   "title": "ModularRSI: Modular and Generalizable Recursive Harness Self-Improvement",
-   "abstract": "Recent work extends recursive self-improvement (RSI) to agent harnesses for long-horizon coding and terminal tasks, enabling agents to improve execution mechanisms from experience. However, generalizable harness RSI remains challenging. First, evolving harnesses on evaluation benchmarks or their subsets makes it difficult to distinguish reusable improvements from benchmark-specific adaptation. Second, single-trajectory updates can conflate systematic harness deficiencies with instance-specific reasoning and solution details, producing modifications that transfer poorly to unseen tasks. Third, ",
-   "authors": [
-    "Siwei Wu",
-    "Jincheng Ren",
-    "Yizhi Li",
-    "Haau-Sing Li"
-   ],
-   "link": "https://huggingface.co/papers/2609.14857",
+   "link": "https://huggingface.co/papers/2609.15938",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-14T00:00",
-   "title_ar": "ModularRSI: تحسين ذاتي تكراري نمطي وقابل للتعميم لحواضن الوكلاء",
-   "summary_ar": "وسّعت أعمال حديثة التحسين الذاتي التكراري ليشمل حواضن الوكلاء لمهام البرمجة والطرفية طويلة المدى، مما مكنها من تحسين آليات التنفيذ عبر الخبرة. ومع ذلك، لا يزال التحسين الذاتي التكراري القابل للتعميم يواجه تحديات عند تطوير الحواضن على منصات التقييم."
+   "title_ar": "HypoEvolve: الخوارزميات الجينية تُمكّن النماذج اللغوية الكبيرة متعددة الوكلاء من اكتشاف الفرضيات العلمية",
+   "summary_ar": "تسهم الوكلاء العلمية في اكتشاف الفرضيات من خلال تجميع الأدلة، وتقييم المقترحات، وتطوير تفسيرات جديدة. تدمج الأنظمة الحديثة الوكلاء العلمية مع البحث التطوري عبر النقد والمقارنة والمراجعة، ومع ذلك، فإن كيفية تأثير الأشكال المختلفة لتعاون الوكلاء لا تزال قيد البحث."
   },
   {
-   "id": "2609.15195",
-   "title": "HarnessVLN: Unifying Training-Free Embodied Navigation through an Agent Harness",
-   "abstract": "Embodied navigation requires agents to interpret visual observations, accumulate spatial knowledge, and execute actions to follow instructions or locate objects. Training-based methods face generalization challenges, while training-free methods exploit multimodal large language models (MLLMs) but often lack mechanisms to reconcile proposed actions with spatial evidence, task progress, and execution failures. We present HarnessVLN, a zero-shot, training-free framework whose Agent Harness coordinates perception, retrieval, grounding, navigation, recovery, and termination through a unified tool i",
+   "id": "2609.18094",
+   "title": "Agora: Git as Shared Memory for Collective AutoResearch",
+   "abstract": "Autonomous research loops such as AutoResearch show that one coding agent can improve a training setup unattended. Run several of them and each session starts from scratch, so more agents tend to mean more duplicated search rather than more discovery. Agora is a shared memory for such agents: research is recorded as an append-only directed acyclic graph (DAG) stored in Git, so that every claim is a commit anyone can check out and rerun. Each result, insight, hypothesis, verification, and report is an immutable commit whose parent edges say what it builds on; a derived index exposes the frontie",
    "authors": [
-    "Yang Chen",
-    "Lirong Che",
-    "Zhenyu Huang",
-    "Wenbo Fu"
+    "Yifan Zhang",
+    "Yunheng Zou",
+    "Shaokun Zhang",
+    "Jian Hu"
    ],
-   "link": "https://huggingface.co/papers/2609.15195",
+   "link": "https://huggingface.co/papers/2609.18094",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-16T00:00",
+   "title_ar": "Agora: استخدام Git كذاكرة مشتركة للبحث الآلي الجماعي",
+   "summary_ar": "تُظهر حلقات البحث الذاتي مثل AutoResearch أن وكيل برمجة واحد يمكنه تحسين إعدادات التدريب دون مراقبة. ومع ذلك، يؤدي تشغيل عدة وكلاء إلى بدء كل جلسة من الصفر، مما يجعل زيادة الوكلاء تعني مزيداً من البحث المكرر بدلاً من المزيد من الاكتشاف، لذا يمثل Agora ذاكرة مشتركة لهؤلاء الوكلاء."
+  },
+  {
+   "id": "2609.15810",
+   "title": "VC-Attention: Value Smoothing and Softmax Casting for Low-bit Attention",
+   "abstract": "Diffusion Transformers deliver state-of-the-art video generation, but their long spatiotemporal sequences make attention the dominant deployment cost, and a deployable low-bit kernel must be accurate and fast. Accuracy is limited by outliers: a block's quantization scale is set by its largest entries, leaving typical entries confined to a narrow range of representable values. Prior work smooths queries and keys, but value outliers follow no fixed channel or spatiotemporal structure and remain the dominant source of output error. Speed is limited by softmax: low-bit Tensor Cores accelerate only",
+   "authors": [
+    "Xingyang Li",
+    "Dongyun Zou",
+    "Shining Zhang",
+    "Jiacheng Chen"
+   ],
+   "link": "https://huggingface.co/papers/2609.15810",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-14T00:00",
-   "title_ar": "HarnessVLN: توحيد الملاحة المجسدة الخالية من التدريب عبر حاضنة وكيل",
-   "summary_ar": "تتطلب الملاحة المجسدة من الوكلاء تفسير الملاحظات البصرية ومراكمة المعرفة المكانية واتخاذ الإجراءات لتنفيذ التعليمات أو تحديد مواقع الأشياء. وتواجه الطرق المعتمدة على التدريب تحديات في التعميم، بينما تستغل الطرق الخالية من التدريب النماذج اللغوية الكبيرة متعددة الوسائط."
+   "title_ar": "VC-Attention: تنعيم القيم وتحويل Softmax لآلية الانتباه منخفضة البت",
+   "summary_ar": "توفر محولات الانتشار أحدث تقنيات توليد الفيديو، غير أن سلاسلها الزمنية المكانية الطويلة تجعل الانتباه هو التكلفة المهيمنة على النشر، مما يتطلب نواة منخفضة البت دقيقة وسريعة. تكون الدقة محدودة بالقيم الشاذة، حيث يُحدد مقياس تكميم الكتلة بواسطة أكبر مدخلاتها."
   },
   {
-   "id": "2609.14005",
-   "title": "StepAudio 3 Realtime Technical Report",
-   "abstract": "Realtime spoken interaction demands deep reasoning, prompt responses, and fluid turn-taking. We present StepAudio 3 Realtime, an audio-language foundation model organized around a continuous listen-converse-think-act loop. Deep Perception captures rich acoustic cues to interpret user intent, while Seamless Duplex models synchronized audio streams to handle pauses, backchannels, and interruptions naturally. Crucially, we resolve the tension between deep deliberation and latency via Think-While-Speaking, executing private reasoning in parallel with spoken delivery. In reasoning mode, StepAudio 3",
+   "id": "2609.17632",
+   "title": "EvolveTrade: Experience-Driven Policy Refinement for Self-Evolving LLM Trading Agents",
+   "abstract": "Large language model (LLM) trading agents can combine market data, news, and executable analysis, but their behavior is often controlled by static hand-written tool-use policies that are fixed before deployment. This limits their ability to adapt how they gather evidence, invoke tools, verify signals, and manage risk under changing market regimes. We introduce EvolveTrade, a self-evolving framework that treats the system prompt of a tool-using trading agent as a text-parameterized policy. After each update interval, a Policy Agent revises this policy using accumulated decision traces and reali",
    "authors": [
-    "Bin Lin",
-    "Bo Zhao",
-    "Boyang Zhang",
-    "Boyong Wu"
+    "Sehee Kim",
+    "Yumin Choi",
+    "Minki Kang",
+    "Sung Ju Hwang"
    ],
-   "link": "https://huggingface.co/papers/2609.14005",
+   "link": "https://huggingface.co/papers/2609.17632",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-12T00:00",
-   "title_ar": "التقرير التقني لنظام StepAudio 3 Realtime",
-   "summary_ar": "يتطلب التفاعل الصوتي اللحظي استدلالاً عميقاً واستجابات فورية وتبادلاً سلساً للأدوار. يقدم هذا التقرير نموذج \"StepAudio 3 Realtime\" اللغوي الصوتي المؤسس على حلقة مستمرة للاستماع والتحدث والتفكير والتصرف، مستفيداً من إدراك عميق لالتقاط الإشارات الصوتية وتفسير نية المستخدم."
+   "published": "2026-09-15T00:00",
+   "title_ar": "EvolveTrade: تحسين السياسات القائم على الخبرة لوكلاء تداول ذاتيي التطور بالنماذج اللغوية الكبيرة",
+   "summary_ar": "تستطيع وكلاء التداول المعتمدة على النماذج اللغوية الكبيرة الجمع بين بيانات السوق والأخبار والتحليلات القابلة للتنفيذ، لكن سلوكها يخضع غالباً لسياسات ثابتة مكتوبة يدوياً لاستخدام الأدوات قبل النشر. يحد هذا من قدرتها على التكيف في كيفية جمع الأدلة، واستدعاء الأدوات، والتحقق من الإشارات."
+  },
+  {
+   "id": "2609.19134",
+   "title": "ScienceIDE: Turning World's Scientific Codebase into Agent Learnable Environments",
+   "abstract": "Scientific code repositories encode decades of human knowledge in executable models, methods, and tools. Yet fragmented toolchains, implicit domain conventions, and specialized correctness criteria make this knowledge difficult to convert into reliable learning experience-a challenge we call the scientific experience bottleneck. We introduce ScienceIDE, infrastructure for turning the world's scientific code into programmable environments for scientific agents. Guided by expert-defined scientific cases and acceptance criteria, agents transform repositories into executable environments that supp",
+   "authors": [
+    "Hejia Geng",
+    "Zesen Huang",
+    "Haoyang Li",
+    "Wenbin Li"
+   ],
+   "link": "https://huggingface.co/papers/2609.19134",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-16T00:00",
+   "title_ar": "ScienceIDE: تحويل الكود البرمجي العلمي العالمي إلى بيئات قابلة للتعلم بواسطة الوكلاء",
+   "summary_ar": "تُشفّر مستودعات البرمجيات العلمية عقوداً من المعرفة البشرية في نماذج وأساليب وأدوات قابلة للتنفيذ. ورغم ذلك، فإن سلاسل الأدوات المجزأة، والأعراف الضمنية للمجالات، ومعايير الصحة المتخصصة تجعل من الصعب تحويل هذه المعرفة إلى تجربة تعلم موثوقة، وهو تحدٍ نطلق عليه اسم المعضلة العلمية."
   }
  ],
  "n": 6
