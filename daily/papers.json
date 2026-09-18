@@ -1,103 +1,106 @@
 {
- "updated": "2026-09-17T19:11+00:00",
+ "updated": "2026-09-18T07:59+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.17172",
-   "title": "Fingers as Legs: Learning Self-Supported Locomotion and Manipulation with an Anthropomorphic Hand",
-   "abstract": "A walking robotic hand must use the same fingers to move its body, support its weight, and interact with the environment. We show how an anthropomorphic hand can learn these skills while retaining its finger design and position controller. Onboard power and computation make the platform self-contained. Our reinforcement learning approach accounts for the hand's unequal fingers, with training in a simulator calibrated from hardware measurements. In simulation, the hand moves faster with our reward formulation than with tuned rewards originally designed for quadrupeds. On hardware, task-specific",
+   "id": "2609.20817",
+   "title": "FAMOS: Feed-Forward 3D Articulation Modeling from Sparse Observations",
+   "abstract": "Modeling articulated objects from sparse monocular views is challenging because each observation reveals only partial geometry and motion evidence. Most feed-forward methods infer articulation from a single observation and therefore rely heavily on learned category-level shape priors. We present FAMOS, a feed-forward model that predicts movable-part segmentation and joint parameters from a sparse, unordered set of partial point clouds. Our model jointly reasons over multiple observations and naturally supports a variable number of inputs, including a single view. To aggregate articulation cues",
    "authors": [
-    "Amirhossein Kazemipour",
-    "Hehui Zheng",
-    "Robert Katzschmann"
+    "Kevin Qu",
+    "Tao Sun",
+    "Massimiliano Viola",
+    "Liyuan Zhu"
    ],
-   "link": "https://huggingface.co/papers/2609.17172",
+   "link": "https://huggingface.co/papers/2609.20817",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-15T00:00",
-   "title_ar": "الأصابع كأرجل: تعلّم التنقل الذاتي والدعم والتلاعب بيد شبيهة بالبشرية",
-   "summary_ar": "يجب على اليد الروبوتية السائرة استخدام الأصابع نفسها لتحريك جسدها ودعم وزنها والتفاعل مع البيئة. نوضح كيف يمكن ليد شبيهة بالبشرية تعلّم هذه المهارات مع الاحتفاظ بتصميم أصابعها ومتحكم موضعها، بينما تجعل الطاقة والحوسبة المدمجتان المنصةَ قائمة بذاتها."
+   "published": "2026-09-17T00:00",
+   "title_ar": "FAMOS: نمذجة التمفصل ثلاثي الأبعاد بالتغذية الأمامية من الملاحظات الشحيحة",
+   "summary_ar": "تعد نمذجة الكائنات المتمفصلة من مشاهد أحادية شحيحة أمرًا صعبًا لأن كل ملاحظة تكشف عن هندسة وأدلة حركة جزئية فقط. تعتمد معظم طرق التغذية الأمامية على ملاحظة واحدة لاستنتاج التمفصل، وبالتالي ترتكز بشدة على أولويات شكلية متعلمة على مستوى الفئة، لذا نُقدّم FAM."
   },
   {
-   "id": "2609.18779",
-   "title": "CERA-MoA: Co-Evolving Routing Mechanisms with Continually Learning LLM Agents",
-   "abstract": "Current Mixture-of-Agents (MoA) paradigms generally treat query routing and agent fine-tuning as separate processes, limiting their ability to respond to evolving agent capabilities. This disconnect prevents routing strategies from adapting to evolving agent capabilities during post-training and prevents agents from achieving synergistic data-driven specialization. To resolve this, we introduce CERA-MoA (Co-Evolving Router with continually learning Agents for Mixture-of-Agents), an iterative reinforcement learning framework where the dynamic router and independent agent policies co-evolve. We ",
+   "id": "2609.20511",
+   "title": "When EOS Tokens Disagree: Understanding Length Inflation in On-Policy Distillation",
+   "abstract": "We study length inflation in on-policy distillation (OPD), where student responses can become excessively long and even exhaust the generation budget. We identify termination-token mismatch between base students and post-trained teachers as an important source of this behavior. Across Qwen3, Llama, and Gemma, the two models can place their stopping probability on different EOS tokens, even when their declared stopping sets are identical. This mismatch can suppress the student's preferred termination action without reliably transferring the teacher-preferred alternative. We show that aligning t",
    "authors": [
-    "Jiaxuan Jiang",
-    "Liyuan He",
-    "Zhixuan Fang"
+    "Yuxiao Yang",
+    "Tianrun Yu",
+    "Shangzhe Li",
+    "Kaixiang Zhao"
    ],
-   "link": "https://huggingface.co/papers/2609.18779",
+   "link": "https://huggingface.co/papers/2609.20511",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-17T00:00",
+   "title_ar": "عندما تختلف رموز نهاية السلسلة: فهم تضخم الطول في التقطير المتبع للسياسة",
+   "summary_ar": "ندرس تضخم الطول في التقطير المتبع للسياسة (OPD)، حيث يمكن أن تصبح استجابات الطلاب طويلة للغاية وتستنفد ميزانية التوليد. نحدد عدم تطابق رمز الإنهاء بين الطلاب الأساسيين والمعلمين المدربين لاحقًا كمصدر مهم لهذا السلوك عبر نماذج Qwen3 وLlama."
+  },
+  {
+   "id": "2609.18605",
+   "title": "PACT: Can Enterprise AI Assistants Be Trusted Under Pressure?",
+   "abstract": "As corporate AI adoption continues to grow, enterprise-grade LLM agents are being deployed into sensitive contexts such as hiring, healthcare, and finance. In these contexts, compliance with rules specified in an agent's system context is a first-order legal concern. Currently, no evaluation framework systematically measures which LLM models tend to violate compliance rules, especially under pressure from a persistent user, a hurried manager, or circumstances where violation is convenient or attractive. We introduce PACT (Pressure-Applied Compliance Testing), a benchmark for rule-following und",
+   "authors": [
+    "Mika Okamoto",
+    "Ansel Kaplan Erol"
+   ],
+   "link": "https://huggingface.co/papers/2609.18605",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-16T00:00",
-   "title_ar": "CERA-MoA: آليات توجيه متطورة بالتزامن مع وكلاء النماذج اللغوية الكبيرة مستمري التعلّم",
-   "summary_ar": "تعامل نماذج مزيج الوكلاء الحالية عمومًا توجيه الاستعلامات وضبط الوكلاء كعمليتين منفصلتين، مما يحد من قدرتها على الاستجابة لقدرات الوكلاء المتطورة. ويمنع هذا الانفصال استراتيجيات التوجيه من التكيف مع قدرات الوكلاء المتطورة أثناء ما بعد التدريب."
+   "title_ar": "PACT: هل يمكن الوثوق بالمساعدين الذكيين في المؤسسات تحت الضغط؟",
+   "summary_ar": "مع استمرار نمو تبني الذكاء الاصطناعي في الشركات، يجري نشر وكلاء النماذج اللغوية الكبيرة من فئة المؤسسات في سياقات حساسة مثل التوظيف، والرعاية الصحية، والتمويل. يعد الامتثال للقواعد المحددة في سياق نظام الوكيل في هذه البيئات مصدر قلق قانوني بالغ الأهمية، في حين لا يوجد حاليًا أي إطار تقييم."
   },
   {
-   "id": "2609.17652",
-   "title": "Fathom: Per-Query Read Depth for Sparse Decoding over Offloaded KV Caches",
-   "abstract": "When agentic sessions run to a million tokens with many sessions resident at once, the KV cache and the index that ranks it live in host memory, and the scan that ranks all n keys for a top-k step becomes the traffic that bounds decoding. We present Fathom, a key scan in which each query decides how many bits of each key channel to read. The 4-bit K cache is stored channel-major as bit planes, so a prefix of t planes is exactly the channel's t-bit quantizer, and the query spends its bit budget by reverse water-filling over the variance-weighted importance of its channels. At one million tokens",
+   "id": "2609.20423",
+   "title": "WeVisDoc: From Coverage to Capability for Robust End-to-End Document Parsing",
+   "abstract": "Document parsing converts document images into structured content and requires reliable performance across diverse layouts and acquisition conditions. Yet training corpora are biased toward common document types and clean digital pages, while expanding coverage alone does not specify how to address a parser's remaining weaknesses. We present WeVisDoc, a two-stage data-centric framework for robust end-to-end document parsing. Stage I broadens semantic, structural, and appearance coverage through heterogeneous data and structure-preserving degradation synthesis. Stage II uses a held-out probe to",
    "authors": [
-    "Vivek Kalyanarangan"
+    "Hao Yu",
+    "Kang Liu",
+    "Linnan Zhao",
+    "Jiabo Zhan"
    ],
-   "link": "https://huggingface.co/papers/2609.17652",
+   "link": "https://huggingface.co/papers/2609.20423",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-15T00:00",
-   "title_ar": "Fathom: عمق قراءة مخصص لكل استعلام لفك الترميز المتناثر عبر مخابئ مفتاح-قيمة المنقولة",
-   "summary_ar": "عندما تمتد جلسات الوكلاء إلى مليون رمز مع وجود العديد من الجلسات في الوقت نفسه، يستقر مخبأ مفتاح-قيمة وفهرس تصنيفه في ذاكرة المضيف، ويصبح المسح الذي يصنف جميع المفاتيح لخطوة أعلى-k هو الحركة المقيدة لفك الترميز. نقدم Fathom، وهو مسح للمفاتيح يحدد فيه كل استعلام مسار قراءته."
+   "published": "2026-09-17T00:00",
+   "title_ar": "WeVisDoc: من التغطية إلى القدرة لتحليل المستندات القوي والشامل من البداية إلى النهاية",
+   "summary_ar": "يحول تحليل المستندات صور الوثائق إلى محتوى منظم ويتطلب أداءً موثوقًا عبر تخطيطات وظروف التقاط متنوعة. ومع ذلك، فإن مجموعات بيانات التدريب منحازة نحو أنواع المستندات الشائعة والصفحات الرقمية النظيفة، في حين أن توسيع التغطية وحده لا يحدد كيفية المعالجة."
   },
   {
-   "id": "2609.19138",
-   "title": "In-Context Robot Learning with VLM Agents",
-   "abstract": "Enabling robots to adapt to unfamiliar environments as readily as humans remains a moonshot goal of embodied AI. No finite collection of demonstrations can cover every task and situation a robot will encounter, making the ability to learn from context at deployment essential for generalization. Such in-context learning (ICL), however, remains largely beyond the reach of existing robotic policies. The broad agentic capabilities of commercial vision-language models (VLMs), such as GPT-6 Astra, raise a compelling question: can these models learn from demonstrations, examples, and interaction feed",
+   "id": "2609.20784",
+   "title": "RetireOPD: Self-Retiring On-Policy Distillation for Agentic Reinforcement Learning",
+   "abstract": "Multi-turn agents trained with reinforcement learning (RL) receive a single scalar reward per trajectory, which motivates self on-policy distillation (OPD) to supply dense token-level supervision from a self-teacher with privileged task skills, letting a skill-free student internalize them. This recipe, however, is undermined by two findings in agentic tasks: privileged information alone does not always make a teacher reliable, and the benefit of teacher supervision is stage-dependent. We therefore propose RetireOPD (Self-Retiring On-Policy Distillation), which first optimizes a decoupled, ski",
    "authors": [
-    "Dongzhou Cheng",
-    "Taoran Yi",
-    "Ye Fang",
-    "Xingwu Zhang"
+    "Yan Yu",
+    "Zhengxi Lu",
+    "Yizhou Liu",
+    "Yichen Pan"
    ],
-   "link": "https://huggingface.co/papers/2609.19138",
+   "link": "https://huggingface.co/papers/2609.20784",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-16T00:00",
-   "title_ar": "تعلّم الروبوت داخل السياق باستخدام وكلاء نماذج الرؤية واللغة",
-   "summary_ar": "يظل تمكين الروبوتات من التكيف مع البيئات غير المألوفة بسهولة كالبشر هدفًا طموحًا للغاية للذكاء الاصطناعي المجسد. لا يمكن لأي مجموعة محدودة من العروض التوضيحية تغطية كل مهمة وموقف سيواجهه الروبوت، مما يجعل القدرة على التعلّم من السياق أثناء النشر أمرًا أساسيًا للتعميم."
+   "published": "2026-09-17T00:00",
+   "title_ar": "RetireOPD: تقطير متبع للسياسة ذاتي الإحالة إلى التقاعد للتعلم التعزيزي القائم على الوكلاء",
+   "summary_ar": "يتلقى الوكلاء متعددو الجولات المدربون بالتعلم التعزيزي مكافأة قياسية واحدة لكل مسار، مما يدفع نحو التقطير الذاتي المتبع للسياسة (OPD) لتوفير إشراف مكثف على مستوى الرموز من معلم ذاتي يمتلك مهارات مهام مميزة، ما يتيح لطالب خالٍ من المهارات استيعابها داخليًا."
   },
   {
-   "id": "2609.15524",
-   "title": "Assessing nnU-Net Generalization across Brain Tumor Populations in BraTS-GoAT 2026",
-   "abstract": "BraTS-GoAT evaluates tumor segmentation across heterogeneous populations. We trained a conventional 3D nnU-Net on 1,351 labeled cases using five-fold cross-validation and 1,000 epochs per fold. The final predictor averaged all folds and applied test-time mirroring. On pooled official validation, global DSC values were 0.7805, 0.8288, and 0.8854 for enhancing tumor (ET), tumor core (TC), and whole tumor (WT). Under matched fold-0 inference, mean regional Dice decreased from 0.9058 on source out-of-fold (OOF) cases to 0.8310 on pooled validation (difference--0.0747). Mirroring gave small single-",
+   "id": "2609.19671",
+   "title": "When2Think: Learning Difficulty-Aware Length Control for Efficient Hybrid Reasoning Models",
+   "abstract": "Large Reasoning Models (LRMs) achieve strong performance on complex tasks but exhibit systematic inefficiency: they often overthink easy problems and underthink hard ones. Existing approaches based on uniform length penalties or rigid routing incur an efficiency tax, trading reduced computation on easy instances for accuracy loss on hard instances. We formulate efficient reasoning as an instance-adaptive computation allocation problem and propose When2Think, a post-training framework for hybrid reasoning that dynamically allocates computation based on problem difficulty. Our method introduces ",
    "authors": [
-    "Tristan Kirscher",
-    "Vivian Metzger",
-    "Philippe Meyer",
-    "Xavier Coubez"
+    "Jaejun Shim",
+    "HyunJin Kim",
+    "Young Jin Kim",
+    "JinYeong Bak"
    ],
-   "link": "https://huggingface.co/papers/2609.15524",
+   "link": "https://huggingface.co/papers/2609.19671",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-14T00:00",
-   "title_ar": "تقييم تعميم nnU-Net عبر مجموعات أورام الدماغ في BraTS-GoAT 2026",
-   "summary_ar": "يُقيّم BraTS-GoAT تجزئة الأورام عبر مجموعات سكانية غير متجانسة. قمنا بتدريب نموذج nnU-Net ثلاثي الأبعاد تقليدي على 1,351 حالة مصنفة باستخدام التحقق المتقاطع الخماسي و1,000 حقبة لكل طية، واعتمد المتنبئ النهائي متوسط جميع الطيات مع تطبيق الانعكاس في وقت الاختبار."
-  },
-  {
-   "id": "2609.18063",
-   "title": "The Other Half of the Memory Wall: Serving 35B MoEs from SSD with Trained Routing Prediction",
-   "abstract": "Mixture-of-experts (MoE) inference on consumer hardware is bounded by weight memory: a 35B-class model is 19.5GB at 4-bit, and sparsity shrinks the compute per token, not the bytes that must be held. Naive offloading to SSD does not help on its own, because layer N+1's experts must be chosen before layer N's output exists, so the reads cannot start early enough to hide behind compute. We present Edge0, a streaming MoE inference engine that closes the gap with a prerouter: a per-layer head predicts the next layer's routing one token ahead, and the prediction is consumed as the routing itself, s",
-   "authors": [
-    "Yu Lin",
-    "Yiming Wang",
-    "Runyuan Cai",
-    "Hanze Liu"
-   ],
-   "link": "https://huggingface.co/papers/2609.18063",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-16T00:00",
-   "title_ar": "النصف الآخر من جدار الذاكرة: تشغيل نماذج مزيج الخبراء بحجم 35 مليارًا من قرص SSD مع تنبؤ التوجيه المُدرَّب",
-   "summary_ar": "يُقيَّد استدلال مزيج الخبراء على الأجهزة الاستهلاكية بذاكرة الأوزان؛ حيث يبلغ حجم نموذج فئة 35 مليارًا 19.5 غيغابايت بدقة 4 بت، والندرة تقلص الحوسبة لكل رمز لا البايتات الواجب حفظها. ولا يفيد النقل البسيط إلى قرص SSD بمفرده، لأن خبراء الطبقة N+1 يجب اختيارهم مسبقًا."
+   "published": "2026-09-17T00:00",
+   "title_ar": "When2Think: تعلم التحكم في الطول المدرك للصعوبة لنماذج الاستدلال الهجينة الفعالة",
+   "summary_ar": "تحقق نماذج الاستدلال الكبيرة أداءً قويًا في المهام المعقدة لكنها تظهر عدم كفاءة منهجية، إذ غالبًا ما تُفرط في التفكير في المسائل السهلة وتقلل منه في المسائل الصعبة. تتكبد الأساليب الحالية المعتمدة على عقوبات الطول الموحدة أو التوجيه الصارم ضريبة كفاءة، مضحيةً بالحسابات المخفضة."
   }
  ],
  "n": 6
