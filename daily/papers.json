@@ -1,106 +1,103 @@
 {
- "updated": "2026-09-18T07:59+00:00",
+ "updated": "2026-09-18T21:09+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.20817",
-   "title": "FAMOS: Feed-Forward 3D Articulation Modeling from Sparse Observations",
-   "abstract": "Modeling articulated objects from sparse monocular views is challenging because each observation reveals only partial geometry and motion evidence. Most feed-forward methods infer articulation from a single observation and therefore rely heavily on learned category-level shape priors. We present FAMOS, a feed-forward model that predicts movable-part segmentation and joint parameters from a sparse, unordered set of partial point clouds. Our model jointly reasons over multiple observations and naturally supports a variable number of inputs, including a single view. To aggregate articulation cues",
+   "id": "2609.17496",
+   "title": "Verifiable Social Reasoning for LLM Assistants",
+   "abstract": "LLM assistants are widely used for daily social advice, yet evaluating their social reasoning in such consultation settings remains challenging since (i) it requires setups where the assistant learns about social situations from subjective user narratives, and (ii) social properties, such as others' intentions, typically lack verifiable ground truth. To address these challenges, we introduce Fuse, a multi-agent simulation framework for studying user-mediated social reasoning. In Fuse, a target agent with a hidden motive interacts with other agents including one representing the user, who then ",
    "authors": [
-    "Kevin Qu",
-    "Tao Sun",
-    "Massimiliano Viola",
-    "Liyuan Zhu"
+    "Amir Taubenfeld",
+    "Zorik Gekhman",
+    "Avigail Grinstein-Dabush",
+    "Itay Laish"
    ],
-   "link": "https://huggingface.co/papers/2609.20817",
+   "link": "https://huggingface.co/papers/2609.17496",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-15T00:00",
+   "title_ar": "الاستدلال الاجتماعي القابل للتحقق لمساعدي النماذج اللغوية الكبيرة",
+   "summary_ar": "يُستخدم مساعدو النماذج اللغوية الكبيرة على نطاق واسع لتقديم النصائح الاجتماعية اليومية، غير أن تقييم استدلالهم الاجتماعي في هذه الاستشارات يظل تحدياً. ويعود ذلك إلى حاجته لإعدادات يتعلم فيها المساعد عن المواقف الاجتماعية من روايات المستخدمين الذاتية، ولارتباطه بخصائص اجتماعية مثل مشاعر الآخرين."
+  },
+  {
+   "id": "2609.19656",
+   "title": "Self-Evolving Search Index",
+   "abstract": "Information retrieval is increasingly important as LLM agents tackle complex tasks involving diverse information needs. Because retrieval relies on an index that represents each document through index keys, retrieval quality depends heavily on how effectively these keys expose the knowledge contained in each document. However, effective index representations vary across retrieval environments, making it difficult for any fixed optimization strategy to perform consistently. Yet evolving an index to its retrieval environment remains largely human-driven, requiring humans to diagnose retrieval fa",
+   "authors": [
+    "Sangam Lee",
+    "Wonjae Lee",
+    "Sunghwan Kim",
+    "Deogyong Kim"
+   ],
+   "link": "https://huggingface.co/papers/2609.19656",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-17T00:00",
-   "title_ar": "FAMOS: نمذجة التمفصل ثلاثي الأبعاد بالتغذية الأمامية من الملاحظات الشحيحة",
-   "summary_ar": "تعد نمذجة الكائنات المتمفصلة من مشاهد أحادية شحيحة أمرًا صعبًا لأن كل ملاحظة تكشف عن هندسة وأدلة حركة جزئية فقط. تعتمد معظم طرق التغذية الأمامية على ملاحظة واحدة لاستنتاج التمفصل، وبالتالي ترتكز بشدة على أولويات شكلية متعلمة على مستوى الفئة، لذا نُقدّم FAM."
+   "title_ar": "فهرس بحث ذاتي التطور",
+   "summary_ar": "تزداد أهمية استرجاع المعلومات مع تولي وكلاء النماذج اللغوية الكبيرة مهام معقدة تتطلب معلومات متنوعة. ونظراً لاعتماد الاسترجاع على فهرس يمثل كل وثيقة عبر مفاتيح فهرسة، فإن جودته تعتمد بشدة على مدى فاعلية هذه المفاتيح في إبراز المعرفة المتضمنة."
   },
   {
-   "id": "2609.20511",
-   "title": "When EOS Tokens Disagree: Understanding Length Inflation in On-Policy Distillation",
-   "abstract": "We study length inflation in on-policy distillation (OPD), where student responses can become excessively long and even exhaust the generation budget. We identify termination-token mismatch between base students and post-trained teachers as an important source of this behavior. Across Qwen3, Llama, and Gemma, the two models can place their stopping probability on different EOS tokens, even when their declared stopping sets are identical. This mismatch can suppress the student's preferred termination action without reliably transferring the teacher-preferred alternative. We show that aligning t",
+   "id": "2609.19499",
+   "title": "Sample Count Is Not Enough: Candidate-Generation Strategy Shapes the Energy and Performance of LLM Test-Time Scaling",
+   "abstract": "Test-time scaling can improve large language model reasoning by generating and combining multiple candidate responses. In sampling-based methods, the inference budget is often described by the number of generated candidates, N. However, N tells us how many candidates are generated, not how they are executed. The same candidate budget can be produced in one batched generation call or split across several sequential calls with smaller batch sizes. We first study the effect of increasing N on reasoning accuracy using Phi-3-mini and Qwen2.5-1.5B on 500 GSM8K prompts. As expected, increasing N from",
    "authors": [
-    "Yuxiao Yang",
-    "Tianrun Yu",
-    "Shangzhe Li",
-    "Kaixiang Zhao"
+    "Mobina Kashaniyan",
+    "Ali Jannesari"
    ],
-   "link": "https://huggingface.co/papers/2609.20511",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-17T00:00",
-   "title_ar": "عندما تختلف رموز نهاية السلسلة: فهم تضخم الطول في التقطير المتبع للسياسة",
-   "summary_ar": "ندرس تضخم الطول في التقطير المتبع للسياسة (OPD)، حيث يمكن أن تصبح استجابات الطلاب طويلة للغاية وتستنفد ميزانية التوليد. نحدد عدم تطابق رمز الإنهاء بين الطلاب الأساسيين والمعلمين المدربين لاحقًا كمصدر مهم لهذا السلوك عبر نماذج Qwen3 وLlama."
-  },
-  {
-   "id": "2609.18605",
-   "title": "PACT: Can Enterprise AI Assistants Be Trusted Under Pressure?",
-   "abstract": "As corporate AI adoption continues to grow, enterprise-grade LLM agents are being deployed into sensitive contexts such as hiring, healthcare, and finance. In these contexts, compliance with rules specified in an agent's system context is a first-order legal concern. Currently, no evaluation framework systematically measures which LLM models tend to violate compliance rules, especially under pressure from a persistent user, a hurried manager, or circumstances where violation is convenient or attractive. We introduce PACT (Pressure-Applied Compliance Testing), a benchmark for rule-following und",
-   "authors": [
-    "Mika Okamoto",
-    "Ansel Kaplan Erol"
-   ],
-   "link": "https://huggingface.co/papers/2609.18605",
+   "link": "https://huggingface.co/papers/2609.19499",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-16T00:00",
-   "title_ar": "PACT: هل يمكن الوثوق بالمساعدين الذكيين في المؤسسات تحت الضغط؟",
-   "summary_ar": "مع استمرار نمو تبني الذكاء الاصطناعي في الشركات، يجري نشر وكلاء النماذج اللغوية الكبيرة من فئة المؤسسات في سياقات حساسة مثل التوظيف، والرعاية الصحية، والتمويل. يعد الامتثال للقواعد المحددة في سياق نظام الوكيل في هذه البيئات مصدر قلق قانوني بالغ الأهمية، في حين لا يوجد حاليًا أي إطار تقييم."
+   "title_ar": "عدد العينات ليس كافياً: استراتيجية توليد المرشحين تشكّل طاقة وأداء توسيع نطاق النماذج اللغوية الكبيرة وقت الاختبار",
+   "summary_ar": "يمكن لتوسيع النطاق وقت الاختبار تحسين استدلال النماذج اللغوية الكبيرة عبر توليد استجابات مرشحة متعددة والجمع بينها. ورغم أن ميزانية الاستدلال في طرق أخذ العينات تُحدد غالباً بعدد المرشحين المولدين (N)، إلا أن هذا العدد يوضح كمية المرشحين لا طريقة توليدهم."
   },
   {
-   "id": "2609.20423",
-   "title": "WeVisDoc: From Coverage to Capability for Robust End-to-End Document Parsing",
-   "abstract": "Document parsing converts document images into structured content and requires reliable performance across diverse layouts and acquisition conditions. Yet training corpora are biased toward common document types and clean digital pages, while expanding coverage alone does not specify how to address a parser's remaining weaknesses. We present WeVisDoc, a two-stage data-centric framework for robust end-to-end document parsing. Stage I broadens semantic, structural, and appearance coverage through heterogeneous data and structure-preserving degradation synthesis. Stage II uses a held-out probe to",
+   "id": "2609.19879",
+   "title": "VākQA: A Benchmark and Evaluation Study for Telugu Spoken Factoid Question Answering",
+   "abstract": "Question answering has advanced rapidly with large language models, but predominantly for high-resource languages, in both text and spoken settings. Spoken question answering (SQA) benchmark for Telugu remains unexplored, and the reliability of automatic evaluation in this setting remains unquantified. We introduce VākQA, a Telugu SQA benchmark of 2,001 factoid question-answer pairs across six domains, with 2.53 hours of speech audio, bilingual transcriptions, and human-verified reference answers. We first validate evaluation methods against human judgements: Gemini-as-a-judge best approximate",
    "authors": [
-    "Hao Yu",
-    "Kang Liu",
-    "Linnan Zhao",
-    "Jiabo Zhan"
+    "Bhavana Akkiraju",
+    "Ravi Sastry Kolluru",
+    "Sri Charan D",
+    "Srihari Bandarupalli"
    ],
-   "link": "https://huggingface.co/papers/2609.20423",
+   "link": "https://huggingface.co/papers/2609.19879",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-17T00:00",
-   "title_ar": "WeVisDoc: من التغطية إلى القدرة لتحليل المستندات القوي والشامل من البداية إلى النهاية",
-   "summary_ar": "يحول تحليل المستندات صور الوثائق إلى محتوى منظم ويتطلب أداءً موثوقًا عبر تخطيطات وظروف التقاط متنوعة. ومع ذلك، فإن مجموعات بيانات التدريب منحازة نحو أنواع المستندات الشائعة والصفحات الرقمية النظيفة، في حين أن توسيع التغطية وحده لا يحدد كيفية المعالجة."
+   "title_ar": "VākQA: معيار ودراسة تقييمية للإجابة عن الأسئلة الواقعية المنطوقة باللغة التيلوغوية",
+   "summary_ar": "تقدمت الإجابة عن الأسئلة سريعاً مع النماذج اللغوية الكبيرة، لكن ذلك تركز غالباً في اللغات غنية الموارد نصياً وصوتياً. وما زال معيار الإجابة عن الأسئلة المنطوقة للتيلوغوية غير مستكشف، كما تظل موثوقية التقييم الآلي في هذا السياق غير محددة كمياً."
   },
   {
-   "id": "2609.20784",
-   "title": "RetireOPD: Self-Retiring On-Policy Distillation for Agentic Reinforcement Learning",
-   "abstract": "Multi-turn agents trained with reinforcement learning (RL) receive a single scalar reward per trajectory, which motivates self on-policy distillation (OPD) to supply dense token-level supervision from a self-teacher with privileged task skills, letting a skill-free student internalize them. This recipe, however, is undermined by two findings in agentic tasks: privileged information alone does not always make a teacher reliable, and the benefit of teacher supervision is stage-dependent. We therefore propose RetireOPD (Self-Retiring On-Policy Distillation), which first optimizes a decoupled, ski",
+   "id": "2609.20715",
+   "title": "Don't Mask the Environment: Observation Supervision Changes How Agents Explore Under RL",
+   "abstract": "Agent trajectories record what an agent does and what happens next. Yet standard supervised fine-tuning (SFT) applies loss only to agent-authored action tokens, using environment observations as context but not as prediction targets. We ask whether this convention provides the best initialization for subsequent reinforcement learning. We introduce ActObs, which also supervises the observation tokens already present in each trajectory. Although deployed agents never generate observations, learning to predict them encourages the policy to model action consequences without adding data, parameters",
    "authors": [
-    "Yan Yu",
-    "Zhengxi Lu",
-    "Yizhou Liu",
-    "Yichen Pan"
+    "Juzheng Zhang",
+    "Disha Makhija",
+    "Manoj Ghuhan Arivazhagan",
+    "Vinayshekhar Bannihatti Kumar"
    ],
-   "link": "https://huggingface.co/papers/2609.20784",
+   "link": "https://huggingface.co/papers/2609.20715",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-17T00:00",
-   "title_ar": "RetireOPD: تقطير متبع للسياسة ذاتي الإحالة إلى التقاعد للتعلم التعزيزي القائم على الوكلاء",
-   "summary_ar": "يتلقى الوكلاء متعددو الجولات المدربون بالتعلم التعزيزي مكافأة قياسية واحدة لكل مسار، مما يدفع نحو التقطير الذاتي المتبع للسياسة (OPD) لتوفير إشراف مكثف على مستوى الرموز من معلم ذاتي يمتلك مهارات مهام مميزة، ما يتيح لطالب خالٍ من المهارات استيعابها داخليًا."
+   "title_ar": "لا تحجب البيئة: الإشراف على الملاحظات يغير طريقة استكشاف الوكلاء في التعلم المعزز",
+   "summary_ar": "تسجل مسارات الوكلاء ما يفعله الوكيل وما يحدث تالياً، إلا أن الضبط الدقيق الخاضع للإشراف يطبق دالة الخسارة فقط على رموز الإجراءات التي يصدرها الوكيل. وتُستخدم ملاحظات البيئة كسياق فقط دون جعلها أهدافاً للتنبؤ، مما يطرح تساؤلاً حول ما إذا كان هذا العرف يوفر التهيئة الفضلى."
   },
   {
-   "id": "2609.19671",
-   "title": "When2Think: Learning Difficulty-Aware Length Control for Efficient Hybrid Reasoning Models",
-   "abstract": "Large Reasoning Models (LRMs) achieve strong performance on complex tasks but exhibit systematic inefficiency: they often overthink easy problems and underthink hard ones. Existing approaches based on uniform length penalties or rigid routing incur an efficiency tax, trading reduced computation on easy instances for accuracy loss on hard instances. We formulate efficient reasoning as an instance-adaptive computation allocation problem and propose When2Think, a post-training framework for hybrid reasoning that dynamically allocates computation based on problem difficulty. Our method introduces ",
+   "id": "2609.05661",
+   "title": "Srijika: OpenType-Layout-Reusing Font Restyling for Nine Indic Scripts",
+   "abstract": "We present Srijika, a system for producing installable OpenType fonts for nine Brahmic scripts: Devanagari, Tamil, Bengali, Telugu, Kannada, Malayalam, Gujarati, Gurmukhi, and Odia. Rather than generating fonts from scratch, Srijika restyles glyph outlines from shaping-complete template fonts. It preserves the template's cmap and GSUB closure and its GPOS data under a documented metric policy, making every output a complete font by construction. This addresses a central challenge of Indic font generation: hundreds to thousands of conjuncts, half forms, and matra variants must remain mutually c",
    "authors": [
-    "Jaejun Shim",
-    "HyunJin Kim",
-    "Young Jin Kim",
-    "JinYeong Bak"
+    "Anil Pai"
    ],
-   "link": "https://huggingface.co/papers/2609.19671",
+   "link": "https://huggingface.co/papers/2609.05661",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-17T00:00",
-   "title_ar": "When2Think: تعلم التحكم في الطول المدرك للصعوبة لنماذج الاستدلال الهجينة الفعالة",
-   "summary_ar": "تحقق نماذج الاستدلال الكبيرة أداءً قويًا في المهام المعقدة لكنها تظهر عدم كفاءة منهجية، إذ غالبًا ما تُفرط في التفكير في المسائل السهلة وتقلل منه في المسائل الصعبة. تتكبد الأساليب الحالية المعتمدة على عقوبات الطول الموحدة أو التوجيه الصارم ضريبة كفاءة، مضحيةً بالحسابات المخفضة."
+   "published": "2026-09-04T00:00",
+   "title_ar": "Srijika: إعادة تصفيف الخطوط بتسخير تخطيط OpenType لتسعة خطوط هندية",
+   "summary_ar": "يقدم البحث نظام \"Srijika\" لإنتاج خطوط OpenType قابلة للتثبيت لتسعة خطوط براهمية. وبدلاً من توليد الخطوط من الصفر، يعيد النظام تصفيف الخطوط الخارجية للرموز اعتماداً على خطوط قوالب مكتملة التشكيل."
   }
  ],
  "n": 6
