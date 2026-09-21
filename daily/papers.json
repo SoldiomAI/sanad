@@ -1,103 +1,106 @@
 {
- "updated": "2026-09-20T14:03+00:00",
+ "updated": "2026-09-21T05:57+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.17496",
-   "title": "Verifiable Social Reasoning for LLM Assistants",
-   "abstract": "LLM assistants are widely used for daily social advice, yet evaluating their social reasoning in such consultation settings remains challenging since (i) it requires setups where the assistant learns about social situations from subjective user narratives, and (ii) social properties, such as others' intentions, typically lack verifiable ground truth. To address these challenges, we introduce Fuse, a multi-agent simulation framework for studying user-mediated social reasoning. In Fuse, a target agent with a hidden motive interacts with other agents including one representing the user, who then ",
+   "id": "2609.18748",
+   "title": "TeleAntiFraud 2.0: A Refreshable, Profile-Grounded, and Audio-Based Benchmark for Telecom Fraud Detection",
+   "abstract": "Telecom fraud scripts evolve rapidly and are often designed to resemble routine service conversations, creating two key requirements for audio-based telecom-fraud evaluation. First, benchmarks must incorporate newly observed scam patterns without overwriting previously established test sets. Second, they must distinguish fraud from lawful, near-domain calls rather than relying on topic-separated negative examples. We present TeleAntiFraud 2.0, constructed with our Mixed-Tree Anti-Fraud Generation Pipeline and evaluated under a monthly frozen evaluation protocol. The pipeline transforms online ",
    "authors": [
-    "Amir Taubenfeld",
-    "Zorik Gekhman",
-    "Avigail Grinstein-Dabush",
-    "Itay Laish"
+    "Huiyuan Liu",
+    "Zhiming Ma",
+    "Yanxing Liu",
+    "Shun Zhang"
    ],
-   "link": "https://huggingface.co/papers/2609.17496",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-15T00:00",
-   "title_ar": "الاستدلال الاجتماعي القابل للتحقق لمساعدي النماذج اللغوية الكبيرة",
-   "summary_ar": "يُستخدم مساعدو النماذج اللغوية الكبيرة على نطاق واسع لتقديم النصائح الاجتماعية اليومية، غير أن تقييم استدلالهم الاجتماعي في سياقات الاستشارة هذه لا يزال يمثل تحديًا. ويعود ذلك إلى تطلبه إعدادات يتعلم فيها المساعد عن المواقف الاجتماعية من روايات المستخدمين الذاتية، فضلًا عن طبيعة الخصائص الاجتماعية مثل مشاعر الآخرين."
-  },
-  {
-   "id": "2609.19656",
-   "title": "Self-Evolving Search Index",
-   "abstract": "Information retrieval is increasingly important as LLM agents tackle complex tasks involving diverse information needs. Because retrieval relies on an index that represents each document through index keys, retrieval quality depends heavily on how effectively these keys expose the knowledge contained in each document. However, effective index representations vary across retrieval environments, making it difficult for any fixed optimization strategy to perform consistently. Yet evolving an index to its retrieval environment remains largely human-driven, requiring humans to diagnose retrieval fa",
-   "authors": [
-    "Sangam Lee",
-    "Wonjae Lee",
-    "Sunghwan Kim",
-    "Deogyong Kim"
-   ],
-   "link": "https://huggingface.co/papers/2609.19656",
+   "link": "https://huggingface.co/papers/2609.18748",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-17T00:00",
-   "title_ar": "فهرس بحث ذاتي التطور",
-   "summary_ar": "تزداد أهمية استرجاع المعلومات مع معالجة وكلاء النماذج اللغوية الكبيرة لمهام معقدة تنطوي على احتياجات معلوماتية متنوعة. ونظرًا لاعتماد الاسترجاع على فهرس يمثل كل مستند عبر مفاتيح فهرسة، فإن جودة الاسترجاع تعتمد بشدة على مدى فاعلية هذه المفاتيح في كشف المعرفة المتضمنة."
+   "title_ar": "تلي أنتي فرود 2.0: معيار تقييم قابل للتحديث، ومستند إلى الملفات الشخصية، وقائم على الصوت لكشف الاحتيال في الاتصالات",
+   "summary_ar": "تتطور نصوص الاحتيال في الاتصالات بسرعة وتُصمَّم غالبًا لتشبه المحادثات الخدمية المعتادة، مما يفرض متطلبين رئيسيين لتقييم كشف الاحتيال القائم على الصوت. ويتمثل المتطلب الأول في ضرورة تضمين المعايير لأنماط الاحتيال المرصودة حديثًا دون الكتابة فوق مجموعات الاختبار المحددة سابقًا."
   },
   {
-   "id": "2609.19499",
-   "title": "Sample Count Is Not Enough: Candidate-Generation Strategy Shapes the Energy and Performance of LLM Test-Time Scaling",
-   "abstract": "Test-time scaling can improve large language model reasoning by generating and combining multiple candidate responses. In sampling-based methods, the inference budget is often described by the number of generated candidates, N. However, N tells us how many candidates are generated, not how they are executed. The same candidate budget can be produced in one batched generation call or split across several sequential calls with smaller batch sizes. We first study the effect of increasing N on reasoning accuracy using Phi-3-mini and Qwen2.5-1.5B on 500 GSM8K prompts. As expected, increasing N from",
+   "id": "2609.15126",
+   "title": "MoME: Mixture-of-Memory Embeddings for Context-Aware Sparse Lookup",
+   "abstract": "Scaling large language models efficiently has motivated sparse capacity mechanisms such as Mixture-of-Experts and, more recently, conditional memory: token-indexed embedding tables that augment the backbone with cheap parametric lookups. Existing memory-embedding methods retrieve via a deterministic function of the surface form, which collapses different contextual senses of the same token (e.g., python the language vs. the animal) into a single fixed entry. We introduce Mixture of Memory Embeddings (MoME), a context-aware memory mechanism that replaces each token's single memory row with a mi",
    "authors": [
-    "Mobina Kashaniyan",
-    "Ali Jannesari"
+    "Muchen Li",
+    "Leonid Sigal",
+    "Renjie Liao"
    ],
-   "link": "https://huggingface.co/papers/2609.19499",
+   "link": "https://huggingface.co/papers/2609.15126",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-16T00:00",
-   "title_ar": "عدد العينات لا يكفي: استراتيجية توليد المرشحين تشكّل طاقة وأداء توسيع النطاق وقت الاختبار للنماذج اللغوية الكبيرة",
-   "summary_ar": "يمكن لتوسيع النطاق وقت الاختبار تحسين استدلال النماذج اللغوية الكبيرة عن طريق توليد ودمج استجابات مرشحة متعددة. وفي الأساليب القائمة على أخذ العينات، غالبًا ما تُوصف ميزانية الاستدلال بعدد المرشحين المُولَّدين N، لكن هذا العدد يوضح فقط كمية المرشحين لا طريقة توليدهم."
+   "published": "2026-09-14T00:00",
+   "title_ar": "مو إم إي: خليط تضمينات الذاكرة للبحث المتناثر المدرك للسياق",
+   "summary_ar": "دفع التوسع الفعال للنماذج اللغوية الكبيرة نحو آليات السعة المتناثرة مثل خليط الخبراء، والذاكرة الشرطية مؤخرًا، وهي جداول تضمين مفهرسة بالرموز تعزز النموذج الأساسي بعمليات بحث معيارية غير مكلفة. وتسترجع طرق تضمين الذاكرة الحالية عبر آلية حتمية."
   },
   {
-   "id": "2609.19879",
-   "title": "VākQA: A Benchmark and Evaluation Study for Telugu Spoken Factoid Question Answering",
-   "abstract": "Question answering has advanced rapidly with large language models, but predominantly for high-resource languages, in both text and spoken settings. Spoken question answering (SQA) benchmark for Telugu remains unexplored, and the reliability of automatic evaluation in this setting remains unquantified. We introduce VākQA, a Telugu SQA benchmark of 2,001 factoid question-answer pairs across six domains, with 2.53 hours of speech audio, bilingual transcriptions, and human-verified reference answers. We first validate evaluation methods against human judgements: Gemini-as-a-judge best approximate",
+   "id": "2609.19122",
+   "title": "Training-Adaptive Convolutional Sparse Coding via Information Bottleneck for Robust Visual Representation",
+   "abstract": "Visual signals require compact yet sufficient representations for robust downstream prediction. Convolutional sparse coding (CSC) provides an explicit mechanism for suppressing redundant components while preserving signal content, but its sparsity coefficient is typically fixed and manually selected. We propose a training-adaptive convolutional sparse coding framework for robust visual signal representation. Specifically, we unfold the CSC optimization with the Fast Iterative Shrinkage-Thresholding Algorithm (FISTA) and treat the sparsity coefficient as a differentiable variable jointly learne",
    "authors": [
-    "Bhavana Akkiraju",
-    "Ravi Sastry Kolluru",
-    "Sri Charan D",
-    "Srihari Bandarupalli"
+    "Meng&#39;en Qin",
+    "Yinchen Liu",
+    "Mingxuan Cui",
+    "Youlu Xing"
    ],
-   "link": "https://huggingface.co/papers/2609.19879",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-17T00:00",
-   "title_ar": "VākQA: معيار ودراسة تقييمية للإجابة عن الأسئلة الحقيقية المنطوقة باللغة التيلوغوية",
-   "summary_ar": "تقدمت الإجابة عن الأسئلة بسرعة مع النماذج اللغوية الكبيرة، ولكن غالبًا للغات ذات الموارد العالية في البيئات النصية والمنطوقة على حد سواء. وما زال معيار الإجابة عن الأسئلة المنطوقة باللغة التيلوغوية غير مستكشف، كما تظل موثوقية التقييم التلقائي في هذا السياق غير محددة كميًا."
-  },
-  {
-   "id": "2609.20715",
-   "title": "Don't Mask the Environment: Observation Supervision Changes How Agents Explore Under RL",
-   "abstract": "Agent trajectories record what an agent does and what happens next. Yet standard supervised fine-tuning (SFT) applies loss only to agent-authored action tokens, using environment observations as context but not as prediction targets. We ask whether this convention provides the best initialization for subsequent reinforcement learning. We introduce ActObs, which also supervises the observation tokens already present in each trajectory. Although deployed agents never generate observations, learning to predict them encourages the policy to model action consequences without adding data, parameters",
-   "authors": [
-    "Juzheng Zhang",
-    "Disha Makhija",
-    "Manoj Ghuhan Arivazhagan",
-    "Vinayshekhar Bannihatti Kumar"
-   ],
-   "link": "https://huggingface.co/papers/2609.20715",
+   "link": "https://huggingface.co/papers/2609.19122",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-17T00:00",
-   "title_ar": "لا تحجب البيئة: الإشراف على الملاحظات يغير كيفية استكشاف الوكلاء في التعلم التعزيزي",
-   "summary_ar": "تسجل مسارات الوكلاء ما يفعله الوكيل وما يحدث بعد ذلك، ومع ذلك يطبق الضبط الدقيق الخاضع للإشراف التقليدي دالة الخسارة فقط على رموز الإجراءات الصادرة عن الوكيل، مستخدمًا ملاحظات البيئة كسياق لا كأهداف للتنبؤ. ونتساءل هنا عما إذا كان هذا العرف يوفر التهيئة الفضلى للاستكشاف."
+   "title_ar": "الترميز المتناثر الالتفافي المتكيف مع التدريب عبر عنق زجاجة المعلومات لتمثيل بصري قوي",
+   "summary_ar": "تتطلب الإشارات البصرية تمثيلات مدمجة وكافية في آن واحد لتحقيق تنبؤ قوي في المهام اللاحقة. يوفر الترميز المتناثر الالتفافي آلية صريحة لإخماد المكونات الزائدة مع الحفاظ على محتوى الإشارة، غير أن معامل التناثر الخاص به يكون عادةً ثابتًا ومحددًا يدويًا."
   },
   {
-   "id": "2609.05661",
-   "title": "Srijika: OpenType-Layout-Reusing Font Restyling for Nine Indic Scripts",
-   "abstract": "We present Srijika, a system for producing installable OpenType fonts for nine Brahmic scripts: Devanagari, Tamil, Bengali, Telugu, Kannada, Malayalam, Gujarati, Gurmukhi, and Odia. Rather than generating fonts from scratch, Srijika restyles glyph outlines from shaping-complete template fonts. It preserves the template's cmap and GSUB closure and its GPOS data under a documented metric policy, making every output a complete font by construction. This addresses a central challenge of Indic font generation: hundreds to thousands of conjuncts, half forms, and matra variants must remain mutually c",
+   "id": "2609.09206",
+   "title": "MLLMs Hallucinate when Information Distribution Drifts in Synergy Heads",
+   "abstract": "Multimodal Large Language Models (MLLMs) often struggle with hallucinations, thus hindering their reliable practical applications. Existing attention-based mitigation methods mainly rely on indirect signals (e.g., attention weights) that fail to accurately reflect the actual information shift underlying hallucination generation. In this paper, we propose HEAL, Head-lEvel information disentAnglement and caLibration for identifying and mitigating hallucinations. HEAL first employs causal noise intervention on multi-head outputs to filter out causally redundant heads. Subsequently, it disentangle",
    "authors": [
-    "Anil Pai"
+    "Meng&#39;en Qin",
+    "Junye Chen",
+    "Jucheng Liu",
+    "Youlu Xing"
    ],
-   "link": "https://huggingface.co/papers/2609.05661",
+   "link": "https://huggingface.co/papers/2609.09206",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-04T00:00",
-   "title_ar": "Srijika: إعادة تصميم خطوط لتسعة خطوط هندية عبر إعادة استخدام تخطيط OpenType",
-   "summary_ar": "نقدم Srijika، وهو نظام لإنتاج خطوط OpenType قابلة للتثبيت لتسعة خطوط براهمية تشمل الديفاناغارية والتاميلية والبنغالية والتيلوغوية والكانادية والماليالامية والغوجاراتية والغورموخية والأودية. وبدلًا من توليد الخطوط من الصفر، يعيد هذا النظام تصميم الخطوط الخارجية للحروف المرموزة انطلاقًا من خطوط قوالب مكتملة التشكيل."
+   "published": "2026-09-05T00:00",
+   "title_ar": "تهلوس نماذج اللغة الكبيرة متعددة الوسائط عند انحراف توزيع المعلومات في رؤوس التآزر",
+   "summary_ar": "غالبًا ما تعاني نماذج اللغة الكبيرة متعددة الوسائط من الهلوسة، مما يعيق تطبيقاتها العملية الموثوقة. وتعتمد الطرق الحالية للحد منها والمبنية على الانتباه أساسًا على إشارات غير مباشرة، مثل أوزان الانتباه، والتي تفشل في عكس تحول المعلومات الفعلي بدقة."
+  },
+  {
+   "id": "2609.21619",
+   "title": "Calibrating Teacher--Student Discrepancy for On-Policy Distillation",
+   "abstract": "On-policy distillation (OPD) improves reasoning models by learning the token-level discrepancy between a stronger teacher and an on-policy student. However, this discrepancy does not purely reflect the capability gap between the teacher and the student: it also contains deviations arising from the teacher itself, which are consequently mixed into the observed teacher--student discrepancy and indiscriminately learned by standard OPD during training. This issue is further exacerbated by privileged OPD, where privileged information induces larger teacher-side likelihood shifts, thereby encouragin",
+   "authors": [
+    "Qiangqiang He",
+    "Jin Li",
+    "MingCai Chen"
+   ],
+   "link": "https://huggingface.co/papers/2609.21619",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-18T00:00",
+   "title_ar": "معايرة التباين بين المعلم والطالب للتقطير القائم على السياسة المتبعة",
+   "summary_ar": "يُحسّن التقطير القائم على السياسة المتبعة نماذج الاستدلال من خلال تعلم التباين على مستوى الرموز بين معلم أقوى وطالب يتبع سياسته الخاصة. ومع ذلك، لا يعكس هذا التباين فجوة القدرة بين المعلم والطالب بشكل بحت، بل يتضمن أيضًا انحرافات ناشئة عن المعلم."
+  },
+  {
+   "id": "2609.20816",
+   "title": "Paint-Anything: Unified Any-Color Control for Image Generation and Editing",
+   "abstract": "Professional design requires any-color control: the ability to specify an object's target color with any 24-bit hex value for image generation and editing. Prior work has explored color generation, editing, and colorization, but often relies on dedicated color representations or specialized inference procedures. Advances in large language models offer a simpler starting point: even compact models can associate hex values with color semantics. We present Paint-Anything, which learns a shared hex-prompt interface for generation and editing through object-level color supervision. We develop a dat",
+   "authors": [
+    "Ji Xie",
+    "Dewei Zhou",
+    "Xinyu Huang",
+    "Zhennan Chen"
+   ],
+   "link": "https://huggingface.co/papers/2609.20816",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-17T00:00",
+   "title_ar": "بينت-إني ثينغ: تحكم موحد بأي لون لتوليد الصور وتعديلها",
+   "summary_ar": "يتطلب التصميم الاحترافي تحكمًا بأي لون، وهو القدرة على تحديد اللون المستهدف للكائن بأي قيمة ست عشرية من 24 بت لتوليد الصور وتعديلها. استكشفت الأعمال السابقة توليد الألوان وتعديلها والتلوين، ولكنها تعتمد غالبًا على تمثيلات لونية مخصصة أو استدلال متخصص."
   }
  ],
  "n": 6
