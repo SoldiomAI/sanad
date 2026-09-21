@@ -1,8 +1,8 @@
 {
  "schema_version": "1.0",
- "generated_at": "2026-09-21T05:57+00:00",
- "updated_at": "2026-09-21T05:57+00:00",
- "cursor": "sha256:fb019dff98519ea9e75225d775f3ae681498b5abfbd70b5772ea131d47b15146",
+ "generated_at": "2026-09-21T08:42+00:00",
+ "updated_at": "2026-09-21T08:42+00:00",
+ "cursor": "sha256:263c1a10d0679ccef72658eb5b5264394717f8783c1b22e339bf82aa5d24151a",
  "producer": "SANAD",
  "authority": "SANAD",
  "read_only": true,
@@ -13,9 +13,9 @@
    "title": "Watch term active: ترامب إيران",
    "title_en": "Watch term active: Trump Iran",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-09-21T05:57+00:00",
+   "observed_at": "2026-09-21T08:42+00:00",
    "observed_facts": [
-    "6 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
+    "8 graded SANAD hit(s) and 0 attributable open-news hit(s); heat 100."
    ],
    "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
    "inference": "Term matching indicates attention, not intent, coordination, or threat.",
@@ -28,6 +28,16 @@
     "إيران"
    ],
    "evidence": [
+    {
+     "source_ref": "ev_1cc567cc4d1b64e2",
+     "url": "https://arabic.cnn.com/middle-east/article/2026/09/21/pezeshkian-departs-new-york-tuesday-un-meetings-media",
+     "publisher": "CNN بالعربية",
+     "grade": "حسن",
+     "published_at": "2026-09-21T08:16+00:00",
+     "title": "بعد قرار إدارة ترامب.. إعلام إيراني: بزشكيان يغادر إلى نيويورك الثلاثاء لحضور اجتماعات الأمم المتحدة",
+     "title_en": "Following Trump Administration Decision, Iranian Media Say Pezeshkian Departs for New York Tuesday for UN Meetings",
+     "dataset": "osint"
+    },
     {
      "source_ref": "ev_231a041e7f1aacc3",
      "url": "https://www.bbc.com/arabic/articles/cqpvex230gn3o?at_medium=RSS&at_campaign=rss",
@@ -49,13 +59,13 @@
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_6df18bfa18b270b1",
-     "url": "https://www.reuters.com/ar/world/2DRQLKCLSJLDFBJIEZF6UNOLHU-2026-09-18/",
-     "publisher": "Reuters",
-     "grade": "صحيح",
-     "published_at": "2026-09-18T06:22+00:00",
-     "title": "تحليل-قادة العالم المتشككون ينتظرون ترامب بالأمم المتحدة مع استمرار حرب إيران",
-     "title_en": "",
+     "source_ref": "ev_80d3661744597518",
+     "url": "https://www.iranintl.com/202609212765",
+     "publisher": "إيران إنترناشونال",
+     "grade": "حسن",
+     "published_at": "2026-09-21T06:42+00:00",
+     "title": "نيويورك تايمز: ترامب أوقف الهجوم الأمريكي على مواقع الحوثيين في اللحظات الأخيرة",
+     "title_en": "NYT: Trump Called Off US Strikes on Houthi Targets at the Last Minute",
      "dataset": "osint"
     },
     {
@@ -83,7 +93,7 @@
      "url": "https://www.bbc.co.uk/persian/live/cqevwkk38yjet?at_medium=RSS&at_campaign=rss",
      "publisher": "بي بي سي فارسي",
      "grade": "حسن",
-     "published_at": "2026-09-21T05:57+00:00",
+     "published_at": "2026-09-21T08:42+00:00",
      "title": "ترامب: أنا في مرحلة اتخاذ القرارات بشأن أحداث كبرى في العلاقة مع إيران",
      "title_en": "Trump: Deciding on Major Developments Regarding Iran Relations",
      "dataset": "osint"
@@ -92,88 +102,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-09-09T19:58+00:00",
-   "updated_at": "2026-09-21T05:57+00:00"
-  },
-  {
-   "id": "sig_0b48c50be078e70f",
-   "type": "country-risk-threshold",
-   "title": "اليمن: SANAD tension score crossed 60",
-   "title_en": "Yemen: SANAD tension score crossed 60",
-   "summary": "The deterministic SANAD tension output crossed its documented export threshold.",
-   "observed_at": "2026-09-21T05:56+00:00",
-   "observed_facts": [
-    "Published tension score: 64; published level: متوتّر."
-   ],
-   "assessment": "The deterministic SANAD tension output crossed its documented export threshold.",
-   "inference": "This is a threshold notification, not a prediction of violence or a government warning.",
-   "uncertainty": "The score reflects the inputs and weights published by SANAD and can change as source coverage changes.",
-   "confidence": 0.75,
-   "severity": "medium",
-   "countries": [
-    "ye"
-   ],
-   "sectors": [
-    "government"
-   ],
-   "topics": [
-    "risk-threshold"
-   ],
-   "evidence": [
-    {
-     "source_ref": "ev_0ff323861c875aa9",
-     "url": "https://www.france24.com/ar/%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7/20260920-%D9%88%D8%A7%D8%B4%D9%86%D8%B7%D9%86-%D8%AA%D8%AD%D8%B0%D8%B1-%D8%AA%D8%B5%D8%B9%D9%8A%D8%AF-%D8%B3%D8%B1%D9%8A%D8%B9-%D8%A8%D8%B9%D8%AF-%D8%A7%D8%B3%D8%AA%D9%87%D8%AF%D8%A7%D9%81-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%8A%D9%86-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D9%85%D8%B6%D9%8A%D9%82-%D9%87%D8%B1%D9%85%D8%B2-%D9%85%D8%B6%D9%8A%D9%82-%D8%A8%D8%A7%D8%A8-%D8%A7%D9%84%D9%85%D9%86%D8%AF%D8%A8",
-     "publisher": "فرانس ٢٤ عربي",
-     "grade": "حسن",
-     "published_at": "2026-09-20T22:40+00:00",
-     "title": "واشنطن تحذر من تصعيد سريع بعد استهداف الحوثيين الرياض",
-     "title_en": "",
-     "dataset": "tension"
-    },
-    {
-     "source_ref": "ev_1659eea2d09c3f41",
-     "url": "https://www.bbc.com/arabic/articles/cm2kw3k0dqylo?at_medium=RSS&at_campaign=rss",
-     "publisher": "بي بي سي عربي",
-     "grade": "حسن",
-     "published_at": "2026-09-20T11:32+00:00",
-     "title": "أزمة الرياض مع الحوثيين فرصة ترامب لرعاية تعاون سعودي إسرائيلي إماراتي - وول ستريت جورنال",
-     "title_en": "",
-     "dataset": "tension"
-    },
-    {
-     "source_ref": "ev_c02f44faa7bab0a6",
-     "url": "https://www.alarabiya.net/arab-and-world/2026/09/20/%D8%BA%D9%88%D8%AA%D9%8A%D8%B1%D9%8A%D8%B4-%D9%84%D9%80%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-%D9%86%D8%AF%D9%8A%D9%86-%D8%A8%D8%B4%D8%AF%D8%A9-%D9%87%D8%AC%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%8A%D9%86-%D8%B9%D9%84%D9%89-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9",
-     "publisher": "alarabiya.net",
-     "grade": "حسن",
-     "published_at": "2026-09-20T16:15+00:00",
-     "title": "غوتيريش لـ\"العربية\": ندين بشدة هجمات الحوثيين على السعودية",
-     "title_en": "",
-     "dataset": "tension"
-    },
-    {
-     "source_ref": "ev_df85a4b7b8d0d24f",
-     "url": "https://www.bbc.com/arabic/articles/cw33k2ex2881o?at_medium=RSS&at_campaign=rss",
-     "publisher": "بي بي سي عربي",
-     "grade": "حسن",
-     "published_at": "2026-09-21T04:03+00:00",
-     "title": "الحوثيون يتهمون السعودية بشنّ 28 غارة خلال 24 ساعة، ورئيس المخابرات الأمريكية في زيارة \"نادرة\" للقاهرة",
-     "title_en": "",
-     "dataset": "tension"
-    },
-    {
-     "source_ref": "ev_df85a4b7b8d0d24f",
-     "url": "https://www.bbc.com/arabic/articles/cw33k2ex2881o",
-     "publisher": "bbc.com",
-     "grade": "حسن",
-     "published_at": "2026-09-20T22:58+00:00",
-     "title": "الحوثي: 28 غارة سعودية في اليمن خلال 24 ساعة، ورئيس المخابرات الأمريكية في زيارة \"نادرة\" للقاهرة",
-     "title_en": "",
-     "dataset": "tension"
-    }
-   ],
-   "contradictions": [],
-   "event_ids": [],
-   "created_at": "2026-09-21T00:51+00:00",
-   "updated_at": "2026-09-21T05:57+00:00"
+   "updated_at": "2026-09-21T08:42+00:00"
   },
   {
    "id": "sig_24c7c29a11f8a3ab",
@@ -181,9 +110,9 @@
    "title": "Watch term active: #السعودية",
    "title_en": "Watch term active: #Saudi",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-09-21T05:57+00:00",
+   "observed_at": "2026-09-21T08:42+00:00",
    "observed_facts": [
-    "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
+    "8 graded SANAD hit(s) and 0 attributable open-news hit(s); heat 80."
    ],
    "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
    "inference": "Term matching indicates attention, not intent, coordination, or threat.",
@@ -196,6 +125,16 @@
     "الخليج"
    ],
    "evidence": [
+    {
+     "source_ref": "ev_34c2b4f6e9c9da42",
+     "url": "https://arabic.cnn.com/middle-east/article/2026/09/21/us-embassy-riyadh-warning-alert-government-employees",
+     "publisher": "CNN بالعربية",
+     "grade": "حسن",
+     "published_at": "2026-09-21T08:34+00:00",
+     "title": "يتعلق بمدينتين في السعودية.. سفارة أمريكا توجه تحذيرًا لموظفي حكومتها",
+     "title_en": "Concerning Two Saudi Cities: US Embassy Issues Warning to Government Staff",
+     "dataset": "osint"
+    },
     {
      "source_ref": "ev_508ae6f3092ff572",
      "url": "https://www.alarabiya.net/politics/2026/09/20/%D9%84%D9%85%D8%A7%D8%B0%D8%A7-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%A7%D9%84%D9%8A%D9%88%D9%85-0",
@@ -237,13 +176,13 @@
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_ad294af58b544b07",
-     "url": "https://www.aljazeera.net/news/2026/9/19/%D8%B9%D8%A7%D8%AC%D9%84-%D8%B1%D9%88%D9%8A%D8%AA%D8%B1%D8%B2-%D8%B9%D9%86-%D9%88%D8%B2%D9%8A%D8%B1-%D8%A7%D9%84%D8%AE%D8%A7%D8%B1%D8%AC%D9%8A%D8%A9-%D8%A7%D9%84%D8%AA%D8%B1%D9%83%D9%8A-3",
+     "source_ref": "ev_bd40203c1db1c0dc",
+     "url": "https://www.aljazeera.net/sport/2026/9/21/%d8%a7%d9%84%d8%b3%d8%b9%d9%88%d8%af%d9%8a%d8%a9-%d9%83%d8%a3%d8%b3-%d8%a7%d9%84%d8%ae%d9%84%d9%8a%d8%ac-%d8%a7%d9%84%d8%b9%d8%b1%d8%a8%d9%8a?traffic_source=rss",
      "publisher": "الجزيرة نت",
      "grade": "حسن",
-     "published_at": "2026-09-19T21:25+00:00",
-     "title": "تركيا تبدي استعدادها لتلبية احتياجات السعودية العسكرية",
-     "title_en": "Turkey Expresses Readiness to Meet Saudi Arabia's Military Needs",
+     "published_at": "2026-09-21T04:13+00:00",
+     "title": "خليجي 27.. السعودية تطارد لقبها الرابع بعد 23 عاما من الغياب عن منصة التتويج",
+     "title_en": "Gulf Cup 27: Saudi Arabia Chases Fourth Title After 23-Year Trophy Drought",
      "dataset": "osint"
     },
     {
@@ -257,30 +196,20 @@
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_c2e8505191b685d0",
-     "url": "https://www.bbc.com/persian/articles/cr1e5qjy9d32o?at_medium=RSS&at_campaign=rss",
-     "publisher": "بي بي سي فارسي",
-     "grade": "حسن",
-     "published_at": "2026-09-19T21:55+00:00",
-     "title": "كابوس باب المندب؛ كيف قلب الحوثيون معادلات السعودية؟",
-     "title_en": "Bab el-Mandeb Nightmare: How the Houthis Upended Saudi Arabia's Calculations",
-     "dataset": "osint"
-    },
-    {
      "source_ref": "ev_df85a4b7b8d0d24f",
      "url": "https://www.bbc.com/arabic/articles/cw33k2ex2881o?at_medium=RSS&at_campaign=rss",
      "publisher": "بي بي سي عربي",
      "grade": "حسن",
      "published_at": "2026-09-21T04:03+00:00",
      "title": "الحوثيون يتهمون السعودية بشنّ 28 غارة خلال 24 ساعة، ورئيس المخابرات الأمريكية في زيارة \"نادرة\" للقاهرة",
-     "title_en": "Houthis Accuse Saudi Arabia of 28 Airstrikes in 24 Hours; CIA Director in 'Rare' Cairo Visit",
+     "title_en": "Houthis Accuse Saudi Arabia of 28 Air Raids in 24 Hours; CIA Director Makes 'Rare' Cairo Visit",
      "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-09-21T05:57+00:00"
+   "updated_at": "2026-09-21T08:42+00:00"
   },
   {
    "id": "sig_25d4dc8c032b76c2",
@@ -288,7 +217,7 @@
    "title": "AI repository activity: Models / inference",
    "title_en": "AI repository activity: Models / inference",
    "summary": "The live GitHub radar contains a repeated repository class after deterministic ranking and deduplication.",
-   "observed_at": "2026-09-21T05:31:16Z",
+   "observed_at": "2026-09-21T08:31:11Z",
    "observed_facts": [
     "3 recently pushed, non-fork repositories share this SANAD radar classification."
    ],
@@ -322,7 +251,7 @@
      "url": "https://github.com/huggingface/transformers",
      "publisher": "GitHub Search API",
      "grade": "",
-     "published_at": "2026-09-21T05:31:16Z",
+     "published_at": "2026-09-21T08:31:11Z",
      "title": "huggingface/transformers",
      "title_en": "🤗 Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training.",
      "dataset": "repos"
@@ -341,7 +270,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-09-21T05:57+00:00"
+   "updated_at": "2026-09-21T08:42+00:00"
   },
   {
    "id": "sig_32c738617239f618",
@@ -349,7 +278,7 @@
    "title": "AI repository activity: Agents / workflows",
    "title_en": "AI repository activity: Agents / workflows",
    "summary": "The live GitHub radar contains a repeated repository class after deterministic ranking and deduplication.",
-   "observed_at": "2026-09-21T05:57:09Z",
+   "observed_at": "2026-09-21T08:38:26Z",
    "observed_facts": [
     "5 recently pushed, non-fork repositories share this SANAD radar classification."
    ],
@@ -373,7 +302,7 @@
      "url": "https://github.com/Significant-Gravitas/AutoGPT",
      "publisher": "GitHub Search API",
      "grade": "",
-     "published_at": "2026-09-21T05:57:09Z",
+     "published_at": "2026-09-21T08:14:04Z",
      "title": "Significant-Gravitas/AutoGPT",
      "title_en": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
      "dataset": "repos"
@@ -393,7 +322,7 @@
      "url": "https://github.com/firecrawl/firecrawl",
      "publisher": "GitHub Search API",
      "grade": "",
-     "published_at": "2026-09-20T19:56:56Z",
+     "published_at": "2026-09-21T08:38:26Z",
      "title": "firecrawl/firecrawl",
      "title_en": "The web data API to search, scrape, and interact at scale. 🔥",
      "dataset": "repos"
@@ -403,7 +332,7 @@
      "url": "https://github.com/NousResearch/hermes-agent",
      "publisher": "GitHub Search API",
      "grade": "",
-     "published_at": "2026-09-21T04:43:22Z",
+     "published_at": "2026-09-21T08:35:53Z",
      "title": "NousResearch/hermes-agent",
      "title_en": "The agent that grows with you",
      "dataset": "repos"
@@ -422,188 +351,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-09-21T05:57+00:00"
-  },
-  {
-   "id": "sig_34a63e60e757a938",
-   "type": "watchlist-match",
-   "title": "Watch term active: #الكويت",
-   "title_en": "Watch term active: #Kuwait",
-   "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-09-21T05:57+00:00",
-   "observed_facts": [
-    "2 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 52."
-   ],
-   "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "inference": "Term matching indicates attention, not intent, coordination, or threat.",
-   "uncertainty": "Keyword matching can include unrelated uses of the same term.",
-   "confidence": 0.7,
-   "severity": "info",
-   "countries": [],
-   "sectors": [],
-   "topics": [
-    "الخليج"
-   ],
-   "evidence": [
-    {
-     "source_ref": "ev_5696a7466ff85bc3",
-     "url": "https://www.alarabiya.net/arab-and-world/gulf/2026/09/20/%D8%AA%D9%86%D8%B3%D9%8A%D9%82-%D8%A7%D9%85%D9%86%D9%8A-%D8%A8%D9%8A%D9%86-%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA-%D9%88%D8%A7%D9%84%D8%B9%D8%B1%D8%A7%D9%82-%D9%8A%D8%B3%D9%81%D8%B1-%D8%B9%D9%86-%D8%B6%D8%A8%D8%B7-700-%D8%A7%D9%84%D9%81-%D9%82%D8%B1%D8%B5-%D9%85%D8%AE%D8%AF%D8%B1-",
-     "publisher": "العربية",
-     "grade": "حسن",
-     "published_at": "2026-09-20T17:32+00:00",
-     "title": "تنسيق أمني بين الكويت والعراق يسفر عن ضبط 700 ألف قرص مخدر",
-     "title_en": "Kuwait-Iraq Security Coordination Nets 700,000 Captagon Pills",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_c61aa3c8efc10196",
-     "url": "https://www.alraimedia.com/ampArticle/1779905",
-     "publisher": "الراي",
-     "grade": "حسن",
-     "published_at": "2026-09-19T19:00+00:00",
-     "title": "تنسيق بين الكويت والمملكة المتحدة للتعاون في إدارة الطوارئ والأزمات",
-     "title_en": "",
-     "dataset": "osint"
-    }
-   ],
-   "contradictions": [],
-   "event_ids": [],
-   "created_at": "2026-09-20T09:59+00:00",
-   "updated_at": "2026-09-21T05:57+00:00"
-  },
-  {
-   "id": "sig_414363770b1b205d",
-   "type": "country-risk-threshold",
-   "title": "السعودية: SANAD tension score crossed 60",
-   "title_en": "Saudi Arabia: SANAD tension score crossed 60",
-   "summary": "The deterministic SANAD tension output crossed its documented export threshold.",
-   "observed_at": "2026-09-21T05:56+00:00",
-   "observed_facts": [
-    "Published tension score: 93; published level: حرج."
-   ],
-   "assessment": "The deterministic SANAD tension output crossed its documented export threshold.",
-   "inference": "This is a threshold notification, not a prediction of violence or a government warning.",
-   "uncertainty": "The score reflects the inputs and weights published by SANAD and can change as source coverage changes.",
-   "confidence": 0.75,
-   "severity": "high",
-   "countries": [
-    "sa"
-   ],
-   "sectors": [
-    "government"
-   ],
-   "topics": [
-    "risk-threshold"
-   ],
-   "evidence": [
-    {
-     "source_ref": "ev_0ff323861c875aa9",
-     "url": "https://www.france24.com/ar/%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7/20260920-%D9%88%D8%A7%D8%B4%D9%86%D8%B7%D9%86-%D8%AA%D8%AD%D8%B0%D8%B1-%D8%AA%D8%B5%D8%B9%D9%8A%D8%AF-%D8%B3%D8%B1%D9%8A%D8%B9-%D8%A8%D8%B9%D8%AF-%D8%A7%D8%B3%D8%AA%D9%87%D8%AF%D8%A7%D9%81-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%8A%D9%86-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D9%85%D8%B6%D9%8A%D9%82-%D9%87%D8%B1%D9%85%D8%B2-%D9%85%D8%B6%D9%8A%D9%82-%D8%A8%D8%A7%D8%A8-%D8%A7%D9%84%D9%85%D9%86%D8%AF%D8%A8",
-     "publisher": "فرانس ٢٤ عربي",
-     "grade": "حسن",
-     "published_at": "2026-09-20T22:40+00:00",
-     "title": "واشنطن تحذر من تصعيد سريع بعد استهداف الحوثيين الرياض",
-     "title_en": "",
-     "dataset": "tension"
-    },
-    {
-     "source_ref": "ev_9f85a02ac9301e50",
-     "url": "https://arabic.cnn.com/middle-east/video/2026/09/20/v202106-saudi-houthis-saudi-riyadh-airport",
-     "publisher": "arabic.cnn.com",
-     "grade": "حسن",
-     "published_at": "2026-09-20T15:35+00:00",
-     "title": "تصعيد حوثي يشعل توترًا.. مراسلة CNN تتحدث عن الهجمات على السعودية",
-     "title_en": "",
-     "dataset": "tension"
-    },
-    {
-     "source_ref": "ev_c02f44faa7bab0a6",
-     "url": "https://www.alarabiya.net/arab-and-world/2026/09/20/%D8%BA%D9%88%D8%AA%D9%8A%D8%B1%D9%8A%D8%B4-%D9%84%D9%80%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-%D9%86%D8%AF%D9%8A%D9%86-%D8%A8%D8%B4%D8%AF%D8%A9-%D9%87%D8%AC%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%8A%D9%86-%D8%B9%D9%84%D9%89-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9",
-     "publisher": "alarabiya.net",
-     "grade": "حسن",
-     "published_at": "2026-09-20T16:15+00:00",
-     "title": "غوتيريش لـ\"العربية\": ندين بشدة هجمات الحوثيين على السعودية",
-     "title_en": "",
-     "dataset": "tension"
-    },
-    {
-     "source_ref": "ev_df85a4b7b8d0d24f",
-     "url": "https://www.bbc.com/arabic/articles/cw33k2ex2881o?at_medium=RSS&at_campaign=rss",
-     "publisher": "بي بي سي عربي",
-     "grade": "حسن",
-     "published_at": "2026-09-21T04:03+00:00",
-     "title": "الحوثيون يتهمون السعودية بشنّ 28 غارة خلال 24 ساعة، ورئيس المخابرات الأمريكية في زيارة \"نادرة\" للقاهرة",
-     "title_en": "",
-     "dataset": "tension"
-    },
-    {
-     "source_ref": "ev_df85a4b7b8d0d24f",
-     "url": "https://www.bbc.com/arabic/articles/cw33k2ex2881o",
-     "publisher": "bbc.com",
-     "grade": "حسن",
-     "published_at": "2026-09-20T22:58+00:00",
-     "title": "الحوثي: 28 غارة سعودية في اليمن خلال 24 ساعة، ورئيس المخابرات الأمريكية في زيارة \"نادرة\" للقاهرة",
-     "title_en": "",
-     "dataset": "tension"
-    }
-   ],
-   "contradictions": [],
-   "event_ids": [],
-   "created_at": "2026-09-19T07:50+00:00",
-   "updated_at": "2026-09-21T05:57+00:00"
-  },
-  {
-   "id": "sig_54315a0bd92169d7",
-   "type": "multi-source-event",
-   "title": "رويترز: أنثروبيك تدرس إصدار نموذج جديد للذكاء الاصطناعي قبل الطرح العام",
-   "title_en": "Reuters: Anthropic Weighs Releasing New AI Model Ahead of IPO",
-   "summary": "2 named sources and 2 distinct evidence URLs cluster conservatively.",
-   "observed_at": "2026-09-19T12:07+00:00",
-   "observed_facts": [
-    "CNN الاقتصادية published: رويترز: أنثروبيك تدرس إصدار نموذج جديد للذكاء الاصطناعي قبل الطرح العام",
-    "alarabiya.net published: مصادر: أنثروبيك تدرس إصدار نموذج جديد للذكاء الاصطناعي قبل الطرح العام"
-   ],
-   "assessment": "2 named sources and 2 distinct evidence URLs cluster conservatively.",
-   "inference": "The sources may be reporting the same underlying event.",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.8,
-   "severity": "info",
-   "countries": [],
-   "sectors": [
-    "technology"
-   ],
-   "topics": [
-    "artificial-intelligence",
-    "تقنية"
-   ],
-   "evidence": [
-    {
-     "source_ref": "ev_2fbb2dcac1bc6eb1",
-     "url": "https://cnnbusinessarabic.com/technology/1148505/%D8%B1%D9%88%D9%8A%D8%AA%D8%B1%D8%B2-%D8%A3%D9%86%D8%AB%D8%B1%D9%88%D8%A8%D9%8A%D9%83-%D8%AA%D8%AF%D8%B1%D8%B3-%D8%A5%D8%B5%D8%AF%D8%A7%D8%B1-%D9%86%D9%85%D9%88%D8%B0%D8%AC-%D8%AC%D8%AF%D9%8A%D8%AF-%D9%84%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A-%D9%82%D8%A8%D9%84-%D8%A7%D9%84%D8%B7%D8%B1%D8%AD-%D8%A7%D9%84%D8%B9%D8%A7%D9%85",
-     "publisher": "CNN الاقتصادية",
-     "grade": "حسن",
-     "published_at": "2026-09-19T09:30+00:00",
-     "title": "رويترز: أنثروبيك تدرس إصدار نموذج جديد للذكاء الاصطناعي قبل الطرح العام",
-     "title_en": "Reuters: Anthropic Weighs Releasing New AI Model Ahead of IPO",
-     "dataset": "news"
-    },
-    {
-     "source_ref": "ev_3e6443ac42e6a946",
-     "url": "https://www.alarabiya.net/amp/technology/ai/2026/09/19/%D9%85%D8%B5%D8%A7%D8%AF%D8%B1-%D8%A7%D9%86%D8%AB%D8%B1%D9%88%D8%A8%D9%8A%D9%83-%D8%AA%D8%AF%D8%B1%D8%B3-%D8%A7%D8%B5%D8%AF%D8%A7%D8%B1-%D9%86%D9%85%D9%88%D8%B0%D8%AC-%D8%AC%D8%AF%D9%8A%D8%AF-%D9%84%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A-%D9%82%D8%A8%D9%84-%D8%A7%D9%84%D8%B7%D8%B1%D8%AD-%D8%A7%D9%84%D8%B9%D8%A7%D9%85",
-     "publisher": "alarabiya.net",
-     "grade": "حسن",
-     "published_at": "2026-09-19T12:07+00:00",
-     "title": "مصادر: أنثروبيك تدرس إصدار نموذج جديد للذكاء الاصطناعي قبل الطرح العام",
-     "title_en": "Sources: Anthropic Considers Releasing New AI Model Ahead of IPO",
-     "dataset": "news"
-    }
-   ],
-   "contradictions": [],
-   "event_ids": [
-    "evt_58a846af363cce28"
-   ],
-   "created_at": "2026-09-21T05:57+00:00",
-   "updated_at": "2026-09-21T05:57+00:00"
+   "updated_at": "2026-09-21T08:42+00:00"
   },
   {
    "id": "sig_5ed86e4817d42ba7",
@@ -681,9 +429,9 @@
    "title": "Watch term active: #غزة",
    "title_en": "Watch term active: #Gaza",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-09-21T05:57+00:00",
+   "observed_at": "2026-09-21T08:42+00:00",
    "observed_facts": [
-    "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
+    "8 graded SANAD hit(s) and 0 attributable open-news hit(s); heat 80."
    ],
    "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
    "inference": "Term matching indicates attention, not intent, coordination, or threat.",
@@ -780,7 +528,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-09-21T05:57+00:00"
+   "updated_at": "2026-09-21T08:42+00:00"
   },
   {
    "id": "sig_7ce5e1ca05c1e737",
@@ -788,9 +536,9 @@
    "title": "Watch term active: الحوثي",
    "title_en": "Watch term active: Houthi",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-09-21T05:57+00:00",
+   "observed_at": "2026-09-21T08:42+00:00",
    "observed_facts": [
-    "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
+    "8 graded SANAD hit(s) and 0 attributable open-news hit(s); heat 80."
    ],
    "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
    "inference": "Term matching indicates attention, not intent, coordination, or threat.",
@@ -830,7 +578,7 @@
      "grade": "حسن",
      "published_at": "2026-09-20T11:32+00:00",
      "title": "أزمة الرياض مع الحوثيين فرصة ترامب لرعاية تعاون سعودي إسرائيلي إماراتي - وول ستريت جورنال",
-     "title_en": "Riyadh-Houthi Crisis Offers Trump Chance to Foster Saudi-Israeli-UAE Cooperation: WSJ",
+     "title_en": "Riyadh's Crisis with Houthis Offers Trump Chance to Foster Saudi-Israeli-UAE Cooperation: WSJ",
      "dataset": "osint"
     },
     {
@@ -844,6 +592,16 @@
      "dataset": "osint"
     },
     {
+     "source_ref": "ev_80d3661744597518",
+     "url": "https://www.iranintl.com/202609212765",
+     "publisher": "إيران إنترناشونال",
+     "grade": "حسن",
+     "published_at": "2026-09-21T06:42+00:00",
+     "title": "نيويورك تايمز: ترامب أوقف الهجوم الأمريكي على مواقع الحوثيين في اللحظات الأخيرة",
+     "title_en": "NYT: Trump Called Off US Strikes on Houthi Targets at the Last Minute",
+     "dataset": "osint"
+    },
+    {
      "source_ref": "ev_c02f44faa7bab0a6",
      "url": "https://www.alarabiya.net/arab-and-world/2026/09/20/%D8%BA%D9%88%D8%AA%D9%8A%D8%B1%D9%8A%D8%B4-%D9%84%D9%80%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-%D9%86%D8%AF%D9%8A%D9%86-%D8%A8%D8%B4%D8%AF%D8%A9-%D9%87%D8%AC%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%8A%D9%86-%D8%B9%D9%84%D9%89-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9",
      "publisher": "alarabiya.net",
@@ -854,23 +612,13 @@
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_c2e8505191b685d0",
-     "url": "https://www.bbc.com/persian/articles/cr1e5qjy9d32o?at_medium=RSS&at_campaign=rss",
-     "publisher": "بي بي سي فارسي",
-     "grade": "حسن",
-     "published_at": "2026-09-19T21:55+00:00",
-     "title": "كابوس باب المندب؛ كيف قلب الحوثيون معادلات السعودية؟",
-     "title_en": "Bab el-Mandeb Nightmare: How the Houthis Upended Saudi Arabia's Calculations",
-     "dataset": "osint"
-    },
-    {
      "source_ref": "ev_df85a4b7b8d0d24f",
      "url": "https://www.bbc.com/arabic/articles/cw33k2ex2881o?at_medium=RSS&at_campaign=rss",
      "publisher": "بي بي سي عربي",
      "grade": "حسن",
      "published_at": "2026-09-21T04:03+00:00",
      "title": "الحوثيون يتهمون السعودية بشنّ 28 غارة خلال 24 ساعة، ورئيس المخابرات الأمريكية في زيارة \"نادرة\" للقاهرة",
-     "title_en": "Houthis Accuse Saudi Arabia of 28 Airstrikes in 24 Hours; CIA Director in 'Rare' Cairo Visit",
+     "title_en": "Houthis Accuse Saudi Arabia of 28 Air Raids in 24 Hours; CIA Director Makes 'Rare' Cairo Visit",
      "dataset": "osint"
     },
     {
@@ -887,7 +635,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-09-06T20:02+00:00",
-   "updated_at": "2026-09-21T05:57+00:00"
+   "updated_at": "2026-09-21T08:42+00:00"
   },
   {
    "id": "sig_87c20191a60886e2",
@@ -895,7 +643,7 @@
    "title": "AI repository activity: RAG / knowledge",
    "title_en": "AI repository activity: RAG / knowledge",
    "summary": "The live GitHub radar contains a repeated repository class after deterministic ranking and deduplication.",
-   "observed_at": "2026-09-21T05:56:37Z",
+   "observed_at": "2026-09-21T08:42:10Z",
    "observed_facts": [
     "2 recently pushed, non-fork repositories share this SANAD radar classification."
    ],
@@ -929,7 +677,7 @@
      "url": "https://github.com/langgenius/dify",
      "publisher": "GitHub Search API",
      "grade": "",
-     "published_at": "2026-09-21T05:56:37Z",
+     "published_at": "2026-09-21T08:42:10Z",
      "title": "langgenius/dify",
      "title_en": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
      "dataset": "repos"
@@ -938,7 +686,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-09-21T05:57+00:00",
-   "updated_at": "2026-09-21T05:57+00:00"
+   "updated_at": "2026-09-21T08:42+00:00"
   },
   {
    "id": "sig_b74f715cc66b0048",
@@ -946,9 +694,9 @@
    "title": "Watch term active: #إيران",
    "title_en": "Watch term active: #Iran",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-09-21T05:57+00:00",
+   "observed_at": "2026-09-21T08:42+00:00",
    "observed_facts": [
-    "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
+    "8 graded SANAD hit(s) and 0 attributable open-news hit(s); heat 100."
    ],
    "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
    "inference": "Term matching indicates attention, not intent, coordination, or threat.",
@@ -962,80 +710,70 @@
    ],
    "evidence": [
     {
-     "source_ref": "ev_124c0dbbec065306",
-     "url": "https://www.iranintl.com/202609208090",
-     "publisher": "إيران إنترناشونال",
+     "source_ref": "ev_1cc567cc4d1b64e2",
+     "url": "https://arabic.cnn.com/middle-east/article/2026/09/21/pezeshkian-departs-new-york-tuesday-un-meetings-media",
+     "publisher": "CNN بالعربية",
      "grade": "حسن",
-     "published_at": "2026-09-20T21:00+00:00",
-     "title": "ميلان 3-0 ليتشي؛ ميلان يعود إلى سكة الانتصارات قبل العطلة",
-     "title_en": "Milan 3-0 Lecce: Milan Returns to Winning Ways Ahead of Break",
+     "published_at": "2026-09-21T08:16+00:00",
+     "title": "بعد قرار إدارة ترامب.. إعلام إيراني: بزشكيان يغادر إلى نيويورك الثلاثاء لحضور اجتماعات الأمم المتحدة",
+     "title_en": "Following Trump Administration Decision, Iranian Media Say Pezeshkian Departs for New York Tuesday for UN Meetings",
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_631607ca398d9f1b",
-     "url": "https://www.bbc.com/persian/articles/cly58ny8n4vo?at_medium=RSS&at_campaign=rss",
+     "source_ref": "ev_24da878c2bcd0b0a",
+     "url": "https://www.skynewsarabia.com/middle-east/1893420-%D9%88%D8%B3%D8%A7%D8%A6%D9%84-%D8%A5%D8%B9%D9%84%D8%A7%D9%85-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86%D9%8A%D8%A9-%D8%AA%D8%A4%D9%83%D8%AF-%D8%B3%D9%81%D8%B1-%D8%A8%D8%B2%D8%B4%D9%83%D9%8A%D8%A7%D9%86-%D9%86%D9%8A%D9%88%D9%8A%D9%88%D8%B1%D9%83-%D8%A7%D9%84%D8%AB%D9%84%D8%A7%D8%AB%D8%A7%D8%A1",
+     "publisher": "سكاي نيوز عربية",
+     "grade": "حسن",
+     "published_at": "2026-09-21T07:34+00:00",
+     "title": "وسائل إعلام إيرانية تؤكد سفر بزشكيان إلى نيويورك الثلاثاء",
+     "title_en": "Iranian Media Confirm Pezeshkian's Travel to New York on Tuesday",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_6ab55011dd8e2f44",
+     "url": "https://www.iranintl.com/202609215488",
+     "publisher": "إيران إنترناشونال",
+     "grade": "حسن",
+     "published_at": "2026-09-21T06:18+00:00",
+     "title": "ليونيل ميسي يصل إلى هدفه الـ930؛ الأسطورة الأرجنتينية يحلم بالألف هدف",
+     "title_en": "Lionel Messi Scores 930th Career Goal, Eyes 1,000 Milestone",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_708a8d641ffec596",
+     "url": "https://www.bbc.com/persian/articles/c8jev0kyvd1o?at_medium=RSS&at_campaign=rss",
      "publisher": "بي بي سي فارسي",
      "grade": "حسن",
-     "published_at": "2026-09-21T05:13+00:00",
-     "title": "رواية ابنة فيدل كاسترو؛ «لم أرغب أبداً في مناداته بأبي»",
-     "title_en": "Fidel Castro's Daughter: 'I Never Wanted to Call Him Father'",
+     "published_at": "2026-09-21T08:02+00:00",
+     "title": "شبيري زنجاني؛ مرجع تقليد مستقل وبعيد عن الضجيج السياسي",
+     "title_en": "Shubayri Zanjani: An Independent Marja Aloof from Political Turmoil",
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_6df18bfa18b270b1",
-     "url": "https://www.reuters.com/ar/world/2DRQLKCLSJLDFBJIEZF6UNOLHU-2026-09-18/",
-     "publisher": "Reuters",
-     "grade": "صحيح",
-     "published_at": "2026-09-18T06:22+00:00",
-     "title": "تحليل-قادة العالم المتشككون ينتظرون ترامب بالأمم المتحدة مع استمرار حرب إيران",
-     "title_en": "",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_8610ae0828c965f4",
-     "url": "https://www.iranintl.com/202609201486",
+     "source_ref": "ev_80d3661744597518",
+     "url": "https://www.iranintl.com/202609212765",
      "publisher": "إيران إنترناشونال",
      "grade": "حسن",
-     "published_at": "2026-09-20T21:56+00:00",
-     "title": "فرنسا تستدعي سفير الجمهورية الإسلامية رداً على إغلاق مركز تعليم اللغة الخاص بها في طهران",
-     "title_en": "France Summons Iranian Ambassador Over Closure of Tehran Language Center",
+     "published_at": "2026-09-21T06:42+00:00",
+     "title": "نيويورك تايمز: ترامب أوقف الهجوم الأمريكي على مواقع الحوثيين في اللحظات الأخيرة",
+     "title_en": "NYT: Trump Called Off US Strikes on Houthi Targets at the Last Minute",
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_91824b9a8632d571",
-     "url": "https://www.france24.com/ar/%D9%81%D9%8A%D8%AF%D9%8A%D9%88/20260920-%D9%81%D8%B1%D9%86%D8%B3%D8%A7-%D8%AA%D8%B3%D8%AA%D8%AF%D8%B9%D9%8A-%D8%B3%D9%81%D9%8A%D8%B1-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D9%88%D8%AA%D8%AA%D9%88%D8%B9%D8%AF-%D8%A8%D8%B1%D8%AF-%D8%A8%D8%B9%D8%AF-%D8%A5%D8%BA%D9%84%D8%A7%D9%82-%D9%85%D8%B1%D9%83%D8%B2-%D8%AB%D9%82%D8%A7%D9%81%D9%8A-%D9%81%D9%8A-%D8%B7%D9%87%D8%B1%D8%A7%D9%86",
-     "publisher": "فرانس ٢٤ عربي",
-     "grade": "حسن",
-     "published_at": "2026-09-20T22:02+00:00",
-     "title": "فرنسا تستدعي سفير إيران وتتوعد برد بعد إغلاق مركز ثقافي في طهران",
-     "title_en": "",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_c869cc35628967ab",
-     "url": "https://www.bbc.com/persian/articles/cwgk52m6kyg6o?at_medium=RSS&at_campaign=rss",
-     "publisher": "بي بي سي فارسي",
-     "grade": "حسن",
-     "published_at": "2026-09-21T04:24+00:00",
-     "title": "هل يهاجم نتنياهو إيران مجدداً قبل الانتخابات الإسرائيلية؟",
-     "title_en": "Will Netanyahu Strike Iran Again Ahead of Israeli Elections?",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_f734f508b9447cdf",
-     "url": "https://www.iranintl.com/202609214947",
+     "source_ref": "ev_87efabd70b610b4b",
+     "url": "https://www.iranintl.com/202609215047",
      "publisher": "إيران إنترناشونال",
      "grade": "حسن",
-     "published_at": "2026-09-21T02:54+00:00",
-     "title": "الولايات المتحدة تقترح على الصين تبادل الإخطارات بشأن تهديدات الذكاء الاصطناعي",
-     "title_en": "US Proposes Mutual Notifications with China on AI Threats",
+     "published_at": "2026-09-21T08:09+00:00",
+     "title": "قضية سباب خداداد عزيزي؛ رفض اعتراض تراكتور وتأييد الإيقاف لمدة 4 أشهر",
+     "title_en": "Khodadad Azizi Insult Case: Tractor's Appeal Rejected, 4-Month Ban Upheld",
      "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-09-21T05:57+00:00"
+   "updated_at": "2026-09-21T08:42+00:00"
   },
   {
    "id": "sig_d16a97b1c2740ac8",
@@ -1043,9 +781,9 @@
    "title": "Watch term active: #هرمز",
    "title_en": "Watch term active: #Hormuz",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-09-21T05:57+00:00",
+   "observed_at": "2026-09-21T08:42+00:00",
    "observed_facts": [
-    "6 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 92."
+    "6 graded SANAD hit(s) and 0 attributable open-news hit(s); heat 60."
    ],
    "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
    "inference": "Term matching indicates attention, not intent, coordination, or threat.",
@@ -1112,64 +850,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-09-06T20:02+00:00",
-   "updated_at": "2026-09-21T05:57+00:00"
-  },
-  {
-   "id": "sig_f28d27c3c609459d",
-   "type": "watchlist-match",
-   "title": "Watch term active: مضيق هرمز",
-   "title_en": "Watch term active: Strait of Hormuz",
-   "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-09-21T05:57+00:00",
-   "observed_facts": [
-    "4 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 72."
-   ],
-   "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "inference": "Term matching indicates attention, not intent, coordination, or threat.",
-   "uncertainty": "Keyword matching can include unrelated uses of the same term.",
-   "confidence": 0.7,
-   "severity": "info",
-   "countries": [],
-   "sectors": [],
-   "topics": [
-    "ملاحة"
-   ],
-   "evidence": [
-    {
-     "source_ref": "ev_1ab4beb3bb64ef67",
-     "url": "https://aawsat.com/%D8%B4%D8%A4%D9%88%D9%86-%D8%A5%D9%82%D9%84%D9%8A%D9%85%D9%8A%D8%A9/5301039-%D9%84%D9%85%D8%A7%D8%B0%D8%A7-%D8%AA%D9%82%D8%AA%D8%B1%D8%AD-%D8%B3%D9%84%D8%B7%D9%86%D8%A9-%D8%B9%D9%85%D8%A7%D9%86-%D8%AE%D8%B7%D8%A9-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-%D9%84%D8%A5%D8%AF%D8%A7%D8%B1%D8%A9-%D9%85%D8%B6%D9%8A%D9%82-%D9%87%D8%B1%D9%85%D8%B2%D8%9F",
-     "publisher": "الشرق الأوسط",
-     "grade": "حسن",
-     "published_at": "2026-09-19T06:08+00:00",
-     "title": "لماذا تقترح سلطنة عمان خطة جديدة لإدارة مضيق هرمز؟",
-     "title_en": "",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_42bec24af9050316",
-     "url": "https://arabic.cnn.com/middle-east/article/2026/09/19/centcom-one-billion-barrels-of-oil-pass-through-the-strait-of-hormuz",
-     "publisher": "CNN Arabic",
-     "grade": "حسن",
-     "published_at": "2026-09-19T16:53+00:00",
-     "title": "سنتكوم: الجيش الأمريكي سهّل عبور مليار برميل نفط من مضيق هرمز",
-     "title_en": "",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_eb678345e722458c",
-     "url": "https://www.skynewsarabia.com/world/1893196-%D8%B3%D9%86%D8%AA%D9%83%D9%88%D9%85-%D8%AA%D9%83%D8%B4%D9%81-%D8%AD%D8%B5%D9%8A%D9%84%D8%A9-%D8%B9%D8%A8%D9%88%D8%B1-%D9%86%D8%A7%D9%82%D9%84%D8%A7%D8%AA-%D8%A7%D9%84%D9%86%D9%81%D8%B7-%D8%B9%D8%A8%D8%B1-%D9%85%D8%B6%D9%8A%D9%82-%D9%87%D8%B1%D9%85%D8%B2",
-     "publisher": "skynewsarabia.com",
-     "grade": "حسن",
-     "published_at": "2026-09-19T13:21+00:00",
-     "title": "سنتكوم تكشف حصيلة عبور ناقلات النفط عبر مضيق هرمز",
-     "title_en": "",
-     "dataset": "osint"
-    }
-   ],
-   "contradictions": [],
-   "event_ids": [],
-   "created_at": "2026-09-11T14:52+00:00",
-   "updated_at": "2026-09-21T05:57+00:00"
+   "updated_at": "2026-09-21T08:42+00:00"
   }
  ]
 }
