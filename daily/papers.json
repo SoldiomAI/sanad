@@ -1,106 +1,108 @@
 {
- "updated": "2026-09-21T05:57+00:00",
+ "updated": "2026-09-21T18:18+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.18748",
-   "title": "TeleAntiFraud 2.0: A Refreshable, Profile-Grounded, and Audio-Based Benchmark for Telecom Fraud Detection",
-   "abstract": "Telecom fraud scripts evolve rapidly and are often designed to resemble routine service conversations, creating two key requirements for audio-based telecom-fraud evaluation. First, benchmarks must incorporate newly observed scam patterns without overwriting previously established test sets. Second, they must distinguish fraud from lawful, near-domain calls rather than relying on topic-separated negative examples. We present TeleAntiFraud 2.0, constructed with our Mixed-Tree Anti-Fraud Generation Pipeline and evaluated under a monthly frozen evaluation protocol. The pipeline transforms online ",
+   "id": "2609.21788",
+   "title": "From Pretraining to Proficiency: Real-World Subtask RL for Long-Horizon Manipulation with Minimal Human Intervention",
+   "abstract": "A pretrained robot foundation policy may execute most of a long-horizon task yet repeatedly fail at a few critical subtasks. Collecting additional full-task demonstrations for supervised fine-tuning (SFT) requires operators to repeat behaviors the policy already performs well. Reinforcement learning (RL) fine-tuning offers a promising path to bridge this gap, but existing approaches struggle to solve long-horizon tasks using only sparse rewards. We present PARTS (Policy Adaptation with RL on Targeted Subtasks), a real-world subtask RL framework that concentrates practice at these bottlenecks w",
    "authors": [
-    "Huiyuan Liu",
-    "Zhiming Ma",
-    "Yanxing Liu",
-    "Shun Zhang"
+    "Sichang Su",
+    "Benjamin Yang",
+    "Zhiyun Deng",
+    "Boyuan Liang"
    ],
-   "link": "https://huggingface.co/papers/2609.18748",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-17T00:00",
-   "title_ar": "تلي أنتي فرود 2.0: معيار تقييم قابل للتحديث، ومستند إلى الملفات الشخصية، وقائم على الصوت لكشف الاحتيال في الاتصالات",
-   "summary_ar": "تتطور نصوص الاحتيال في الاتصالات بسرعة وتُصمَّم غالبًا لتشبه المحادثات الخدمية المعتادة، مما يفرض متطلبين رئيسيين لتقييم كشف الاحتيال القائم على الصوت. ويتمثل المتطلب الأول في ضرورة تضمين المعايير لأنماط الاحتيال المرصودة حديثًا دون الكتابة فوق مجموعات الاختبار المحددة سابقًا."
-  },
-  {
-   "id": "2609.15126",
-   "title": "MoME: Mixture-of-Memory Embeddings for Context-Aware Sparse Lookup",
-   "abstract": "Scaling large language models efficiently has motivated sparse capacity mechanisms such as Mixture-of-Experts and, more recently, conditional memory: token-indexed embedding tables that augment the backbone with cheap parametric lookups. Existing memory-embedding methods retrieve via a deterministic function of the surface form, which collapses different contextual senses of the same token (e.g., python the language vs. the animal) into a single fixed entry. We introduce Mixture of Memory Embeddings (MoME), a context-aware memory mechanism that replaces each token's single memory row with a mi",
-   "authors": [
-    "Muchen Li",
-    "Leonid Sigal",
-    "Renjie Liao"
-   ],
-   "link": "https://huggingface.co/papers/2609.15126",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-14T00:00",
-   "title_ar": "مو إم إي: خليط تضمينات الذاكرة للبحث المتناثر المدرك للسياق",
-   "summary_ar": "دفع التوسع الفعال للنماذج اللغوية الكبيرة نحو آليات السعة المتناثرة مثل خليط الخبراء، والذاكرة الشرطية مؤخرًا، وهي جداول تضمين مفهرسة بالرموز تعزز النموذج الأساسي بعمليات بحث معيارية غير مكلفة. وتسترجع طرق تضمين الذاكرة الحالية عبر آلية حتمية."
-  },
-  {
-   "id": "2609.19122",
-   "title": "Training-Adaptive Convolutional Sparse Coding via Information Bottleneck for Robust Visual Representation",
-   "abstract": "Visual signals require compact yet sufficient representations for robust downstream prediction. Convolutional sparse coding (CSC) provides an explicit mechanism for suppressing redundant components while preserving signal content, but its sparsity coefficient is typically fixed and manually selected. We propose a training-adaptive convolutional sparse coding framework for robust visual signal representation. Specifically, we unfold the CSC optimization with the Fast Iterative Shrinkage-Thresholding Algorithm (FISTA) and treat the sparsity coefficient as a differentiable variable jointly learne",
-   "authors": [
-    "Meng&#39;en Qin",
-    "Yinchen Liu",
-    "Mingxuan Cui",
-    "Youlu Xing"
-   ],
-   "link": "https://huggingface.co/papers/2609.19122",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-17T00:00",
-   "title_ar": "الترميز المتناثر الالتفافي المتكيف مع التدريب عبر عنق زجاجة المعلومات لتمثيل بصري قوي",
-   "summary_ar": "تتطلب الإشارات البصرية تمثيلات مدمجة وكافية في آن واحد لتحقيق تنبؤ قوي في المهام اللاحقة. يوفر الترميز المتناثر الالتفافي آلية صريحة لإخماد المكونات الزائدة مع الحفاظ على محتوى الإشارة، غير أن معامل التناثر الخاص به يكون عادةً ثابتًا ومحددًا يدويًا."
-  },
-  {
-   "id": "2609.09206",
-   "title": "MLLMs Hallucinate when Information Distribution Drifts in Synergy Heads",
-   "abstract": "Multimodal Large Language Models (MLLMs) often struggle with hallucinations, thus hindering their reliable practical applications. Existing attention-based mitigation methods mainly rely on indirect signals (e.g., attention weights) that fail to accurately reflect the actual information shift underlying hallucination generation. In this paper, we propose HEAL, Head-lEvel information disentAnglement and caLibration for identifying and mitigating hallucinations. HEAL first employs causal noise intervention on multi-head outputs to filter out causally redundant heads. Subsequently, it disentangle",
-   "authors": [
-    "Meng&#39;en Qin",
-    "Junye Chen",
-    "Jucheng Liu",
-    "Youlu Xing"
-   ],
-   "link": "https://huggingface.co/papers/2609.09206",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-05T00:00",
-   "title_ar": "تهلوس نماذج اللغة الكبيرة متعددة الوسائط عند انحراف توزيع المعلومات في رؤوس التآزر",
-   "summary_ar": "غالبًا ما تعاني نماذج اللغة الكبيرة متعددة الوسائط من الهلوسة، مما يعيق تطبيقاتها العملية الموثوقة. وتعتمد الطرق الحالية للحد منها والمبنية على الانتباه أساسًا على إشارات غير مباشرة، مثل أوزان الانتباه، والتي تفشل في عكس تحول المعلومات الفعلي بدقة."
-  },
-  {
-   "id": "2609.21619",
-   "title": "Calibrating Teacher--Student Discrepancy for On-Policy Distillation",
-   "abstract": "On-policy distillation (OPD) improves reasoning models by learning the token-level discrepancy between a stronger teacher and an on-policy student. However, this discrepancy does not purely reflect the capability gap between the teacher and the student: it also contains deviations arising from the teacher itself, which are consequently mixed into the observed teacher--student discrepancy and indiscriminately learned by standard OPD during training. This issue is further exacerbated by privileged OPD, where privileged information induces larger teacher-side likelihood shifts, thereby encouragin",
-   "authors": [
-    "Qiangqiang He",
-    "Jin Li",
-    "MingCai Chen"
-   ],
-   "link": "https://huggingface.co/papers/2609.21619",
+   "link": "https://huggingface.co/papers/2609.21788",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-18T00:00",
-   "title_ar": "معايرة التباين بين المعلم والطالب للتقطير القائم على السياسة المتبعة",
-   "summary_ar": "يُحسّن التقطير القائم على السياسة المتبعة نماذج الاستدلال من خلال تعلم التباين على مستوى الرموز بين معلم أقوى وطالب يتبع سياسته الخاصة. ومع ذلك، لا يعكس هذا التباين فجوة القدرة بين المعلم والطالب بشكل بحت، بل يتضمن أيضًا انحرافات ناشئة عن المعلم."
+   "title_ar": "من التدريب المسبق إلى الإتقان: تعلم معزز للمهام الفرعية في العالم الحقيقي للتلاعب بعيد المدى بأدنى حد من التدخل البشري",
+   "summary_ar": "قد تنفذ سياسة الروبوت التأسيسية المدربة مسبقًا معظم المهام بعيدة المدى، لكنها تفشل مرارًا في مهام فرعية حرجة قليلة. يتطلب جمع عروض توضيحية إضافية للمهمة الكاملة للضبط الدقيق الخاضع للإشراف تكرار سلوكيات يجيدها الروبوت بالفعل."
   },
   {
-   "id": "2609.20816",
-   "title": "Paint-Anything: Unified Any-Color Control for Image Generation and Editing",
-   "abstract": "Professional design requires any-color control: the ability to specify an object's target color with any 24-bit hex value for image generation and editing. Prior work has explored color generation, editing, and colorization, but often relies on dedicated color representations or specialized inference procedures. Advances in large language models offer a simpler starting point: even compact models can associate hex values with color semantics. We present Paint-Anything, which learns a shared hex-prompt interface for generation and editing through object-level color supervision. We develop a dat",
+   "id": "2609.19169",
+   "title": "SiliconBench: Speed, Memory, and Fidelity for LLM Serving on Unified-Memory Desktops",
+   "abstract": "Concurrent local LLM serving on unified-memory desktops must preserve memory headroom and output fidelity, which speed-only rankings overlook. We introduce SiliconBench, which evaluates nine Apple Silicon serving engines through three lenses: speed, memory, and fidelity. We evaluate chat and agent serving on Qwen3, Qwen3.5, and Gemma 4. We use a classification task to check for quality regressions against an NVIDIA reference. DGX Spark provides a complementary serving-performance reference. Three desiderata guide interpretation: serving architecture readiness, memory discipline, and multi-node",
    "authors": [
-    "Ji Xie",
-    "Dewei Zhou",
-    "Xinyu Huang",
-    "Zhennan Chen"
+    "Ranran Haoran Zhang",
+    "Aysa Xuemo Fan",
+    "David Munhá Correia",
+    "Alex Cheema"
    ],
-   "link": "https://huggingface.co/papers/2609.20816",
+   "link": "https://huggingface.co/papers/2609.19169",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-17T00:00",
-   "title_ar": "بينت-إني ثينغ: تحكم موحد بأي لون لتوليد الصور وتعديلها",
-   "summary_ar": "يتطلب التصميم الاحترافي تحكمًا بأي لون، وهو القدرة على تحديد اللون المستهدف للكائن بأي قيمة ست عشرية من 24 بت لتوليد الصور وتعديلها. استكشفت الأعمال السابقة توليد الألوان وتعديلها والتلوين، ولكنها تعتمد غالبًا على تمثيلات لونية مخصصة أو استدلال متخصص."
+   "published": "2026-09-12T00:00",
+   "title_ar": "سيليكون بنش: السرعة والذاكرة والدقة لتشغيل النماذج اللغوية الكبيرة على الحواسيب المكتبية ذات الذاكرة الموحدة",
+   "summary_ar": "يجب أن يحافظ تشغيل النماذج اللغوية الكبيرة محليًا بالتزامن على الحواسيب ذات الذاكرة الموحدة على حيز الذاكرة ودقة المخرجات، وهو ما تغفله تصنيفات السرعة وحدها. يقدّم البحث \"SiliconBench\" لتقييم تسعة محركات تشغيل على شريحة \"Apple Silicon\" عبر السرعة والذاكرة والدقة لسيناريوهات المحادثة والوكلاء."
+  },
+  {
+   "id": "2609.20886",
+   "title": "BI-Agent and BI-Bench: Towards Automating End-to-End Business Intelligence",
+   "abstract": "Business intelligence (BI) is a cornerstone of enterprise decision-making and is widely used by enterprise users in software such as Power BI and Tableau. In traditional BI workflows, users need to prepare data by (1) identifying relevant tables, (2) performing data transformations, and (3) building join relationships, before they can (4) answer their business questions. These steps can be complex and time-consuming, making BI challenging. Given the strong capabilities of large language models (LLMs) in working with data, we study their ability to answer BI questions end-to-end, without requir",
+   "authors": [
+    "Chuxuan Hu",
+    "Yeye He",
+    "Penny Zhou",
+    "Wee Hyong Tok"
+   ],
+   "link": "https://huggingface.co/papers/2609.20886",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-16T00:00",
+   "title_ar": "بي آي-إيجنت وبي آي-بنش: نحو أتمتة ذكاء الأعمال من البداية إلى النهاية",
+   "summary_ar": "يُعد ذكاء الأعمال حجر زاوية في اتخاذ القرارات المؤسسية ويُستخدم على نطاق واسع في برمجيات مثل \"Power BI\" و\"Tableau\". يتطلب سير العمل التقليدي قيام المستخدمين بتجهيز البيانات عبر تحديد الجداول ذات الصلة، وتحويل البيانات، وبنائها."
+  },
+  {
+   "id": "2609.22086",
+   "title": "Designer-RSI: Evolving Procedural Memory from User Traffic for Agentic Graphic Design",
+   "abstract": "Professional graphic design is a long-horizon agentic task in which structured, editable artifacts emerge from many interdependent actions, yet outcomes admit no reliable programmatic oracle. We introduce a continual adaptation framework in which a frozen frontier model operates professional design software through more than 230 tools, while an external procedural memory of natural-language skills accumulates and refines reusable design procedures from experience. The memory widens by acquiring procedures for recurring uncovered subtasks and deepens by revising existing procedures against thei",
+   "authors": [
+    "Hongyang Du",
+    "Lan Yan",
+    "Christian Flores",
+    "Asim Kadav"
+   ],
+   "link": "https://huggingface.co/papers/2609.22086",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-18T00:00",
+   "title_ar": "ديزاينر-آر إس آي: تطوير الذاكرة الإجرائية من حركة تدفق المستخدمين للتصميم الجرافيكي القائم على الوكلاء",
+   "summary_ar": "يُعد التصميم الجرافيكي الاحترافي مهمة وكيلة بعيدة المدى تُنتج عناصر منظمة وقابلة للتعديل عبر إجراءات مترابطة، دون وجود مرجع برمجي موثوق للنتائج. يُقدّم البحث إطار تكيف مستمر يعمل فيه نموذج متقدم وثابت على تشغيل أدوات تصميم احترافية."
+  },
+  {
+   "id": "2609.22039",
+   "title": "Gricea: An Open Science Platform for Conversational AI Research",
+   "abstract": "We need studies on conversational AI (CAI) at scale to understand human behavior and shape CAI design. However, fragmented reporting of systems and study configurations hinders replication, extension, and knowledge accumulation. We present Gricea, an open-science platform representing studies as configurable, deployable research artifacts that researchers can run, inspect, share, and reuse. Informed by a formative analysis of prior CAI research, Gricea couples study procedures, participant-facing systems, and conversational task behavior in. In a replication study using Gricea, we replicated c",
+   "authors": [
+    "Nikhil Sharma",
+    "Yunlin Gong",
+    "Xinyang Cheng",
+    "Ziang Xiao"
+   ],
+   "link": "https://huggingface.co/papers/2609.22039",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-18T00:00",
+   "title_ar": "غريسيا: منصة علمية مفتوحة لأبحاث الذكاء الاصطناعي الحواري",
+   "summary_ar": "تدعو الحاجة إلى دراسات واسعة النطاق حول الذكاء الاصطناعي الحواري لفهم السلوك البشري وتوجيه تصميمه، غير أن التوثيق المجزأ للأنظمة والتجارب يعيق التكرار وتراكم المعرفة. يقدم البحث \"Gricea\"، وهي منصة علمية مفتوحة لتمثيل الدراسات وتوصيفها."
+  },
+  {
+   "id": "2609.16251",
+   "title": "CADWorld: Computer-Use Benchmark for Long-Horizon Computer-Aided Design",
+   "abstract": "Computer-use agents are increasingly evaluated in realistic desktop environments, but existing benchmarks provide limited coverage of professional engineering workflows whose outputs are persistent, structured artifacts. Mechanical computer-aided design (CAD) is a particularly demanding setting: an agent must manipulate geometry and constraints over long interaction horizons while producing a native project whose dimensions, construction structure, and downstream engineering state remain valid. We introduce CADWorld, a benchmark for long-horizon computer use in FreeCAD. CADWorld contains 200 t",
+   "authors": [
+    "Zihan Dong",
+    "Yuanzhe Liu",
+    "Zhiyuan Ma",
+    "Qishi Zhan"
+   ],
+   "link": "https://huggingface.co/papers/2609.16251",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-14T00:00",
+   "title_ar": "كاد وورلد: معيار لاستخدام الحاسوب في التصميم الموجه بالحاسوب للمهام بعيدة المدى",
+   "summary_ar": "تزايد تقييم وكلاء استخدام الحاسوب في بيئات سطح مكتب واقعية، لكن المعايير الحالية توفر تغطية محدودة لمسارات العمل الهندسية الاحترافية ذات المخرجات الثابتة والمنظمة. ويُمثّل التصميم الميكانيكي بمساعدة الحاسوب (CAD) بيئة عمل صعبة ومتطلبة للغاية."
   }
  ],
  "n": 6
