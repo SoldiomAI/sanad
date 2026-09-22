@@ -1,108 +1,106 @@
 {
- "updated": "2026-09-22T08:16+00:00",
+ "updated": "2026-09-22T22:46+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.24220",
-   "title": "Document Retrieval-Aware Chunking (D-RAC): Universal Retrieval-Aware Ingestion of Enterprise Documents via PDF Normalization and Multimodal Markdown Conversion",
-   "abstract": "Retrieval-Augmented Generation (RAG) systems over enterprise knowledge bases must ingest heterogeneous document formats -- PDFs, Word documents, presentations, and scans -- whose content is locked inside complex visual layouts, multi-column pages, and dense tables. Rule-based extraction and OCR destroy reading order, flatten tables, and lose heading hierarchy, while fully agentic chunking over extracted text incurs high token costs and hallucination risk. We present Document Retrieval-Aware Chunking (D-RAC), an extension of our Web Retrieval-Aware Chunking (W-RAC) framework to arbitrary docume",
+   "id": "2609.22870",
+   "title": "Towards Full Pipeline FP8 Reinforcement Learning for LLMs",
+   "abstract": "Reinforcement learning (RL) has become a key technique for improving the reasoning and agentic abilities of large language models (LLMs). Although FP8 quantization can accelerate RL training, maintaining stability throughout an FP8 RL pipeline remains challenging. While previous works have focused on resolving train-inference mismatches using correction techniques like TIS, we reveal that full-pipeline FP8 RL still suffers from severe training instability, manifesting as anomalous mid-training entropy surges and garbled outputs. We trace this instability to a previously overlooked cause: compo",
    "authors": [
-    "Uday Allu",
-    "Abhivanth Sivaprakash",
-    "Pratik Singh",
-    "Aman Manocha"
+    "Fanchao Chen",
+    "Ziheng Jiang",
+    "Ziyun Wei",
+    "Zheng Zhong"
    ],
-   "link": "https://huggingface.co/papers/2609.24220",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-21T00:00",
-   "title_ar": "التقطيع المدرك لاسترجاع المستندات (D-RAC): إدخال شامل للمستندات المؤسسية مدرك للاسترجاع عبر تسوية ملفات PDF والتحويل متعدد الوسائط إلى Markdown",
-   "summary_ar": "يجب على أنظمة التوليد المعزز بالاسترجاع (RAG) لقواعد المعرفة المؤسسية إدخال تنسيقات مستندات غير متجانسة كملفات PDF وWord والعروض التقديمية والمسوحات الضوئية المحصورة محتوياتها داخل تخطيطات بصرية معقدة، وصفحات متعددة الأعمدة، وجداول كثيفة. لكن الاستخراج القائم على القواعد والتعرف الضوئي على الحروف يدمّران هذه الهيكلية."
-  },
-  {
-   "id": "2609.23796",
-   "title": "Mira-Scene: Pixel-Aligned Layouts for Generative 3D Scene",
-   "abstract": "Single-image 3D object generation can now produce high-fidelity assets, yet accurately placing them into a coherent scene layout remains an open challenge. A central difficulty lies in how object layout is represented. Holistic methods absorb placement into a scene-level generation process, sacrificing object-level detail. Compositional methods preserve object fidelity by decoupling geometry from layout, but typically parameterize layout as sparse, unbounded pose variables that are difficult to learn and generalize poorly under scarce scene-level supervision.We present Mira-Scene, a compositio",
-   "authors": [
-    "Yang-Tian Sun",
-    "Tianjia Liu",
-    "Zehuan Huang",
-    "Yi-Hua Huang"
-   ],
-   "link": "https://huggingface.co/papers/2609.23796",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-20T00:00",
-   "title_ar": "ميرا-سين: تخطيطات محاذية للبكسل للمشاهد ثلاثية الأبعاد التوليدية",
-   "summary_ar": "يمكن لتوليد الكائنات ثلاثية الأبعاد من صورة واحدة إنتاج أصول عالية الدقة حالياً، إلا أن وضعها بدقة في تخطيط مشهد متماسك يظل تحدياً قائماً. وتكمن الصعوبة المركزية في كيفية تمثيل تخطيط الكائنات؛ إذ تدمج الطرق الشاملة وضع الكائنات ضمن عملية توليد المشهد بأكمله، مضحيةً بالتفاصيل."
-  },
-  {
-   "id": "2609.22255",
-   "title": "Deep Persona: A Psychologically Grounded Architecture and Evaluation Framework for Role-Playing Agents and Simulations",
-   "abstract": "Existing approaches to persona simulation with Large Language Models (LLMs) mostly rely on shallow character descriptions that fail to sustain coherent character behavior across extended interactions. We introduce Deep Persona, a psychologically grounded, three-layered architecture that organizes personas into hierarchical levels of observable expression, latent beliefs, and core motivational drives, for constructing highly convincing role-playing agents. Governed by the principles of scripted determinism and bounded agency, the architecture restricts the model to a reactive engine guided by a",
-   "authors": [
-    "Rotem Dror",
-    "Zohar Elyoseph",
-    "Yuval Haber",
-    "Elad Refoua"
-   ],
-   "link": "https://huggingface.co/papers/2609.22255",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-06T00:00",
-   "title_ar": "ديب بيرسونا: بنية معمارية وإطار تقييم مؤسسان نفسياً لوكلاء لعب الأدوار والمحاكاة",
-   "summary_ar": "تعتمد الأساليب الحالية لمحاكاة الشخصيات باستخدام النماذج اللغوية الكبيرة في الغالب على أوصاف سطحية تفشل في الحفاظ على سلوك متماسك للشخصية عبر التفاعلات الممتدة. ولذلك، نقدّم Deep Persona، وهي بنية معمارية ثلاثية الطبقات ومؤسسة نفسياً لتنظيم الشخصية."
-  },
-  {
-   "id": "2609.24118",
-   "title": "CARE: Experience-Guided Atomic Corrective Execution for Vision-Language-Action Policies",
-   "abstract": "Vision-Language-Action (VLA) policies achieve strong performance in robotic manipulation but remain brittle once execution deviates from nominal trajectories. We propose CARE (Corrective Atomic Robotic Execution), a framework that improves recovery by learning from failures encountered during execution. Instead of generating corrective data from manually designed or random perturbations, CARE collects failed rollouts, models stage-conditioned post-failure deviations, and uses the resulting empirical distributions to synthesize representative failure states and corrective demonstrations. At inf",
-   "authors": [
-    "Junlan Xiao",
-    "Junwei Jiang",
-    "Zaibin Zhang",
-    "Yifan Wang"
-   ],
-   "link": "https://huggingface.co/papers/2609.24118",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-21T00:00",
-   "title_ar": "كير: تنفيذ تصحيحي ذري موجه بالخبرة لسياسات الرؤية واللغة والعمل",
-   "summary_ar": "تحقق سياسات الرؤية واللغة والعمل (VLA) أداءً قوياً في التحكم الروبوتي، لكنها تظل هشة بمجرد انحراف التنفيذ عن المسارات المحددة. نقترح CARE، وهو إطار عمل يعزز التعافي من الأخطاء عبر التعلم من الإخفاقات التي تحدث أثناء التنفيذ."
-  },
-  {
-   "id": "2609.23088",
-   "title": "OmniEdu: Open Foundation Models for Learning and Teaching",
-   "abstract": "Educational foundation models must solve problems, understand curriculum structure, diagnose learner difficulties, and provide appropriate instructional support. Existing educational language models often focus on either problem solving or tutoring, with training mixtures organized by source or task rather than capability. We present OmniEdu, an open family of foundation models for K-12 learning and teaching. Its instruction-tuning corpus combines over 100 educational resources and general instruction sources, organized around four capabilities: subject competence, curriculum grounding, diagno",
-   "authors": [
-    "Hao Liang",
-    "Qihan Lin",
-    "Meiyi Qiang",
-    "Linzhuang Sun"
-   ],
-   "link": "https://huggingface.co/papers/2609.23088",
+   "link": "https://huggingface.co/papers/2609.22870",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-19T00:00",
-   "title_ar": "أومني إديو: نماذج أساس مفتوحة للتعلم والتعليم",
-   "summary_ar": "يجب على نماذج الأساس التعليمية حل المشكلات، وفهم بنية المناهج، وتشخيص صعوبات المتعلمين، وتقديم الدعم التعليمي المناسب. وغالباً ما تركز النماذج اللغوية التعليمية الحالية على حل المشكلات أو التدريس فقط، مع تنظيم خلطات التدريب حسب المصدر أو المهمة."
+   "title_ar": "نحو مسار تدريب كامل بتنسيق FP8 للتعلم التعزيزي للنماذج اللغوية الكبيرة",
+   "summary_ar": "بات التعلم التعزيزي تقنية أساسية لتحسين قدرات الاستدلال والقدرات الوكيلة للنماذج اللغوية الكبيرة. ورغم أن تكميم FP8 يمكنه تسريع تدريب التعلم التعزيزي، إلا أن الحفاظ على الاستقرار عبر مسار تدريب كامل بهذا التنسيق لا يزال يمثل تحديًا."
   },
   {
-   "id": "2609.24432",
-   "title": "1% of Tokens Can Be Enough: On Gradient Estimation in On-Policy Distillation",
-   "abstract": "Sparse on-policy distillation (OPD) allocates teacher supervision to a small subset of tokens in student-generated trajectories. However, useful teacher guidance can yield a noisy update when its gradient is estimated from a sampled next token. We study this estimation problem at a fixed prefix in information geometry and propose an information-efficiency ratio (IER) based on a signal-to-noise decomposition. IER characterizes relative gradient estimation error under an optimal scalar baseline. A candidate-set approximation enables token selection based on IER and its combination with existing ",
+   "id": "2609.23989",
+   "title": "ACLArena: Agent Continue Learning in Multi-stage Post-training",
+   "abstract": "Building general-purpose agents for industrial deployment requires integrating multiple capabilities, each typically acquired at a distinct stage of training. Yet there is currently no well-established recipe for Agent Continual Learning (ACL), with little understanding of the trade-offs among existing integration paradigms. To address this gap, we introduce ACLArena, a framework for comprehensively studying, analyzing, and evaluating ACL. We first build a sequential training pipeline and conduct an in-depth analysis that explains the mechanisms of forgetting and generalization from two comple",
    "authors": [
-    "Huanxin Sheng",
-    "Zhiling Ye",
-    "Haonan Wang",
-    "Jian Wang"
+    "Haixin Wang",
+    "Xiaoxuan Wang",
+    "Junkai Zhang",
+    "Han Zhang"
    ],
-   "link": "https://huggingface.co/papers/2609.24432",
+   "link": "https://huggingface.co/papers/2609.23989",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-21T00:00",
-   "title_ar": "1% من الرموز قد تكون كافية: حول تقدير التدرج في التقطير وفق السياسة المتبعة",
-   "summary_ar": "يخصص التقطير المتناثر وفق السياسة المتبعة (OPD) إشراف المعلم لمجموعة فرعية صغيرة من الرموز في المسارات التي يولدها الطالب. ومع ذلك، يمكن لتوجيه المعلم المفيد أن يولد تحديثاً مشوشاً عند تقدير تدرجه من رمز تالٍ مأخوذ كعينة؛ لذا ندرس مشكلة التقدير هذه عند بادئة ثابتة."
+   "title_ar": "ACLArena: التعلم المستمر للوكلاء في مرحلة ما بعد التدريب متعددة المراحل",
+   "summary_ar": "يتطلب بناء وكلاء للأغراض العامة للنشر الصناعي دمج قدرات متعددة تُكتسب عادةً في مراحل تدريبية مختلفة. ومع ذلك، لا توجد حاليًا منهجية راسخة للتعلم المستمر للوكلاء، مع قلة الفهم للمقايضات بين الأساليب الحالية."
+  },
+  {
+   "id": "2609.06052",
+   "title": "SkillSpec: Intent-Masked Specification Reasoning for Agent Skill Correctness",
+   "abstract": "Autonomous agent systems increasingly depend on reusable skill abstractions for consolidating experiential knowledge and domain expertise. These artifacts typically bundle free-form instructions with heterogeneous resources. However, ensuring their correctness remains challenging. Their failure modes transcend conventional code defects to subtle semantic inconsistencies such as intent conflicts, which manifest as silent failures masked by the underlying model. Moreover, skill correctness must be grounded in intended task boundaries and generalizability. We propose SkillSpec, a Hoare-style fram",
+   "authors": [
+    "Yizhuo Zhang",
+    "Bo Kang",
+    "Yi Yang",
+    "Zhiyu Duan"
+   ],
+   "link": "https://huggingface.co/papers/2609.06052",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-05T00:00",
+   "title_ar": "SkillSpec: الاستدلال على المواصفات مع حجب النية للتحقق من صحة مهارات الوكلاء",
+   "summary_ar": "تعتمد أنظمة الوكلاء الذاتية بشكل متزايد على تجريدات المهارات القابلة لإعادة الاستخدام لدمج المعرفة التجريبية والخبرة المتخصصة، حيث تجمع هذه الأدوات عادة بين تعليمات غير مقيدة وموارد غير متجانسة. ومع ذلك، فإن ضمان صحتها يظل أمرًا صعبًا وتواجه أنماط فشل محددة."
+  },
+  {
+   "id": "2609.15991",
+   "title": "The Functionalizer: Lossless Functional Decomposition for Subword Tokenization",
+   "abstract": "Standard subword tokenizers either treat every orthographic variation of a word (such as hello, Hello, HELLO, and Héllo) as unrelated vocabulary entries, which fragments the embedding space, or discard this variation through lossy normalization. We present the Functionalizer, a lossless pre-tokenizer framework that factors orthographic and structural variations into a compositional opcode/operand prefix stream before tokenization: a canonical base token (operand) prefixed by parametric transformation operators (opcodes) encoded in the Unicode Private Use Area. We introduce operators covering c",
+   "authors": [
+    "Connor Makowski",
+    "Willem Guter"
+   ],
+   "link": "https://huggingface.co/papers/2609.15991",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-18T00:00",
+   "title_ar": "The Functionalizer: التفكيك الوظيفي غير منقوص البيانات لتقطيع الكلمات الفرعية",
+   "summary_ar": "إما أن تعامل مجزئات الكلمات الفرعية القياسية الاختلافات الإملائية للكلمة كمدخلات غير مرتبطة مما يفتت فضاء التضمين، أو تتجاهلها عبر تسوية تُفقد البيانات. نقدم أداة The Functionalizer، وهي مجزئ أولي غير منقوص البيانات."
+  },
+  {
+   "id": "2609.13814",
+   "title": "Realtime-Venus: A full-duplex interaction system with asynchronous delegation",
+   "abstract": "Natural interaction in digital and physical environments requires continuous perception and timely responses. Spoken dialogue relies on acoustic and linguistic cues, while video interaction also requires grounding the conversation in evolving visual context. We present Realtime-Venus, a proactive full-duplex interaction system with two separately trained 9B models: Realtime-Venus-Omni for audio-visual interaction and Realtime-Venus-Audio for spoken interaction. Each model serves as a complete conversational frontend, integrating continuous perception, conversational control, and native speech ",
+   "authors": [
+    "Ruixiang Zhao",
+    "Hualei Wang",
+    "Renhe Sun",
+    "Enzhi Zhou"
+   ],
+   "link": "https://huggingface.co/papers/2609.13814",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-12T00:00",
+   "title_ar": "Realtime-Venus: نظام تفاعل مزدوج الاتجاه بالكامل مع التفويض غير المتزامن",
+   "summary_ar": "يتطلب التفاعل الطبيعي في البيئات الرقمية والمادية إدراكًا مستمرًا واستجابات في الوقت المناسب، حيث يعتمد الحوار المنطوق على إشارات صوتية ولغوية بينما يحتاج التفاعل المرئي لربط المحادثة بالسياق المرئي المتطور. نقدم Realtime-Venus، وهو نظام تفاعلي استباقي ومزدوج الاتجاه بالكامل."
+  },
+  {
+   "id": "2609.23169",
+   "title": "UltraTex: Unleashing 2K Multi-View Diffusion for 3D Texturing",
+   "abstract": "High-quality texture generation is essential for creating realistic and production-ready 3D assets. Recent multi-view diffusion methods have shown promising results for image-guided 3D texturing, but they are typically constrained to low operating resolutions such as 512 or 768, making it difficult to preserve high-frequency details from high-resolution reference images. Scaling this paradigm to 2048 resolution is computationally prohibitive, as the unified multi-view sequence exceeds 212K tokens and incurs excessive memory and latency. In this paper, we present UltraTex, an efficient end-to-e",
+   "authors": [
+    "Yibo Zhang",
+    "Ze Yuan",
+    "Nan Cao",
+    "Li Zhang"
+   ],
+   "link": "https://huggingface.co/papers/2609.23169",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-19T00:00",
+   "title_ar": "UltraTex: إطلاق عنان الانتشار متعدد العرض بدقة 2K لإكساء النماذج ثلاثية الأبعاد",
+   "summary_ar": "يُعد توليد الإكساء عالي الجودة أمرًا ضروريًا لإنشاء أصول ثلاثية الأبعاد واقعية وجاهزة للإنتاج. ورغم أن أساليب الانتشار متعدد العرض أظهرت نتائج واعدة للإكساء الموجه بالصور، إلا أنها مقيدة عمومًا بدقات تشغيل منخفضة مثل 512 أو 768."
   }
  ],
  "n": 6
