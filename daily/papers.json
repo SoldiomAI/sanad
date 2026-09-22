@@ -1,108 +1,108 @@
 {
- "updated": "2026-09-21T18:18+00:00",
+ "updated": "2026-09-22T08:16+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.21788",
-   "title": "From Pretraining to Proficiency: Real-World Subtask RL for Long-Horizon Manipulation with Minimal Human Intervention",
-   "abstract": "A pretrained robot foundation policy may execute most of a long-horizon task yet repeatedly fail at a few critical subtasks. Collecting additional full-task demonstrations for supervised fine-tuning (SFT) requires operators to repeat behaviors the policy already performs well. Reinforcement learning (RL) fine-tuning offers a promising path to bridge this gap, but existing approaches struggle to solve long-horizon tasks using only sparse rewards. We present PARTS (Policy Adaptation with RL on Targeted Subtasks), a real-world subtask RL framework that concentrates practice at these bottlenecks w",
+   "id": "2609.24220",
+   "title": "Document Retrieval-Aware Chunking (D-RAC): Universal Retrieval-Aware Ingestion of Enterprise Documents via PDF Normalization and Multimodal Markdown Conversion",
+   "abstract": "Retrieval-Augmented Generation (RAG) systems over enterprise knowledge bases must ingest heterogeneous document formats -- PDFs, Word documents, presentations, and scans -- whose content is locked inside complex visual layouts, multi-column pages, and dense tables. Rule-based extraction and OCR destroy reading order, flatten tables, and lose heading hierarchy, while fully agentic chunking over extracted text incurs high token costs and hallucination risk. We present Document Retrieval-Aware Chunking (D-RAC), an extension of our Web Retrieval-Aware Chunking (W-RAC) framework to arbitrary docume",
    "authors": [
-    "Sichang Su",
-    "Benjamin Yang",
-    "Zhiyun Deng",
-    "Boyuan Liang"
+    "Uday Allu",
+    "Abhivanth Sivaprakash",
+    "Pratik Singh",
+    "Aman Manocha"
    ],
-   "link": "https://huggingface.co/papers/2609.21788",
+   "link": "https://huggingface.co/papers/2609.24220",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-18T00:00",
-   "title_ar": "من التدريب المسبق إلى الإتقان: تعلم معزز للمهام الفرعية في العالم الحقيقي للتلاعب بعيد المدى بأدنى حد من التدخل البشري",
-   "summary_ar": "قد تنفذ سياسة الروبوت التأسيسية المدربة مسبقًا معظم المهام بعيدة المدى، لكنها تفشل مرارًا في مهام فرعية حرجة قليلة. يتطلب جمع عروض توضيحية إضافية للمهمة الكاملة للضبط الدقيق الخاضع للإشراف تكرار سلوكيات يجيدها الروبوت بالفعل."
+   "published": "2026-09-21T00:00",
+   "title_ar": "التقطيع المدرك لاسترجاع المستندات (D-RAC): إدخال شامل للمستندات المؤسسية مدرك للاسترجاع عبر تسوية ملفات PDF والتحويل متعدد الوسائط إلى Markdown",
+   "summary_ar": "يجب على أنظمة التوليد المعزز بالاسترجاع (RAG) لقواعد المعرفة المؤسسية إدخال تنسيقات مستندات غير متجانسة كملفات PDF وWord والعروض التقديمية والمسوحات الضوئية المحصورة محتوياتها داخل تخطيطات بصرية معقدة، وصفحات متعددة الأعمدة، وجداول كثيفة. لكن الاستخراج القائم على القواعد والتعرف الضوئي على الحروف يدمّران هذه الهيكلية."
   },
   {
-   "id": "2609.19169",
-   "title": "SiliconBench: Speed, Memory, and Fidelity for LLM Serving on Unified-Memory Desktops",
-   "abstract": "Concurrent local LLM serving on unified-memory desktops must preserve memory headroom and output fidelity, which speed-only rankings overlook. We introduce SiliconBench, which evaluates nine Apple Silicon serving engines through three lenses: speed, memory, and fidelity. We evaluate chat and agent serving on Qwen3, Qwen3.5, and Gemma 4. We use a classification task to check for quality regressions against an NVIDIA reference. DGX Spark provides a complementary serving-performance reference. Three desiderata guide interpretation: serving architecture readiness, memory discipline, and multi-node",
+   "id": "2609.23796",
+   "title": "Mira-Scene: Pixel-Aligned Layouts for Generative 3D Scene",
+   "abstract": "Single-image 3D object generation can now produce high-fidelity assets, yet accurately placing them into a coherent scene layout remains an open challenge. A central difficulty lies in how object layout is represented. Holistic methods absorb placement into a scene-level generation process, sacrificing object-level detail. Compositional methods preserve object fidelity by decoupling geometry from layout, but typically parameterize layout as sparse, unbounded pose variables that are difficult to learn and generalize poorly under scarce scene-level supervision.We present Mira-Scene, a compositio",
    "authors": [
-    "Ranran Haoran Zhang",
-    "Aysa Xuemo Fan",
-    "David Munhá Correia",
-    "Alex Cheema"
+    "Yang-Tian Sun",
+    "Tianjia Liu",
+    "Zehuan Huang",
+    "Yi-Hua Huang"
    ],
-   "link": "https://huggingface.co/papers/2609.19169",
+   "link": "https://huggingface.co/papers/2609.23796",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-12T00:00",
-   "title_ar": "سيليكون بنش: السرعة والذاكرة والدقة لتشغيل النماذج اللغوية الكبيرة على الحواسيب المكتبية ذات الذاكرة الموحدة",
-   "summary_ar": "يجب أن يحافظ تشغيل النماذج اللغوية الكبيرة محليًا بالتزامن على الحواسيب ذات الذاكرة الموحدة على حيز الذاكرة ودقة المخرجات، وهو ما تغفله تصنيفات السرعة وحدها. يقدّم البحث \"SiliconBench\" لتقييم تسعة محركات تشغيل على شريحة \"Apple Silicon\" عبر السرعة والذاكرة والدقة لسيناريوهات المحادثة والوكلاء."
+   "published": "2026-09-20T00:00",
+   "title_ar": "ميرا-سين: تخطيطات محاذية للبكسل للمشاهد ثلاثية الأبعاد التوليدية",
+   "summary_ar": "يمكن لتوليد الكائنات ثلاثية الأبعاد من صورة واحدة إنتاج أصول عالية الدقة حالياً، إلا أن وضعها بدقة في تخطيط مشهد متماسك يظل تحدياً قائماً. وتكمن الصعوبة المركزية في كيفية تمثيل تخطيط الكائنات؛ إذ تدمج الطرق الشاملة وضع الكائنات ضمن عملية توليد المشهد بأكمله، مضحيةً بالتفاصيل."
   },
   {
-   "id": "2609.20886",
-   "title": "BI-Agent and BI-Bench: Towards Automating End-to-End Business Intelligence",
-   "abstract": "Business intelligence (BI) is a cornerstone of enterprise decision-making and is widely used by enterprise users in software such as Power BI and Tableau. In traditional BI workflows, users need to prepare data by (1) identifying relevant tables, (2) performing data transformations, and (3) building join relationships, before they can (4) answer their business questions. These steps can be complex and time-consuming, making BI challenging. Given the strong capabilities of large language models (LLMs) in working with data, we study their ability to answer BI questions end-to-end, without requir",
+   "id": "2609.22255",
+   "title": "Deep Persona: A Psychologically Grounded Architecture and Evaluation Framework for Role-Playing Agents and Simulations",
+   "abstract": "Existing approaches to persona simulation with Large Language Models (LLMs) mostly rely on shallow character descriptions that fail to sustain coherent character behavior across extended interactions. We introduce Deep Persona, a psychologically grounded, three-layered architecture that organizes personas into hierarchical levels of observable expression, latent beliefs, and core motivational drives, for constructing highly convincing role-playing agents. Governed by the principles of scripted determinism and bounded agency, the architecture restricts the model to a reactive engine guided by a",
    "authors": [
-    "Chuxuan Hu",
-    "Yeye He",
-    "Penny Zhou",
-    "Wee Hyong Tok"
+    "Rotem Dror",
+    "Zohar Elyoseph",
+    "Yuval Haber",
+    "Elad Refoua"
    ],
-   "link": "https://huggingface.co/papers/2609.20886",
+   "link": "https://huggingface.co/papers/2609.22255",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-16T00:00",
-   "title_ar": "بي آي-إيجنت وبي آي-بنش: نحو أتمتة ذكاء الأعمال من البداية إلى النهاية",
-   "summary_ar": "يُعد ذكاء الأعمال حجر زاوية في اتخاذ القرارات المؤسسية ويُستخدم على نطاق واسع في برمجيات مثل \"Power BI\" و\"Tableau\". يتطلب سير العمل التقليدي قيام المستخدمين بتجهيز البيانات عبر تحديد الجداول ذات الصلة، وتحويل البيانات، وبنائها."
+   "published": "2026-09-06T00:00",
+   "title_ar": "ديب بيرسونا: بنية معمارية وإطار تقييم مؤسسان نفسياً لوكلاء لعب الأدوار والمحاكاة",
+   "summary_ar": "تعتمد الأساليب الحالية لمحاكاة الشخصيات باستخدام النماذج اللغوية الكبيرة في الغالب على أوصاف سطحية تفشل في الحفاظ على سلوك متماسك للشخصية عبر التفاعلات الممتدة. ولذلك، نقدّم Deep Persona، وهي بنية معمارية ثلاثية الطبقات ومؤسسة نفسياً لتنظيم الشخصية."
   },
   {
-   "id": "2609.22086",
-   "title": "Designer-RSI: Evolving Procedural Memory from User Traffic for Agentic Graphic Design",
-   "abstract": "Professional graphic design is a long-horizon agentic task in which structured, editable artifacts emerge from many interdependent actions, yet outcomes admit no reliable programmatic oracle. We introduce a continual adaptation framework in which a frozen frontier model operates professional design software through more than 230 tools, while an external procedural memory of natural-language skills accumulates and refines reusable design procedures from experience. The memory widens by acquiring procedures for recurring uncovered subtasks and deepens by revising existing procedures against thei",
+   "id": "2609.24118",
+   "title": "CARE: Experience-Guided Atomic Corrective Execution for Vision-Language-Action Policies",
+   "abstract": "Vision-Language-Action (VLA) policies achieve strong performance in robotic manipulation but remain brittle once execution deviates from nominal trajectories. We propose CARE (Corrective Atomic Robotic Execution), a framework that improves recovery by learning from failures encountered during execution. Instead of generating corrective data from manually designed or random perturbations, CARE collects failed rollouts, models stage-conditioned post-failure deviations, and uses the resulting empirical distributions to synthesize representative failure states and corrective demonstrations. At inf",
    "authors": [
-    "Hongyang Du",
-    "Lan Yan",
-    "Christian Flores",
-    "Asim Kadav"
+    "Junlan Xiao",
+    "Junwei Jiang",
+    "Zaibin Zhang",
+    "Yifan Wang"
    ],
-   "link": "https://huggingface.co/papers/2609.22086",
+   "link": "https://huggingface.co/papers/2609.24118",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-18T00:00",
-   "title_ar": "ديزاينر-آر إس آي: تطوير الذاكرة الإجرائية من حركة تدفق المستخدمين للتصميم الجرافيكي القائم على الوكلاء",
-   "summary_ar": "يُعد التصميم الجرافيكي الاحترافي مهمة وكيلة بعيدة المدى تُنتج عناصر منظمة وقابلة للتعديل عبر إجراءات مترابطة، دون وجود مرجع برمجي موثوق للنتائج. يُقدّم البحث إطار تكيف مستمر يعمل فيه نموذج متقدم وثابت على تشغيل أدوات تصميم احترافية."
+   "published": "2026-09-21T00:00",
+   "title_ar": "كير: تنفيذ تصحيحي ذري موجه بالخبرة لسياسات الرؤية واللغة والعمل",
+   "summary_ar": "تحقق سياسات الرؤية واللغة والعمل (VLA) أداءً قوياً في التحكم الروبوتي، لكنها تظل هشة بمجرد انحراف التنفيذ عن المسارات المحددة. نقترح CARE، وهو إطار عمل يعزز التعافي من الأخطاء عبر التعلم من الإخفاقات التي تحدث أثناء التنفيذ."
   },
   {
-   "id": "2609.22039",
-   "title": "Gricea: An Open Science Platform for Conversational AI Research",
-   "abstract": "We need studies on conversational AI (CAI) at scale to understand human behavior and shape CAI design. However, fragmented reporting of systems and study configurations hinders replication, extension, and knowledge accumulation. We present Gricea, an open-science platform representing studies as configurable, deployable research artifacts that researchers can run, inspect, share, and reuse. Informed by a formative analysis of prior CAI research, Gricea couples study procedures, participant-facing systems, and conversational task behavior in. In a replication study using Gricea, we replicated c",
+   "id": "2609.23088",
+   "title": "OmniEdu: Open Foundation Models for Learning and Teaching",
+   "abstract": "Educational foundation models must solve problems, understand curriculum structure, diagnose learner difficulties, and provide appropriate instructional support. Existing educational language models often focus on either problem solving or tutoring, with training mixtures organized by source or task rather than capability. We present OmniEdu, an open family of foundation models for K-12 learning and teaching. Its instruction-tuning corpus combines over 100 educational resources and general instruction sources, organized around four capabilities: subject competence, curriculum grounding, diagno",
    "authors": [
-    "Nikhil Sharma",
-    "Yunlin Gong",
-    "Xinyang Cheng",
-    "Ziang Xiao"
+    "Hao Liang",
+    "Qihan Lin",
+    "Meiyi Qiang",
+    "Linzhuang Sun"
    ],
-   "link": "https://huggingface.co/papers/2609.22039",
+   "link": "https://huggingface.co/papers/2609.23088",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-18T00:00",
-   "title_ar": "غريسيا: منصة علمية مفتوحة لأبحاث الذكاء الاصطناعي الحواري",
-   "summary_ar": "تدعو الحاجة إلى دراسات واسعة النطاق حول الذكاء الاصطناعي الحواري لفهم السلوك البشري وتوجيه تصميمه، غير أن التوثيق المجزأ للأنظمة والتجارب يعيق التكرار وتراكم المعرفة. يقدم البحث \"Gricea\"، وهي منصة علمية مفتوحة لتمثيل الدراسات وتوصيفها."
+   "published": "2026-09-19T00:00",
+   "title_ar": "أومني إديو: نماذج أساس مفتوحة للتعلم والتعليم",
+   "summary_ar": "يجب على نماذج الأساس التعليمية حل المشكلات، وفهم بنية المناهج، وتشخيص صعوبات المتعلمين، وتقديم الدعم التعليمي المناسب. وغالباً ما تركز النماذج اللغوية التعليمية الحالية على حل المشكلات أو التدريس فقط، مع تنظيم خلطات التدريب حسب المصدر أو المهمة."
   },
   {
-   "id": "2609.16251",
-   "title": "CADWorld: Computer-Use Benchmark for Long-Horizon Computer-Aided Design",
-   "abstract": "Computer-use agents are increasingly evaluated in realistic desktop environments, but existing benchmarks provide limited coverage of professional engineering workflows whose outputs are persistent, structured artifacts. Mechanical computer-aided design (CAD) is a particularly demanding setting: an agent must manipulate geometry and constraints over long interaction horizons while producing a native project whose dimensions, construction structure, and downstream engineering state remain valid. We introduce CADWorld, a benchmark for long-horizon computer use in FreeCAD. CADWorld contains 200 t",
+   "id": "2609.24432",
+   "title": "1% of Tokens Can Be Enough: On Gradient Estimation in On-Policy Distillation",
+   "abstract": "Sparse on-policy distillation (OPD) allocates teacher supervision to a small subset of tokens in student-generated trajectories. However, useful teacher guidance can yield a noisy update when its gradient is estimated from a sampled next token. We study this estimation problem at a fixed prefix in information geometry and propose an information-efficiency ratio (IER) based on a signal-to-noise decomposition. IER characterizes relative gradient estimation error under an optimal scalar baseline. A candidate-set approximation enables token selection based on IER and its combination with existing ",
    "authors": [
-    "Zihan Dong",
-    "Yuanzhe Liu",
-    "Zhiyuan Ma",
-    "Qishi Zhan"
+    "Huanxin Sheng",
+    "Zhiling Ye",
+    "Haonan Wang",
+    "Jian Wang"
    ],
-   "link": "https://huggingface.co/papers/2609.16251",
+   "link": "https://huggingface.co/papers/2609.24432",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-14T00:00",
-   "title_ar": "كاد وورلد: معيار لاستخدام الحاسوب في التصميم الموجه بالحاسوب للمهام بعيدة المدى",
-   "summary_ar": "تزايد تقييم وكلاء استخدام الحاسوب في بيئات سطح مكتب واقعية، لكن المعايير الحالية توفر تغطية محدودة لمسارات العمل الهندسية الاحترافية ذات المخرجات الثابتة والمنظمة. ويُمثّل التصميم الميكانيكي بمساعدة الحاسوب (CAD) بيئة عمل صعبة ومتطلبة للغاية."
+   "published": "2026-09-21T00:00",
+   "title_ar": "1% من الرموز قد تكون كافية: حول تقدير التدرج في التقطير وفق السياسة المتبعة",
+   "summary_ar": "يخصص التقطير المتناثر وفق السياسة المتبعة (OPD) إشراف المعلم لمجموعة فرعية صغيرة من الرموز في المسارات التي يولدها الطالب. ومع ذلك، يمكن لتوجيه المعلم المفيد أن يولد تحديثاً مشوشاً عند تقدير تدرجه من رمز تالٍ مأخوذ كعينة؛ لذا ندرس مشكلة التقدير هذه عند بادئة ثابتة."
   }
  ],
  "n": 6
