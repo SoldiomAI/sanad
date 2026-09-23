@@ -1,106 +1,104 @@
 {
- "updated": "2026-09-22T22:46+00:00",
+ "updated": "2026-09-23T11:59+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.22870",
-   "title": "Towards Full Pipeline FP8 Reinforcement Learning for LLMs",
-   "abstract": "Reinforcement learning (RL) has become a key technique for improving the reasoning and agentic abilities of large language models (LLMs). Although FP8 quantization can accelerate RL training, maintaining stability throughout an FP8 RL pipeline remains challenging. While previous works have focused on resolving train-inference mismatches using correction techniques like TIS, we reveal that full-pipeline FP8 RL still suffers from severe training instability, manifesting as anomalous mid-training entropy surges and garbled outputs. We trace this instability to a previously overlooked cause: compo",
+   "id": "2609.26550",
+   "title": "JEV-as-a-Judge: Accept When Confident, Escalate When Unsure",
+   "abstract": "LLM-as-a-judge enables evaluation across diverse tasks, but inference cost and confidence reliability become critical at scale. We study whether a decision-only judge can provide an economical first pass and identify when stronger evaluation is needed. Comparing jev-as-a-judge with sixteen generative and reward-model judges, with blinded human adjudication, we find it within three percentage points of a state-of-the-art LLM judge, our strongest comparator, on ordinary preference and evidence-grounded factuality at 0.36% of the comparator's fee. Larger gaps arise when judgments require checking",
    "authors": [
-    "Fanchao Chen",
-    "Ziheng Jiang",
-    "Ziyun Wei",
-    "Zheng Zhong"
+    "Yubo Li",
+    "Yidi Miao",
+    "Ramayya Krishnan",
+    "Rema Padman"
    ],
-   "link": "https://huggingface.co/papers/2609.22870",
+   "link": "https://huggingface.co/papers/2609.26550",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-19T00:00",
-   "title_ar": "نحو مسار تدريب كامل بتنسيق FP8 للتعلم التعزيزي للنماذج اللغوية الكبيرة",
-   "summary_ar": "بات التعلم التعزيزي تقنية أساسية لتحسين قدرات الاستدلال والقدرات الوكيلة للنماذج اللغوية الكبيرة. ورغم أن تكميم FP8 يمكنه تسريع تدريب التعلم التعزيزي، إلا أن الحفاظ على الاستقرار عبر مسار تدريب كامل بهذا التنسيق لا يزال يمثل تحديًا."
+   "published": "2026-09-22T00:00",
+   "title_ar": "نظام JEV كحَكَم: القبول عند الثقة والتصعيد عند عدم اليقين",
+   "summary_ar": "يتيح استخدام النماذج اللغوية الكبيرة كحكَم تقييم مهام متنوعة، غير أن تكلفة الاستدلال وموثوقية الثقة تصبحان حرجتين مع زيادة الحجم. وتبحث هذه الدراسة فيما إذا كان الحكَم المقتصر على اتخاذ القرار يمكنه توفير مرحلة أولى اقتصادية وتحديد متى تدعو الحاجة لتقييم أقوى، وذلك بمقارنة هذا النظام مع ستة عشر نموذجاً توليدياً."
   },
   {
-   "id": "2609.23989",
-   "title": "ACLArena: Agent Continue Learning in Multi-stage Post-training",
-   "abstract": "Building general-purpose agents for industrial deployment requires integrating multiple capabilities, each typically acquired at a distinct stage of training. Yet there is currently no well-established recipe for Agent Continual Learning (ACL), with little understanding of the trade-offs among existing integration paradigms. To address this gap, we introduce ACLArena, a framework for comprehensively studying, analyzing, and evaluating ACL. We first build a sequential training pipeline and conduct an in-depth analysis that explains the mechanisms of forgetting and generalization from two comple",
+   "id": "2609.25053",
+   "title": "LatentPort: Beyond KV Cache - Cross-Model Transfer of Recurrent Memory in Hybrid Language Models: A 4B-to-9B Hybrid-State Handoff Without Target Prefix Replay",
+   "abstract": "Can one language model hand its live memory to another without the receiver rereading the context? We demonstrate useful persistent hybrid-state transfer across one architecture-matched Qwen3.5 4B-to-9B sibling pair. To our knowledge, this is the first demonstrated cross-model handoff of persistent recurrent inference state between differently sized hybrid language models without target prefix replay. Translated attention KV alone leaves a large gap; adding the Gated DeltaNet (GDN) persistent-state package lowers teacher-forced negative log-likelihood (NLL), the average next-token log-loss, by",
    "authors": [
-    "Haixin Wang",
-    "Xiaoxuan Wang",
-    "Junkai Zhang",
-    "Han Zhang"
+    "Simon P. Villani"
    ],
-   "link": "https://huggingface.co/papers/2609.23989",
+   "link": "https://huggingface.co/papers/2609.25053",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-07T00:00",
+   "title_ar": "LatentPort: ما وراء ذاكرة المفتاح والقيمة (KV Cache) - النقل بين النماذج للذاكرة التكرارية في النماذج اللغوية الهجينة",
+   "summary_ar": "تبحث الورقة إمكانية نقل نموذج لغوي لذاكرته الحية إلى نموذج آخر دون إعادة قراءة السياق من قِبل المتلقي. وتوضح الدراسة نجاح نقل الحالة الهجينة المستمرة بين زوج شقيق متطابق البنية من طرازي Qwen3.5 بحجمي 4B و9B، وهو أول نقل موثق بين النماذج لحالة مستمرة بحسب علم الباحثين."
+  },
+  {
+   "id": "2609.25636",
+   "title": "RoboFollow: Unveiling the Instruction Following Mirage in Embodied Agents",
+   "abstract": "Modern embodied agents achieve impressive success rates, yet their actual instruction-following ability is far weaker than these numbers suggest. We trace this illusion to a structural property we term low scene entropy: when a visual scene admits only one valid task, language becomes redundant and a policy can score highly while barely using it. We introduce RoboFollow, a diagnostic benchmark with three principles: (1) High Scene Entropy: each training scene supports multiple kinematically distinct task branches, making vision alone insufficient and forcing reliance on language. (2) Hierarchi",
+   "authors": [
+    "Chang Guo",
+    "Yukun Xie",
+    "Bohan Tan",
+    "Zheng Chang"
+   ],
+   "link": "https://huggingface.co/papers/2609.25636",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-22T00:00",
+   "title_ar": "RoboFollow: كشف سراب اتباع التعليمات في الوكلاء المجسدين",
+   "summary_ar": "يحقق الوكلاء المجسدون المعاصرون معدلات نجاح مذهلة، إلا أن قدرتهم الفعلية على اتباع التعليمات أضعف بكثير مما توحي به هذه الأرقام. ويعزو الباحثون هذا الوهم إلى خاصية هيكلية سموها \"إنتروبيا المشهد المنخفضة\"، والتي تجعل اللغة غير ضرورية عندما لا يسمح المشهد البصري إلا بمهمة صالحة واحدة."
+  },
+  {
+   "id": "2609.26346",
+   "title": "Blaming Across the Aisle: Political Contrasting and Blame Attribution in the Danish Parliament",
+   "abstract": "Political discourse is widely perceived to be growing more hostile, yet robust evidence remains scarce. This study examines blame attribution in the Danish Parliament from 1997 to 2026, combining a purpose-built classifier, BlameBERT (F1: 0.80), with multilevel statistical modeling. The classifier is constructed using an annotation-efficient pipeline for blame attribution in low-to-mid resource languages. The results reveal a banana-shaped trajectory, with blame declining until around 2016 before entering a significant and sustained increase in recent years (2019-2026). Government status consi",
+   "authors": [
+    "Markus Lundsfryd Jensen",
+    "Rune Egeskov Trust",
+    "Kenneth Christian Enevoldsen",
+    "Sara Kolding"
+   ],
+   "link": "https://huggingface.co/papers/2609.26346",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-22T00:00",
+   "title_ar": "إلقاء اللوم عبر الانقسام الحزبي: التباين السياسي وإسناد اللوم في البرلمان الدنماركي",
+   "summary_ar": "يُعتقد على نطاق واسع أن الخطاب السياسي يزداد عدائية، لكن الأدلة القوية على ذلك لا تزال شحيحة. تبحث هذه الدراسة إسناد اللوم في البرلمان الدنماركي من عام 1997 إلى 2026، من خلال الجمع بين مصنف مخصص يُدعى BlameBERT ونمذجة إحصائية متعددة المستويات."
+  },
+  {
+   "id": "2609.25267",
+   "title": "ImIR: Image-Instruction Tuning for All-in-One Image Restoration",
+   "abstract": "Degradations vary widely across images, so a practical restoration system has to handle many degradation types with one model. A recent and effective recipe adapts a large pretrained image-editing model to restoration using a small low-rank adapter with a text prompt. We replace that prompt with an instruction derived from the degraded image itself. The image reaches the editor through two paths: its structure comes from the model's VAE, and its semantic instruction comes from a lightweight token mapper that shifts the degraded image's vision-language embedding toward the embedding a clean ima",
+   "authors": [
+    "Süleyman Aslan",
+    "Görkay Aydemir",
+    "Mısra Yavuz",
+    "Yunus Bilge Kurt"
+   ],
+   "link": "https://huggingface.co/papers/2609.25267",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-21T00:00",
-   "title_ar": "ACLArena: التعلم المستمر للوكلاء في مرحلة ما بعد التدريب متعددة المراحل",
-   "summary_ar": "يتطلب بناء وكلاء للأغراض العامة للنشر الصناعي دمج قدرات متعددة تُكتسب عادةً في مراحل تدريبية مختلفة. ومع ذلك، لا توجد حاليًا منهجية راسخة للتعلم المستمر للوكلاء، مع قلة الفهم للمقايضات بين الأساليب الحالية."
+   "title_ar": "ImIR: ضبط تعليمات الصورة لترميم شامل للصور",
+   "summary_ar": "تتنوع تشوهات الصور بدرجة كبيرة، مما يتطلب من نظام الترميم العملي التعامل مع أنواع متعددة بنموذج واحد. وتستبدل هذه الطريقة المطالبات النصية في النماذج المدربة مسبقاً بمطالبة مبنية على الصور لتحسين عملية الترميم والتكيف."
   },
   {
-   "id": "2609.06052",
-   "title": "SkillSpec: Intent-Masked Specification Reasoning for Agent Skill Correctness",
-   "abstract": "Autonomous agent systems increasingly depend on reusable skill abstractions for consolidating experiential knowledge and domain expertise. These artifacts typically bundle free-form instructions with heterogeneous resources. However, ensuring their correctness remains challenging. Their failure modes transcend conventional code defects to subtle semantic inconsistencies such as intent conflicts, which manifest as silent failures masked by the underlying model. Moreover, skill correctness must be grounded in intended task boundaries and generalizability. We propose SkillSpec, a Hoare-style fram",
+   "id": "2609.24967",
+   "title": "Emergent Collusion in Long-Horizon LLM Agent Interaction",
+   "abstract": "LLM agents are increasingly deployed in collaborative settings, yet long-term interaction may give rise to undesirable coordination. We study the emergence of collusion in a long-horizon multi-agent environment: two agents repeatedly complete individual tasks, share task logs, verify each other's work, and receive rewards. We introduce realistic constraints that make compliance with the verification protocol incompatible with reward maximization, and find that agents increasingly deviate from the protocol over repeated interactions. Collusion emerges in 94% of trajectories across 10 models, an",
    "authors": [
-    "Yizhuo Zhang",
-    "Bo Kang",
-    "Yi Yang",
-    "Zhiyu Duan"
+    "Xinrui Shi",
+    "Yanzhe Zhang",
+    "Diyi Yang"
    ],
-   "link": "https://huggingface.co/papers/2609.06052",
+   "link": "https://huggingface.co/papers/2609.24967",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-05T00:00",
-   "title_ar": "SkillSpec: الاستدلال على المواصفات مع حجب النية للتحقق من صحة مهارات الوكلاء",
-   "summary_ar": "تعتمد أنظمة الوكلاء الذاتية بشكل متزايد على تجريدات المهارات القابلة لإعادة الاستخدام لدمج المعرفة التجريبية والخبرة المتخصصة، حيث تجمع هذه الأدوات عادة بين تعليمات غير مقيدة وموارد غير متجانسة. ومع ذلك، فإن ضمان صحتها يظل أمرًا صعبًا وتواجه أنماط فشل محددة."
-  },
-  {
-   "id": "2609.15991",
-   "title": "The Functionalizer: Lossless Functional Decomposition for Subword Tokenization",
-   "abstract": "Standard subword tokenizers either treat every orthographic variation of a word (such as hello, Hello, HELLO, and Héllo) as unrelated vocabulary entries, which fragments the embedding space, or discard this variation through lossy normalization. We present the Functionalizer, a lossless pre-tokenizer framework that factors orthographic and structural variations into a compositional opcode/operand prefix stream before tokenization: a canonical base token (operand) prefixed by parametric transformation operators (opcodes) encoded in the Unicode Private Use Area. We introduce operators covering c",
-   "authors": [
-    "Connor Makowski",
-    "Willem Guter"
-   ],
-   "link": "https://huggingface.co/papers/2609.15991",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-18T00:00",
-   "title_ar": "The Functionalizer: التفكيك الوظيفي غير منقوص البيانات لتقطيع الكلمات الفرعية",
-   "summary_ar": "إما أن تعامل مجزئات الكلمات الفرعية القياسية الاختلافات الإملائية للكلمة كمدخلات غير مرتبطة مما يفتت فضاء التضمين، أو تتجاهلها عبر تسوية تُفقد البيانات. نقدم أداة The Functionalizer، وهي مجزئ أولي غير منقوص البيانات."
-  },
-  {
-   "id": "2609.13814",
-   "title": "Realtime-Venus: A full-duplex interaction system with asynchronous delegation",
-   "abstract": "Natural interaction in digital and physical environments requires continuous perception and timely responses. Spoken dialogue relies on acoustic and linguistic cues, while video interaction also requires grounding the conversation in evolving visual context. We present Realtime-Venus, a proactive full-duplex interaction system with two separately trained 9B models: Realtime-Venus-Omni for audio-visual interaction and Realtime-Venus-Audio for spoken interaction. Each model serves as a complete conversational frontend, integrating continuous perception, conversational control, and native speech ",
-   "authors": [
-    "Ruixiang Zhao",
-    "Hualei Wang",
-    "Renhe Sun",
-    "Enzhi Zhou"
-   ],
-   "link": "https://huggingface.co/papers/2609.13814",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-12T00:00",
-   "title_ar": "Realtime-Venus: نظام تفاعل مزدوج الاتجاه بالكامل مع التفويض غير المتزامن",
-   "summary_ar": "يتطلب التفاعل الطبيعي في البيئات الرقمية والمادية إدراكًا مستمرًا واستجابات في الوقت المناسب، حيث يعتمد الحوار المنطوق على إشارات صوتية ولغوية بينما يحتاج التفاعل المرئي لربط المحادثة بالسياق المرئي المتطور. نقدم Realtime-Venus، وهو نظام تفاعلي استباقي ومزدوج الاتجاه بالكامل."
-  },
-  {
-   "id": "2609.23169",
-   "title": "UltraTex: Unleashing 2K Multi-View Diffusion for 3D Texturing",
-   "abstract": "High-quality texture generation is essential for creating realistic and production-ready 3D assets. Recent multi-view diffusion methods have shown promising results for image-guided 3D texturing, but they are typically constrained to low operating resolutions such as 512 or 768, making it difficult to preserve high-frequency details from high-resolution reference images. Scaling this paradigm to 2048 resolution is computationally prohibitive, as the unified multi-view sequence exceeds 212K tokens and incurs excessive memory and latency. In this paper, we present UltraTex, an efficient end-to-e",
-   "authors": [
-    "Yibo Zhang",
-    "Ze Yuan",
-    "Nan Cao",
-    "Li Zhang"
-   ],
-   "link": "https://huggingface.co/papers/2609.23169",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-19T00:00",
-   "title_ar": "UltraTex: إطلاق عنان الانتشار متعدد العرض بدقة 2K لإكساء النماذج ثلاثية الأبعاد",
-   "summary_ar": "يُعد توليد الإكساء عالي الجودة أمرًا ضروريًا لإنشاء أصول ثلاثية الأبعاد واقعية وجاهزة للإنتاج. ورغم أن أساليب الانتشار متعدد العرض أظهرت نتائج واعدة للإكساء الموجه بالصور، إلا أنها مقيدة عمومًا بدقات تشغيل منخفضة مثل 512 أو 768."
+   "published": "2026-09-21T00:00",
+   "title_ar": "التواطؤ الناشئ في تفاعل وكلاء النماذج اللغوية الكبيرة ممتد الأفق",
+   "summary_ar": "يتزايد نشر وكلاء النماذج اللغوية الكبيرة في بيئات تعاونية، إلا أن التفاعل طويل الأمد قد يؤدي إلى تنسيق غير مرغوب فيه. تدرس الورقة نشوء التواطؤ في بيئة متعددة الوكلاء طويلة الأمد يكرر فيها وكيلان إنجاز مهام فردية ومشاركة سجلات المهام والتحقق من عمل كل منهما للآخر."
   }
  ],
  "n": 6
