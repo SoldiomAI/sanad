@@ -1,105 +1,103 @@
 {
- "updated": "2026-09-24T01:05+00:00",
+ "updated": "2026-09-24T17:29+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.26793",
-   "title": "HARMONY: Hierarchical Agentic Reasoning for MONocular Image-to-Scene Synthesis",
-   "abstract": "Compositional 3D scene reconstruction has recently been explored from two directions: agentic reasoning that provides semantic understanding of spatial relationships but lacks precise alignment with input images; and visual geometry foundation models that predict dense point maps from input images but the reconstruction quality is limited. Therefore, recovering a complete 3D scene from a single monocular image with accurate inter-object relationships and high-fidelity reconstruction quality remains challenging. In this paper, we present HARMONY, a hierarchical chain-of-thought framework that l",
+   "id": "2609.22682",
+   "title": "Self-Organizing Agent Teams Learn to Reason Together",
+   "abstract": "Collective intelligence depends not only on what team members know, but also on how they organize their work. When the structure of a solution is unknown, useful roles and divisions of labor cannot be specified in advance; teams must learn from experience how to organize reasoning as it unfolds. Human teams routinely adapt this way, while existing AI agent teams rely on fixed protocols, explicit task decomposition, or routing. We introduce Self-Organizing Agent Teams (SAT), fixed teams of AI agents that learn reusable strategies from prior collaborations to organize roles, conversational phase",
    "authors": [
-    "Shufan Sun",
-    "Chen Wang",
-    "Enxin Song",
-    "Jiatao Gu"
+    "Aneesh Pappu",
+    "Mirac Suzgun",
+    "Yongchan Kwon",
+    "Federico Bianchi"
    ],
-   "link": "https://huggingface.co/papers/2609.26793",
+   "link": "https://huggingface.co/papers/2609.22682",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-19T00:00",
+   "title_ar": "فِرق الوكلاء ذاتية التنظيم تتعلم التفكير معًا",
+   "summary_ar": "لا يعتمد الذكاء الجماعي على معارف أعضاء الفريق فحسب، بل على كيفية تنظيم عملهم أيضًا. وحين يكون هيكل الحل مجهولًا، يتعذر تحديد الأدوار وتقسيم العمل مسبقًا، مما يفرض على الفِرق التعلم من التجربة لتنظيم التفكير أثناء تطوره."
+  },
+  {
+   "id": "2609.27158",
+   "title": "The Linear Representation Hypothesis Needs a Group Action",
+   "abstract": "To make claims about representations that generalize beyond a particular trained model, we need to specify when two representations should count as equivalent. The Linear Representation Hypothesis is often discussed without making this equivalence explicit. Different notions of equivalence preserve different structures, so metrics, probes, and interventions that appear to study the same representation may in fact correspond to different hypotheses. We therefore argue that the Linear Representation Hypothesis is not one hypothesis but a family of claims distinguished by representation equivalen",
+   "authors": [
+    "Louie Hong Yao",
+    "Yuhao Li",
+    "Shengchao Liu"
+   ],
+   "link": "https://huggingface.co/papers/2609.27158",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-22T00:00",
-   "title_ar": "هارموني: الاستدلال الوكيل الهرمي لتوليد المشاهد من الصور أحادية العين",
-   "summary_ar": "استُكشف مؤخرًا بناء المشاهد ثلاثية الأبعاد التركيبية من اتجاهين: استدلال وكيل يوفر فهمًا دلاليًا للعلاقات المكانية لكنه يفتقر للمحاذاة الدقيقة مع الصور، ونماذج بصرية هندسية أساسية تتنبأ بخرائط نقاط كثيفة من الصور."
+   "title_ar": "فرضية التمثيل الخطي بحاجة إلى فعل زمرة",
+   "summary_ar": "لتقديم ادعاءات حول التمثيلات قابلة للتعميم إلى ما بعد نموذج مدرب بعينه، يجب تحديد متى يُعد تمثيلان متكافئين. وغالبًا ما تُناقش فرضية التمثيل الخطي دون توضيح هذا التكافؤ، علمًا بأن المفاهيم المختلفة للتكافؤ تحافظ على خصائص متباينة."
   },
   {
-   "id": "2609.06011",
-   "title": "Tri-PvP: Exposing Modality Bias in Omni-Modal Large Language Models through Perceptual-Propositional Evidence Conflicts",
-   "abstract": "Omni-modal large language models (OLLMs) jointly process vision, audio, and text, yet their modality bias under cross-modal conflict remains underexplored. Existing benchmarks conflate two distinct forms of evidence within a single modality: perceptual signals (e.g., a photograph or recording of a dog) and propositional signals (e.g., the declarative claim \"this is a dog\"), such that any measured modality bias is inherently confounded with evidence-form bias, precluding clean attribution to either source. To address this, we introduce Tri-PvP, an 8,000-sample tri-modal conflict benchmark cross",
+   "id": "2609.26634",
+   "title": "Knowledge Pull Requests for Continual Document Authoring",
+   "abstract": "We introduce Knowledge Pull Requests (KPRs), a framework for continual document authoring that makes each change interpretable. Documents require ongoing revision as new knowledge surfaces from other sources, languages, or times, but existing approaches either edit with no account of what knowledge changed or regenerate from scratch. A KPR integrates new knowledge into a document by extracting claims, filtering and routing them to sections, and flagging conflicts with existing content, producing a ChangeLog that separates what knowledge changes (claim proposal) from how the text changes (docum",
    "authors": [
-    "Yen-Ting Piao",
-    "Shu-Yun Chen",
-    "Chin-Hui Chu",
-    "Chun-Wei Chen"
+    "Alexander Martin",
+    "Benjamin Van Durme"
    ],
-   "link": "https://huggingface.co/papers/2609.06011",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-05T00:00",
-   "title_ar": "تراي-بي في بي: كشف تحيز الوسائط في النماذج اللغوية الكبيرة الشاملة عبر تعارضات الأدلة الإدراكية والافتراضية",
-   "summary_ar": "تعالج النماذج اللغوية الكبيرة الشاملة الرؤية والصوت والنص معًا، غير أن تحيز الوسائط لديها عند تعارضها لا يزال غير مدروس بالشكل الكافي. وتخلط مقاييس التقييم الحالية بين شكلين متمايزين من الأدلة داخل وسيط واحد: الإشارات الإدراكية كصورة أو تسجيل."
-  },
-  {
-   "id": "2609.22319",
-   "title": "Embedding Physics Priors in Robot Learning: A Survey",
-   "abstract": "The rapid progress of artificial intelligence is reshaping robotics and accelerating the adoption of learning-based approaches. While purely data-driven methods have achieved remarkable success in computer vision and natural language processing, robotics remains constrained by limited data, complex real-world interactions, and the need for reliable operation. These challenges have motivated the exploration of physics-embedded robot learning, which embeds physics priors into learning algorithms. By encoding the underlying physical laws and constraints, physics priors can complement limited data",
-   "authors": [
-    "Mattia Piccinini",
-    "Lucas Schulze",
-    "Alice Plebe",
-    "Matteo Saveriano"
-   ],
-   "link": "https://huggingface.co/papers/2609.22319",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-15T00:00",
-   "title_ar": "تضمين المبادئ الفيزيائية المسبقة في تعلم الروبوت: دراسة مسحية",
-   "summary_ar": "يعيد التقدم السريع للذكاء الاصطناعي تشكيل علم الروبوت ويسرع تبني الأساليب القائمة على التعلم. ورغم نجاح الأساليب المعتمدة على البيانات فقط في الرؤية الحاسوبية ومعالجة اللغة، تظل الروبوتات مقيدة بمحدودية البيانات وتعقيدها."
-  },
-  {
-   "id": "2609.26781",
-   "title": "Agensh: Scaling Organizational Intelligence to 1,024 Agents",
-   "abstract": "A multi-agent system can reduce latency on complex tasks by executing work concurrently. Several pioneering harness frameworks support multi-agent systems. However, the scalability of current multi-agent harnesses is often constrained by a central orchestrator's capacity to allocate tasks and coordinate workers. To address this limitation, we introduce Agensh, a scalable self-organized multi-agent harness without a central orchestrator: concurrent workers execute a multi-agent cooperation loop, continuously gathering context, claiming and self-assigning sub-tasks, taking action and sharing fin",
-   "authors": [
-    "Zhihao Zhan",
-    "Ting Song",
-    "Li Dong",
-    "Shaohan Huang"
-   ],
-   "link": "https://huggingface.co/papers/2609.26781",
+   "link": "https://huggingface.co/papers/2609.26634",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-22T00:00",
-   "title_ar": "أجينش: توسيع نطاق الذكاء التنظيمي إلى 1024 وكيلاً",
-   "summary_ar": "يمكن للنظام متعدد الوكلاء تقليل زمن الاستجابة في المهام المعقدة عبر تنفيذ الأعمال بالتزامن، حيث تدعم عدة أطر عمل رائدة هذه الأنظمة. ومع ذلك، غالبًا ما تتقيد قابلية التوسع في الأطر الحالية بقدرة المنسق المركزي على تخصيص المهام وتنسيقها."
+   "title_ar": "طلبات سحب المعرفة للتأليف المستمر للوثائق",
+   "summary_ar": "نُقدّم «طلبات سحب المعرفة» (KPRs)، وهي إطار عمل للتأليف المستمر للوثائق يجعل كل تعديل قابلًا للتفسير. تتطلب الوثائق مراجعة مستمرة مع ظهور معارف جديدة من مصادر أو لغات أو أزمنة أخرى، غير أن النهج الحالية تعدِّل دون تبيان للمعرفة المعنية."
   },
   {
-   "id": "2609.26550",
-   "title": "JEV-as-a-Judge: Accept When Confident, Escalate When Unsure",
-   "abstract": "LLM-as-a-judge enables evaluation across diverse tasks, but inference cost and confidence reliability become critical at scale. We study whether a decision-only judge can provide an economical first pass and identify when stronger evaluation is needed. Comparing jev-as-a-judge with sixteen generative and reward-model judges, with blinded human adjudication, we find it within three percentage points of a state-of-the-art LLM judge, our strongest comparator, on ordinary preference and evidence-grounded factuality at 0.36% of the comparator's fee. Larger gaps arise when judgments require checking",
+   "id": "2609.26637",
+   "title": "Capable yet Parsimonious: Extracting and Characterizing Hidden Chain-of-Thought in Frontier Models",
+   "abstract": "The rapid capability gains of frontier language models are widely attributed to improved reasoning abilities, yet this cannot be verified as raw CoT traces in closed-source systems are hidden. By registering a simple custom tool through a standard API feature, we induce frontier models to externalize intermediate reasoning. Because these traces may reflect post-hoc rationalization rather than genuine reasoning, we first evaluate against native CoT on open-source models and extend to closed-source frontier models including GPT-6 Astra. We find that the extracted reasoning matches native reasoni",
    "authors": [
-    "Yubo Li",
-    "Yidi Miao",
-    "Ramayya Krishnan",
-    "Rema Padman"
+    "Xiaoyu Luo",
+    "Tao Ren",
+    "Wenrui Yu",
+    "Xiao Li"
    ],
-   "link": "https://huggingface.co/papers/2609.26550",
+   "link": "https://huggingface.co/papers/2609.26637",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-22T00:00",
-   "title_ar": "جي إي في كحكم: القبول عند الثقة والتصعيد عند الشك",
-   "summary_ar": "يُتيح استخدام النماذج اللغوية كحُكام التقييم عبر مهام متنوعة، غير أن تكلفة الاستدلال وموثوقية الثقة تصبحان حرجتين مع توسع النطاق. وتبحث الورقة إمكانية تقديم حكم مقتصر على اتخاذ القرار لتوفير فحص أولي اقتصادي وتحديد متى تدعو الحاجة لتقييم أقوى."
+   "title_ar": "قدير ولكنه مقتصد: استخراج وتوصيف سلسلة الأفكار الخفية في نماذج الطليعة",
+   "summary_ar": "تُعزى المكاسب السريعة في قدرات نماذج الطليعة اللغوية إلى تحسّن التفكير، لكن تعذّر التحقق من ذلك لكون مسارات سلسلة الأفكار الخام محجوبة في الأنظمة مغلقة المصدر. وعبر تسجيل أداة مخصصة بسيطة عبر واجهة برمجة تطبيقات قياسية، جعلنا هذه النماذج تُظهر أفكارها خارجيًا."
   },
   {
-   "id": "2609.25053",
-   "title": "LatentPort: Beyond KV Cache - Cross-Model Transfer of Recurrent Memory in Hybrid Language Models: A 4B-to-9B Hybrid-State Handoff Without Target Prefix Replay",
-   "abstract": "Can one language model hand its live memory to another without the receiver rereading the context? We demonstrate useful persistent hybrid-state transfer across one architecture-matched Qwen3.5 4B-to-9B sibling pair. To our knowledge, this is the first demonstrated cross-model handoff of persistent recurrent inference state between differently sized hybrid language models without target prefix replay. Translated attention KV alone leaves a large gap; adding the Gated DeltaNet (GDN) persistent-state package lowers teacher-forced negative log-likelihood (NLL), the average next-token log-loss, by",
+   "id": "2609.25187",
+   "title": "X-Planner: Event-Structured Task Planning for Embodied Intelligence",
+   "abstract": "Task planning bridges high-level instructions and executable behavior in long-horizon manipulation, yet modern Vision-Language-Action (VLA) systems often leave this intermediate structure implicit. Existing chain-of-thought (CoT) planners also tend to rely on coarse task-level annotations or serialize long reasoning traces token by token. We present X-Planner, a planning front-end that addresses both the supervision and representation of embodied reasoning. Our planning data combine Ego, UMI, and teleoperation under a hierarchy granularity with source-dependent annotation depth. Takeover-time ",
    "authors": [
-    "Simon P. Villani"
+    "Howard Lu",
+    "Shalfun Li",
+    "Porter Pan",
+    "Cris"
    ],
-   "link": "https://huggingface.co/papers/2609.25053",
+   "link": "https://huggingface.co/papers/2609.25187",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-07T00:00",
-   "title_ar": "لاتنت بورت: ما وراء تخزين المفتاح والقيمة - النقل عبر النماذج للذاكرة المتكررة في نماذج اللغة الهجينة: تسليم الحالة الهجينة من 4B إلى 9B دون إعادة تشغيل بادئة الهدف",
-   "summary_ar": "تبحث الورقة إمكانية تسليم نموذج لغوي لذاكرته النشطة لنموذج آخر دون إعادة قراءة المتلقي للسياق. ويوضح الباحثون نقلاً مفيداً ودائماً للحالة الهجينة بين زوج شقيق متطابق المعمارية من Qwen3.5 بحجم 4B إلى 9B، في أول تسليم معروض من نوعه بحسب علمهم."
+   "published": "2026-09-21T00:00",
+   "title_ar": "إكس-بلانر: تخطيط المهام بهيكلية الأحداث للذكاء المجسد",
+   "summary_ar": "يربط تخطيط المهام بين التعليمات عالية المستوى والسلوك التنفيذي في المعالجة طويلة المدى، غير أن أنظمة الرؤية واللغة والعمل الحديثة تبقي هذا الهيكل الوسيط ضمنيًا. كما تميل مخططات سلسلة الأفكار الحالية للاعتماد على تعليقات توضيحية خشنة على مستوى المهمة أو التسلسل."
+  },
+  {
+   "id": "2609.26489",
+   "title": "Calibration as a First-Class Criterion in LLM Evaluation",
+   "abstract": "Calibration of language models -- the alignment between expressed or implicit confidence and empirical correctness -- is a well-studied subfield within NLP. Methods to measure it already exist. The problem is adoption: outside this subfield, NLP research regularly introduces new models, datasets, and benchmarks without checking whether the model's confidence scores are meaningful. We argue that this adoption gap is a major obstacle to trustworthy LLM evaluation. Miscalibration causes problems in two distinct areas: at deployment, where overconfident mistakes cause real harm, and inside the res",
+   "authors": [
+    "Mario Sanz-Guerrero",
+    "Katharina von der Wense"
+   ],
+   "link": "https://huggingface.co/papers/2609.26489",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-22T00:00",
+   "title_ar": "المعايرة كمعيار من الدرجة الأولى في تقييم النماذج اللغوية الكبيرة",
+   "summary_ar": "تُعد معايرة النماذج اللغوية—أي التوافق بين الثقة الصريحة أو الضمنية والصحة التجريبية—مجالًا فرعيًا مدروسًا جيدًا في معالجة اللغات الطبيعية، وتوجد بالفعل طرق لقياسها. وتكمن المشكلة في تبنيها، إذ تطرح أبحاث هذا المجال بانتظام نماذج ومجموعات بيانات جديدة خارج نطاق هذا التخصص."
   }
  ],
  "n": 6
