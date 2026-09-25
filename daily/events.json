@@ -1,6 +1,6 @@
 {
  "schema_version": "1.0",
- "updated": "2026-09-24T23:48+00:00",
+ "updated": "2026-09-25T03:30+00:00",
  "policy": "observed facts and conservative deterministic clustering; no paid model calls",
  "events": [
   {
@@ -48,23 +48,25 @@
    "id": "evt_00a2234c351a2671",
    "type": "observed-event",
    "title": "رئيس الوزراء الكندي يتحسب لاحتمال عمل أمريكي عسكري ضد بلاده",
-   "title_en": "",
+   "title_en": "Canadian Prime Minister Prepares for Possibility of US Military Action Against Country",
    "observed_facts": [
     "بي بي سي عربي published: رئيس الوزراء الكندي يتحسب لاحتمال عمل أمريكي عسكري ضد بلاده"
    ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "sanad_assessment": "1 attributable observation(s); 0 carry an existing SANAD source grade.",
    "inference": "",
    "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
+   "confidence": 0.45,
    "severity": "info",
    "countries": [
     "ca"
    ],
    "sectors": [
     "defense",
-    "finance"
+    "finance",
+    "technology"
    ],
    "topics": [
+    "artificial-intelligence",
     "conflict",
     "economy",
     "عالم"
@@ -74,22 +76,22 @@
      "id": "ev_716c137ea94bea05",
      "url": "https://www.bbc.com/arabic/articles/cr624vn8d8leo?at_medium=RSS&at_campaign=rss",
      "source_name": "بي بي سي عربي",
-     "source_grade": "حسن",
+     "source_grade": "ضعيف الإسناد",
      "observed_at": "2026-09-24T22:23+00:00",
      "title": "رئيس الوزراء الكندي يتحسب لاحتمال عمل أمريكي عسكري ضد بلاده",
-     "title_en": "",
+     "title_en": "Canadian Prime Minister Prepares for Possibility of US Military Action Against Country",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_01338a0df03d0918",
    "type": "observed-event",
    "title": "بولندا تصف حريق محطة ستارلينك بـ \"العمل التخريبي\"، والدنمارك تحذر من تصاعد التهديد الروسي",
-   "title_en": "",
+   "title_en": "Poland Calls Starlink Station Fire 'Sabotage,' Denmark Warns of Escalating Russian Threat",
    "observed_facts": [
     "بي بي سي عربي published: بولندا تصف حريق محطة ستارلينك بـ \"العمل التخريبي\"، والدنمارك تحذر من تصاعد التهديد الروسي"
    ],
@@ -101,6 +103,8 @@
    "countries": [],
    "sectors": [],
    "topics": [
+    "climate",
+    "conflict",
     "تقنية"
    ],
    "evidence": [
@@ -111,57 +115,19 @@
      "source_grade": "ضعيف الإسناد",
      "observed_at": "2026-09-24T18:57+00:00",
      "title": "بولندا تصف حريق محطة ستارلينك بـ \"العمل التخريبي\"، والدنمارك تحذر من تصاعد التهديد الروسي",
-     "title_en": "",
+     "title_en": "Poland Calls Starlink Station Fire 'Sabotage,' Denmark Warns of Escalating Russian Threat",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T20:41+00:00",
-   "updated_at": "2026-09-24T20:41+00:00"
-  },
-  {
-   "id": "evt_01c2a79e26d60247",
-   "type": "observed-event",
-   "title": "بزشكيان: على الولايات المتحدة أن تقرر ما إذا كانت تريد إنهاء الحرب",
-   "title_en": "",
-   "observed_facts": [
-    "الشرق الأوسط published: بزشكيان: على الولايات المتحدة أن تقرر ما إذا كانت تريد إنهاء الحرب"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "ir",
-    "us"
-   ],
-   "sectors": [],
-   "topics": [
-    "conflict",
-    "ايران"
-   ],
-   "evidence": [
-    {
-     "id": "ev_730e859dbd8572a5",
-     "url": "https://aawsat.com/node/5322351",
-     "source_name": "الشرق الأوسط",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-24T23:18+00:00",
-     "title": "بزشكيان: على الولايات المتحدة أن تقرر ما إذا كانت تريد إنهاء الحرب",
-     "title_en": "",
-     "dataset": "news"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_02e07e5eadd92dee",
    "type": "observed-event",
    "title": "كلمة Sam Altman أمام مجلس الأمن التابع للأمم المتحدة",
-   "title_en": "Sam Altman Addresses UN Security Council",
+   "title_en": "Sam Altman's Address to the UN Security Council",
    "observed_facts": [
     "أوبن إيه آي published: كلمة Sam Altman أمام مجلس الأمن التابع للأمم المتحدة"
    ],
@@ -184,13 +150,52 @@
      "source_grade": "صحيح",
      "observed_at": "2026-09-23T12:00+00:00",
      "title": "كلمة Sam Altman أمام مجلس الأمن التابع للأمم المتحدة",
-     "title_en": "Sam Altman Addresses UN Security Council",
+     "title_en": "Sam Altman's Address to the UN Security Council",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-23T22:43+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
+  },
+  {
+   "id": "evt_035d815b8ee4e592",
+   "type": "observed-event",
+   "title": "قبل انتخابات نوفمبر.. بزشكيان يفتح باب الاتفاق مع واشنطن",
+   "title_en": "",
+   "observed_facts": [
+    "سكاي نيوز عربية published: قبل انتخابات نوفمبر.. بزشكيان يفتح باب الاتفاق مع واشنطن"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "ae",
+    "ir",
+    "us"
+   ],
+   "sectors": [],
+   "topics": [
+    "diplomacy",
+    "ايران"
+   ],
+   "evidence": [
+    {
+     "id": "ev_07e77039f7a9ebcc",
+     "url": "https://www.skynewsarabia.com/technology/1894302-%D8%A7%D9%86%D8%AA%D8%AE%D8%A7%D8%A8%D8%A7%D8%AA-%D9%86%D9%88%D9%81%D9%85%D8%A8%D8%B1-%D8%A8%D8%B2%D8%B4%D9%83%D9%8A%D8%A7%D9%86-%D9%8A%D9%81%D8%AA%D8%AD-%D8%A8%D8%A7%D8%A8-%D8%A7%D9%84%D8%A7%D8%AA%D9%81%D8%A7%D9%82-%D9%88%D8%A7%D8%B4%D9%86%D8%B7%D9%86",
+     "source_name": "سكاي نيوز عربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-09-25T03:19+00:00",
+     "title": "قبل انتخابات نوفمبر.. بزشكيان يفتح باب الاتفاق مع واشنطن",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_045a59c8b052beea",
@@ -231,43 +236,6 @@
    "updated_at": "2026-09-24T17:29+00:00"
   },
   {
-   "id": "evt_078140b0eab5abc6",
-   "type": "observed-event",
-   "title": "الأطفال يدفعون ثمن التقنية",
-   "title_en": "Children Pay the Price of Technology",
-   "observed_facts": [
-    "alkhaleej.ae published: الأطفال يدفعون ثمن التقنية"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [],
-   "sectors": [
-    "technology"
-   ],
-   "topics": [
-    "technology",
-    "اقتصاد"
-   ],
-   "evidence": [
-    {
-     "id": "ev_a1b733dd7b3f62a1",
-     "url": "https://www.alkhaleej.ae/2026-09-22/%D8%B1%D8%A3%D9%8A/%D8%AA%D8%AD%D9%84%D9%8A%D9%84%D8%A7%D8%AA-%D8%A7%D9%82%D8%AA%D8%B5%D8%A7%D8%AF%D9%8A%D8%A9/%D8%A7%D9%84%D8%A3%D8%B7%D9%81%D8%A7%D9%84-%D9%8A%D8%AF%D9%81%D8%B9%D9%88%D9%86-%D8%AB%D9%85%D9%86-%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9",
-     "source_name": "alkhaleej.ae",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-22T18:14+00:00",
-     "title": "الأطفال يدفعون ثمن التقنية",
-     "title_en": "Children Pay the Price of Technology",
-     "dataset": "news"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-24T17:29+00:00",
-   "updated_at": "2026-09-24T20:41+00:00"
-  },
-  {
    "id": "evt_0835129accc6849f",
    "type": "observed-event",
    "title": "\"جبهة تيغراي\" تعلن الحرب الشاملة على الحكومة الإثيوبية",
@@ -287,8 +255,7 @@
     "government"
    ],
    "topics": [
-    "conflict",
-    "عالم"
+    "conflict"
    ],
    "evidence": [
     {
@@ -299,20 +266,20 @@
      "observed_at": "2026-09-24T12:03+00:00",
      "title": "\"جبهة تيغراي\" تعلن الحرب الشاملة على الحكومة الإثيوبية",
      "title_en": "Tigray Front Declares 'All-Out War' on Ethiopian Government",
-     "dataset": "news"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T12:08+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_099aedbe0a8a5612",
    "type": "observed-event",
-   "title": "سكالوني حول التجديد مع الأرجنتين: أرغب في البقاء، لكن كان عليّ الذهاب إلى طبيب الأسنان!",
+   "title": "سكالوني حول التمديد مع الأرجنتين: أرغب في البقاء، لكن كان عليّ الذهاب إلى طبيب الأسنان!",
    "title_en": "Scaloni on Argentina Extension: 'I Want to Stay, but I Had to Go to the Dentist!'",
    "observed_facts": [
-    "إيران إنترناشونال published: سكالوني حول التجديد مع الأرجنتين: أرغب في البقاء، لكن كان عليّ الذهاب إلى طبيب الأسنان!"
+    "إيران إنترناشونال published: سكالوني حول التمديد مع الأرجنتين: أرغب في البقاء، لكن كان عليّ الذهاب إلى طبيب الأسنان!"
    ],
    "sanad_assessment": "1 attributable observation(s); 0 carry an existing SANAD source grade.",
    "inference": "",
@@ -334,14 +301,14 @@
      "source_name": "إيران إنترناشونال",
      "source_grade": "ضعيف الإسناد",
      "observed_at": "2026-09-24T18:31+00:00",
-     "title": "سكالوني حول التجديد مع الأرجنتين: أرغب في البقاء، لكن كان عليّ الذهاب إلى طبيب الأسنان!",
+     "title": "سكالوني حول التمديد مع الأرجنتين: أرغب في البقاء، لكن كان عليّ الذهاب إلى طبيب الأسنان!",
      "title_en": "Scaloni on Argentina Extension: 'I Want to Stay, but I Had to Go to the Dentist!'",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T20:41+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_0a613cd3735414db",
@@ -514,16 +481,18 @@
    "id": "evt_0c7b3879af10c207",
    "type": "observed-event",
    "title": "ردّاً على اتّهامه بـ\"البصق في وجه الحقيقة\".. ممداني عن نتنياهو: \"لا يزال مطلوباً بتهم ارتكاب جرائم حرب\"",
-   "title_en": "",
+   "title_en": "Responding to Accusation of 'Spitting in the Face of Truth,' Mamdani on Netanyahu: 'Still Wanted for War Crimes'",
    "observed_facts": [
-    "CNN بالعربية published: ردّاً على اتّهامه بـ\"البصق في وجه الحقيقة\".. ممداني عن نتنياهو: \"لا يزال مطلوباً بتهم ارتكاب جرائم حرب\""
+    "CNN Arabic published: ردّاً على اتّهامه بـ\"البصق في وجه الحقيقة\".. ممداني عن نتنياهو: \"لا يزال مطلوباً بتهم ارتكاب جرائم حرب\""
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
    "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
    "confidence": 0.72,
    "severity": "info",
-   "countries": [],
+   "countries": [
+    "us"
+   ],
    "sectors": [],
    "topics": [
     "conflict",
@@ -533,17 +502,17 @@
     {
      "id": "ev_3e7c90cc0eaed5e8",
      "url": "https://arabic.cnn.com/middle-east/article/2026/09/25/mamdani-responds-to-accusations-netanyahu-made-in-his-un-speech",
-     "source_name": "CNN بالعربية",
+     "source_name": "CNN Arabic",
      "source_grade": "حسن",
-     "observed_at": "2026-09-24T20:32+00:00",
+     "observed_at": "2026-09-24T20:36+00:00",
      "title": "ردّاً على اتّهامه بـ\"البصق في وجه الحقيقة\".. ممداني عن نتنياهو: \"لا يزال مطلوباً بتهم ارتكاب جرائم حرب\"",
-     "title_en": "",
+     "title_en": "Responding to Accusation of 'Spitting in the Face of Truth,' Mamdani on Netanyahu: 'Still Wanted for War Crimes'",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T20:41+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_0db2eaac5cde534b",
@@ -584,6 +553,49 @@
    "updated_at": "2026-09-24T12:08+00:00"
   },
   {
+   "id": "evt_0ddf9e565037ccd4",
+   "type": "observed-event",
+   "title": "عراقجي: إذا قبلت أمريكا مبادرة إيران سيُفتح مضيق هرمز في غضون سبعة أيام",
+   "title_en": "Araghchi: Strait of Hormuz Will Open Within 7 Days If US Accepts Iran Initiative",
+   "observed_facts": [
+    "بي بي سي فارسي published: عراقجي: إذا قبلت أمريكا مبادرة إيران سيُفتح مضيق هرمز في غضون سبعة أيام"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "ir",
+    "us"
+   ],
+   "sectors": [
+    "technology"
+   ],
+   "topics": [
+    "artificial-intelligence",
+    "ايران",
+    "مضيق-هرمز",
+    "ملاحة",
+    "هرمز"
+   ],
+   "evidence": [
+    {
+     "id": "ev_fc9ded7f4a96fa26",
+     "url": "https://www.bbc.co.uk/persian/live/c6j9xd8de031t?at_medium=RSS&at_campaign=rss",
+     "source_name": "بي بي سي فارسي",
+     "source_grade": "حسن",
+     "observed_at": "2026-09-25T03:29+00:00",
+     "title": "عراقجي: إذا قبلت أمريكا مبادرة إيران سيُفتح مضيق هرمز في غضون سبعة أيام",
+     "title_en": "Araghchi: Strait of Hormuz Will Open Within 7 Days If US Accepts Iran Initiative",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
+  },
+  {
    "id": "evt_0f96f717d64851a1",
    "type": "observed-event",
    "title": "ماذا قال رئيس إيران خلال وجوده في نيويورك عن \"صحة\" المرشد والاتهام بـ\"محاولة اغتيال ترامب\"؟",
@@ -597,8 +609,7 @@
    "confidence": 0.72,
    "severity": "info",
    "countries": [
-    "ir",
-    "us"
+    "ir"
    ],
    "sectors": [
     "health"
@@ -622,13 +633,13 @@
    ],
    "contradictions": [],
    "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_0f9c7c34579c5864",
    "type": "observed-event",
    "title": "السعودية تعلن اعتراض وتدمير عدد من الصواريخ الباليستية",
-   "title_en": "Saudi Arabia Intercepts and Destroys Ballistic Missiles",
+   "title_en": "Saudi Arabia Announces Interception and Destruction of Ballistic Missiles",
    "observed_facts": [
     "سكاي نيوز عربية published: السعودية تعلن اعتراض وتدمير عدد من الصواريخ الباليستية"
    ],
@@ -654,23 +665,23 @@
      "url": "https://www.skynewsarabia.com/middle-east/1894214-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%AA%D8%B9%D9%84%D9%86-%D8%A7%D8%B9%D8%AA%D8%B1%D8%A7%D8%B6-%D9%88%D8%AA%D8%AF%D9%85%D9%8A%D8%B1-%D8%B9%D8%AF%D8%AF-%D8%A7%D9%84%D8%B5%D9%88%D8%A7%D8%B1%D9%8A%D8%AE-%D8%A7%D9%84%D8%A8%D8%A7%D9%84%D9%8A%D8%B3%D8%AA%D9%8A%D8%A9",
      "source_name": "سكاي نيوز عربية",
      "source_grade": "حسن",
-     "observed_at": "2026-09-24T11:47+00:00",
+     "observed_at": "2026-09-24T11:45+00:00",
      "title": "السعودية تعلن اعتراض وتدمير عدد من الصواريخ الباليستية",
-     "title_en": "Saudi Arabia Intercepts and Destroys Ballistic Missiles",
+     "title_en": "Saudi Arabia Announces Interception and Destruction of Ballistic Missiles",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T12:08+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_1073c3a0b981ebab",
    "type": "observed-event",
-   "title": "نتنياهو في الأمم المتحدة: النظام الشرير في إيران سيسقط وشعب إيران سيتحرر",
-   "title_en": "Netanyahu at UN: Iran's Evil Regime Will Fall and Its People Will Be Free",
+   "title": "نتنياهو في الأمم المتحدة: النظام الإيراني الشرير سيسقط والشعب الإيراني سيتحرر",
+   "title_en": "Netanyahu at UN: 'Evil' Iranian Regime Will Fall, Iranian People Will Be Free",
    "observed_facts": [
-    "إيران إنترناشونال published: نتنياهو في الأمم المتحدة: النظام الشرير في إيران سيسقط وشعب إيران سيتحرر"
+    "إيران إنترناشونال published: نتنياهو في الأمم المتحدة: النظام الإيراني الشرير سيسقط والشعب الإيراني سيتحرر"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -692,51 +703,14 @@
      "source_name": "إيران إنترناشونال",
      "source_grade": "حسن",
      "observed_at": "2026-09-24T19:07+00:00",
-     "title": "نتنياهو في الأمم المتحدة: النظام الشرير في إيران سيسقط وشعب إيران سيتحرر",
-     "title_en": "Netanyahu at UN: Iran's Evil Regime Will Fall and Its People Will Be Free",
+     "title": "نتنياهو في الأمم المتحدة: النظام الإيراني الشرير سيسقط والشعب الإيراني سيتحرر",
+     "title_en": "Netanyahu at UN: 'Evil' Iranian Regime Will Fall, Iranian People Will Be Free",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T20:41+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
-  },
-  {
-   "id": "evt_1156e58f0595e5af",
-   "type": "observed-event",
-   "title": "رئيس \"أرامكو\": قادرون على إصلاح أي اضطراب خلال أيام وندرس مسارات جديدة",
-   "title_en": "Aramco CEO: Capable of Repairing Any Outage Within Days, Exploring New Routes",
-   "observed_facts": [
-    "العربية published: رئيس \"أرامكو\": قادرون على إصلاح أي اضطراب خلال أيام وندرس مسارات جديدة"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [],
-   "sectors": [
-    "technology"
-   ],
-   "topics": [
-    "artificial-intelligence",
-    "الخليج"
-   ],
-   "evidence": [
-    {
-     "id": "ev_0c6931c7a350036c",
-     "url": "https://www.alarabiya.net/aswaq/oil-and-gas/2026/09/24/%D8%B1%D8%A6%D9%8A%D8%B3-%D8%A7%D8%B1%D8%A7%D9%85%D9%83%D9%88-%D9%8A%D9%85%D9%83%D9%86%D9%86%D8%A7-%D8%A7%D8%B5%D9%84%D8%A7%D8%AD-%D8%A7%D9%8A-%D8%A7%D8%B6%D8%B7%D8%B1%D8%A7%D8%A8%D8%A7%D8%AA-%D9%81%D9%8A-%D8%A7%D9%85%D8%AF%D8%A7%D8%AF%D8%A7%D8%AA-%D8%A7%D9%84%D9%86%D9%81%D8%B7-%D8%AE%D9%84%D8%A7%D9%84-%D8%A7%D9%8A%D8%A7%D9%85",
-     "source_name": "العربية",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-24T09:24+00:00",
-     "title": "رئيس \"أرامكو\": قادرون على إصلاح أي اضطراب خلال أيام وندرس مسارات جديدة",
-     "title_en": "Aramco CEO: Capable of Repairing Any Outage Within Days, Exploring New Routes",
-     "dataset": "news"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-24T17:29+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_12438a1fb6d50bda",
@@ -924,10 +898,10 @@
   {
    "id": "evt_19ae3d187536abd4",
    "type": "observed-event",
-   "title": "إيران تكشف تفاصيل \"مقترح جديد\" قدمته لأمريكا: \"لسنا في عجلة من أمرنا\"",
+   "title": "إيران تكشف تفاصيل \"مقترح جديد\" قدمته لأمريكا.. والبيت الأبيض لـCNN: \"لسنا في عجلة من أمرنا\"",
    "title_en": "",
    "observed_facts": [
-    "CNN بالعربية published: إيران تكشف تفاصيل \"مقترح جديد\" قدمته لأمريكا: \"لسنا في عجلة من أمرنا\""
+    "CNN بالعربية published: إيران تكشف تفاصيل \"مقترح جديد\" قدمته لأمريكا.. والبيت الأبيض لـCNN: \"لسنا في عجلة من أمرنا\""
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -949,14 +923,52 @@
      "source_name": "CNN بالعربية",
      "source_grade": "حسن",
      "observed_at": "2026-09-24T22:25+00:00",
-     "title": "إيران تكشف تفاصيل \"مقترح جديد\" قدمته لأمريكا: \"لسنا في عجلة من أمرنا\"",
+     "title": "إيران تكشف تفاصيل \"مقترح جديد\" قدمته لأمريكا.. والبيت الأبيض لـCNN: \"لسنا في عجلة من أمرنا\"",
      "title_en": "",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
+  },
+  {
+   "id": "evt_1a39fb7879ae82b0",
+   "type": "observed-event",
+   "title": "الجيش اليمني يُحبط محاولة حوثية لعزل تعز عن عدن",
+   "title_en": "",
+   "observed_facts": [
+    "الشرق الأوسط published: الجيش اليمني يُحبط محاولة حوثية لعزل تعز عن عدن"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "ye"
+   ],
+   "sectors": [
+    "defense"
+   ],
+   "topics": [
+    "الخليج"
+   ],
+   "evidence": [
+    {
+     "id": "ev_92a624073f19edb9",
+     "url": "https://aawsat.com/node/5322359",
+     "source_name": "الشرق الأوسط",
+     "source_grade": "حسن",
+     "observed_at": "2026-09-25T00:18+00:00",
+     "title": "الجيش اليمني يُحبط محاولة حوثية لعزل تعز عن عدن",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_1a8f6019f796880e",
@@ -993,12 +1005,12 @@
    "updated_at": "2026-09-24T06:30+00:00"
   },
   {
-   "id": "evt_1f4fd0b52f9246b6",
+   "id": "evt_1b8e8d5791963878",
    "type": "observed-event",
-   "title": "رفع سعر الفائدة في اليابان إلى أعلى مستوى له في أكثر من ثلاثة عقود",
-   "title_en": "Japan Interest Rate Hiked to Over Three-Decade High",
+   "title": "وزراء خارجية اتفاقية مكة يبحثون ترتيبات اجتماع عاجل لرؤساء الأركان",
+   "title_en": "",
    "observed_facts": [
-    "بي بي سي فارسي published: رفع سعر الفائدة في اليابان إلى أعلى مستوى له في أكثر من ثلاثة عقود"
+    "الجزيرة نت published: وزراء خارجية اتفاقية مكة يبحثون ترتيبات اجتماع عاجل لرؤساء الأركان"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -1006,31 +1018,73 @@
    "confidence": 0.72,
    "severity": "info",
    "countries": [
-    "jp"
+    "qa",
+    "sa"
    ],
    "sectors": [],
-   "topics": [],
+   "topics": [
+    "diplomacy",
+    "الخليج"
+   ],
    "evidence": [
     {
-     "id": "ev_55526adb82320ffe",
-     "url": "https://www.bbc.com/persian/articles/cr3wjl0yd9pqo?at_medium=RSS&at_campaign=rss",
-     "source_name": "بي بي سي فارسي",
+     "id": "ev_74824e01a60e16b5",
+     "url": "https://www.aljazeera.net/news/2026/9/25/%d9%88%d8%b2%d8%b1%d8%a7%d8%a1-%d8%ae%d8%a7%d8%b1%d8%ac%d9%8a%d8%a9-%d8%af%d9%88%d9%84-%d8%a7%d8%aa%d9%81%d8%a7%d9%82%d9%8a%d8%a9-%d9%85%d9%83%d8%a9-%d9%8a%d8%ac%d8%aa%d9%85%d8%b9%d9%88%d9%86?traffic_source=rss",
+     "source_name": "الجزيرة نت",
      "source_grade": "حسن",
-     "observed_at": "2026-09-18T13:42+00:00",
-     "title": "رفع سعر الفائدة في اليابان إلى أعلى مستوى له في أكثر من ثلاثة عقود",
-     "title_en": "Japan Interest Rate Hiked to Over Three-Decade High",
-     "dataset": "map"
+     "observed_at": "2026-09-25T00:14+00:00",
+     "title": "وزراء خارجية اتفاقية مكة يبحثون ترتيبات اجتماع عاجل لرؤساء الأركان",
+     "title_en": "",
+     "dataset": "news"
     }
    ],
    "contradictions": [],
-   "created_at": "2026-09-18T14:49+00:00",
-   "updated_at": "2026-09-19T06:30+00:00"
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
+  },
+  {
+   "id": "evt_1cfa743aa6983819",
+   "type": "observed-event",
+   "title": "إيران تقدم مقترحا لاستئناف المفاوضات مع واشنطن",
+   "title_en": "",
+   "observed_facts": [
+    "سكاي نيوز عربية published: إيران تقدم مقترحا لاستئناف المفاوضات مع واشنطن"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "ae",
+    "ir"
+   ],
+   "sectors": [],
+   "topics": [
+    "diplomacy",
+    "ايران"
+   ],
+   "evidence": [
+    {
+     "id": "ev_6db59f55266e42ab",
+     "url": "https://www.skynewsarabia.com/middle-east/1894297-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D8%AA%D9%82%D8%AF%D9%85-%D9%85%D9%82%D8%AA%D8%B1%D8%AD%D8%A7-%D9%84%D8%A7%D8%B3%D8%AA%D8%A6%D9%86%D8%A7%D9%81-%D8%A7%D9%84%D9%85%D9%81%D8%A7%D9%88%D8%B6%D8%A7%D8%AA-%D9%88%D8%A7%D8%B4%D9%86%D8%B7%D9%86",
+     "source_name": "سكاي نيوز عربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-09-25T01:42+00:00",
+     "title": "إيران تقدم مقترحا لاستئناف المفاوضات مع واشنطن",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_1f6fafafb5489a03",
    "type": "observed-event",
    "title": "ما رأيكم في تصريحات نتنياهو في الأمم المتحدة؟",
-   "title_en": "",
+   "title_en": "Public Opinion Sought on Netanyahu's UN Speech",
    "observed_facts": [
     "إيران إنترناشونال published: ما رأيكم في تصريحات نتنياهو في الأمم المتحدة؟"
    ],
@@ -1054,19 +1108,19 @@
      "source_grade": "حسن",
      "observed_at": "2026-09-24T18:19+00:00",
      "title": "ما رأيكم في تصريحات نتنياهو في الأمم المتحدة؟",
-     "title_en": "",
+     "title_en": "Public Opinion Sought on Netanyahu's UN Speech",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T20:41+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_1f89c3b0a53bd676",
    "type": "observed-event",
    "title": "5 شهداء في غزة ومصر تحذر من تهجير الفلسطينيين",
-   "title_en": "Five Palestinians Killed in Gaza as Egypt Warns Against Displacement",
+   "title_en": "5 Killed in Gaza as Egypt Warns Against Displacement of Palestinians",
    "observed_facts": [
     "الجزيرة نت published: 5 شهداء في غزة ومصر تحذر من تهجير الفلسطينيين"
    ],
@@ -1097,55 +1151,21 @@
      "source_grade": "حسن",
      "observed_at": "2026-09-24T12:58+00:00",
      "title": "5 شهداء في غزة ومصر تحذر من تهجير الفلسطينيين",
-     "title_en": "Five Palestinians Killed in Gaza as Egypt Warns Against Displacement",
+     "title_en": "5 Killed in Gaza as Egypt Warns Against Displacement of Palestinians",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T17:29+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
-   "id": "evt_217b964afbdeb9ae",
+   "id": "evt_207f725ab7cfbd89",
    "type": "observed-event",
-   "title": "«خليجي 27»: خيمينيز وبوعلام يخطفان جائزتي الديار العربية",
-   "title_en": "",
+   "title": "قبيل لقاء رئيس الصين.. ترامب عن الذكاء الاصطناعي: أريد إبقاء الأمر كما هو",
+   "title_en": "Ahead of Meeting with Chinese President, Trump on AI: 'I Want to Keep It as Is'",
    "observed_facts": [
-    "الشرق الأوسط published: «خليجي 27»: خيمينيز وبوعلام يخطفان جائزتي الديار العربية"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [],
-   "sectors": [],
-   "topics": [
-    "الخليج"
-   ],
-   "evidence": [
-    {
-     "id": "ev_b077c0984a2cce15",
-     "url": "https://aawsat.com/node/5322350",
-     "source_name": "الشرق الأوسط",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-24T23:16+00:00",
-     "title": "«خليجي 27»: خيمينيز وبوعلام يخطفان جائزتي الديار العربية",
-     "title_en": "",
-     "dataset": "news"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
-  },
-  {
-   "id": "evt_2490e59a22e6b59b",
-   "type": "observed-event",
-   "title": "مواجهات دامية في اليمن، وباكستان تقول إنها \"ستمضي إلى أبعد مدى\" في الدفاع عن السعودية",
-   "title_en": "Deadly Clashes in Yemen as Pakistan Vows to Go to the Utmost Extent to Defend Saudi Arabia",
-   "observed_facts": [
-    "bbc.com published: مواجهات دامية في اليمن، وباكستان تقول إنها \"ستمضي إلى أبعد مدى\" في الدفاع عن السعودية"
+    "CNN Arabic published: قبيل لقاء رئيس الصين.. ترامب عن الذكاء الاصطناعي: أريد إبقاء الأمر كما هو"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -1153,29 +1173,30 @@
    "confidence": 0.72,
    "severity": "info",
    "countries": [
-    "pk",
-    "sa",
-    "ye"
+    "cn"
    ],
    "sectors": [
-    "defense"
+    "technology"
    ],
-   "topics": [],
+   "topics": [
+    "artificial-intelligence",
+    "تقنية"
+   ],
    "evidence": [
     {
-     "id": "ev_02f8bcda468b9028",
-     "url": "https://www.bbc.com/arabic/articles/cm3eqww5qx8zo",
-     "source_name": "bbc.com",
+     "id": "ev_7758a393f78bd141",
+     "url": "https://arabic.cnn.com/world/article/2026/09/24/ai-will-be-a-big-topic-of-discussion-with-xi-trump-says",
+     "source_name": "CNN Arabic",
      "source_grade": "حسن",
-     "observed_at": "2026-09-18T15:03+00:00",
-     "title": "مواجهات دامية في اليمن، وباكستان تقول إنها \"ستمضي إلى أبعد مدى\" في الدفاع عن السعودية",
-     "title_en": "Deadly Clashes in Yemen as Pakistan Vows to Go to the Utmost Extent to Defend Saudi Arabia",
-     "dataset": "map"
+     "observed_at": "2026-09-24T13:29+00:00",
+     "title": "قبيل لقاء رئيس الصين.. ترامب عن الذكاء الاصطناعي: أريد إبقاء الأمر كما هو",
+     "title_en": "Ahead of Meeting with Chinese President, Trump on AI: 'I Want to Keep It as Is'",
+     "dataset": "news"
     }
    ],
    "contradictions": [],
-   "created_at": "2026-09-18T05:35+00:00",
-   "updated_at": "2026-09-19T20:04+00:00"
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_24b4cbb31c114d1b",
@@ -1281,12 +1302,12 @@
    "updated_at": "2026-09-22T06:03+00:00"
   },
   {
-   "id": "evt_2a496b06144a062c",
+   "id": "evt_2b497e594aca1a19",
    "type": "observed-event",
-   "title": "باكستان: مقتل 17 شخصاً وإصابة 73 في انفجار بمسجد داخل منشأة للشرطة",
-   "title_en": "Pakistan: 17 Killed, 73 Injured in Blast at Police Facility Mosque",
+   "title": "باكستان تعلن إحباط محاولة أفغانية لشن هجوم عبر الحدود",
+   "title_en": "",
    "observed_facts": [
-    "bbc.com published: باكستان: مقتل 17 شخصاً وإصابة 73 في انفجار بمسجد داخل منشأة للشرطة"
+    "سكاي نيوز عربية published: باكستان تعلن إحباط محاولة أفغانية لشن هجوم عبر الحدود"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -1294,33 +1315,37 @@
    "confidence": 0.72,
    "severity": "medium",
    "countries": [
+    "ae",
     "pk"
    ],
    "sectors": [],
-   "topics": [],
+   "topics": [
+    "security",
+    "عالم"
+   ],
    "evidence": [
     {
-     "id": "ev_9c77991e6798afd8",
-     "url": "https://www.bbc.com/arabic/articles/c60rejdr40p9o",
-     "source_name": "bbc.com",
+     "id": "ev_04909e169cbbce90",
+     "url": "https://www.skynewsarabia.com/world/1894301-%D8%A8%D8%A7%D9%83%D8%B3%D8%AA%D8%A7%D9%86-%D8%AA%D8%B9%D9%84%D9%86-%D8%A5%D8%AD%D8%A8%D8%A7%D8%B7-%D9%85%D8%AD%D8%A7%D9%88%D9%84%D8%A9-%D8%A3%D9%81%D8%BA%D8%A7%D9%86%D9%8A%D8%A9-%D9%84%D8%B4%D9%86-%D9%87%D8%AC%D9%88%D9%85-%D8%B9%D8%A8%D8%B1-%D8%A7%D9%84%D8%AD%D8%AF%D9%88%D8%AF",
+     "source_name": "سكاي نيوز عربية",
      "source_grade": "حسن",
-     "observed_at": "2026-09-18T13:08+00:00",
-     "title": "باكستان: مقتل 17 شخصاً وإصابة 73 في انفجار بمسجد داخل منشأة للشرطة",
-     "title_en": "Pakistan: 17 Killed, 73 Injured in Blast at Police Facility Mosque",
-     "dataset": "map"
+     "observed_at": "2026-09-25T03:01+00:00",
+     "title": "باكستان تعلن إحباط محاولة أفغانية لشن هجوم عبر الحدود",
+     "title_en": "",
+     "dataset": "news"
     }
    ],
    "contradictions": [],
-   "created_at": "2026-09-18T14:49+00:00",
-   "updated_at": "2026-09-19T17:47+00:00"
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_2c0a21aebbae0c02",
    "type": "observed-event",
-   "title": "ميزة تحويل النص إلى كلام في Gemini 3.8 تبدأ بالترحيب",
-   "title_en": "Gemini 3.8 Text-to-Speech Feature Rolls Out Welcoming Prompts",
+   "title": "ميزة تحويل النص إلى كلام في Gemini 3.8 تُطلَق رسميًا",
+   "title_en": "Gemini 3.8 Text-to-Speech Feature Officially Launches",
    "observed_facts": [
-    "ديب مايند published: ميزة تحويل النص إلى كلام في Gemini 3.8 تبدأ بالترحيب"
+    "ديب مايند published: ميزة تحويل النص إلى كلام في Gemini 3.8 تُطلَق رسميًا"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -1328,7 +1353,9 @@
    "confidence": 0.9,
    "severity": "info",
    "countries": [],
-   "sectors": [],
+   "sectors": [
+    "government"
+   ],
    "topics": [
     "تقنية"
    ],
@@ -1339,22 +1366,58 @@
      "source_name": "ديب مايند",
      "source_grade": "صحيح",
      "observed_at": "2026-09-23T15:25+00:00",
-     "title": "ميزة تحويل النص إلى كلام في Gemini 3.8 تبدأ بالترحيب",
-     "title_en": "Gemini 3.8 Text-to-Speech Feature Rolls Out Welcoming Prompts",
+     "title": "ميزة تحويل النص إلى كلام في Gemini 3.8 تُطلَق رسميًا",
+     "title_en": "Gemini 3.8 Text-to-Speech Feature Officially Launches",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T08:10+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
+  },
+  {
+   "id": "evt_2e91d597a463daa4",
+   "type": "observed-event",
+   "title": "بعد محاولات عديدة.. دخول مراسلي CNN وMS NOW وPolitico إلى البيت الأبيض بأمر قضائي",
+   "title_en": "After Repeated Attempts, CNN, MS NOW, and Politico Reporters Granted White House Access by Court Order",
+   "observed_facts": [
+    "CNN Arabic published: بعد محاولات عديدة.. دخول مراسلي CNN وMS NOW وPolitico إلى البيت الأبيض بأمر قضائي"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [],
+   "sectors": [
+    "transport"
+   ],
+   "topics": [
+    "عالم"
+   ],
+   "evidence": [
+    {
+     "id": "ev_ddf97e125ec14b62",
+     "url": "https://arabic.cnn.com/world/article/2026/09/24/trump-press-lawsuit-ruling-white-house-access",
+     "source_name": "CNN Arabic",
+     "source_grade": "حسن",
+     "observed_at": "2026-09-24T17:19+00:00",
+     "title": "بعد محاولات عديدة.. دخول مراسلي CNN وMS NOW وPolitico إلى البيت الأبيض بأمر قضائي",
+     "title_en": "After Repeated Attempts, CNN, MS NOW, and Politico Reporters Granted White House Access by Court Order",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_2ed435ed5d7fb5be",
    "type": "observed-event",
-   "title": "تتيح OpenAI وصولاً سيبرانياً لأوكرانيا لدعم الدفاع المدني",
-   "title_en": "OpenAI Grants Ukraine Cyber Access to Support Civil Defense",
+   "title": "توسع OpenAI الوصول السيبراني لأوكرانيا لأغراض الدفاع المدني",
+   "title_en": "OpenAI Expands Cyber Access for Ukraine for Civil Defense",
    "observed_facts": [
-    "أوبن إيه آي published: تتيح OpenAI وصولاً سيبرانياً لأوكرانيا لدعم الدفاع المدني"
+    "أوبن إيه آي published: توسع OpenAI الوصول السيبراني لأوكرانيا لأغراض الدفاع المدني"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -1366,8 +1429,7 @@
    ],
    "sectors": [
     "defense",
-    "technology",
-    "transport"
+    "technology"
    ],
    "topics": [
     "artificial-intelligence",
@@ -1381,53 +1443,14 @@
      "source_name": "أوبن إيه آي",
      "source_grade": "حسن",
      "observed_at": "2026-09-23T13:00+00:00",
-     "title": "تتيح OpenAI وصولاً سيبرانياً لأوكرانيا لدعم الدفاع المدني",
-     "title_en": "OpenAI Grants Ukraine Cyber Access to Support Civil Defense",
+     "title": "توسع OpenAI الوصول السيبراني لأوكرانيا لأغراض الدفاع المدني",
+     "title_en": "OpenAI Expands Cyber Access for Ukraine for Civil Defense",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-23T16:19+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
-  },
-  {
-   "id": "evt_2f542b03f24820b2",
-   "type": "observed-event",
-   "title": "الذكاء الاصطناعي يتحدث العربية: كيف تساعد التكنولوجيا على تجاوز حاجز اللغة في التواصل الصيني العربي؟",
-   "title_en": "AI Speaks Arabic: How Technology Is Bridging Language Barrier in Sino-Arab Communication",
-   "observed_facts": [
-    "العربية CGTN published: الذكاء الاصطناعي يتحدث العربية: كيف تساعد التكنولوجيا على تجاوز حاجز اللغة في التواصل الصيني العربي؟"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "cn"
-   ],
-   "sectors": [
-    "technology"
-   ],
-   "topics": [
-    "artificial-intelligence",
-    "technology"
-   ],
-   "evidence": [
-    {
-     "id": "ev_53f83b9cf7cf275e",
-     "url": "https://arabic.cgtn.com/2026/09/22/ARTI1790067555981725",
-     "source_name": "العربية CGTN",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-22T09:53+00:00",
-     "title": "الذكاء الاصطناعي يتحدث العربية: كيف تساعد التكنولوجيا على تجاوز حاجز اللغة في التواصل الصيني العربي؟",
-     "title_en": "AI Speaks Arabic: How Technology Is Bridging Language Barrier in Sino-Arab Communication",
-     "dataset": "map"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_30c32391494aac86",
@@ -1471,12 +1494,49 @@
    "updated_at": "2026-09-24T12:08+00:00"
   },
   {
+   "id": "evt_32edea12ce7ceb85",
+   "type": "observed-event",
+   "title": "لماذا اعترض زوج بريجيت باردوعلى بيع مقتنياتها بمزاد في باريس؟",
+   "title_en": "",
+   "observed_facts": [
+    "CNN بالعربية published: لماذا اعترض زوج بريجيت باردوعلى بيع مقتنياتها بمزاد في باريس؟"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "fr",
+    "us"
+   ],
+   "sectors": [],
+   "topics": [
+    "عالم"
+   ],
+   "evidence": [
+    {
+     "id": "ev_a4d2adcb0472ad51",
+     "url": "https://arabic.cnn.com/style/article/2026/09/25/brigitte-bardot-auction-scli-intl",
+     "source_name": "CNN بالعربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-09-25T03:13+00:00",
+     "title": "لماذا اعترض زوج بريجيت باردوعلى بيع مقتنياتها بمزاد في باريس؟",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
+  },
+  {
    "id": "evt_34f7544c0088bcef",
    "type": "observed-event",
-   "title": "وكلاء الذكاء الاصطناعي من Ringg يحلون ما يصل إلى 65% من مكالمات العملاء بالتعاون مع OpenAI",
-   "title_en": "Ringg AI Agents Resolve Up to 65% of Customer Calls in Partnership with OpenAI",
+   "title": "وكلاء الذكاء الاصطناعي من Ringg يعالجون ما يصل إلى 65% من مكالمات العملاء باستخدام OpenAI",
+   "title_en": "Ringg AI Agents Handle Up to 65% of Customer Calls Using OpenAI",
    "observed_facts": [
-    "أوبن إيه آي published: وكلاء الذكاء الاصطناعي من Ringg يحلون ما يصل إلى 65% من مكالمات العملاء بالتعاون مع OpenAI"
+    "أوبن إيه آي published: وكلاء الذكاء الاصطناعي من Ringg يعالجون ما يصل إلى 65% من مكالمات العملاء باستخدام OpenAI"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -1498,22 +1558,22 @@
      "source_name": "أوبن إيه آي",
      "source_grade": "صحيح",
      "observed_at": "2026-09-23T12:00+00:00",
-     "title": "وكلاء الذكاء الاصطناعي من Ringg يحلون ما يصل إلى 65% من مكالمات العملاء بالتعاون مع OpenAI",
-     "title_en": "Ringg AI Agents Resolve Up to 65% of Customer Calls in Partnership with OpenAI",
+     "title": "وكلاء الذكاء الاصطناعي من Ringg يعالجون ما يصل إلى 65% من مكالمات العملاء باستخدام OpenAI",
+     "title_en": "Ringg AI Agents Handle Up to 65% of Customer Calls Using OpenAI",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-23T19:46+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
-   "id": "evt_34fbb42b8be726ef",
+   "id": "evt_35d361a69fb7493c",
    "type": "observed-event",
-   "title": "100 حالة اعتقال لمتظاهرين في نيويورك أثناء خطاب نتنياهو بالأمم المتحدة",
+   "title": "السعودية ضد الحوثيين.. كيف قد يدفع الأمريكيون \"ثمن\" ابتعاد ترامب عن الحرب؟",
    "title_en": "",
    "observed_facts": [
-    "الجزيرة نت published: 100 حالة اعتقال لمتظاهرين في نيويورك أثناء خطاب نتنياهو بالأمم المتحدة"
+    "CNN بالعربية published: السعودية ضد الحوثيين.. كيف قد يدفع الأمريكيون \"ثمن\" ابتعاد ترامب عن الحرب؟"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -1521,68 +1581,38 @@
    "confidence": 0.72,
    "severity": "info",
    "countries": [
-    "qa"
+    "sa",
+    "ye"
    ],
    "sectors": [],
    "topics": [
-    "عالم"
+    "conflict",
+    "الحوثي",
+    "الخليج",
+    "السعودية",
+    "اليمن"
    ],
    "evidence": [
     {
-     "id": "ev_fa4d82d2efd390e9",
-     "url": "https://www.aljazeera.net/news/2026/9/25/100-%d8%ad%d8%a7%d9%84%d8%a9-%d8%a7%d8%b9%d8%aa%d9%82%d8%a7%d9%84-%d9%84%d9%85%d8%aa%d8%b8%d8%a7%d9%87%d8%b1%d9%8a%d9%86-%d9%81%d9%8a-%d9%86%d9%8a%d9%88%d9%8a%d9%88%d8%b1%d9%83?traffic_source=rss",
-     "source_name": "الجزيرة نت",
+     "id": "ev_9b6ecf85d227a251",
+     "url": "https://arabic.cnn.com/middle-east/article/2026/09/25/trump-is-staying-out-of-saudi-arabias-war-americans-could-pay-at-the-pump",
+     "source_name": "CNN بالعربية",
      "source_grade": "حسن",
-     "observed_at": "2026-09-24T19:39+00:00",
-     "title": "100 حالة اعتقال لمتظاهرين في نيويورك أثناء خطاب نتنياهو بالأمم المتحدة",
+     "observed_at": "2026-09-25T01:50+00:00",
+     "title": "السعودية ضد الحوثيين.. كيف قد يدفع الأمريكيون \"ثمن\" ابتعاد ترامب عن الحرب؟",
      "title_en": "",
      "dataset": "news"
     }
    ],
    "contradictions": [],
-   "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
-  },
-  {
-   "id": "evt_369591be5bd83ea7",
-   "type": "observed-event",
-   "title": "الصين وباكستان تضغطان على إيران لكبح الحوثيين",
-   "title_en": "",
-   "observed_facts": [
-    "سكاي نيوز عربية published: الصين وباكستان تضغطان على إيران لكبح الحوثيين"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "ir",
-    "pk"
-   ],
-   "sectors": [],
-   "topics": [],
-   "evidence": [
-    {
-     "id": "ev_07cd885153837b6b",
-     "url": "https://www.skynewsarabia.com/middle-east/1893085-%D8%A7%D9%84%D8%B5%D9%8A%D9%86-%D9%88%D8%A8%D8%A7%D9%83%D8%B3%D8%AA%D8%A7%D9%86-%D8%AA%D8%B6%D8%BA%D8%B7%D8%A7%D9%86-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D9%84%D9%83%D8%A8%D8%AD-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%8A%D9%86",
-     "source_name": "سكاي نيوز عربية",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-18T21:52+00:00",
-     "title": "الصين وباكستان تضغطان على إيران لكبح الحوثيين",
-     "title_en": "",
-     "dataset": "map"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-18T23:30+00:00",
-   "updated_at": "2026-09-23T06:22+00:00"
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_37c59ad38a0c36d6",
    "type": "observed-event",
    "title": "\"خليجي 27\".. هدف عكسي يمنح السعودية فوزا صعبا على الكويت",
-   "title_en": "'Gulf 27': Own Goal Hands Saudi Arabia Hard-Fought Win Over Kuwait",
+   "title_en": "Gulf 27: Own Goal Hands Saudi Arabia Hard-Fought Win Over Kuwait",
    "observed_facts": [
     "سكاي نيوز عربية published: \"خليجي 27\".. هدف عكسي يمنح السعودية فوزا صعبا على الكويت"
    ],
@@ -1609,15 +1639,15 @@
      "url": "https://www.skynewsarabia.com/sport/1894034-%D8%AE%D9%84%D9%8A%D8%AC%D9%8A-27-%D9%87%D8%AF%D9%81-%D8%B9%D9%83%D8%B3%D9%8A-%D9%8A%D9%85%D9%86%D8%AD-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D9%81%D9%88%D8%B2%D8%A7-%D8%B5%D8%B9%D8%A8%D8%A7-%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA",
      "source_name": "سكاي نيوز عربية",
      "source_grade": "حسن",
-     "observed_at": "2026-09-23T21:19+00:00",
+     "observed_at": "2026-09-23T21:26+00:00",
      "title": "\"خليجي 27\".. هدف عكسي يمنح السعودية فوزا صعبا على الكويت",
-     "title_en": "'Gulf 27': Own Goal Hands Saudi Arabia Hard-Fought Win Over Kuwait",
+     "title_en": "Gulf 27: Own Goal Hands Saudi Arabia Hard-Fought Win Over Kuwait",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-23T22:43+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_3a4da99930d35aa0",
@@ -1648,15 +1678,15 @@
      "url": "https://www.reuters.com/ar/world/HEWKFXTEHFK5NGVH2XDSGSY5DI-2026-09-22/",
      "source_name": "Reuters",
      "source_grade": "صحيح",
-     "observed_at": "2026-09-22T13:47+00:00",
+     "observed_at": "2026-09-22T14:12+00:00",
      "title": "ترامب يهدد بإبادة إيران وسط مساع دبلوماسية لإبرام اتفاق في الأمم المتحدة | رويترز",
      "title_en": "",
-     "dataset": "osint"
+     "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-22T16:27+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_3be3e8eb9ffaab64",
@@ -1700,7 +1730,7 @@
    "id": "evt_3ce641ee99e29fb8",
    "type": "observed-event",
    "title": "أول 3 نقاط لـ \"الأخضر\".. السعودية تتجاوز عقبة الكويت في \"خليجي 27\"",
-   "title_en": "First 3 Points for 'Green Falcons': Saudi Arabia Overcomes Kuwait in 'Gulf 27'",
+   "title_en": "First 3 Points for 'Green': Saudi Arabia Overcomes Kuwait in Gulf 27",
    "observed_facts": [
     "CNN Arabic published: أول 3 نقاط لـ \"الأخضر\".. السعودية تتجاوز عقبة الكويت في \"خليجي 27\""
    ],
@@ -1719,7 +1749,6 @@
    "topics": [
     "artificial-intelligence",
     "الخليج",
-    "السعودية",
     "الكويت"
    ],
    "evidence": [
@@ -1728,15 +1757,15 @@
      "url": "https://arabic.cnn.com/sport/article/2026/09/24/saudi-arabia-kuwait-match-gulf-cup",
      "source_name": "CNN Arabic",
      "source_grade": "حسن",
-     "observed_at": "2026-09-24T12:05+00:00",
+     "observed_at": "2026-09-23T20:13+00:00",
      "title": "أول 3 نقاط لـ \"الأخضر\".. السعودية تتجاوز عقبة الكويت في \"خليجي 27\"",
-     "title_en": "First 3 Points for 'Green Falcons': Saudi Arabia Overcomes Kuwait in 'Gulf 27'",
+     "title_en": "First 3 Points for 'Green': Saudi Arabia Overcomes Kuwait in Gulf 27",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-23T22:43+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_3e8414198dd65940",
@@ -1773,51 +1802,12 @@
    "updated_at": "2026-09-21T05:57+00:00"
   },
   {
-   "id": "evt_3e98cf7bad8f934b",
-   "type": "observed-event",
-   "title": "مضيق هرمز في صلب كلمات قادة العالم أمام الجمعية العامة للأمم المتحدة",
-   "title_en": "Strait of Hormuz Takes Center Stage in World Leaders' Speeches at UNGA",
-   "observed_facts": [
-    "إيران إنترناشونال published: مضيق هرمز في صلب كلمات قادة العالم أمام الجمعية العامة للأمم المتحدة"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [],
-   "sectors": [
-    "technology"
-   ],
-   "topics": [
-    "artificial-intelligence",
-    "مضيق-هرمز",
-    "ملاحة",
-    "هرمز"
-   ],
-   "evidence": [
-    {
-     "id": "ev_12666dde12ba465f",
-     "url": "https://www.iranintl.com/202609223103",
-     "source_name": "إيران إنترناشونال",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-22T19:37+00:00",
-     "title": "مضيق هرمز في صلب كلمات قادة العالم أمام الجمعية العامة للأمم المتحدة",
-     "title_en": "Strait of Hormuz Takes Center Stage in World Leaders' Speeches at UNGA",
-     "dataset": "osint"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-22T22:46+00:00",
-   "updated_at": "2026-09-24T01:05+00:00"
-  },
-  {
    "id": "evt_3ffcd544c419042b",
    "type": "observed-event",
-   "title": "تعتمد Harvey على السياق القانوني لصياغة مسودات أكثر دقة باستخدام GPT-6 Astra",
-   "title_en": "Harvey Leverages Legal Context for More Accurate Drafting via GPT-6 Astra",
+   "title": "Harvey تحوّل السياق القانوني إلى مسودات أكثر قوة باستخدام GPT-6 Astra",
+   "title_en": "Harvey Turns Legal Context into Stronger Drafts Using GPT-6 Astra",
    "observed_facts": [
-    "أوبن إيه آي published: تعتمد Harvey على السياق القانوني لصياغة مسودات أكثر دقة باستخدام GPT-6 Astra"
+    "أوبن إيه آي published: Harvey تحوّل السياق القانوني إلى مسودات أكثر قوة باستخدام GPT-6 Astra"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -1836,14 +1826,14 @@
      "source_name": "أوبن إيه آي",
      "source_grade": "صحيح",
      "observed_at": "2026-09-23T12:00+00:00",
-     "title": "تعتمد Harvey على السياق القانوني لصياغة مسودات أكثر دقة باستخدام GPT-6 Astra",
-     "title_en": "Harvey Leverages Legal Context for More Accurate Drafting via GPT-6 Astra",
+     "title": "Harvey تحوّل السياق القانوني إلى مسودات أكثر قوة باستخدام GPT-6 Astra",
+     "title_en": "Harvey Turns Legal Context into Stronger Drafts Using GPT-6 Astra",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-23T19:46+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_4311a8512418d170",
@@ -1866,9 +1856,7 @@
     "technology"
    ],
    "topics": [
-    "artificial-intelligence",
-    "الخليج",
-    "الكويت"
+    "artificial-intelligence"
    ],
    "evidence": [
     {
@@ -1879,12 +1867,12 @@
      "observed_at": "2026-09-22T22:16+00:00",
      "title": "ميسي طالبه باحترامه.. من هو حكم مباراة السعودية والكويت في خليجي 27؟",
      "title_en": "Messi Demanded His Respect: Who Is the Referee for the Saudi-Kuwait Gulf Cup 27 Match?",
-     "dataset": "osint"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-22T22:46+00:00",
-   "updated_at": "2026-09-24T20:41+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_4374dec9fd547fed",
@@ -1958,6 +1946,45 @@
    "updated_at": "2026-09-24T01:05+00:00"
   },
   {
+   "id": "evt_45ab5af3bfb6f46a",
+   "type": "observed-event",
+   "title": "كولومبيا تقطع علاقاتها الدبلوماسية مع إيران",
+   "title_en": "",
+   "observed_facts": [
+    "سكاي نيوز عربية published: كولومبيا تقطع علاقاتها الدبلوماسية مع إيران"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "ae",
+    "co",
+    "ir"
+   ],
+   "sectors": [],
+   "topics": [
+    "diplomacy",
+    "ايران"
+   ],
+   "evidence": [
+    {
+     "id": "ev_00108f41863bef9b",
+     "url": "https://www.skynewsarabia.com/world/1894300-%D9%83%D9%88%D9%84%D9%88%D9%85%D8%A8%D9%8A%D8%A7-%D8%AA%D9%82%D8%B7%D8%B9-%D8%B9%D9%84%D8%A7%D9%82%D8%A7%D8%AA%D9%87%D8%A7-%D8%A7%D9%84%D8%AF%D8%A8%D9%84%D9%88%D9%85%D8%A7%D8%B3%D9%8A%D8%A9-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86",
+     "source_name": "سكاي نيوز عربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-09-25T01:58+00:00",
+     "title": "كولومبيا تقطع علاقاتها الدبلوماسية مع إيران",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
+  },
+  {
    "id": "evt_465c040f3e2c24f7",
    "type": "observed-event",
    "title": "\"ليست نمرا من ورق\".. فيدان يدافع عن اتفاقية مكة أمام سفير أمريكي سابق",
@@ -1971,13 +1998,11 @@
    "confidence": 0.72,
    "severity": "info",
    "countries": [
-    "qa",
     "sa"
    ],
    "sectors": [],
    "topics": [
-    "diplomacy",
-    "الخليج"
+    "diplomacy"
    ],
    "evidence": [
     {
@@ -1988,18 +2013,18 @@
      "observed_at": "2026-09-24T19:39+00:00",
      "title": "\"ليست نمرا من ورق\".. فيدان يدافع عن اتفاقية مكة أمام سفير أمريكي سابق",
      "title_en": "",
-     "dataset": "news"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_46f892348770561e",
    "type": "observed-event",
    "title": "معلنا عن عصر جديد للتقنية.. ترمب يغير اسم الذكاء الاصطناعي رسميا",
-   "title_en": "Heralding New Tech Era, Trump Officially Rebrands AI",
+   "title_en": "Heralding New Tech Era, Trump Officially Renames AI",
    "observed_facts": [
     "الجزيرة نت published: معلنا عن عصر جديد للتقنية.. ترمب يغير اسم الذكاء الاصطناعي رسميا"
    ],
@@ -2026,13 +2051,13 @@
      "source_grade": "حسن",
      "observed_at": "2026-09-23T15:43+00:00",
      "title": "معلنا عن عصر جديد للتقنية.. ترمب يغير اسم الذكاء الاصطناعي رسميا",
-     "title_en": "Heralding New Tech Era, Trump Officially Rebrands AI",
+     "title_en": "Heralding New Tech Era, Trump Officially Renames AI",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T20:41+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_4829aef921509f21",
@@ -2048,8 +2073,7 @@
    "confidence": 0.72,
    "severity": "info",
    "countries": [
-    "ma",
-    "qa"
+    "ma"
    ],
    "sectors": [],
    "topics": [],
@@ -2067,43 +2091,44 @@
    ],
    "contradictions": [],
    "created_at": "2026-09-23T22:43+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
-   "id": "evt_489fbe7d2b44d07b",
+   "id": "evt_48d104785b77d0fb",
    "type": "observed-event",
-   "title": "عبدالملك الحوثي يعلق على إعلان \"استهداف مكة بمسيّرة\"",
-   "title_en": "Abdul-Malik al-Houthi Comments on Report of Drone Targeting Mecca",
+   "title": "رئيس شركة آيسر يتوقع انخفاض أسعار أجهزة الكمبيوتر في 2027",
+   "title_en": "Acer Chairman Forecasts PC Price Drop in 2027",
    "observed_facts": [
-    "CNN Arabic published: عبدالملك الحوثي يعلق على إعلان \"استهداف مكة بمسيّرة\""
+    "العربية published: رئيس شركة آيسر يتوقع انخفاض أسعار أجهزة الكمبيوتر في 2027"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
    "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
    "confidence": 0.72,
    "severity": "info",
-   "countries": [
-    "ml"
-   ],
+   "countries": [],
    "sectors": [
-    "transport"
+    "technology"
    ],
-   "topics": [],
+   "topics": [
+    "artificial-intelligence",
+    "اقتصاد"
+   ],
    "evidence": [
     {
-     "id": "ev_0fdff8fc7157af1a",
-     "url": "https://arabic.cnn.com/middle-east/article/2026/09/18/houthi-leader-mecca-drone-reaction",
-     "source_name": "CNN Arabic",
+     "id": "ev_0d96257d13a6263e",
+     "url": "https://www.alarabiya.net/technology/in-focus/2026/09/24/%D8%B1%D8%A6%D9%8A%D8%B3-%D8%B4%D8%B1%D9%83%D8%A9-%D8%A7%D9%8A%D8%B3%D8%B1-%D9%8A%D8%AA%D9%88%D9%82%D8%B9-%D8%A7%D9%86%D8%AE%D9%81%D8%A7%D8%B6-%D8%A7%D8%B3%D8%B9%D8%A7%D8%B1-%D8%A7%D8%AC%D9%87%D8%B2%D8%A9-%D8%A7%D9%84%D9%83%D9%85%D8%A8%D9%8A%D9%88%D8%AA%D8%B1-%D9%81%D9%8A-2027-",
+     "source_name": "العربية",
      "source_grade": "حسن",
-     "observed_at": "2026-09-18T05:32+00:00",
-     "title": "عبدالملك الحوثي يعلق على إعلان \"استهداف مكة بمسيّرة\"",
-     "title_en": "Abdul-Malik al-Houthi Comments on Report of Drone Targeting Mecca",
-     "dataset": "map"
+     "observed_at": "2026-09-24T14:47+00:00",
+     "title": "رئيس شركة آيسر يتوقع انخفاض أسعار أجهزة الكمبيوتر في 2027",
+     "title_en": "Acer Chairman Forecasts PC Price Drop in 2027",
+     "dataset": "news"
     }
    ],
    "contradictions": [],
-   "created_at": "2026-09-18T08:00+00:00",
-   "updated_at": "2026-09-19T22:25+00:00"
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_49564287ebbb55eb",
@@ -2237,9 +2262,7 @@
    ],
    "sectors": [],
    "topics": [
-    "security",
-    "الحوثي",
-    "اليمن"
+    "security"
    ],
    "evidence": [
     {
@@ -2250,57 +2273,61 @@
      "observed_at": "2026-09-22T14:18+00:00",
      "title": "هل تتدخل تركيا وباكستان لحماية السعودية أمام هجمات الحوثيين؟",
      "title_en": "Will Turkey and Pakistan Intervene to Protect Saudi Arabia from Houthi Attacks?",
-     "dataset": "osint"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-22T16:27+00:00",
-   "updated_at": "2026-09-23T22:43+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
-   "id": "evt_4bc990fdc4d717dc",
+   "id": "evt_4baab5fd4cc3a33f",
    "type": "observed-event",
-   "title": "كيف يُمكّن UK AISI وEvalEval من جعل نتائج التقييم المعياري قابلة لإعادة الإنتاج",
-   "title_en": "How UK AISI and EvalEval Make Benchmark Evaluation Results Reproducible",
+   "title": "إيران تهدد بتوسيع النزاع... والعقوبات تعزل طيرانها",
+   "title_en": "",
    "observed_facts": [
-    "هَغِنغ فيس published: كيف يُمكّن UK AISI وEvalEval من جعل نتائج التقييم المعياري قابلة لإعادة الإنتاج"
+    "الشرق الأوسط published: إيران تهدد بتوسيع النزاع... والعقوبات تعزل طيرانها"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
    "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
    "confidence": 0.72,
    "severity": "info",
-   "countries": [],
+   "countries": [
+    "ir"
+   ],
    "sectors": [
-    "technology"
+    "transport"
    ],
    "topics": [
-    "artificial-intelligence",
-    "ذكاء-اصطناعي"
+    "اقتصاد",
+    "ايران",
+    "عقوبات",
+    "عقوبات-ايران"
    ],
    "evidence": [
     {
-     "id": "ev_e9f63aa1f7aaa02f",
-     "url": "https://huggingface.co/blog/evaleval-aisi",
-     "source_name": "هَغِنغ فيس",
+     "id": "ev_3b72421dc1b46a89",
+     "url": "https://aawsat.com/node/5322360",
+     "source_name": "الشرق الأوسط",
      "source_grade": "حسن",
-     "observed_at": "2026-09-22T00:00+00:00",
-     "title": "كيف يُمكّن UK AISI وEvalEval من جعل نتائج التقييم المعياري قابلة لإعادة الإنتاج",
-     "title_en": "How UK AISI and EvalEval Make Benchmark Evaluation Results Reproducible",
+     "observed_at": "2026-09-25T00:20+00:00",
+     "title": "إيران تهدد بتوسيع النزاع... والعقوبات تعزل طيرانها",
+     "title_en": "",
      "dataset": "news"
     }
    ],
    "contradictions": [],
-   "created_at": "2026-09-22T19:50+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_4d62f50dd2eadced",
    "type": "observed-event",
-   "title": "تطوير حوسبة الذكاء الاصطناعي الخاصة باستخدام ذاكرة آمنة من جانب الخادم",
-   "title_en": "Advancing Private AI Compute with Server-Side Secure Memory",
+   "title": "تطوير الحوسبة الخاصة للذكاء الاصطناعي باستخدام ذاكرة آمنة من جانب الخادم",
+   "title_en": "Advancing Confidential AI Computing with Server-Side Secure Memory",
    "observed_facts": [
-    "ديب مايند published: تطوير حوسبة الذكاء الاصطناعي الخاصة باستخدام ذاكرة آمنة من جانب الخادم"
+    "ديب مايند published: تطوير الحوسبة الخاصة للذكاء الاصطناعي باستخدام ذاكرة آمنة من جانب الخادم"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -2314,7 +2341,7 @@
    "topics": [
     "artificial-intelligence",
     "security",
-    "تقنية"
+    "ذكاء-اصطناعي"
    ],
    "evidence": [
     {
@@ -2323,50 +2350,14 @@
      "source_name": "ديب مايند",
      "source_grade": "صحيح",
      "observed_at": "2026-09-23T16:00+00:00",
-     "title": "تطوير حوسبة الذكاء الاصطناعي الخاصة باستخدام ذاكرة آمنة من جانب الخادم",
-     "title_en": "Advancing Private AI Compute with Server-Side Secure Memory",
+     "title": "تطوير الحوسبة الخاصة للذكاء الاصطناعي باستخدام ذاكرة آمنة من جانب الخادم",
+     "title_en": "Advancing Confidential AI Computing with Server-Side Secure Memory",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T08:10+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
-  },
-  {
-   "id": "evt_4de49d76b0113515",
-   "type": "observed-event",
-   "title": "روسيا تندّد بهجوم أوكراني مع بدء الانتخابات التشريعية",
-   "title_en": "",
-   "observed_facts": [
-    "الشرق الأوسط published: روسيا تندّد بهجوم أوكراني مع بدء الانتخابات التشريعية"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "medium",
-   "countries": [
-    "ua"
-   ],
-   "sectors": [],
-   "topics": [
-    "security"
-   ],
-   "evidence": [
-    {
-     "id": "ev_3c82aacdefac9cc6",
-     "url": "https://aawsat.com/node/5319995",
-     "source_name": "الشرق الأوسط",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-18T23:13+00:00",
-     "title": "روسيا تندّد بهجوم أوكراني مع بدء الانتخابات التشريعية",
-     "title_en": "",
-     "dataset": "map"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-24T17:29+00:00",
-   "updated_at": "2026-09-24T17:29+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_4e3477312b97b094",
@@ -2405,6 +2396,45 @@
    "contradictions": [],
    "created_at": "2026-09-21T22:08+00:00",
    "updated_at": "2026-09-22T06:03+00:00"
+  },
+  {
+   "id": "evt_4fab49df9e84100b",
+   "type": "observed-event",
+   "title": "مجلس الشيوخ يرفض تقييد صلاحيات ترامب في حرب إيران",
+   "title_en": "",
+   "observed_facts": [
+    "سكاي نيوز عربية published: مجلس الشيوخ يرفض تقييد صلاحيات ترامب في حرب إيران"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "ae",
+    "ir"
+   ],
+   "sectors": [],
+   "topics": [
+    "conflict",
+    "ايران",
+    "ترامب-ايران"
+   ],
+   "evidence": [
+    {
+     "id": "ev_9dae5ecada21f79d",
+     "url": "https://www.skynewsarabia.com/world/1894294-%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D8%B4%D9%8A%D9%88%D8%AE-%D9%8A%D8%B1%D9%81%D8%B6-%D8%AA%D9%82%D9%8A%D9%8A%D8%AF-%D8%B5%D9%84%D8%A7%D8%AD%D9%8A%D8%A7%D8%AA-%D8%AA%D8%B1%D8%A7%D9%85%D8%A8-%D8%AD%D8%B1%D8%A8-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86",
+     "source_name": "سكاي نيوز عربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-09-25T01:23+00:00",
+     "title": "مجلس الشيوخ يرفض تقييد صلاحيات ترامب في حرب إيران",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_4fd3d09ae5d12e21",
@@ -2483,7 +2513,7 @@
    "id": "evt_5233ac2862ba0712",
    "type": "observed-event",
    "title": "لماذا تنفذ فلوريدا أكبر عدد من الإعدامات في أمريكا؟",
-   "title_en": "Why Florida Carries Out the Most Executions in the US",
+   "title_en": "Why Florida Leads the US in Executions",
    "observed_facts": [
     "بي بي سي فارسي published: لماذا تنفذ فلوريدا أكبر عدد من الإعدامات في أمريكا؟"
    ],
@@ -2493,7 +2523,6 @@
    "confidence": 0.72,
    "severity": "info",
    "countries": [
-    "ir",
     "us"
    ],
    "sectors": [],
@@ -2508,13 +2537,13 @@
      "source_grade": "حسن",
      "observed_at": "2026-09-24T22:31+00:00",
      "title": "لماذا تنفذ فلوريدا أكبر عدد من الإعدامات في أمريكا؟",
-     "title_en": "Why Florida Carries Out the Most Executions in the US",
+     "title_en": "Why Florida Leads the US in Executions",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_5377784674bc452b",
@@ -2657,6 +2686,80 @@
    "updated_at": "2026-09-24T01:05+00:00"
   },
   {
+   "id": "evt_576d28afa6a4d291",
+   "type": "observed-event",
+   "title": "بزشكيان يفتح باب الاتفاق مع واشنطن.. هرمز واليورانيوم على الطاولة",
+   "title_en": "Pezeshkian Opens Door to Deal with Washington: Hormuz and Uranium on the Table",
+   "observed_facts": [
+    "العربية published: بزشكيان يفتح باب الاتفاق مع واشنطن.. هرمز واليورانيوم على الطاولة"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [],
+   "sectors": [],
+   "topics": [
+    "diplomacy",
+    "ايران",
+    "ملاحة",
+    "هرمز"
+   ],
+   "evidence": [
+    {
+     "id": "ev_48e72eda844ae6fd",
+     "url": "https://www.alarabiya.net/iran/2026/09/25/%D8%A8%D8%B2%D8%B4%D9%83%D9%8A%D8%A7%D9%86-%D9%8A%D9%81%D8%AA%D8%AD-%D8%A8%D8%A7%D8%A8-%D8%A7%D9%84%D8%A7%D8%AA%D9%81%D8%A7%D9%82-%D9%85%D8%B9-%D9%88%D8%A7%D8%B4%D9%86%D8%B7%D9%86-%D9%87%D8%B1%D9%85%D8%B2-%D9%88%D8%A7%D9%84%D9%8A%D9%88%D8%B1%D8%A7%D9%86%D9%8A%D9%88%D9%85-%D8%B9%D9%84%D9%89-%D8%A7%D9%84%D8%B7%D8%A7%D9%88%D9%84%D8%A9",
+     "source_name": "العربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-09-24T23:10+00:00",
+     "title": "بزشكيان يفتح باب الاتفاق مع واشنطن.. هرمز واليورانيوم على الطاولة",
+     "title_en": "Pezeshkian Opens Door to Deal with Washington: Hormuz and Uranium on the Table",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
+  },
+  {
+   "id": "evt_5a3084f681caa397",
+   "type": "observed-event",
+   "title": "وزراء خارجية دول «اتفاقية مكة» يستعرضون ترتيبات اجتماع عاجل لرؤساء الأركان",
+   "title_en": "",
+   "observed_facts": [
+    "الشرق الأوسط published: وزراء خارجية دول «اتفاقية مكة» يستعرضون ترتيبات اجتماع عاجل لرؤساء الأركان"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "sa"
+   ],
+   "sectors": [],
+   "topics": [
+    "diplomacy",
+    "الخليج"
+   ],
+   "evidence": [
+    {
+     "id": "ev_0ba301c49fe71c62",
+     "url": "https://aawsat.com/node/5322361",
+     "source_name": "الشرق الأوسط",
+     "source_grade": "حسن",
+     "observed_at": "2026-09-25T00:25+00:00",
+     "title": "وزراء خارجية دول «اتفاقية مكة» يستعرضون ترتيبات اجتماع عاجل لرؤساء الأركان",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
+  },
+  {
    "id": "evt_5a3fb0919e096308",
    "type": "observed-event",
    "title": "المغرب يعود إلى توقيت غرينيتش",
@@ -2691,6 +2794,48 @@
    "updated_at": "2026-09-24T12:08+00:00"
   },
   {
+   "id": "evt_5aae146977f54162",
+   "type": "observed-event",
+   "title": "أسيران من كوريا الشمالية يفجران أزمة بين سول وكييف.. فما القصة؟",
+   "title_en": "",
+   "observed_facts": [
+    "الجزيرة نت published: أسيران من كوريا الشمالية يفجران أزمة بين سول وكييف.. فما القصة؟"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "kp",
+    "ml",
+    "qa",
+    "ua"
+   ],
+   "sectors": [
+    "finance"
+   ],
+   "topics": [
+    "economy",
+    "عالم"
+   ],
+   "evidence": [
+    {
+     "id": "ev_f88a0d557108b8b9",
+     "url": "https://www.aljazeera.net/news/2026/9/25/%d8%b2%d9%8a%d9%84%d9%8a%d9%86%d8%b3%d9%83%d9%8a-%d9%83%d8%b4%d9%81-%d8%a7%d9%84%d8%b3%d8%b1-%d8%a3%d8%b3%d9%8a%d8%b1%d8%a7%d9%86-%d9%83%d9%88%d8%b1%d9%8a%d8%a7%d9%86?traffic_source=rss",
+     "source_name": "الجزيرة نت",
+     "source_grade": "حسن",
+     "observed_at": "2026-09-25T00:07+00:00",
+     "title": "أسيران من كوريا الشمالية يفجران أزمة بين سول وكييف.. فما القصة؟",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
+  },
+  {
    "id": "evt_5d335fb457d8a6bc",
    "type": "observed-event",
    "title": "المسيرات الأوكرانية تنقل الحرب إلى العمق الروسي",
@@ -2704,7 +2849,6 @@
    "confidence": 0.72,
    "severity": "info",
    "countries": [
-    "ru",
     "ua"
    ],
    "sectors": [
@@ -2728,84 +2872,13 @@
    ],
    "contradictions": [],
    "created_at": "2026-09-24T12:08+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
-  },
-  {
-   "id": "evt_5d71ce76f25db076",
-   "type": "observed-event",
-   "title": "مكتبة Transformers تدعم الآن تشغيل النماذج المكممة عبر llama.cpp",
-   "title_en": "Transformers Library Now Supports Running Quantized Models via llama.cpp",
-   "observed_facts": [
-    "هَغِنغ فيس published: مكتبة Transformers تدعم الآن تشغيل النماذج المكممة عبر llama.cpp"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [],
-   "sectors": [
-    "transport"
-   ],
-   "topics": [
-    "artificial-intelligence",
-    "ذكاء-اصطناعي"
-   ],
-   "evidence": [
-    {
-     "id": "ev_689d78c6e007ab8e",
-     "url": "https://huggingface.co/blog/transformers-llama-cpp-quants",
-     "source_name": "هَغِنغ فيس",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-22T00:00+00:00",
-     "title": "مكتبة Transformers تدعم الآن تشغيل النماذج المكممة عبر llama.cpp",
-     "title_en": "Transformers Library Now Supports Running Quantized Models via llama.cpp",
-     "dataset": "news"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-22T11:57+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
-  },
-  {
-   "id": "evt_60c726df64cb2bdb",
-   "type": "observed-event",
-   "title": "ضربة قضائية لحظر ترامب.. عودة فورية لصحفيي 3 مؤسسات",
-   "title_en": "Judicial Blow to Trump Ban: Immediate Reinstatement for 3 Media Outlets",
-   "observed_facts": [
-    "سكاي نيوز عربية published: ضربة قضائية لحظر ترامب.. عودة فورية لصحفيي 3 مؤسسات"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [],
-   "sectors": [],
-   "topics": [
-    "عالم"
-   ],
-   "evidence": [
-    {
-     "id": "ev_e5f8774028105928",
-     "url": "https://www.skynewsarabia.com/world/1894186-%D8%B6%D8%B1%D8%A8%D8%A9-%D9%82%D8%B6%D8%A7%D8%A6%D9%8A%D8%A9-%D9%84%D8%AD%D8%B8%D8%B1-%D8%AA%D8%B1%D8%A7%D9%85%D8%A8-%D8%B9%D9%88%D8%AF%D8%A9-%D9%81%D9%88%D8%B1%D9%8A%D8%A9-%D9%84%D8%B5%D8%AD%D9%81%D9%8A%D9%8A-3-%D9%85%D8%A4%D8%B3%D8%B3%D8%A7%D8%AA",
-     "source_name": "سكاي نيوز عربية",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-24T10:50+00:00",
-     "title": "ضربة قضائية لحظر ترامب.. عودة فورية لصحفيي 3 مؤسسات",
-     "title_en": "Judicial Blow to Trump Ban: Immediate Reinstatement for 3 Media Outlets",
-     "dataset": "news"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-24T17:29+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_613e3a6694a352f5",
    "type": "observed-event",
    "title": "بهدف عكسي.. \"الأخضر\" يهزم الكويت لأول مرة في السعودية",
-   "title_en": "Own Goal Gives Saudi Arabia First-Ever Home Victory Over Kuwait",
+   "title_en": "With Own Goal, 'Green' Defeats Kuwait for First Time on Home Soil",
    "observed_facts": [
     "العربية published: بهدف عكسي.. \"الأخضر\" يهزم الكويت لأول مرة في السعودية"
    ],
@@ -2819,12 +2892,13 @@
     "sa"
    ],
    "sectors": [
+    "energy",
     "technology"
    ],
    "topics": [
     "artificial-intelligence",
+    "economy",
     "الخليج",
-    "السعودية",
     "الكويت"
    ],
    "evidence": [
@@ -2833,15 +2907,15 @@
      "url": "https://www.alarabiya.net/sport/2026/09/24/%D8%A8%D9%87%D8%AF%D9%81-%D8%B9%D9%83%D8%B3%D9%8A-%D8%A7%D9%84%D8%A7%D8%AE%D8%B6%D8%B1-%D9%8A%D9%87%D8%B2%D9%85-%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA-%D9%84%D8%A7%D9%88%D9%84-%D9%85%D8%B1%D8%A9-%D9%81%D9%8A-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9",
      "source_name": "العربية",
      "source_grade": "حسن",
-     "observed_at": "2026-09-24T12:40+00:00",
+     "observed_at": "2026-09-23T20:06+00:00",
      "title": "بهدف عكسي.. \"الأخضر\" يهزم الكويت لأول مرة في السعودية",
-     "title_en": "Own Goal Gives Saudi Arabia First-Ever Home Victory Over Kuwait",
+     "title_en": "With Own Goal, 'Green' Defeats Kuwait for First Time on Home Soil",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-23T22:43+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_62d12d5d3e2b0112",
@@ -2857,7 +2931,6 @@
    "confidence": 0.72,
    "severity": "info",
    "countries": [
-    "cn",
     "in",
     "pk"
    ],
@@ -2879,7 +2952,7 @@
    ],
    "contradictions": [],
    "created_at": "2026-09-22T06:03+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_67c1f10b52f40de5",
@@ -2911,12 +2984,49 @@
      "observed_at": "2026-09-22T14:18+00:00",
      "title": "تباين بورصات الخليج قبيل محادثات محتملة بين أمريكا وإيران في الأمم المتحدة",
      "title_en": "",
-     "dataset": "news"
+     "dataset": "osint"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-23T06:22+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
+  },
+  {
+   "id": "evt_6839010204941a8d",
+   "type": "observed-event",
+   "title": "بريطانيا تحذر إيران من «أي نشاط عدائي» على أراضيها",
+   "title_en": "",
+   "observed_facts": [
+    "الشرق الأوسط published: بريطانيا تحذر إيران من «أي نشاط عدائي» على أراضيها"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "gb",
+    "ir"
+   ],
+   "sectors": [],
+   "topics": [
+    "ايران"
+   ],
+   "evidence": [
+    {
+     "id": "ev_9030761a2255c236",
+     "url": "https://aawsat.com/node/5322362",
+     "source_name": "الشرق الأوسط",
+     "source_grade": "حسن",
+     "observed_at": "2026-09-25T00:31+00:00",
+     "title": "بريطانيا تحذر إيران من «أي نشاط عدائي» على أراضيها",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_686586ada59d67fb",
@@ -3007,8 +3117,7 @@
     "technology"
    ],
    "topics": [
-    "artificial-intelligence",
-    "عالم"
+    "artificial-intelligence"
    ],
    "evidence": [
     {
@@ -3019,54 +3128,20 @@
      "observed_at": "2026-09-24T07:47+00:00",
      "title": "قفزة مفاجئة لسعر الدولار في مصر.. مكاسب 1% تنهي موجة الخسائر",
      "title_en": "US Dollar Surges in Egypt, 1% Gain Snaps Losing Streak",
-     "dataset": "news"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T17:29+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
-   "id": "evt_69ffd683508c294c",
+   "id": "evt_6a4ac46d34e02742",
    "type": "observed-event",
-   "title": "ملابس ترامب وشي تخطف الأنظار.. تساؤلات عن اللون والتنسيق",
-   "title_en": "Trump and Xi's Attire Draws Scrutiny Over Color and Coordination",
+   "title": "المغرب: حزب الأصالة والمعاصرة يتصدر الانتخابات وسط أدنى نسبة مشاركة منذ 2007",
+   "title_en": "Morocco: PAM Leads Elections Amid Lowest Voter Turnout Since 2007",
    "observed_facts": [
-    "العربية published: ملابس ترامب وشي تخطف الأنظار.. تساؤلات عن اللون والتنسيق"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [],
-   "sectors": [],
-   "topics": [
-    "عالم"
-   ],
-   "evidence": [
-    {
-     "id": "ev_456d1318e134ccee",
-     "url": "https://www.alarabiya.net/arab-and-world/american-elections-2016/2026/09/24/%D9%82%D9%81%D8%A7%D8%B2%D8%A7%D8%AA-%D9%88%D8%A7%D9%84%D9%88%D8%A7%D9%86-%D9%85%D8%AA%D8%B7%D8%A7%D8%A8%D9%82%D8%A9-%D8%B1%D8%B3%D8%A7%D9%84%D8%A9-%D9%84%D8%A7%D9%81%D8%AA%D8%A9-%D8%AD%D9%85%D9%84%D8%AA%D9%87%D8%A7-%D8%A7%D8%B2%D9%8A%D8%A7%D8%A1-%D8%AA%D8%B1%D8%A7%D9%85%D8%A8-%D9%88%D8%B4%D9%8A",
-     "source_name": "العربية",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-24T15:37+00:00",
-     "title": "ملابس ترامب وشي تخطف الأنظار.. تساؤلات عن اللون والتنسيق",
-     "title_en": "Trump and Xi's Attire Draws Scrutiny Over Color and Coordination",
-     "dataset": "news"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
-  },
-  {
-   "id": "evt_6d1cd37835f03d7d",
-   "type": "observed-event",
-   "title": "اكتشاف نوع جديد من القطط البرية في غابات بوليفيا",
-   "title_en": "New Wildcat Species Discovered in Bolivian Forests",
-   "observed_facts": [
-    "بي بي سي فارسي published: اكتشاف نوع جديد من القطط البرية في غابات بوليفيا"
+    "BBC published: المغرب: حزب الأصالة والمعاصرة يتصدر الانتخابات وسط أدنى نسبة مشاركة منذ 2007"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -3074,25 +3149,27 @@
    "confidence": 0.72,
    "severity": "info",
    "countries": [
-    "bo"
+    "ma"
    ],
    "sectors": [],
-   "topics": [],
+   "topics": [
+    "عالم"
+   ],
    "evidence": [
     {
-     "id": "ev_97bbd287e1da7cc8",
-     "url": "https://www.bbc.com/persian/articles/crx2z834g087o?at_medium=RSS&at_campaign=rss",
-     "source_name": "بي بي سي فارسي",
+     "id": "ev_4f239ea3fea6c9ce",
+     "url": "https://www.bbc.com/arabic/articles/cwe8ekmv4ej5o",
+     "source_name": "BBC",
      "source_grade": "حسن",
-     "observed_at": "2026-09-18T16:17+00:00",
-     "title": "اكتشاف نوع جديد من القطط البرية في غابات بوليفيا",
-     "title_en": "New Wildcat Species Discovered in Bolivian Forests",
-     "dataset": "map"
+     "observed_at": "2026-09-24T14:01+00:00",
+     "title": "المغرب: حزب الأصالة والمعاصرة يتصدر الانتخابات وسط أدنى نسبة مشاركة منذ 2007",
+     "title_en": "Morocco: PAM Leads Elections Amid Lowest Voter Turnout Since 2007",
+     "dataset": "news"
     }
    ],
    "contradictions": [],
-   "created_at": "2026-09-18T18:06+00:00",
-   "updated_at": "2026-09-19T06:30+00:00"
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_6f3d980125d5ed56",
@@ -3208,24 +3285,37 @@
    "id": "evt_7027599f4168f226",
    "type": "observed-event",
    "title": "قطر ترفض اتهامات نتنياهو وتعتبرها محاولة لصرف الأنظار عن انتهاكات حكومته بفلسطين",
-   "title_en": "",
+   "title_en": "Qatar Rejects Netanyahu's Accusations, Calls Them Bid to Distract from Government Violations in Palestine",
    "observed_facts": [
     "الجزيرة نت published: قطر ترفض اتهامات نتنياهو وتعتبرها محاولة لصرف الأنظار عن انتهاكات حكومته بفلسطين"
    ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "sanad_assessment": "2 attributable observation(s); 2 carry an existing SANAD source grade.",
    "inference": "",
    "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
    "confidence": 0.72,
    "severity": "info",
    "countries": [
     "ps",
-    "qa"
+    "qa",
+    "us"
    ],
-   "sectors": [],
+   "sectors": [
+    "government"
+   ],
    "topics": [
     "الخليج"
    ],
    "evidence": [
+    {
+     "id": "ev_31f02caa260b80d1",
+     "url": "https://www.aljazeera.net/news/2026/9/25/%D8%B9%D8%A7%D8%AC%D9%84-%D8%A7%D9%84%D9%85%D8%AA%D8%AD%D8%AF%D8%AB-%D8%A8%D8%A7%D8%B3%D9%85-%D8%A7%D9%84%D8%AE%D8%A7%D8%B1%D8%AC%D9%8A%D8%A9-%D8%A7%D9%84%D9%82%D8%B7%D8%B1%D9%8A%D8%A9-35",
+     "source_name": "الجزيرة نت",
+     "source_grade": "حسن",
+     "observed_at": "2026-09-25T00:47+00:00",
+     "title": "قطر ترفض اتهامات نتنياهو وتعتبرها محاولة لصرف الأنظار عن انتهاكات حكومته بفلسطين",
+     "title_en": "Qatar Rejects Netanyahu's Accusations, Calls Them Bid to Distract from Government Violations in Palestine",
+     "dataset": "news"
+    },
     {
      "id": "ev_a8c38616a979e085",
      "url": "https://www.aljazeera.net/news/2026/9/25/%d8%b9%d8%a7%d8%ac%d9%84-%d8%a7%d9%84%d9%85%d8%aa%d8%ad%d8%af%d8%ab-%d8%a8%d8%a7%d8%b3%d9%85-%d8%a7%d9%84%d8%ae%d8%a7%d8%b1%d8%ac%d9%8a%d8%a9-%d8%a7%d9%84%d9%82%d8%b7%d8%b1%d9%8a%d8%a9-35?traffic_source=rss",
@@ -3234,18 +3324,18 @@
      "observed_at": "2026-09-24T19:53+00:00",
      "title": "قطر ترفض اتهامات نتنياهو وتعتبرها محاولة لصرف الأنظار عن انتهاكات حكومته بفلسطين",
      "title_en": "",
-     "dataset": "news"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_71ed207c5f9ca6b0",
    "type": "observed-event",
    "title": "مستعد لإدارة حياتك الرقمية.. كل ما تريد معرفته عن وكيل الذكاء الاصطناعي من \"ميتا\"",
-   "title_en": "Ready to Manage Your Digital Life: Everything About Meta's AI Agent",
+   "title_en": "Ready to Manage Your Digital Life: What to Know About Meta's AI Agent",
    "observed_facts": [
     "العربية published: مستعد لإدارة حياتك الرقمية.. كل ما تريد معرفته عن وكيل الذكاء الاصطناعي من \"ميتا\""
    ],
@@ -3270,88 +3360,13 @@
      "source_grade": "حسن",
      "observed_at": "2026-09-24T06:26+00:00",
      "title": "مستعد لإدارة حياتك الرقمية.. كل ما تريد معرفته عن وكيل الذكاء الاصطناعي من \"ميتا\"",
-     "title_en": "Ready to Manage Your Digital Life: Everything About Meta's AI Agent",
+     "title_en": "Ready to Manage Your Digital Life: What to Know About Meta's AI Agent",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
-  },
-  {
-   "id": "evt_722d4235197e9a76",
-   "type": "observed-event",
-   "title": "الجيش السوداني يصُدّ هجوماً في ولاية النيل الأزرق",
-   "title_en": "",
-   "observed_facts": [
-    "الشرق الأوسط published: الجيش السوداني يصُدّ هجوماً في ولاية النيل الأزرق"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "medium",
-   "countries": [
-    "sd"
-   ],
-   "sectors": [
-    "defense"
-   ],
-   "topics": [
-    "security"
-   ],
-   "evidence": [
-    {
-     "id": "ev_43dc1886affc74c3",
-     "url": "https://aawsat.com/node/5319996",
-     "source_name": "الشرق الأوسط",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-18T23:17+00:00",
-     "title": "الجيش السوداني يصُدّ هجوماً في ولاية النيل الأزرق",
-     "title_en": "",
-     "dataset": "map"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-18T23:30+00:00",
-   "updated_at": "2026-09-19T06:30+00:00"
-  },
-  {
-   "id": "evt_72c72a6b131c6dab",
-   "type": "observed-event",
-   "title": "ترامب يقول إنّه يعارض أي \"مشروع عالمي\" لتنظيم الذكاء الاصطناعي",
-   "title_en": "Trump Opposes Any 'Global Framework' to Regulate AI",
-   "observed_facts": [
-    "العربية published: ترامب يقول إنّه يعارض أي \"مشروع عالمي\" لتنظيم الذكاء الاصطناعي"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [],
-   "sectors": [
-    "technology"
-   ],
-   "topics": [
-    "artificial-intelligence",
-    "تقنية"
-   ],
-   "evidence": [
-    {
-     "id": "ev_136aa3f824f568e0",
-     "url": "https://www.alarabiya.net/arab-and-world/american-elections-2016/2026/09/22/%D8%AA%D8%B1%D8%A7%D9%85%D8%A8-%D9%8A%D9%82%D9%88%D9%84-%D8%A7%D9%86-%D9%87-%D9%8A%D8%B9%D8%A7%D8%B1%D8%B6-%D8%A7%D9%8A-%D9%85%D8%B4%D8%B1%D9%88%D8%B9-%D8%B9%D8%A7%D9%84%D9%85%D9%8A-%D9%84%D8%AA%D9%86%D8%B8%D9%8A%D9%85-%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A-",
-     "source_name": "العربية",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-22T19:23+00:00",
-     "title": "ترامب يقول إنّه يعارض أي \"مشروع عالمي\" لتنظيم الذكاء الاصطناعي",
-     "title_en": "Trump Opposes Any 'Global Framework' to Regulate AI",
-     "dataset": "news"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_72fb7d5116051f07",
@@ -3390,12 +3405,49 @@
    "updated_at": "2026-09-24T20:41+00:00"
   },
   {
+   "id": "evt_75442b2b614f6c7c",
+   "type": "observed-event",
+   "title": "موجة بيع عالمية تضرب السندات بعد تجاوز النفط 105 دولارات للبرميل",
+   "title_en": "Global Bond Sell-Off Strikes as Oil Surpasses $105 a Barrel",
+   "observed_facts": [
+    "العربية published: موجة بيع عالمية تضرب السندات بعد تجاوز النفط 105 دولارات للبرميل"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [],
+   "sectors": [
+    "energy"
+   ],
+   "topics": [
+    "economy",
+    "اقتصاد"
+   ],
+   "evidence": [
+    {
+     "id": "ev_220df5f9ae31a50f",
+     "url": "https://www.alarabiya.net/aswaq/special-stories/2026/09/24/%D9%85%D9%88%D8%AC%D8%A9-%D8%A8%D9%8A%D8%B9-%D8%B9%D8%A7%D9%84%D9%85%D9%8A%D8%A9-%D8%AA%D8%B6%D8%B1%D8%A8-%D8%A7%D9%84%D8%B3%D9%86%D8%AF%D8%A7%D8%AA-%D8%A8%D8%B9%D8%AF-%D8%AA%D8%AC%D8%A7%D9%88%D8%B2-%D8%A7%D9%84%D9%86%D9%81%D8%B7-105-%D8%AF%D9%88%D9%84%D8%A7%D8%B1%D8%A7%D8%AA-%D9%84%D9%84%D8%A8%D8%B1%D9%85%D9%8A%D9%84",
+     "source_name": "العربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-09-24T11:56+00:00",
+     "title": "موجة بيع عالمية تضرب السندات بعد تجاوز النفط 105 دولارات للبرميل",
+     "title_en": "Global Bond Sell-Off Strikes as Oil Surpasses $105 a Barrel",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
+  },
+  {
    "id": "evt_766561aaacf3588b",
    "type": "observed-event",
-   "title": "ردود الفعل على خطاب بزشكيان في الأمم المتحدة؛ من وصف «صفعة على وجه ترامب» إلى «بذل أقصى الجهد لأقلية الخمسة بالمئة»",
-   "title_en": "Reactions to Pezeshkian's UN Speech: From 'Slap to Trump's Face' to 'Effort for 5% Minority'",
+   "title": "ردود الفعل على كلمة بزشكيان في الأمم المتحدة؛ من وصف \"صفعة على وجه ترامب\" إلى \"بذل أقصى الجهد لأقلية الخمسة بالمئة\"",
+   "title_en": "Reactions to Pezeshkian's UN Speech: From 'Slap to Trump' to 'All-Out Effort for 5% Minority'",
    "observed_facts": [
-    "بي بي سي فارسي published: ردود الفعل على خطاب بزشكيان في الأمم المتحدة؛ من وصف «صفعة على وجه ترامب» إلى «بذل أقصى الجهد لأقلية الخمسة بالمئة»"
+    "بي بي سي فارسي published: ردود الفعل على كلمة بزشكيان في الأمم المتحدة؛ من وصف \"صفعة على وجه ترامب\" إلى \"بذل أقصى الجهد لأقلية الخمسة بالمئة\""
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -3415,14 +3467,51 @@
      "source_name": "بي بي سي فارسي",
      "source_grade": "حسن",
      "observed_at": "2026-09-24T20:15+00:00",
-     "title": "ردود الفعل على خطاب بزشكيان في الأمم المتحدة؛ من وصف «صفعة على وجه ترامب» إلى «بذل أقصى الجهد لأقلية الخمسة بالمئة»",
-     "title_en": "Reactions to Pezeshkian's UN Speech: From 'Slap to Trump's Face' to 'Effort for 5% Minority'",
+     "title": "ردود الفعل على كلمة بزشكيان في الأمم المتحدة؛ من وصف \"صفعة على وجه ترامب\" إلى \"بذل أقصى الجهد لأقلية الخمسة بالمئة\"",
+     "title_en": "Reactions to Pezeshkian's UN Speech: From 'Slap to Trump' to 'All-Out Effort for 5% Minority'",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T20:41+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
+  },
+  {
+   "id": "evt_78d17cbabfeeca3c",
+   "type": "observed-event",
+   "title": "ترامب: علاقاتنا مع الصين في أفضل حالاتها",
+   "title_en": "",
+   "observed_facts": [
+    "سكاي نيوز عربية published: ترامب: علاقاتنا مع الصين في أفضل حالاتها"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "ae",
+    "cn"
+   ],
+   "sectors": [],
+   "topics": [
+    "الخليج"
+   ],
+   "evidence": [
+    {
+     "id": "ev_74e59ad4d367a9eb",
+     "url": "https://www.skynewsarabia.com/world/1894296-%D8%AA%D8%B1%D8%A7%D9%85%D8%A8-%D8%B9%D9%84%D8%A7%D9%82%D8%A7%D8%AA%D9%86%D8%A7-%D8%A7%D9%84%D8%B5%D9%8A%D9%86-%D8%A3%D9%81%D8%B6%D9%84-%D8%AD%D8%A7%D9%84%D8%A7%D8%AA%D9%87%D8%A7",
+     "source_name": "سكاي نيوز عربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-09-25T01:29+00:00",
+     "title": "ترامب: علاقاتنا مع الصين في أفضل حالاتها",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_794fbffc6e56fd78",
@@ -3567,43 +3656,6 @@
    ],
    "contradictions": [],
    "created_at": "2026-09-20T22:38+00:00",
-   "updated_at": "2026-09-23T01:17+00:00"
-  },
-  {
-   "id": "evt_7f2eaf4fd12b4444",
-   "type": "observed-event",
-   "title": "ترامب أمام الأمم المتحدة: إيران هي الراعي الأول للإرهاب في العالم",
-   "title_en": "",
-   "observed_facts": [
-    "alkhaleej.ae published: ترامب أمام الأمم المتحدة: إيران هي الراعي الأول للإرهاب في العالم"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "ir"
-   ],
-   "sectors": [],
-   "topics": [
-    "ايران",
-    "ترامب-ايران"
-   ],
-   "evidence": [
-    {
-     "id": "ev_d74319e72121f5e0",
-     "url": "https://www.alkhaleej.ae/2026-09-22/%D8%B9%D8%B1%D8%A8-%D9%88%D8%B9%D8%A7%D9%84%D9%85/%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85/%D8%AA%D8%B1%D8%A7%D9%85%D8%A8-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D9%87%D9%8A-%D8%A7%D9%84%D8%B1%D8%A7%D8%B9%D9%8A-%D8%A7%D9%84%D8%A3%D9%88%D9%84-%D9%84%D9%84%D8%A5%D8%B1%D9%87%D8%A7%D8%A8-%D9%81%D9%8A-%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85",
-     "source_name": "alkhaleej.ae",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-22T22:07+00:00",
-     "title": "ترامب أمام الأمم المتحدة: إيران هي الراعي الأول للإرهاب في العالم",
-     "title_en": "",
-     "dataset": "osint"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-22T19:50+00:00",
    "updated_at": "2026-09-23T01:17+00:00"
   },
   {
@@ -3756,43 +3808,6 @@
    "updated_at": "2026-09-24T17:29+00:00"
   },
   {
-   "id": "evt_84d44fbaf8eb68a2",
-   "type": "observed-event",
-   "title": "ترامب يعلن التوصل إلى اتفاق مع الدنمارك وغرينلاند بشأن «السيطرة الدائمة» على شؤون الجزيرة الأمنية",
-   "title_en": "Trump Announces Agreement with Denmark and Greenland on 'Permanent Control' Over Island's Security",
-   "observed_facts": [
-    "إيران إنترناشونال published: ترامب يعلن التوصل إلى اتفاق مع الدنمارك وغرينلاند بشأن «السيطرة الدائمة» على شؤون الجزيرة الأمنية"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "dk"
-   ],
-   "sectors": [],
-   "topics": [
-    "diplomacy",
-    "security"
-   ],
-   "evidence": [
-    {
-     "id": "ev_1b46064960ad5a8e",
-     "url": "https://www.iranintl.com/202609186140",
-     "source_name": "إيران إنترناشونال",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-18T21:51+00:00",
-     "title": "ترامب يعلن التوصل إلى اتفاق مع الدنمارك وغرينلاند بشأن «السيطرة الدائمة» على شؤون الجزيرة الأمنية",
-     "title_en": "Trump Announces Agreement with Denmark and Greenland on 'Permanent Control' Over Island's Security",
-     "dataset": "map"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-18T23:30+00:00",
-   "updated_at": "2026-09-21T00:51+00:00"
-  },
-  {
    "id": "evt_856951c0049ad553",
    "type": "observed-event",
    "title": "قبيل الشتاء.. تحذير من الصليب الأحمر بخصوص مباني غزة",
@@ -3867,12 +3882,12 @@
    "updated_at": "2026-09-24T12:08+00:00"
   },
   {
-   "id": "evt_8850a23837b30855",
+   "id": "evt_86c006a6320bb01b",
    "type": "observed-event",
-   "title": "محمود عباس يندد بالسياسات الإسرائيلية المهددة لـ\"حياة ووجود الشعب الفلسطيني\"",
+   "title": "نتانياهو يهاجم منتقدي إسرائيل ويرفض اتهامات الإبادة في غزة",
    "title_en": "",
    "observed_facts": [
-    "فرانس ٢٤ عربي published: محمود عباس يندد بالسياسات الإسرائيلية المهددة لـ\"حياة ووجود الشعب الفلسطيني\""
+    "فرانس ٢٤ عربي published: نتانياهو يهاجم منتقدي إسرائيل ويرفض اتهامات الإبادة في غزة"
    ],
    "sanad_assessment": "1 attributable observation(s); 0 carry an existing SANAD source grade.",
    "inference": "",
@@ -3885,31 +3900,104 @@
    ],
    "sectors": [],
    "topics": [
-    "عالم"
+    "فلسطين"
    ],
    "evidence": [
     {
-     "id": "ev_aefa034e0a990808",
-     "url": "https://www.france24.com/ar/%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7/20260924-%D9%85%D8%AD%D9%85%D9%88%D8%AF-%D8%B9%D8%A8%D8%A7%D8%B3-%D9%8A%D9%86%D8%AF%D8%AF-%D8%A8%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B3%D8%A7%D8%AA-%D8%A7%D9%84%D8%A5%D8%B3%D8%B1%D8%A7%D8%A6%D9%8A%D9%84%D9%8A%D8%A9-%D8%A7%D9%84%D9%85%D9%87%D8%AF%D8%AF%D8%A9-%D9%84%D9%80-%D8%AD%D9%8A%D8%A7%D8%A9-%D9%88%D9%88%D8%AC%D9%88%D8%AF-%D8%A7%D9%84%D8%B4%D8%B9%D8%A8-%D8%A7%D9%84%D9%81%D9%84%D8%B3%D8%B7%D9%8A%D9%86%D9%8A",
+     "id": "ev_d6c07eb9b8bb5210",
+     "url": "https://www.france24.com/ar/%D8%A3%D9%85%D8%B1%D9%8A%D9%83%D8%A7/20260925-%D9%86%D8%AA%D8%A7%D9%86%D9%8A%D8%A7%D9%87%D9%88-%D9%8A%D9%87%D8%A7%D8%AC%D9%85-%D9%85%D9%86%D8%AA%D9%82%D8%AF%D9%8A-%D8%A5%D8%B3%D8%B1%D8%A7%D8%A6%D9%8A%D9%84-%D8%A7%D9%84%D8%A3%D9%85%D9%85-%D8%A7%D9%84%D9%85%D8%AA%D8%AD%D8%AF%D8%A9-%D8%B9%D8%A8%D8%A7%D8%B3-%D9%8A%D8%AD%D8%B0%D8%B1-%D9%85%D9%86-%D8%B3%D9%8A%D8%A7%D8%B3%D8%A7%D8%AA%D9%87%D8%A7-%D8%A7%D9%84%D8%A5%D8%A8%D8%A7%D8%AF%D8%A9-%D8%BA%D8%B2%D8%A9",
      "source_name": "فرانس ٢٤ عربي",
      "source_grade": "ضعيف الإسناد",
-     "observed_at": "2026-09-24T17:28+00:00",
-     "title": "محمود عباس يندد بالسياسات الإسرائيلية المهددة لـ\"حياة ووجود الشعب الفلسطيني\"",
+     "observed_at": "2026-09-25T00:01+00:00",
+     "title": "نتانياهو يهاجم منتقدي إسرائيل ويرفض اتهامات الإبادة في غزة",
      "title_en": "",
      "dataset": "news"
     }
    ],
    "contradictions": [],
-   "created_at": "2026-09-24T20:41+00:00",
-   "updated_at": "2026-09-24T20:41+00:00"
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
+  },
+  {
+   "id": "evt_871671fa6bff7eeb",
+   "type": "observed-event",
+   "title": "أسعار البيض في مصر.. كيف تحولت \"خسائر\" المنتجين إلى \"زيادة متسارعة\"؟",
+   "title_en": "",
+   "observed_facts": [
+    "CNN بالعربية published: أسعار البيض في مصر.. كيف تحولت \"خسائر\" المنتجين إلى \"زيادة متسارعة\"؟"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "eg",
+    "us"
+   ],
+   "sectors": [],
+   "topics": [
+    "اقتصاد"
+   ],
+   "evidence": [
+    {
+     "id": "ev_3d6d82e33b2f35ae",
+     "url": "https://arabic.cnn.com/middle-east/article/2026/09/25/egg-prices-egypt-producers",
+     "source_name": "CNN بالعربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-09-25T02:30+00:00",
+     "title": "أسعار البيض في مصر.. كيف تحولت \"خسائر\" المنتجين إلى \"زيادة متسارعة\"؟",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
+  },
+  {
+   "id": "evt_8729672776c38473",
+   "type": "observed-event",
+   "title": "حكم قضائي يعيد صحفيين للبيت الأبيض لكن معركة ترمب والإعلام لم تنته",
+   "title_en": "",
+   "observed_facts": [
+    "الجزيرة نت published: حكم قضائي يعيد صحفيين للبيت الأبيض لكن معركة ترمب والإعلام لم تنته"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "qa"
+   ],
+   "sectors": [],
+   "topics": [
+    "عالم"
+   ],
+   "evidence": [
+    {
+     "id": "ev_f489ca30f6a49010",
+     "url": "https://www.aljazeera.net/politics/2026/9/25/%d8%ad%d9%83%d9%85-%d9%82%d8%b6%d8%a7%d8%a6%d9%8a-%d9%8a%d8%b9%d9%8a%d8%af-%d8%b5%d8%ad%d9%81%d9%8a%d9%8a%d9%86-%d9%84%d9%84%d8%a8%d9%8a%d8%aa-%d8%a7%d9%84%d8%a3%d8%a8%d9%8a%d8%b6-%d9%84%d9%83%d9%86?traffic_source=rss",
+     "source_name": "الجزيرة نت",
+     "source_grade": "حسن",
+     "observed_at": "2026-09-24T22:45+00:00",
+     "title": "حكم قضائي يعيد صحفيين للبيت الأبيض لكن معركة ترمب والإعلام لم تنته",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_894c99ead43eb4e2",
    "type": "observed-event",
-   "title": "اليوم الخامس من ألعاب ناغويا الآسيوية؛ فريق التجديف النسائي الإيراني يحصد ميداليات الذهب والفضة",
-   "title_en": "Nagoya Asian Games Day 5: Iranian Women's Rowing Team Wins Gold and Silver",
+   "title": "اليوم الخامس لدورة الألعاب الآسيوية في ناغويا؛ فريق التجديف الإيراني للسيدات يحصد الميداليات الذهبية والفضية",
+   "title_en": "Asian Games Day 5 in Nagoya: Iran Women's Rowing Team Clinches Gold and Silver",
    "observed_facts": [
-    "بي بي سي فارسي published: اليوم الخامس من ألعاب ناغويا الآسيوية؛ فريق التجديف النسائي الإيراني يحصد ميداليات الذهب والفضة"
+    "بي بي سي فارسي published: اليوم الخامس لدورة الألعاب الآسيوية في ناغويا؛ فريق التجديف الإيراني للسيدات يحصد الميداليات الذهبية والفضية"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -3930,14 +4018,14 @@
      "source_name": "بي بي سي فارسي",
      "source_grade": "حسن",
      "observed_at": "2026-09-24T16:49+00:00",
-     "title": "اليوم الخامس من ألعاب ناغويا الآسيوية؛ فريق التجديف النسائي الإيراني يحصد ميداليات الذهب والفضة",
-     "title_en": "Nagoya Asian Games Day 5: Iranian Women's Rowing Team Wins Gold and Silver",
+     "title": "اليوم الخامس لدورة الألعاب الآسيوية في ناغويا؛ فريق التجديف الإيراني للسيدات يحصد الميداليات الذهبية والفضية",
+     "title_en": "Asian Games Day 5 in Nagoya: Iran Women's Rowing Team Clinches Gold and Silver",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T17:29+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_89de8b5d36329347",
@@ -3997,8 +4085,7 @@
    ],
    "sectors": [],
    "topics": [
-    "security",
-    "الخليج"
+    "security"
    ],
    "evidence": [
     {
@@ -4009,49 +4096,12 @@
      "observed_at": "2026-09-24T23:35+00:00",
      "title": "النيجر.. مقتل 57 من عناصر الأمن في هجومين لـ\"داعش\"",
      "title_en": "",
-     "dataset": "news"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
-  },
-  {
-   "id": "evt_8bcc3aeaf610df1f",
-   "type": "observed-event",
-   "title": "\"بالبسيط والمافي\".. كيف يواجه السودانيون اقتصاد الحرب وانهيار الجنيه؟",
-   "title_en": "",
-   "observed_facts": [
-    "الجزيرة نت published: \"بالبسيط والمافي\".. كيف يواجه السودانيون اقتصاد الحرب وانهيار الجنيه؟"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "sd"
-   ],
-   "sectors": [],
-   "topics": [
-    "conflict",
-    "economy"
-   ],
-   "evidence": [
-    {
-     "id": "ev_c99985297049fcef",
-     "url": "https://www.aljazeera.net/ebusiness/2026/9/19/%d8%a8%d8%a7%d9%84%d8%a8%d8%b3%d9%8a%d8%b7-%d9%88%d8%a7%d9%84%d9%85%d8%a7%d9%81%d9%8a-%d9%83%d9%8a%d9%81-%d9%8a%d9%88%d8%a7%d8%ac%d9%87?traffic_source=rss",
-     "source_name": "الجزيرة نت",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-18T18:52+00:00",
-     "title": "\"بالبسيط والمافي\".. كيف يواجه السودانيون اقتصاد الحرب وانهيار الجنيه؟",
-     "title_en": "",
      "dataset": "map"
     }
    ],
    "contradictions": [],
-   "created_at": "2026-09-18T23:30+00:00",
-   "updated_at": "2026-09-20T00:16+00:00"
+   "created_at": "2026-09-24T23:48+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_8c258a5727acf1a7",
@@ -4086,12 +4136,12 @@
      "observed_at": "2026-09-24T21:02+00:00",
      "title": "\"فرنسا سترسل جنوداً وأنظمة دفاعية إلى السعودية\".. ماكرون يكشف التفاصيل والهدف",
      "title_en": "",
-     "dataset": "news"
+     "dataset": "osint"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_8c2bf7bb647cde47",
@@ -4125,12 +4175,12 @@
      "observed_at": "2026-09-24T22:38+00:00",
      "title": "الجلاهمة: «الأزرق» قدم ظهوراً مشرفاً أمام السعودية رغم الخسارة ... وجماهير الكويت لا تحتاج دعوة",
      "title_en": "",
-     "dataset": "news"
+     "dataset": "osint"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_8d0e86d2034fdf8f",
@@ -4207,10 +4257,10 @@
   {
    "id": "evt_8e550997c04efd31",
    "type": "observed-event",
-   "title": "بزشكيان يتحدث عن الاستعداد لاتفاق؛ ومذيع فوكس نيوز يسأل من يدير الحكومة الإيرانية",
-   "title_en": "Pezeshkian Signals Readiness for Deal as Fox News Anchor Questions Who Runs Iran",
+   "title": "بزشكيان يتحدث عن الجاهزية للاتفاق؛ ومذيع فوكس نيوز يسأل من يدير حكومة إيران",
+   "title_en": "Pezeshkian Cites Readiness for Deal as Fox News Anchor Asks Who Runs Iran Government",
    "observed_facts": [
-    "إيران إنترناشونال published: بزشكيان يتحدث عن الاستعداد لاتفاق؛ ومذيع فوكس نيوز يسأل من يدير الحكومة الإيرانية"
+    "إيران إنترناشونال published: بزشكيان يتحدث عن الجاهزية للاتفاق؛ ومذيع فوكس نيوز يسأل من يدير حكومة إيران"
    ],
    "sanad_assessment": "1 attributable observation(s); 0 carry an existing SANAD source grade.",
    "inference": "",
@@ -4234,14 +4284,14 @@
      "source_name": "إيران إنترناشونال",
      "source_grade": "ضعيف الإسناد",
      "observed_at": "2026-09-24T23:18+00:00",
-     "title": "بزشكيان يتحدث عن الاستعداد لاتفاق؛ ومذيع فوكس نيوز يسأل من يدير الحكومة الإيرانية",
-     "title_en": "Pezeshkian Signals Readiness for Deal as Fox News Anchor Questions Who Runs Iran",
+     "title": "بزشكيان يتحدث عن الجاهزية للاتفاق؛ ومذيع فوكس نيوز يسأل من يدير حكومة إيران",
+     "title_en": "Pezeshkian Cites Readiness for Deal as Fox News Anchor Asks Who Runs Iran Government",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_90f7b297444830b0",
@@ -4319,42 +4369,6 @@
    "updated_at": "2026-09-22T19:50+00:00"
   },
   {
-   "id": "evt_935a80862bac8a6d",
-   "type": "observed-event",
-   "title": "جون كيم، منشئ ومطور oMLX، ينضم إلى Hugging Face لدعم مجتمع MLX",
-   "title_en": "oMLX Creator John Kim Joins Hugging Face to Support MLX Community",
-   "observed_facts": [
-    "هَغِنغ فيس published: جون كيم، منشئ ومطور oMLX، ينضم إلى Hugging Face لدعم مجتمع MLX"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [],
-   "sectors": [
-    "transport"
-   ],
-   "topics": [
-    "ذكاء-اصطناعي"
-   ],
-   "evidence": [
-    {
-     "id": "ev_6b3083011aeb49b1",
-     "url": "https://huggingface.co/blog/omlx",
-     "source_name": "هَغِنغ فيس",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-22T00:00+00:00",
-     "title": "جون كيم، منشئ ومطور oMLX، ينضم إلى Hugging Face لدعم مجتمع MLX",
-     "title_en": "oMLX Creator John Kim Joins Hugging Face to Support MLX Community",
-     "dataset": "news"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-22T08:16+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
-  },
-  {
    "id": "evt_94f166b021073df4",
    "type": "observed-event",
    "title": "رونالدو يؤجل الاعتزال ويتمسك بمواصلة المشوار مع البرتغال",
@@ -4428,41 +4442,6 @@
    "updated_at": "2026-09-24T06:30+00:00"
   },
   {
-   "id": "evt_97caf016ee34765f",
-   "type": "observed-event",
-   "title": "الحوثيون يتهمون السعودية بشنَّ 28 غارة في اليمن خلال 24 ساعة، وقلق من تفاقم معاناة المدنيين وسط استمرار القتال الدامي",
-   "title_en": "Houthis Accuse Saudi Arabia of 28 Yemen Strikes in 24 Hours Amid Civilian Concerns and Deadly Fighting",
-   "observed_facts": [
-    "بي بي سي عربي published: الحوثيون يتهمون السعودية بشنَّ 28 غارة في اليمن خلال 24 ساعة، وقلق من تفاقم معاناة المدنيين وسط استمرار القتال الدامي"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "sa",
-    "ye"
-   ],
-   "sectors": [],
-   "topics": [],
-   "evidence": [
-    {
-     "id": "ev_df85a4b7b8d0d24f",
-     "url": "https://www.bbc.com/arabic/articles/cw33k2ex2881o?at_medium=RSS&at_campaign=rss",
-     "source_name": "بي بي سي عربي",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-20T20:03+00:00",
-     "title": "الحوثيون يتهمون السعودية بشنَّ 28 غارة في اليمن خلال 24 ساعة، وقلق من تفاقم معاناة المدنيين وسط استمرار القتال الدامي",
-     "title_en": "Houthis Accuse Saudi Arabia of 28 Yemen Strikes in 24 Hours Amid Civilian Concerns and Deadly Fighting",
-     "dataset": "map"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-24T17:29+00:00",
-   "updated_at": "2026-09-24T17:29+00:00"
-  },
-  {
    "id": "evt_98ccc24ee461f499",
    "type": "observed-event",
    "title": "أوروبا كشفت للتو عن سلاحها الجديد في مواجهة ترمب: كندا",
@@ -4497,82 +4476,10 @@
    "updated_at": "2026-09-21T18:18+00:00"
   },
   {
-   "id": "evt_9a0820543bbcf0ef",
-   "type": "observed-event",
-   "title": "بوتين يفوز انتخابيا... لكن ماذا عن أوكرانيا؟",
-   "title_en": "",
-   "observed_facts": [
-    "اندبندنت عربية published: بوتين يفوز انتخابيا... لكن ماذا عن أوكرانيا؟"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "ua"
-   ],
-   "sectors": [],
-   "topics": [],
-   "evidence": [
-    {
-     "id": "ev_af70f6947fd8b847",
-     "url": "https://www.independent.co.uk/voices/russia-elections-putin-ukraine-war-vote-b3052374.html",
-     "source_name": "اندبندنت عربية",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-20T13:00+00:00",
-     "title": "بوتين يفوز انتخابيا... لكن ماذا عن أوكرانيا؟",
-     "title_en": "",
-     "dataset": "map"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-24T12:08+00:00",
-   "updated_at": "2026-09-24T12:08+00:00"
-  },
-  {
-   "id": "evt_9a7ab29963b66b05",
-   "type": "observed-event",
-   "title": "رغم ترجيحات التثبيت.. حزمة عوامل قد تدفع \"المركزي\" المصري لمفاجأة الأسواق",
-   "title_en": "Despite Hold Expectations, Multiple Factors Could Prompt Egypt's Central Bank to Surprise Markets",
-   "observed_facts": [
-    "العربية published: رغم ترجيحات التثبيت.. حزمة عوامل قد تدفع \"المركزي\" المصري لمفاجأة الأسواق"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "eg"
-   ],
-   "sectors": [
-    "finance"
-   ],
-   "topics": [
-    "economy"
-   ],
-   "evidence": [
-    {
-     "id": "ev_ccd847c7ed156492",
-     "url": "https://www.alarabiya.net/aswaq/special-stories/2026/09/23/%D8%B1%D8%BA%D9%85-%D8%AA%D8%B1%D8%AC%D9%8A%D8%AD%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D8%AB%D8%A8%D9%8A%D8%AA-%D8%AD%D8%B2%D9%85%D8%A9-%D8%B9%D9%88%D8%A7%D9%85%D9%84-%D9%82%D8%AF-%D8%AA%D8%AF%D9%81%D8%B9-%D8%A7%D9%84%D9%85%D8%B1%D9%83%D8%B2%D9%8A-%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A-%D9%84%D9%85%D9%81%D8%A7%D8%AC%D8%A7%D8%A9-%D8%A7%D9%84%D8%A7%D8%B3%D9%88%D8%A7%D9%82",
-     "source_name": "العربية",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-23T03:59+00:00",
-     "title": "رغم ترجيحات التثبيت.. حزمة عوامل قد تدفع \"المركزي\" المصري لمفاجأة الأسواق",
-     "title_en": "Despite Hold Expectations, Multiple Factors Could Prompt Egypt's Central Bank to Surprise Markets",
-     "dataset": "map"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-23T19:46+00:00",
-   "updated_at": "2026-09-24T17:29+00:00"
-  },
-  {
    "id": "evt_9b0d0710a52a4bcc",
    "type": "observed-event",
    "title": "الشركات الصينية تحقق تفوقاً كبيراً في سباق تكنولوجيا السيارات الكهربائية",
-   "title_en": "Chinese Firms Take Decisive Lead in EV Technology Race",
+   "title_en": "Chinese Firms Gain Major Lead in EV Technology Race",
    "observed_facts": [
     "العربية published: الشركات الصينية تحقق تفوقاً كبيراً في سباق تكنولوجيا السيارات الكهربائية"
    ],
@@ -4588,6 +4495,7 @@
     "technology"
    ],
    "topics": [
+    "artificial-intelligence",
     "technology",
     "تقنية"
    ],
@@ -4599,13 +4507,13 @@
      "source_grade": "حسن",
      "observed_at": "2026-09-24T19:41+00:00",
      "title": "الشركات الصينية تحقق تفوقاً كبيراً في سباق تكنولوجيا السيارات الكهربائية",
-     "title_en": "Chinese Firms Take Decisive Lead in EV Technology Race",
+     "title_en": "Chinese Firms Gain Major Lead in EV Technology Race",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_9b1b2c2c4c060570",
@@ -4663,9 +4571,7 @@
     "sd"
    ],
    "sectors": [],
-   "topics": [
-    "عالم"
-   ],
+   "topics": [],
    "evidence": [
     {
      "id": "ev_c68c1d3b371e203a",
@@ -4675,12 +4581,12 @@
      "observed_at": "2026-09-22T21:06+00:00",
      "title": "ذهب السودان: لماذا يسعى السودانيون لاستخراج المعدن الأصفر رغم المخاطر العالية؟",
      "title_en": "Sudan's Gold: Why Miners Brave Extreme Dangers to Extract the Metal",
-     "dataset": "news"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-22T22:46+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_9e3e731ddd020326",
@@ -4705,7 +4611,6 @@
    "topics": [
     "artificial-intelligence",
     "conflict",
-    "عالم",
     "غزة",
     "فلسطين"
    ],
@@ -4718,12 +4623,49 @@
      "observed_at": "2026-09-24T22:52+00:00",
      "title": "استشهاد فلسطيني متأثرا بجراحه في قصف إسرائيلي على جنوبي قطاع غزة",
      "title_en": "Palestinian Dies of Wounds Sustained in Israeli Strike on Southern Gaza",
-     "dataset": "news"
+     "dataset": "osint"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
+  },
+  {
+   "id": "evt_9f285b0c67e277a3",
+   "type": "observed-event",
+   "title": "قمة واشنطن.. تفاهمات دون اختراقات وشي يرسم خطوط بكين الحمراء أمام ترمب",
+   "title_en": "",
+   "observed_facts": [
+    "الجزيرة نت published: قمة واشنطن.. تفاهمات دون اختراقات وشي يرسم خطوط بكين الحمراء أمام ترمب"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "cn",
+    "qa"
+   ],
+   "sectors": [],
+   "topics": [
+    "عالم"
+   ],
+   "evidence": [
+    {
+     "id": "ev_dc080a015ff6d7a7",
+     "url": "https://www.aljazeera.net/news/2026/9/25/%d9%82%d9%85%d8%a9-%d9%88%d8%a7%d8%b4%d9%86%d8%b7%d9%86-%d9%88%d8%a8%d9%83%d9%8a%d9%86-%d9%84%d8%a7-%d8%a7%d8%ae%d8%aa%d8%b1%d8%a7%d9%82-%d9%88%d8%b4%d9%8a-%d9%8a%d8%b1%d8%b3%d9%85?traffic_source=rss",
+     "source_name": "الجزيرة نت",
+     "source_grade": "حسن",
+     "observed_at": "2026-09-24T22:44+00:00",
+     "title": "قمة واشنطن.. تفاهمات دون اختراقات وشي يرسم خطوط بكين الحمراء أمام ترمب",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_9f347da32f65dd29",
@@ -4810,9 +4752,7 @@
     "ps"
    ],
    "sectors": [],
-   "topics": [
-    "عالم"
-   ],
+   "topics": [],
    "evidence": [
     {
      "id": "ev_6d12bf590148e55c",
@@ -4822,51 +4762,48 @@
      "observed_at": "2026-09-24T22:43+00:00",
      "title": "حماس تهاجم كلمة نتنياهو أمام الأمم المتحدة وتتهمه بترويج الأكاذيب",
      "title_en": "Hamas Condemns Netanyahu's UN Speech, Accuses Him of Spreading Lies",
-     "dataset": "news"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
-   "id": "evt_a34429a4ec37fed9",
+   "id": "evt_a53b4cdfbef72765",
    "type": "observed-event",
-   "title": "قادة الذكاء الاصطناعي يحذرون من مخاطر عالمية: نحن عند مفترق طرق",
-   "title_en": "AI Leaders Warn of Global Risks: 'We Are at a Crossroads'",
+   "title": "مصر تحسم الجدل حول زيادة أسعار الوقود",
+   "title_en": "Egypt Settles Debate on Fuel Price Hikes",
    "observed_facts": [
-    "CNN Arabic published: قادة الذكاء الاصطناعي يحذرون من مخاطر عالمية: نحن عند مفترق طرق"
+    "العربية published: مصر تحسم الجدل حول زيادة أسعار الوقود"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
    "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
    "confidence": 0.72,
    "severity": "info",
-   "countries": [],
-   "sectors": [
-    "technology",
-    "transport"
+   "countries": [
+    "eg"
    ],
+   "sectors": [],
    "topics": [
-    "artificial-intelligence",
-    "conflict",
-    "تقنية"
+    "عالم"
    ],
    "evidence": [
     {
-     "id": "ev_509f2e23f6bf3fdf",
-     "url": "https://arabic.cnn.com/science-and-health/video/2026/09/24/v202313-openai-anthropic-ceos-unite-in-call-for-ai-safety-standards",
-     "source_name": "CNN Arabic",
+     "id": "ev_fd95fce3692ded04",
+     "url": "https://www.alarabiya.net/aswaq/oil-and-gas/2026/09/24/%D9%85%D8%B5%D8%B1-%D8%AA%D8%AD%D8%B3%D9%85-%D8%A7%D9%84%D8%AC%D8%AF%D9%84-%D8%AD%D9%88%D9%84-%D8%B2%D9%8A%D8%A7%D8%AF%D8%A9-%D8%A7%D8%B3%D8%B9%D8%A7%D8%B1-%D8%A7%D9%84%D9%88%D9%82%D9%88%D8%AF",
+     "source_name": "العربية",
      "source_grade": "حسن",
-     "observed_at": "2026-09-24T08:22+00:00",
-     "title": "قادة الذكاء الاصطناعي يحذرون من مخاطر عالمية: نحن عند مفترق طرق",
-     "title_en": "AI Leaders Warn of Global Risks: 'We Are at a Crossroads'",
+     "observed_at": "2026-09-24T18:20+00:00",
+     "title": "مصر تحسم الجدل حول زيادة أسعار الوقود",
+     "title_en": "Egypt Settles Debate on Fuel Price Hikes",
      "dataset": "news"
     }
    ],
    "contradictions": [],
-   "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_a624ec55969c2f72",
@@ -4905,6 +4842,40 @@
    "contradictions": [],
    "created_at": "2026-09-23T19:46+00:00",
    "updated_at": "2026-09-24T20:41+00:00"
+  },
+  {
+   "id": "evt_a782e2c109c38ba2",
+   "type": "observed-event",
+   "title": "كواليس إمبراطورية \"كونتي\"؛ كشف أسرار إحدى أكثر مجموعات القرصنة سوءاً للسمعة في العالم",
+   "title_en": "Behind the Scenes of Conti Empire: Exposing Secrets of One of World's Most Notorious Hacking Groups",
+   "observed_facts": [
+    "بي بي سي فارسي published: كواليس إمبراطورية \"كونتي\"؛ كشف أسرار إحدى أكثر مجموعات القرصنة سوءاً للسمعة في العالم"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [],
+   "sectors": [],
+   "topics": [
+    "ايران"
+   ],
+   "evidence": [
+    {
+     "id": "ev_b84bdd3984684ac6",
+     "url": "https://www.bbc.com/persian/articles/c9q9gqnxz13o?at_medium=RSS&at_campaign=rss",
+     "source_name": "بي بي سي فارسي",
+     "source_grade": "حسن",
+     "observed_at": "2026-09-25T00:20+00:00",
+     "title": "كواليس إمبراطورية \"كونتي\"؛ كشف أسرار إحدى أكثر مجموعات القرصنة سوءاً للسمعة في العالم",
+     "title_en": "Behind the Scenes of Conti Empire: Exposing Secrets of One of World's Most Notorious Hacking Groups",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_a798f7aa5d72a3fa",
@@ -5003,7 +4974,9 @@
    "topics": [
     "artificial-intelligence",
     "الخليج",
-    "الكويت"
+    "السعودية",
+    "الكويت",
+    "عالم"
    ],
    "evidence": [
     {
@@ -5011,15 +4984,15 @@
      "url": "https://www.bbc.com/arabic/articles/cqgk565g5zevo",
      "source_name": "BBC",
      "source_grade": "حسن",
-     "observed_at": "2026-09-23T21:33+00:00",
+     "observed_at": "2026-09-23T21:35+00:00",
      "title": "خليجي 27: السعودية تهزم الكويت وتتصدر المجموعة الأولى بعد تعادل العراق وعُمان",
      "title_en": "Gulf 27: Saudi Arabia Defeats Kuwait to Top Group A Following Iraq-Oman Draw",
-     "dataset": "osint"
+     "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-23T16:19+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_a9c077f198a463ca",
@@ -5038,10 +5011,7 @@
     "ye"
    ],
    "sectors": [],
-   "topics": [
-    "الحوثي",
-    "اليمن"
-   ],
+   "topics": [],
    "evidence": [
     {
      "id": "ev_d72b6c625b30f43e",
@@ -5051,12 +5021,12 @@
      "observed_at": "2026-09-22T18:37+00:00",
      "title": "اليمن مباشر.. القوات الحكومية تكثف ضرباتها على الحوثيين وأزمة النزوح تتفاقم",
      "title_en": "",
-     "dataset": "osint"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-22T22:46+00:00",
-   "updated_at": "2026-09-23T06:22+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_aa0414145727830e",
@@ -5142,7 +5112,7 @@
    "id": "evt_ac48f9d286f0c677",
    "type": "observed-event",
    "title": "إيجارات مرتفعة وانهيارات وغرق.. هكذا تعيش أسر غزة",
-   "title_en": "High Rents, Collapses, and Floods: Living Conditions of Gaza Families",
+   "title_en": "High Rents, Collapses, and Flooding: The Reality of Life for Gaza Families",
    "observed_facts": [
     "الجزيرة نت published: إيجارات مرتفعة وانهيارات وغرق.. هكذا تعيش أسر غزة"
    ],
@@ -5166,49 +5136,13 @@
      "source_grade": "حسن",
      "observed_at": "2026-09-23T04:14+00:00",
      "title": "إيجارات مرتفعة وانهيارات وغرق.. هكذا تعيش أسر غزة",
-     "title_en": "High Rents, Collapses, and Floods: Living Conditions of Gaza Families",
+     "title_en": "High Rents, Collapses, and Flooding: The Reality of Life for Gaza Families",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T20:41+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
-  },
-  {
-   "id": "evt_acc2d91de5698c15",
-   "type": "observed-event",
-   "title": "حسام حسن: الشناوي كان \"منتهيا\" واستبعاده من المنتخب قرار فني",
-   "title_en": "",
-   "observed_facts": [
-    "سكاي نيوز عربية published: حسام حسن: الشناوي كان \"منتهيا\" واستبعاده من المنتخب قرار فني"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "ae"
-   ],
-   "sectors": [],
-   "topics": [
-    "الخليج"
-   ],
-   "evidence": [
-    {
-     "id": "ev_08bd4879718cd72f",
-     "url": "https://www.skynewsarabia.com/sport/1894274-%D8%AD%D8%B3%D8%A7%D9%85-%D8%AD%D8%B3%D9%86-%D8%A7%D9%84%D8%B4%D9%86%D8%A7%D9%88%D9%8A-%D9%85%D9%86%D8%AA%D9%87%D9%8A%D8%A7-%D9%88%D8%A7%D8%B3%D8%AA%D8%A8%D8%B9%D8%A7%D8%AF%D9%87-%D8%A7%D9%84%D9%85%D9%86%D8%AA%D8%AE%D8%A8-%D9%82%D8%B1%D8%A7%D8%B1-%D9%81%D9%86%D9%8A",
-     "source_name": "سكاي نيوز عربية",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-24T20:15+00:00",
-     "title": "حسام حسن: الشناوي كان \"منتهيا\" واستبعاده من المنتخب قرار فني",
-     "title_en": "",
-     "dataset": "news"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-24T20:41+00:00",
-   "updated_at": "2026-09-24T20:41+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_acd8ef305013a25e",
@@ -5251,79 +5185,6 @@
    "updated_at": "2026-09-24T06:30+00:00"
   },
   {
-   "id": "evt_ae8b7bdc6a092ce2",
-   "type": "observed-event",
-   "title": "متهمون بالخيانة عند الفشل.. لماذا لا يشارك اللاعبون في اختيار المدربين؟",
-   "title_en": "",
-   "observed_facts": [
-    "الجزيرة نت published: متهمون بالخيانة عند الفشل.. لماذا لا يشارك اللاعبون في اختيار المدربين؟"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "qa"
-   ],
-   "sectors": [],
-   "topics": [],
-   "evidence": [
-    {
-     "id": "ev_05f19ad0fe9febf0",
-     "url": "https://www.aljazeera.net/sport/2026/9/24/%d8%a7%d9%84%d8%af%d9%88%d8%b1%d9%8a-%d8%a7%d9%84%d8%a5%d9%86%d8%ac%d9%84%d9%8a%d8%b2%d9%8a-%d9%83%d8%b1%d8%a9-%d8%a7%d9%84%d9%82%d8%af%d9%85?traffic_source=rss",
-     "source_name": "الجزيرة نت",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-23T19:20+00:00",
-     "title": "متهمون بالخيانة عند الفشل.. لماذا لا يشارك اللاعبون في اختيار المدربين؟",
-     "title_en": "",
-     "dataset": "map"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
-  },
-  {
-   "id": "evt_af4138ea92dbc05e",
-   "type": "observed-event",
-   "title": "الصين في مأزق إيران.. ترفض الضغط وتخشى كلفة مضيق هرمز",
-   "title_en": "",
-   "observed_facts": [
-    "سكاي نيوز عربية published: الصين في مأزق إيران.. ترفض الضغط وتخشى كلفة مضيق هرمز"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "cn",
-    "ir"
-   ],
-   "sectors": [],
-   "topics": [
-    "مضيق-هرمز",
-    "ملاحة",
-    "هرمز"
-   ],
-   "evidence": [
-    {
-     "id": "ev_ac743fe2e911d3b9",
-     "url": "https://www.skynewsarabia.com/world/1893783-%D8%A7%D9%84%D8%B5%D9%8A%D9%86-%D9%85%D8%A3%D8%B2%D9%82-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D8%AA%D8%B1%D9%81%D8%B6-%D8%A7%D9%84%D8%B6%D8%BA%D8%B7-%D9%88%D8%AA%D8%AE%D8%B4%D9%89-%D9%83%D9%84%D9%81%D8%A9-%D9%85%D8%B6%D9%8A%D9%82-%D9%87%D8%B1%D9%85%D8%B2",
-     "source_name": "سكاي نيوز عربية",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-22T20:40+00:00",
-     "title": "الصين في مأزق إيران.. ترفض الضغط وتخشى كلفة مضيق هرمز",
-     "title_en": "",
-     "dataset": "osint"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-22T22:46+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
-  },
-  {
    "id": "evt_af4c1d0878d8b9c6",
    "type": "observed-event",
    "title": "ما الذي سيجري في القمة المقبلة بين ترامب والرئيس الصيني شي جينبينغ؟",
@@ -5358,46 +5219,10 @@
    "updated_at": "2026-09-24T08:10+00:00"
   },
   {
-   "id": "evt_af6496626bf716fd",
-   "type": "observed-event",
-   "title": "نتنياهو يتوقع \"سقوط النظام في إيران\" ويهاجم من غادروا القاعة قبل كلمته",
-   "title_en": "",
-   "observed_facts": [
-    "CNN بالعربية published: نتنياهو يتوقع \"سقوط النظام في إيران\" ويهاجم من غادروا القاعة قبل كلمته"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "ir"
-   ],
-   "sectors": [],
-   "topics": [
-    "ايران"
-   ],
-   "evidence": [
-    {
-     "id": "ev_436ccac4f00cb8b0",
-     "url": "https://arabic.cnn.com/middle-east/article/2026/09/24/netanyahu-predicts-fall-of-iranian-government",
-     "source_name": "CNN بالعربية",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-24T19:55+00:00",
-     "title": "نتنياهو يتوقع \"سقوط النظام في إيران\" ويهاجم من غادروا القاعة قبل كلمته",
-     "title_en": "",
-     "dataset": "news"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-24T20:41+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
-  },
-  {
    "id": "evt_af95f5f565bc1cc8",
    "type": "observed-event",
    "title": "لماذا يعتقد بعض الناس أن الذكاء الاصطناعي هو المسيح الدجال؟",
-   "title_en": "Why Some People Believe Artificial Intelligence Is the Antichrist",
+   "title_en": "Why Some People Believe AI Is the Antichrist",
    "observed_facts": [
     "BBC published: لماذا يعتقد بعض الناس أن الذكاء الاصطناعي هو المسيح الدجال؟"
    ],
@@ -5407,7 +5232,9 @@
    "confidence": 0.72,
    "severity": "info",
    "countries": [],
-   "sectors": [],
+   "sectors": [
+    "technology"
+   ],
    "topics": [
     "artificial-intelligence",
     "تقنية"
@@ -5420,13 +5247,13 @@
      "source_grade": "حسن",
      "observed_at": "2026-09-24T07:49+00:00",
      "title": "لماذا يعتقد بعض الناس أن الذكاء الاصطناعي هو المسيح الدجال؟",
-     "title_en": "Why Some People Believe Artificial Intelligence Is the Antichrist",
+     "title_en": "Why Some People Believe AI Is the Antichrist",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T08:10+00:00",
-   "updated_at": "2026-09-24T20:41+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_afed7ab37592f9cc",
@@ -5501,6 +5328,78 @@
    "contradictions": [],
    "created_at": "2026-09-21T22:08+00:00",
    "updated_at": "2026-09-22T06:03+00:00"
+  },
+  {
+   "id": "evt_b1a7a634849bc6e4",
+   "type": "observed-event",
+   "title": "قادة الخليج يلتقون ترامب وسط مخاوف \"المزيد من الحرب\" و\"القليل من الحماية الأمريكية\"",
+   "title_en": "",
+   "observed_facts": [
+    "CNN Arabic published: قادة الخليج يلتقون ترامب وسط مخاوف \"المزيد من الحرب\" و\"القليل من الحماية الأمريكية\""
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [],
+   "sectors": [],
+   "topics": [
+    "conflict",
+    "عالم"
+   ],
+   "evidence": [
+    {
+     "id": "ev_8124058cf9a9fa82",
+     "url": "https://arabic.cnn.com/middle-east/article/2026/09/22/gulf-leaders-meet-trump-with-two-fears-more-war-and-less-us-protection-by-abbas-al-lawati-and-becky",
+     "source_name": "CNN Arabic",
+     "source_grade": "حسن",
+     "observed_at": "2026-09-22T07:20+00:00",
+     "title": "قادة الخليج يلتقون ترامب وسط مخاوف \"المزيد من الحرب\" و\"القليل من الحماية الأمريكية\"",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
+  },
+  {
+   "id": "evt_b33b00877ef3a360",
+   "type": "observed-event",
+   "title": "انطلاق فعاليات معرض عمان الدولي للكتاب بمشاركة دولة قطر",
+   "title_en": "",
+   "observed_facts": [
+    "qna.org.qa published: انطلاق فعاليات معرض عمان الدولي للكتاب بمشاركة دولة قطر"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "om",
+    "qa"
+   ],
+   "sectors": [],
+   "topics": [
+    "الخليج"
+   ],
+   "evidence": [
+    {
+     "id": "ev_1aae2331a66c2cd6",
+     "url": "https://qna.org.qa/ar-QA/News-Area/News/2026-9/24/%D8%A7%D9%86%D8%B7%D9%84%D8%A7%D9%82-%D9%81%D8%B9%D8%A7%D9%84%D9%8A%D8%A7%D8%AA-%D9%85%D8%B9%D8%B1%D8%B6-%D8%B9%D9%85%D8%A7%D9%86-%D8%A7%D9%84%D8%AF%D9%88%D9%84%D9%8A-%D9%84%D9%84%D9%83%D8%AA%D8%A7%D8%A8-%D8%A8%D9%85%D8%B4%D8%A7%D8%B1%D9%83%D8%A9-%D8%AF%D9%88%D9%84%D8%A9-%D9%82%D8%B7%D8%B1",
+     "source_name": "qna.org.qa",
+     "source_grade": "حسن",
+     "observed_at": "2026-09-24T18:43+00:00",
+     "title": "انطلاق فعاليات معرض عمان الدولي للكتاب بمشاركة دولة قطر",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_b3cef7528fa79583",
@@ -5640,40 +5539,6 @@
    "updated_at": "2026-09-23T19:46+00:00"
   },
   {
-   "id": "evt_b7dd404c5b02092c",
-   "type": "observed-event",
-   "title": "بايرن ميونخ 7-0 يونيون برلين؛ أوليز يتألق، وكين يصل إلى 100 هدف",
-   "title_en": "Bayern Munich 7-0 Union Berlin: Olise Shines as Kane Hits 100 Goals",
-   "observed_facts": [
-    "إيران إنترناشونال published: بايرن ميونخ 7-0 يونيون برلين؛ أوليز يتألق، وكين يصل إلى 100 هدف"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "de"
-   ],
-   "sectors": [],
-   "topics": [],
-   "evidence": [
-    {
-     "id": "ev_7fe44e60127f161f",
-     "url": "https://www.iranintl.com/202609185000",
-     "source_name": "إيران إنترناشونال",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-18T20:50+00:00",
-     "title": "بايرن ميونخ 7-0 يونيون برلين؛ أوليز يتألق، وكين يصل إلى 100 هدف",
-     "title_en": "Bayern Munich 7-0 Union Berlin: Olise Shines as Kane Hits 100 Goals",
-     "dataset": "map"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-18T21:09+00:00",
-   "updated_at": "2026-09-19T14:40+00:00"
-  },
-  {
    "id": "evt_b8dd1aa9c809e3f2",
    "type": "observed-event",
    "title": "وكالة أممية ترصد تصاعداً في تقارير العنف ضد النساء في غزة",
@@ -5727,9 +5592,7 @@
    "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
    "confidence": 0.72,
    "severity": "info",
-   "countries": [
-    "gb"
-   ],
+   "countries": [],
    "sectors": [],
    "topics": [
     "عالم"
@@ -5748,7 +5611,7 @@
    ],
    "contradictions": [],
    "created_at": "2026-09-24T12:08+00:00",
-   "updated_at": "2026-09-24T20:41+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_bac7ce9627aa9844",
@@ -5791,6 +5654,50 @@
    "contradictions": [],
    "created_at": "2026-09-23T11:59+00:00",
    "updated_at": "2026-09-24T06:30+00:00"
+  },
+  {
+   "id": "evt_badc39bedd2abfa9",
+   "type": "observed-event",
+   "title": "الصين: شي وترمب بحثا ملفات إيران وروسيا وأوكرانيا وكوريا الشمالية",
+   "title_en": "",
+   "observed_facts": [
+    "الشرق الأوسط published: الصين: شي وترمب بحثا ملفات إيران وروسيا وأوكرانيا وكوريا الشمالية"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "cn",
+    "ir",
+    "kp",
+    "ml",
+    "ru",
+    "ua"
+   ],
+   "sectors": [
+    "finance"
+   ],
+   "topics": [
+    "economy",
+    "ايران"
+   ],
+   "evidence": [
+    {
+     "id": "ev_97d080f9a86b9bd8",
+     "url": "https://aawsat.com/node/5322363",
+     "source_name": "الشرق الأوسط",
+     "source_grade": "حسن",
+     "observed_at": "2026-09-25T02:14+00:00",
+     "title": "الصين: شي وترمب بحثا ملفات إيران وروسيا وأوكرانيا وكوريا الشمالية",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_bb5b41f4abb1c23e",
@@ -5848,9 +5755,7 @@
     "ir"
    ],
    "sectors": [],
-   "topics": [
-    "ايران"
-   ],
+   "topics": [],
    "evidence": [
     {
      "id": "ev_f71b89a41356b3f3",
@@ -5860,12 +5765,12 @@
      "observed_at": "2026-09-24T22:53+00:00",
      "title": "بريطانيا تحذر إيران: لن نتسامح مع أي نشاط عدائي على أراضينا",
      "title_en": "",
-     "dataset": "news"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_be4881403755c8d7",
@@ -5884,9 +5789,7 @@
     "tr"
    ],
    "sectors": [],
-   "topics": [
-    "عالم"
-   ],
+   "topics": [],
    "evidence": [
     {
      "id": "ev_3d750039c54a71d5",
@@ -5896,12 +5799,12 @@
      "observed_at": "2026-09-24T19:32+00:00",
      "title": "البيجر وممداني وتركيا.. رسائل نتنياهو أمام الأمم المتحدة",
      "title_en": "Pagers, Mamdani, and Turkey: Netanyahu's Key Messages at the UN",
-     "dataset": "news"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T20:41+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_bef177a29945dd77",
@@ -5997,9 +5900,7 @@
     "om"
    ],
    "sectors": [],
-   "topics": [
-    "عالم"
-   ],
+   "topics": [],
    "evidence": [
     {
      "id": "ev_986e95ae5134191f",
@@ -6009,12 +5910,12 @@
      "observed_at": "2026-09-23T16:40+00:00",
      "title": "خليجي 27.. عمان تخطف نقطة من العراق",
      "title_en": "",
-     "dataset": "news"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T12:08+00:00",
-   "updated_at": "2026-09-24T12:08+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_c4db6654906561e3",
@@ -6039,10 +5940,7 @@
    ],
    "topics": [
     "artificial-intelligence",
-    "economy",
-    "طاقة",
-    "ناقلة",
-    "ناقلة-نفط"
+    "economy"
    ],
    "evidence": [
     {
@@ -6053,57 +5951,20 @@
      "observed_at": "2026-09-22T19:48+00:00",
      "title": "السعودية تنفي تصريح وزير النفط العراقي عن شرائها 25 ناقلة وربطها بارتفاع تكلفة النقل",
      "title_en": "Saudi Arabia Denies Iraqi Oil Minister's Claim on Buying 25 Tankers Linked to Rising Shipping Costs",
-     "dataset": "osint"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-22T19:50+00:00",
-   "updated_at": "2026-09-24T08:10+00:00"
-  },
-  {
-   "id": "evt_c60ec96d807fe407",
-   "type": "observed-event",
-   "title": "الرئيس الإيراني يتعهد بالدفاع عن مصالح بلاده في الجمعية العامة للأمم المتحدة",
-   "title_en": "",
-   "observed_facts": [
-    "فرانس ٢٤ عربي published: الرئيس الإيراني يتعهد بالدفاع عن مصالح بلاده في الجمعية العامة للأمم المتحدة"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "fr",
-    "ir"
-   ],
-   "sectors": [
-    "defense"
-   ],
-   "topics": [],
-   "evidence": [
-    {
-     "id": "ev_86816c2fc21efd3b",
-     "url": "https://www.france24.com/ar/%D9%81%D9%8A%D8%AF%D9%8A%D9%88/20260922-%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3-%D8%A7%D9%84%D8%A5%D9%8A%D8%B1%D8%A7%D9%86%D9%8A-%D9%8A%D8%AA%D8%B9%D9%87%D8%AF-%D8%A8%D8%A7%D9%84%D8%AF%D9%81%D8%A7%D8%B9-%D8%B9%D9%86-%D9%85%D8%B5%D8%A7%D9%84%D8%AD-%D8%A8%D9%84%D8%A7%D8%AF%D9%87-%D9%81%D9%8A-%D8%A7%D9%84%D8%AC%D9%85%D8%B9%D9%8A%D8%A9-%D8%A7%D9%84%D8%B9%D8%A7%D9%85%D8%A9-%D9%84%D9%84%D8%A3%D9%85%D9%85-%D8%A7%D9%84%D9%85%D8%AA%D8%AD%D8%AF%D8%A9",
-     "source_name": "فرانس ٢٤ عربي",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-22T15:05+00:00",
-     "title": "الرئيس الإيراني يتعهد بالدفاع عن مصالح بلاده في الجمعية العامة للأمم المتحدة",
-     "title_en": "",
      "dataset": "map"
     }
    ],
    "contradictions": [],
-   "created_at": "2026-09-24T12:08+00:00",
-   "updated_at": "2026-09-24T12:08+00:00"
+   "created_at": "2026-09-22T19:50+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_c61f90159f25038e",
    "type": "observed-event",
-   "title": "«وفد السلام» لترامب يكشف عن خطة بـ 2.5 مليار دولار لإعادة إعمار غزة",
-   "title_en": "Trump 'Peace Delegation' Unveils $2.5 Billion Gaza Reconstruction Plan",
+   "title": "\"وفد السلام\" التابع لترامب يكشف عن خطة بمليارين ونصف مليار دولار لإعادة إعمار غزة",
+   "title_en": "Trump 'Peace Delegation' Unveils $2.5 Billion Plan for Gaza Reconstruction",
    "observed_facts": [
-    "بي بي سي فارسي published: «وفد السلام» لترامب يكشف عن خطة بـ 2.5 مليار دولار لإعادة إعمار غزة"
+    "بي بي سي فارسي published: \"وفد السلام\" التابع لترامب يكشف عن خطة بمليارين ونصف مليار دولار لإعادة إعمار غزة"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -6125,22 +5986,22 @@
      "source_name": "بي بي سي فارسي",
      "source_grade": "حسن",
      "observed_at": "2026-09-24T17:16+00:00",
-     "title": "«وفد السلام» لترامب يكشف عن خطة بـ 2.5 مليار دولار لإعادة إعمار غزة",
-     "title_en": "Trump 'Peace Delegation' Unveils $2.5 Billion Gaza Reconstruction Plan",
+     "title": "\"وفد السلام\" التابع لترامب يكشف عن خطة بمليارين ونصف مليار دولار لإعادة إعمار غزة",
+     "title_en": "Trump 'Peace Delegation' Unveils $2.5 Billion Plan for Gaza Reconstruction",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T17:29+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_c6338ab9faa5273c",
    "type": "observed-event",
-   "title": "كيفية استخدام NVIDIA Warp وMjWarp لتسريع محاكاة الروبوتات وسير عمل التعلم",
-   "title_en": "How to Use NVIDIA Warp and MjWarp to Accelerate Robot Simulation and Learning Workflows",
+   "title": "كيفية استخدام NVIDIA Warp و MjWarp لتسريع محاكاة الروبوتات وسير عمل التعلّم",
+   "title_en": "How to Use NVIDIA Warp and MjWarp to Accelerate Robotics Simulation and Learning Workflows",
    "observed_facts": [
-    "هَغِنغ فيس published: كيفية استخدام NVIDIA Warp وMjWarp لتسريع محاكاة الروبوتات وسير عمل التعلم"
+    "هَغِنغ فيس published: كيفية استخدام NVIDIA Warp و MjWarp لتسريع محاكاة الروبوتات وسير عمل التعلّم"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -6160,20 +6021,20 @@
      "source_name": "هَغِنغ فيس",
      "source_grade": "حسن",
      "observed_at": "2026-09-23T18:41+00:00",
-     "title": "كيفية استخدام NVIDIA Warp وMjWarp لتسريع محاكاة الروبوتات وسير عمل التعلم",
-     "title_en": "How to Use NVIDIA Warp and MjWarp to Accelerate Robot Simulation and Learning Workflows",
+     "title": "كيفية استخدام NVIDIA Warp و MjWarp لتسريع محاكاة الروبوتات وسير عمل التعلّم",
+     "title_en": "How to Use NVIDIA Warp and MjWarp to Accelerate Robotics Simulation and Learning Workflows",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-23T19:46+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_c764eef825751753",
    "type": "observed-event",
    "title": "\"أبل\" تؤجل طرح تقنية متطورة لشاشات OLED في آيفون لعدة سنوات",
-   "title_en": "Apple Delays Advanced iPhone OLED Display Technology for Several Years",
+   "title_en": "Apple Delays Rollout of Advanced OLED iPhone Screens by Several Years",
    "observed_facts": [
     "العربية published: \"أبل\" تؤجل طرح تقنية متطورة لشاشات OLED في آيفون لعدة سنوات"
    ],
@@ -6198,13 +6059,13 @@
      "source_grade": "حسن",
      "observed_at": "2026-09-22T15:05+00:00",
      "title": "\"أبل\" تؤجل طرح تقنية متطورة لشاشات OLED في آيفون لعدة سنوات",
-     "title_en": "Apple Delays Advanced iPhone OLED Display Technology for Several Years",
+     "title_en": "Apple Delays Rollout of Advanced OLED iPhone Screens by Several Years",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-23T11:59+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_c797a03690aabfa4",
@@ -6254,7 +6115,6 @@
    "confidence": 0.72,
    "severity": "info",
    "countries": [
-    "fr",
     "ma"
    ],
    "sectors": [],
@@ -6273,45 +6133,7 @@
    ],
    "contradictions": [],
    "created_at": "2026-09-24T12:08+00:00",
-   "updated_at": "2026-09-24T12:08+00:00"
-  },
-  {
-   "id": "evt_ca1102e3089f40cd",
-   "type": "observed-event",
-   "title": "ترامب يعلن إبرام اتفاق مع الدنمارك يمنح أمريكا \"سيطرة دائمة على الأمن\" في غرينلاند",
-   "title_en": "",
-   "observed_facts": [
-    "CNN بالعربية published: ترامب يعلن إبرام اتفاق مع الدنمارك يمنح أمريكا \"سيطرة دائمة على الأمن\" في غرينلاند"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "dk",
-    "us"
-   ],
-   "sectors": [],
-   "topics": [
-    "diplomacy",
-    "security"
-   ],
-   "evidence": [
-    {
-     "id": "ev_e42afa694f0b58e1",
-     "url": "https://arabic.cnn.com/world/article/2026/09/19/trump-announces-deal-with-denmark-giving-us-permanent-control-over-security-and-all-other-needs-in",
-     "source_name": "CNN بالعربية",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-18T21:38+00:00",
-     "title": "ترامب يعلن إبرام اتفاق مع الدنمارك يمنح أمريكا \"سيطرة دائمة على الأمن\" في غرينلاند",
-     "title_en": "",
-     "dataset": "map"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-18T23:30+00:00",
-   "updated_at": "2026-09-19T14:40+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_cbd23a693624a0b1",
@@ -6332,9 +6154,7 @@
    ],
    "sectors": [],
    "topics": [
-    "diplomacy",
-    "ايران",
-    "ترامب-ايران"
+    "diplomacy"
    ],
    "evidence": [
     {
@@ -6345,46 +6165,12 @@
      "observed_at": "2026-09-22T14:50+00:00",
      "title": "ترامب يتوقع إبرام اتفاق مع إيران بعد الانتخابات الأمريكية",
      "title_en": "",
-     "dataset": "osint"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-22T16:27+00:00",
-   "updated_at": "2026-09-23T01:17+00:00"
-  },
-  {
-   "id": "evt_cc2986a1a81b47bb",
-   "type": "observed-event",
-   "title": "قاضٍ فدرالي أمريكي يلغي مؤقتاً حظر دخول ثلاث وسائل إعلام إلى البيت الأبيض",
-   "title_en": "US Federal Judge Temporarily Blocks White House Ban on Three Media Outlets",
-   "observed_facts": [
-    "بي بي سي فارسي published: قاضٍ فدرالي أمريكي يلغي مؤقتاً حظر دخول ثلاث وسائل إعلام إلى البيت الأبيض"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [],
-   "sectors": [],
-   "topics": [
-    "ايران"
-   ],
-   "evidence": [
-    {
-     "id": "ev_260cf61f6b9227d9",
-     "url": "https://www.bbc.com/persian/articles/c6lym8xzxl17o?at_medium=RSS&at_campaign=rss",
-     "source_name": "بي بي سي فارسي",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-24T14:19+00:00",
-     "title": "قاضٍ فدرالي أمريكي يلغي مؤقتاً حظر دخول ثلاث وسائل إعلام إلى البيت الأبيض",
-     "title_en": "US Federal Judge Temporarily Blocks White House Ban on Three Media Outlets",
-     "dataset": "news"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-24T17:29+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_ccba4f462e5e97a6",
@@ -6437,9 +6223,7 @@
     "bh"
    ],
    "sectors": [],
-   "topics": [
-    "الخليج"
-   ],
+   "topics": [],
    "evidence": [
     {
      "id": "ev_e0077c9afb54a859",
@@ -6449,12 +6233,12 @@
      "observed_at": "2026-09-24T23:16+00:00",
      "title": "لوبيتيغي: البحرين منافس صعب... لكننا كنا الأفضل أداءً",
      "title_en": "",
-     "dataset": "news"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_cd2e12e87992f205",
@@ -6502,7 +6286,7 @@
    "id": "evt_cf01416f4b01a584",
    "type": "observed-event",
    "title": "برمجيات خبيثة تطور نفسها بالذكاء الاصطناعي.. ماذا يعني ذلك؟",
-   "title_en": "AI-Self-Evolving Malware: What It Means",
+   "title_en": "Malware Evolves Itself with AI: What Does It Mean?",
    "observed_facts": [
     "الجزيرة نت published: برمجيات خبيثة تطور نفسها بالذكاء الاصطناعي.. ماذا يعني ذلك؟"
    ],
@@ -6529,13 +6313,13 @@
      "source_grade": "حسن",
      "observed_at": "2026-09-24T12:48+00:00",
      "title": "برمجيات خبيثة تطور نفسها بالذكاء الاصطناعي.. ماذا يعني ذلك؟",
-     "title_en": "AI-Self-Evolving Malware: What It Means",
+     "title_en": "Malware Evolves Itself with AI: What Does It Mean?",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T17:29+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_d026f8a458b0e05e",
@@ -6582,10 +6366,10 @@
   {
    "id": "evt_d24580c8e8b14f36",
    "type": "observed-event",
-   "title": "مرور عامين على إطلاق OpenAI Academy",
-   "title_en": "OpenAI Academy Marks Two-Year Anniversary",
+   "title": "عامان على إطلاق OpenAI Academy",
+   "title_en": "OpenAI Academy Marks Two Years Since Launch",
    "observed_facts": [
-    "أوبن إيه آي published: مرور عامين على إطلاق OpenAI Academy"
+    "أوبن إيه آي published: عامان على إطلاق OpenAI Academy"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -6607,22 +6391,22 @@
      "source_name": "أوبن إيه آي",
      "source_grade": "حسن",
      "observed_at": "2026-09-23T16:00+00:00",
-     "title": "مرور عامين على إطلاق OpenAI Academy",
-     "title_en": "OpenAI Academy Marks Two-Year Anniversary",
+     "title": "عامان على إطلاق OpenAI Academy",
+     "title_en": "OpenAI Academy Marks Two Years Since Launch",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-23T16:19+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
-   "id": "evt_d367006d2c72a69d",
+   "id": "evt_d399cb1cc91739ed",
    "type": "observed-event",
-   "title": "أخبره بما تريد واترك له المهمة.. جهاز ميتا الجديد يبحث ويعمل نيابة عنك",
+   "title": "من هو الفنان السوري الذي ظهر للمرة الأولى في أسبوع الموضة بميلانو؟",
    "title_en": "",
    "observed_facts": [
-    "الجزيرة نت published: أخبره بما تريد واترك له المهمة.. جهاز ميتا الجديد يبحث ويعمل نيابة عنك"
+    "CNN بالعربية published: من هو الفنان السوري الذي ظهر للمرة الأولى في أسبوع الموضة بميلانو؟"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -6630,44 +6414,8 @@
    "confidence": 0.72,
    "severity": "info",
    "countries": [
-    "qa"
-   ],
-   "sectors": [],
-   "topics": [
-    "تقنية"
-   ],
-   "evidence": [
-    {
-     "id": "ev_dbd116b0929fe416",
-     "url": "https://www.aljazeera.net/tech/2026/9/25/%d8%a3%d8%ae%d8%a8%d8%b1%d9%87-%d8%a8%d9%85%d8%a7-%d8%aa%d8%b1%d9%8a%d8%af-%d9%88%d8%a7%d8%aa%d8%b1%d9%83-%d9%84%d9%87-%d8%a7%d9%84%d9%85%d9%87%d9%85%d8%a9-%d8%ac%d9%87%d8%a7%d8%b2?traffic_source=rss",
-     "source_name": "الجزيرة نت",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-24T19:16+00:00",
-     "title": "أخبره بما تريد واترك له المهمة.. جهاز ميتا الجديد يبحث ويعمل نيابة عنك",
-     "title_en": "",
-     "dataset": "news"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
-  },
-  {
-   "id": "evt_d3df5dfa4ece27e0",
-   "type": "observed-event",
-   "title": "رئيس وزراء إسرائيل: المستبدون في إيران يخشون شعبهم",
-   "title_en": "Israeli PM: Iran's Autocrats Fear Their Own People",
-   "observed_facts": [
-    "بي بي سي فارسي published: رئيس وزراء إسرائيل: المستبدون في إيران يخشون شعبهم"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "il",
-    "ir"
+    "sy",
+    "us"
    ],
    "sectors": [],
    "topics": [
@@ -6675,19 +6423,19 @@
    ],
    "evidence": [
     {
-     "id": "ev_91d68900a5bb920e",
-     "url": "https://www.bbc.co.uk/persian/live/cjg49dy433r7t?at_medium=RSS&at_campaign=rss",
-     "source_name": "بي بي سي فارسي",
+     "id": "ev_ff19f8baf54bb9a4",
+     "url": "https://arabic.cnn.com/style/article/2026/09/25/a-syrian-singer-makes-his-milan-fashion-week-debut",
+     "source_name": "CNN بالعربية",
      "source_grade": "حسن",
-     "observed_at": "2026-09-24T23:47+00:00",
-     "title": "رئيس وزراء إسرائيل: المستبدون في إيران يخشون شعبهم",
-     "title_en": "Israeli PM: Iran's Autocrats Fear Their Own People",
+     "observed_at": "2026-09-25T03:19+00:00",
+     "title": "من هو الفنان السوري الذي ظهر للمرة الأولى في أسبوع الموضة بميلانو؟",
+     "title_en": "",
      "dataset": "news"
     }
    ],
    "contradictions": [],
-   "created_at": "2026-09-24T01:05+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_d4252352879d9099",
@@ -6732,45 +6480,6 @@
    "updated_at": "2026-09-24T12:08+00:00"
   },
   {
-   "id": "evt_d44cbe8dede47d1a",
-   "type": "observed-event",
-   "title": "الدوام حتى الواحدة في إيران.. ترشيد الطاقة يصل إلى معاملات المواطنين",
-   "title_en": "",
-   "observed_facts": [
-    "الجزيرة نت published: الدوام حتى الواحدة في إيران.. ترشيد الطاقة يصل إلى معاملات المواطنين"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "ir",
-    "qa"
-   ],
-   "sectors": [
-    "energy"
-   ],
-   "topics": [
-    "ايران"
-   ],
-   "evidence": [
-    {
-     "id": "ev_02605a3f43728948",
-     "url": "https://www.aljazeera.net/news/2026/9/25/%d8%a7%d9%84%d8%af%d9%88%d8%a7%d9%85-%d8%ad%d8%aa%d9%89-%d8%a7%d9%84%d9%88%d8%a7%d8%ad%d8%af%d8%a9-%d9%81%d9%8a-%d8%a5%d9%8a%d8%b1%d8%a7%d9%86-%d8%aa%d8%b1%d8%b4%d9%8a%d8%af?traffic_source=rss",
-     "source_name": "الجزيرة نت",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-24T19:38+00:00",
-     "title": "الدوام حتى الواحدة في إيران.. ترشيد الطاقة يصل إلى معاملات المواطنين",
-     "title_en": "",
-     "dataset": "news"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
-  },
-  {
    "id": "evt_d54f876a255eeaa1",
    "type": "observed-event",
    "title": "إطلاق المخطط التوجيهي لسلامة الشباب الأسترالي (Australian Youth Safety Blueprint)",
@@ -6803,6 +6512,80 @@
    "contradictions": [],
    "created_at": "2026-09-19T06:30+00:00",
    "updated_at": "2026-09-21T12:03+00:00"
+  },
+  {
+   "id": "evt_d58754b23b8f05eb",
+   "type": "observed-event",
+   "title": "لافروف وعراقجي: الحل الدبلوماسي هو السبيل الوحيد لإنهاء حرب إيران",
+   "title_en": "",
+   "observed_facts": [
+    "الشرق الأوسط published: لافروف وعراقجي: الحل الدبلوماسي هو السبيل الوحيد لإنهاء حرب إيران"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "ir"
+   ],
+   "sectors": [],
+   "topics": [
+    "conflict",
+    "diplomacy",
+    "ايران"
+   ],
+   "evidence": [
+    {
+     "id": "ev_41f80e9e7a534123",
+     "url": "https://aawsat.com/node/5322364",
+     "source_name": "الشرق الأوسط",
+     "source_grade": "حسن",
+     "observed_at": "2026-09-25T03:07+00:00",
+     "title": "لافروف وعراقجي: الحل الدبلوماسي هو السبيل الوحيد لإنهاء حرب إيران",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
+  },
+  {
+   "id": "evt_d5c17308c586c4ef",
+   "type": "observed-event",
+   "title": "العالم لن يعود.. قد يكون هذا خطأنا الأكبر خليجيا في زمن الاضطرابات",
+   "title_en": "",
+   "observed_facts": [
+    "الجزيرة نت published: العالم لن يعود.. قد يكون هذا خطأنا الأكبر خليجيا في زمن الاضطرابات"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "qa"
+   ],
+   "sectors": [],
+   "topics": [
+    "عالم"
+   ],
+   "evidence": [
+    {
+     "id": "ev_a76f4025b1ea4375",
+     "url": "https://www.aljazeera.net/opinions/2026/9/25/%d9%85%d8%a7-%d8%a8%d8%b9%d8%af-%d8%a7%d9%84%d9%88%d9%81%d8%b1%d8%a9-%d8%a7%d9%84%d8%ae%d9%84%d9%8a%d8%ac-%d9%81%d9%8a-%d8%b2%d9%85%d9%86-%d8%a7%d9%84%d9%85%d8%ae%d8%a7%d8%b7%d8%b1?traffic_source=rss",
+     "source_name": "الجزيرة نت",
+     "source_grade": "حسن",
+     "observed_at": "2026-09-24T21:18+00:00",
+     "title": "العالم لن يعود.. قد يكون هذا خطأنا الأكبر خليجيا في زمن الاضطرابات",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_d5d68640a92231c8",
@@ -6872,46 +6655,6 @@
    "updated_at": "2026-09-24T17:29+00:00"
   },
   {
-   "id": "evt_d8f3315dbf998438",
-   "type": "observed-event",
-   "title": "أمريكا تقترح على الصين منظومة إنذار مبكر لمكافحة أخطار الذكاء الاصطناعي",
-   "title_en": "US Proposes AI Early Warning System to China to Mitigate Risks",
-   "observed_facts": [
-    "الجزيرة نت published: أمريكا تقترح على الصين منظومة إنذار مبكر لمكافحة أخطار الذكاء الاصطناعي"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "cn",
-    "us"
-   ],
-   "sectors": [
-    "technology"
-   ],
-   "topics": [
-    "artificial-intelligence",
-    "conflict"
-   ],
-   "evidence": [
-    {
-     "id": "ev_aa76f8a8a951492d",
-     "url": "https://www.aljazeera.net/tech/2026/9/21/%D8%A3%D9%85%D8%B1%D9%8A%D9%83%D8%A7-%D8%AA%D9%82%D8%AA%D8%B1%D8%AD-%D8%B9%D9%84%D9%89-%D8%A7%D9%84%D8%B5%D9%8A%D9%86-%D9%85%D9%86%D8%B8%D9%88%D9%85%D8%A9-%D8%A5%D9%86%D8%B0%D8%A7%D8%B1",
-     "source_name": "الجزيرة نت",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-21T15:20+00:00",
-     "title": "أمريكا تقترح على الصين منظومة إنذار مبكر لمكافحة أخطار الذكاء الاصطناعي",
-     "title_en": "US Proposes AI Early Warning System to China to Mitigate Risks",
-     "dataset": "map"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
-  },
-  {
    "id": "evt_d9af6243455ad0e8",
    "type": "observed-event",
    "title": "مباشر: تابعوا كلمة رئيس الوزراء الإسرائيلي بنيامين نتانياهو أمام الجمعية العامة للأمم المتحدة",
@@ -6929,9 +6672,7 @@
     "il"
    ],
    "sectors": [],
-   "topics": [
-    "عالم"
-   ],
+   "topics": [],
    "evidence": [
     {
      "id": "ev_7a2b48031a2fc56e",
@@ -6941,12 +6682,12 @@
      "observed_at": "2026-09-24T18:09+00:00",
      "title": "مباشر: تابعوا كلمة رئيس الوزراء الإسرائيلي بنيامين نتانياهو أمام الجمعية العامة للأمم المتحدة",
      "title_en": "",
-     "dataset": "news"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T20:41+00:00",
-   "updated_at": "2026-09-24T20:41+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_da5ea8a7e9a2cc2e",
@@ -7013,12 +6754,12 @@
      "observed_at": "2026-09-24T22:38+00:00",
      "title": "رئيس الاتحاد الكويتي يؤكد دعمه لسوزا: جئنا إلى جدة للمنافسة",
      "title_en": "",
-     "dataset": "news"
+     "dataset": "osint"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_dbc9b4c12c3a0871",
@@ -7058,7 +6799,7 @@
    "id": "evt_dbff8fba1746478f",
    "type": "observed-event",
    "title": "ترامب وشي.. إدارة التنافس والذكاء الاصطناعي يتصدران القمة",
-   "title_en": "",
+   "title_en": "Trump and Xi: Managing Rivalry and AI Top Summit Agenda",
    "observed_facts": [
     "سكاي نيوز عربية published: ترامب وشي.. إدارة التنافس والذكاء الاصطناعي يتصدران القمة"
    ],
@@ -7067,11 +6808,12 @@
    "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
    "confidence": 0.72,
    "severity": "info",
-   "countries": [
-    "ae"
+   "countries": [],
+   "sectors": [
+    "technology"
    ],
-   "sectors": [],
    "topics": [
+    "artificial-intelligence",
     "تقنية"
    ],
    "evidence": [
@@ -7080,15 +6822,15 @@
      "url": "https://www.skynewsarabia.com/world/1894279-%D8%AA%D8%B1%D8%A7%D9%85%D8%A8-%D9%88%D8%B4%D9%8A-%D8%A5%D8%AF%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%AA%D9%86%D8%A7%D9%81%D8%B3-%D9%88%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A-%D9%8A%D8%AA%D8%B5%D8%AF%D8%B1%D8%A7%D9%86-%D8%A7%D9%84%D9%82%D9%85%D8%A9",
      "source_name": "سكاي نيوز عربية",
      "source_grade": "حسن",
-     "observed_at": "2026-09-24T21:05+00:00",
+     "observed_at": "2026-09-24T21:11+00:00",
      "title": "ترامب وشي.. إدارة التنافس والذكاء الاصطناعي يتصدران القمة",
-     "title_en": "",
+     "title_en": "Trump and Xi: Managing Rivalry and AI Top Summit Agenda",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_dc675519e84fb145",
@@ -7171,49 +6913,50 @@
    "updated_at": "2026-09-22T06:03+00:00"
   },
   {
-   "id": "evt_dfe524a4cb90bc84",
+   "id": "evt_de0713dcce2d513b",
    "type": "observed-event",
-   "title": "ميتا تكشف عن جهاز \"تشارم\" القائم على الذكاء الاصطناعي",
-   "title_en": "Meta Unveils 'Charm' AI-Powered Device",
+   "title": "حرب تيغراي تشتعل مجدداً.. وتهدد شريان إثيوبيا الاقتصادي",
+   "title_en": "Tigray War Reignites, Threatening Ethiopia's Economic Lifeline",
    "observed_facts": [
-    "سكاي نيوز عربية published: ميتا تكشف عن جهاز \"تشارم\" القائم على الذكاء الاصطناعي"
+    "العربية published: حرب تيغراي تشتعل مجدداً.. وتهدد شريان إثيوبيا الاقتصادي"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
    "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
    "confidence": 0.72,
    "severity": "info",
-   "countries": [],
-   "sectors": [
-    "technology"
+   "countries": [
+    "et"
    ],
+   "sectors": [],
    "topics": [
-    "artificial-intelligence",
-    "تقنية"
+    "conflict",
+    "economy",
+    "عالم"
    ],
    "evidence": [
     {
-     "id": "ev_1103b7db83809534",
-     "url": "https://www.skynewsarabia.com/business/1894080-%D9%85%D9%8A%D8%AA%D8%A7-%D8%AA%D9%83%D8%B4%D9%81-%D8%AC%D9%87%D8%A7%D8%B2-%D8%AA%D8%B4%D8%A7%D8%B1%D9%85-%D8%A7%D9%84%D9%82%D8%A7%D8%A6%D9%85-%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A",
-     "source_name": "سكاي نيوز عربية",
+     "id": "ev_b97297226f6e0b86",
+     "url": "https://www.alarabiya.net/arab-and-world/2026/09/24/%D8%AD%D8%B1%D8%A8-%D8%AA%D9%8A%D8%BA%D8%B1%D8%A7%D9%8A-%D8%AA%D8%B4%D8%AA%D8%B9%D9%84-%D9%85%D8%AC%D8%AF%D8%AF%D8%A7-%D9%88%D8%AA%D9%87%D8%AF%D8%AF-%D8%B4%D8%B1%D9%8A%D8%A7%D9%86-%D8%A7%D8%AB%D9%8A%D9%88%D8%A8%D9%8A%D8%A7-%D8%A7%D9%84%D8%A7%D9%82%D8%AA%D8%B5%D8%A7%D8%AF%D9%8A",
+     "source_name": "العربية",
      "source_grade": "حسن",
-     "observed_at": "2026-09-24T04:57+00:00",
-     "title": "ميتا تكشف عن جهاز \"تشارم\" القائم على الذكاء الاصطناعي",
-     "title_en": "Meta Unveils 'Charm' AI-Powered Device",
+     "observed_at": "2026-09-24T17:41+00:00",
+     "title": "حرب تيغراي تشتعل مجدداً.. وتهدد شريان إثيوبيا الاقتصادي",
+     "title_en": "Tigray War Reignites, Threatening Ethiopia's Economic Lifeline",
      "dataset": "news"
     }
    ],
    "contradictions": [],
-   "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_dfe67614120dc5f9",
    "type": "observed-event",
-   "title": "إطلاق Gemini 3.8 Live مع ميزة Live Avatar",
-   "title_en": "Gemini 3.8 Live Launches with Live Avatar Feature",
+   "title": "تقديم Gemini 3.8 Live مع ميزة Live Avatar",
+   "title_en": "Introducing Gemini 3.8 Live with Live Avatar Feature",
    "observed_facts": [
-    "ديب مايند published: إطلاق Gemini 3.8 Live مع ميزة Live Avatar"
+    "ديب مايند published: تقديم Gemini 3.8 Live مع ميزة Live Avatar"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -7232,14 +6975,14 @@
      "source_name": "ديب مايند",
      "source_grade": "صحيح",
      "observed_at": "2026-09-24T16:20+00:00",
-     "title": "إطلاق Gemini 3.8 Live مع ميزة Live Avatar",
-     "title_en": "Gemini 3.8 Live Launches with Live Avatar Feature",
+     "title": "تقديم Gemini 3.8 Live مع ميزة Live Avatar",
+     "title_en": "Introducing Gemini 3.8 Live with Live Avatar Feature",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T17:29+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_e029f7a1c66d2646",
@@ -7289,13 +7032,10 @@
    "confidence": 0.72,
    "severity": "info",
    "countries": [
-    "ae",
     "lb"
    ],
    "sectors": [],
-   "topics": [
-    "عالم"
-   ],
+   "topics": [],
    "evidence": [
     {
      "id": "ev_657595785c946bac",
@@ -7305,20 +7045,20 @@
      "observed_at": "2026-09-24T22:40+00:00",
      "title": "عبدالله بن زايد يلتقي رئيس وزراء لبنان في نيويورك",
      "title_en": "",
-     "dataset": "news"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
-   "id": "evt_e0a9b422c0db0157",
+   "id": "evt_e1eb72d0c233ffc0",
    "type": "observed-event",
-   "title": "بعد انتقاد عراقجي.. دعم من أرفع قائد عسكري إيراني لبزشكيان",
-   "title_en": "Top Iranian Military Commander Backs Pezeshkian Following Araqchi's Criticism",
+   "title": "من صناعة السيارات إلى الرقائق.. أزمة هرمز تخنق العالم",
+   "title_en": "",
    "observed_facts": [
-    "العربية published: بعد انتقاد عراقجي.. دعم من أرفع قائد عسكري إيراني لبزشكيان"
+    "الجزيرة نت published: من صناعة السيارات إلى الرقائق.. أزمة هرمز تخنق العالم"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -7326,30 +7066,29 @@
    "confidence": 0.72,
    "severity": "info",
    "countries": [
-    "ir"
+    "qa"
    ],
-   "sectors": [
-    "defense"
-   ],
+   "sectors": [],
    "topics": [
-    "conflict",
-    "ايران"
+    "ايران",
+    "ملاحة",
+    "هرمز"
    ],
    "evidence": [
     {
-     "id": "ev_5f9cd2d56c7d6545",
-     "url": "https://www.alarabiya.net/iran/2026/09/24/%D8%A8%D8%B9%D8%AF-%D8%A7%D9%86%D8%AA%D9%82%D8%A7%D8%AF-%D8%B9%D8%B1%D8%A7%D9%82%D8%AC%D9%8A-%D8%AF%D8%B9%D9%85-%D9%85%D9%86-%D9%82%D8%A7%D8%A6%D8%AF-%D8%B9%D8%B3%D9%83%D8%B1%D9%8A-%D8%A7%D9%8A%D8%B1%D8%A7%D9%86%D9%8A-%D8%A8%D8%A7%D8%B1%D8%B2-%D9%84%D8%A8%D8%B2%D8%B4%D9%83%D9%8A%D8%A7%D9%86",
-     "source_name": "العربية",
+     "id": "ev_a4733fb8c0794481",
+     "url": "https://www.aljazeera.net/ebusiness/2026/9/25/%d9%85%d9%86-%d8%b5%d9%86%d8%a7%d8%b9%d8%a9-%d8%a7%d9%84%d8%b3%d9%8a%d8%a7%d8%b1%d8%a7%d8%aa-%d8%a5%d9%84%d9%89-%d8%a7%d9%84%d8%b1%d9%82%d8%a7%d8%a6%d9%82-%d8%a3%d8%b2%d9%85%d8%a9?traffic_source=rss",
+     "source_name": "الجزيرة نت",
      "source_grade": "حسن",
-     "observed_at": "2026-09-24T08:37+00:00",
-     "title": "بعد انتقاد عراقجي.. دعم من أرفع قائد عسكري إيراني لبزشكيان",
-     "title_en": "Top Iranian Military Commander Backs Pezeshkian Following Araqchi's Criticism",
+     "observed_at": "2026-09-24T22:27+00:00",
+     "title": "من صناعة السيارات إلى الرقائق.. أزمة هرمز تخنق العالم",
+     "title_en": "",
      "dataset": "news"
     }
    ],
    "contradictions": [],
-   "created_at": "2026-09-24T20:41+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_e45aa1f8cab8e357",
@@ -7568,7 +7307,7 @@
    "id": "evt_e9c6c4520c054730",
    "type": "observed-event",
    "title": "رؤساء شركات الذكاء الاصطناعي الكبرى يحذرون مجلس الأمن من خطورته على البشرية",
-   "title_en": "Top AI Chiefs Warn UN Security Council of Threats to Humanity",
+   "title_en": "Major AI Tech Chiefs Warn UN Security Council of Dangers to Humanity",
    "observed_facts": [
     "العربية published: رؤساء شركات الذكاء الاصطناعي الكبرى يحذرون مجلس الأمن من خطورته على البشرية"
    ],
@@ -7595,21 +7334,21 @@
      "source_grade": "حسن",
      "observed_at": "2026-09-23T20:10+00:00",
      "title": "رؤساء شركات الذكاء الاصطناعي الكبرى يحذرون مجلس الأمن من خطورته على البشرية",
-     "title_en": "Top AI Chiefs Warn UN Security Council of Threats to Humanity",
+     "title_en": "Major AI Tech Chiefs Warn UN Security Council of Dangers to Humanity",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T17:29+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_ea7ee56012874244",
    "type": "observed-event",
-   "title": "ترامب وشي يمددان الهدنة التجارية؛ والخلافات حول تايوان والتجارة باقية",
-   "title_en": "Trump and Xi Extend Trade Truce as Taiwan, Trade Rifts Persist",
+   "title": "ترامب وشي يمددان الهدنة التجارية؛ والخلافات حول تايوان والتجارة ما زالت قائمة",
+   "title_en": "Trump and Xi Extend Trade Truce as Disputes Over Taiwan and Trade Persist",
    "observed_facts": [
-    "إيران إنترناشونال published: ترامب وشي يمددان الهدنة التجارية؛ والخلافات حول تايوان والتجارة باقية"
+    "إيران إنترناشونال published: ترامب وشي يمددان الهدنة التجارية؛ والخلافات حول تايوان والتجارة ما زالت قائمة"
    ],
    "sanad_assessment": "1 attributable observation(s); 0 carry an existing SANAD source grade.",
    "inference": "",
@@ -7631,20 +7370,20 @@
      "source_name": "إيران إنترناشونال",
      "source_grade": "ضعيف الإسناد",
      "observed_at": "2026-09-24T21:33+00:00",
-     "title": "ترامب وشي يمددان الهدنة التجارية؛ والخلافات حول تايوان والتجارة باقية",
-     "title_en": "Trump and Xi Extend Trade Truce as Taiwan, Trade Rifts Persist",
+     "title": "ترامب وشي يمددان الهدنة التجارية؛ والخلافات حول تايوان والتجارة ما زالت قائمة",
+     "title_en": "Trump and Xi Extend Trade Truce as Disputes Over Taiwan and Trade Persist",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_ec094e05ce8eadcd",
    "type": "observed-event",
    "title": "معدات شحيحة وطموح بلا حدود.. طلاب غزة يتحدون الظروف لمواكبة التطور التقني",
-   "title_en": "Scarce Equipment and Boundless Ambition: Gaza Students Defy Odds to Keep Pace with Tech",
+   "title_en": "Scarce Equipment and Boundless Ambition: Gaza Students Defy Odds to Keep Pace with Tech Advances",
    "observed_facts": [
     "الجزيرة نت published: معدات شحيحة وطموح بلا حدود.. طلاب غزة يتحدون الظروف لمواكبة التطور التقني"
    ],
@@ -7669,19 +7408,19 @@
      "source_grade": "حسن",
      "observed_at": "2026-09-24T16:46+00:00",
      "title": "معدات شحيحة وطموح بلا حدود.. طلاب غزة يتحدون الظروف لمواكبة التطور التقني",
-     "title_en": "Scarce Equipment and Boundless Ambition: Gaza Students Defy Odds to Keep Pace with Tech",
+     "title_en": "Scarce Equipment and Boundless Ambition: Gaza Students Defy Odds to Keep Pace with Tech Advances",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T17:29+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_ec219d9c0c96c77e",
    "type": "observed-event",
    "title": "المعدن الذي لا يعرفه أحد.. \"الإيتريوم\" ورقة شي في لقاء ترامب",
-   "title_en": "The Obscure Metal: Yttrium as Xi's Ace in Trump Meeting",
+   "title_en": "The Unknown Metal: Yttrium as Xi's Card in Trump Meeting",
    "observed_facts": [
     "العربية published: المعدن الذي لا يعرفه أحد.. \"الإيتريوم\" ورقة شي في لقاء ترامب"
    ],
@@ -7703,19 +7442,19 @@
      "source_grade": "حسن",
      "observed_at": "2026-09-24T13:03+00:00",
      "title": "المعدن الذي لا يعرفه أحد.. \"الإيتريوم\" ورقة شي في لقاء ترامب",
-     "title_en": "The Obscure Metal: Yttrium as Xi's Ace in Trump Meeting",
+     "title_en": "The Unknown Metal: Yttrium as Xi's Card in Trump Meeting",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T17:29+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_ed0899d71a913088",
    "type": "observed-event",
    "title": "الإمارات تعلن تعليق رحلات الطيران الإيرانية من وإلى الدولة",
-   "title_en": "UAE Suspends Flights to and from Iran",
+   "title_en": "UAE Announces Suspension of Iranian Flights to and from Country",
    "observed_facts": [
     "سكاي نيوز عربية published: الإمارات تعلن تعليق رحلات الطيران الإيرانية من وإلى الدولة"
    ],
@@ -7742,13 +7481,13 @@
      "source_grade": "حسن",
      "observed_at": "2026-09-24T15:10+00:00",
      "title": "الإمارات تعلن تعليق رحلات الطيران الإيرانية من وإلى الدولة",
-     "title_en": "UAE Suspends Flights to and from Iran",
+     "title_en": "UAE Announces Suspension of Iranian Flights to and from Country",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_efcbbe659c804233",
@@ -7772,8 +7511,7 @@
     "finance"
    ],
    "topics": [
-    "economy",
-    "ايران"
+    "economy"
    ],
    "evidence": [
     {
@@ -7784,49 +7522,12 @@
      "observed_at": "2026-09-24T11:48+00:00",
      "title": "أزمة «المعاملات الإيرانية» تنهي حضور «بنك مصر» في الإمارات",
      "title_en": "'Iranian Transactions' Crisis Ends Banque Misr's Presence in UAE",
-     "dataset": "news"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T20:41+00:00",
-   "updated_at": "2026-09-24T20:41+00:00"
-  },
-  {
-   "id": "evt_f08b03d4a40e952c",
-   "type": "observed-event",
-   "title": "أمريكا وإيران تبحثان في نيويورك مساراً مرحلياً لإنهاء الصراع",
-   "title_en": "",
-   "observed_facts": [
-    "alkhaleej.ae published: أمريكا وإيران تبحثان في نيويورك مساراً مرحلياً لإنهاء الصراع"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "ir",
-    "us"
-   ],
-   "sectors": [],
-   "topics": [
-    "ايران"
-   ],
-   "evidence": [
-    {
-     "id": "ev_d487d6d09534838e",
-     "url": "https://www.alkhaleej.ae/2026-09-24/%D8%B9%D8%B1%D8%A8-%D9%88%D8%B9%D8%A7%D9%84%D9%85/%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85/%D8%A3%D9%85%D8%B1%D9%8A%D9%83%D8%A7-%D9%88%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D8%AA%D8%A8%D8%AD%D8%AB%D8%A7%D9%86-%D9%81%D9%8A-%D9%86%D9%8A%D9%88%D9%8A%D9%88%D8%B1%D9%83-%D9%85%D8%B3%D8%A7%D8%B1%D8%A7-%D9%85%D8%B1%D8%AD%D9%84%D9%8A%D8%A7-%D9%84%D8%A5%D9%86%D9%87%D8%A7%D8%A1-%D8%A7%D9%84%D8%B5%D8%B1%D8%A7%D8%B9",
-     "source_name": "alkhaleej.ae",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-24T18:44+00:00",
-     "title": "أمريكا وإيران تبحثان في نيويورك مساراً مرحلياً لإنهاء الصراع",
-     "title_en": "",
-     "dataset": "news"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_f0de15e6b67d4d9e",
@@ -7842,14 +7543,11 @@
    "confidence": 0.72,
    "severity": "info",
    "countries": [
-    "ae",
     "de",
     "nl"
    ],
    "sectors": [],
-   "topics": [
-    "عالم"
-   ],
+   "topics": [],
    "evidence": [
     {
      "id": "ev_ac1f938fc41092f1",
@@ -7859,12 +7557,12 @@
      "observed_at": "2026-09-24T21:49+00:00",
      "title": "ألمانيا تستهل عهد كلوب بتعادل أمام هولندا",
      "title_en": "",
-     "dataset": "news"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_f2070f88fa1cd831",
@@ -7922,8 +7620,7 @@
     "ml",
     "pk",
     "sa",
-    "tr",
-    "ye"
+    "tr"
    ],
    "sectors": [],
    "topics": [],
@@ -7941,15 +7638,15 @@
    ],
    "contradictions": [],
    "created_at": "2026-09-21T18:18+00:00",
-   "updated_at": "2026-09-24T01:05+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_f3088f0f8dcec796",
    "type": "observed-event",
-   "title": "هولندا 1-1 ألمانيا؛ تشافي ينجو من الخسارة أمام كلوب في الدقيقة 90",
+   "title": "هولندا 1-1 ألمانيا؛ تشافي ينجو في الدقيقة 90 من الخسارة أمام كلوب",
    "title_en": "Netherlands 1-1 Germany: Xavi Salvages 90th-Minute Draw Against Klopp",
    "observed_facts": [
-    "إيران إنترناشونال published: هولندا 1-1 ألمانيا؛ تشافي ينجو من الخسارة أمام كلوب في الدقيقة 90"
+    "إيران إنترناشونال published: هولندا 1-1 ألمانيا؛ تشافي ينجو في الدقيقة 90 من الخسارة أمام كلوب"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -7975,49 +7672,14 @@
      "source_name": "إيران إنترناشونال",
      "source_grade": "حسن",
      "observed_at": "2026-09-24T20:52+00:00",
-     "title": "هولندا 1-1 ألمانيا؛ تشافي ينجو من الخسارة أمام كلوب في الدقيقة 90",
+     "title": "هولندا 1-1 ألمانيا؛ تشافي ينجو في الدقيقة 90 من الخسارة أمام كلوب",
      "title_en": "Netherlands 1-1 Germany: Xavi Salvages 90th-Minute Draw Against Klopp",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
-  },
-  {
-   "id": "evt_f3a97a64d31b8dbb",
-   "type": "observed-event",
-   "title": "بيروت تضغط للتمديد لـ«يونيفيل»",
-   "title_en": "",
-   "observed_facts": [
-    "الشرق الأوسط published: بيروت تضغط للتمديد لـ«يونيفيل»"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "lb",
-    "pe"
-   ],
-   "sectors": [],
-   "topics": [],
-   "evidence": [
-    {
-     "id": "ev_80105248ddd38c85",
-     "url": "https://aawsat.com/node/5319998",
-     "source_name": "الشرق الأوسط",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-18T23:21+00:00",
-     "title": "بيروت تضغط للتمديد لـ«يونيفيل»",
-     "title_en": "",
-     "dataset": "map"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-18T23:30+00:00",
-   "updated_at": "2026-09-19T07:49+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_f40ce6df24ed0ed2",
@@ -8057,41 +7719,6 @@
    "updated_at": "2026-09-24T06:30+00:00"
   },
   {
-   "id": "evt_f43013c13f4ec37b",
-   "type": "observed-event",
-   "title": "شاهد.. لحظة انسحاب عدد كبير من الدبلوماسيين مع بدء نتنياهو كلمته",
-   "title_en": "",
-   "observed_facts": [
-    "CNN بالعربية published: شاهد.. لحظة انسحاب عدد كبير من الدبلوماسيين مع بدء نتنياهو كلمته"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [],
-   "sectors": [],
-   "topics": [
-    "diplomacy",
-    "عالم"
-   ],
-   "evidence": [
-    {
-     "id": "ev_cf65a13c7401d129",
-     "url": "https://arabic.cnn.com/middle-east/video/2026/09/24/v202348-netanyahu-un-speech-diplomats-walk-out-vrtc",
-     "source_name": "CNN بالعربية",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-24T19:57+00:00",
-     "title": "شاهد.. لحظة انسحاب عدد كبير من الدبلوماسيين مع بدء نتنياهو كلمته",
-     "title_en": "",
-     "dataset": "news"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-24T20:41+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
-  },
-  {
    "id": "evt_f55521b7d0705b3c",
    "type": "observed-event",
    "title": "الـبـابـا فـي فـرنـسـا: لـمـاذا كـل هـذا الـشـغـف؟",
@@ -8129,14 +7756,14 @@
    "id": "evt_f5c8a9e648fda6cb",
    "type": "observed-event",
    "title": "نتنياهو أمام الجمعية العامة: \"إسرائيل لم تكن يوماً بهذه القوة\"",
-   "title_en": "",
+   "title_en": "Netanyahu to UN General Assembly: 'Israel Has Never Been Stronger'",
    "observed_facts": [
     "بي بي سي عربي published: نتنياهو أمام الجمعية العامة: \"إسرائيل لم تكن يوماً بهذه القوة\""
    ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "sanad_assessment": "1 attributable observation(s); 0 carry an existing SANAD source grade.",
    "inference": "",
    "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
+   "confidence": 0.45,
    "severity": "info",
    "countries": [
     "il"
@@ -8150,24 +7777,24 @@
      "id": "ev_4ec2ebcc9205647b",
      "url": "https://www.bbc.co.uk/arabic/live/c64g7d8eveyvt?at_medium=RSS&at_campaign=rss",
      "source_name": "بي بي سي عربي",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-24T23:47+00:00",
+     "source_grade": "ضعيف الإسناد",
+     "observed_at": "2026-09-25T03:29+00:00",
      "title": "نتنياهو أمام الجمعية العامة: \"إسرائيل لم تكن يوماً بهذه القوة\"",
-     "title_en": "",
+     "title_en": "Netanyahu to UN General Assembly: 'Israel Has Never Been Stronger'",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T12:08+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_f689c9230a72f66e",
    "type": "observed-event",
-   "title": "توسع Google Beam بإضافة مناطق وشركاء وعملاء جدد",
+   "title": "توسّع Google Beam بمناطق وشركاء وعملاء جدد",
    "title_en": "Google Beam Expands with New Regions, Partners, and Customers",
    "observed_facts": [
-    "مدونة غوغل published: توسع Google Beam بإضافة مناطق وشركاء وعملاء جدد"
+    "مدونة غوغل published: توسّع Google Beam بمناطق وشركاء وعملاء جدد"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -8186,14 +7813,55 @@
      "source_name": "مدونة غوغل",
      "source_grade": "حسن",
      "observed_at": "2026-09-23T18:00+00:00",
-     "title": "توسع Google Beam بإضافة مناطق وشركاء وعملاء جدد",
+     "title": "توسّع Google Beam بمناطق وشركاء وعملاء جدد",
      "title_en": "Google Beam Expands with New Regions, Partners, and Customers",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-23T19:46+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
+  },
+  {
+   "id": "evt_f7af8345e51ee56e",
+   "type": "observed-event",
+   "title": "الأمم المتحدة: تحركات بشأن إيران وهرمز ومواقف حول إسرائيل والفلسطينيين",
+   "title_en": "",
+   "observed_facts": [
+    "فرانس ٢٤ عربي published: الأمم المتحدة: تحركات بشأن إيران وهرمز ومواقف حول إسرائيل والفلسطينيين"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "fr",
+    "il",
+    "ir",
+    "ps"
+   ],
+   "sectors": [],
+   "topics": [
+    "ايران",
+    "ملاحة",
+    "هرمز"
+   ],
+   "evidence": [
+    {
+     "id": "ev_78e498e9cbfd3683",
+     "url": "https://www.france24.com/ar/%D8%A3%D9%85%D8%B1%D9%8A%D9%83%D8%A7/20260925-%D8%A7%D9%84%D8%A3%D9%85%D9%85-%D8%A7%D9%84%D9%85%D8%AA%D8%AD%D8%AF%D8%A9-%D8%AA%D8%AD%D8%B1%D9%83%D8%A7%D8%AA-%D8%A8%D8%B4%D8%A3%D9%86-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D9%88%D9%87%D8%B1%D9%85%D8%B2-%D9%88%D9%85%D9%88%D8%A7%D9%82%D9%81-%D8%AD%D9%88%D9%84-%D8%A5%D8%B3%D8%B1%D8%A7%D8%A6%D9%8A%D9%84-%D9%88%D8%A7%D9%84%D9%81%D9%84%D8%B3%D8%B7%D9%8A%D9%86%D9%8A%D9%8A%D9%86",
+     "source_name": "فرانس ٢٤ عربي",
+     "source_grade": "حسن",
+     "observed_at": "2026-09-25T02:22+00:00",
+     "title": "الأمم المتحدة: تحركات بشأن إيران وهرمز ومواقف حول إسرائيل والفلسطينيين",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_f8b84f237cffe66a",
@@ -8230,6 +7898,43 @@
    "updated_at": "2026-09-21T05:57+00:00"
   },
   {
+   "id": "evt_fa7dce6d90b1062e",
+   "type": "observed-event",
+   "title": "هل يضحي الذكاء الاصطناعي بملفاتك ليتخلص من \"ألمه\"؟",
+   "title_en": "Would AI Sacrifice Your Files to Relieve Its Own 'Pain'?",
+   "observed_facts": [
+    "سكاي نيوز عربية published: هل يضحي الذكاء الاصطناعي بملفاتك ليتخلص من \"ألمه\"؟"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [],
+   "sectors": [
+    "technology"
+   ],
+   "topics": [
+    "artificial-intelligence",
+    "تقنية"
+   ],
+   "evidence": [
+    {
+     "id": "ev_eaf2b274ef698da9",
+     "url": "https://www.skynewsarabia.com/technology/1893870-%D9%8A%D8%B6%D8%AD%D9%8A-%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A-%D8%A8%D9%85%D9%84%D9%81%D8%A7%D8%AA%D9%83-%D9%84%D9%8A%D8%AA%D8%AE%D9%84%D8%B5-%D8%A3%D9%84%D9%85%D9%87",
+     "source_name": "سكاي نيوز عربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-09-23T13:21+00:00",
+     "title": "هل يضحي الذكاء الاصطناعي بملفاتك ليتخلص من \"ألمه\"؟",
+     "title_en": "Would AI Sacrifice Your Files to Relieve Its Own 'Pain'?",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-09-25T03:30+00:00",
+   "updated_at": "2026-09-25T03:30+00:00"
+  },
+  {
    "id": "evt_fa864bf563398bae",
    "type": "observed-event",
    "title": "بعد سقوط الأسد؛ كيف وسعت إسرائيل وجودها في جنوب سوريا؟",
@@ -8263,48 +7968,6 @@
    "contradictions": [],
    "created_at": "2026-09-23T22:43+00:00",
    "updated_at": "2026-09-24T12:08+00:00"
-  },
-  {
-   "id": "evt_fb522f5761c86961",
-   "type": "observed-event",
-   "title": "موعد مباراة السعودية ضد الكويت في خليجي 27 والقنوات الناقلة",
-   "title_en": "Saudi Arabia vs. Kuwait in Gulf Cup 27: Match Date and Broadcast Channels",
-   "observed_facts": [
-    "الجزيرة نت published: موعد مباراة السعودية ضد الكويت في خليجي 27 والقنوات الناقلة"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "kw",
-    "sa"
-   ],
-   "sectors": [
-    "technology",
-    "transport"
-   ],
-   "topics": [
-    "artificial-intelligence",
-    "طاقة",
-    "ناقلة"
-   ],
-   "evidence": [
-    {
-     "id": "ev_cbc1d149ab8b76e1",
-     "url": "https://www.aljazeera.net/sport/2026/9/22/%D9%85%D9%88%D8%B9%D8%AF-%D9%85%D8%A8%D8%A7%D8%B1%D8%A7%D8%A9-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%B6%D8%AF-%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA-%D9%81%D9%8A",
-     "source_name": "الجزيرة نت",
-     "source_grade": "حسن",
-     "observed_at": "2026-09-22T08:04+00:00",
-     "title": "موعد مباراة السعودية ضد الكويت في خليجي 27 والقنوات الناقلة",
-     "title_en": "Saudi Arabia vs. Kuwait in Gulf Cup 27: Match Date and Broadcast Channels",
-     "dataset": "osint"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-09-21T22:08+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
   },
   {
    "id": "evt_fb929b554400c83e",
@@ -8360,7 +8023,6 @@
    "sectors": [],
    "topics": [
     "الحوثي",
-    "الخليج",
     "اليمن"
    ],
    "evidence": [
@@ -8372,12 +8034,12 @@
      "observed_at": "2026-09-24T19:31+00:00",
      "title": "عاجل | الخارجية القطرية: قطر تدين بأشد العبارات إطلاق جماعة الحوثي صواريخ باليستية باتجاه مدينتي الطائف وينبع",
      "title_en": "",
-     "dataset": "news"
+     "dataset": "osint"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_fd1a0b36d7410214",
@@ -8418,11 +8080,11 @@
    "id": "evt_fda630bbcec6da97",
    "type": "observed-event",
    "title": "«التحالف العالمي»: حل قضية فلسطين أساس للسلام والتكامل الإقليميين",
-   "title_en": "",
+   "title_en": "Global Coalition: Resolving Palestinian Cause Is Essential for Regional Peace and Integration",
    "observed_facts": [
     "الشرق الأوسط published: «التحالف العالمي»: حل قضية فلسطين أساس للسلام والتكامل الإقليميين"
    ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "sanad_assessment": "2 attributable observation(s); 2 carry an existing SANAD source grade.",
    "inference": "",
    "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
    "confidence": 0.72,
@@ -8432,9 +8094,19 @@
    ],
    "sectors": [],
    "topics": [
-    "الخليج"
+    "فلسطين"
    ],
    "evidence": [
+    {
+     "id": "ev_3437fc6f510958fd",
+     "url": "https://aawsat.com/%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A/%D8%A7%D9%84%D8%AE%D9%84%D9%8A%D8%AC/5322348-%D8%A7%D9%84%D8%AA%D8%AD%D8%A7%D9%84%D9%81-%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85%D9%8A-%D8%AD%D9%84-%D9%82%D8%B6%D9%8A%D8%A9-%D9%81%D9%84%D8%B3%D8%B7%D9%8A%D9%86-%D8%A3%D8%B3%D8%A7%D8%B3-%D9%84%D9%84%D8%B3%D9%84%D8%A7%D9%85-%D9%88%D8%A7%D9%84%D8%AA%D9%83%D8%A7%D9%85%D9%84-%D8%A7%D9%84%D8%A5%D9%82%D9%84%D9%8A%D9%85%D9%8A%D9%8A%D9%86",
+     "source_name": "الشرق الأوسط",
+     "source_grade": "حسن",
+     "observed_at": "2026-09-24T23:16+00:00",
+     "title": "«التحالف العالمي»: حل قضية فلسطين أساس للسلام والتكامل الإقليميين",
+     "title_en": "Global Coalition: Resolving Palestinian Cause Is Essential for Regional Peace and Integration",
+     "dataset": "news"
+    },
     {
      "id": "ev_edb090a6765854f5",
      "url": "https://aawsat.com/node/5322348",
@@ -8443,20 +8115,20 @@
      "observed_at": "2026-09-24T23:16+00:00",
      "title": "«التحالف العالمي»: حل قضية فلسطين أساس للسلام والتكامل الإقليميين",
      "title_en": "",
-     "dataset": "news"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-24T23:48+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_fe383401743aac2b",
    "type": "observed-event",
-   "title": "كيف تُحسّن invideo تدريج الألوان بمقدار 3 أضعاف باستخدام GPT-6 Astra",
+   "title": "كيف تحسّن invideo تدرّج الألوان بمقدار 3 أضعاف باستخدام GPT-6 Astra",
    "title_en": "How invideo Improves Color Grading 3x Using GPT-6 Astra",
    "observed_facts": [
-    "أوبن إيه آي published: كيف تُحسّن invideo تدريج الألوان بمقدار 3 أضعاف باستخدام GPT-6 Astra"
+    "أوبن إيه آي published: كيف تحسّن invideo تدرّج الألوان بمقدار 3 أضعاف باستخدام GPT-6 Astra"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -8475,14 +8147,14 @@
      "source_name": "أوبن إيه آي",
      "source_grade": "صحيح",
      "observed_at": "2026-09-23T12:00+00:00",
-     "title": "كيف تُحسّن invideo تدريج الألوان بمقدار 3 أضعاف باستخدام GPT-6 Astra",
+     "title": "كيف تحسّن invideo تدرّج الألوان بمقدار 3 أضعاف باستخدام GPT-6 Astra",
      "title_en": "How invideo Improves Color Grading 3x Using GPT-6 Astra",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-09-23T19:46+00:00",
-   "updated_at": "2026-09-24T23:48+00:00"
+   "updated_at": "2026-09-25T03:30+00:00"
   },
   {
    "id": "evt_fe9e3e67083f998e",
