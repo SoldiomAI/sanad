@@ -1,107 +1,108 @@
 {
- "updated": "2026-09-25T08:34+00:00",
+ "updated": "2026-09-25T22:41+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.28811",
-   "title": "DeltaWAM: Delta World Action Models for Bimanual Manipulation",
-   "abstract": "World-action models (WAMs) transfer visual and motion priors from pretrained video generators to robot control by jointly modeling visual dynamics and actions. Existing WAMs, however, predict dense future frames during training, repeatedly modeling largely unchanged content and coupling action-conditioned dynamics to nuisance appearance variations. At inference, processing each complete observation with the heavy video expert bottlenecks few-step action generation. Accordingly, we propose DeltaWAM, which jointly predicts visual deltas and actions using dense-anchor, sparse-delta, and action st",
+   "id": "2609.28603",
+   "title": "Learning to Discover Interesting Mathematics",
+   "abstract": "Recently, Large Language Models (LLMs) have been increasingly able to solve advanced mathematical problems, including many that have been open for decades. This opens the door to expansion of mathematical knowledge at unprecedented scale. Yet, while LLMs may be able to conjecture and prove more and more theorems, it remains open whether this new mathematical knowledge is interesting or useful. We define intrinsic interestingness of a theorem as the ratio between the length of its proof and the length of its statement. We show that this correlates strongly with an extrinsic measure of the downs",
    "authors": [
-    "Han Yan",
-    "Zishang Xiang",
-    "Haokai Jiang",
-    "Zeyu Zhang"
+    "Niket Patel",
+    "Ahmad Rammal",
+    "Amaury Hayat",
+    "Remi Munos"
    ],
-   "link": "https://huggingface.co/papers/2609.28811",
+   "link": "https://huggingface.co/papers/2609.28603",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-23T00:00",
-   "title_ar": "DeltaWAM: نماذج حركة العالم الفارقية للتحكم باليدين",
-   "summary_ar": "تنقل نماذج حركة العالم المسبقات البصرية والحركية من مولدات الفيديو المدربة مسبقًا إلى التحكم بالروبوت عبر النمذجة المشتركة للديناميكيات البصرية والأفعال. ومع ذلك، تتنبأ النماذج الحالية بإطارات مستقبلية كثيفة أثناء التدريب، مما يؤدي إلى نمذجة محتوى غير متغير إلى حد كبير بشكل متكرر وربط الإجراءات المشروطة."
+   "title_ar": "التعلم لاكتشاف رياضيات مثيرة للاهتمام",
+   "summary_ar": "أصبحت النماذج اللغوية الكبيرة قادرة بشكل متزايد على حل مسائل رياضية متقدمة، بما في ذلك العديد من المسائل التي ظلت مفتوحة لعقود. ويفتح هذا الباب لتوسيع المعرفة الرياضية على نطاق غير مسبوق، رغم أنها قد تكون قادرة على التخمين والإثبات أكثر فأكثر."
   },
   {
-   "id": "2609.29421",
-   "title": "Rufus-Air: An Open LLM Post-Training Recipe",
-   "abstract": "Rufus-Air is an open and reproducible post-training recipe on GLM-4.5-Air-Base (106B-A12B), organized as a serial pipeline of eight stages: SFT, Reasoning RL, Coding RL, Instruction-Following RL, General Agent, Coding Agent, Search Agent, and RLHF. We document the data, reward design, infrastructure, stage order, and stagewise results needed to reproduce the recipe. Stages progress from basic to advanced capabilities and from hard, verifiable rewards to softer judge-based signals. Training builds on open-source components and public data, much of it used as released, without new human annotati",
+   "id": "2609.29028",
+   "title": "RGBD20K: A Large-Scale Benchmark for RGB-D Semantic Segmentation",
+   "abstract": "In this paper, we propose RGBD20K, a novel dataset for facilitating the development of more robust and general RGB-D semantic segmentation by encompassing abundant categories and high-quality annotations. RGBD20K possesses several attractive properties: (1) Expanded Semantic Space. In particular, it covers 160 fine-grained categories, largely surpassing the category diversity of existing popular RGB-D benchmarks (e.g., NYUv2 with 40 classes and SUN RGB-D with 37 classes). With such enriched semantic coverage, we expect to promote the learning of more generalizable segmentation models. (2) Larg",
    "authors": [
-    "Chia-Yuan Chang",
-    "Renyuan Cheng",
-    "Rui Feng",
-    "Xiaotian Han"
+    "Shaohua Dong",
+    "Zexuan Meng",
+    "Haiyan Sun",
+    "Bing Fan"
    ],
-   "link": "https://huggingface.co/papers/2609.29421",
+   "link": "https://huggingface.co/papers/2609.29028",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-24T00:00",
-   "title_ar": "Rufus-Air: وصفة مفتوحة لما بعد تدريب النماذج اللغوية الكبيرة",
-   "summary_ar": "يمثل Rufus-Air وصفة مفتوحة وقابلة لإعادة الإنتاج لما بعد التدريب على نموذج GLM-4.5-Air-Base، حيث نُظِّمت كمسار تسلسلي من ثماني مراحل تشمل الضبط الدقيق الخاضع للإشراف، وتعلم التعزيز لمهام الاستدلال والبرمجة واتباع التعليمات، ووكلاء متعددين، والتعلم المعزز من التغذية الراجعة البشرية. وتوثق الورقة البيانات وتصميم المكافآت والبنية التحتية."
+   "title_ar": "RGBD20K: معيار واسع النطاق للتقطيع الدلالي لبيانات RGB-D",
+   "summary_ar": "تقترح هذه الورقة RGBD20K، وهي مجموعة بيانات جديدة لتسهيل تطوير تقطيع دلالي أكثر متانة وعمومية لبيانات RGB-D عبر شمول فئات وفيرة وتسميات توضيحية عالية الجودة. وتمتلك مجموعة البيانات هذه خصائص جذابة، أبرزها توسيع الفضاء الدلالي."
   },
   {
-   "id": "2609.23087",
-   "title": "Neural Spectral Capacity: Measuring and Designing Architectures from Network Specification Alone",
-   "abstract": "Modern Transformer design and compression both reduce to allocating capacity under a budget. The standard scalars for these decisions, #Params and #FLOPs, capture size and compute but not architectural structure: two architectures with identical parameter budgets but different depth-width, head, or FFN allocations receive identical scores yet behave differently. We propose Neural Spectral Capacity (NSC), a closed-form scalar grounded in the singular-value spectrum of each weight matrix. Under standard random initialization, the Marchenko-Pastur law renders NSC computable from the architectural",
+   "id": "2609.29816",
+   "title": "AV-GRPO: Modality-Anchored Decoupling Diffusion Reinforcement Learning for Joint Audio-Video Generation",
+   "abstract": "Recent years have witnessed major progress in joint audio-video generation. Existing models still suffer from limited per-modality fidelity, insufficient text-modality alignment and weak cross-modal synchronization. While reinforcement-learning post-training offers a promising remedy, directly adapting it to joint audio-video generation is challenging. Heterogeneous multimodal rewards entangle learning signals and complicate credit assignment. Joint optimization of two modality towers is computationally expensive given their divergent dynamics. Moreover, synchronization evaluation difficulty d",
    "authors": [
-    "Chenyu Zhu",
-    "Ruoyu Zhao",
-    "Zhichao Lu"
+    "Zhiyu Xu",
+    "Weilong Yan",
+    "Yufei Shi",
+    "Shiyang Li"
    ],
-   "link": "https://huggingface.co/papers/2609.23087",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-19T00:00",
-   "title_ar": "السعة الطيفية العصبية: قياس وتصميم البنى اعتمادًا على مواصفات الشبكة وحدها",
-   "summary_ar": "يؤول تصميم وضغط محولات المحولات الحديثة إلى تخصيص السعة ضمن ميزانية محددة، غير أن المقاييس القياسية مثل عدد المعاملات والعمليات الحسابية تقتصر على قياس الحجم والحوسبة دون البنية المعمارية. ويؤدي ذلك إلى عجزها عن التمييز بين بنيتين متطابقتين في ميزانية المعاملات ولكنهما تختلفان في نسبة العمق إلى العرض أو الرؤوس."
-  },
-  {
-   "id": "2609.29444",
-   "title": "IterSynth: Rethinking Deep Search Agents via Role-Decoupled Iterative Synthesis",
-   "abstract": "Deep search requires LLM agents to decompose complex queries, search for evidence, and synthesize grounded answers, yet existing ReAct-style agents suffer from two limitations: role coupling, where one policy must handle planning, evidence use, and synthesis; and context accumulation, where growing search histories introduce noise and obscure useful information. To address these issues, we propose IterSynth, a role-decoupled and summary-based paradigm that alternates between a Planner for identifying information needs and a Synthesizer for integrating evidence into an evolving summary state. T",
-   "authors": [
-    "Xingyu Wu",
-    "Yuchen Yan",
-    "Zhengxi Lu",
-    "Siqi Chen"
-   ],
-   "link": "https://huggingface.co/papers/2609.29444",
+   "link": "https://huggingface.co/papers/2609.29816",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-24T00:00",
-   "title_ar": "IterSynth: إعادة التفكير في وكلاء البحث العميق عبر التوليف التكراري المفصول الأدوار",
-   "summary_ar": "يتطلب البحث العميق من وكلاء النماذج اللغوية الكبيرة تفكيك الاستفسارات المعقدة والبحث عن الأدلة وتوليف إجابات مدعومة، إلا أن الوكلاء الحاليين بأسلوب ReAct يعانون من اقتران الأدوار وتراكم السياق المتزايد. ويفصل هذا الاقتران بين التخطيط واستخدام الأدلة والتوليف في سياسة واحدة."
+   "title_ar": "AV-GRPO: تعلم تعزيزي بانتشار فك الارتباط الراسخ بالوسائط لتوليد الصوت والفيديو المشترك",
+   "summary_ar": "على الرغم من التقدم الكبير في التوليد المشترك للصوت والفيديو، لا تزال النماذج الحالية تعاني من محدودية الدقة لكل وسيط، وضعف المحاذاة مع النص، وضعف التزامن بين الوسائط. ورغم أن التدريب اللاحق بالتعلم التعزيزي يعد علاجًا واعدًا، فإن التكييف المباشر يواجه تحديات."
   },
   {
-   "id": "2609.28923",
-   "title": "ViRDM: Taming Representation Distribution Matching for Few-Step Causal Video Generation",
-   "abstract": "Few-step autoregressive (AR) video diffusion enables low-latency streaming generation, but existing post-training methods predominantly rely on Distribution Matching Distillation (DMD), requiring both a large pretrained teacher and an online critic to estimate distributional discrepancies through diffusion scores. In this work, we ask whether this resource-intensive teacher--critic stack can be eliminated by post-training only the generator against a precomputed target distribution. Drawing inspiration from representation distribution matching (RDM) for one-step image generation, we systematic",
+   "id": "2609.29845",
+   "title": "Your Transformer Can Hold Two Thoughts at Once: Evidence of Linear Superposition in LLMs",
+   "abstract": "While Large Language Models (LLMs) rely on highly non-linear components, in this work we demonstrate that they exhibit fundamental linearity: when inputs from distinct text streams are linearly combined, the model outputs a superposition of the individual next-token distributions. We term this the Superposition Linearity Hypothesis. We provide evidence that superposition is an intrinsic property of the Transformer architecture rather than an emergent consequence of training; in fact, we observe that it tends to diminish as pretraining progresses. However, we demonstrate that linearity can be s",
    "authors": [
-    "Zichong Meng",
-    "Chongjian Ge",
-    "Chun-Hao P. Huang",
-    "Yang Zhou"
+    "Pavel Tikhonov",
+    "Anton Korznikov",
+    "Matvey Mikhalchuk",
+    "Nikita Dragunov"
    ],
-   "link": "https://huggingface.co/papers/2609.28923",
+   "link": "https://huggingface.co/papers/2609.29845",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-24T00:00",
-   "title_ar": "ViRDM: ترويض مطابقة توزيع التمثيلات لتوليد الفيديو السببي قليل الخطوات",
-   "summary_ar": "يتيح انتشار الفيديو بالانحدار الذاتي قليل الخطوات توليدًا تدفقيًا منخفض التأخير، إلا أن أساليب ما بعد التدريب الحالية تعتمد أساسًا على تقطير مطابقة التوزيع. ويتطلب ذلك معلماً ضخماً مدرباً مسبقاً وناقداً فورياً لتقدير التباينات في التوزيع."
+   "title_ar": "محوِّلك يمكنه حمل فكرتين في آنٍ واحد: دليل على التراكب الخطي في النماذج اللغوية الكبيرة",
+   "summary_ar": "يوضح هذا العمل أن النماذج اللغوية الكبيرة تظهر خطية جوهرية رغم اعتمادها على مكونات غير خطية بدرجة عالية. فعند الجمع الخطي بين مدخلات من تدفقات نصية مميزة، يُخرج النموذج تراكبًا لتوزيعات الرمز التالي الفردية."
   },
   {
-   "id": "2609.29647",
-   "title": "AgentKernel: The Trust-Native Agentic Operating System",
-   "abstract": "Modern AI agents routinely cross trust boundaries: they ingest untrusted content, combine it with privileged instructions, persist intermediate beliefs in long-term memory, and invoke privileged tools. This creates an attack surface in which malicious payloads can enter through model inputs and cause harmful tool actions. Yet current governance stacks remain application-level middleware that share a process trust boundary with the agents they monitor. We argue that agents need an operating-system substrate providing mandatory, non-bypassable services for identity, input mediation, memory gover",
+   "id": "2609.29429",
+   "title": "Just Ask Jev: Reinforcement Learning for Calibrated Decisions as a Zero-Shot Detector of AI Alignment Failures",
+   "abstract": "Detectors of alignment failures screen deployed language models and score alignment benchmarks. Most are generative judges that spend a decoding pass on every criterion, and classifiers that read token probabilities, such as Llama Guard, still score one fixed label per call. Jev, a model trained with reinforcement learning for calibrated decisions (RLCD), answers many typed questions about one input with calibrated probabilities in a single call. Whether it detects alignment failures has not been measured. We present RLCDAlignBench, which benchmarks Jev on ten alignment failures: sycophancy, j",
    "authors": [
-    "Zhenhua Zou",
-    "Sheng Guo",
-    "Qiuyang Zhan",
-    "Lepeng Zhao"
+    "Ruoqi Guo",
+    "Yi Liu",
+    "Gelei Deng",
+    "Yuekang Li"
    ],
-   "link": "https://huggingface.co/papers/2609.29647",
+   "link": "https://huggingface.co/papers/2609.29429",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-08-29T00:00",
-   "title_ar": "AgentKernel: نظام تشغيل الوكلاء الأصيل في الثقة",
-   "summary_ar": "تعبر وكلاء الذكاء الاصطناعي الحديثة حدود الثقة بانتظام؛ حيث تستهلك محتوى غير موثوق، وتدمجه مع تعليمات ذات صلاحيات، وتحفظ المعتقدات الوسيطة في ذاكرة طويلة الأمد، وتستدعي أدوات مميزة. ويخلق ذلك سطحًا للهجوم يمكن من خلاله للحمولات الخبيثة الدخول عبر مدخلات النموذج وإحداث أضرار."
+   "published": "2026-09-24T00:00",
+   "title_ar": "فقط اسأل Jev: التعلم التعزيزي للقرارات المعايرة ككاشف صفري التعلم لإخفاقات محاذاة الذكاء الاصطناعي",
+   "summary_ar": "تفحص كواشف إخفاقات المحاذاة النماذج اللغوية المنشورة وتُقيّم معاييرها، غير أن معظمها حكام توليديون يستهلكون دورة فك ترميز لكل معيار، أو مصنفات تقرأ احتمالات الرموز وتُقيّم تسمية ثابتة واحدة لكل استدعاء. ويُعد Jev نموذجًا مدربًا بالتعلم التعزيزي لمعالجة هذه التحديات."
+  },
+  {
+   "id": "2609.29362",
+   "title": "Parts-of-Speech as Emergent Categories in SAE Latent Space",
+   "abstract": "Sparse AutoEncoders (SAEs) offer a promising way to inspect language model representations, but it is still unclear what kind of linguistic structure their latents expose. We use part-of-speech (PoS) categories as a controlled test case to study whether morpho-syntactic information is encoded by individual latents or by structured groups of features. We find that PoS distinctions are highly recoverable from SAE activations, but do not align with one-to-one latent / category mappings. This recoverability is not reducible to lexical memorisation, and Open and Closed PoS classes differ substantia",
+   "authors": [
+    "Alessandro Bondielli",
+    "Lucia Passaro",
+    "Serena Auriemma",
+    "Alessandro Lenci"
+   ],
+   "link": "https://huggingface.co/papers/2609.29362",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-24T00:00",
+   "title_ar": "أقسام الكلام كفئات ناشئة في الفضاء الكامن لمرمزات التشفير التلقائي المتفرقة",
+   "summary_ar": "تقدم مرمزات التشفير التلقائي المتفرقة (SAEs) طريقة واعدة لفحص تمثيلات النماذج اللغوية، لكن نوع البنية اللغوية التي تكشفها متغيراتها الكامنة لا يزال غير واضح. وتستخدم الورقة فئات أقسام الكلام كحالة اختبار مضبوطة لدراسة ما إذا كانت المعلومات الصرفية والتركيبية تُشفَّر عبر هذه المتغيرات."
   }
  ],
  "n": 6
