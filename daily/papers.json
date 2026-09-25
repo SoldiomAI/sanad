@@ -1,103 +1,107 @@
 {
- "updated": "2026-09-24T17:29+00:00",
+ "updated": "2026-09-25T08:34+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.22682",
-   "title": "Self-Organizing Agent Teams Learn to Reason Together",
-   "abstract": "Collective intelligence depends not only on what team members know, but also on how they organize their work. When the structure of a solution is unknown, useful roles and divisions of labor cannot be specified in advance; teams must learn from experience how to organize reasoning as it unfolds. Human teams routinely adapt this way, while existing AI agent teams rely on fixed protocols, explicit task decomposition, or routing. We introduce Self-Organizing Agent Teams (SAT), fixed teams of AI agents that learn reusable strategies from prior collaborations to organize roles, conversational phase",
+   "id": "2609.28811",
+   "title": "DeltaWAM: Delta World Action Models for Bimanual Manipulation",
+   "abstract": "World-action models (WAMs) transfer visual and motion priors from pretrained video generators to robot control by jointly modeling visual dynamics and actions. Existing WAMs, however, predict dense future frames during training, repeatedly modeling largely unchanged content and coupling action-conditioned dynamics to nuisance appearance variations. At inference, processing each complete observation with the heavy video expert bottlenecks few-step action generation. Accordingly, we propose DeltaWAM, which jointly predicts visual deltas and actions using dense-anchor, sparse-delta, and action st",
    "authors": [
-    "Aneesh Pappu",
-    "Mirac Suzgun",
-    "Yongchan Kwon",
-    "Federico Bianchi"
+    "Han Yan",
+    "Zishang Xiang",
+    "Haokai Jiang",
+    "Zeyu Zhang"
    ],
-   "link": "https://huggingface.co/papers/2609.22682",
+   "link": "https://huggingface.co/papers/2609.28811",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-23T00:00",
+   "title_ar": "DeltaWAM: نماذج حركة العالم الفارقية للتحكم باليدين",
+   "summary_ar": "تنقل نماذج حركة العالم المسبقات البصرية والحركية من مولدات الفيديو المدربة مسبقًا إلى التحكم بالروبوت عبر النمذجة المشتركة للديناميكيات البصرية والأفعال. ومع ذلك، تتنبأ النماذج الحالية بإطارات مستقبلية كثيفة أثناء التدريب، مما يؤدي إلى نمذجة محتوى غير متغير إلى حد كبير بشكل متكرر وربط الإجراءات المشروطة."
+  },
+  {
+   "id": "2609.29421",
+   "title": "Rufus-Air: An Open LLM Post-Training Recipe",
+   "abstract": "Rufus-Air is an open and reproducible post-training recipe on GLM-4.5-Air-Base (106B-A12B), organized as a serial pipeline of eight stages: SFT, Reasoning RL, Coding RL, Instruction-Following RL, General Agent, Coding Agent, Search Agent, and RLHF. We document the data, reward design, infrastructure, stage order, and stagewise results needed to reproduce the recipe. Stages progress from basic to advanced capabilities and from hard, verifiable rewards to softer judge-based signals. Training builds on open-source components and public data, much of it used as released, without new human annotati",
+   "authors": [
+    "Chia-Yuan Chang",
+    "Renyuan Cheng",
+    "Rui Feng",
+    "Xiaotian Han"
+   ],
+   "link": "https://huggingface.co/papers/2609.29421",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-24T00:00",
+   "title_ar": "Rufus-Air: وصفة مفتوحة لما بعد تدريب النماذج اللغوية الكبيرة",
+   "summary_ar": "يمثل Rufus-Air وصفة مفتوحة وقابلة لإعادة الإنتاج لما بعد التدريب على نموذج GLM-4.5-Air-Base، حيث نُظِّمت كمسار تسلسلي من ثماني مراحل تشمل الضبط الدقيق الخاضع للإشراف، وتعلم التعزيز لمهام الاستدلال والبرمجة واتباع التعليمات، ووكلاء متعددين، والتعلم المعزز من التغذية الراجعة البشرية. وتوثق الورقة البيانات وتصميم المكافآت والبنية التحتية."
+  },
+  {
+   "id": "2609.23087",
+   "title": "Neural Spectral Capacity: Measuring and Designing Architectures from Network Specification Alone",
+   "abstract": "Modern Transformer design and compression both reduce to allocating capacity under a budget. The standard scalars for these decisions, #Params and #FLOPs, capture size and compute but not architectural structure: two architectures with identical parameter budgets but different depth-width, head, or FFN allocations receive identical scores yet behave differently. We propose Neural Spectral Capacity (NSC), a closed-form scalar grounded in the singular-value spectrum of each weight matrix. Under standard random initialization, the Marchenko-Pastur law renders NSC computable from the architectural",
+   "authors": [
+    "Chenyu Zhu",
+    "Ruoyu Zhao",
+    "Zhichao Lu"
+   ],
+   "link": "https://huggingface.co/papers/2609.23087",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-19T00:00",
-   "title_ar": "فِرق الوكلاء ذاتية التنظيم تتعلم التفكير معًا",
-   "summary_ar": "لا يعتمد الذكاء الجماعي على معارف أعضاء الفريق فحسب، بل على كيفية تنظيم عملهم أيضًا. وحين يكون هيكل الحل مجهولًا، يتعذر تحديد الأدوار وتقسيم العمل مسبقًا، مما يفرض على الفِرق التعلم من التجربة لتنظيم التفكير أثناء تطوره."
+   "title_ar": "السعة الطيفية العصبية: قياس وتصميم البنى اعتمادًا على مواصفات الشبكة وحدها",
+   "summary_ar": "يؤول تصميم وضغط محولات المحولات الحديثة إلى تخصيص السعة ضمن ميزانية محددة، غير أن المقاييس القياسية مثل عدد المعاملات والعمليات الحسابية تقتصر على قياس الحجم والحوسبة دون البنية المعمارية. ويؤدي ذلك إلى عجزها عن التمييز بين بنيتين متطابقتين في ميزانية المعاملات ولكنهما تختلفان في نسبة العمق إلى العرض أو الرؤوس."
   },
   {
-   "id": "2609.27158",
-   "title": "The Linear Representation Hypothesis Needs a Group Action",
-   "abstract": "To make claims about representations that generalize beyond a particular trained model, we need to specify when two representations should count as equivalent. The Linear Representation Hypothesis is often discussed without making this equivalence explicit. Different notions of equivalence preserve different structures, so metrics, probes, and interventions that appear to study the same representation may in fact correspond to different hypotheses. We therefore argue that the Linear Representation Hypothesis is not one hypothesis but a family of claims distinguished by representation equivalen",
+   "id": "2609.29444",
+   "title": "IterSynth: Rethinking Deep Search Agents via Role-Decoupled Iterative Synthesis",
+   "abstract": "Deep search requires LLM agents to decompose complex queries, search for evidence, and synthesize grounded answers, yet existing ReAct-style agents suffer from two limitations: role coupling, where one policy must handle planning, evidence use, and synthesis; and context accumulation, where growing search histories introduce noise and obscure useful information. To address these issues, we propose IterSynth, a role-decoupled and summary-based paradigm that alternates between a Planner for identifying information needs and a Synthesizer for integrating evidence into an evolving summary state. T",
    "authors": [
-    "Louie Hong Yao",
-    "Yuhao Li",
-    "Shengchao Liu"
+    "Xingyu Wu",
+    "Yuchen Yan",
+    "Zhengxi Lu",
+    "Siqi Chen"
    ],
-   "link": "https://huggingface.co/papers/2609.27158",
+   "link": "https://huggingface.co/papers/2609.29444",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-22T00:00",
-   "title_ar": "فرضية التمثيل الخطي بحاجة إلى فعل زمرة",
-   "summary_ar": "لتقديم ادعاءات حول التمثيلات قابلة للتعميم إلى ما بعد نموذج مدرب بعينه، يجب تحديد متى يُعد تمثيلان متكافئين. وغالبًا ما تُناقش فرضية التمثيل الخطي دون توضيح هذا التكافؤ، علمًا بأن المفاهيم المختلفة للتكافؤ تحافظ على خصائص متباينة."
+   "published": "2026-09-24T00:00",
+   "title_ar": "IterSynth: إعادة التفكير في وكلاء البحث العميق عبر التوليف التكراري المفصول الأدوار",
+   "summary_ar": "يتطلب البحث العميق من وكلاء النماذج اللغوية الكبيرة تفكيك الاستفسارات المعقدة والبحث عن الأدلة وتوليف إجابات مدعومة، إلا أن الوكلاء الحاليين بأسلوب ReAct يعانون من اقتران الأدوار وتراكم السياق المتزايد. ويفصل هذا الاقتران بين التخطيط واستخدام الأدلة والتوليف في سياسة واحدة."
   },
   {
-   "id": "2609.26634",
-   "title": "Knowledge Pull Requests for Continual Document Authoring",
-   "abstract": "We introduce Knowledge Pull Requests (KPRs), a framework for continual document authoring that makes each change interpretable. Documents require ongoing revision as new knowledge surfaces from other sources, languages, or times, but existing approaches either edit with no account of what knowledge changed or regenerate from scratch. A KPR integrates new knowledge into a document by extracting claims, filtering and routing them to sections, and flagging conflicts with existing content, producing a ChangeLog that separates what knowledge changes (claim proposal) from how the text changes (docum",
+   "id": "2609.28923",
+   "title": "ViRDM: Taming Representation Distribution Matching for Few-Step Causal Video Generation",
+   "abstract": "Few-step autoregressive (AR) video diffusion enables low-latency streaming generation, but existing post-training methods predominantly rely on Distribution Matching Distillation (DMD), requiring both a large pretrained teacher and an online critic to estimate distributional discrepancies through diffusion scores. In this work, we ask whether this resource-intensive teacher--critic stack can be eliminated by post-training only the generator against a precomputed target distribution. Drawing inspiration from representation distribution matching (RDM) for one-step image generation, we systematic",
    "authors": [
-    "Alexander Martin",
-    "Benjamin Van Durme"
+    "Zichong Meng",
+    "Chongjian Ge",
+    "Chun-Hao P. Huang",
+    "Yang Zhou"
    ],
-   "link": "https://huggingface.co/papers/2609.26634",
+   "link": "https://huggingface.co/papers/2609.28923",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-22T00:00",
-   "title_ar": "طلبات سحب المعرفة للتأليف المستمر للوثائق",
-   "summary_ar": "نُقدّم «طلبات سحب المعرفة» (KPRs)، وهي إطار عمل للتأليف المستمر للوثائق يجعل كل تعديل قابلًا للتفسير. تتطلب الوثائق مراجعة مستمرة مع ظهور معارف جديدة من مصادر أو لغات أو أزمنة أخرى، غير أن النهج الحالية تعدِّل دون تبيان للمعرفة المعنية."
+   "published": "2026-09-24T00:00",
+   "title_ar": "ViRDM: ترويض مطابقة توزيع التمثيلات لتوليد الفيديو السببي قليل الخطوات",
+   "summary_ar": "يتيح انتشار الفيديو بالانحدار الذاتي قليل الخطوات توليدًا تدفقيًا منخفض التأخير، إلا أن أساليب ما بعد التدريب الحالية تعتمد أساسًا على تقطير مطابقة التوزيع. ويتطلب ذلك معلماً ضخماً مدرباً مسبقاً وناقداً فورياً لتقدير التباينات في التوزيع."
   },
   {
-   "id": "2609.26637",
-   "title": "Capable yet Parsimonious: Extracting and Characterizing Hidden Chain-of-Thought in Frontier Models",
-   "abstract": "The rapid capability gains of frontier language models are widely attributed to improved reasoning abilities, yet this cannot be verified as raw CoT traces in closed-source systems are hidden. By registering a simple custom tool through a standard API feature, we induce frontier models to externalize intermediate reasoning. Because these traces may reflect post-hoc rationalization rather than genuine reasoning, we first evaluate against native CoT on open-source models and extend to closed-source frontier models including GPT-6 Astra. We find that the extracted reasoning matches native reasoni",
+   "id": "2609.29647",
+   "title": "AgentKernel: The Trust-Native Agentic Operating System",
+   "abstract": "Modern AI agents routinely cross trust boundaries: they ingest untrusted content, combine it with privileged instructions, persist intermediate beliefs in long-term memory, and invoke privileged tools. This creates an attack surface in which malicious payloads can enter through model inputs and cause harmful tool actions. Yet current governance stacks remain application-level middleware that share a process trust boundary with the agents they monitor. We argue that agents need an operating-system substrate providing mandatory, non-bypassable services for identity, input mediation, memory gover",
    "authors": [
-    "Xiaoyu Luo",
-    "Tao Ren",
-    "Wenrui Yu",
-    "Xiao Li"
+    "Zhenhua Zou",
+    "Sheng Guo",
+    "Qiuyang Zhan",
+    "Lepeng Zhao"
    ],
-   "link": "https://huggingface.co/papers/2609.26637",
+   "link": "https://huggingface.co/papers/2609.29647",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-22T00:00",
-   "title_ar": "قدير ولكنه مقتصد: استخراج وتوصيف سلسلة الأفكار الخفية في نماذج الطليعة",
-   "summary_ar": "تُعزى المكاسب السريعة في قدرات نماذج الطليعة اللغوية إلى تحسّن التفكير، لكن تعذّر التحقق من ذلك لكون مسارات سلسلة الأفكار الخام محجوبة في الأنظمة مغلقة المصدر. وعبر تسجيل أداة مخصصة بسيطة عبر واجهة برمجة تطبيقات قياسية، جعلنا هذه النماذج تُظهر أفكارها خارجيًا."
-  },
-  {
-   "id": "2609.25187",
-   "title": "X-Planner: Event-Structured Task Planning for Embodied Intelligence",
-   "abstract": "Task planning bridges high-level instructions and executable behavior in long-horizon manipulation, yet modern Vision-Language-Action (VLA) systems often leave this intermediate structure implicit. Existing chain-of-thought (CoT) planners also tend to rely on coarse task-level annotations or serialize long reasoning traces token by token. We present X-Planner, a planning front-end that addresses both the supervision and representation of embodied reasoning. Our planning data combine Ego, UMI, and teleoperation under a hierarchy granularity with source-dependent annotation depth. Takeover-time ",
-   "authors": [
-    "Howard Lu",
-    "Shalfun Li",
-    "Porter Pan",
-    "Cris"
-   ],
-   "link": "https://huggingface.co/papers/2609.25187",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-21T00:00",
-   "title_ar": "إكس-بلانر: تخطيط المهام بهيكلية الأحداث للذكاء المجسد",
-   "summary_ar": "يربط تخطيط المهام بين التعليمات عالية المستوى والسلوك التنفيذي في المعالجة طويلة المدى، غير أن أنظمة الرؤية واللغة والعمل الحديثة تبقي هذا الهيكل الوسيط ضمنيًا. كما تميل مخططات سلسلة الأفكار الحالية للاعتماد على تعليقات توضيحية خشنة على مستوى المهمة أو التسلسل."
-  },
-  {
-   "id": "2609.26489",
-   "title": "Calibration as a First-Class Criterion in LLM Evaluation",
-   "abstract": "Calibration of language models -- the alignment between expressed or implicit confidence and empirical correctness -- is a well-studied subfield within NLP. Methods to measure it already exist. The problem is adoption: outside this subfield, NLP research regularly introduces new models, datasets, and benchmarks without checking whether the model's confidence scores are meaningful. We argue that this adoption gap is a major obstacle to trustworthy LLM evaluation. Miscalibration causes problems in two distinct areas: at deployment, where overconfident mistakes cause real harm, and inside the res",
-   "authors": [
-    "Mario Sanz-Guerrero",
-    "Katharina von der Wense"
-   ],
-   "link": "https://huggingface.co/papers/2609.26489",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-22T00:00",
-   "title_ar": "المعايرة كمعيار من الدرجة الأولى في تقييم النماذج اللغوية الكبيرة",
-   "summary_ar": "تُعد معايرة النماذج اللغوية—أي التوافق بين الثقة الصريحة أو الضمنية والصحة التجريبية—مجالًا فرعيًا مدروسًا جيدًا في معالجة اللغات الطبيعية، وتوجد بالفعل طرق لقياسها. وتكمن المشكلة في تبنيها، إذ تطرح أبحاث هذا المجال بانتظام نماذج ومجموعات بيانات جديدة خارج نطاق هذا التخصص."
+   "published": "2026-08-29T00:00",
+   "title_ar": "AgentKernel: نظام تشغيل الوكلاء الأصيل في الثقة",
+   "summary_ar": "تعبر وكلاء الذكاء الاصطناعي الحديثة حدود الثقة بانتظام؛ حيث تستهلك محتوى غير موثوق، وتدمجه مع تعليمات ذات صلاحيات، وتحفظ المعتقدات الوسيطة في ذاكرة طويلة الأمد، وتستدعي أدوات مميزة. ويخلق ذلك سطحًا للهجوم يمكن من خلاله للحمولات الخبيثة الدخول عبر مدخلات النموذج وإحداث أضرار."
   }
  ],
  "n": 6
