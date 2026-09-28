@@ -1,108 +1,106 @@
 {
- "updated": "2026-09-27T15:47+00:00",
+ "updated": "2026-09-28T07:21+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.28603",
-   "title": "Learning to Discover Interesting Mathematics",
-   "abstract": "Recently, Large Language Models (LLMs) have been increasingly able to solve advanced mathematical problems, including many that have been open for decades. This opens the door to expansion of mathematical knowledge at unprecedented scale. Yet, while LLMs may be able to conjecture and prove more and more theorems, it remains open whether this new mathematical knowledge is interesting or useful. We define intrinsic interestingness of a theorem as the ratio between the length of its proof and the length of its statement. We show that this correlates strongly with an extrinsic measure of the downs",
+   "id": "2609.18703",
+   "title": "RayOrch: Programming and Executing Lineage-Controlled Multi-Grain Dataflows for Foundation-Model Data Preparation",
+   "abstract": "Preparing high quality training data for foundation models requires scalable pipelines that transform heterogeneous documents and videos into structured records. Such pipelines expand each parent item into an ordered and input dependent sequence of children, whose counts may be long tailed. GPUs should batch children across parents while preserving parent relationships, child order, completion status, and result routing. Existing systems either hide parallelism behind coarse grained jobs or expose flat records that force applications to manage lineage and regrouping. We present RayOrch, a prog",
    "authors": [
-    "Niket Patel",
-    "Ahmad Rammal",
-    "Amaury Hayat",
-    "Remi Munos"
+    "Xiaochen Ma",
+    "Zimo Meng",
+    "Junzhu Liang",
+    "Youhe Jiang"
    ],
-   "link": "https://huggingface.co/papers/2609.28603",
+   "link": "https://huggingface.co/papers/2609.18703",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-23T00:00",
-   "title_ar": "تعلم اكتشاف الرياضيات المثيرة للاهتمام",
-   "summary_ar": "أصبحت النماذج اللغوية الكبيرة قادرة بشكل متزايد على حل المسائل الرياضية المتقدمة، بما في ذلك العديد من المسائل التي بقيت مفتوحة لعقود. ويفتح هذا الباب أمام توسيع المعرفة الرياضية على نطاق غير مسبوق، مع قدرتها على التخمين والإثبات."
+   "published": "2026-09-16T00:00",
+   "title_ar": "RayOrch: برمجة وتنفيذ تدفقات بيانات متعددة الحبيبات ومضبوطة النسب لإعداد بيانات النماذج التأسيسية",
+   "summary_ar": "يتطلب إعداد بيانات تدريب عالية الجودة للنماذج التأسيسية خطوط معالجة قابلة للتوسع تحول المستندات ومقاطع الفيديو غير المتجانسة إلى سجلات مهيكلة. تقوم خطوط المعالجة هذه بتوسيع كل عنصر أصلي إلى تسلسل مرتب ومعتمد على المدخلات من العناصر الفرعية، والتي قد تكون أعدادها ذات توزيع ذي ذيل طويل."
   },
   {
-   "id": "2609.29028",
-   "title": "RGBD20K: A Large-Scale Benchmark for RGB-D Semantic Segmentation",
-   "abstract": "In this paper, we propose RGBD20K, a novel dataset for facilitating the development of more robust and general RGB-D semantic segmentation by encompassing abundant categories and high-quality annotations. RGBD20K possesses several attractive properties: (1) Expanded Semantic Space. In particular, it covers 160 fine-grained categories, largely surpassing the category diversity of existing popular RGB-D benchmarks (e.g., NYUv2 with 40 classes and SUN RGB-D with 37 classes). With such enriched semantic coverage, we expect to promote the learning of more generalizable segmentation models. (2) Larg",
+   "id": "2609.31002",
+   "title": "ZooWork-ShopRanker: An Open, Preference-Aligned E-Commerce Reranker",
+   "abstract": "Open rerankers trained for general web retrieval transfer imperfectly to e-commerce, where ranking decisions depend not only on topical relevance but also on user preferences, product constraints, and comparative product fit. These preference signals are difficult to supervise at scale: real search traffic provides authentic queries and candidates but no clean pairwise labels. We present ZooWork-ShopRanker, a family of e-commerce rerankers (0.6B, 4B, and 8B) aligned to judge-labeled shopping preference. Training pairs are labeled by a panel of reasoning large language models (LLMs) from differ",
    "authors": [
-    "Shaohua Dong",
-    "Zexuan Meng",
-    "Haiyan Sun",
-    "Bing Fan"
+    "Siqiao Xue",
+    "Shuxuan Liu",
+    "Ning Hu"
    ],
-   "link": "https://huggingface.co/papers/2609.29028",
+   "link": "https://huggingface.co/papers/2609.31002",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-25T00:00",
+   "title_ar": "ZooWork-ShopRanker: أداة مفتوحة لإعادة الترتيب في التجارة الإلكترونية ومحاذاة للتفضيلات",
+   "summary_ar": "تنتقل أدوات إعادة الترتيب المفتوحة والمدربة على استرجاع الويب العام بشكل غير كامل إلى التجارة الإلكترونية، حيث لا تعتمد قرارات الترتيب على الصلة الموضوعية فحسب، بل على تفضيلات المستخدم وقيود المنتجات وتناسبها المقارن. وتعد إشارات التفضيل هذه صعبة الإشراف على نطاق واسع."
+  },
+  {
+   "id": "2609.25716",
+   "title": "FoMo: Forking Moment in Generative Trajectory as a Perceptual Distance",
+   "abstract": "Reference-based image quality assessment (IQA) metrics aim to reflect how humans perceive the perceptual distance between a pair of images. To learn how the human visual system (HVS) operates, recent reference-based IQA metrics heavily rely on human-annotated data. Mean opinion score (MOS)-based pointwise scoring, which assigns a scalar quality value per image, is preferable for annotation but is prohibitively expensive to collect at scale and is known to be noisy due to inconsistent human judgments. As an alternative, two-alternative forced choice (2AFC) pairwise labels have gained popularity",
+   "authors": [
+    "Jaihyun Lew",
+    "Mingi Jung",
+    "Minjun Park",
+    "Wooseok Song"
+   ],
+   "link": "https://huggingface.co/papers/2609.25716",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-22T00:00",
+   "title_ar": "FoMo: لحظة التفرع في المسار التوليدي كمسافة إدراكية",
+   "summary_ar": "تهدف مقاييس تقييم جودة الصور المستندة إلى مرجع إلى عكس كيفية إدراك البشر للمسافة الإدراكية بين زوج من الصور. ولتعلم كيفية عمل النظام البصري البشري، تعتمد مقاييس التقييم الحديثة المستندة إلى مرجع بشكل كبير على البيانات المشروحة بشريًا."
+  },
+  {
+   "id": "2609.30216",
+   "title": "Jev in the Wild: A Data-Driven Analysis of the Jev Model's Functionality, Applications and Ecosystem",
+   "abstract": "Jev is a fast, low-cost decision model that answers natural-language questions with choices, binary judgments, and scores. As its public ecosystem grows rapidly, it remains unclear how Jev is used across applications and how public attention relates to project distribution. To answer these questions, we conduct a large-scale, data-driven analysis of 2,170 publicly available Jev projects collected from GitHub as of September 22, 2026. We find rapid early growth in Jev's public ecosystem, with both new projects and integration into existing repositories. Across diverse domains, projects use Jev ",
+   "authors": [
+    "Guoming Ling",
+    "Muen Xue",
+    "Zijian Ye"
+   ],
+   "link": "https://huggingface.co/papers/2609.30216",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-24T00:00",
-   "title_ar": "RGBD20K: معيار واسع النطاق للتقطيع الدلالي لصور RGB-D",
-   "summary_ar": "تقترح هذه الورقة RGBD20K، وهي مجموعة بيانات جديدة لتسهيل تطوير تقطيع دلالي أكثر قوة وعمومية لصور RGB-D من خلال شمول فئات وفيرة وتسميات توضيحية عالية الجودة. وتمتلك مجموعة البيانات هذه عدة خصائص جذابة، أبرزها فضاء دلالي موسع."
+   "title_ar": "Jev في البيئة الحقيقية: تحليل مدفوع بالبيانات لوظائف نموذج Jev وتطبيقاته ونظامه البيئي",
+   "summary_ar": "يُعد Jev نموذج قرار سريع ومنخفض التكلفة يجيب عن أسئلة اللغة الطبيعية بالخيارات والأحكام الثنائية والدرجات. ومع النمو السريع لنظامه البيئي العام، لا يزال من غير الواضح كيفية استخدام Jev عبر التطبيقات وكيف يرتبط الاهتمام العام بتوزيع المشاريع."
   },
   {
-   "id": "2609.29816",
-   "title": "AV-GRPO: Modality-Anchored Decoupling Diffusion Reinforcement Learning for Joint Audio-Video Generation",
-   "abstract": "Recent years have witnessed major progress in joint audio-video generation. Existing models still suffer from limited per-modality fidelity, insufficient text-modality alignment and weak cross-modal synchronization. While reinforcement-learning post-training offers a promising remedy, directly adapting it to joint audio-video generation is challenging. Heterogeneous multimodal rewards entangle learning signals and complicate credit assignment. Joint optimization of two modality towers is computationally expensive given their divergent dynamics. Moreover, synchronization evaluation difficulty d",
+   "id": "2601.06352",
+   "title": "CARD: Cluster-level Adaptation with Reward-guided Decoding for Personalized Text Generation",
+   "abstract": "Adapting large language models to individual users remains challenging due to the tension between fine-grained personalization and scalable deployment. We present CARD, a hierarchical framework that achieves effective personalization through progressive refinement. CARD first clusters users according to shared stylistic patterns and learns group-specific LoRA adapters, enabling robust generalization and strong low-resource performance. To capture individual differences within each cluster, we propose an implicit preference learning mechanism that contrasts user-authored text with cluster-level",
    "authors": [
-    "Zhiyu Xu",
-    "Weilong Yan",
-    "Yufei Shi",
-    "Shiyang Li"
+    "Yutong Song",
+    "Jiang Wu",
+    "Weijia Zhang",
+    "Chengze Shen"
    ],
-   "link": "https://huggingface.co/papers/2609.29816",
+   "link": "https://huggingface.co/papers/2601.06352",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-24T00:00",
-   "title_ar": "AV-GRPO: تعزيز التعلم بالانتشار وفصل الوسائط المرتكز للتوليد المشترك للصوت والفيديو",
-   "summary_ar": "رغم التقدم الكبير في التوليد المشترك للصوت والفيديو، لا تزال النماذج الحالية تعاني من محدودية الدقة لكل نمط، وضعف المحاذاة مع النص، وضعف التزامن بين الوسائط. ورغم أن التدريب اللاحق بالتعلم المعزز يعد حلاً واعداً، فإن التكييف المباشر يواجه تحديات."
+   "published": "2026-09-20T00:00",
+   "title_ar": "CARD: تكييف على مستوى المجموعات مع فك ترميز موجه بالمكافأة لتوليد النصوص المخصصة",
+   "summary_ar": "يظل تكييف النماذج اللغوية الكبيرة مع المستخدمين الأفراد أمرًا صعبًا بسبب التجاذب بين التخصيص الدقيق والنشر القابل للتوسع. ونقدم إطار عمل CARD الهرمي الذي يحقق تخصيصًا فعالًا من خلال التحسين التدريجي عبر تجميع المستخدمين أولًا."
   },
   {
-   "id": "2609.29845",
-   "title": "Your Transformer Can Hold Two Thoughts at Once: Evidence of Linear Superposition in LLMs",
-   "abstract": "While Large Language Models (LLMs) rely on highly non-linear components, in this work we demonstrate that they exhibit fundamental linearity: when inputs from distinct text streams are linearly combined, the model outputs a superposition of the individual next-token distributions. We term this the Superposition Linearity Hypothesis. We provide evidence that superposition is an intrinsic property of the Transformer architecture rather than an emergent consequence of training; in fact, we observe that it tends to diminish as pretraining progresses. However, we demonstrate that linearity can be s",
+   "id": "2601.06362",
+   "title": "Do Implicit Personalization and Explicit Styles Conflict? PsPLUG: A Lightweight Plug-in for Balancing Personalization and Style in Customized LLMs",
+   "abstract": "Personalized large language models are often expected to follow explicit style instructions, yet we find that such instructions can undermine the user-specific characteristics that personalization methods aim to preserve. We call this failure mode personalization collapse: explicit style control can conflict with implicit user preferences. To address this challenge, we propose PsPLUG, a lightweight plug-in that learns a user-specific residual after accounting for the requested style. PsPLUG also allows us to tune personalization strength at inference time. Our experiments show that explicit st",
    "authors": [
-    "Pavel Tikhonov",
-    "Anton Korznikov",
-    "Matvey Mikhalchuk",
-    "Nikita Dragunov"
+    "Yutong Song",
+    "Jiang Wu",
+    "Shaofan Yuan",
+    "Chengze Shen"
    ],
-   "link": "https://huggingface.co/papers/2609.29845",
+   "link": "https://huggingface.co/papers/2601.06362",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-24T00:00",
-   "title_ar": "محولك يستطيع الاحتفاظ بفكرتين معاً: دليل على التراكب الخطي في النماذج اللغوية الكبيرة",
-   "summary_ar": "توضح هذه الورقة أن النماذج اللغوية الكبيرة تُظهر خطية أساسية رغم اعتمادها على مكونات غير خطية للغاية. فعند دمج مدخلات من نصوص مختلفة خطياً، يُخرج النموذج تراكباً لتوزيعات الرموز التالية الفردية."
-  },
-  {
-   "id": "2609.29429",
-   "title": "Just Ask Jev: Reinforcement Learning for Calibrated Decisions as a Zero-Shot Detector of AI Alignment Failures",
-   "abstract": "Detectors of alignment failures screen deployed language models and score alignment benchmarks. Most are generative judges that spend a decoding pass on every criterion, and classifiers that read token probabilities, such as Llama Guard, still score one fixed label per call. Jev, a model trained with reinforcement learning for calibrated decisions (RLCD), answers many typed questions about one input with calibrated probabilities in a single call. Whether it detects alignment failures has not been measured. We present RLCDAlignBench, which benchmarks Jev on ten alignment failures: sycophancy, j",
-   "authors": [
-    "Ruoqi Guo",
-    "Yi Liu",
-    "Gelei Deng",
-    "Yuekang Li"
-   ],
-   "link": "https://huggingface.co/papers/2609.29429",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-24T00:00",
-   "title_ar": "فقط اسأل Jev: التعلم المعزز للقرارات المعايرة ككاشف صفري لأخطاء محاذاة الذكاء الاصطناعي",
-   "summary_ar": "تفحص كواشف فشل المحاذاة النماذج المنشورة وتقيم معايير المحاذاة، وغالبها حكام توليديون يستهلكون مسار فك ترميز لكل معيار، في حين تقيم المصنفات علامة ثابتة واحدة لكل استدعاء. ويُقدم النموذج Jev المدرب بالتعلم المعزز كحل بديل."
-  },
-  {
-   "id": "2609.29362",
-   "title": "Parts-of-Speech as Emergent Categories in SAE Latent Space",
-   "abstract": "Sparse AutoEncoders (SAEs) offer a promising way to inspect language model representations, but it is still unclear what kind of linguistic structure their latents expose. We use part-of-speech (PoS) categories as a controlled test case to study whether morpho-syntactic information is encoded by individual latents or by structured groups of features. We find that PoS distinctions are highly recoverable from SAE activations, but do not align with one-to-one latent / category mappings. This recoverability is not reducible to lexical memorisation, and Open and Closed PoS classes differ substantia",
-   "authors": [
-    "Alessandro Bondielli",
-    "Lucia Passaro",
-    "Serena Auriemma",
-    "Alessandro Lenci"
-   ],
-   "link": "https://huggingface.co/papers/2609.29362",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-24T00:00",
-   "title_ar": "أجزاء الكلام كفئات ناشئة في الفضاء الكامن للمشفرات التلقائية المتفرقة",
-   "summary_ar": "توفر المشفرات التلقائية المتفرقة طريقة واعدة لفحص تمثيلات النماذج اللغوية، لكن نوع البنية اللغوية التي تكشفها متغيراتها الكامنة لا يزال غير واضح. وتستخدم الورقة فئات أجزاء الكلام كحالة اختبار مضبوطة لمعرفة ما إذا كانت المعلومات الصرفية والتركيبية مشفرة."
+   "published": "2026-09-20T00:00",
+   "title_ar": "هل يتعارض التخصيص الضمني مع الأساليب الصريحة؟ PsPLUG: إضافة خفيفة لموازنة التخصيص والأسلوب في النماذج اللغوية المخصصة",
+   "summary_ar": "يُتوقع غالبًا من النماذج اللغوية الكبيرة المخصصة اتباع تعليمات الأسلوب الصريحة، ومع ذلك وجدنا أن هذه التعليمات يمكن أن تقوض الخصائص المحددة للمستخدم التي تسعى طرق التخصيص للحفاظ عليها. ونطلق على حالة الفشل هذه اسم انهيار التخصيص، حيث يمكن للتحكم الصريح في الأسلوب إحداث ذلك."
   }
  ],
  "n": 6
