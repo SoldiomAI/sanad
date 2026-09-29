@@ -1,107 +1,106 @@
 {
- "updated": "2026-09-28T21:37+00:00",
+ "updated": "2026-09-29T14:16+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.24749",
-   "title": "D-JEPA: A Decision-Aligned Latent World Model",
-   "abstract": "Latent world models predict the consequences of actions, but accurate prediction does not guarantee that latent distance reflects which candidate will execute successfully. We identify a decision-local prediction gap: among the few futures competing for execution, a candidate predicted closer to the goal can produce a worse realized outcome than an available alternative. We introduce D-JEPA, a decision-aligned latent world model that learns decision-relevant relations among candidate futures from executed outcomes. A bounded, permutation-equivariant operator jointly reasons over goal-relative ",
+   "id": "2609.35699",
+   "title": "Distillation Defenses Easily Break After Reinforcement Learning",
+   "abstract": "Distillation attacks copy the reasoning capabilities of closed-source large language models, allowing bad actors to replicate state-of-the-art performance at low cost. Attackers systematically collect a large volume of frontier model reasoning traces and then train (i.e., \"distill\") their own models on these traces. Existing defenses against distillation attacks are typically evaluated immediately after distillation, implicitly assuming attackers do not train their models any further. In this paper, we argue that a more realistic threat model includes further training with reinforcement learni",
    "authors": [
-    "Shuaijun Liu",
-    "Chengyu Wu",
-    "Qifu Wen",
-    "Feiyang You"
+    "Shidan Javaheri",
+    "Alexander Panfilov",
+    "Oliver Britton",
+    "Yarin Gal"
    ],
-   "link": "https://huggingface.co/papers/2609.24749",
+   "link": "https://huggingface.co/papers/2609.35699",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-21T15:17",
-   "title_ar": "D-JEPA: نموذج عالم كامن متوافق مع اتخاذ القرار",
-   "summary_ar": "تتنبأ نماذج العالم الكامنة بعواقب الإجراءات، غير أن دقة التنبؤ لا تضمن أن المسافة الكامنة تعكس أي المرشحين سينجح تنفيذه. يحدد البحث فجوة تنبؤ محلية متعلقة بالقرار؛ حيث إنه ضمن العقود المستقبلية القليلة المتنافسة على التنفيذ، قد يُتوقع أن يكون أحد المرشحين أقرب إلى الهدف."
+   "published": "2026-09-28T00:00",
+   "title_ar": "دفاعات التقطير تنهار بسهولة بعد التعلم التعزيزي",
+   "summary_ar": "تنسخ هجمات التقطير قدرات الاستدلال للنماذج اللغوية الكبيرة مغلقة المصدر، مما يتيح للجهات الخبيثة تكرار أحدث مستويات الأداء بتكلفة منخفضة. يجمع المهاجمون بشكل منهجي حجماً كبيراً من آثار استدلال النماذج الرائدة ثم يدربون (أي \"يُقطّرون\") نماذجهم الخاصة."
   },
   {
-   "id": "2609.26333",
-   "title": "Disaggregated Quantization: Specializing LLM Prefill and Decode",
-   "abstract": "Prefill and decode reward different approaches to quantization: low-precision arithmetic accelerates prompt processing, while compact weights reduce memory traffic during generation. We propose \"disaggregated quantization\" (DQ), which specializes computation formats, weights and storage placement to both of these phases. On Qwen 3 and Gemma 3, removing activation quantization specifically on decode improves accuracy on decode-heavy tasks without increasing inference cost. Training separate compute-native prefill weights accelerates prompt processing relative to weight-only inference while matc",
+   "id": "2609.35578",
+   "title": "FactorEngram: Factorized N-gram Memory with Basis-Level Gating for Language Models",
+   "abstract": "Lookup-based memory has been a promising way to scale the parameters of large language models (LLMs). It retrieves learned representations of local token patterns, such as n-grams, instead of reconstructing them through successive layers of computation. However, existing designs such as Engram treat each retrieved embedding as a monolithic unit. Each embedding is stored in its own hashed slot and modulated by a single scalar gate. As a result, polysemous patterns cannot selectively read out the components of their memory that are relevant to the context. Moreover, parameters are shared only th",
    "authors": [
-    "Andrei Panferov",
-    "Maximilian Kleinegger",
-    "Sweta Priyadarshi",
-    "Tijmen Blankevoort"
+    "Bowen Yang",
+    "Jingbo Zhou",
+    "Qinghong Miao",
+    "Hua Wu"
    ],
-   "link": "https://huggingface.co/papers/2609.26333",
+   "link": "https://huggingface.co/papers/2609.35578",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-22T00:00",
-   "title_ar": "التكميم المفكك: تخصيص مرحلتي التعبئة المسبقة وفك الترميز لنماذج اللغة الكبيرة",
-   "summary_ar": "تتطلب مرحلتا التعبئة المسبقة وفك الترميز أساليب تكميم مختلفة، إذ يسرع الحساب منخفض الدقة معالجة المدخلات بينما تقلل الأوزان المدمجة من حركة الذاكرة أثناء التوليد. يقترح البحث \"التكميم المفكك\" (DQ) الذي يخصص صيغ الحساب والأوزان ومواضع التخزين."
+   "published": "2026-09-28T00:00",
+   "title_ar": "فاكتور إنغرام: ذاكرة إن-غرام مجزأة مع بوابات على مستوى الأساس للنماذج اللغوية",
+   "summary_ar": "تُعد الذاكرة القائمة على البحث وسيلة واعدة لتوسيع معلمات النماذج اللغوية الكبيرة. فهي تسترجع تمثيلات متعلمة لأنماط الرموز المحلية، مثل الـ n-grams، بدلاً من إعادة بنائها عبر طبقات حسابية متتالية، ومع ذلك فإن التصاميم الحالية مثل Engram تتعامل بطريقة معينة."
   },
   {
-   "id": "2609.28327",
-   "title": "LightMIS: Ultra-Lightweight Medical Image Segmentation Without a Stage-Wise Decoder",
-   "abstract": "We present LightMIS, a scalable family of ultra-lightweight convolutional networks for 2D binary medical image segmentation without a learned stage-wise decoder. LightMIS aligns the outputs of a five-level encoder to a common resolution using Scale-Aligned Projection blocks, aggregates them once, and refines the fused representation with an Adaptive Fusion Cascade. The cascade combines Adaptive Kernel Fusion with the proposed Progressive Receptive Fusion module, which uses temporary channel expansion, complementary depthwise receptive fields, and progressive cross-branch information transfer. ",
+   "id": "2609.35718",
+   "title": "Hard Vision, Easy Vision: What GPT-6 Astra Reveals Across Computer Vision",
+   "abstract": "Frontier general-purpose systems are rapidly expanding beyond visual understanding into capabilities traditionally handled by dedicated computer-vision models. As these capabilities expand, a central question for the computer-vision community is how far this reach extends, and what remains hard. We evaluate GPT-6 Astra alongside five frontier general-purpose AI systems across 34 capabilities and 55 benchmarks spanning nine areas of computer vision. We compare their performance with dedicated models and humans where suitable references are available. Astra demonstrates broad visual capability, ",
    "authors": [
-    "Andrei Arhire",
-    "Mihaela-Elena Breabăn",
-    "Radu Timofte"
+    "Hanoona Rasheed",
+    "Mohammed Irfan Kurpath",
+    "Bin Ren",
+    "Hisham Cholakkal"
    ],
-   "link": "https://huggingface.co/papers/2609.28327",
+   "link": "https://huggingface.co/papers/2609.35718",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-24T00:00",
-   "title_ar": "LightMIS: تجزئة صور طبية فائقة الخفة بدون وحدة فك ترميز مرحلية",
-   "summary_ar": "يقدم البحث LightMIS، وهي عائلة شبكات عصبونية التفافية قابلة للتوسع وفائقة الخفة لتجزئة الصور الطبية الثنائية ثنائية الأبعاد دون وحدة فك ترميز مرحلية متعلمة. تضبط LightMIS مخرجات مشفر خماسي المستويات إلى دقة موحدة باستخدام كتل إسقاط متوافقة الحجم ثم تدمجها دفعة واحدة."
+   "published": "2026-09-28T00:00",
+   "title_ar": "الرؤية الصعبة، الرؤية السهلة: ما يكشفه جي بي تي-6 أسترا عبر الرؤية الحاسوبية",
+   "summary_ar": "تتوسع الأنظمة الرائدة للأغراض العامة بسرعة متجاوزة الفهم البصري إلى قدرات كانت تُدار تقليدياً بنماذج مخصصة للرؤية الحاسوبية. ومع اتساع هذه القدرات، يبرز سؤال محوري لمجتمع الرؤية الحاسوبية حول مدى هذا التوسع وما يزال صعباً منها."
   },
   {
-   "id": "2609.30192",
-   "title": "SAGE: Mitigating Long-Horizon Reasoning Biases via Topological Guidance",
-   "abstract": "Long-horizon reasoning remains a central challenge for large language models (LLMs) under sparse-reward regimes. We argue that this brittleness arises from two biases induced by complex reasoning spaces: an exploration bias, where models are drawn toward locally plausible but structurally unstable branches, and a compounding bias, where small local deviations accumulate across depth and suppress rare rewards. We introduce Symbolic Closure Analysis (SCA) as a theoretical lens characterizing how branching structures and sparse rewards induce these biases in long-horizon reasoning with local admi",
+   "id": "2609.33485",
+   "title": "DISCO: Distributed Long Context Scaling with Grounding-Reasoning Disaggregation",
+   "abstract": "While Large Language Models (LLMs) advertise million-token context windows, reasoning quality often collapses as inputs grow -- a phenomenon termed context rot. This failure stems from a structural entanglement in monolithic architectures, where the massive search burden of contextual grounding exhausts the representational capacity needed for complex reasoning. To resolve this, we propose Grounding-Reasoning Disaggregation via DIStributed long COntext scaling (DISCO). Inspired by distributed computing frameworks like Apache Spark, DISCO partitions long context across a fleet of Worker LLMs de",
    "authors": [
-    "Xinyue Zeng",
-    "Jiawei Zhang",
-    "Yujun Yan",
-    "Dawei Zhou"
+    "Guanzheng Chen",
+    "Viet Dac Lai",
+    "Subhojyoti Mukherjee",
+    "Branislav Kveton"
    ],
-   "link": "https://huggingface.co/papers/2609.30192",
+   "link": "https://huggingface.co/papers/2609.33485",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-24T00:00",
-   "title_ar": "SAGE: تخفيف تحيزات الاستدلال طويل المدى عبر التوجيه الطوبولوجي",
-   "summary_ar": "يظل الاستدلال طويل المدى تحديًا رئيسيًا لنماذج اللغة الكبيرة في ظل أنظمة المكافآت الشحيحة. يرى البحث أن هذا القصور ينشأ عن تحيزين تسببهما مساحات الاستدلال المعقدة: أحدهما تحيز الاستكشاف، حيث تنجذب النماذج نحو مسارات مقبولة محليًا لكنها غير مستقرة بنيويًا."
+   "published": "2026-09-27T00:00",
+   "title_ar": "ديسكو: توسيع السياق الطويل الموزع مع فصل الإرساء عن الاستدلال",
+   "summary_ar": "في حين تعلن النماذج اللغوية الكبيرة عن نوافذ سياق تصل إلى مليون رمز، فإن جودة الاستدلال تنهار غالباً مع زيادة المدخلات، وهي ظاهرة تُسمى تعفن السياق. وينبع هذا الفشل من تشابك بنيوي في المعماريات الأحادية، حيث يستنزف عبء البحث الهائل للإرساء السياقي الموارد."
   },
   {
-   "id": "2609.31291",
-   "title": "Softmax Reparameterization for Output-Head Quantization",
-   "abstract": "Large vocabularies make output heads a substantial inference cost in small language models. We propose softmax reparameterization, a post-training method that selects a functionally equivalent output head before quantization. The method subtracts a scalar multiple of the vocabulary-row mean from every output row and selects the coefficient by validation KL separately for RTN, activation-weighted MSE, and full-Hessian GPTQ. This one-dimensional search includes the original head and fixed mean-centering, preserves the full-precision softmax distribution, and leaves the trained decoder unchanged;",
+   "id": "2609.32146",
+   "title": "Playing to Par: Reinforcement Learning for Provably Optimal Quadrilateral Block Decompositions",
+   "abstract": "A quadrilateral block decomposition of a planar domain is judged by whether it is complete, whether its elements are well shaped, and how many of its vertices are irregular. The last has a provable floor: the discrete Gauss-Bonnet identity enforces a lower bound on the total vertex irregularity of any all-quadrilateral mesh of a given domain purely based on its topology and corner angles. We train a reinforcement learning agent to build decompositions that reach this bound, which we call par. It acts directly on the mesh's half-edge data structure through local edits, with a policy network who",
    "authors": [
-    "Asim Kadav",
-    "Christian Flores",
-    "Chirag Arora",
-    "Varun Kotte"
+    "Arjun Narayanan",
+    "Per-Olof Persson"
    ],
-   "link": "https://huggingface.co/papers/2609.31291",
+   "link": "https://huggingface.co/papers/2609.32146",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-26T00:00",
+   "title_ar": "اللعب عند المعدل: التعلم التعزيزي لتفكيك كتل رباعية الأضلاع أمثل بشكل قابل للإثبات",
+   "summary_ar": "يُحكم على تفكيك الكتل رباعية الأضلاع لنطاق مستوٍ بناءً على اكتماله، وجودة شكل عناصره، وعدد رؤوسه غير المنتظمة. وللأخير حد أدنى مثبت؛ حيث تفرض متطابقة غاوس-بونيه المنفصلة حداً أدنى على إجمالي عدم انتظام الرؤوس."
+  },
+  {
+   "id": "2609.31009",
+   "title": "G^2PTQ: Improving LLM Post-Training Quantization with Generalized Gradient Compensation",
+   "abstract": "Post-training quantization (PTQ) is a practical approach to reducing the memory and computational footprint of large language models (LLMs) without retraining. GPTQ-based methods have become the de facto standard, yet they suffer from two complementary limitations. Methods with local, layer-wise objectives lack global supervision; while methods with global objectives fix their Hessian estimates at the start and ignore first-order gradients, so their guidance grows stale as quantization proceeds. This paper presents G^2PTQ, a unified PTQ framework with Generalized Gradient Compensation that int",
+   "authors": [
+    "Ruikang Liu",
+    "Haoli Bai",
+    "Yuxuan Sun",
+    "Qian Zhang"
+   ],
+   "link": "https://huggingface.co/papers/2609.31009",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-25T00:00",
-   "title_ar": "إعادة تعيين معلمات سوفت ماكس لتكميم رأس المخرجات",
-   "summary_ar": "تجعل المفردات الضخمة من رؤوس المخرجات تكلفة استدلال كبيرة في نماذج اللغة الصغيرة. يقترح البحث إعادة تعيين معلمات الدالة \"سوفت ماكس\"، وهي طريقة تُطبق بعد التدريب لاختيار رأس مخرجات مكافئ وظيفيًا قبل التكميم عبر طرح مضاعف قياسي لمتوسط صف المفردات."
-  },
-  {
-   "id": "2609.29474",
-   "title": "CodeGraph: Open-Taxonomy Knowledge Graph for Source Code with Wikidata Grounding",
-   "abstract": "Public software repositories, like GitHub and Software Heritage Archive, store billions of files, yet extracting their implicit engineering knowledge ---i.e., the algorithms they implement, the paradigms they follow, the patterns they instantiate, and the application domains they serve--- remains challenging, as current tools are constrained to syntactic and token-level analysis. We present a pipeline for building an open-taxonomy semantic annotation of source code using a code-specialised Large Language Model. The extracted entities are grounded in Wikidata through a three-stage linking proce",
-   "authors": [
-    "Federico Pennino",
-    "Andrea Gurioli",
-    "Stefano Zacchiroli",
-    "Maurizio Gabbrielli"
-   ],
-   "link": "https://huggingface.co/papers/2609.29474",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-24T00:00",
-   "title_ar": "CodeGraph: رسم بياني معرفي ذو تصنيف مفتوح للشفرة المصدرية مع ربطه بـ Wikidata",
-   "summary_ar": "تخزن مستودعات البرمجيات العامة مليارات الملفات، ومع ذلك يظل استخراج معرفتها الهندسية الضمنية تحديًا قائمًا. وتشمل هذه المعرفة الخوارزميات المطبقة، ونماذج البرمجة المتبعة، والأنماط المجسدة، ومجالات التطبيق التي تخدمها."
+   "title_ar": "جي تو بي تي كيو: تحسين تكميم ما بعد التدريب للنماذج اللغوية الكبيرة بتعويض التدرج المعمم",
+   "summary_ar": "يمثل تكميم ما بعد التدريب نهجاً عملياً لتقليل البصمة الحسابية وبصمة الذاكرة للنماذج اللغوية الكبيرة دون إعادة تدريب. ورغم أن الطرق القائمة على GPTQ أصبحت المعيار الفعلي، إلا أنها تعاني من قيدين متكاملين؛ مثل الطرق ذات الأهداف المحلية على مستوى الطبقات."
   }
  ],
  "n": 6
