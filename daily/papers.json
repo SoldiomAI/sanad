@@ -1,107 +1,106 @@
 {
- "updated": "2026-09-30T15:39+00:00",
+ "updated": "2026-10-01T06:23+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.32722",
-   "title": "Scaling Properties of Same-Family On-Policy Distillation",
-   "abstract": "*Reinforcement learning (RL)* can induce substantial reasoning capabilities in large language models (LLMs), but how much of this capability transfers across model scales, and how quickly, remains unclear. We study the scaling properties of *on-policy distillation (OPD)* across *weak-to-strong*, *same-base*, and *strong-to-weak* teacher--student setups. We find that early OPD training dynamics uniformly exhibit a regular *useful-transfer* regime, in which held-out accuracy (the *gold score*, G) rises approximately linearly in d=mathrm{KL(π_θVert π_{ref})}, the square root of token-level revers",
+   "id": "2609.39102",
+   "title": "False Frontiers: Diagnosing and Mitigating Co-Cheating in Self-Evolving Search Agents",
+   "abstract": "Self-evolving search agents build their own training curricula by jointly optimizing a proposer that generates questions and a solver that answers them. This closed loop introduces a failure mode we call co-cheating: the proposer and solver increasingly agree on shared errors, so internal reward improves without a matching gain in external correctness. A post-hoc audit against source evidence shows co-cheating growing more severe over successive rounds of self-evolution, with pseudo-label correctness stagnating or declining even as the in-loop training signal improves. The most direct mitigati",
    "authors": [
-    "Yuntai Bao",
-    "Qinfeng Li",
-    "Guoqing Jiang",
-    "Liwei Chen"
+    "Meijia Chen",
+    "Hao Li",
+    "Zheng Lu",
+    "Hongshan Lin"
    ],
-   "link": "https://huggingface.co/papers/2609.32722",
+   "link": "https://huggingface.co/papers/2609.39102",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-26T00:00",
-   "title_ar": "خصائص التوسع للتقطير وفق السياسة ضمن العائلة نفسها",
-   "summary_ar": "يمكن للتعلم التعزيزي أن يولد قدرات استدلالية كبيرة في النماذج اللغوية الكبيرة، لكن مدى وسرعة انتقال هذه القدرة عبر أحجام النماذج لا يزالان غير واضحين. وتدرس الورقة خصائص التوسع لـ \"التقطير وفق السياسة\" عبر النماذج من الضعيفة إلى القوية وضمن العائلة نفسها."
+   "published": "2026-09-30T00:00",
+   "title_ar": "حدود زائفة: تشخيص الغش المشترك والحد منه في وكلاء البحث ذاتيي التطور",
+   "summary_ar": "يبني وكلاء البحث ذاتيو التطور مناهجهم التدريبية الخاصة عبر التحسين المشترك لمُقترحٍ يُولّد الأسئلة ومُحلّلٍ يُجيب عنها. وتُدخل هذه الحلقة المغلقة نمط فشل يُسمى الغش المشترك، حيث يتوافق المُقترح والمُحلّل بشكل متزايد على أخطاء مشتركة، مما يؤدي إلى تحسن المكافأة الداخلية."
   },
   {
-   "id": "2609.33620",
-   "title": "Learning Dynamics of Continual Learning: A Unified View of Data Attribution, Forgetting, and Plasticity Loss",
-   "abstract": "Modern language models are likely to be updated throughout their lifetime rather than trained once and frozen. Each update therefore participates in a recurring cycle: decide which experience to learn from, understand what that update changes, and remain capable of learning from what comes next. We show that these challenges are governed by the same evolving update--behavior interaction. We derive a token- and layer-wise decomposition of how learning from one token changes another prediction. By separating the softmax force, shared readout geometry, and residual connections, it exposes two int",
+   "id": "2609.38334",
+   "title": "EVOKE: Eliciting World Knowledge in Agents for Transferable Decision-Making",
+   "abstract": "Large language models (LLMs) are increasingly deployed as agents for multi-step decision-making, yet transfer poorly to unseen environments. World-model methods address this by training agents to predict future observations, at the cost of additional training and errors that compound when predictions are used for planning. However, for LLM agents operating in digital environments, much of this world knowledge is already internalized during pretraining, which shifts the problem from acquiring it to eliciting it. We argue that typical post-training provides little pressure for such elicitation, ",
    "authors": [
-    "Yi Ren",
-    "Wenlong Deng",
-    "Guanzhe Hong",
-    "Clare Lyle"
+    "Yuhan Guo",
+    "Jinming Liu",
+    "Liang Xu",
+    "Ziqiang Li"
    ],
-   "link": "https://huggingface.co/papers/2609.33620",
+   "link": "https://huggingface.co/papers/2609.38334",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-29T00:00",
+   "title_ar": "EVOKE: استنباط المعرفة بالعالم لدى الوكلاء من أجل اتخاذ قرارات قابلة للنقل",
+   "summary_ar": "تُنشر نماذج اللغة الكبيرة على نحو متزايد كوكلاء لاتخاذ القرارات متعددة الخطوات، لكن نقلها إلى بيئات غير مرئية يظل ضعيفًا. وتعالج أساليب نماذج العالم ذلك بتدريب الوكلاء على التنبؤ بالملاحظات المستقبلية، على حساب تدريب إضافي وأخطاء تتفاقم مع التنبؤ."
+  },
+  {
+   "id": "2609.33355",
+   "title": "Unmask the State: When Does State Adaptation Matter for Masked Diffusion Language Models",
+   "abstract": "Masked diffusion language models (MDMs) admit flexible generation orders, making the unmasking strategy an inference decision. Existing methods vary in how they prioritize positions, control parallelism, restrict selection regions, revise predictions, or plan future denoising, yet it remains unclear when these choices should change during generation. We study this question through strategy reversals, where an alternative action becomes preferable to a fixed choice. We organize MDM inference into five axes--score, cardinality, region, commitment, and planning--and define adaptation opportunity ",
+   "authors": [
+    "Injin Kong",
+    "Sunghwan Choi",
+    "Yohan Jo"
+   ],
+   "link": "https://huggingface.co/papers/2609.33355",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-27T00:00",
-   "title_ar": "ديناميكيات التعلم المستمر: نظرة موحدة لنسب البيانات، والنسيان، وفقدان المرونة",
-   "summary_ar": "يُرجح أن تُحدث النماذج اللغوية الحديثة طوال فترة استخدامها بدلاً من تدريبها لمرة واحدة وتجميدها. وبناءً على ذلك، يسهم كل تحديث في حلقة متكررة تتضمن تحديد الخبرة المراد التعلم منها، وفهم ما يغيره التحديث، والبقاء قادراً على التعلم مما سيأتي لاحقاً."
+   "title_ar": "كشف قناع الحالة: متى يكون تكيّف الحالة مهمًا لنماذج انتشار اللغة المقنّعة",
+   "summary_ar": "تتيح نماذج انتشار اللغة المقنّعة ترتيبات توليد مرنة، مما يجعل استراتيجية كشف القناع قرارًا مرتبطًا بالاستدلال. وتختلف الأساليب الحالية في كيفية تحديد أولويات المواضع، أو ضبط التوازي، أو تقييد مناطق الاختيار، أو مراجعة التنبؤات، أو تخطيط إزالة التشويش مستقبلًا، إلا أن الأمر لا يزال غير واضح."
   },
   {
-   "id": "2609.36653",
-   "title": "Scheduling Recursive Reasoning in Looped Transformers",
-   "abstract": "Recurrent reasoning models have attracted growing attention for scaling test-time computation, typically by iteratively refining latent states with shared parameters. However, these models apply each learned update with a fixed unit scale, which can be conservative when updates make persistent progress and overly aggressive when they fluctuate, limiting the benefit of additional loops. To understand how the scale should vary along the trajectory, we first analyze the sensitivity of terminal loss to recurrent update scale. We show that its temporal average admits an exact decomposition into per",
+   "id": "2609.39982",
+   "title": "Mid-Harness: Scaling Actions Between Model and Harness for Terminal Agents",
+   "abstract": "Terminal agents act through stochastic model generations, yet the ability to generate a useful action does not ensure its reliable execution. A poor command (e.g., wrong package install) can change the environment in ways that hinder subsequent progress, even when the model could generate a better alternative. We investigate whether allocating test-time compute at the model-harness boundary can improve action reliability and trajectory success, and what makes this allocation effective. To study these questions, we introduce Mid-Harness, which samples and verifies candidate actions before forwa",
    "authors": [
-    "Boyuan Wang",
-    "Chengyao Yu",
-    "Jiaxi Ren",
-    "Hongxin Wei"
+    "Minki Kang",
+    "Ryo Hachiuma",
+    "Shaokun Zhang",
+    "Subhashree Radhakrishnan"
    ],
-   "link": "https://huggingface.co/papers/2609.36653",
+   "link": "https://huggingface.co/papers/2609.39982",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-30T00:00",
+   "title_ar": "Mid-Harness: توسيع نطاق الإجراءات بين النموذج وحزام الاختبار لوكلاء الطرفية",
+   "summary_ar": "يعمل وكلاء الطرفية عبر توليدات احتمالية من النماذج، إلا أن القدرة على توليد إجراء مفيد لا تضمن تنفيذه بشكل موثوق. إذ يمكن لأمر سيئ (مثل تثبيت حزمة خاطئة) أن يغير البيئة بطرق تعيق التقدم اللاحق، حتى عندما يكون النموذج قادرًا على توليد إجراء أفضل."
+  },
+  {
+   "id": "2609.40316",
+   "title": "Scaling Laws for Looped Mixture of Experts",
+   "abstract": "Looped transformers and Mixture-of-Experts (MoE) offer complementary routes to efficient scaling: recurrence increases computational depth at fixed parameters, while MoE sparsity expands total capacity at fixed active compute. Yet existing scaling laws model recurrence or sparsity in isolation. In this work, we introduce Loop Scaling Laws, the first scaling law to jointly model recurrence and sparsity alongside model size and data. At its core is a bounded, sparsity-conditional recurrence mapping that characterizes the effective-parameter gain from looping and how sparsity raises this gain. Th",
+   "authors": [
+    "Yanbei Chen",
+    "Anirudh Goyal",
+    "Raghuraman Krishnamoorthi"
+   ],
+   "link": "https://huggingface.co/papers/2609.40316",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-30T00:00",
+   "title_ar": "قوانين التوسع لخليط الخبراء الحلقي",
+   "summary_ar": "توفر المحولات الحلقية وخليط الخبراء مسارات متكاملة للتوسع الفعال؛ إذ يزيد التكرار من العمق الحسابي عند ثبات المعلمات، بينما توسع ندرة خليط الخبراء السعة الإجمالية عند ثبات الحوسبة النشطة. ومع ذلك، فإن قوانين التوسع الحالية تصوغ التكرار أو الندرة بشكل منفصل."
+  },
+  {
+   "id": "2609.38660",
+   "title": "Breaking Babel: A Self-Evolving Multi-Agent System for Long-Form Subtitle Translation",
+   "abstract": "Long-form subtitle translation requires reasoning over discourse and cultural context spanning episodes or entire series, while maintaining consistent terminology and style. Existing single-LLM methods are largely sentence-level, and multi-agent systems often use static workflows that do not adapt to scene complexity or production context. We propose SMART, a Self-evolving Multi-Agent system for long-foRm subtitle Translation. During test-time training, SMART builds persistent series-level memory and translates a subset of sentences through a dynamic router and Mixture-of-Agents layer with too",
+   "authors": [
+    "Haibo Jin",
+    "Xinjie Li",
+    "Najmeh Sadoughi",
+    "Yang Liu"
+   ],
+   "link": "https://huggingface.co/papers/2609.38660",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-29T00:00",
-   "title_ar": "جدولة الاستدلال التكراري في محولات الحلقات المغلقة",
-   "summary_ar": "جذبت نماذج الاستدلال المتكرر اهتماماً متزايداً لتوسيع الحوسبة في وقت الاختبار، وذلك عادةً عبر تحسين الحالات الكامنة تكرارياً باستخدام معلمات مشتركة. ومع ذلك، تطبق هذه النماذج كل تحديث مكتسب بمقياس وحدة ثابت، وهو ما قد يكون تحفظياً عندما تحقق التحديثات تقدماً مستمراً."
-  },
-  {
-   "id": "2609.34962",
-   "title": "ALICE: In-context, Zero-shot, Mutual Information Estimation",
-   "abstract": "Estimating mutual information (MI) from samples is a central objective in a variety of scientific fields. Modern neural estimators are accurate in the large-data regime, but they fall short when data is scarce, and each must be fit anew for every distribution under study. Current estimators are moreover tied to specific data types. These constraints limit their adoption in many applications where per-distribution training is impractical and sample sizes are small. We present ALICE, a foundation model that removes per-distribution training, while achieving competitive estimation accuracy. Train",
-   "authors": [
-    "Giulio Franzese",
-    "Simone Rossi",
-    "Pietro Michiardi"
-   ],
-   "link": "https://huggingface.co/papers/2609.34962",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-29T00:00",
-   "title_ar": "أليس (ALICE): تقدير المعلومات المتبادلة ضمن السياق ودون تدريب مسبق",
-   "summary_ar": "يُعد تقدير المعلومات المتبادلة من العينات هدفاً رئيساً في مجالات علمية متنوعة. وتتميز المقدرات العصبية الحديثة بالدقة عند توفر البيانات الضخمة، لكنها تقصر عند ندرة البيانات وتتطلب ملاءمة جديدة لكل توزيع قيد الدراسة."
-  },
-  {
-   "id": "2609.38146",
-   "title": "LIFT: Layout-In-Future Video Generation under Large Viewpoint Change via On-Policy Self-Distillation",
-   "abstract": "We introduce LIFT, a unified image-to-video generation framework that complements camera control with Layout-In-FuTure control, enabling users to specify what should appear in a future view and where it should appear. This addresses a practical need in controllable video generation: given an initial image, users often care not only about how the camera moves, but also about what the scene should look like at key future moments, especially the final frame. Existing camera controls specify viewpoint trajectories, while text prompts provide only coarse semantic guidance; neither precisely determi",
-   "authors": [
-    "Shengxiang Ji",
-    "Boyang Wang",
-    "Haiyang Xu",
-    "Bingnan Li"
-   ],
-   "link": "https://huggingface.co/papers/2609.38146",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-29T00:00",
-   "title_ar": "ليفت (LIFT): توليد الفيديو عبر مخطط مستقبلي تحت التغير الكبير في زوايا الرؤية بواسطة التقطير الذاتي وفق السياسة",
-   "summary_ar": "تقدم الورقة إطار عمل موحداً لتوليد الفيديو من الصور يدعى LIFT، يكمل التحكم بالكاميرا بالتحكم في المخطط المستقبلي ليُمكّن المستخدمين من تحديد ما يجب ظهوره ومكانه في منظور مستقبلي. ويلبي هذا حاجة عملية في التوليد المنضبط للفيديو انطلاقاً من صورة أولية."
-  },
-  {
-   "id": "2609.36651",
-   "title": "FocusVTC: Efficient and High-Performance Visual Text Compression with Adaptive Resolution",
-   "abstract": "Long-context reasoning in large language models incurs substantial computation and memory costs. Visual text compression (VTC) reduces input length by rendering text as images, but fixed-resolution rendering creates a compression-performance trade-off: low DPI saves tokens at the expense of legibility, whereas high DPI spends tokens on irrelevant content. We introduce FocusVTC, which breaks this trade-off through adaptive resolution while preserving general multimodal capabilities. It combines compressed low-DPI global views with selective region enhancement, integrating enhanced views into on",
-   "authors": [
-    "FangZhi Zhong",
-    "Xuerui Qiu",
-    "Yuqi Pan",
-    "Ya Liu"
-   ],
-   "link": "https://huggingface.co/papers/2609.36651",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-29T00:00",
-   "title_ar": "فوكس في تي سي (FocusVTC): ضغط نصي مرئي فعال وعالي الأداء بدقة متكيفة",
-   "summary_ar": "يفرض الاستدلال في السياقات الطويلة بالنماذج اللغوية الكبيرة تكاليف حوسبة وذاكرة باهظة. ويقلل ضغط النص المرئي طول المدخلات عبر تصيير النص كصور، إلا أن التصيير بدقة ثابتة يخلق مفاضلة بين الضغط والأداء، حيث توفر الدقة المنخفضة الرموز على حساب وضوح القراءة."
+   "title_ar": "تحطيم بابل: نظام متعدد الوكلاء ذاتي التطور لترجمة الترجمات المرئية الطويلة",
+   "summary_ar": "تتطلب ترجمة الترجمات المرئية الطويلة محاكمة سياق الخطاب والسياق الثقافي عبر حلقات أو مسلسلات بأكملها، مع الحفاظ على اتساق المصطلحات والأسلوب. وتقتصر أساليب نموذج اللغة الكبير الفردي الحالية على مستوى الجملة إلى حد كبير، بينما تستخدم الأنظمة متعددة الوكلاء غالبًا تدفقات عمل ثابتة لا تتكيف."
   }
  ],
  "n": 6
