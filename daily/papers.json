@@ -1,106 +1,105 @@
 {
- "updated": "2026-10-01T06:23+00:00",
+ "updated": "2026-10-01T19:18+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.39102",
-   "title": "False Frontiers: Diagnosing and Mitigating Co-Cheating in Self-Evolving Search Agents",
-   "abstract": "Self-evolving search agents build their own training curricula by jointly optimizing a proposer that generates questions and a solver that answers them. This closed loop introduces a failure mode we call co-cheating: the proposer and solver increasingly agree on shared errors, so internal reward improves without a matching gain in external correctness. A post-hoc audit against source evidence shows co-cheating growing more severe over successive rounds of self-evolution, with pseudo-label correctness stagnating or declining even as the in-loop training signal improves. The most direct mitigati",
+   "id": "2609.38792",
+   "title": "Training LLM Judges from Language Feedback via Position-Selective Self-Distillation",
+   "abstract": "We study training LLM judges from natural language feedback, especially for subjective tasks where the verdict depends strongly on which evaluation criteria the judge invokes and how it weighs them. The dominant approach, outcome-supervised RL (e.g., GRPO), credits every token in the rollout with a single scalar determined only by the accuracy of the final verdict, providing no separate credit at the criterion-choice tokens and ignoring the rich language feedback (e.g., preference rationales) that naturally accompanies preference labels. Self-Distillation (SD) is one natural way to use this la",
    "authors": [
-    "Meijia Chen",
-    "Hao Li",
-    "Zheng Lu",
-    "Hongshan Lin"
+    "Ilgee Hong",
+    "Changlong Yu",
+    "Zhenghao Xu",
+    "Xin Liu"
    ],
-   "link": "https://huggingface.co/papers/2609.39102",
+   "link": "https://huggingface.co/papers/2609.38792",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-30T00:00",
-   "title_ar": "حدود زائفة: تشخيص الغش المشترك والحد منه في وكلاء البحث ذاتيي التطور",
-   "summary_ar": "يبني وكلاء البحث ذاتيو التطور مناهجهم التدريبية الخاصة عبر التحسين المشترك لمُقترحٍ يُولّد الأسئلة ومُحلّلٍ يُجيب عنها. وتُدخل هذه الحلقة المغلقة نمط فشل يُسمى الغش المشترك، حيث يتوافق المُقترح والمُحلّل بشكل متزايد على أخطاء مشتركة، مما يؤدي إلى تحسن المكافأة الداخلية."
+   "title_ar": "تدريب النماذج اللغوية الكبيرة كحكام عبر التغذية الراجعة اللغوية بواسطة التقطير الذاتي الانتقائي للموضع",
+   "summary_ar": "نبحث في تدريب النماذج اللغوية الكبيرة كحكام بالاعتماد على التغذية الراجعة باللغة الطبيعية، لا سيما في المهام الذاتية التي يعتمد الحكم فيها بشدة على معايير التقييم التي يستند إليها الحكم وكيفية موازنته لها. ويمنح النهج السائد، وهو التعلم المعزز الخاضع للإشراف على النتائج (مثل GRPO)، الفضل لكل رمز في عملية التوليد."
   },
   {
-   "id": "2609.38334",
-   "title": "EVOKE: Eliciting World Knowledge in Agents for Transferable Decision-Making",
-   "abstract": "Large language models (LLMs) are increasingly deployed as agents for multi-step decision-making, yet transfer poorly to unseen environments. World-model methods address this by training agents to predict future observations, at the cost of additional training and errors that compound when predictions are used for planning. However, for LLM agents operating in digital environments, much of this world knowledge is already internalized during pretraining, which shifts the problem from acquiring it to eliciting it. We argue that typical post-training provides little pressure for such elicitation, ",
+   "id": "2609.30840",
+   "title": "Aligning One-Step Generative Models with Reward-Weighted Transport Distillation",
+   "abstract": "One-step generators enable high-quality visual generation with a single network evaluation, but their post-training is difficult: general implicit generators provide neither tractable likelihoods nor denoising trajectories, and many rewards are non-differentiable. We introduce Reward-Weighted Transport Distillation (RWTD), a post-training method that requires only generated samples and scalar reward evaluations. Rather than aligning solely to the conventional reward-tilted reference distribution, RWTD constructs an adaptive target that mixes separately tilted current and reference distribution",
    "authors": [
-    "Yuhan Guo",
-    "Jinming Liu",
-    "Liang Xu",
-    "Ziqiang Li"
+    "Austin Wang",
+    "Ziheng Cheng",
+    "Lexing Ying"
    ],
-   "link": "https://huggingface.co/papers/2609.38334",
+   "link": "https://huggingface.co/papers/2609.30840",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-25T00:00",
+   "title_ar": "مواءمة النماذج التوليدية أحادية الخطوة عبر تقطير النقل الموزون بالمكافأة",
+   "summary_ar": "تتيح المولدات أحادية الخطوة توليدًا بصريًا عالي الجودة عبر تقييم شبكي واحد، غير أن تدريبها اللاحق صعب؛ فالنماذج الضمنية العامة لا توفر احتمالات قابلة للحساب ولا مسارات لإزالة التشويش، كما أن العديد من المكافآت غير قابلة للاشتقاق. ونقدم هنا طريقة النقل الموزون بالمكافأة."
+  },
+  {
+   "id": "2609.38658",
+   "title": "Tacit-TTS: From Autoregressive Decoding to Masked Prediction for Efficient Transcript-Free Voice Cloning",
+   "abstract": "TTS systems with autoregressive semantic modeling have demonstrated strong zero-shot voice cloning performance and rich expressive variation, but their sequential decoding incurs substantial latency. Non-autoregressive alternatives offer much faster generation, yet often rely on more restrictive reference conditioning, such as requiring transcripts of the reference speech during inference. We present Tacit-TTS, an efficient transcript-free zero-shot voice cloning system distilled from IndexTTS2. Our model replaces autoregressive text-to-semantic decoding with masked non-autoregressive generati",
+   "authors": [
+    "Jian Chen",
+    "You Zhang",
+    "Mark Vinton"
+   ],
+   "link": "https://huggingface.co/papers/2609.38658",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-29T00:00",
-   "title_ar": "EVOKE: استنباط المعرفة بالعالم لدى الوكلاء من أجل اتخاذ قرارات قابلة للنقل",
-   "summary_ar": "تُنشر نماذج اللغة الكبيرة على نحو متزايد كوكلاء لاتخاذ القرارات متعددة الخطوات، لكن نقلها إلى بيئات غير مرئية يظل ضعيفًا. وتعالج أساليب نماذج العالم ذلك بتدريب الوكلاء على التنبؤ بالملاحظات المستقبلية، على حساب تدريب إضافي وأخطاء تتفاقم مع التنبؤ."
+   "title_ar": "Tacit-TTS: من فك الترميز التراجعي التلقائي إلى التنبؤ المقنع لاستنساخ صوتي فعال دون نصوص",
+   "summary_ar": "أظهرت أنظمة تحويل النص إلى كلام ذات النمذجة الدلالية التراجعية التلقائية أداءً قويًا في استنساخ الصوت من الصفر وتنوعًا تعبيريًا غنيًا، إلا أن فك ترميزها التتابعي يتسبب في زمن انتقال كبير. ورغم أن البدائل غير التراجعية توفر توليدًا أسرع بكثير، إلا أنها غالبًا ما تعتمد على مراجع أكثر تقييدًا."
   },
   {
-   "id": "2609.33355",
-   "title": "Unmask the State: When Does State Adaptation Matter for Masked Diffusion Language Models",
-   "abstract": "Masked diffusion language models (MDMs) admit flexible generation orders, making the unmasking strategy an inference decision. Existing methods vary in how they prioritize positions, control parallelism, restrict selection regions, revise predictions, or plan future denoising, yet it remains unclear when these choices should change during generation. We study this question through strategy reversals, where an alternative action becomes preferable to a fixed choice. We organize MDM inference into five axes--score, cardinality, region, commitment, and planning--and define adaptation opportunity ",
+   "id": "2609.32720",
+   "title": "BiasReducer: Adaptive Bias Mitigation for Reward Models",
+   "abstract": "Reward models score responses from large language models (LLMs) and guide LLM training toward human preferences. However, reward models can favor superficial attributes such as length or confidence, leading LLMs to produce higher-scoring but not more correct responses. Existing mitigation methods either retrain the reward model or apply a fixed correction to one known bias, such as a preference for longer responses. Retraining requires additional data and computational resources, while existing editing methods require the target bias to be specified in advance and use a fixed edit for that bia",
    "authors": [
-    "Injin Kong",
-    "Sunghwan Choi",
-    "Yohan Jo"
+    "Shuang Liu",
+    "Yongliang Miao",
+    "Yanguang Liu",
+    "Haoyi Xiong"
    ],
-   "link": "https://huggingface.co/papers/2609.33355",
+   "link": "https://huggingface.co/papers/2609.32720",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-27T00:00",
-   "title_ar": "كشف قناع الحالة: متى يكون تكيّف الحالة مهمًا لنماذج انتشار اللغة المقنّعة",
-   "summary_ar": "تتيح نماذج انتشار اللغة المقنّعة ترتيبات توليد مرنة، مما يجعل استراتيجية كشف القناع قرارًا مرتبطًا بالاستدلال. وتختلف الأساليب الحالية في كيفية تحديد أولويات المواضع، أو ضبط التوازي، أو تقييد مناطق الاختيار، أو مراجعة التنبؤات، أو تخطيط إزالة التشويش مستقبلًا، إلا أن الأمر لا يزال غير واضح."
+   "published": "2026-09-26T00:00",
+   "title_ar": "BiasReducer: تخفيف التحيز التكيفي لنماذج المكافأة",
+   "summary_ar": "تسند نماذج المكافأة درجات لاستجابات النماذج اللغوية الكبيرة وتوجه تدريبها نحو التفضيلات البشرية. ومع ذلك، قد تحابي هذه النماذج سمات سطحية مثل الطول أو الثقة، مما يدفع النماذج اللغوية إلى إنتاج استجابات ذات درجات أعلى دون أن تكون أكثر صحة، في حين تعاني طرق التخفيف الحالية من أوجه قصور."
   },
   {
-   "id": "2609.39982",
-   "title": "Mid-Harness: Scaling Actions Between Model and Harness for Terminal Agents",
-   "abstract": "Terminal agents act through stochastic model generations, yet the ability to generate a useful action does not ensure its reliable execution. A poor command (e.g., wrong package install) can change the environment in ways that hinder subsequent progress, even when the model could generate a better alternative. We investigate whether allocating test-time compute at the model-harness boundary can improve action reliability and trajectory success, and what makes this allocation effective. To study these questions, we introduce Mid-Harness, which samples and verifies candidate actions before forwa",
+   "id": "2609.34274",
+   "title": "BIABench: Evaluating AI agents on real-world bioimage analysis tasks",
+   "abstract": "Artificial-intelligence (AI) agents hold promise for automating bioimage analysis, yet no benchmark evaluates whether they can carry out real-world analyses end to end. Such analyses are hard for agents because 2D images, 3D volumes and time-lapse sequences are often too large to read as context, so an agent must choose and run an analysis through code, specialized software and rendered views. Published studies make this capability testable, because each pairs raw images with a peer-reviewed result. We introduce BIABench, a benchmark of 16 tasks reconstructed from published biological studies ",
    "authors": [
-    "Minki Kang",
-    "Ryo Hachiuma",
-    "Shaokun Zhang",
-    "Subhashree Radhakrishnan"
+    "Zixuan Pan",
+    "Davide Panzeri",
+    "Lukas Johanns",
+    "Marilin Moor"
    ],
-   "link": "https://huggingface.co/papers/2609.39982",
+   "link": "https://huggingface.co/papers/2609.34274",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-28T00:00",
+   "title_ar": "BIABench: تقييم وكلاء الذكاء الاصطناعي في مهام تحليل الصور الحيوية الواقعية",
+   "summary_ar": "يمتلك وكلاء الذكاء الاصطناعي إمكانات واعدة لأتمتة تحليل الصور الحيوية، غير أنه لا يوجد مقياس مرجعي يقيّم قدرتهم على إجراء تحليلات واقعية شاملة من البداية إلى النهاية. وتعد هذه التحليلات صعبة على الوكلاء لأن الصور ثنائية وثلاثية الأبعاد والتسلسلات الزمنية غالبًا ما تكون ضخمة للغاية بحيث يصعب إدراجها كسياق."
+  },
+  {
+   "id": "2609.39154",
+   "title": "DAGent: Evaluate-then-Grow Planning for Deep Research Agents",
+   "abstract": "Deep research tasks require agents to navigate large knowledge spaces, synthesize evidence across many sources, and adapt their plans as findings emerge. Directed acyclic graph (DAG)-based multi-agent systems suit this setting because they support parallel execution and isolate each sub-task within a focused dependency context. Yet existing DAG-based agents instantiate a task-level plan before execution and repair the graph only after failures or missing evidence are observed. This Plan-then-Patch strategy is brittle for deep research: the system commits most strongly when its evidence is weak",
+   "authors": [
+    "Hanwen Liu",
+    "Yuanfu Sun",
+    "Qiaoyu Tan"
+   ],
+   "link": "https://huggingface.co/papers/2609.39154",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-30T00:00",
-   "title_ar": "Mid-Harness: توسيع نطاق الإجراءات بين النموذج وحزام الاختبار لوكلاء الطرفية",
-   "summary_ar": "يعمل وكلاء الطرفية عبر توليدات احتمالية من النماذج، إلا أن القدرة على توليد إجراء مفيد لا تضمن تنفيذه بشكل موثوق. إذ يمكن لأمر سيئ (مثل تثبيت حزمة خاطئة) أن يغير البيئة بطرق تعيق التقدم اللاحق، حتى عندما يكون النموذج قادرًا على توليد إجراء أفضل."
-  },
-  {
-   "id": "2609.40316",
-   "title": "Scaling Laws for Looped Mixture of Experts",
-   "abstract": "Looped transformers and Mixture-of-Experts (MoE) offer complementary routes to efficient scaling: recurrence increases computational depth at fixed parameters, while MoE sparsity expands total capacity at fixed active compute. Yet existing scaling laws model recurrence or sparsity in isolation. In this work, we introduce Loop Scaling Laws, the first scaling law to jointly model recurrence and sparsity alongside model size and data. At its core is a bounded, sparsity-conditional recurrence mapping that characterizes the effective-parameter gain from looping and how sparsity raises this gain. Th",
-   "authors": [
-    "Yanbei Chen",
-    "Anirudh Goyal",
-    "Raghuraman Krishnamoorthi"
-   ],
-   "link": "https://huggingface.co/papers/2609.40316",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-30T00:00",
-   "title_ar": "قوانين التوسع لخليط الخبراء الحلقي",
-   "summary_ar": "توفر المحولات الحلقية وخليط الخبراء مسارات متكاملة للتوسع الفعال؛ إذ يزيد التكرار من العمق الحسابي عند ثبات المعلمات، بينما توسع ندرة خليط الخبراء السعة الإجمالية عند ثبات الحوسبة النشطة. ومع ذلك، فإن قوانين التوسع الحالية تصوغ التكرار أو الندرة بشكل منفصل."
-  },
-  {
-   "id": "2609.38660",
-   "title": "Breaking Babel: A Self-Evolving Multi-Agent System for Long-Form Subtitle Translation",
-   "abstract": "Long-form subtitle translation requires reasoning over discourse and cultural context spanning episodes or entire series, while maintaining consistent terminology and style. Existing single-LLM methods are largely sentence-level, and multi-agent systems often use static workflows that do not adapt to scene complexity or production context. We propose SMART, a Self-evolving Multi-Agent system for long-foRm subtitle Translation. During test-time training, SMART builds persistent series-level memory and translates a subset of sentences through a dynamic router and Mixture-of-Agents layer with too",
-   "authors": [
-    "Haibo Jin",
-    "Xinjie Li",
-    "Najmeh Sadoughi",
-    "Yang Liu"
-   ],
-   "link": "https://huggingface.co/papers/2609.38660",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-29T00:00",
-   "title_ar": "تحطيم بابل: نظام متعدد الوكلاء ذاتي التطور لترجمة الترجمات المرئية الطويلة",
-   "summary_ar": "تتطلب ترجمة الترجمات المرئية الطويلة محاكمة سياق الخطاب والسياق الثقافي عبر حلقات أو مسلسلات بأكملها، مع الحفاظ على اتساق المصطلحات والأسلوب. وتقتصر أساليب نموذج اللغة الكبير الفردي الحالية على مستوى الجملة إلى حد كبير، بينما تستخدم الأنظمة متعددة الوكلاء غالبًا تدفقات عمل ثابتة لا تتكيف."
+   "title_ar": "DAGent: تخطيط يعتمد على التقييم ثم النمو لوكلاء البحث المتعمق",
+   "summary_ar": "تتطلب مهام البحث المتعمق من الوكلاء استكشاف مساحات معرفية شاسعة، وتجميع الأدلة عبر مصادر متعددة، وتكييف خططهم مع ظهور النتائج. وتلائم الأنظمة متعددة الوكلاء القائمة على المخطط الموجه غير الدوري (DAG) هذا الإطار؛ لأنها تدعم التنفيذ المتوازي وتعزل كل مهمة فرعية ضمنه."
   }
  ],
  "n": 6
