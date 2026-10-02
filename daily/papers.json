@@ -1,108 +1,107 @@
 {
- "updated": "2026-10-02T08:52+00:00",
+ "updated": "2026-10-02T23:59+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.36820",
-   "title": "CorrGRPO: Correlation-Normalized GRPO for Multi-Reward Learning",
-   "abstract": "Group Relative Policy Optimization (GRPO) is widely used to train reasoning language models, where it computes advantages by centering and normalizing rewards across rollouts of the same prompt. For multiple rewards, GRPO sums the reward components and normalizes the total reward by its within-group standard deviation. The corresponding variance equals the sum of all pairwise reward covariances. For a fixed centered reward, larger aggregate covariance produces smaller advantages, and vice versa, allowing update magnitudes to adapt to reward dependence. However, correlated rewards with large sc",
+   "id": "2610.01092",
+   "title": "Ego2Act: Evaluating Goal-Directed Manipulation in Egocentric Video Generation",
+   "abstract": "Video generation models are increasingly being explored as world simulators for embodied planning and learning. To do so effectively, these models must not only generate visually appealing frames, but also predict how environments dynamically evolve when executing goal-directed actions. While evaluating these capabilities is crucial, existing benchmarks focus mainly on single short actions or step-by-step instructions. This leaves multi-step physical reasoning underexplored, especially in egocentric video generation that requires planning to simulate proper execution to accomplish high-level g",
    "authors": [
-    "Wenbin Hu",
-    "Huihao Jing",
-    "Haochen Shi",
-    "Yuxuan Liu"
+    "Patrick Amadeus Irawan",
+    "Iskandar Muda Rizky Parlambang",
+    "Rava Maulana",
+    "Qinrong Cui"
    ],
-   "link": "https://huggingface.co/papers/2609.36820",
+   "link": "https://huggingface.co/papers/2610.01092",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-01T00:00",
+   "title_ar": "إيجو تو آكت (Ego2Act): تقييم التلاعب الموجه بالهدف في توليد الفيديو من منظور الشخص الأول",
+   "summary_ar": "يُستكشف استخدام نماذج توليد الفيديو بشكل متزايد كمحاكيات للعالم من أجل التخطيط والتعلّم المتجسد. ولفعل ذلك بفعالية، لا يقتصر الأمر على توليد إطارات جذابة بصريًا، بل يجب عليها أيضًا التنبؤ بكيفية تطور البيئات ديناميكيًا عند تنفيذ إجراءات موجهة بالهدف."
+  },
+  {
+   "id": "2609.36435",
+   "title": "MemFold: Learning Compact Soft Memory for Long-Context Personalization via On-Policy Optimization",
+   "abstract": "An assistant that serves the same user over a long horizon has to answer from what that user has revealed: which preferences still hold, which were revised, and which constraints apply now. Retaining that information is not the same as acting on it, and the two are usually optimized as if they were. Keeping the information as text makes the reader's input grow with the retained history, while compressing it into a fixed number of latent vectors bounds the interface but is typically trained to reconstruct text or imitate reference answers, both of which are scored on sequences the reader never ",
+   "authors": [
+    "Jingxuan Wu",
+    "Yuzhe Yang",
+    "Yiqiao Huang",
+    "Chengzhi Liu"
+   ],
+   "link": "https://huggingface.co/papers/2609.36435",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-29T00:00",
-   "title_ar": "تحسين السياسة النسبية الجماعية بتطبيع الارتباط للتعلم متعدد المكافآت",
-   "summary_ar": "يُستخدم تحسين السياسة النسبية الجماعية على نطاق واسع لتدريب نماذج اللغة الاستدلالية، حيث يحسب الميزات بتوسيط المكافآت وتطبيعها عبر عمليات التنفيذ للمطالبة نفسها. وفي حالة المكافآت المتعددة، يجمع أسلوب GRPO مكونات المكافأة ويُطبّع المكافأة الإجمالية ضمن مجموعتها."
+   "title_ar": "ميم فولد (MemFold): تعلّم ذاكرة لينة ومدمجة لإضفاء الطابع الشخصي على السياقات الطويلة عبر التحسين المتبع للسياسة",
+   "summary_ar": "يجب على المساعد الذي يخدم نفس المستخدم على مدى أفق زمني طويل أن يُجيب انطلاقًا مما كشفه ذلك المستخدم: ما التفضيلات التي لا تزال قائمة، وما الذي تم تعديله، وما القيود المطبقة حاليًا. إن الاحتفاظ بتلك المعلومات يختلف عن التصرف بناءً عليها، وعادة ما يُجرى تحسين الأمرين كما لو كانا شيئًا واحدًا."
   },
   {
-   "id": "2610.01939",
-   "title": "Fewer Tokens, Better Action: GPT-6 Astra Robot Agents with 14% Higher Success Rate but 65% Fewer Tokens",
-   "abstract": "Vision language model (VLM) agents can control robots through visual feedback and action primitives, but repeated model invocations and redundant observations incur substantial token overhead. We introduce PyRUA-Lean, an interactive code-execution framework that couples feedback-driven primitive composition with selective observation: the agent composes classical robot primitives and learned vision-language-action (VLA) policies into Python cells that perform conditional checks and local retries, returning only explicitly requested images and state feedback for replanning. Across 700 simulated",
+   "id": "2610.00812",
+   "title": "Video Generation Models: A Survey of Post-Training and Alignment",
+   "abstract": "Video generation has rapidly progressed from short, low-quality clips to high-resolution, long-duration sequences with complex spatiotemporal dynamics. Despite strong generative priors learned through large-scale pretraining, pretrained video models often fail to reliably follow human intent, maintain temporal coherence, or satisfy physical and safety constraints. Compared with image and text generation, alignment in video generation presents unique challenges, including error accumulation over time, motion-appearance coupling, multi-objective trade-offs, and limited supervision for temporal p",
    "authors": [
-    "Ruiyang Si",
-    "Jianxin Bi",
-    "Shunyu Yang",
-    "Rui Ni"
+    "Chaoyu Li",
+    "Xiaoyi Gu",
+    "Yogesh Kulkarni",
+    "Eun Woo Im"
    ],
-   "link": "https://huggingface.co/papers/2610.01939",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-01T00:00",
-   "title_ar": "رموز أقل، وحركة أفضل: وكلاء روبوت GPT-6 Astra بنسبة نجاح أعلى بـ 14% ولكن برموز أقل بـ 65%",
-   "summary_ar": "يمكن لوكلاء نماذج اللغة والرؤية التحكم في الروبوتات عبر التغذية الراجعة البصرية والبدائيات الحركية، غير أن استدعاءات النماذج المتكررة والملاحظات الفائضة تفرض تكلفة باهظة في استهلاك الرموز. ويقدم البحث إطار PyRUA-Lean لتنفيذ الشيفرات تفاعليًا لربط البدائيات الموجهة بالتغذية الراجعة."
-  },
-  {
-   "id": "2610.01762",
-   "title": "OneStreamer: Unifying Perception, Memory, and Proactive Response in Streaming Video Interaction",
-   "abstract": "Streaming video LLMs must retain evidence before its relevance to future tasks is known and respond when sufficient evidence becomes available. The challenge is to form reusable factual memory without compromising real-time perception. We introduce OneStreamer, which jointly learns query-independent evidence recording and task response through a shared proactive generation process. Its Proactive Hierarchical Caption Memory (PHCM) produces time-grounded local-detail captions and summaries of completed events. Streaming caption targets supervise the interpretation of observed video prefixes duri",
-   "authors": [
-    "Xiangyu Zeng",
-    "Yuandong Yang",
-    "Zhiqiu Zhang",
-    "Yuhan Zhu"
-   ],
-   "link": "https://huggingface.co/papers/2610.01762",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-01T00:00",
-   "title_ar": "OneStreamer: توحيد الإدراك والذاكرة والاستجابة الاستباقية في التفاعل مع الفيديو المتدفق",
-   "summary_ar": "يتعين على نماذج اللغة الكبيرة للفيديو المتدفق الاحتفاظ بالأدلة قبل معرفة صلتها بالمهام المستقبلية، والاستجابة فور توفر أدلة كافية. ويكمن التحدي في تكوين ذاكرة وقائعية قابلة لإعادة الاستخدام دون الإخلال بالإدراك اللحظي، لذا يُقدَّم OneStreamer الذي يتعلم بصورة مشتركة تمثيلات مستقلة عن الاستعلام."
-  },
-  {
-   "id": "2610.01499",
-   "title": "VTR-Bench: A Systematic Benchmark for Evaluating Visual Text Rendering in Video Generation",
-   "abstract": "Recent video generation models can produce highly realistic videos from natural language instructions, with visual quality approaching cinematic standards. Existing evaluation benchmarks, however, predominantly assess visual quality, aesthetic appeal and physical plausibility, while paying limited attention to text, an essential medium for conveying information in everyday scenes. A generated video may appear visually compelling and feature lifelike subjects, yet still render the text within the scene incorrectly. To address this overlooked dimension, we introduce VTR-Bench, a systematic bench",
-   "authors": [
-    "Yu Huang",
-    "Jungang Li",
-    "Zhiyuan Wang",
-    "Yonghua Hei"
-   ],
-   "link": "https://huggingface.co/papers/2610.01499",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-01T00:00",
-   "title_ar": "VTR-Bench: معيار منهجي لتقييم تصيير النصوص المرئية في توليد الفيديو",
-   "summary_ar": "تستطيع نماذج توليد الفيديو الحديثة إنتاج مقاطع شديدة الواقعية من تعليمات باللغة الطبيعية وبجودة تقارب المعايير السينمائية. ومع ذلك، تُركز معايير التقييم الحالية بشكل أساسي على الجودة البصرية والجاذبية الجمالية والمعقولية الفيزيائية، مع إيلاء اهتمام محدود لتصيير النصوص."
-  },
-  {
-   "id": "2609.37533",
-   "title": "E-MoE: Enhanced Mixture-of-Experts for Non-Factorized Diffusion Language Models",
-   "abstract": "Masked diffusion models (MDMs) generate sequences by progressively unmasking several tokens per denoising step, but their reverse process is typically factorized over positions, limiting sample quality in the few-step regime where diffusion's speed advantage over autoregressive decoding matters most. A recent line of work introduces a continuous Gaussian latent, trained as a variational autoencoder, to capture correlations across positions, but such approaches are prone to posterior collapse, where the latent is silently ignored. We propose Enhanced Mixture-of-Experts (E-MoE), which builds the",
-   "authors": [
-    "Arseny Ivanov",
-    "Alexander Kolesov",
-    "Alexander Korotin",
-    "Ivan Oseledets"
-   ],
-   "link": "https://huggingface.co/papers/2609.37533",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-29T00:00",
-   "title_ar": "E-MoE: خليط خبراء مُعزَّز لنماذج لغة الانتشار غير المفككة",
-   "summary_ar": "تُولِّد نماذج الانتشار المقنّعة التسلسلات عبر إزالة القناع تدريجيًا عن عدة رموز في كل خطوة إزالة تشويش، غير أن عمليتها العكسية تُفكَّك عادةً عبر المواضع. ويؤدي هذا التفكيك إلى الحد من جودة العينات في نظام الخطوات القليلة، وهو النطاق الذي تبرز فيه ميزة سرعة الانتشار مقارنة بفك الترميز الانحداري الذاتي."
-  },
-  {
-   "id": "2609.39378",
-   "title": "EgoTools: Towards Tool-Centric Reasoning in Real-World Egocentric Videos",
-   "abstract": "Real-world embodied tasks, from everyday activities to professional procedures, require agents to act under physical constraints while tracking evolving object and task states. Tool use sits at the heart of such tasks, as many everyday and professional activities are tool-mediated. Understanding them requires reasoning about affordances, hand-tool-object geometry, procedural progress, and causal effects on target objects. Yet despite strong performance on perception-oriented video tasks such as captioning and general video QA, current multimodal video models remain limited in this form of tool",
-   "authors": [
-    "Shulin Tian",
-    "Junsu Kim",
-    "Shuai Liu",
-    "Hao Li"
-   ],
-   "link": "https://huggingface.co/papers/2609.39378",
+   "link": "https://huggingface.co/papers/2610.00812",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-30T00:00",
-   "title_ar": "EgoTools: نحو الاستدلال المتمحور حول الأدوات في فيديوهات المنظور الذاتي الواقعية",
-   "summary_ar": "تتطلب المهام المتجسدة في العالم الواقعي أن يعمل الوكلاء تحت قيود مادية مع تتبع الحالات المتطورة للكائنات والمهام. ويقع استخدام الأدوات في قلب هذه المهام؛ نظرًا لأن العديد من الأنشطة اليومية والمهنية تُنجز عبر الأدوات."
+   "title_ar": "نماذج توليد الفيديو: مسح شامل للتدريب اللاحق والمحاذاة",
+   "summary_ar": "تطور توليد الفيديو سريعًا من مقاطع قصيرة ومنخفضة الجودة إلى تسلسلات عالية الدقة وطويلة المدة ذات ديناميكيات زمانية مكانية معقدة. وعلى الرغم من الأوليات التوليدية القوية المكتسبة من خلال التدريب المسبق واسع النطاق، غالبًا ما تخفق نماذج الفيديو المدربة مسبقًا في اتباع القصد البشري بشكل موثوق."
+  },
+  {
+   "id": "2609.36388",
+   "title": "Persona Dosing: Calibrated Activation Steering for Graded Trait Control",
+   "abstract": "An activation-steering coefficient sets intervention strength, but requesting a particular degree of persona expression requires a behavioral scale. We study persona dosing: controlling a language model through a trait description and a requested mean intensity. PersonaDose specializes a shared, description-conditioned FLAS controller on persona responses, then calibrates its flow time against measured trait expression. Training responses are not paired with requested target intensities. Across Llama-3.1-8B, Qwen3-8B, and Gemma-3-4B, PersonaDose raises core-trait expression at the Persona Vect",
+   "authors": [
+    "Zehao Jin",
+    "Junran Wang",
+    "Ruixuan Deng",
+    "Jiahao Chen"
+   ],
+   "link": "https://huggingface.co/papers/2609.36388",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-28T00:00",
+   "title_ar": "جرعات الشخصية: توجيه التنشيط المعاير للتحكم المتدرج في السمات",
+   "summary_ar": "يحدد معامل توجيه التنشيط قوة التدخل، لكن طلب درجة معينة من التعبير عن الشخصية يتطلب مقياسًا سلوكيًا. نحن ندرس تجريع الشخصية: التحكم في نموذج لغوي من خلال وصف السمة وشدة متوسطة مطلوبة."
+  },
+  {
+   "id": "2609.36585",
+   "title": "Transformers Stop Thinking Too Early, and a Tiny LoRA Fixes It",
+   "abstract": "Pretrained transformers use little of their depth to follow references in context. Thirteen base models reliably follow only 1.4-3.6 lines, and extra pretrained loops add little. A task-trained rank-8 LoRA at one early layer extends this computation with all model weights frozen. Qwen3-8B improves from 15.5% to 99% exact accuracy on 24-line chains; a longer-trained LoRA reaches 50 lines. Ouro-1.4B reaches 60 lines after four loops and at least 160 after eight. The LoRA starts a relay: program lines pass on their chain identity through a short range of middle layers. Frozen heads read progressi",
+   "authors": [
+    "Zehao Jin",
+    "Ruixuan Deng",
+    "Junran Wang"
+   ],
+   "link": "https://huggingface.co/papers/2609.36585",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-29T00:00",
+   "title_ar": "المحولات تتوقف عن التفكير مبكرًا جدًا، ومحول LoRA دقيق يُصلح ذلك",
+   "summary_ar": "تستخدم المحولات المدربة مسبقًا قدرًا ضئيلًا من عمقها لتتبع المراجع في السياق، حيث تتتبع ثلاثة عشر نموذجًا أساسيًا ما بين 1.4 إلى 3.6 سطر فقط بشكل موثوق، ولا تضيف الحلقات الإضافية المدربة مسبقًا سوى القليل. ويعمل محول LoRA برتبة 8 مُدرّب على المهمة عند طبقة مبكرة واحدة على توسيع هذا الحساب مع تجميد جميع أوزان النموذج."
+  },
+  {
+   "id": "2609.37690",
+   "title": "Honeycomb: Constant-Size Scene Memory Representation for Video World Models",
+   "abstract": "Video world models require persistent scene memory to maintain consistency during long-horizon video generation. Existing spatial memories accumulate RGB observations or latent features, increasing storage requirements as generation proceeds. We introduce Honeycomb, a video world model built on HexMemory, our proposed low-rank representation for storing scene features in a fixed-size memory with a total of six spatial and spatiotemporal planes. A feed-forward writer maps each generated chunk into new plane features. As the spatial coverage or temporal range expands, we warp the previous planes",
+   "authors": [
+    "Jack Wei Lun Shi",
+    "Kaichen Zhou",
+    "Haoyu Chen",
+    "Yufeng Weng"
+   ],
+   "link": "https://huggingface.co/papers/2609.37690",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-30T00:00",
+   "title_ar": "هاني كومب (Honeycomb): تمثيل ذاكرة المشهد بحجم ثابت لنماذج الفيديو العالمية",
+   "summary_ar": "تتطلب نماذج الفيديو العالمية ذاكرة مشهد مستمرة للحفاظ على الاتساق أثناء توليد الفيديو على آفاق زمنية طويلة. وتراكم الذكريات المكانية الحالية ملاحظات RGB أو ميزات كامنة، مما يزيد من متطلبات التخزين مع استمرار عملية التوليد."
   }
  ],
  "n": 6
