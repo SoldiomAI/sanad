@@ -1,105 +1,108 @@
 {
- "updated": "2026-10-01T19:18+00:00",
+ "updated": "2026-10-02T08:52+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.38792",
-   "title": "Training LLM Judges from Language Feedback via Position-Selective Self-Distillation",
-   "abstract": "We study training LLM judges from natural language feedback, especially for subjective tasks where the verdict depends strongly on which evaluation criteria the judge invokes and how it weighs them. The dominant approach, outcome-supervised RL (e.g., GRPO), credits every token in the rollout with a single scalar determined only by the accuracy of the final verdict, providing no separate credit at the criterion-choice tokens and ignoring the rich language feedback (e.g., preference rationales) that naturally accompanies preference labels. Self-Distillation (SD) is one natural way to use this la",
+   "id": "2609.36820",
+   "title": "CorrGRPO: Correlation-Normalized GRPO for Multi-Reward Learning",
+   "abstract": "Group Relative Policy Optimization (GRPO) is widely used to train reasoning language models, where it computes advantages by centering and normalizing rewards across rollouts of the same prompt. For multiple rewards, GRPO sums the reward components and normalizes the total reward by its within-group standard deviation. The corresponding variance equals the sum of all pairwise reward covariances. For a fixed centered reward, larger aggregate covariance produces smaller advantages, and vice versa, allowing update magnitudes to adapt to reward dependence. However, correlated rewards with large sc",
    "authors": [
-    "Ilgee Hong",
-    "Changlong Yu",
-    "Zhenghao Xu",
-    "Xin Liu"
+    "Wenbin Hu",
+    "Huihao Jing",
+    "Haochen Shi",
+    "Yuxuan Liu"
    ],
-   "link": "https://huggingface.co/papers/2609.38792",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-30T00:00",
-   "title_ar": "تدريب النماذج اللغوية الكبيرة كحكام عبر التغذية الراجعة اللغوية بواسطة التقطير الذاتي الانتقائي للموضع",
-   "summary_ar": "نبحث في تدريب النماذج اللغوية الكبيرة كحكام بالاعتماد على التغذية الراجعة باللغة الطبيعية، لا سيما في المهام الذاتية التي يعتمد الحكم فيها بشدة على معايير التقييم التي يستند إليها الحكم وكيفية موازنته لها. ويمنح النهج السائد، وهو التعلم المعزز الخاضع للإشراف على النتائج (مثل GRPO)، الفضل لكل رمز في عملية التوليد."
-  },
-  {
-   "id": "2609.30840",
-   "title": "Aligning One-Step Generative Models with Reward-Weighted Transport Distillation",
-   "abstract": "One-step generators enable high-quality visual generation with a single network evaluation, but their post-training is difficult: general implicit generators provide neither tractable likelihoods nor denoising trajectories, and many rewards are non-differentiable. We introduce Reward-Weighted Transport Distillation (RWTD), a post-training method that requires only generated samples and scalar reward evaluations. Rather than aligning solely to the conventional reward-tilted reference distribution, RWTD constructs an adaptive target that mixes separately tilted current and reference distribution",
-   "authors": [
-    "Austin Wang",
-    "Ziheng Cheng",
-    "Lexing Ying"
-   ],
-   "link": "https://huggingface.co/papers/2609.30840",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-25T00:00",
-   "title_ar": "مواءمة النماذج التوليدية أحادية الخطوة عبر تقطير النقل الموزون بالمكافأة",
-   "summary_ar": "تتيح المولدات أحادية الخطوة توليدًا بصريًا عالي الجودة عبر تقييم شبكي واحد، غير أن تدريبها اللاحق صعب؛ فالنماذج الضمنية العامة لا توفر احتمالات قابلة للحساب ولا مسارات لإزالة التشويش، كما أن العديد من المكافآت غير قابلة للاشتقاق. ونقدم هنا طريقة النقل الموزون بالمكافأة."
-  },
-  {
-   "id": "2609.38658",
-   "title": "Tacit-TTS: From Autoregressive Decoding to Masked Prediction for Efficient Transcript-Free Voice Cloning",
-   "abstract": "TTS systems with autoregressive semantic modeling have demonstrated strong zero-shot voice cloning performance and rich expressive variation, but their sequential decoding incurs substantial latency. Non-autoregressive alternatives offer much faster generation, yet often rely on more restrictive reference conditioning, such as requiring transcripts of the reference speech during inference. We present Tacit-TTS, an efficient transcript-free zero-shot voice cloning system distilled from IndexTTS2. Our model replaces autoregressive text-to-semantic decoding with masked non-autoregressive generati",
-   "authors": [
-    "Jian Chen",
-    "You Zhang",
-    "Mark Vinton"
-   ],
-   "link": "https://huggingface.co/papers/2609.38658",
+   "link": "https://huggingface.co/papers/2609.36820",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-29T00:00",
-   "title_ar": "Tacit-TTS: من فك الترميز التراجعي التلقائي إلى التنبؤ المقنع لاستنساخ صوتي فعال دون نصوص",
-   "summary_ar": "أظهرت أنظمة تحويل النص إلى كلام ذات النمذجة الدلالية التراجعية التلقائية أداءً قويًا في استنساخ الصوت من الصفر وتنوعًا تعبيريًا غنيًا، إلا أن فك ترميزها التتابعي يتسبب في زمن انتقال كبير. ورغم أن البدائل غير التراجعية توفر توليدًا أسرع بكثير، إلا أنها غالبًا ما تعتمد على مراجع أكثر تقييدًا."
+   "title_ar": "تحسين السياسة النسبية الجماعية بتطبيع الارتباط للتعلم متعدد المكافآت",
+   "summary_ar": "يُستخدم تحسين السياسة النسبية الجماعية على نطاق واسع لتدريب نماذج اللغة الاستدلالية، حيث يحسب الميزات بتوسيط المكافآت وتطبيعها عبر عمليات التنفيذ للمطالبة نفسها. وفي حالة المكافآت المتعددة، يجمع أسلوب GRPO مكونات المكافأة ويُطبّع المكافأة الإجمالية ضمن مجموعتها."
   },
   {
-   "id": "2609.32720",
-   "title": "BiasReducer: Adaptive Bias Mitigation for Reward Models",
-   "abstract": "Reward models score responses from large language models (LLMs) and guide LLM training toward human preferences. However, reward models can favor superficial attributes such as length or confidence, leading LLMs to produce higher-scoring but not more correct responses. Existing mitigation methods either retrain the reward model or apply a fixed correction to one known bias, such as a preference for longer responses. Retraining requires additional data and computational resources, while existing editing methods require the target bias to be specified in advance and use a fixed edit for that bia",
+   "id": "2610.01939",
+   "title": "Fewer Tokens, Better Action: GPT-6 Astra Robot Agents with 14% Higher Success Rate but 65% Fewer Tokens",
+   "abstract": "Vision language model (VLM) agents can control robots through visual feedback and action primitives, but repeated model invocations and redundant observations incur substantial token overhead. We introduce PyRUA-Lean, an interactive code-execution framework that couples feedback-driven primitive composition with selective observation: the agent composes classical robot primitives and learned vision-language-action (VLA) policies into Python cells that perform conditional checks and local retries, returning only explicitly requested images and state feedback for replanning. Across 700 simulated",
    "authors": [
-    "Shuang Liu",
-    "Yongliang Miao",
-    "Yanguang Liu",
-    "Haoyi Xiong"
+    "Ruiyang Si",
+    "Jianxin Bi",
+    "Shunyu Yang",
+    "Rui Ni"
    ],
-   "link": "https://huggingface.co/papers/2609.32720",
+   "link": "https://huggingface.co/papers/2610.01939",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-26T00:00",
-   "title_ar": "BiasReducer: تخفيف التحيز التكيفي لنماذج المكافأة",
-   "summary_ar": "تسند نماذج المكافأة درجات لاستجابات النماذج اللغوية الكبيرة وتوجه تدريبها نحو التفضيلات البشرية. ومع ذلك، قد تحابي هذه النماذج سمات سطحية مثل الطول أو الثقة، مما يدفع النماذج اللغوية إلى إنتاج استجابات ذات درجات أعلى دون أن تكون أكثر صحة، في حين تعاني طرق التخفيف الحالية من أوجه قصور."
+   "published": "2026-10-01T00:00",
+   "title_ar": "رموز أقل، وحركة أفضل: وكلاء روبوت GPT-6 Astra بنسبة نجاح أعلى بـ 14% ولكن برموز أقل بـ 65%",
+   "summary_ar": "يمكن لوكلاء نماذج اللغة والرؤية التحكم في الروبوتات عبر التغذية الراجعة البصرية والبدائيات الحركية، غير أن استدعاءات النماذج المتكررة والملاحظات الفائضة تفرض تكلفة باهظة في استهلاك الرموز. ويقدم البحث إطار PyRUA-Lean لتنفيذ الشيفرات تفاعليًا لربط البدائيات الموجهة بالتغذية الراجعة."
   },
   {
-   "id": "2609.34274",
-   "title": "BIABench: Evaluating AI agents on real-world bioimage analysis tasks",
-   "abstract": "Artificial-intelligence (AI) agents hold promise for automating bioimage analysis, yet no benchmark evaluates whether they can carry out real-world analyses end to end. Such analyses are hard for agents because 2D images, 3D volumes and time-lapse sequences are often too large to read as context, so an agent must choose and run an analysis through code, specialized software and rendered views. Published studies make this capability testable, because each pairs raw images with a peer-reviewed result. We introduce BIABench, a benchmark of 16 tasks reconstructed from published biological studies ",
+   "id": "2610.01762",
+   "title": "OneStreamer: Unifying Perception, Memory, and Proactive Response in Streaming Video Interaction",
+   "abstract": "Streaming video LLMs must retain evidence before its relevance to future tasks is known and respond when sufficient evidence becomes available. The challenge is to form reusable factual memory without compromising real-time perception. We introduce OneStreamer, which jointly learns query-independent evidence recording and task response through a shared proactive generation process. Its Proactive Hierarchical Caption Memory (PHCM) produces time-grounded local-detail captions and summaries of completed events. Streaming caption targets supervise the interpretation of observed video prefixes duri",
    "authors": [
-    "Zixuan Pan",
-    "Davide Panzeri",
-    "Lukas Johanns",
-    "Marilin Moor"
+    "Xiangyu Zeng",
+    "Yuandong Yang",
+    "Zhiqiu Zhang",
+    "Yuhan Zhu"
    ],
-   "link": "https://huggingface.co/papers/2609.34274",
+   "link": "https://huggingface.co/papers/2610.01762",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-28T00:00",
-   "title_ar": "BIABench: تقييم وكلاء الذكاء الاصطناعي في مهام تحليل الصور الحيوية الواقعية",
-   "summary_ar": "يمتلك وكلاء الذكاء الاصطناعي إمكانات واعدة لأتمتة تحليل الصور الحيوية، غير أنه لا يوجد مقياس مرجعي يقيّم قدرتهم على إجراء تحليلات واقعية شاملة من البداية إلى النهاية. وتعد هذه التحليلات صعبة على الوكلاء لأن الصور ثنائية وثلاثية الأبعاد والتسلسلات الزمنية غالبًا ما تكون ضخمة للغاية بحيث يصعب إدراجها كسياق."
+   "published": "2026-10-01T00:00",
+   "title_ar": "OneStreamer: توحيد الإدراك والذاكرة والاستجابة الاستباقية في التفاعل مع الفيديو المتدفق",
+   "summary_ar": "يتعين على نماذج اللغة الكبيرة للفيديو المتدفق الاحتفاظ بالأدلة قبل معرفة صلتها بالمهام المستقبلية، والاستجابة فور توفر أدلة كافية. ويكمن التحدي في تكوين ذاكرة وقائعية قابلة لإعادة الاستخدام دون الإخلال بالإدراك اللحظي، لذا يُقدَّم OneStreamer الذي يتعلم بصورة مشتركة تمثيلات مستقلة عن الاستعلام."
   },
   {
-   "id": "2609.39154",
-   "title": "DAGent: Evaluate-then-Grow Planning for Deep Research Agents",
-   "abstract": "Deep research tasks require agents to navigate large knowledge spaces, synthesize evidence across many sources, and adapt their plans as findings emerge. Directed acyclic graph (DAG)-based multi-agent systems suit this setting because they support parallel execution and isolate each sub-task within a focused dependency context. Yet existing DAG-based agents instantiate a task-level plan before execution and repair the graph only after failures or missing evidence are observed. This Plan-then-Patch strategy is brittle for deep research: the system commits most strongly when its evidence is weak",
+   "id": "2610.01499",
+   "title": "VTR-Bench: A Systematic Benchmark for Evaluating Visual Text Rendering in Video Generation",
+   "abstract": "Recent video generation models can produce highly realistic videos from natural language instructions, with visual quality approaching cinematic standards. Existing evaluation benchmarks, however, predominantly assess visual quality, aesthetic appeal and physical plausibility, while paying limited attention to text, an essential medium for conveying information in everyday scenes. A generated video may appear visually compelling and feature lifelike subjects, yet still render the text within the scene incorrectly. To address this overlooked dimension, we introduce VTR-Bench, a systematic bench",
    "authors": [
-    "Hanwen Liu",
-    "Yuanfu Sun",
-    "Qiaoyu Tan"
+    "Yu Huang",
+    "Jungang Li",
+    "Zhiyuan Wang",
+    "Yonghua Hei"
    ],
-   "link": "https://huggingface.co/papers/2609.39154",
+   "link": "https://huggingface.co/papers/2610.01499",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-01T00:00",
+   "title_ar": "VTR-Bench: معيار منهجي لتقييم تصيير النصوص المرئية في توليد الفيديو",
+   "summary_ar": "تستطيع نماذج توليد الفيديو الحديثة إنتاج مقاطع شديدة الواقعية من تعليمات باللغة الطبيعية وبجودة تقارب المعايير السينمائية. ومع ذلك، تُركز معايير التقييم الحالية بشكل أساسي على الجودة البصرية والجاذبية الجمالية والمعقولية الفيزيائية، مع إيلاء اهتمام محدود لتصيير النصوص."
+  },
+  {
+   "id": "2609.37533",
+   "title": "E-MoE: Enhanced Mixture-of-Experts for Non-Factorized Diffusion Language Models",
+   "abstract": "Masked diffusion models (MDMs) generate sequences by progressively unmasking several tokens per denoising step, but their reverse process is typically factorized over positions, limiting sample quality in the few-step regime where diffusion's speed advantage over autoregressive decoding matters most. A recent line of work introduces a continuous Gaussian latent, trained as a variational autoencoder, to capture correlations across positions, but such approaches are prone to posterior collapse, where the latent is silently ignored. We propose Enhanced Mixture-of-Experts (E-MoE), which builds the",
+   "authors": [
+    "Arseny Ivanov",
+    "Alexander Kolesov",
+    "Alexander Korotin",
+    "Ivan Oseledets"
+   ],
+   "link": "https://huggingface.co/papers/2609.37533",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-29T00:00",
+   "title_ar": "E-MoE: خليط خبراء مُعزَّز لنماذج لغة الانتشار غير المفككة",
+   "summary_ar": "تُولِّد نماذج الانتشار المقنّعة التسلسلات عبر إزالة القناع تدريجيًا عن عدة رموز في كل خطوة إزالة تشويش، غير أن عمليتها العكسية تُفكَّك عادةً عبر المواضع. ويؤدي هذا التفكيك إلى الحد من جودة العينات في نظام الخطوات القليلة، وهو النطاق الذي تبرز فيه ميزة سرعة الانتشار مقارنة بفك الترميز الانحداري الذاتي."
+  },
+  {
+   "id": "2609.39378",
+   "title": "EgoTools: Towards Tool-Centric Reasoning in Real-World Egocentric Videos",
+   "abstract": "Real-world embodied tasks, from everyday activities to professional procedures, require agents to act under physical constraints while tracking evolving object and task states. Tool use sits at the heart of such tasks, as many everyday and professional activities are tool-mediated. Understanding them requires reasoning about affordances, hand-tool-object geometry, procedural progress, and causal effects on target objects. Yet despite strong performance on perception-oriented video tasks such as captioning and general video QA, current multimodal video models remain limited in this form of tool",
+   "authors": [
+    "Shulin Tian",
+    "Junsu Kim",
+    "Shuai Liu",
+    "Hao Li"
+   ],
+   "link": "https://huggingface.co/papers/2609.39378",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-30T00:00",
-   "title_ar": "DAGent: تخطيط يعتمد على التقييم ثم النمو لوكلاء البحث المتعمق",
-   "summary_ar": "تتطلب مهام البحث المتعمق من الوكلاء استكشاف مساحات معرفية شاسعة، وتجميع الأدلة عبر مصادر متعددة، وتكييف خططهم مع ظهور النتائج. وتلائم الأنظمة متعددة الوكلاء القائمة على المخطط الموجه غير الدوري (DAG) هذا الإطار؛ لأنها تدعم التنفيذ المتوازي وتعزل كل مهمة فرعية ضمنه."
+   "title_ar": "EgoTools: نحو الاستدلال المتمحور حول الأدوات في فيديوهات المنظور الذاتي الواقعية",
+   "summary_ar": "تتطلب المهام المتجسدة في العالم الواقعي أن يعمل الوكلاء تحت قيود مادية مع تتبع الحالات المتطورة للكائنات والمهام. ويقع استخدام الأدوات في قلب هذه المهام؛ نظرًا لأن العديد من الأنشطة اليومية والمهنية تُنجز عبر الأدوات."
   }
  ],
  "n": 6
