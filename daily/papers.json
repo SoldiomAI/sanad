@@ -1,7 +1,24 @@
 {
- "updated": "2026-10-02T23:59+00:00",
+ "updated": "2026-10-03T14:41+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
+  {
+   "id": "2609.22753",
+   "title": "Replacing Large Language Models with Jev Decision Models for Low-Latency Edge Service Orchestration",
+   "abstract": "Natural-language service requests can require a language-model decision before execution starts, consuming part of the request's latency budget. We integrate Jev's decision-oriented application programming interface (API) into edge service orchestration to reduce this overhead while retaining service completion. The integration extracts four to eight bounded intent fields and applies a shared validator, admission policy, and scheduler, accounting for decision waiting throughout the request timeline. We compare Jev, two self-hosted decision models, and three hosted large language models (LLMs) ",
+   "authors": [
+    "Delong Li",
+    "Xu Wang",
+    "Haochen Gong",
+    "Rui Lang"
+   ],
+   "link": "https://huggingface.co/papers/2609.22753",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-26T00:00",
+   "title_ar": "استبدال النماذج اللغوية الكبيرة بنماذج قرارات Jev لتنسيق خدمات الحافة منخفضة الكمون",
+   "summary_ar": "يمكن أن تتطلب طلبات الخدمة باللغة الطبيعية قرارًا من نموذج لغوي قبل بدء التنفيذ، مما يستهلك جزءًا من ميزانية زمن الكمون للطلب. قمنا بدمج واجهة برمجة التطبيقات الموجهة لاتخاذ القرارات من Jev في تنسيق خدمات الحافة لتقليل هذه الأعباء الإضافية مع الاحتفاظ بالخدمة."
+  },
   {
    "id": "2610.01092",
    "title": "Ego2Act: Evaluating Goal-Directed Manipulation in Egocentric Video Generation",
@@ -16,8 +33,8 @@
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-01T00:00",
-   "title_ar": "إيجو تو آكت (Ego2Act): تقييم التلاعب الموجه بالهدف في توليد الفيديو من منظور الشخص الأول",
-   "summary_ar": "يُستكشف استخدام نماذج توليد الفيديو بشكل متزايد كمحاكيات للعالم من أجل التخطيط والتعلّم المتجسد. ولفعل ذلك بفعالية، لا يقتصر الأمر على توليد إطارات جذابة بصريًا، بل يجب عليها أيضًا التنبؤ بكيفية تطور البيئات ديناميكيًا عند تنفيذ إجراءات موجهة بالهدف."
+   "title_ar": "Ego2Act: تقييم التلاعب الموجه نحو الهدف في توليد الفيديو من منظور الشخص الأول",
+   "summary_ar": "يجري استكشاف نماذج توليد الفيديو بشكل متزايد كمحاكيات للعالم من أجل التخطيط والتعلم المتجسد. ولفعل ذلك بفعالية، لا يجب على هذه النماذج توليد إطارات جذابة بصريًا فحسب، بل عليها أيضًا التنبؤ بكيفية تطور البيئات ديناميكيًا عند تنفيذ إجراءات موجهة نحو هدف محدد."
   },
   {
    "id": "2609.36435",
@@ -33,8 +50,8 @@
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-29T00:00",
-   "title_ar": "ميم فولد (MemFold): تعلّم ذاكرة لينة ومدمجة لإضفاء الطابع الشخصي على السياقات الطويلة عبر التحسين المتبع للسياسة",
-   "summary_ar": "يجب على المساعد الذي يخدم نفس المستخدم على مدى أفق زمني طويل أن يُجيب انطلاقًا مما كشفه ذلك المستخدم: ما التفضيلات التي لا تزال قائمة، وما الذي تم تعديله، وما القيود المطبقة حاليًا. إن الاحتفاظ بتلك المعلومات يختلف عن التصرف بناءً عليها، وعادة ما يُجرى تحسين الأمرين كما لو كانا شيئًا واحدًا."
+   "title_ar": "MemFold: تعلم ذاكرة لينة ومدمجة لإضفاء الطابع الشخصي في السياقات الطويلة عبر التحسين أثناء السياسة",
+   "summary_ar": "يجب على المساعد الذي يخدم نفس المستخدم على مدى زمني طويل أن يجيب استنادًا إلى ما كشفه ذلك المستخدم من تفضيلات لا تزال سارية أو تم تعديلها، والقيود المطبقة حاليًا. إن الاحتفاظ بتلك المعلومات ليس مماثلًا للعمل بموجبها، وعادة ما يجري تحسين الاثنين كما لو كانا شيئًا واحدًا."
   },
   {
    "id": "2610.00812",
@@ -50,8 +67,8 @@
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-30T00:00",
-   "title_ar": "نماذج توليد الفيديو: مسح شامل للتدريب اللاحق والمحاذاة",
-   "summary_ar": "تطور توليد الفيديو سريعًا من مقاطع قصيرة ومنخفضة الجودة إلى تسلسلات عالية الدقة وطويلة المدة ذات ديناميكيات زمانية مكانية معقدة. وعلى الرغم من الأوليات التوليدية القوية المكتسبة من خلال التدريب المسبق واسع النطاق، غالبًا ما تخفق نماذج الفيديو المدربة مسبقًا في اتباع القصد البشري بشكل موثوق."
+   "title_ar": "نماذج توليد الفيديو: مسح لما بعد التدريب والمحاذاة",
+   "summary_ar": "تقدم توليد الفيديو سريعًا من مقاطع قصيرة ومنخفضة الجودة إلى تسلسلات عالية الدقة وطويلة المدة ذات ديناميكيات مكانية وزمانية معقدة. وعلى الرغم من الأوليات التوليدية القوية المكتسبة من خلال التدريب المسبق واسع النطاق، غالبًا ما تفشل نماذج الفيديو المدربة مسبقًا في اتباع النية البشرية بشكل موثوق."
   },
   {
    "id": "2609.36388",
@@ -67,8 +84,8 @@
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-28T00:00",
-   "title_ar": "جرعات الشخصية: توجيه التنشيط المعاير للتحكم المتدرج في السمات",
-   "summary_ar": "يحدد معامل توجيه التنشيط قوة التدخل، لكن طلب درجة معينة من التعبير عن الشخصية يتطلب مقياسًا سلوكيًا. نحن ندرس تجريع الشخصية: التحكم في نموذج لغوي من خلال وصف السمة وشدة متوسطة مطلوبة."
+   "title_ar": "جرعات السمات الشخصية: توجيه التنشيط المعاير للتحكم المتدرج في السمات",
+   "summary_ar": "يحدد معامل توجيه التنشيط قوة التدخل، لكن طلب درجة معينة من التعبير عن السمة الشخصية يتطلب مقياسًا سلوكيًا. نحن ندرس جرعات السمات الشخصية، أي التحكم في نموذج اللغة عبر وصف للسمة والشدة المتوسطة المطلوبة، حيث تخصص أداة PersonaDose نموذجًا مشتركًا."
   },
   {
    "id": "2609.36585",
@@ -83,25 +100,8 @@
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-29T00:00",
-   "title_ar": "المحولات تتوقف عن التفكير مبكرًا جدًا، ومحول LoRA دقيق يُصلح ذلك",
-   "summary_ar": "تستخدم المحولات المدربة مسبقًا قدرًا ضئيلًا من عمقها لتتبع المراجع في السياق، حيث تتتبع ثلاثة عشر نموذجًا أساسيًا ما بين 1.4 إلى 3.6 سطر فقط بشكل موثوق، ولا تضيف الحلقات الإضافية المدربة مسبقًا سوى القليل. ويعمل محول LoRA برتبة 8 مُدرّب على المهمة عند طبقة مبكرة واحدة على توسيع هذا الحساب مع تجميد جميع أوزان النموذج."
-  },
-  {
-   "id": "2609.37690",
-   "title": "Honeycomb: Constant-Size Scene Memory Representation for Video World Models",
-   "abstract": "Video world models require persistent scene memory to maintain consistency during long-horizon video generation. Existing spatial memories accumulate RGB observations or latent features, increasing storage requirements as generation proceeds. We introduce Honeycomb, a video world model built on HexMemory, our proposed low-rank representation for storing scene features in a fixed-size memory with a total of six spatial and spatiotemporal planes. A feed-forward writer maps each generated chunk into new plane features. As the spatial coverage or temporal range expands, we warp the previous planes",
-   "authors": [
-    "Jack Wei Lun Shi",
-    "Kaichen Zhou",
-    "Haoyu Chen",
-    "Yufeng Weng"
-   ],
-   "link": "https://huggingface.co/papers/2609.37690",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-30T00:00",
-   "title_ar": "هاني كومب (Honeycomb): تمثيل ذاكرة المشهد بحجم ثابت لنماذج الفيديو العالمية",
-   "summary_ar": "تتطلب نماذج الفيديو العالمية ذاكرة مشهد مستمرة للحفاظ على الاتساق أثناء توليد الفيديو على آفاق زمنية طويلة. وتراكم الذكريات المكانية الحالية ملاحظات RGB أو ميزات كامنة، مما يزيد من متطلبات التخزين مع استمرار عملية التوليد."
+   "title_ar": "المحولات تتوقف عن التفكير مبكرًا جدًا، وتعديل LoRA ضئيل يصلح ذلك",
+   "summary_ar": "تستخدم المحولات المدربة مسبقًا القليل من عمقها لتتبع المراجع في السياق، حيث تتبع ثلاثة عشر نموذجًا أساسيًا ما بين 1.4 إلى 3.6 سطرًا فقط بشكل موثوق، ولا تضيف الحلقات المدربة مسبقًا الإضافية إلا القليل. يوسع تعديل LoRA برتبة 8 مُدرّب على المهمة عند إحدى الطبقات المبكرة هذا الحساب مع تجميد جميع أوزان النموذج، مما يحسن Qwen3-8B."
   }
  ],
  "n": 6
