@@ -1,107 +1,108 @@
 {
- "updated": "2026-10-04T20:22+00:00",
+ "updated": "2026-10-05T09:29+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.22753",
-   "title": "Replacing Large Language Models with Jev Decision Models for Low-Latency Edge Service Orchestration",
-   "abstract": "Natural-language service requests can require a language-model decision before execution starts, consuming part of the request's latency budget. We integrate Jev's decision-oriented application programming interface (API) into edge service orchestration to reduce this overhead while retaining service completion. The integration extracts four to eight bounded intent fields and applies a shared validator, admission policy, and scheduler, accounting for decision waiting throughout the request timeline. We compare Jev, two self-hosted decision models, and three hosted large language models (LLMs) ",
+   "id": "2609.34895",
+   "title": "LVMT: Video Mask Transformer for Long-term Video Segmentation",
+   "abstract": "Existing online video segmentation methods struggle to track objects in long, complex videos with long-term occlusions. We hypothesize that this limitation is caused by (i) the inability of their temporal propagation mechanism to adaptively select the object information that is propagated across time, and (ii) their inability to be trained on long videos due to memory requirements and vanishing gradients. To address the first limitation, we propose to use a lightweight GRU-based temporal propagation module that can learn to select which information it keeps in memory and propagates across time",
    "authors": [
-    "Delong Li",
-    "Xu Wang",
-    "Haochen Gong",
-    "Rui Lang"
+    "Narges Norouzi",
+    "Niccolò Cavagnero",
+    "Idil Esen Zulfikar",
+    "Bastian Leibe"
    ],
-   "link": "https://huggingface.co/papers/2609.22753",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-26T00:00",
-   "title_ar": "استبدال نماذج اللغة الكبيرة بنماذج قرارات Jev لتنسيق خدمات الحافة منخفضة الكمون",
-   "summary_ar": "يمكن أن تتطلب طلبات الخدمة باللغة الطبيعية قرارًا من نموذج لغوي قبل بدء التنفيذ، مما يستهلك جزءًا من ميزانية زمن الكمون للطلب. قمنا بدمج واجهة برمجة التطبيقات الموجهة للقرارات من Jev في تنسيق خدمات الحافة لتقليل هذا العبء الإضافي مع الحفاظ على الخدمة."
-  },
-  {
-   "id": "2610.01092",
-   "title": "Ego2Act: Evaluating Goal-Directed Manipulation in Egocentric Video Generation",
-   "abstract": "Video generation models are increasingly being explored as world simulators for embodied planning and learning. To do so effectively, these models must not only generate visually appealing frames, but also predict how environments dynamically evolve when executing goal-directed actions. While evaluating these capabilities is crucial, existing benchmarks focus mainly on single short actions or step-by-step instructions. This leaves multi-step physical reasoning underexplored, especially in egocentric video generation that requires planning to simulate proper execution to accomplish high-level g",
-   "authors": [
-    "Patrick Amadeus Irawan",
-    "Iskandar Muda Rizky Parlambang",
-    "Rava Maulana",
-    "Qinrong Cui"
-   ],
-   "link": "https://huggingface.co/papers/2610.01092",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-01T00:00",
-   "title_ar": "Ego2Act: تقييم التلاعب الموجه بالأهداف في توليد الفيديو من منظور الشخص الأول",
-   "summary_ar": "يجري استكشاف نماذج توليد الفيديو بشكل متزايد كمحاكيات للعالم من أجل التخطيط والتعلم المجسد. ولكي تقوم بذلك بفعالية، لا يجب على هذه النماذج توليد إطارات جذابة بصريًا فحسب، بل يجب عليها أيضًا التنبؤ بكيفية تطور البيئات ديناميكيًا عند تنفيذ إجراءات موجهة نحو الهدف."
-  },
-  {
-   "id": "2609.36435",
-   "title": "MemFold: Learning Compact Soft Memory for Long-Context Personalization via On-Policy Optimization",
-   "abstract": "An assistant that serves the same user over a long horizon has to answer from what that user has revealed: which preferences still hold, which were revised, and which constraints apply now. Retaining that information is not the same as acting on it, and the two are usually optimized as if they were. Keeping the information as text makes the reader's input grow with the retained history, while compressing it into a fixed number of latent vectors bounds the interface but is typically trained to reconstruct text or imitate reference answers, both of which are scored on sequences the reader never ",
-   "authors": [
-    "Jingxuan Wu",
-    "Yuzhe Yang",
-    "Yiqiao Huang",
-    "Chengzhi Liu"
-   ],
-   "link": "https://huggingface.co/papers/2609.36435",
+   "link": "https://huggingface.co/papers/2609.34895",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-29T00:00",
-   "title_ar": "MemFold: تعلم ذاكرة لينة مدمجة للتخصيص طويل السياق عبر التحسين على السياسة",
-   "summary_ar": "يجب على المساعد الذي يخدم المستخدم نفسه على مدى طويل أن يجيب استنادًا إلى ما كشفه ذلك المستخدم: ما التفضيلات التي لا تزال قائمة، وما الذي تم تعديله، وما القيود التي تنطبق الآن. إن الاحتفاظ بتلك المعلومات يختلف عن التصرف بناءً عليها، وعادةً ما يتم تحسين الاثنين كما لو كانا أمرًا واحدًا."
+   "title_ar": "LVMT: محول قناع الفيديو لتقطيع الفيديو طويل المدى",
+   "summary_ar": "تواجه الطرق الحالية المتصلة بالإنترنت لتقطيع الفيديو صعوبة في تتبع الكائنات في مقاطع الفيديو الطويلة والمعقدة ذات الاحتجاب طويل المدى. ونفترض أن هذا القصور يعود إلى عدم قدرة آلية التمرير الزمني لديها على الاختيار التكيفي لمعلومات الكائن المنقولة عبر الزمن."
   },
   {
-   "id": "2610.00812",
-   "title": "Video Generation Models: A Survey of Post-Training and Alignment",
-   "abstract": "Video generation has rapidly progressed from short, low-quality clips to high-resolution, long-duration sequences with complex spatiotemporal dynamics. Despite strong generative priors learned through large-scale pretraining, pretrained video models often fail to reliably follow human intent, maintain temporal coherence, or satisfy physical and safety constraints. Compared with image and text generation, alignment in video generation presents unique challenges, including error accumulation over time, motion-appearance coupling, multi-objective trade-offs, and limited supervision for temporal p",
+   "id": "2610.03509",
+   "title": "Efficient Reasoning Training Does Not Always Harm CoT Faithfulness and Monitorability",
+   "abstract": "Chain-of-thought (CoT) reasoning allows humans to inspect how large language models reach their answers, and oversee model behaviour. This reasoning comes at an increased inference cost, motivating efficient methods that train models to solve tasks using fewer tokens. However, a common concern is that such training may cause models to skip important reasoning steps, so the CoT no longer faithfully reflects the model's decision. It is unclear whether or when this occurs in practice, since different efficiency methods apply length pressure to models' CoT in distinct ways, and faithfully explaini",
    "authors": [
-    "Chaoyu Li",
-    "Xiaoyi Gu",
-    "Yogesh Kulkarni",
-    "Eun Woo Im"
+    "Samuel Lewis-Lim",
+    "Xingwei Tan",
+    "Mario Sanger",
+    "Zhixue Zhao"
    ],
-   "link": "https://huggingface.co/papers/2610.00812",
+   "link": "https://huggingface.co/papers/2610.03509",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-02T00:00",
+   "title_ar": "تدريب الاستدلال الفعال لا يضر دائمًا بصدق سلسلة الأفكار وقابليتها للمراقبة",
+   "summary_ar": "يتيح استدلال سلسلة الأفكار للبشر فحص كيفية وصول النماذج اللغوية الكبيرة إلى إجاباتها ومراقبة سلوكها، غير أنه يأتي بتكلفة استدلالية متزايدة تحفز إيجاد طرق فعالة تدرب النماذج على حل المهام باستخدام رموز أقل. ومع ذلك، هناك مخاوف شائعة من أن تقليل هذه الرموز قد يؤثر سلبًا."
+  },
+  {
+   "id": "2609.40153",
+   "title": "Dream4ACT: A Shared Visual Action Interface for Multi-Embodiment Video-Action Modeling",
+   "abstract": "Video generation models (VGMs) offer strong spatiotemporal priors for embodied observation--action modeling. However, joint-space action vectors lack explicit image-space structure and vary in dimensionality and semantics across embodiments, making it challenging to directly leverage the rich spatiotemporal priors of VGMs. End-effector visualizations provide an alternative but do not specify the full articulated configuration needed for robot execution. We present Dream4ACT, a world model built for joint video-action modeling across embodiments. To unify action representations across embodimen",
+   "authors": [
+    "Xiangyu Zhu",
+    "Jin Xu",
+    "Yue Guo",
+    "Xin Wu"
+   ],
+   "link": "https://huggingface.co/papers/2609.40153",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-30T00:00",
-   "title_ar": "نماذج توليد الفيديو: مسح لما بعد التدريب والمحاذاة",
-   "summary_ar": "تقدم توليد الفيديو سريعًا من مقاطع قصيرة ومنخفضة الجودة إلى تسلسلات عالية الدقة وطويلة المدة ذات ديناميكيات زمانية ومكانية معقدة. وعلى الرغم من الأوليات التوليدية القوية المكتسبة من خلال التدريب المسبق واسع النطاق، غالبًا ما تفشل نماذج الفيديو المدربة مسبقًا في اتباع القصد البشري بشكل موثوق والحفاظ عليه."
+   "title_ar": "Dream4ACT: واجهة حركة بصرية مشتركة لنمذجة حركة الفيديو متعددة التجسيد",
+   "summary_ar": "توفر نماذج توليد الفيديو أساسيات مكانية وزمانية قوية لنمذجة الملاحظة والحركة المجسدة. ومع ذلك، تفتقر متجهات الحركة في الفضاء المشترك إلى بنية صريحة في فضاء الصورة، وتختلف في أبعادها ودلالاتها عبر التجسيدات، مما يجعل الاستفادة المباشرة منها صعبة."
   },
   {
-   "id": "2609.36388",
-   "title": "Persona Dosing: Calibrated Activation Steering for Graded Trait Control",
-   "abstract": "An activation-steering coefficient sets intervention strength, but requesting a particular degree of persona expression requires a behavioral scale. We study persona dosing: controlling a language model through a trait description and a requested mean intensity. PersonaDose specializes a shared, description-conditioned FLAS controller on persona responses, then calibrates its flow time against measured trait expression. Training responses are not paired with requested target intensities. Across Llama-3.1-8B, Qwen3-8B, and Gemma-3-4B, PersonaDose raises core-trait expression at the Persona Vect",
+   "id": "2610.02521",
+   "title": "Spatial Memory Intelligence: Endowing World Models with Understanding-Driven Long-Term Memory",
+   "abstract": "Long-video generation and world models have shown strong potential for interactive entertainment and embodied simulation by predicting future observations conditioned on user actions and historical memory. However, as memory sequences grow longer and their structures become increasingly complex, managing long-range spatial context becomes increasingly challenging, calling for a more intelligent and systematic memory-management strategy. Building on the advancing spatial reasoning capabilities of multimodal large language models (MLLMs) and the broader vision of unified models, we propose Spati",
    "authors": [
-    "Zehao Jin",
-    "Junran Wang",
-    "Ruixuan Deng",
-    "Jiahao Chen"
+    "Ying Yang",
+    "Guiyu Zhang",
+    "Lianghua Huang",
+    "Chang Nie"
    ],
-   "link": "https://huggingface.co/papers/2609.36388",
+   "link": "https://huggingface.co/papers/2610.02521",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-28T00:00",
-   "title_ar": "جرعات الشخصية: توجيه التنشيط المعاير للتحكم المتدرج في السمات",
-   "summary_ar": "يحدد معامل توجيه التنشيط قوة التدخل، لكن طلب درجة معينة من التعبير عن الشخصية يتطلب مقياسًا سلوكيًا. نحن ندرس جرعات الشخصية: التحكم في نموذج لغوي من خلال وصف السمة ومستوى الشدة المتوسط المطلوب، حيث يخصص PersonaDose نموذجًا مشتركًا ومصممًا."
+   "published": "2026-10-01T00:00",
+   "title_ar": "ذكاء الذاكرة المكانية: تزويد نماذج العالم بذاكرة طويلة المدى مدفوعة بالفهم",
+   "summary_ar": "أظهر توليد مقاطع الفيديو الطويلة ونماذج العالم إمكانات قوية للترفيه التفاعلي والمحاكاة المجسدة من خلال التنبؤ بالملاحظات المستقبلية بالاعتماد على تصرفات المستخدم والذاكرة التاريخية. ومع ذلك، فإن إدارة هذه الذاكرة تزداد صعوبة مع طول سلاسلها وتعقد بنيتها."
   },
   {
-   "id": "2609.36585",
-   "title": "Transformers Stop Thinking Too Early, and a Tiny LoRA Fixes It",
-   "abstract": "Pretrained transformers use little of their depth to follow references in context. Thirteen base models reliably follow only 1.4-3.6 lines, and extra pretrained loops add little. A task-trained rank-8 LoRA at one early layer extends this computation with all model weights frozen. Qwen3-8B improves from 15.5% to 99% exact accuracy on 24-line chains; a longer-trained LoRA reaches 50 lines. Ouro-1.4B reaches 60 lines after four loops and at least 160 after eight. The LoRA starts a relay: program lines pass on their chain identity through a short range of middle layers. Frozen heads read progressi",
+   "id": "2610.00972",
+   "title": "VeriHarness: Scaling Agentic Verification for Long-Horizon Tasks",
+   "abstract": "As LLM agents undertake increasingly complex, long-horizon tasks, verifying their outputs becomes increasingly challenging. We study how verification capability can be strengthened with a fixed base model, without access to reference answers or grading rubrics at test time. Repeated sampling yields multiple rollouts that can contain complementary correct claims, but we need a reliable verification mechanism to determine which claims to trust. We first find that disagreement often exposes correct alternatives, while consensus can conceal errors. These observations motivate VeriHarness, which tu",
    "authors": [
-    "Zehao Jin",
-    "Ruixuan Deng",
-    "Junran Wang"
+    "Caiqi Zhang",
+    "Rujun Han",
+    "Zifeng Wang",
+    "Zoey CuiZhu"
    ],
-   "link": "https://huggingface.co/papers/2609.36585",
+   "link": "https://huggingface.co/papers/2610.00972",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-29T00:00",
-   "title_ar": "المحولات تتوقف عن التفكير مبكرًا جدًا، وLoRA صغيرة تصلح ذلك",
-   "summary_ar": "تستخدم المحولات المدربة مسبقًا القليل من عمقها لتتبع المراجع في السياق، حيث تتبع ثلاثة عشر نموذجًا أساسيًا 1.4 إلى 3.6 أسطر فقط بشكل موثوق، ولا تضيف الحلقات الإضافية المدربة مسبقًا سوى القليل. تعمل تقنية LoRA من الرتبة 8 المدربة على المهمة في طبقة مبكرة واحدة على توسيع هذا الحساب مع تجميد جميع أوزان النموذج، مما يحسن Qwen3-8B."
+   "published": "2026-10-01T00:00",
+   "title_ar": "VeriHarness: توسيع نطاق التحقق الوكيلي للمهام طويلة المدى",
+   "summary_ar": "يصبح التحقق من مخرجات وكلاء النماذج اللغوية الكبيرة تحديًا متزايدًا مع توليهم مهامًا طويلة المدى وأكثر تعقيدًا. لذا ندرس كيفية تعزيز قدرة التحقق باستخدام نموذج أساسي ثابت، ودون الوصول إلى إجابات مرجعية أو معايير تصحيح في وقت الاختبار."
+  },
+  {
+   "id": "2610.03391",
+   "title": "Native Action-Prior Learning from Videos for World Action Models",
+   "abstract": "World action models integrate future visual dynamics with robot action prediction, but their scalability remains limited by the need for action-annotated robot trajectories. Observation-only videos contain rich evidence about interaction dynamics, but existing approaches typically use them either to pretrain visual representations that must later be adapted for control, or to infer latent actions that are subsequently grounded to robot commands. We present NAVA-WAM, which introduces native action-prior learning by directly pretraining the action policy from observation-only videos, avoiding in",
+   "authors": [
+    "Zhaochong An",
+    "Fei Zhang",
+    "Menglin Jia",
+    "Duncan Frost"
+   ],
+   "link": "https://huggingface.co/papers/2610.03391",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-02T00:00",
+   "title_ar": "تعلم أولويات الحركة الأصلية من مقاطع الفيديو لنماذج حركة العالم",
+   "summary_ar": "تدمج نماذج حركة العالم الديناميكيات البصرية المستقبلية مع التنبؤ بحركة الروبوت، لكن قابليتها للتوسع تظل محدودة بالحاجة إلى مسارات روبوتية مشروحة بالحركات. ورغم أن مقاطع الفيديو القائمة على الملاحظة فقط تتضمن أدلة غنية حول ديناميكيات التفاعل، فإن الأساليب الحالية تستخدمها عادةً بشكل محدود."
   }
  ],
  "n": 6
