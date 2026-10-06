@@ -1,108 +1,105 @@
 {
- "updated": "2026-10-05T09:29+00:00",
+ "updated": "2026-10-06T00:37+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.34895",
-   "title": "LVMT: Video Mask Transformer for Long-term Video Segmentation",
-   "abstract": "Existing online video segmentation methods struggle to track objects in long, complex videos with long-term occlusions. We hypothesize that this limitation is caused by (i) the inability of their temporal propagation mechanism to adaptively select the object information that is propagated across time, and (ii) their inability to be trained on long videos due to memory requirements and vanishing gradients. To address the first limitation, we propose to use a lightweight GRU-based temporal propagation module that can learn to select which information it keeps in memory and propagates across time",
+   "id": "2610.00722",
+   "title": "JEPA-TTT: Persistent Test-Time Training of Latent World Models for Planning under Dynamics Shifts",
+   "abstract": "World models enable agents to plan by predicting future states of the environment, but their predictions can become unreliable when test-time dynamics differ from those seen during training. We present JEPA-TTT, which adapts the latent dynamics predictor of a pretrained action-conditioned Joint-Embedding Predictive Architecture world model throughout test time. Self-supervised updates accumulate across episodes, while the visual encoder and reward head remain fixed, preserving the pretrained representation and task objective. Planning requires neither a goal image nor online environment reward",
    "authors": [
-    "Narges Norouzi",
-    "Niccolò Cavagnero",
-    "Idil Esen Zulfikar",
-    "Bastian Leibe"
+    "Zheyuan Zhang",
+    "Suyu Ye",
+    "Nakul Agarwal",
+    "Hossein Nourkhiz Mahjoub"
    ],
-   "link": "https://huggingface.co/papers/2609.34895",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-29T00:00",
-   "title_ar": "LVMT: محول قناع الفيديو لتقطيع الفيديو طويل المدى",
-   "summary_ar": "تواجه الطرق الحالية المتصلة بالإنترنت لتقطيع الفيديو صعوبة في تتبع الكائنات في مقاطع الفيديو الطويلة والمعقدة ذات الاحتجاب طويل المدى. ونفترض أن هذا القصور يعود إلى عدم قدرة آلية التمرير الزمني لديها على الاختيار التكيفي لمعلومات الكائن المنقولة عبر الزمن."
-  },
-  {
-   "id": "2610.03509",
-   "title": "Efficient Reasoning Training Does Not Always Harm CoT Faithfulness and Monitorability",
-   "abstract": "Chain-of-thought (CoT) reasoning allows humans to inspect how large language models reach their answers, and oversee model behaviour. This reasoning comes at an increased inference cost, motivating efficient methods that train models to solve tasks using fewer tokens. However, a common concern is that such training may cause models to skip important reasoning steps, so the CoT no longer faithfully reflects the model's decision. It is unclear whether or when this occurs in practice, since different efficiency methods apply length pressure to models' CoT in distinct ways, and faithfully explaini",
-   "authors": [
-    "Samuel Lewis-Lim",
-    "Xingwei Tan",
-    "Mario Sanger",
-    "Zhixue Zhao"
-   ],
-   "link": "https://huggingface.co/papers/2610.03509",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-02T00:00",
-   "title_ar": "تدريب الاستدلال الفعال لا يضر دائمًا بصدق سلسلة الأفكار وقابليتها للمراقبة",
-   "summary_ar": "يتيح استدلال سلسلة الأفكار للبشر فحص كيفية وصول النماذج اللغوية الكبيرة إلى إجاباتها ومراقبة سلوكها، غير أنه يأتي بتكلفة استدلالية متزايدة تحفز إيجاد طرق فعالة تدرب النماذج على حل المهام باستخدام رموز أقل. ومع ذلك، هناك مخاوف شائعة من أن تقليل هذه الرموز قد يؤثر سلبًا."
-  },
-  {
-   "id": "2609.40153",
-   "title": "Dream4ACT: A Shared Visual Action Interface for Multi-Embodiment Video-Action Modeling",
-   "abstract": "Video generation models (VGMs) offer strong spatiotemporal priors for embodied observation--action modeling. However, joint-space action vectors lack explicit image-space structure and vary in dimensionality and semantics across embodiments, making it challenging to directly leverage the rich spatiotemporal priors of VGMs. End-effector visualizations provide an alternative but do not specify the full articulated configuration needed for robot execution. We present Dream4ACT, a world model built for joint video-action modeling across embodiments. To unify action representations across embodimen",
-   "authors": [
-    "Xiangyu Zhu",
-    "Jin Xu",
-    "Yue Guo",
-    "Xin Wu"
-   ],
-   "link": "https://huggingface.co/papers/2609.40153",
+   "link": "https://huggingface.co/papers/2610.00722",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-30T00:00",
-   "title_ar": "Dream4ACT: واجهة حركة بصرية مشتركة لنمذجة حركة الفيديو متعددة التجسيد",
-   "summary_ar": "توفر نماذج توليد الفيديو أساسيات مكانية وزمانية قوية لنمذجة الملاحظة والحركة المجسدة. ومع ذلك، تفتقر متجهات الحركة في الفضاء المشترك إلى بنية صريحة في فضاء الصورة، وتختلف في أبعادها ودلالاتها عبر التجسيدات، مما يجعل الاستفادة المباشرة منها صعبة."
+   "title_ar": "JEPA-TTT: تدريب مستمر لنماذج العالم الكامنة في وقت الاختبار للتخطيط تحت تغيرات الديناميكيات",
+   "summary_ar": "تتيح نماذج العالم للوكلاء التخطيط عبر التنبؤ بحالات البيئة المستقبلية، لكن تنبؤاتها قد تصبح غير موثوقة عند اختلاف ديناميكيات وقت الاختبار عن تدريبها. يقدم البحث JEPA-TTT، الذي يكيّف متنبئ الديناميكيات الكامنة لنموذج JEPA مسبق التدريب والمشروط بالأفعال."
   },
   {
-   "id": "2610.02521",
-   "title": "Spatial Memory Intelligence: Endowing World Models with Understanding-Driven Long-Term Memory",
-   "abstract": "Long-video generation and world models have shown strong potential for interactive entertainment and embodied simulation by predicting future observations conditioned on user actions and historical memory. However, as memory sequences grow longer and their structures become increasingly complex, managing long-range spatial context becomes increasingly challenging, calling for a more intelligent and systematic memory-management strategy. Building on the advancing spatial reasoning capabilities of multimodal large language models (MLLMs) and the broader vision of unified models, we propose Spati",
+   "id": "2609.34826",
+   "title": "WM-VLM: Probing Internal World Models for Interleaved Visual-Textual Reasoning",
+   "abstract": "Humans often solve spatial problems by mentally simulating visual transformations. In contrast, conventional vision-language models (VLMs) reason primarily through language. We investigate whether VLMs can solve spatial problems by reasoning with both text and generated visual states. To this end, we introduce WM-VLM, which equips a pretrained VLM with a lightweight world model branch for generating intermediate visual states. Our two-stage training first teaches the model to generate the next visual state and then to use that state for reasoning. We programmatically construct spatial reasonin",
    "authors": [
-    "Ying Yang",
-    "Guiyu Zhang",
-    "Lianghua Huang",
-    "Chang Nie"
+    "Yuheng Zha",
+    "Yilei Wang",
+    "Qiyue Gao",
+    "Junrong Chen"
    ],
-   "link": "https://huggingface.co/papers/2610.02521",
+   "link": "https://huggingface.co/papers/2609.34826",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-01T00:00",
-   "title_ar": "ذكاء الذاكرة المكانية: تزويد نماذج العالم بذاكرة طويلة المدى مدفوعة بالفهم",
-   "summary_ar": "أظهر توليد مقاطع الفيديو الطويلة ونماذج العالم إمكانات قوية للترفيه التفاعلي والمحاكاة المجسدة من خلال التنبؤ بالملاحظات المستقبلية بالاعتماد على تصرفات المستخدم والذاكرة التاريخية. ومع ذلك، فإن إدارة هذه الذاكرة تزداد صعوبة مع طول سلاسلها وتعقد بنيتها."
+   "published": "2026-09-28T00:00",
+   "title_ar": "WM-VLM: سبر نماذج العالم الداخلية للاستدلال البصري والنصي المتداخل",
+   "summary_ar": "يحل البشر المشكلات المكانية غالبًا عبر المحاكاة الذهنية للتحولات البصرية، بينما تستدل نماذج الرؤية واللغة التقليدية عبر اللغة في المقام الأول. تبحث هذه الورقة في قدرة نماذج الرؤية واللغة على حل المشكلات المكانية بالاستدلال معًا عبر النصوص والحالات البصرية المُولَّدة."
   },
   {
-   "id": "2610.00972",
-   "title": "VeriHarness: Scaling Agentic Verification for Long-Horizon Tasks",
-   "abstract": "As LLM agents undertake increasingly complex, long-horizon tasks, verifying their outputs becomes increasingly challenging. We study how verification capability can be strengthened with a fixed base model, without access to reference answers or grading rubrics at test time. Repeated sampling yields multiple rollouts that can contain complementary correct claims, but we need a reliable verification mechanism to determine which claims to trust. We first find that disagreement often exposes correct alternatives, while consensus can conceal errors. These observations motivate VeriHarness, which tu",
+   "id": "2610.02772",
+   "title": "Improving Atomic-Fact Recall via Focused Views in Unstructured Knowledge Editing",
+   "abstract": "Large language models (LLMs) increasingly serve as general-purpose interfaces to factual knowledge, but their parameters do not automatically reflect information that changes after pretraining. Knowledge editing (KE) provides a targeted alternative to costly retraining by modifying selected knowledge and preserving unrelated knowledge and general capabilities. Conventional KE uses structured factual triples, whereas unstructured KE (UKE) uses free-form passages containing multiple facts. Nonetheless, existing UKE editors exhibit a failure mode known as context reliance: edited LLMs can often r",
    "authors": [
-    "Caiqi Zhang",
-    "Rujun Han",
-    "Zifeng Wang",
-    "Zoey CuiZhu"
+    "Ding Wu",
+    "Ye Zhang",
+    "Haoyu Wang",
+    "Tianci Liu"
    ],
-   "link": "https://huggingface.co/papers/2610.00972",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-01T00:00",
-   "title_ar": "VeriHarness: توسيع نطاق التحقق الوكيلي للمهام طويلة المدى",
-   "summary_ar": "يصبح التحقق من مخرجات وكلاء النماذج اللغوية الكبيرة تحديًا متزايدًا مع توليهم مهامًا طويلة المدى وأكثر تعقيدًا. لذا ندرس كيفية تعزيز قدرة التحقق باستخدام نموذج أساسي ثابت، ودون الوصول إلى إجابات مرجعية أو معايير تصحيح في وقت الاختبار."
-  },
-  {
-   "id": "2610.03391",
-   "title": "Native Action-Prior Learning from Videos for World Action Models",
-   "abstract": "World action models integrate future visual dynamics with robot action prediction, but their scalability remains limited by the need for action-annotated robot trajectories. Observation-only videos contain rich evidence about interaction dynamics, but existing approaches typically use them either to pretrain visual representations that must later be adapted for control, or to infer latent actions that are subsequently grounded to robot commands. We present NAVA-WAM, which introduces native action-prior learning by directly pretraining the action policy from observation-only videos, avoiding in",
-   "authors": [
-    "Zhaochong An",
-    "Fei Zhang",
-    "Menglin Jia",
-    "Duncan Frost"
-   ],
-   "link": "https://huggingface.co/papers/2610.03391",
+   "link": "https://huggingface.co/papers/2610.02772",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-02T00:00",
-   "title_ar": "تعلم أولويات الحركة الأصلية من مقاطع الفيديو لنماذج حركة العالم",
-   "summary_ar": "تدمج نماذج حركة العالم الديناميكيات البصرية المستقبلية مع التنبؤ بحركة الروبوت، لكن قابليتها للتوسع تظل محدودة بالحاجة إلى مسارات روبوتية مشروحة بالحركات. ورغم أن مقاطع الفيديو القائمة على الملاحظة فقط تتضمن أدلة غنية حول ديناميكيات التفاعل، فإن الأساليب الحالية تستخدمها عادةً بشكل محدود."
+   "title_ar": "تحسين استرجاع الحقائق الذرية عبر الرؤى المركزة في تعديل المعرفة غير المنظمة",
+   "summary_ar": "تعمل نماذج اللغة الكبيرة كواجهات للمعرفة الواقعية، إلا أن أوزانها لا تعكس تلقائيًا المعلومات المتغيرة بعد التدريب المسبق. يوفر تعديل المعرفة بديلًا مستهدفًا لإعادة التدريب المكلفة عبر تعديل معارف مختارة."
+  },
+  {
+   "id": "2610.02710",
+   "title": "Self-Supervised Scaling of Terminal Environments for Scientific Domains",
+   "abstract": "Terminal agents are increasingly deployed beyond software engineering in science and other specialized domains. Constructing training environments requires executable reference behavior and a domain-specific verifier that distinguishes semantic correctness from superficially plausible artifacts. Authoring these components for each task requires repeated engineering and limits reuse. We introduce software-in-the-loop reconstruction, a self-supervised framework that obtains reference outputs and verification targets from existing software workflows, executable programs mapping structured inputs ",
+   "authors": [
+    "Zhongzhi Li",
+    "Yucheng Shi",
+    "Zongxia Li",
+    "Junyao Yang"
+   ],
+   "link": "https://huggingface.co/papers/2610.02710",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-02T00:00",
+   "title_ar": "التوسع الذاتي الإشراف لبيئات الطرفية في المجالات العلمية",
+   "summary_ar": "يتزايد نشر وكلاء سطر الأوامر (الطرفية) في العلوم والمجالات المتخصصة إلى جانب هندسة البرمجيات. يتطلب بناء بيئات التدريب سلوكًا مرجعيًا قابلًا للتنفيذ ومُدققًا خاصًا بالمجال للتمييز بين الصحة الدلالية والنتائج المعقولة ظاهريًا فقط."
+  },
+  {
+   "id": "2609.32759",
+   "title": "The Extender: A Log-Structured Transformer",
+   "abstract": "We introduce the Extender, a log-structured variant of the standard Transformer architecture. In a standard Transformer, each layer communicates with subsequent layers exclusively via the residual h, a superposition channel. The Extender adds a concatenation channel x: each layer ell emits both a residual update δ_ell which is added to h, and a much smaller extension ε_ell which is appended to x. While both the FFN and q see h, the attention kv projections take only x as input. As a result, the fully extended x contains the complete input for the kv projections of all layers, reducing the pers",
+   "authors": [
+    "Jakob Eriksson"
+   ],
+   "link": "https://huggingface.co/papers/2609.32759",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-26T00:00",
+   "title_ar": "The Extender: محول ذو هيكلية سجلية",
+   "summary_ar": "يقدم البحث نموذج \"The Extender\"، وهو متغير ذو هيكلية سجلية لبنية المحول القياسية. بينما تتواصل طبقات المحول القياسي حصرًا عبر قناة التراكب المتبقية، يضيف هذا النموذج قناة دمج تسلسلي تطلق فيها كل طبقة مخرجاتها."
+  },
+  {
+   "id": "2610.03710",
+   "title": "EyeRobot 2.0: Active Gaze for Precise Manipulation without Wrist Cameras",
+   "abstract": "Inspired by human vision, we introduce a framework using active gaze to enable fine-grained bimanual manipulation with only a single stereo camera. EyeRobot 2.0 physically attends to a 3D fixation point in the scene by swiveling two eye viewpoints to center their gaze on it. The resulting images are processed foveally by allocating more visual tokens to the image centers, focusing computation on task-relevant features. Such Active Visual Fixation (AVF) requires carefully coordinated gaze during task execution, which we accomplish hierarchically by first training a low-level gaze servoing polic",
+   "authors": [
+    "Kush Hari",
+    "Justin Kerr",
+    "Nidhya Shivakumar",
+    "Samarth Mahapatra"
+   ],
+   "link": "https://huggingface.co/papers/2610.03710",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-02T00:00",
+   "title_ar": "EyeRobot 2.0: التحديق النشط للمعالجة الدقيقة دون كاميرات معصم",
+   "summary_ar": "يقدم البحث إطار عمل مستوحى من الرؤية البشرية يعتمد على التحديق النشط لتمكين التلاعب الدقيق بكلتا اليدين عبر كاميرا ستيريو واحدة فقط. يركز EyeRobot 2.0 فيزيائيًا على نقطة تثبيت ثلاثية الأبعاد في المشهد عن طريق تدوير زوايا رؤية العينين لتوسيط نظرهما عليها."
   }
  ],
  "n": 6
