@@ -1,105 +1,104 @@
 {
- "updated": "2026-10-06T00:37+00:00",
+ "updated": "2026-10-06T14:24+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.00722",
-   "title": "JEPA-TTT: Persistent Test-Time Training of Latent World Models for Planning under Dynamics Shifts",
-   "abstract": "World models enable agents to plan by predicting future states of the environment, but their predictions can become unreliable when test-time dynamics differ from those seen during training. We present JEPA-TTT, which adapts the latent dynamics predictor of a pretrained action-conditioned Joint-Embedding Predictive Architecture world model throughout test time. Self-supervised updates accumulate across episodes, while the visual encoder and reward head remain fixed, preserving the pretrained representation and task objective. Planning requires neither a goal image nor online environment reward",
+   "id": "2609.32510",
+   "title": "GeoCR: Learning a Generalist Cloud Removal Prior from Heterogeneous Observations",
+   "abstract": "Cloud removal methods are typically specialized to individual datasets and input configurations, limiting reuse across sensors, spectral bands, and observation settings. We introduce GeoCR, a generalist model that unifies RGB-only-based CR and multispectral-based CR from single- or multi-temporal cloudy observations, with optional SAR guidance, within a single network. To accommodate different spectral and sensing domains, compact input and output stems extend a pretrained RGB autoencoder while keeping its encoder and decoder trunks frozen. This shared latent interface enables a single flow tr",
    "authors": [
-    "Zheyuan Zhang",
-    "Suyu Ye",
-    "Nakul Agarwal",
-    "Hossein Nourkhiz Mahjoub"
+    "Jeonghyeok Do",
+    "Munchurl Kim"
    ],
-   "link": "https://huggingface.co/papers/2610.00722",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-30T00:00",
-   "title_ar": "JEPA-TTT: تدريب مستمر لنماذج العالم الكامنة في وقت الاختبار للتخطيط تحت تغيرات الديناميكيات",
-   "summary_ar": "تتيح نماذج العالم للوكلاء التخطيط عبر التنبؤ بحالات البيئة المستقبلية، لكن تنبؤاتها قد تصبح غير موثوقة عند اختلاف ديناميكيات وقت الاختبار عن تدريبها. يقدم البحث JEPA-TTT، الذي يكيّف متنبئ الديناميكيات الكامنة لنموذج JEPA مسبق التدريب والمشروط بالأفعال."
-  },
-  {
-   "id": "2609.34826",
-   "title": "WM-VLM: Probing Internal World Models for Interleaved Visual-Textual Reasoning",
-   "abstract": "Humans often solve spatial problems by mentally simulating visual transformations. In contrast, conventional vision-language models (VLMs) reason primarily through language. We investigate whether VLMs can solve spatial problems by reasoning with both text and generated visual states. To this end, we introduce WM-VLM, which equips a pretrained VLM with a lightweight world model branch for generating intermediate visual states. Our two-stage training first teaches the model to generate the next visual state and then to use that state for reasoning. We programmatically construct spatial reasonin",
-   "authors": [
-    "Yuheng Zha",
-    "Yilei Wang",
-    "Qiyue Gao",
-    "Junrong Chen"
-   ],
-   "link": "https://huggingface.co/papers/2609.34826",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-28T00:00",
-   "title_ar": "WM-VLM: سبر نماذج العالم الداخلية للاستدلال البصري والنصي المتداخل",
-   "summary_ar": "يحل البشر المشكلات المكانية غالبًا عبر المحاكاة الذهنية للتحولات البصرية، بينما تستدل نماذج الرؤية واللغة التقليدية عبر اللغة في المقام الأول. تبحث هذه الورقة في قدرة نماذج الرؤية واللغة على حل المشكلات المكانية بالاستدلال معًا عبر النصوص والحالات البصرية المُولَّدة."
-  },
-  {
-   "id": "2610.02772",
-   "title": "Improving Atomic-Fact Recall via Focused Views in Unstructured Knowledge Editing",
-   "abstract": "Large language models (LLMs) increasingly serve as general-purpose interfaces to factual knowledge, but their parameters do not automatically reflect information that changes after pretraining. Knowledge editing (KE) provides a targeted alternative to costly retraining by modifying selected knowledge and preserving unrelated knowledge and general capabilities. Conventional KE uses structured factual triples, whereas unstructured KE (UKE) uses free-form passages containing multiple facts. Nonetheless, existing UKE editors exhibit a failure mode known as context reliance: edited LLMs can often r",
-   "authors": [
-    "Ding Wu",
-    "Ye Zhang",
-    "Haoyu Wang",
-    "Tianci Liu"
-   ],
-   "link": "https://huggingface.co/papers/2610.02772",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-02T00:00",
-   "title_ar": "تحسين استرجاع الحقائق الذرية عبر الرؤى المركزة في تعديل المعرفة غير المنظمة",
-   "summary_ar": "تعمل نماذج اللغة الكبيرة كواجهات للمعرفة الواقعية، إلا أن أوزانها لا تعكس تلقائيًا المعلومات المتغيرة بعد التدريب المسبق. يوفر تعديل المعرفة بديلًا مستهدفًا لإعادة التدريب المكلفة عبر تعديل معارف مختارة."
-  },
-  {
-   "id": "2610.02710",
-   "title": "Self-Supervised Scaling of Terminal Environments for Scientific Domains",
-   "abstract": "Terminal agents are increasingly deployed beyond software engineering in science and other specialized domains. Constructing training environments requires executable reference behavior and a domain-specific verifier that distinguishes semantic correctness from superficially plausible artifacts. Authoring these components for each task requires repeated engineering and limits reuse. We introduce software-in-the-loop reconstruction, a self-supervised framework that obtains reference outputs and verification targets from existing software workflows, executable programs mapping structured inputs ",
-   "authors": [
-    "Zhongzhi Li",
-    "Yucheng Shi",
-    "Zongxia Li",
-    "Junyao Yang"
-   ],
-   "link": "https://huggingface.co/papers/2610.02710",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-02T00:00",
-   "title_ar": "التوسع الذاتي الإشراف لبيئات الطرفية في المجالات العلمية",
-   "summary_ar": "يتزايد نشر وكلاء سطر الأوامر (الطرفية) في العلوم والمجالات المتخصصة إلى جانب هندسة البرمجيات. يتطلب بناء بيئات التدريب سلوكًا مرجعيًا قابلًا للتنفيذ ومُدققًا خاصًا بالمجال للتمييز بين الصحة الدلالية والنتائج المعقولة ظاهريًا فقط."
-  },
-  {
-   "id": "2609.32759",
-   "title": "The Extender: A Log-Structured Transformer",
-   "abstract": "We introduce the Extender, a log-structured variant of the standard Transformer architecture. In a standard Transformer, each layer communicates with subsequent layers exclusively via the residual h, a superposition channel. The Extender adds a concatenation channel x: each layer ell emits both a residual update δ_ell which is added to h, and a much smaller extension ε_ell which is appended to x. While both the FFN and q see h, the attention kv projections take only x as input. As a result, the fully extended x contains the complete input for the kv projections of all layers, reducing the pers",
-   "authors": [
-    "Jakob Eriksson"
-   ],
-   "link": "https://huggingface.co/papers/2609.32759",
+   "link": "https://huggingface.co/papers/2609.32510",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-26T00:00",
-   "title_ar": "The Extender: محول ذو هيكلية سجلية",
-   "summary_ar": "يقدم البحث نموذج \"The Extender\"، وهو متغير ذو هيكلية سجلية لبنية المحول القياسية. بينما تتواصل طبقات المحول القياسي حصرًا عبر قناة التراكب المتبقية، يضيف هذا النموذج قناة دمج تسلسلي تطلق فيها كل طبقة مخرجاتها."
+   "title_ar": "GeoCR: تعلم أساس عام لإزالة السحب من عمليات رصد غير متجانسة",
+   "summary_ar": "تتسم طرق إزالة السحب بتخصيصها لمجموعات بيانات وتكوينات إدخال فردية، مما يحد من إعادة استخدامها عبر مختلف المستشعرات والنطاقات الطيفية وإعدادات الرصد. يقدم البحث نموذج GeoCR، وهو نموذج عام يوحد إزالة السحب المعتمدة على صور RGB فقط وتلك المعتمدة على صور متعددة الأطياف، سواء من مدخلات أحادية أو متعددة الفترات الزمنية."
   },
   {
-   "id": "2610.03710",
-   "title": "EyeRobot 2.0: Active Gaze for Precise Manipulation without Wrist Cameras",
-   "abstract": "Inspired by human vision, we introduce a framework using active gaze to enable fine-grained bimanual manipulation with only a single stereo camera. EyeRobot 2.0 physically attends to a 3D fixation point in the scene by swiveling two eye viewpoints to center their gaze on it. The resulting images are processed foveally by allocating more visual tokens to the image centers, focusing computation on task-relevant features. Such Active Visual Fixation (AVF) requires carefully coordinated gaze during task execution, which we accomplish hierarchically by first training a low-level gaze servoing polic",
+   "id": "2609.37496",
+   "title": "GeoSET: Generalist Foundation Model for SAR-to-EO Image Translation",
+   "abstract": "Paired synthetic aperture radar (SAR) and electro-optical (EO) imagery is increasingly available across sensors, resolutions, and geographic regions. Yet existing SAR-to-EO image translation (SET) methods are typically trained on a single, limited-scale dataset, producing models specialized to particular sensing conditions. We introduce GeoSET, the first generalist model for SET, built around a single pretrained parent that is adapted to downstream datasets under a common protocol. We curate over 3 million high-quality SAR--EO pairs from a collection of more than 10 million SAR observations, s",
    "authors": [
-    "Kush Hari",
-    "Justin Kerr",
-    "Nidhya Shivakumar",
-    "Samarth Mahapatra"
+    "Jeonghyeok Do",
+    "Munchurl Kim"
    ],
-   "link": "https://huggingface.co/papers/2610.03710",
+   "link": "https://huggingface.co/papers/2609.37496",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-02T00:00",
-   "title_ar": "EyeRobot 2.0: التحديق النشط للمعالجة الدقيقة دون كاميرات معصم",
-   "summary_ar": "يقدم البحث إطار عمل مستوحى من الرؤية البشرية يعتمد على التحديق النشط لتمكين التلاعب الدقيق بكلتا اليدين عبر كاميرا ستيريو واحدة فقط. يركز EyeRobot 2.0 فيزيائيًا على نقطة تثبيت ثلاثية الأبعاد في المشهد عن طريق تدوير زوايا رؤية العينين لتوسيط نظرهما عليها."
+   "published": "2026-09-26T00:00",
+   "title_ar": "GeoSET: نموذج أساسي عام لنقل الصور من الرادار ذي الفتحة الاصطناعية (SAR) إلى الصور الكهروضوئية (EO)",
+   "summary_ar": "تتوافر الصور المزدوجة للرادار ذي الفتحة الاصطناعية (SAR) والصور الكهروضوئية (EO) بشكل متزايد عبر مستشعرات ودقات ومناطق جغرافية متعددة. ومع ذلك، تُدرب الطرق الحالية لنقل الصور من SAR إلى EO عادةً على مجموعة بيانات واحدة محدودة النطاق، مما ينتج نماذج متخصصة."
+  },
+  {
+   "id": "2610.05739",
+   "title": "HLA-WM: Hybrid Linear Attention for Long-Horizon Video World Models",
+   "abstract": "Long-horizon video world models require persistent memory to preserve scene consistency over extended rollouts. Softmax attention retains the full generation history through a growing KV cache, whereas recurrent linear attention compresses history into fixed-size states with substantially lower memory cost. However, we identify severe long-range forgetting in Gated DeltaNet (GDN), where information from distant but relevant scenes is progressively attenuated by subsequent state updates. To address this limitation, we propose HLA-WM, a training-free hybrid linear-attention framework that combin",
+   "authors": [
+    "Zhuokun Chen",
+    "Feng Chen",
+    "Xi Lin",
+    "Xiyu Wu"
+   ],
+   "link": "https://huggingface.co/papers/2610.05739",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-05T00:00",
+   "title_ar": "HLA-WM: انتباه خطي هجين لنماذج العالم المرئية ذات الآفاق الطويلة",
+   "summary_ar": "تتطلب نماذج العالم المرئية ذات الآفاق الطويلة ذاكرة مستمرة للحفاظ على اتساق المشهد عبر الفترات الممتدة. يحتفظ انتباه Softmax بتاريخ التوليد كاملاً عبر ذاكرة تخزين مؤقتة متزايدة للـ KV، بينما يضغط الانتباه الخطي المتكرر التاريخ في حالات ثابتة الحجم بذاكرة أقل بكثير."
+  },
+  {
+   "id": "2610.05538",
+   "title": "LiFT: Loop Flow Transformers",
+   "abstract": "We introduce Loop Flow Transformers (LiFT), a family of looped generative models that scales computation by repeatedly applying a shared Diffusion Transformer (DiT) core, with only light changes to the standard architecture. Rather than asking every recurrent step for the final prediction, LiFT trains each step with a single regression target: a point on a straight path from the model's initial estimate to the flow-matching target. Because we index these targets by a continuous depth coordinate, a trained model can loop far beyond its training depth with no retraining, early exits, or other mo",
+   "authors": [
+    "Mohammad Mahdi Derakhshani",
+    "Pedro M. P. Curvo",
+    "Gertjan J. Burghouts",
+    "Jan-Willem van de Meent"
+   ],
+   "link": "https://huggingface.co/papers/2610.05538",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-04T00:00",
+   "title_ar": "LiFT: محولات تدفق حلقية",
+   "summary_ar": "يقدم البحث محولات LiFT، وهي عائلة من النماذج التوليدية الحلقية التي تُوسّع الحوسبة عبر التطبيق المتكرر لنواة محول انتشار (DiT) مشتركة، مع تغييرات طفيفة فقط على البنية القياسية. وبدلاً من مطالبة كل خطوة متكررة بالتنبؤ النهائي، يدرب LiFT النموذج بطريقة مختلفة."
+  },
+  {
+   "id": "2609.35751",
+   "title": "How to Loop MoE: Flatten the Experts, Untie the Attention",
+   "abstract": "Looped Transformers reuse one block of layers several times: by spending extra computation they push a model of fixed size further, and so use its parameters more fully; while sparse mixture-of-experts (MoE) models activate only a few of many experts for each token. Looped MoE bridges these two design philosophies and gives MoE models new potential for better expert usage, but it raises a question: how to loop a MoE? We answer it with Foil. With the expert parameters and the expert compute per token held fixed, Foil (1) flattens the experts, halving the expert layers, doubling the experts per ",
+   "authors": [
+    "Shouren Wang",
+    "Chuang Ma",
+    "Mohsen Hariri",
+    "Debargha Ganguly"
+   ],
+   "link": "https://huggingface.co/papers/2609.35751",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-28T00:00",
+   "title_ar": "كيفية تكرار نماذج خليط الخبراء (MoE): تسطيح الخبراء وفك ارتباط الانتباه",
+   "summary_ar": "تعيد المحولات الحلقية استخدام كتلة من الطبقات عدة مرات، حيث تبذل حوسبة إضافية لتعزيز أداء نموذج ثابت الحجم واستغلال معلماته بالكامل، بينما تُفعّل نماذج خليط الخبراء (MoE) المتفرقة عدداً قليلاً فقط من الخبراء لكل رمز. يجمع نموذج Looped MoE بين هذين التصميمين."
+  },
+  {
+   "id": "2610.06425",
+   "title": "SoK: Semantic Decision Engines in Network Control Loops",
+   "abstract": "A semantic decision engine such as Jev can return a valid answer and still miss a network deadline, select an infeasible action or leave the service unverified. We systematize 139 paper families by decision interface, execution path and check ownership. Fifty families claim that their engine fits a control loop or time budget, but only four support the claim with matched measurement. Across all 139, four report deadline attainment. The gap concentrates where the decision has no deterministic computation step. Those 72 families make 22 of the claims, none supported, and name a coverage owner in",
+   "authors": [
+    "Delong Li",
+    "Chen Li",
+    "Xu Wang",
+    "Haochen Gong"
+   ],
+   "link": "https://huggingface.co/papers/2610.06425",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-05T00:00",
+   "title_ar": "تنظيم المعرفة: محركات القرار الدلالية في حلقات التحكم بالشبكات",
+   "summary_ar": "يمكن لمحرك القرار الدلالي مثل Jev تقديم إجابة صالحة ومع ذلك يتجاوز الموعد النهائي للشبكة، أو يختار إجراءً غير قابل للتنفيذ، أو يترك الخدمة دون تحقق. يقوم البحث بتصنيف 139 عائلة من الأوراق البحثية وفق واجهة القرار ومسار التنفيذ وملكيات الفحص، مع ادعاء خمسين عائلة ملاءمة محركها."
   }
  ],
  "n": 6
