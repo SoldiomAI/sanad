@@ -1,106 +1,108 @@
 {
- "updated": "2026-10-07T04:23+00:00",
+ "updated": "2026-10-07T17:57+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.07767",
-   "title": "TRACE: Rollout-Guided Quantization-Aware Training for FP4 Reinforcement Learning of MoE Language Models",
-   "abstract": "Reinforcement learning (RL) for post-training large language models (LLMs) incurs substantial computation and memory overhead during rollout generation, which motivates low-precision rollout for efficient RL training. However, existing FP4 RL methods suffer from a key limitation: they primarily optimize quantization accuracy on the training and rollout paths independently rather than directly reducing the discrepancy between the two quantized execution paths. In this work, we propose TRACE (Train-Rollout Quantization Alignment via Compact GuidancE), an FP4 quantization framework for RL trainin",
+   "id": "2610.07557",
+   "title": "CheckerBench: Can Long-Horizon Agents Synthesize Static-Analysis Checkers?",
+   "abstract": "Static-analysis checker synthesis requires agents to interpret a defect specification, inspect a repository, implement analyzer-specific logic, and refine the checker through repeated compilation and analysis feedback. Existing coding-agent benchmarks focus on tasks such as patch generation or vulnerability detection and rarely assess whether an agent can develop a working checker in a repository from start to finish. We introduce CheckerBench, an executable benchmark of 300 tasks derived from 297 CVEs across 167 repositories, 85 CWEs, and five language ecosystems. Each task includes vulnerabl",
    "authors": [
-    "Xin Wang",
-    "Hao Yu",
-    "Zhengyang Zhuge",
-    "Bochao Mao"
+    "Hang He",
+    "Li Wang",
+    "Hao Chen",
+    "Yuchen Shao"
    ],
-   "link": "https://huggingface.co/papers/2610.07767",
+   "link": "https://huggingface.co/papers/2610.07557",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-06T00:00",
-   "title_ar": "TRACE: تدريب مدرك للتكميم موجه بالاستكشاف لتعلم التعزيز بدقة FP4 لنماذج لغة خبير المزيج",
-   "summary_ar": "يتكبد التعلم المعزز لتدريب نماذج اللغة الكبيرة نفقات حسابية وذاكرة كبيرة أثناء توليد الاستكشافات، مما يدفع لاستخدام استكشاف منخفض الدقة لتدريب أكثر كفاءة. ومع ذلك، تعاني أساليب FP4 الحالية في التعلم المعزز من قيود رئيسية تتمثل في تحسينها المحدود."
+   "title_ar": "تشيكر بنش: هل تستطيع الوكلاء طويلي المدى تركيب فواحص التحليل الساكن؟",
+   "summary_ar": "يتطلب تركيب فاحص التحليل الساكن من الوكلاء تفسير مواصفات العيوب، وفحص المستودع، وتنفيذ منطق خاص بالمحلل، وتحسين الفاحص عبر تغذية راجعة متكررة من الترجمة البرمجية والتحليل. تركز مقاييس أداء وكلاء البرمجة الحالية على مهام مثل توليد التصحيحات البرمجية."
   },
   {
-   "id": "2610.03607",
-   "title": "World Action Learning via Interaction-Centric Spectral Latent Guidance",
-   "abstract": "Learning general-purpose robot policies requires large-scale real-world interaction data, yet collecting robot demonstrations remains expensive and difficult to scale. Egocentric videos offer abundant human interaction experience with task-relevant semantics for robotic manipulation, but direct transfer is challenging for two reasons: latent actions inferred from frame reconstruction can be dominated by nuisance variation such as ego-camera motion, and human and robot behaviors often exhibit different temporal dynamics. We propose WING (World Action Learning via INteraction-Centric Spectral La",
+   "id": "2610.08778",
+   "title": "Sherpa: Teaching LLMs to Teach Adaptively",
+   "abstract": "Large language models (LLMs) have become increasingly capable problem solvers, but being able to solve a problem is not the same as being able to teach it. Existing approaches to training LLMs as teachers rely on demonstrations, preference data, or predefined pedagogical criteria that specify what good teaching looks like. However, these signals are often not grounded in individual student learning outcomes, where effective teaching strategies can vary substantially across learners. To address this, we introduce Sherpa, a multi-turn reinforcement learning framework that instantiates multiple s",
    "authors": [
-    "Zhiming Liu",
-    "Yikun Miao",
-    "Ying Chen",
-    "Hongrui Yin"
+    "Weixian Xu",
+    "Yanzhe Zhang",
+    "Zora Zhiruo Wang",
+    "Changyu Chen"
    ],
-   "link": "https://huggingface.co/papers/2610.03607",
+   "link": "https://huggingface.co/papers/2610.08778",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-06T00:00",
+   "title_ar": "شيربا: تعليم النماذج اللغوية الكبيرة التدريس بشكل تكيفي",
+   "summary_ar": "أصبحت النماذج اللغوية الكبيرة قادرة على حل المشكلات بشكل متزايد، لكن القدرة على حل مشكلة لا تعني بالضرورة القدرة على تدريسها. تعتمد الأساليب الحالية لتدريب هذه النماذج كمعلمين على العروض التوضيحية، أو بيانات التفضيل، أو معايير تربوية محددة مسبقًا تحدد الأسلوب الجيد."
+  },
+  {
+   "id": "2609.40127",
+   "title": "Learning Functional Subspaces for Neural Network Compression",
+   "abstract": "Modern transformers pair impressive capabilities with substantial memory and compute demands. Low-rank weight factorization reduces both while keeping the matrices dense, and thus efficient on standard hardware. Existing methods, however, choose the subspace to remove from each weight matrix with local closed-form criteria: activation energy, layer-wise reconstruction error, or a quadratic approximation of the loss. These criteria ignore how errors propagate through the network, so at high compression the errors compound with depth and performance collapses. We introduce Learnable Subspace Pro",
+   "authors": [
+    "Massimo Bini",
+    "Anders Christensen",
+    "Stephan Alaniz",
+    "Judah Goldfeder"
+   ],
+   "link": "https://huggingface.co/papers/2609.40127",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-30T00:00",
+   "title_ar": "تعلم الفضاءات الجزئية الوظيفية لضغط الشبكات العصبية",
+   "summary_ar": "تجمع محولات المحولات الحديثة بين القدرات المذهلة ومتطلبات الذاكرة والحوسبة الكبيرة. يقلل التحليل إلى عوامل للمصفوفات منخفضة الرتبة من هذه المتطلبات مع إبقاء المصفوفات كثيفة وفعالة على العتاد القياسي، غير أن الطرق الحالية تختار الفضاء الجزئي المراد حذفه من كل مصفوفة أوزان بـ."
+  },
+  {
+   "id": "2610.07348",
+   "title": "Stepped MoE: Segment-Level Routing with Configurable Inference Complexity",
+   "abstract": "Training large language models (LLMs) is resource-intensive, and adapting them for diverse deployment scenarios with varying computational constraints remains challenging. While elastic architectures enable flexible model deployment and sparsely activated models allow input-adaptive computation, existing approaches treat these dimensions independently. Moreover, models catered towards on-device edge inference need to conform to the memory and compute limitations of the serving devices. In this paper, we introduce a unified framework that combines elastic structures with sparsely gated architec",
+   "authors": [
+    "Arnav Kundu",
+    "Zhaoyang Xu",
+    "Bairu Hou",
+    "Chang Gao"
+   ],
+   "link": "https://huggingface.co/papers/2610.07348",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-05T00:00",
+   "title_ar": "خبير متعدد متدرج: التوجيه على مستوى المقاطع بتعقيد استدلالي قابل للضبط",
+   "summary_ar": "يُعد تدريب النماذج اللغوية الكبيرة مستهلكًا للموارد، ولا يزال تكييفها مع سيناريوهات نشر متنوعة ذات قيود حوسبية متفاوتة يمثل تحديًا. ورغم أن البنى المرنة تتيح نشرًا مرنًا للنماذج وتسمح النماذج المفعلة قليلًا بحوسبة متكيفة مع المدخلات، فإن الطرق الحالية."
+  },
+  {
+   "id": "2610.00864",
+   "title": "Kinematic MeanFlow: One-Step Action Generation Policy for Robotic Foundation Models",
+   "abstract": "In this paper, we study how to achieve one-step action generation in Robotic Foundation Models (RFMs), aiming to overcome the high inference latency of multi-step flow matching. MeanFlow provides a promising framework for this goal, yet its direct application leads to performance collapse. We discover that this stems from two distinctive dynamics exhibited in the RFM velocity field: (1) the ``local acceleration\" exhibits stability early on, but surges sharply towards the end of the denoising process, and (2) the spread of its magnitudes across samples widens as denoising progresses. To address",
+   "authors": [
+    "Jiawei Fan",
+    "Sifeng Wang",
+    "Yuqing Hou",
+    "Anbang Yao"
+   ],
+   "link": "https://huggingface.co/papers/2610.00864",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-01T00:00",
+   "title_ar": "التدفق المتوسط الحركي: سياسة توليد الإجراءات بخطوة واحدة للنماذج التأسيسية للروبوتات",
+   "summary_ar": "ندرس في هذه الورقة كيفية تحقيق توليد الإجراءات بخطوة واحدة في النماذج التأسيسية للروبوتات للتغلب على زمن انتقال الاستدلال العالي لمطابقة التدفق متعددة الخطوات. يوفر \"التدفق المتوسط\" إطارًا واعدًا لهذا الهدف، غير أن تطبيقه المباشر يؤدي إلى انهيار الأداء."
+  },
+  {
+   "id": "2610.02781",
+   "title": "OPD Before RL: Warm-Starting Rubric-Based RL with On-Policy Distillation",
+   "abstract": "Many useful language-model tasks cannot be evaluated by exact outcome verification. Rubric-based reinforcement learning (RL) addresses this issue by scoring open-ended responses against explicit criteria. However, because the reward is assigned after the complete response, the training signal does not directly identify which individual decisions contributed to the final score. We propose a two-stage training framework that uses rubrics first as privileged teacher context for dense token-level supervision, then as rewards for further RL. In the first stage, rubric-privileged on-policy distillat",
+   "authors": [
+    "Xinpeng Wang",
+    "Wei Shi",
+    "Yu-Chia Chen",
+    "Maria Zontak"
+   ],
+   "link": "https://huggingface.co/papers/2610.02781",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-02T00:00",
-   "title_ar": "تعلم حركة العالم عبر التوجيه الكامن الطيفي المتمركز حول التفاعل",
-   "summary_ar": "يتطلب تعلم سياسات الروبوتات العامة بيانات تفاعل واقعية واسعة النطاق، غير أن جمع العروض التوضيحية يظل مكلفاً وصعب التوسع. وتوفر مقاطع الفيديو من منظور الشخص الأول خبرة تفاعل بشري وفيرة بدلالات مرتبطة بالمهام للتلاعب الروبوتي، إلا أن النقل المباشر يواجه تحديات."
-  },
-  {
-   "id": "2610.07785",
-   "title": "Attacca: Goal-Directed Control under State Continuity for Long-Horizon Embodied Agents",
-   "abstract": "A central capability of embodied agents is to accomplish complex objectives through sequences of interdependent tasks. Yet existing visual goal-conditioned policies underlying these agents are typically evaluated on isolated interactions where the target is already visible, and thus do not capture the conditions that arise during continuous long-horizon task execution. In such settings, each task begins from the state left by the previous one: the agent may end at a different position and orientation, the world may have been modified, and the next interaction target may lie outside the current",
-   "authors": [
-    "Gyusik Seo",
-    "Jaehong Yoon"
-   ],
-   "link": "https://huggingface.co/papers/2610.07785",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-06T00:00",
-   "title_ar": "Attacca: التحكم الموجه بالهدف في ظل استمرارية الحالة للوكلاء المجسدين طويلي المدى",
-   "summary_ar": "تعد القدرة على إنجاز الأهداف المعقدة عبر سلاسل من المهام المترابطة قدرة أساسية للوكلاء المجسدين. ومع ذلك، تُقيّم السياسات الحالية المشروطة بالأهداف المرئية عادةً في تفاعلات منعزلة يكون الهدف فيها مرئياً بالفعل، وبالتالي لا تعكس الواقع الكامل."
-  },
-  {
-   "id": "2610.05966",
-   "title": "HuatuoGPT-3: RL-Only Domain Adaptation from Base Models",
-   "abstract": "Domain adaptation aims to turn a general-purpose large language model (LLM) into an expert for a target domain. While the dominant SFT+RL pipeline offers a convenient cold start, it may reduce exploration diversity and introduces additional complexity through multi-stage optimization. These limitations motivate RL-only adaptation. However, pure on-policy RL suffers from a cold-start problem, while mixed-policy RL still falls short: informative tokens in teacher outputs are learned too slowly in early training, and stale teacher outputs can hinder later improvement. We identify these two failur",
-   "authors": [
-    "Junying Chen",
-    "Xinyuan Xie",
-    "Ziniu Li",
-    "Wenyuan Gu"
-   ],
-   "link": "https://huggingface.co/papers/2610.05966",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-05T00:00",
-   "title_ar": "HuatuoGPT-3: تكييف المجال بالاعتماد فقط على التعلم المعزز من النماذج الأساسية",
-   "summary_ar": "يهدف تكييف المجال إلى تحويل نموذج لغة كبير عام إلى خبير في مجال مستهدف. ورغم أن مسار التدريب الشائع (SFT+RL) يتيح بداية مريحة، فإنه قد يقلل من تنوع الاستكشاف ويزيد من التعقيد عبر التحسين متعدد المراحل."
-  },
-  {
-   "id": "2610.07588",
-   "title": "Personal-Agent Mediated Recommendation with Cross-Platform User History",
-   "abstract": "Modern recommendation is shifting from platform-centric personalization toward user-governed personalization, where a personal LLM agent can act on the user's behalf across services. We formalize this emerging paradigm as Personal-Agent Mediated Recommendation: a platform recommender ranks a candidate set using platform-local information, and a personal agent uses user-authorized cross-platform history to mediate the resulting ranking and produce the final top-K slate. Such mediation is nontrivial: the platform ranking can encode strong population evidence that the personal agent cannot observ",
-   "authors": [
-    "Yu Xia",
-    "Jiangfan Zhang",
-    "Jun Xiao",
-    "Julian McAuley"
-   ],
-   "link": "https://huggingface.co/papers/2610.07588",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-06T00:00",
-   "title_ar": "التوصية عبر وكيل شخصي باستخدام تاريخ المستخدم عبر المنصات",
-   "summary_ar": "ينتقل التخصيص في التوصية الحديثة من التركيز على المنصة إلى التخصيص الذي يديره المستخدم، حيث يمكن لوكيل شخصي من نماذج اللغة الكبيرة التصرف نيابة عن المستخدم عبر الخدمات. وتضع الورقة صيغة رسمية لهذا النموذج الناشئ، حيث تصنف منصة التوصية المرشحين بناءً على ذلك."
-  },
-  {
-   "id": "2610.06191",
-   "title": "Judged Useless, Queried Anyway: Tool-Using Agents Rarely Turn Their Own Evidence Judgments into Stopping Decisions",
-   "abstract": "An agent whose tool keeps returning nothing useful should stop relying on it. In a retrieval environment with controlled source failures, we separate how agents judge results from what they do. We compare stopping at the same step after longer and shorter runs of results the agent judged useless; this contrast is zero for clock- or deadline-driven stopping. Where we record their judgments, the seven agents we test call a failing source's results useless 97-100% of the time, yet most of them rarely stop on that judgment. Prompt cues change when they stop but not what they stop on. Permission to",
-   "authors": [
-    "Chubin Zhang",
-    "Zhenglin Wan",
-    "Xingrui Yu",
-    "Jingxuan Wu"
-   ],
-   "link": "https://huggingface.co/papers/2610.06191",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-05T00:00",
-   "title_ar": "اعتُبرت عديمة الفائدة وسُئلت مجدداً: نادراً ما يحول الوكلاء مستخدمو الأدوات أحكامهم على الأدلة إلى قرارات توقف",
-   "summary_ar": "ينبغي للوكيل التوقف عن الاعتماد على أداته إذا استمرت في إرجاع نتائج غير مفيدة. وفي بيئة استرجاع ذات إخفاقات متحكم بها للمصادر، فُصلت كيفية حكم الوكلاء على النتائج عما يفعلونه، وقورن التوقف عند نفس الخطوة بعد فترات متفاوتة من النتائج التي اعتبرها الوكيل غير مفيدة."
+   "title_ar": "التقطير القائم على السياسة قبل التعلم المعزز: الإحماء الأولي للتعلم المعزز المعتمد على قواعد التقييم",
+   "summary_ar": "لا يمكن تقييم العديد من مهام النماذج اللغوية المفيدة عبر التحقق الدقيق من النتائج. يعالج التعلم المعزز المعتمد على قواعد التقييم هذه المشكلة بمنح درجات للإجابات المفتوحة بناءً على معايير صريحة، ولكن نظرًا لمنح المكافأة بعد اكتمال الاستجابة، فإن إشارة التدريب لا تتضمن تفاصيل كافية."
   }
  ],
  "n": 6
