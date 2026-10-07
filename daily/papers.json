@@ -1,104 +1,106 @@
 {
- "updated": "2026-10-06T14:24+00:00",
+ "updated": "2026-10-07T04:23+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.32510",
-   "title": "GeoCR: Learning a Generalist Cloud Removal Prior from Heterogeneous Observations",
-   "abstract": "Cloud removal methods are typically specialized to individual datasets and input configurations, limiting reuse across sensors, spectral bands, and observation settings. We introduce GeoCR, a generalist model that unifies RGB-only-based CR and multispectral-based CR from single- or multi-temporal cloudy observations, with optional SAR guidance, within a single network. To accommodate different spectral and sensing domains, compact input and output stems extend a pretrained RGB autoencoder while keeping its encoder and decoder trunks frozen. This shared latent interface enables a single flow tr",
+   "id": "2610.07767",
+   "title": "TRACE: Rollout-Guided Quantization-Aware Training for FP4 Reinforcement Learning of MoE Language Models",
+   "abstract": "Reinforcement learning (RL) for post-training large language models (LLMs) incurs substantial computation and memory overhead during rollout generation, which motivates low-precision rollout for efficient RL training. However, existing FP4 RL methods suffer from a key limitation: they primarily optimize quantization accuracy on the training and rollout paths independently rather than directly reducing the discrepancy between the two quantized execution paths. In this work, we propose TRACE (Train-Rollout Quantization Alignment via Compact GuidancE), an FP4 quantization framework for RL trainin",
    "authors": [
-    "Jeonghyeok Do",
-    "Munchurl Kim"
+    "Xin Wang",
+    "Hao Yu",
+    "Zhengyang Zhuge",
+    "Bochao Mao"
    ],
-   "link": "https://huggingface.co/papers/2609.32510",
+   "link": "https://huggingface.co/papers/2610.07767",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-26T00:00",
-   "title_ar": "GeoCR: تعلم أساس عام لإزالة السحب من عمليات رصد غير متجانسة",
-   "summary_ar": "تتسم طرق إزالة السحب بتخصيصها لمجموعات بيانات وتكوينات إدخال فردية، مما يحد من إعادة استخدامها عبر مختلف المستشعرات والنطاقات الطيفية وإعدادات الرصد. يقدم البحث نموذج GeoCR، وهو نموذج عام يوحد إزالة السحب المعتمدة على صور RGB فقط وتلك المعتمدة على صور متعددة الأطياف، سواء من مدخلات أحادية أو متعددة الفترات الزمنية."
+   "published": "2026-10-06T00:00",
+   "title_ar": "TRACE: تدريب مدرك للتكميم موجه بالاستكشاف لتعلم التعزيز بدقة FP4 لنماذج لغة خبير المزيج",
+   "summary_ar": "يتكبد التعلم المعزز لتدريب نماذج اللغة الكبيرة نفقات حسابية وذاكرة كبيرة أثناء توليد الاستكشافات، مما يدفع لاستخدام استكشاف منخفض الدقة لتدريب أكثر كفاءة. ومع ذلك، تعاني أساليب FP4 الحالية في التعلم المعزز من قيود رئيسية تتمثل في تحسينها المحدود."
   },
   {
-   "id": "2609.37496",
-   "title": "GeoSET: Generalist Foundation Model for SAR-to-EO Image Translation",
-   "abstract": "Paired synthetic aperture radar (SAR) and electro-optical (EO) imagery is increasingly available across sensors, resolutions, and geographic regions. Yet existing SAR-to-EO image translation (SET) methods are typically trained on a single, limited-scale dataset, producing models specialized to particular sensing conditions. We introduce GeoSET, the first generalist model for SET, built around a single pretrained parent that is adapted to downstream datasets under a common protocol. We curate over 3 million high-quality SAR--EO pairs from a collection of more than 10 million SAR observations, s",
+   "id": "2610.03607",
+   "title": "World Action Learning via Interaction-Centric Spectral Latent Guidance",
+   "abstract": "Learning general-purpose robot policies requires large-scale real-world interaction data, yet collecting robot demonstrations remains expensive and difficult to scale. Egocentric videos offer abundant human interaction experience with task-relevant semantics for robotic manipulation, but direct transfer is challenging for two reasons: latent actions inferred from frame reconstruction can be dominated by nuisance variation such as ego-camera motion, and human and robot behaviors often exhibit different temporal dynamics. We propose WING (World Action Learning via INteraction-Centric Spectral La",
    "authors": [
-    "Jeonghyeok Do",
-    "Munchurl Kim"
+    "Zhiming Liu",
+    "Yikun Miao",
+    "Ying Chen",
+    "Hongrui Yin"
    ],
-   "link": "https://huggingface.co/papers/2609.37496",
+   "link": "https://huggingface.co/papers/2610.03607",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-26T00:00",
-   "title_ar": "GeoSET: نموذج أساسي عام لنقل الصور من الرادار ذي الفتحة الاصطناعية (SAR) إلى الصور الكهروضوئية (EO)",
-   "summary_ar": "تتوافر الصور المزدوجة للرادار ذي الفتحة الاصطناعية (SAR) والصور الكهروضوئية (EO) بشكل متزايد عبر مستشعرات ودقات ومناطق جغرافية متعددة. ومع ذلك، تُدرب الطرق الحالية لنقل الصور من SAR إلى EO عادةً على مجموعة بيانات واحدة محدودة النطاق، مما ينتج نماذج متخصصة."
+   "published": "2026-10-02T00:00",
+   "title_ar": "تعلم حركة العالم عبر التوجيه الكامن الطيفي المتمركز حول التفاعل",
+   "summary_ar": "يتطلب تعلم سياسات الروبوتات العامة بيانات تفاعل واقعية واسعة النطاق، غير أن جمع العروض التوضيحية يظل مكلفاً وصعب التوسع. وتوفر مقاطع الفيديو من منظور الشخص الأول خبرة تفاعل بشري وفيرة بدلالات مرتبطة بالمهام للتلاعب الروبوتي، إلا أن النقل المباشر يواجه تحديات."
   },
   {
-   "id": "2610.05739",
-   "title": "HLA-WM: Hybrid Linear Attention for Long-Horizon Video World Models",
-   "abstract": "Long-horizon video world models require persistent memory to preserve scene consistency over extended rollouts. Softmax attention retains the full generation history through a growing KV cache, whereas recurrent linear attention compresses history into fixed-size states with substantially lower memory cost. However, we identify severe long-range forgetting in Gated DeltaNet (GDN), where information from distant but relevant scenes is progressively attenuated by subsequent state updates. To address this limitation, we propose HLA-WM, a training-free hybrid linear-attention framework that combin",
+   "id": "2610.07785",
+   "title": "Attacca: Goal-Directed Control under State Continuity for Long-Horizon Embodied Agents",
+   "abstract": "A central capability of embodied agents is to accomplish complex objectives through sequences of interdependent tasks. Yet existing visual goal-conditioned policies underlying these agents are typically evaluated on isolated interactions where the target is already visible, and thus do not capture the conditions that arise during continuous long-horizon task execution. In such settings, each task begins from the state left by the previous one: the agent may end at a different position and orientation, the world may have been modified, and the next interaction target may lie outside the current",
    "authors": [
-    "Zhuokun Chen",
-    "Feng Chen",
-    "Xi Lin",
-    "Xiyu Wu"
+    "Gyusik Seo",
+    "Jaehong Yoon"
    ],
-   "link": "https://huggingface.co/papers/2610.05739",
+   "link": "https://huggingface.co/papers/2610.07785",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-06T00:00",
+   "title_ar": "Attacca: التحكم الموجه بالهدف في ظل استمرارية الحالة للوكلاء المجسدين طويلي المدى",
+   "summary_ar": "تعد القدرة على إنجاز الأهداف المعقدة عبر سلاسل من المهام المترابطة قدرة أساسية للوكلاء المجسدين. ومع ذلك، تُقيّم السياسات الحالية المشروطة بالأهداف المرئية عادةً في تفاعلات منعزلة يكون الهدف فيها مرئياً بالفعل، وبالتالي لا تعكس الواقع الكامل."
+  },
+  {
+   "id": "2610.05966",
+   "title": "HuatuoGPT-3: RL-Only Domain Adaptation from Base Models",
+   "abstract": "Domain adaptation aims to turn a general-purpose large language model (LLM) into an expert for a target domain. While the dominant SFT+RL pipeline offers a convenient cold start, it may reduce exploration diversity and introduces additional complexity through multi-stage optimization. These limitations motivate RL-only adaptation. However, pure on-policy RL suffers from a cold-start problem, while mixed-policy RL still falls short: informative tokens in teacher outputs are learned too slowly in early training, and stale teacher outputs can hinder later improvement. We identify these two failur",
+   "authors": [
+    "Junying Chen",
+    "Xinyuan Xie",
+    "Ziniu Li",
+    "Wenyuan Gu"
+   ],
+   "link": "https://huggingface.co/papers/2610.05966",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-05T00:00",
-   "title_ar": "HLA-WM: انتباه خطي هجين لنماذج العالم المرئية ذات الآفاق الطويلة",
-   "summary_ar": "تتطلب نماذج العالم المرئية ذات الآفاق الطويلة ذاكرة مستمرة للحفاظ على اتساق المشهد عبر الفترات الممتدة. يحتفظ انتباه Softmax بتاريخ التوليد كاملاً عبر ذاكرة تخزين مؤقتة متزايدة للـ KV، بينما يضغط الانتباه الخطي المتكرر التاريخ في حالات ثابتة الحجم بذاكرة أقل بكثير."
+   "title_ar": "HuatuoGPT-3: تكييف المجال بالاعتماد فقط على التعلم المعزز من النماذج الأساسية",
+   "summary_ar": "يهدف تكييف المجال إلى تحويل نموذج لغة كبير عام إلى خبير في مجال مستهدف. ورغم أن مسار التدريب الشائع (SFT+RL) يتيح بداية مريحة، فإنه قد يقلل من تنوع الاستكشاف ويزيد من التعقيد عبر التحسين متعدد المراحل."
   },
   {
-   "id": "2610.05538",
-   "title": "LiFT: Loop Flow Transformers",
-   "abstract": "We introduce Loop Flow Transformers (LiFT), a family of looped generative models that scales computation by repeatedly applying a shared Diffusion Transformer (DiT) core, with only light changes to the standard architecture. Rather than asking every recurrent step for the final prediction, LiFT trains each step with a single regression target: a point on a straight path from the model's initial estimate to the flow-matching target. Because we index these targets by a continuous depth coordinate, a trained model can loop far beyond its training depth with no retraining, early exits, or other mo",
+   "id": "2610.07588",
+   "title": "Personal-Agent Mediated Recommendation with Cross-Platform User History",
+   "abstract": "Modern recommendation is shifting from platform-centric personalization toward user-governed personalization, where a personal LLM agent can act on the user's behalf across services. We formalize this emerging paradigm as Personal-Agent Mediated Recommendation: a platform recommender ranks a candidate set using platform-local information, and a personal agent uses user-authorized cross-platform history to mediate the resulting ranking and produce the final top-K slate. Such mediation is nontrivial: the platform ranking can encode strong population evidence that the personal agent cannot observ",
    "authors": [
-    "Mohammad Mahdi Derakhshani",
-    "Pedro M. P. Curvo",
-    "Gertjan J. Burghouts",
-    "Jan-Willem van de Meent"
+    "Yu Xia",
+    "Jiangfan Zhang",
+    "Jun Xiao",
+    "Julian McAuley"
    ],
-   "link": "https://huggingface.co/papers/2610.05538",
+   "link": "https://huggingface.co/papers/2610.07588",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-04T00:00",
-   "title_ar": "LiFT: محولات تدفق حلقية",
-   "summary_ar": "يقدم البحث محولات LiFT، وهي عائلة من النماذج التوليدية الحلقية التي تُوسّع الحوسبة عبر التطبيق المتكرر لنواة محول انتشار (DiT) مشتركة، مع تغييرات طفيفة فقط على البنية القياسية. وبدلاً من مطالبة كل خطوة متكررة بالتنبؤ النهائي، يدرب LiFT النموذج بطريقة مختلفة."
+   "published": "2026-10-06T00:00",
+   "title_ar": "التوصية عبر وكيل شخصي باستخدام تاريخ المستخدم عبر المنصات",
+   "summary_ar": "ينتقل التخصيص في التوصية الحديثة من التركيز على المنصة إلى التخصيص الذي يديره المستخدم، حيث يمكن لوكيل شخصي من نماذج اللغة الكبيرة التصرف نيابة عن المستخدم عبر الخدمات. وتضع الورقة صيغة رسمية لهذا النموذج الناشئ، حيث تصنف منصة التوصية المرشحين بناءً على ذلك."
   },
   {
-   "id": "2609.35751",
-   "title": "How to Loop MoE: Flatten the Experts, Untie the Attention",
-   "abstract": "Looped Transformers reuse one block of layers several times: by spending extra computation they push a model of fixed size further, and so use its parameters more fully; while sparse mixture-of-experts (MoE) models activate only a few of many experts for each token. Looped MoE bridges these two design philosophies and gives MoE models new potential for better expert usage, but it raises a question: how to loop a MoE? We answer it with Foil. With the expert parameters and the expert compute per token held fixed, Foil (1) flattens the experts, halving the expert layers, doubling the experts per ",
+   "id": "2610.06191",
+   "title": "Judged Useless, Queried Anyway: Tool-Using Agents Rarely Turn Their Own Evidence Judgments into Stopping Decisions",
+   "abstract": "An agent whose tool keeps returning nothing useful should stop relying on it. In a retrieval environment with controlled source failures, we separate how agents judge results from what they do. We compare stopping at the same step after longer and shorter runs of results the agent judged useless; this contrast is zero for clock- or deadline-driven stopping. Where we record their judgments, the seven agents we test call a failing source's results useless 97-100% of the time, yet most of them rarely stop on that judgment. Prompt cues change when they stop but not what they stop on. Permission to",
    "authors": [
-    "Shouren Wang",
-    "Chuang Ma",
-    "Mohsen Hariri",
-    "Debargha Ganguly"
+    "Chubin Zhang",
+    "Zhenglin Wan",
+    "Xingrui Yu",
+    "Jingxuan Wu"
    ],
-   "link": "https://huggingface.co/papers/2609.35751",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-28T00:00",
-   "title_ar": "كيفية تكرار نماذج خليط الخبراء (MoE): تسطيح الخبراء وفك ارتباط الانتباه",
-   "summary_ar": "تعيد المحولات الحلقية استخدام كتلة من الطبقات عدة مرات، حيث تبذل حوسبة إضافية لتعزيز أداء نموذج ثابت الحجم واستغلال معلماته بالكامل، بينما تُفعّل نماذج خليط الخبراء (MoE) المتفرقة عدداً قليلاً فقط من الخبراء لكل رمز. يجمع نموذج Looped MoE بين هذين التصميمين."
-  },
-  {
-   "id": "2610.06425",
-   "title": "SoK: Semantic Decision Engines in Network Control Loops",
-   "abstract": "A semantic decision engine such as Jev can return a valid answer and still miss a network deadline, select an infeasible action or leave the service unverified. We systematize 139 paper families by decision interface, execution path and check ownership. Fifty families claim that their engine fits a control loop or time budget, but only four support the claim with matched measurement. Across all 139, four report deadline attainment. The gap concentrates where the decision has no deterministic computation step. Those 72 families make 22 of the claims, none supported, and name a coverage owner in",
-   "authors": [
-    "Delong Li",
-    "Chen Li",
-    "Xu Wang",
-    "Haochen Gong"
-   ],
-   "link": "https://huggingface.co/papers/2610.06425",
+   "link": "https://huggingface.co/papers/2610.06191",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-05T00:00",
-   "title_ar": "تنظيم المعرفة: محركات القرار الدلالية في حلقات التحكم بالشبكات",
-   "summary_ar": "يمكن لمحرك القرار الدلالي مثل Jev تقديم إجابة صالحة ومع ذلك يتجاوز الموعد النهائي للشبكة، أو يختار إجراءً غير قابل للتنفيذ، أو يترك الخدمة دون تحقق. يقوم البحث بتصنيف 139 عائلة من الأوراق البحثية وفق واجهة القرار ومسار التنفيذ وملكيات الفحص، مع ادعاء خمسين عائلة ملاءمة محركها."
+   "title_ar": "اعتُبرت عديمة الفائدة وسُئلت مجدداً: نادراً ما يحول الوكلاء مستخدمو الأدوات أحكامهم على الأدلة إلى قرارات توقف",
+   "summary_ar": "ينبغي للوكيل التوقف عن الاعتماد على أداته إذا استمرت في إرجاع نتائج غير مفيدة. وفي بيئة استرجاع ذات إخفاقات متحكم بها للمصادر، فُصلت كيفية حكم الوكلاء على النتائج عما يفعلونه، وقورن التوقف عند نفس الخطوة بعد فترات متفاوتة من النتائج التي اعتبرها الوكيل غير مفيدة."
   }
  ],
  "n": 6
