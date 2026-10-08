@@ -1,108 +1,105 @@
 {
- "updated": "2026-10-07T17:57+00:00",
+ "updated": "2026-10-08T10:01+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.07557",
-   "title": "CheckerBench: Can Long-Horizon Agents Synthesize Static-Analysis Checkers?",
-   "abstract": "Static-analysis checker synthesis requires agents to interpret a defect specification, inspect a repository, implement analyzer-specific logic, and refine the checker through repeated compilation and analysis feedback. Existing coding-agent benchmarks focus on tasks such as patch generation or vulnerability detection and rarely assess whether an agent can develop a working checker in a repository from start to finish. We introduce CheckerBench, an executable benchmark of 300 tasks derived from 297 CVEs across 167 repositories, 85 CWEs, and five language ecosystems. Each task includes vulnerabl",
+   "id": "2610.02832",
+   "title": "FastOPD: On-Policy Distillation for Lightweight VLA Deployment",
+   "abstract": "Vision-Language-Action (VLA) foundation models have scaled rapidly to enhance manipulation performance and generalizability, but this scaling incurs high computational costs that render real-world deployment increasingly challenging. Existing approaches typically mitigate this issue by designing smaller architectures or reducing the iterative denoising steps in flow-based policies. In this work, we propose FastOPD, a foundation-to-lightweight VLA framework that enables the practical deployment of large-scale VLAs through efficient on-policy distillation. Specifically, FastOPD adapts a flow map",
    "authors": [
-    "Hang He",
-    "Li Wang",
-    "Hao Chen",
-    "Yuchen Shao"
+    "Yoojin Oh",
+    "Jeongsol Kim",
+    "Yeonwoo Seo",
+    "Jangho Park"
    ],
-   "link": "https://huggingface.co/papers/2610.07557",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-06T00:00",
-   "title_ar": "تشيكر بنش: هل تستطيع الوكلاء طويلي المدى تركيب فواحص التحليل الساكن؟",
-   "summary_ar": "يتطلب تركيب فاحص التحليل الساكن من الوكلاء تفسير مواصفات العيوب، وفحص المستودع، وتنفيذ منطق خاص بالمحلل، وتحسين الفاحص عبر تغذية راجعة متكررة من الترجمة البرمجية والتحليل. تركز مقاييس أداء وكلاء البرمجة الحالية على مهام مثل توليد التصحيحات البرمجية."
-  },
-  {
-   "id": "2610.08778",
-   "title": "Sherpa: Teaching LLMs to Teach Adaptively",
-   "abstract": "Large language models (LLMs) have become increasingly capable problem solvers, but being able to solve a problem is not the same as being able to teach it. Existing approaches to training LLMs as teachers rely on demonstrations, preference data, or predefined pedagogical criteria that specify what good teaching looks like. However, these signals are often not grounded in individual student learning outcomes, where effective teaching strategies can vary substantially across learners. To address this, we introduce Sherpa, a multi-turn reinforcement learning framework that instantiates multiple s",
-   "authors": [
-    "Weixian Xu",
-    "Yanzhe Zhang",
-    "Zora Zhiruo Wang",
-    "Changyu Chen"
-   ],
-   "link": "https://huggingface.co/papers/2610.08778",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-06T00:00",
-   "title_ar": "شيربا: تعليم النماذج اللغوية الكبيرة التدريس بشكل تكيفي",
-   "summary_ar": "أصبحت النماذج اللغوية الكبيرة قادرة على حل المشكلات بشكل متزايد، لكن القدرة على حل مشكلة لا تعني بالضرورة القدرة على تدريسها. تعتمد الأساليب الحالية لتدريب هذه النماذج كمعلمين على العروض التوضيحية، أو بيانات التفضيل، أو معايير تربوية محددة مسبقًا تحدد الأسلوب الجيد."
-  },
-  {
-   "id": "2609.40127",
-   "title": "Learning Functional Subspaces for Neural Network Compression",
-   "abstract": "Modern transformers pair impressive capabilities with substantial memory and compute demands. Low-rank weight factorization reduces both while keeping the matrices dense, and thus efficient on standard hardware. Existing methods, however, choose the subspace to remove from each weight matrix with local closed-form criteria: activation energy, layer-wise reconstruction error, or a quadratic approximation of the loss. These criteria ignore how errors propagate through the network, so at high compression the errors compound with depth and performance collapses. We introduce Learnable Subspace Pro",
-   "authors": [
-    "Massimo Bini",
-    "Anders Christensen",
-    "Stephan Alaniz",
-    "Judah Goldfeder"
-   ],
-   "link": "https://huggingface.co/papers/2609.40127",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-30T00:00",
-   "title_ar": "تعلم الفضاءات الجزئية الوظيفية لضغط الشبكات العصبية",
-   "summary_ar": "تجمع محولات المحولات الحديثة بين القدرات المذهلة ومتطلبات الذاكرة والحوسبة الكبيرة. يقلل التحليل إلى عوامل للمصفوفات منخفضة الرتبة من هذه المتطلبات مع إبقاء المصفوفات كثيفة وفعالة على العتاد القياسي، غير أن الطرق الحالية تختار الفضاء الجزئي المراد حذفه من كل مصفوفة أوزان بـ."
-  },
-  {
-   "id": "2610.07348",
-   "title": "Stepped MoE: Segment-Level Routing with Configurable Inference Complexity",
-   "abstract": "Training large language models (LLMs) is resource-intensive, and adapting them for diverse deployment scenarios with varying computational constraints remains challenging. While elastic architectures enable flexible model deployment and sparsely activated models allow input-adaptive computation, existing approaches treat these dimensions independently. Moreover, models catered towards on-device edge inference need to conform to the memory and compute limitations of the serving devices. In this paper, we introduce a unified framework that combines elastic structures with sparsely gated architec",
-   "authors": [
-    "Arnav Kundu",
-    "Zhaoyang Xu",
-    "Bairu Hou",
-    "Chang Gao"
-   ],
-   "link": "https://huggingface.co/papers/2610.07348",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-05T00:00",
-   "title_ar": "خبير متعدد متدرج: التوجيه على مستوى المقاطع بتعقيد استدلالي قابل للضبط",
-   "summary_ar": "يُعد تدريب النماذج اللغوية الكبيرة مستهلكًا للموارد، ولا يزال تكييفها مع سيناريوهات نشر متنوعة ذات قيود حوسبية متفاوتة يمثل تحديًا. ورغم أن البنى المرنة تتيح نشرًا مرنًا للنماذج وتسمح النماذج المفعلة قليلًا بحوسبة متكيفة مع المدخلات، فإن الطرق الحالية."
-  },
-  {
-   "id": "2610.00864",
-   "title": "Kinematic MeanFlow: One-Step Action Generation Policy for Robotic Foundation Models",
-   "abstract": "In this paper, we study how to achieve one-step action generation in Robotic Foundation Models (RFMs), aiming to overcome the high inference latency of multi-step flow matching. MeanFlow provides a promising framework for this goal, yet its direct application leads to performance collapse. We discover that this stems from two distinctive dynamics exhibited in the RFM velocity field: (1) the ``local acceleration\" exhibits stability early on, but surges sharply towards the end of the denoising process, and (2) the spread of its magnitudes across samples widens as denoising progresses. To address",
-   "authors": [
-    "Jiawei Fan",
-    "Sifeng Wang",
-    "Yuqing Hou",
-    "Anbang Yao"
-   ],
-   "link": "https://huggingface.co/papers/2610.00864",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-01T00:00",
-   "title_ar": "التدفق المتوسط الحركي: سياسة توليد الإجراءات بخطوة واحدة للنماذج التأسيسية للروبوتات",
-   "summary_ar": "ندرس في هذه الورقة كيفية تحقيق توليد الإجراءات بخطوة واحدة في النماذج التأسيسية للروبوتات للتغلب على زمن انتقال الاستدلال العالي لمطابقة التدفق متعددة الخطوات. يوفر \"التدفق المتوسط\" إطارًا واعدًا لهذا الهدف، غير أن تطبيقه المباشر يؤدي إلى انهيار الأداء."
-  },
-  {
-   "id": "2610.02781",
-   "title": "OPD Before RL: Warm-Starting Rubric-Based RL with On-Policy Distillation",
-   "abstract": "Many useful language-model tasks cannot be evaluated by exact outcome verification. Rubric-based reinforcement learning (RL) addresses this issue by scoring open-ended responses against explicit criteria. However, because the reward is assigned after the complete response, the training signal does not directly identify which individual decisions contributed to the final score. We propose a two-stage training framework that uses rubrics first as privileged teacher context for dense token-level supervision, then as rewards for further RL. In the first stage, rubric-privileged on-policy distillat",
-   "authors": [
-    "Xinpeng Wang",
-    "Wei Shi",
-    "Yu-Chia Chen",
-    "Maria Zontak"
-   ],
-   "link": "https://huggingface.co/papers/2610.02781",
+   "link": "https://huggingface.co/papers/2610.02832",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-02T00:00",
-   "title_ar": "التقطير القائم على السياسة قبل التعلم المعزز: الإحماء الأولي للتعلم المعزز المعتمد على قواعد التقييم",
-   "summary_ar": "لا يمكن تقييم العديد من مهام النماذج اللغوية المفيدة عبر التحقق الدقيق من النتائج. يعالج التعلم المعزز المعتمد على قواعد التقييم هذه المشكلة بمنح درجات للإجابات المفتوحة بناءً على معايير صريحة، ولكن نظرًا لمنح المكافأة بعد اكتمال الاستجابة، فإن إشارة التدريب لا تتضمن تفاصيل كافية."
+   "title_ar": "FastOPD: تقطير بالسياسة لنشر نماذج الرؤية واللغة والحركة خفيفة الوزن",
+   "summary_ar": "توسعت النماذج التأسيسية للرؤية واللغة والحركة سريعًا لتحسين أداء المناولة وقابلية التعميم، لكن هذا التوسع يتسبب في تكاليف حوسبية عالية تجعل النشر في العالم الحقيقي تحديًا متزايدًا. وتخفف المقاربات الحالية هذه المشكلة عادةً من خلال تصميم نماذج صغيرة."
+  },
+  {
+   "id": "2610.05336",
+   "title": "SheetSage2: Coherent Lead-Sheet Transcription with Synthetic Supervision",
+   "abstract": "Transcribing music into a human-readable score requires a coherent understanding of rhythm, harmony, melody, and form. Two obstacles limit this goal: annotated recordings are scarce, and accurate local predictions can still produce inconsistent musical sequences. We present SheetSage2, a unified music transcription framework that combines synthetic data, task-specific structured decoding, and autoregressive distillation. Automatically annotated MIDI, rendered into audio, provides scalable supervision across music understanding tasks. Task-specific structured decoders integrate complementary mu",
+   "authors": [
+    "Junyan Jiang",
+    "Ruibin Yuan",
+    "Jiahao Pan",
+    "Wei Xue"
+   ],
+   "link": "https://huggingface.co/papers/2610.05336",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-04T00:00",
+   "title_ar": "SheetSage2: نسخ متماسك لمدونات الألحان مع إشراف تركيبي",
+   "summary_ar": "يتطلب نسخ الموسيقى إلى مدونة قابلة للقراءة فهمًا متماسكًا للإيقاع والتناغم واللحن والشكل الموسيقي، وهو هدف تصطدم مساعيه بندرة التسجيلات المشروحة، وبكون التنبؤات المحلية الدقيقة قد تُنتج تسلسلات موسيقية غير متسقة. يقدم هذا العمل نظام SheetSage2 كنظام موحد للموسيقى."
+  },
+  {
+   "id": "2610.10164",
+   "title": "UniSkill: Learning Actor-Aligned Skill Proposals for an Evolving Policy",
+   "abstract": "Large language model agents can improve across tasks by retaining reusable skills distilled from prior interactions. Recent work jointly optimizes task execution and skill extraction, enabling the policy and skillbank to co-evolve. However, as the actor continues learning, rewarding skill proposals through their reuse in subsequent training steps may conflate skill benefits with actor improvement, while directly testing each proposed skill requires costly additional actor rollouts. In this paper, we introduce UniSkill, which uses a shared policy to interact with the environment and propose ski",
+   "authors": [
+    "Yifei Lu",
+    "Cheng Liu",
+    "Dianzhi Yu",
+    "Hui Xiang"
+   ],
+   "link": "https://huggingface.co/papers/2610.10164",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-07T00:00",
+   "title_ar": "UniSkill: تعلم مقترحات مهارات متوافقة مع الفاعل لسياسة متطورة",
+   "summary_ar": "يمكن لوكلاء نماذج اللغة الكبيرة التحسن عبر المهام من خلال الاحتفاظ بمهارات قابلة لإعادة الاستخدام ومستخلصة من تفاعلات سابقة، كما تُحسّن أعمال حديثة تنفيذ المهام واستخراج المهارات معًا لتمكين التطور المشترك للسياسة وبنك المهارات. ومع ذلك، مع استمرار الفاعل في التعلم، فإن مكافأة مقترحات المهارات تظل تحديًا."
+  },
+  {
+   "id": "2610.09127",
+   "title": "CADFather: Autonomous CAD Reconstruction through Coordinated Tool Use",
+   "abstract": "Reconstructing an editable CAD model from a 3D shape remains a challenging engineering task. Existing methods can propose CAD operations, but no single source of proposals works equally well across different part geometries and stages of reconstruction. We introduce CADFather, an autonomous agentic system that coordinates complementary tools to recover parametric CAD programs from 3D meshes. A vision-language assistant inspects renders of the target and intermediate reconstructions, then decides which candidate CAD programs to extend, which tools to invoke, how many proposals to generate, and ",
+   "authors": [
+    "Gennadiy Savrasov",
+    "Maksim Elistratov",
+    "Nikita Gavrilov",
+    "Albert Garifullin"
+   ],
+   "link": "https://huggingface.co/papers/2610.09127",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-06T00:00",
+   "title_ar": "CADFather: إعادة بناء ذاتية لنماذج التصميم بمساعدة الحاسوب عبر الاستخدام المنسق للأدوات",
+   "summary_ar": "تظل إعادة بناء نموذج تصميم بمساعدة الحاسوب (CAD) قابل للتعديل من شكل ثلاثي الأبعاد مهمة هندسية صعبة. ورغم قدرة الأساليب الحالية على اقتراح عمليات CAD، لا يوجد مصدر مقترحات مفرد يعمل بذات الكفاءة عبر مختلف هندسات الأجزاء ومراحل إعادة البناء، لذا يُقدَّم CADFather كوكيل ذاتي."
+  },
+  {
+   "id": "2609.36995",
+   "title": "Salt++: Context-Aligned Post-Training for Few-Step Streaming Multimodal Generation",
+   "abstract": "Few-step streaming audio--video generation requires both causal modeling and step distillation, yet standard training recipes face two context-related challenges. Teacher forcing pairs clean history with a noisy target, but supervises predictive contextual representations only indirectly through velocity prediction. Meanwhile, directly reusing bidirectional score models in causal Distribution Matching Distillation (DMD) creates a mismatch between generation and scoring contexts. We address these challenges with Salt++, a two-stage post-training framework comprising Causal Self-Flow (CSF) and c",
+   "authors": [
+    "Xingtong Ge",
+    "Yutong Wang",
+    "Lunjie Zhu",
+    "Haitao Lin"
+   ],
+   "link": "https://huggingface.co/papers/2609.36995",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-29T00:00",
+   "title_ar": "Salt++: تدريب لاحق متوافق مع السياق لتوليد متعدد الوسائط بالبث وقليل الخطوات",
+   "summary_ar": "يتطلب توليد الصوت والفيديو بالبث وقليل الخطوات كلاً من النمذجة السببية وتقطير الخطوات، ومع ذلك تواجه طرائق التدريب القياسية تحديين مرتبطين بالسياق. إذ يقرن الإرغام بالمعلم تاريخًا نظيفًا بهدف مشوش، لكنه يشرف على التمثيلات السياقية التنبؤية بشكل غير مباشر فقط."
+  },
+  {
+   "id": "2610.08884",
+   "title": "Task-Sufficient Contraction: Source Selection for Machine Information Interfaces",
+   "abstract": "A declared task can sometimes certify a reduced source before a downstream encoder, codebook, rate, distortion target, or optimizer is chosen. This paper studies when one such reduction preserves the complete downstream problem family, a property termed Task-Sufficient Contraction. The reduced source is fixed by the task before the later operating point is selected. An exact contraction allows the later problem to be solved on that source with the same result as if the full source had been retained. For a machine with a fixed set of possible actions and a fixed loss, the paper identifies a con",
+   "authors": [
+    "Joss Armstrong"
+   ],
+   "link": "https://huggingface.co/papers/2610.08884",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-06T00:00",
+   "title_ar": "الانكماش الكافي للمهمة: اختيار المصدر لواجهات معلومات الآلة",
+   "summary_ar": "يمكن لمهمة معلنة في بعض الأحيان أن تعتمد مصدرًا مختزلًا قبل اختيار المشفر اللاحق، أو كتاب الشفرات، أو المعدل، أو هدف التشويه، أو المحسّن. تبحث هذه الورقة متى يحافظ أحد هذه الاختزالات على عائلة المسألة اللاحقة كاملة، وهي خاصية تسمى \"الانكماش الكافي للمهمة\" للمصدر المختزل."
   }
  ],
  "n": 6
