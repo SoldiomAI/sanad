@@ -1,105 +1,93 @@
 {
- "updated": "2026-10-08T10:01+00:00",
+ "updated": "2026-10-08T22:19+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.02832",
-   "title": "FastOPD: On-Policy Distillation for Lightweight VLA Deployment",
-   "abstract": "Vision-Language-Action (VLA) foundation models have scaled rapidly to enhance manipulation performance and generalizability, but this scaling incurs high computational costs that render real-world deployment increasingly challenging. Existing approaches typically mitigate this issue by designing smaller architectures or reducing the iterative denoising steps in flow-based policies. In this work, we propose FastOPD, a foundation-to-lightweight VLA framework that enables the practical deployment of large-scale VLAs through efficient on-policy distillation. Specifically, FastOPD adapts a flow map",
+   "id": "2610.08902",
+   "title": "Agent Plasticity: Measuring Self-Improvement Through Experience",
+   "abstract": "AI agents increasingly operate in environments where they can diagnose failures and improve through experience, yet existing evaluations largely measure what an agent can do at a fixed point in time rather than how effectively it learns. Evaluating self-improvement requires answering three questions: does future performance improve and generalize beyond the interactions that enabled learning; how efficiently are new capabilities acquired; and where does the self-improvement process break down? To answer these questions, we study self-improvement in a controlled setting where agents amortize pa",
    "authors": [
-    "Yoojin Oh",
-    "Jeongsol Kim",
-    "Yeonwoo Seo",
-    "Jangho Park"
+    "Harman Singh",
+    "Anton Bakhtin",
+    "Rulin Shao",
+    "Gabriel Synnaeve"
    ],
-   "link": "https://huggingface.co/papers/2610.02832",
+   "link": "https://huggingface.co/papers/2610.08902",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-02T00:00",
-   "title_ar": "FastOPD: تقطير بالسياسة لنشر نماذج الرؤية واللغة والحركة خفيفة الوزن",
-   "summary_ar": "توسعت النماذج التأسيسية للرؤية واللغة والحركة سريعًا لتحسين أداء المناولة وقابلية التعميم، لكن هذا التوسع يتسبب في تكاليف حوسبية عالية تجعل النشر في العالم الحقيقي تحديًا متزايدًا. وتخفف المقاربات الحالية هذه المشكلة عادةً من خلال تصميم نماذج صغيرة."
+   "published": "2026-10-06T00:00"
   },
   {
-   "id": "2610.05336",
-   "title": "SheetSage2: Coherent Lead-Sheet Transcription with Synthetic Supervision",
-   "abstract": "Transcribing music into a human-readable score requires a coherent understanding of rhythm, harmony, melody, and form. Two obstacles limit this goal: annotated recordings are scarce, and accurate local predictions can still produce inconsistent musical sequences. We present SheetSage2, a unified music transcription framework that combines synthetic data, task-specific structured decoding, and autoregressive distillation. Automatically annotated MIDI, rendered into audio, provides scalable supervision across music understanding tasks. Task-specific structured decoders integrate complementary mu",
+   "id": "2610.10515",
+   "title": "RoboJEPA: Scaling Robotic Latent World Models",
+   "abstract": "Latent world models have shown a remarkable ability to predict future states and to plan in the real world. In practice, however, we lack a principled way to estimate how their capabilities scale with model size, data, and compute, an open problem that slows progress in the field. In this work we present RoboJEPA, a world model based on the Joint Embedding Predictive Architecture (JEPA) and trained on a large-scale dataset spanning 12 robotic embodiments. We show that RoboJEPA's imagination error, the error of its latent rollouts, follows a second-order power law in compute, allowing us to pre",
    "authors": [
-    "Junyan Jiang",
-    "Ruibin Yuan",
-    "Jiahao Pan",
-    "Wei Xue"
+    "Artem Zholus",
+    "Nicolas Beltran-Velez",
+    "Jianhao Yuan",
+    "Sarath Chandar"
    ],
-   "link": "https://huggingface.co/papers/2610.05336",
+   "link": "https://huggingface.co/papers/2610.10515",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-04T00:00",
-   "title_ar": "SheetSage2: نسخ متماسك لمدونات الألحان مع إشراف تركيبي",
-   "summary_ar": "يتطلب نسخ الموسيقى إلى مدونة قابلة للقراءة فهمًا متماسكًا للإيقاع والتناغم واللحن والشكل الموسيقي، وهو هدف تصطدم مساعيه بندرة التسجيلات المشروحة، وبكون التنبؤات المحلية الدقيقة قد تُنتج تسلسلات موسيقية غير متسقة. يقدم هذا العمل نظام SheetSage2 كنظام موحد للموسيقى."
+   "published": "2026-10-07T00:00"
   },
   {
-   "id": "2610.10164",
-   "title": "UniSkill: Learning Actor-Aligned Skill Proposals for an Evolving Policy",
-   "abstract": "Large language model agents can improve across tasks by retaining reusable skills distilled from prior interactions. Recent work jointly optimizes task execution and skill extraction, enabling the policy and skillbank to co-evolve. However, as the actor continues learning, rewarding skill proposals through their reuse in subsequent training steps may conflate skill benefits with actor improvement, while directly testing each proposed skill requires costly additional actor rollouts. In this paper, we introduce UniSkill, which uses a shared policy to interact with the environment and propose ski",
+   "id": "2610.02396",
+   "title": "Inherit-MAS: Test-Time Evolution of Multi-Agent Systems through Workflow and Execution Inheritance",
+   "abstract": "Multi-agent systems (MAS) built from large language models coordinate specialized agents to tackle complex tasks, but effective workflows are difficult to design in advance. Test-time evolution refines workflows using execution feedback, yet broad revisions can disturb useful components, while re-executing unchanged requests can incur redundant computation. Inspired by the interplay of inheritance and selection in biological evolution, we introduce Inherit-MAS, which makes inheritance explicit at the workflow and execution levels. A meta-model first synthesizes a workflow of worker agents with",
    "authors": [
-    "Yifei Lu",
-    "Cheng Liu",
-    "Dianzhi Yu",
-    "Hui Xiang"
+    "Songtao Wei",
+    "Yi Li",
+    "Zhichun Guo",
+    "Bingzhe Li"
    ],
-   "link": "https://huggingface.co/papers/2610.10164",
+   "link": "https://huggingface.co/papers/2610.02396",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-07T00:00",
-   "title_ar": "UniSkill: تعلم مقترحات مهارات متوافقة مع الفاعل لسياسة متطورة",
-   "summary_ar": "يمكن لوكلاء نماذج اللغة الكبيرة التحسن عبر المهام من خلال الاحتفاظ بمهارات قابلة لإعادة الاستخدام ومستخلصة من تفاعلات سابقة، كما تُحسّن أعمال حديثة تنفيذ المهام واستخراج المهارات معًا لتمكين التطور المشترك للسياسة وبنك المهارات. ومع ذلك، مع استمرار الفاعل في التعلم، فإن مكافأة مقترحات المهارات تظل تحديًا."
+   "published": "2026-10-01T00:00"
   },
   {
-   "id": "2610.09127",
-   "title": "CADFather: Autonomous CAD Reconstruction through Coordinated Tool Use",
-   "abstract": "Reconstructing an editable CAD model from a 3D shape remains a challenging engineering task. Existing methods can propose CAD operations, but no single source of proposals works equally well across different part geometries and stages of reconstruction. We introduce CADFather, an autonomous agentic system that coordinates complementary tools to recover parametric CAD programs from 3D meshes. A vision-language assistant inspects renders of the target and intermediate reconstructions, then decides which candidate CAD programs to extend, which tools to invoke, how many proposals to generate, and ",
+   "id": "2610.04012",
+   "title": "Beyond the Parameter Monolith: Reconstructive Memories, Executable Skills, and Residual Assembly for Language Models",
+   "abstract": "Language-model systems can separate contextual computation, persistent storage, and exact execution instead of updating all capabilities through one shared parameter system. We investigate FEM-ASM, a finite-element-method-inspired organization in which independently constructed document states and deterministic executable skills contribute typed proposals to a shared language-model state. An explicit residual operator reconciles proposals attached to common interface nodes. We evaluate this organization through controlled experiments and negative results rather than claiming a physical finite-",
    "authors": [
-    "Gennadiy Savrasov",
-    "Maksim Elistratov",
-    "Nikita Gavrilov",
-    "Albert Garifullin"
+    "A. Bochkov"
    ],
-   "link": "https://huggingface.co/papers/2610.09127",
+   "link": "https://huggingface.co/papers/2610.04012",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-06T00:00",
-   "title_ar": "CADFather: إعادة بناء ذاتية لنماذج التصميم بمساعدة الحاسوب عبر الاستخدام المنسق للأدوات",
-   "summary_ar": "تظل إعادة بناء نموذج تصميم بمساعدة الحاسوب (CAD) قابل للتعديل من شكل ثلاثي الأبعاد مهمة هندسية صعبة. ورغم قدرة الأساليب الحالية على اقتراح عمليات CAD، لا يوجد مصدر مقترحات مفرد يعمل بذات الكفاءة عبر مختلف هندسات الأجزاء ومراحل إعادة البناء، لذا يُقدَّم CADFather كوكيل ذاتي."
+   "published": "2026-10-02T00:00"
   },
   {
-   "id": "2609.36995",
-   "title": "Salt++: Context-Aligned Post-Training for Few-Step Streaming Multimodal Generation",
-   "abstract": "Few-step streaming audio--video generation requires both causal modeling and step distillation, yet standard training recipes face two context-related challenges. Teacher forcing pairs clean history with a noisy target, but supervises predictive contextual representations only indirectly through velocity prediction. Meanwhile, directly reusing bidirectional score models in causal Distribution Matching Distillation (DMD) creates a mismatch between generation and scoring contexts. We address these challenges with Salt++, a two-stage post-training framework comprising Causal Self-Flow (CSF) and c",
+   "id": "2610.09457",
+   "title": "DSReg: Provably Recovering Individual World Latents without Reconstruction",
+   "abstract": "Methods that recover individual latent variables of the world, from nonlinear ICA to dictionary learning and causal representation learning, anchor the latents to observations through reconstruction, auxiliary supervision, or distributional asymmetries such as non-Gaussianity. Methods without these anchors, including joint-embedding predictive architectures (JEPAs), identify the latent state only up to a linear transformation, so individual latents remain mixed. We close this gap: individual world latents can be provably recovered with no reconstruction, no decoder, and no labels. The key cond",
    "authors": [
-    "Xingtong Ge",
-    "Yutong Wang",
-    "Lunjie Zhu",
-    "Haitao Lin"
+    "Yujia Zheng",
+    "David Klindt",
+    "Randall Balestriero",
+    "Bernhard Schölkopf"
    ],
-   "link": "https://huggingface.co/papers/2609.36995",
+   "link": "https://huggingface.co/papers/2610.09457",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-29T00:00",
-   "title_ar": "Salt++: تدريب لاحق متوافق مع السياق لتوليد متعدد الوسائط بالبث وقليل الخطوات",
-   "summary_ar": "يتطلب توليد الصوت والفيديو بالبث وقليل الخطوات كلاً من النمذجة السببية وتقطير الخطوات، ومع ذلك تواجه طرائق التدريب القياسية تحديين مرتبطين بالسياق. إذ يقرن الإرغام بالمعلم تاريخًا نظيفًا بهدف مشوش، لكنه يشرف على التمثيلات السياقية التنبؤية بشكل غير مباشر فقط."
+   "published": "2026-10-07T00:00"
   },
   {
-   "id": "2610.08884",
-   "title": "Task-Sufficient Contraction: Source Selection for Machine Information Interfaces",
-   "abstract": "A declared task can sometimes certify a reduced source before a downstream encoder, codebook, rate, distortion target, or optimizer is chosen. This paper studies when one such reduction preserves the complete downstream problem family, a property termed Task-Sufficient Contraction. The reduced source is fixed by the task before the later operating point is selected. An exact contraction allows the later problem to be solved on that source with the same result as if the full source had been retained. For a machine with a fixed set of possible actions and a fixed loss, the paper identifies a con",
+   "id": "2610.05003",
+   "title": "How corner is a corner case? Percentile control for highway scenario generation",
+   "abstract": "Generating corner-case scenarios with appropriate adversity in a simulation environment is critical for testing an autonomous vehicle (AV) software stack's safety performance before deployment. Existing autonomous-driving scenario generators can enforce specific behavior, adversity, or feasibility conditions, but they provide limited control over how extreme a generated scenario is relative to plausible futures in the same traffic context. This study represents the adversity of a generated scenario as its percentile in the conditional distribution of future risk given the observed history. Thi",
    "authors": [
-    "Joss Armstrong"
+    "Jiaxi Liu",
+    "Hang Zhou",
+    "Hangyu Li",
+    "Yifan Wang"
    ],
-   "link": "https://huggingface.co/papers/2610.08884",
+   "link": "https://huggingface.co/papers/2610.05003",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-06T00:00",
-   "title_ar": "الانكماش الكافي للمهمة: اختيار المصدر لواجهات معلومات الآلة",
-   "summary_ar": "يمكن لمهمة معلنة في بعض الأحيان أن تعتمد مصدرًا مختزلًا قبل اختيار المشفر اللاحق، أو كتاب الشفرات، أو المعدل، أو هدف التشويه، أو المحسّن. تبحث هذه الورقة متى يحافظ أحد هذه الاختزالات على عائلة المسألة اللاحقة كاملة، وهي خاصية تسمى \"الانكماش الكافي للمهمة\" للمصدر المختزل."
+   "published": "2026-10-04T00:00"
   }
  ],
  "n": 6
