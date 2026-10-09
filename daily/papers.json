@@ -1,93 +1,104 @@
 {
- "updated": "2026-10-08T22:19+00:00",
+ "updated": "2026-10-09T16:29+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.08902",
-   "title": "Agent Plasticity: Measuring Self-Improvement Through Experience",
-   "abstract": "AI agents increasingly operate in environments where they can diagnose failures and improve through experience, yet existing evaluations largely measure what an agent can do at a fixed point in time rather than how effectively it learns. Evaluating self-improvement requires answering three questions: does future performance improve and generalize beyond the interactions that enabled learning; how efficiently are new capabilities acquired; and where does the self-improvement process break down? To answer these questions, we study self-improvement in a controlled setting where agents amortize pa",
+   "id": "2610.10549",
+   "title": "Synthesis Through Simulation: Generating Coherent Enterprise Data via Scalable Agent-System Interaction",
+   "abstract": "Tool-calling agents have become central to enterprise AI, yet training and evaluating them at scale remains severely constrained due to business and legal restrictions on enterprise systems, data, and database schemas. Tabular data synthesis offers a natural alternative, but its effectiveness is fundamentally limited by structural validity and schema availability, while procedure-based approaches yield the opposite weakness, typically lacking distributional fidelity without per-domain authoring. We introduce **Synthesis Through Simulation** (STS), a **schema--free** data synthesis paradigm in ",
    "authors": [
-    "Harman Singh",
-    "Anton Bakhtin",
-    "Rulin Shao",
-    "Gabriel Synnaeve"
+    "Yipeng Li",
+    "Ashutosh Hathidara",
+    "Jane Lo",
+    "Harshavardhan Abichandani"
    ],
-   "link": "https://huggingface.co/papers/2610.08902",
+   "link": "https://huggingface.co/papers/2610.10549",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-06T00:00"
+   "published": "2026-09-24T00:00",
+   "title_ar": "التوليف عبر المحاكاة: توليد بيانات مؤسسية متماسكة عبر تفاعل قابل للتوسع بين الوكلاء والأنظمة",
+   "summary_ar": "أصبحت وكلاء استدعاء الأدوات محورية في الذكاء الاصطناعي للمؤسسات، غير أن تدريبها وتقييمها على نطاق واسع يظلان مقيدين بشدة بفعل القيود التجارية والقانونية المفروضة على أنظمة وبيانات ومخططات قواعد بيانات المؤسسات. يمثل توليف البيانات الجدولية بديلاً طبيعياً، إلا أن فاعليته محدودة في أصلها."
   },
   {
-   "id": "2610.10515",
-   "title": "RoboJEPA: Scaling Robotic Latent World Models",
-   "abstract": "Latent world models have shown a remarkable ability to predict future states and to plan in the real world. In practice, however, we lack a principled way to estimate how their capabilities scale with model size, data, and compute, an open problem that slows progress in the field. In this work we present RoboJEPA, a world model based on the Joint Embedding Predictive Architecture (JEPA) and trained on a large-scale dataset spanning 12 robotic embodiments. We show that RoboJEPA's imagination error, the error of its latent rollouts, follows a second-order power law in compute, allowing us to pre",
+   "id": "2610.04875",
+   "title": "SpecFold: Folding Multi-Branch Redundancy for Faster Speculative Decoding in Diffusion Language Models",
+   "abstract": "Diffusion large language models (DLLMs) generate text through iterative block denoising, and multi-branch speculative decoding accelerates this process by verifying a main branch together with multiple draft branches in a single forward pass. While prior DLLM acceleration methods primarily exploit temporal redundancy across denoising steps, we identify a complementary redundancy axis within each speculative verification step: multi-branch computational redundancy. During speculative verification, draft branches inherit most tokens from their parents while unmasking a small set of additional po",
    "authors": [
-    "Artem Zholus",
-    "Nicolas Beltran-Velez",
-    "Jianhao Yuan",
-    "Sarath Chandar"
+    "Chung-En Ho",
+    "Weiyu Sun",
+    "Cheng-Jhih Shih",
+    "He Li"
    ],
-   "link": "https://huggingface.co/papers/2610.10515",
+   "link": "https://huggingface.co/papers/2610.04875",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-07T00:00"
+   "published": "2026-10-06T00:00",
+   "title_ar": "SpecFold: طي التكرار متعدد الفروع لفك تشفير تخميني أسرع في نماذج اللغة الانتشارية",
+   "summary_ar": "تُولّد نماذج اللغة الانتشارية الكبيرة النصوص عبر إزالة الضوضاء التكرارية للكتل، ويُسرّع فك التشفير التخميني متعدد الفروع هذه العملية بالتحقق من فرع رئيسي مع فروع مسودة متعددة في تمريرة أمامية واحدة. ومع ذلك، فإن طرق تسريع هذه النماذج السابقة تستغل في الغالب ذلك."
   },
   {
-   "id": "2610.02396",
-   "title": "Inherit-MAS: Test-Time Evolution of Multi-Agent Systems through Workflow and Execution Inheritance",
-   "abstract": "Multi-agent systems (MAS) built from large language models coordinate specialized agents to tackle complex tasks, but effective workflows are difficult to design in advance. Test-time evolution refines workflows using execution feedback, yet broad revisions can disturb useful components, while re-executing unchanged requests can incur redundant computation. Inspired by the interplay of inheritance and selection in biological evolution, we introduce Inherit-MAS, which makes inheritance explicit at the workflow and execution levels. A meta-model first synthesizes a workflow of worker agents with",
+   "id": "2610.10355",
+   "title": "MIRA: A Musical Intent Refinement Agent for Aligning Text-to-Music Generation with User Intent",
+   "abstract": "Text-to-music systems produce increasingly convincing audio, yet evaluation reveals little about whether the result matches user intent. A global text-audio relevance score can overlook the implicit intent in underspecified prompts and mask failures in specific requirements, such as instrumentation, structure, rhythm, or mood progression. To bridge this gap, we formulate text-to-music intent alignment as satisfying a per-request rubric of independently verifiable items covering both a request's explicit requirements and its implied musical intent. Scoring items individually makes evaluation di",
    "authors": [
-    "Songtao Wei",
-    "Yi Li",
-    "Zhichun Guo",
-    "Bingzhe Li"
+    "Zekai Liu",
+    "Zhilin Wang",
+    "Xuzheng He",
+    "Yu Cheng"
    ],
-   "link": "https://huggingface.co/papers/2610.02396",
+   "link": "https://huggingface.co/papers/2610.10355",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-01T00:00"
+   "published": "2026-10-07T00:00",
+   "title_ar": "MIRA: وكيل لتحسين القصد الموسيقي لمحاذاة توليد الموسيقى من النصوص مع قصد المستخدم",
+   "summary_ar": "تنتج أنظمة تحويل النص إلى موسيقى مقاطع صوتية مقنعة بصورة متزايدة، إلا أن التقييم لا يكشف الكثير عما إذا كانت النتيجة تطابق قصد المستخدم. يمكن لدرجة الملاءمة الإجمالية بين النص والصوت أن تغفل القصد الضمني في الأوامر غير المحددة بدقة، وأن تحجب الإخفاقات في متطلبات معينة مثل الآلات الموسيقية."
   },
   {
-   "id": "2610.04012",
-   "title": "Beyond the Parameter Monolith: Reconstructive Memories, Executable Skills, and Residual Assembly for Language Models",
-   "abstract": "Language-model systems can separate contextual computation, persistent storage, and exact execution instead of updating all capabilities through one shared parameter system. We investigate FEM-ASM, a finite-element-method-inspired organization in which independently constructed document states and deterministic executable skills contribute typed proposals to a shared language-model state. An explicit residual operator reconciles proposals attached to common interface nodes. We evaluate this organization through controlled experiments and negative results rather than claiming a physical finite-",
+   "id": "2610.08927",
+   "title": "Can AI Agents Make Open-Ended Scientific Discovery? Evidence from Station",
+   "abstract": "Recent AI systems have made rapid progress in scientific discovery when given well-defined metrics, but whether they can autonomously undertake open-ended scientific discovery remains unclear. We investigate AI's ability to tackle open-ended tasks in Station, an open-world environment in which multiple agents simulate a scientific ecosystem. To tackle challenges specific to open-ended tasks, we propose augmenting Station with two mechanisms: a Supervisor mechanism and periodic Meta Reflection, which encourage persistent exploration even when intermediate metrics are lacking. We construct open-",
    "authors": [
-    "A. Bochkov"
+    "Wenyu Du",
+    "Stephen Chung"
    ],
-   "link": "https://huggingface.co/papers/2610.04012",
+   "link": "https://huggingface.co/papers/2610.08927",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-02T00:00"
+   "published": "2026-10-06T00:00",
+   "title_ar": "هل يمكن لوكلاء الذكاء الاصطناعي تحقيق اكتشاف علمي مفتوح؟ أدلة من بيئة Station",
+   "summary_ar": "حققت أنظمة الذكاء الاصطناعي الحديثة تقدماً سريعاً في الاكتشاف العلمي عند تزويدها بمقاييس محددة بوضوح، لكن قدرتها على تولي اكتشافات علمية مفتوحة بشكل مستقل لا تزال غير واضحة. نبحث في قدرة الذكاء الاصطناعي على التعامل مع المهام المفتوحة داخل Station، وهي بيئة عالم مفتوح متعددة."
   },
   {
-   "id": "2610.09457",
-   "title": "DSReg: Provably Recovering Individual World Latents without Reconstruction",
-   "abstract": "Methods that recover individual latent variables of the world, from nonlinear ICA to dictionary learning and causal representation learning, anchor the latents to observations through reconstruction, auxiliary supervision, or distributional asymmetries such as non-Gaussianity. Methods without these anchors, including joint-embedding predictive architectures (JEPAs), identify the latent state only up to a linear transformation, so individual latents remain mixed. We close this gap: individual world latents can be provably recovered with no reconstruction, no decoder, and no labels. The key cond",
+   "id": "2610.12423",
+   "title": "Pumpire: Unified Benchmark for Metric Distance Estimation",
+   "abstract": "We present Pumpire, a unified benchmark for evaluating metric point-pair distance estimation capability of both image- and video-level 3D foundation models, with or without depth priors. In contrast to previous approaches that normally evaluate depth and camera intrinsics separately or evaluate point-clouds with geometric similarity metrics, which cannot directly reflect models' point-to-point distance estimation capability, Pumpire directly assesses point-to-point distances from the reconstructed geometry. To this end, we collect a large-scale and diverse dataset (pumpire-6k) comprising 100 r",
    "authors": [
-    "Yujia Zheng",
-    "David Klindt",
-    "Randall Balestriero",
-    "Bernhard Schölkopf"
+    "Siyu Chen",
+    "Zehan Wang",
+    "Jiayang Xu",
+    "Yihan Wu"
    ],
-   "link": "https://huggingface.co/papers/2610.09457",
+   "link": "https://huggingface.co/papers/2610.12423",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-07T00:00"
+   "published": "2026-10-08T00:00",
+   "title_ar": "Pumpire: معيار موحد لتقدير المسافة المترية",
+   "summary_ar": "نقدم Pumpire، وهو معيار موحد لتقييم قدرة النماذج التأسيسية ثلاثية الأبعاد على مستوى الصور والفيديو على تقدير المسافة المترية بين أزواج النقاط، مع أو بدون افتراضات عمق مسبقة. يأتي هذا على عكس المناهج السابقة التي تُقيّم عادةً كلاً من العمق والمعلمات الداخلية للكاميرا بشكل منفصل أو تُقيّم النقاط."
   },
   {
-   "id": "2610.05003",
-   "title": "How corner is a corner case? Percentile control for highway scenario generation",
-   "abstract": "Generating corner-case scenarios with appropriate adversity in a simulation environment is critical for testing an autonomous vehicle (AV) software stack's safety performance before deployment. Existing autonomous-driving scenario generators can enforce specific behavior, adversity, or feasibility conditions, but they provide limited control over how extreme a generated scenario is relative to plausible futures in the same traffic context. This study represents the adversity of a generated scenario as its percentile in the conditional distribution of future risk given the observed history. Thi",
+   "id": "2610.11566",
+   "title": "Incremental Open-Ended Deep Research with Structured Harness",
+   "abstract": "Existing Open-Ended Deep Research (OEDR) systems primarily generate reports from scratch, making them inefficient for scenarios where research reports need to be continuously maintained as new information emerges. We introduce Incremental Open-Ended Deep Research (Incremental-OEDR), a research setting that treats a report as an evolving research state and incrementally updates it by preserving valid knowledge, revising outdated or incomplete content, and incorporating newly available information. To support this setting, we propose Structured Harness, which represents reports as structured col",
    "authors": [
-    "Jiaxi Liu",
-    "Hang Zhou",
-    "Hangyu Li",
-    "Yifan Wang"
+    "Meilin Chen",
+    "Hongyuan Bao"
    ],
-   "link": "https://huggingface.co/papers/2610.05003",
+   "link": "https://huggingface.co/papers/2610.11566",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-04T00:00"
+   "published": "2026-10-08T00:00",
+   "title_ar": "البحث العميق التزايدي والمفتوح مع هيكل منظم",
+   "summary_ar": "تُنشئ أنظمة البحث العميق المفتوح الحالية تقاريرها من الصفر غالباً، مما يجعلها غير فعالة في السيناريوهات التي تتطلب صيانة وتحديثاً مستمرين لتقارير البحث مع ظهور معلومات جديدة. نقدم البحث العميق التزايدي والمفتوح، وهو إطار بحثي."
   }
  ],
  "n": 6
