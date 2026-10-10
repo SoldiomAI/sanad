@@ -1,104 +1,98 @@
 {
- "updated": "2026-10-09T16:29+00:00",
+ "updated": "2026-10-10T07:33+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.10549",
-   "title": "Synthesis Through Simulation: Generating Coherent Enterprise Data via Scalable Agent-System Interaction",
-   "abstract": "Tool-calling agents have become central to enterprise AI, yet training and evaluating them at scale remains severely constrained due to business and legal restrictions on enterprise systems, data, and database schemas. Tabular data synthesis offers a natural alternative, but its effectiveness is fundamentally limited by structural validity and schema availability, while procedure-based approaches yield the opposite weakness, typically lacking distributional fidelity without per-domain authoring. We introduce **Synthesis Through Simulation** (STS), a **schema--free** data synthesis paradigm in ",
+   "id": "2610.11216",
+   "title": "The Lattice of Transition Laws",
+   "abstract": "Diffusion and autoregression (AR) have long been seen as different categories of generative models, with diffusion specialising in continuous fields and AR specialising in discrete tokens. Recent work seeks to combine the advantages of the two models, and each hybrid fixes its decoding schedule by design. In this paper, we ask whether the performance of decoding schedules of one model can be predicted before decoding at a fixed number of steps. We describe diffusion, AR, and models in between as paths on one corruption lattice, and define the cost of a schedule as the dependence its parallel s",
    "authors": [
-    "Yipeng Li",
-    "Ashutosh Hathidara",
-    "Jane Lo",
-    "Harshavardhan Abichandani"
+    "T. Y. Tsui",
+    "Jiatao Gu",
+    "Lingjie Liu"
    ],
-   "link": "https://huggingface.co/papers/2610.10549",
+   "link": "https://huggingface.co/papers/2610.11216",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-24T00:00",
-   "title_ar": "التوليف عبر المحاكاة: توليد بيانات مؤسسية متماسكة عبر تفاعل قابل للتوسع بين الوكلاء والأنظمة",
-   "summary_ar": "أصبحت وكلاء استدعاء الأدوات محورية في الذكاء الاصطناعي للمؤسسات، غير أن تدريبها وتقييمها على نطاق واسع يظلان مقيدين بشدة بفعل القيود التجارية والقانونية المفروضة على أنظمة وبيانات ومخططات قواعد بيانات المؤسسات. يمثل توليف البيانات الجدولية بديلاً طبيعياً، إلا أن فاعليته محدودة في أصلها."
+   "published": "2026-10-08T00:00",
+   "title_ar": "شبكة قوانين الانتقال",
+   "summary_ar": "لطالما اعتُبر الانتشار والانحدار الذاتي فئتين مختلفتين من النماذج التوليدية، حيث يتخصص الانتشار في المجالات المستمرة بينما يختص الانحدار الذاتي في الرموز المنفصلة. وتسعى الأعمال الحديثة إلى الجمع بين مزايا النموذجين، مع قيام كل نموذج هجين بتثبيت جدول فك الترميز الخاص به."
   },
   {
-   "id": "2610.04875",
-   "title": "SpecFold: Folding Multi-Branch Redundancy for Faster Speculative Decoding in Diffusion Language Models",
-   "abstract": "Diffusion large language models (DLLMs) generate text through iterative block denoising, and multi-branch speculative decoding accelerates this process by verifying a main branch together with multiple draft branches in a single forward pass. While prior DLLM acceleration methods primarily exploit temporal redundancy across denoising steps, we identify a complementary redundancy axis within each speculative verification step: multi-branch computational redundancy. During speculative verification, draft branches inherit most tokens from their parents while unmasking a small set of additional po",
+   "id": "2609.38527",
+   "title": "Behavioral Persistence and Incomplete Functional Transfer of Co-evolved Communication in Evolutionary Robotics",
+   "abstract": "This work evaluates the direct transfer of a co-evolved communication protocol from a 2D simulation to a 3D physical environment, without retraining the network weights. Two e-puck-type robots, controlled by a GRU network with residual connection, were evaluated in a food-seeking task with social signaling. The sensory and motor translation layer required three corrections for stable physical operation, including the calibration of a hunger term based on a measurable asymmetry in the trained residual weights. Even with these corrections, the transfer was partial and asymmetric: one agent reach",
    "authors": [
-    "Chung-En Ho",
-    "Weiyu Sun",
-    "Cheng-Jhih Shih",
-    "He Li"
+    "Fernando Montes-Gonzalez"
    ],
-   "link": "https://huggingface.co/papers/2610.04875",
+   "link": "https://huggingface.co/papers/2609.38527",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-06T00:00",
-   "title_ar": "SpecFold: طي التكرار متعدد الفروع لفك تشفير تخميني أسرع في نماذج اللغة الانتشارية",
-   "summary_ar": "تُولّد نماذج اللغة الانتشارية الكبيرة النصوص عبر إزالة الضوضاء التكرارية للكتل، ويُسرّع فك التشفير التخميني متعدد الفروع هذه العملية بالتحقق من فرع رئيسي مع فروع مسودة متعددة في تمريرة أمامية واحدة. ومع ذلك، فإن طرق تسريع هذه النماذج السابقة تستغل في الغالب ذلك."
+   "published": "2026-09-29T00:00",
+   "title_ar": "الثبات السلوكي والانتقال الوظيفي غير المكتمل للتواصل المتطور تزامنيًا في الروبوتات التطورية",
+   "summary_ar": "يُقيّم هذا العمل النقل المباشر لبروتوكول اتصال متطور تزامنيًا من محاكاة ثنائية الأبعاد إلى بيئة فيزيائية ثلاثية الأبعاد دون إعادة تدريب أوزان الشبكة. وقد جرى تقييم روبوتين من نوع e-puck يُتحكم بهما عبر شبكة GRU ذات اتصال متبقٍ في مهمة للبحث عن الطعام تنطوي على إشارات اجتماعية."
   },
   {
-   "id": "2610.10355",
-   "title": "MIRA: A Musical Intent Refinement Agent for Aligning Text-to-Music Generation with User Intent",
-   "abstract": "Text-to-music systems produce increasingly convincing audio, yet evaluation reveals little about whether the result matches user intent. A global text-audio relevance score can overlook the implicit intent in underspecified prompts and mask failures in specific requirements, such as instrumentation, structure, rhythm, or mood progression. To bridge this gap, we formulate text-to-music intent alignment as satisfying a per-request rubric of independently verifiable items covering both a request's explicit requirements and its implied musical intent. Scoring items individually makes evaluation di",
+   "id": "2610.09280",
+   "title": "Evaluating the Transfer of Co-Evolved Communication from 2D to 3D Simulation",
+   "abstract": "This work examines the transfer of a co-evolved communication mechanism between two robotic agents from a discrete two-dimensional (2D) simulator to a three-dimensional simulator with real physics (3D). The study focuses on whether a communication mechanism co-evolved in a 2D environment retains its functional role after transfer to a 3D physics-based simulator. To support this analysis, the effects of the episode time budget, the social cue, and the asymmetry between the two co-evolved roles were examined. The results indicate that the success rate increased approximately linearly with the ev",
    "authors": [
-    "Zekai Liu",
-    "Zhilin Wang",
-    "Xuzheng He",
-    "Yu Cheng"
+    "Fernando Montes-Gonzalez"
    ],
-   "link": "https://huggingface.co/papers/2610.10355",
+   "link": "https://huggingface.co/papers/2610.09280",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-07T00:00",
-   "title_ar": "MIRA: وكيل لتحسين القصد الموسيقي لمحاذاة توليد الموسيقى من النصوص مع قصد المستخدم",
-   "summary_ar": "تنتج أنظمة تحويل النص إلى موسيقى مقاطع صوتية مقنعة بصورة متزايدة، إلا أن التقييم لا يكشف الكثير عما إذا كانت النتيجة تطابق قصد المستخدم. يمكن لدرجة الملاءمة الإجمالية بين النص والصوت أن تغفل القصد الضمني في الأوامر غير المحددة بدقة، وأن تحجب الإخفاقات في متطلبات معينة مثل الآلات الموسيقية."
+   "title_ar": "تقييم انتقال التواصل المتطور تزامنيًا من المحاكاة ثنائية الأبعاد إلى ثلاثية الأبعاد",
+   "summary_ar": "يبحث هذا العمل في نقل آلية تواصل متطورة تزامنيًا بين وكيلين روبوتيين من محاكي منفصل ثنائي الأبعاد إلى محاكي ثلاثي الأبعاد بفيزياء حقيقية. وتُركز الدراسة على ما إذا كانت آلية التواصل المتطورة تزامنيًا في بيئة ثنائية الأبعاد ستحتفظ بخصائصها."
   },
   {
-   "id": "2610.08927",
-   "title": "Can AI Agents Make Open-Ended Scientific Discovery? Evidence from Station",
-   "abstract": "Recent AI systems have made rapid progress in scientific discovery when given well-defined metrics, but whether they can autonomously undertake open-ended scientific discovery remains unclear. We investigate AI's ability to tackle open-ended tasks in Station, an open-world environment in which multiple agents simulate a scientific ecosystem. To tackle challenges specific to open-ended tasks, we propose augmenting Station with two mechanisms: a Supervisor mechanism and periodic Meta Reflection, which encourage persistent exploration even when intermediate metrics are lacking. We construct open-",
+   "id": "2609.33987",
+   "title": "Opera: A Verbal Critic Framework for Long-horizon Coding Agents",
+   "abstract": "Long-horizon coding agents need timely corrections, yet feedback can be ineffective or even harmful when it misjudges ongoing work or fails to address the underlying problem. Existing critics focus on evaluating trajectories and generating feedback, but rarely track what happens after feedback is delivered. We present Opera, a verbal critic framework that treats each correction as a persistent note, followed until the diagnosed problem is resolved. Opera decides when to review through periodic and event-driven triggers, diagnoses issues with typed operators, audits feedback against visible evi",
    "authors": [
-    "Wenyu Du",
-    "Stephen Chung"
+    "Kai Mei",
+    "Zhiyuan Hu",
+    "Yutong Dai",
+    "Juntao Tan"
    ],
-   "link": "https://huggingface.co/papers/2610.08927",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-06T00:00",
-   "title_ar": "هل يمكن لوكلاء الذكاء الاصطناعي تحقيق اكتشاف علمي مفتوح؟ أدلة من بيئة Station",
-   "summary_ar": "حققت أنظمة الذكاء الاصطناعي الحديثة تقدماً سريعاً في الاكتشاف العلمي عند تزويدها بمقاييس محددة بوضوح، لكن قدرتها على تولي اكتشافات علمية مفتوحة بشكل مستقل لا تزال غير واضحة. نبحث في قدرة الذكاء الاصطناعي على التعامل مع المهام المفتوحة داخل Station، وهي بيئة عالم مفتوح متعددة."
-  },
-  {
-   "id": "2610.12423",
-   "title": "Pumpire: Unified Benchmark for Metric Distance Estimation",
-   "abstract": "We present Pumpire, a unified benchmark for evaluating metric point-pair distance estimation capability of both image- and video-level 3D foundation models, with or without depth priors. In contrast to previous approaches that normally evaluate depth and camera intrinsics separately or evaluate point-clouds with geometric similarity metrics, which cannot directly reflect models' point-to-point distance estimation capability, Pumpire directly assesses point-to-point distances from the reconstructed geometry. To this end, we collect a large-scale and diverse dataset (pumpire-6k) comprising 100 r",
-   "authors": [
-    "Siyu Chen",
-    "Zehan Wang",
-    "Jiayang Xu",
-    "Yihan Wu"
-   ],
-   "link": "https://huggingface.co/papers/2610.12423",
+   "link": "https://huggingface.co/papers/2609.33987",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-08T00:00",
-   "title_ar": "Pumpire: معيار موحد لتقدير المسافة المترية",
-   "summary_ar": "نقدم Pumpire، وهو معيار موحد لتقييم قدرة النماذج التأسيسية ثلاثية الأبعاد على مستوى الصور والفيديو على تقدير المسافة المترية بين أزواج النقاط، مع أو بدون افتراضات عمق مسبقة. يأتي هذا على عكس المناهج السابقة التي تُقيّم عادةً كلاً من العمق والمعلمات الداخلية للكاميرا بشكل منفصل أو تُقيّم النقاط."
+   "title_ar": "أوبرا: إطار ناقد لفظي لوكلاء البرمجة طويلي المدى",
+   "summary_ar": "يحتاج وكلاء البرمجة طويلي المدى إلى تصحيحات في الوقت المناسب، إلا أن التغذية الراجعة قد تكون غير فعالة أو حتى ضارة إذا أخطأت في الحكم على العمل الجاري أو فشلت في معالجة المشكلة الأساسية. يُركز النقاد الحاليون على تقييم المسارات وتوليد الملاحظات، لكنهم نادراً ما يتتبعون ما يحدث بعد تقديم هذه التغذية الراجعة."
   },
   {
-   "id": "2610.11566",
-   "title": "Incremental Open-Ended Deep Research with Structured Harness",
-   "abstract": "Existing Open-Ended Deep Research (OEDR) systems primarily generate reports from scratch, making them inefficient for scenarios where research reports need to be continuously maintained as new information emerges. We introduce Incremental Open-Ended Deep Research (Incremental-OEDR), a research setting that treats a report as an evolving research state and incrementally updates it by preserving valid knowledge, revising outdated or incomplete content, and incorporating newly available information. To support this setting, we propose Structured Harness, which represents reports as structured col",
+   "id": "2610.11169",
+   "title": "Skill Constellations: Tracing the Supply Chain of Agent Skills on GitHub",
+   "abstract": "Agent skills are SKILL.md instructions and scripts that AI coding agents such as Claude Code and Codex run with the permissions of their user. Developers share skills by copying them between repositories, which makes them a software supply chain without a registry, versions or provenance. The origin of a copied skill, the reach of a security fix and the repositories that warrant review are therefore unknown. Studies that record which repositories hold a skill at a single point in time cannot reveal who copied it from whom. We contribute the first dated copy network of agent skills, built from ",
    "authors": [
-    "Meilin Chen",
-    "Hongyuan Bao"
+    "Fahd Seddik"
    ],
-   "link": "https://huggingface.co/papers/2610.11566",
+   "link": "https://huggingface.co/papers/2610.11169",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-08T00:00",
-   "title_ar": "البحث العميق التزايدي والمفتوح مع هيكل منظم",
-   "summary_ar": "تُنشئ أنظمة البحث العميق المفتوح الحالية تقاريرها من الصفر غالباً، مما يجعلها غير فعالة في السيناريوهات التي تتطلب صيانة وتحديثاً مستمرين لتقارير البحث مع ظهور معلومات جديدة. نقدم البحث العميق التزايدي والمفتوح، وهو إطار بحثي."
+   "title_ar": "كوكبات المهارات: تتبع سلسلة توريد مهارات الوكلاء على غيت هاب",
+   "summary_ar": "تمثل مهارات الوكلاء تعليمات وسكربتات ملفات SKILL.md التي يشغلها وكلاء البرمجة بالذكاء الاصطناعي، مثل Claude Code وCodex، بصلاحيات المستخدم. ويتشارك المطورون هذه المهارات بنسخها بين المستودعات، مما يجعلها بمثابة سلسلة توريد برمجية تفتقر إلى سجل رسمي أو إصدارات أو جهة مصدرية أصلية."
+  },
+  {
+   "id": "2610.11975",
+   "title": "Predicting Cable Dynamics with Physical Attention Bias",
+   "abstract": "Learned simulators for deformable linear objects (DLOs) such as cables have to predict the motion of cables they were not trained on and stay stable over long rollouts. Most of their error occurs where the cable touches itself or the floor. Attention over all pairs of cable segments can represent contact between parts of the cable that are far apart along its length, but attention has no notion of geometry. A cable has two pairwise distances, which agree only while it is straight: the arc-length distance along the cable, which governs elastic forces, and the Euclidean distance in space, which ",
+   "authors": [
+    "Avihai Giuili",
+    "Rotem Atari",
+    "Avishai Sintov",
+    "Maya Bechler-Speicher"
+   ],
+   "link": "https://huggingface.co/papers/2610.11975",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-08T00:00",
+   "title_ar": "التنبؤ بديناميكيات الكابلات باستخدام انحياز الانتباه الفيزيائي",
+   "summary_ar": "يجب على أجهزة المحاكاة المكتسبة المخصصة للأجسام الخطية القابلة للتشوه، كالكابلات، التنبؤ بحركة كابلات لم تتدرب عليها مع الحفاظ على استقرارها عبر فترات زمنية ممتدة. ويحدث معظم خطئها عند ملامسة الكابل لنفسه أو للأرض، بينما يمكن للانتباه الموزع على جميع أزواج أجزاء الكابل تمثيل هذه الحالات."
   }
  ],
  "n": 6
