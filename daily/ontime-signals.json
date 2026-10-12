@@ -1,8 +1,8 @@
 {
  "schema_version": "1.0",
- "generated_at": "2026-10-11T23:05+00:00",
- "updated_at": "2026-10-11T23:05+00:00",
- "cursor": "sha256:43a1f2bcf0730442a1d1ffb4c29d4f48f9f987685be33b95fd0f0d9541d45327",
+ "generated_at": "2026-10-12T02:35+00:00",
+ "updated_at": "2026-10-12T02:35+00:00",
+ "cursor": "sha256:e95b1bdd3a259065d9e1c1d011691a3e592111435e2204a70a1e8e9db547ada9",
  "producer": "SANAD",
  "authority": "SANAD",
  "read_only": true,
@@ -13,7 +13,7 @@
    "title": "Watch term active: ترامب إيران",
    "title_en": "Watch term active: Trump Iran",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-11T23:05+00:00",
+   "observed_at": "2026-10-12T02:35+00:00",
    "observed_facts": [
     "5 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 82."
    ],
@@ -53,7 +53,7 @@
      "url": "https://www.bbc.co.uk/persian/live/cqy8lxkp54ygt?at_medium=RSS&at_campaign=rss",
      "publisher": "بي بي سي فارسي",
      "grade": "حسن",
-     "published_at": "2026-10-11T23:05+00:00",
+     "published_at": "2026-10-12T02:35+00:00",
      "title": "هجوم صاروخي على مطار الرياض ورد فعل ترامب: سنتحرك بسرعة كبيرة",
      "title_en": "Rocket Attack on Riyadh Airport Prompts Trump Reaction: 'We Will Act Very Quickly'",
      "dataset": "osint"
@@ -82,64 +82,88 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-10-05T09:29+00:00",
-   "updated_at": "2026-10-11T23:05+00:00"
+   "updated_at": "2026-10-12T02:35+00:00"
   },
   {
-   "id": "sig_1f169b9e79a68432",
-   "type": "watchlist-match",
-   "title": "Watch term active: عقوبات",
-   "title_en": "Watch term active: sanctions",
-   "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-11T23:05+00:00",
+   "id": "sig_0b48c50be078e70f",
+   "type": "country-risk-threshold",
+   "title": "اليمن: SANAD tension score crossed 60",
+   "title_en": "Yemen: SANAD tension score crossed 60",
+   "summary": "The deterministic SANAD tension output crossed its documented export threshold.",
+   "observed_at": "2026-10-12T02:34+00:00",
    "observed_facts": [
-    "3 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 62."
+    "Published tension score: 60; published level: متوتّر."
    ],
-   "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "inference": "Term matching indicates attention, not intent, coordination, or threat.",
-   "uncertainty": "Keyword matching can include unrelated uses of the same term.",
-   "confidence": 0.7,
-   "severity": "info",
-   "countries": [],
-   "sectors": [],
+   "assessment": "The deterministic SANAD tension output crossed its documented export threshold.",
+   "inference": "This is a threshold notification, not a prediction of violence or a government warning.",
+   "uncertainty": "The score reflects the inputs and weights published by SANAD and can change as source coverage changes.",
+   "confidence": 0.75,
+   "severity": "medium",
+   "countries": [
+    "ye"
+   ],
+   "sectors": [
+    "government"
+   ],
    "topics": [
-    "اقتصاد"
+    "risk-threshold"
    ],
    "evidence": [
     {
-     "source_ref": "ev_0363a3a7fda71a11",
-     "url": "https://www.aljazeera.net/news/2026/10/9/%d8%a7%d9%84%d8%ae%d8%b2%d8%a7%d9%86%d8%a9-%d8%a7%d9%84%d8%a3%d9%85%d8%b1%d9%8a%d9%83%d9%8a%d8%a9-%d9%84%d9%84%d8%ac%d8%b2%d9%8a%d8%b1%d8%a9-%d9%81%d8%b1%d8%b6%d9%86%d8%a7?traffic_source=rss",
-     "publisher": "الجزيرة نت",
+     "source_ref": "ev_239431badc3a4173",
+     "url": "https://www.skynewsarabia.com/middle-east/1897738-%D8%AA%D8%B3%D8%AA%D8%AE%D8%AF%D9%85-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%8A%D9%86-%D9%84%D8%AA%D8%B4%D8%AA%D9%8A%D8%AA-%D8%A7%D9%84%D8%B6%D8%BA%D8%B7-%D8%B9%D9%84%D9%8A%D9%87%D8%A7",
+     "publisher": "سكاي نيوز عربية",
      "grade": "حسن",
-     "published_at": "2026-10-09T17:39+00:00",
-     "title": "الخزانة الأمريكية للجزيرة: فرضنا عقوبات على 1500 فرد وكيان وأغلقنا قنوات إيران المالية",
+     "published_at": "2026-10-12T02:25+00:00",
+     "title": "هل تستخدم إيران الحوثيين لتشتيت الضغط عليها؟",
      "title_en": "",
-     "dataset": "osint"
+     "dataset": "tension"
     },
     {
-     "source_ref": "ev_8b78d32be1340a76",
-     "url": "https://www.bbc.com/arabic/articles/cvde89ny1r0ko?at_medium=RSS&at_campaign=rss",
-     "publisher": "بي بي سي عربي",
+     "source_ref": "ev_9786d5ad8067552c",
+     "url": "https://www.alarabiya.net/arab-and-world/yemen/2026/10/11/%D8%AA%D9%88%D8%A7%D8%B5%D9%84-%D8%B9%D9%85%D9%84%D9%8A%D8%A7%D8%AA-%D9%81%D8%AC%D8%B1-%D8%A7%D9%84%D9%8A%D9%85%D9%86-%D9%85%D9%88%D8%A7%D9%82%D8%B9-%D9%88%D9%85%D8%AE%D8%A7%D8%B2%D9%86-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A-%D8%A8%D9%85%D8%B1%D9%85%D9%89-%D8%A7%D9%84%D9%86%D9%8A%D8%B1%D8%A7%D9%86",
+     "publisher": "العربية",
      "grade": "حسن",
-     "published_at": "2026-10-09T16:53+00:00",
-     "title": "عقوبات أمريكية على الجنائية الدولية بالتزامن مع فوز نافي بيلاي بنوبل السلام",
-     "title_en": "US Sanctions ICC as Navi Pillay Wins Nobel Peace Prize",
-     "dataset": "osint"
+     "published_at": "2026-10-12T00:50+00:00",
+     "title": "تواصل عمليات \"فجر اليمن\".. مواقع ومخازن الحوثي بمرمى النيران",
+     "title_en": "",
+     "dataset": "tension"
     },
     {
-     "source_ref": "ev_b3b7f2e9050990f0",
-     "url": "https://www.france24.com/ar/%D8%A3%D9%85%D8%B1%D9%8A%D9%83%D8%A7/20261009-%D9%88%D8%A7%D8%B4%D9%86%D8%B7%D9%86-%D9%81%D8%B1%D8%B6-%D8%B9%D9%82%D9%88%D8%A8%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D8%AD%D9%83%D9%85%D8%A9-%D8%A7%D9%84%D8%AC%D9%86%D8%A7%D8%A6%D9%8A%D8%A9-%D8%A7%D9%84%D8%AF%D9%88%D9%84%D9%8A%D8%A9-%D8%AA%D8%B1%D8%A7%D9%85%D8%A8-%D8%AA%D9%86%D8%AF%D9%8A%D8%AF%D8%A7%D8%AA-%D9%88%D8%A7%D8%B3%D8%B9%D8%A9-%D8%A7%D9%84%D9%82%D8%B1%D8%A7%D8%B1",
+     "source_ref": "ev_b07d3f98ae65a1cb",
+     "url": "https://www.france24.com/ar/%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7/20261011-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%88%D9%86-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D9%87%D8%AC%D9%85%D8%A7%D8%AA-%D9%85%D8%B7%D8%A7%D8%B1-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-%D8%A7%D9%84%D8%AF%D9%85%D8%A7%D9%85-13-%D9%82%D8%AA%D9%8A%D9%84%D8%A7-%D8%A3%D8%B1%D8%A7%D9%85%D9%83%D9%88-%D8%AA%D8%B5%D8%B9%D9%8A%D8%AF-%D8%A7%D9%84%D9%8A%D9%85%D9%86",
      "publisher": "فرانس ٢٤ عربي",
      "grade": "حسن",
-     "published_at": "2026-10-09T20:05+00:00",
-     "title": "واشنطن تعلن فرض عقوبات على المحكمة الجنائية الدولية وسط تنديدات واسعة بالقرار",
+     "published_at": "2026-10-11T22:56+00:00",
+     "title": "هجمات جديدة على مطارات سعودية بعد مقتل 13 شخصا في قصف الرياض وتصعيد في اليمن",
      "title_en": "",
-     "dataset": "osint"
+     "dataset": "tension"
+    },
+    {
+     "source_ref": "ev_e8626548ceda54f1",
+     "url": "https://www.skynewsarabia.com/middle-east/1897734-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%A7%D8%B9%D8%AA%D8%B1%D8%A7%D8%B6-%D8%B5%D8%A7%D8%B1%D9%88%D8%AE-%D8%A3%D8%B7%D9%84%D9%82%D9%87-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%88%D9%86-%D8%AE%D9%85%D9%8A%D8%B3-%D9%85%D8%B4%D9%8A%D8%B7",
+     "publisher": "سكاي نيوز عربية",
+     "grade": "حسن",
+     "published_at": "2026-10-12T01:22+00:00",
+     "title": "السعودية.. اعتراض صاروخ أطلقه الحوثيون تجاه خميس مشيط",
+     "title_en": "",
+     "dataset": "tension"
+    },
+    {
+     "source_ref": "ev_fd10343ac50b0dc7",
+     "url": "https://www.skynewsarabia.com/middle-east/1897733-%D9%85%D8%B7%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D9%85%D9%84%D8%A7%D8%AD%D8%A9-%D8%A7%D9%84%D8%AF%D9%88%D9%84%D9%8A%D8%A9-%D9%88%D8%B1%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%87%D8%AF%D8%A7%D9%81-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A",
+     "publisher": "سكاي نيوز عربية",
+     "grade": "حسن",
+     "published_at": "2026-10-12T01:07+00:00",
+     "title": "مطارات السعودية والملاحة الدولية.. ما وراء الاستهداف الحوثي؟",
+     "title_en": "",
+     "dataset": "tension"
     }
    ],
    "contradictions": [],
    "event_ids": [],
-   "created_at": "2026-10-09T16:29+00:00",
-   "updated_at": "2026-10-11T23:05+00:00"
+   "created_at": "2026-10-12T02:35+00:00",
+   "updated_at": "2026-10-12T02:35+00:00"
   },
   {
    "id": "sig_24c7c29a11f8a3ab",
@@ -147,7 +171,7 @@
    "title": "Watch term active: #السعودية",
    "title_en": "Watch term active: #Saudi",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-11T23:05+00:00",
+   "observed_at": "2026-10-12T02:35+00:00",
    "observed_facts": [
     "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
@@ -163,16 +187,6 @@
    ],
    "evidence": [
     {
-     "source_ref": "ev_06bdab303ca58e8b",
-     "url": "https://arabic.cnn.com/middle-east/article/2026/10/12/ksa-yemen-iran-houthi-red-sea",
-     "publisher": "CNN بالعربية",
-     "grade": "حسن",
-     "published_at": "2026-10-11T20:11+00:00",
-     "title": "السعودية.. هجوم على مطار الملك فهد واعتراض مسيّرة في المنطقة الشرقية",
-     "title_en": "",
-     "dataset": "osint"
-    },
-    {
      "source_ref": "ev_44958dc9848d4d47",
      "url": "https://www.skynewsarabia.com/middle-east/1897724-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D9%85%D9%82%D8%AA%D9%84-%D8%B4%D8%AE%D8%B5-%D9%88%D8%A5%D8%B5%D8%A7%D8%A8%D8%A9-11-%D8%A7%D9%84%D9%87%D8%AC%D9%88%D9%85-%D9%85%D8%B7%D8%A7%D8%B1-%D8%A7%D9%84%D9%85%D9%84%D9%83-%D8%AE%D8%A7%D9%84%D8%AF",
      "publisher": "سكاي نيوز عربية",
@@ -180,16 +194,6 @@
      "published_at": "2026-10-11T22:37+00:00",
      "title": "السعودية: مقتل شخص وإصابة 11 في الهجوم على مطار الملك خالد",
      "title_en": "",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_4609dcee62ef99f8",
-     "url": "https://www.france24.com/ar/%D9%81%D9%8A%D8%AF%D9%8A%D9%88/20261011-%D8%A7%D9%84%D9%87%D8%AC%D9%88%D9%85-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A-%D8%B9%D9%84%D9%89-%D9%85%D8%B7%D8%A7%D8%B1-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-%D9%83%D9%8A%D9%81-%D8%B3%D8%AA%D8%B1%D8%AF-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9",
-     "publisher": "فرانس ٢٤ عربي",
-     "grade": "حسن",
-     "published_at": "2026-10-11T18:36+00:00",
-     "title": "الهجوم الحوثي على مطار الرياض: كيف سترد السعودية؟",
-     "title_en": "Houthi Attack on Riyadh Airport: How Will Saudi Arabia Respond?",
      "dataset": "osint"
     },
     {
@@ -203,13 +207,23 @@
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_dc11bcdfbf203342",
-     "url": "https://www.skynewsarabia.com/middle-east/1897715-%D8%A7%D8%AA%D8%B5%D8%A7%D9%84-%D9%87%D8%A7%D8%AA%D9%81%D9%8A-%D9%88%D8%B2%D9%8A%D8%B1%D9%8A-%D8%AE%D8%A7%D8%B1%D8%AC%D9%8A%D8%A9-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D9%88%D8%A5%D9%8A%D8%B1%D8%A7%D9%86",
+     "source_ref": "ev_d78a4c337213e794",
+     "url": "https://www.aljazeera.net/news/2026/10/11/%D8%B9%D8%A7%D8%AC%D9%84-%D8%A7%D9%84%D9%85%D8%AA%D8%AD%D8%AF%D8%AB-%D8%A8%D8%A7%D8%B3%D9%85-%D8%A7%D9%84%D8%AA%D8%AD%D8%A7%D9%84%D9%81-%D8%B3%D9%82%D9%88%D8%B7-%D9%85%D9%82%D8%B0%D9%88%D9%81",
+     "publisher": "الجزيرة نت",
+     "grade": "حسن",
+     "published_at": "2026-10-11T23:43+00:00",
+     "title": "السعودية: وفاة شخص وإصابة 11 جراء اعتداء جديد استهدف مطار الرياض",
+     "title_en": "Saudi Arabia: One Dead, 11 Injured in New Attack Targeting Riyadh Airport",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_e8626548ceda54f1",
+     "url": "https://www.skynewsarabia.com/middle-east/1897734-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%A7%D8%B9%D8%AA%D8%B1%D8%A7%D8%B6-%D8%B5%D8%A7%D8%B1%D9%88%D8%AE-%D8%A3%D8%B7%D9%84%D9%82%D9%87-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%88%D9%86-%D8%AE%D9%85%D9%8A%D8%B3-%D9%85%D8%B4%D9%8A%D8%B7",
      "publisher": "سكاي نيوز عربية",
      "grade": "حسن",
-     "published_at": "2026-10-11T20:24+00:00",
-     "title": "اتصال هاتفي بين وزيري خارجية السعودية وإيران",
-     "title_en": "Saudi and Iranian Foreign Ministers Hold Phone Talks",
+     "published_at": "2026-10-12T01:22+00:00",
+     "title": "السعودية.. اعتراض صاروخ أطلقه الحوثيون تجاه خميس مشيط",
+     "title_en": "",
      "dataset": "osint"
     },
     {
@@ -229,7 +243,7 @@
      "grade": "حسن",
      "published_at": "2026-10-11T20:53+00:00",
      "title": "السعودية تعلن استهداف مطار الدمام بعد ساعات من وقوع إصابات بهجوم صاروخي جديد استهدف مطار الرياض",
-     "title_en": "Saudi Arabia Reports Dammam Airport Targeted Hours After Injuries in Fresh Missile Strike on Riyadh Airport",
+     "title_en": "Saudi Arabia Announces Dammam Airport Targeted Hours After Injuries in New Riyadh Airport Missile Attack",
      "dataset": "osint"
     },
     {
@@ -241,12 +255,22 @@
      "title": "\"بلدي الثاني\".. ديميرال يدافع عن السعودية بعد استهدافها من الحوثيين",
      "title_en": "",
      "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_fd10343ac50b0dc7",
+     "url": "https://www.skynewsarabia.com/middle-east/1897733-%D9%85%D8%B7%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D9%85%D9%84%D8%A7%D8%AD%D8%A9-%D8%A7%D9%84%D8%AF%D9%88%D9%84%D9%8A%D8%A9-%D9%88%D8%B1%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%87%D8%AF%D8%A7%D9%81-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A",
+     "publisher": "سكاي نيوز عربية",
+     "grade": "حسن",
+     "published_at": "2026-10-12T01:07+00:00",
+     "title": "مطارات السعودية والملاحة الدولية.. ما وراء الاستهداف الحوثي؟",
+     "title_en": "Saudi Airports and International Navigation: What Lies Behind Houthi Targeting?",
+     "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-10-11T23:05+00:00"
+   "updated_at": "2026-10-12T02:35+00:00"
   },
   {
    "id": "sig_25d4dc8c032b76c2",
@@ -254,7 +278,7 @@
    "title": "AI repository activity: Models / inference",
    "title_en": "AI repository activity: Models / inference",
    "summary": "The live GitHub radar contains a repeated repository class after deterministic ranking and deduplication.",
-   "observed_at": "2026-10-11T23:02:46Z",
+   "observed_at": "2026-10-12T02:19:40Z",
    "observed_facts": [
     "3 recently pushed, non-fork repositories share this SANAD radar classification."
    ],
@@ -288,7 +312,7 @@
      "url": "https://github.com/huggingface/transformers",
      "publisher": "GitHub Search API",
      "grade": "",
-     "published_at": "2026-10-11T23:02:46Z",
+     "published_at": "2026-10-12T02:19:40Z",
      "title": "huggingface/transformers",
      "title_en": "🤗 Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training.",
      "dataset": "repos"
@@ -307,7 +331,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-10-11T23:05+00:00"
+   "updated_at": "2026-10-12T02:35+00:00"
   },
   {
    "id": "sig_32c738617239f618",
@@ -315,7 +339,7 @@
    "title": "AI repository activity: Agents / workflows",
    "title_en": "AI repository activity: Agents / workflows",
    "summary": "The live GitHub radar contains a repeated repository class after deterministic ranking and deduplication.",
-   "observed_at": "2026-10-11T23:04:50Z",
+   "observed_at": "2026-10-12T02:34:27Z",
    "observed_facts": [
     "5 recently pushed, non-fork repositories share this SANAD radar classification."
    ],
@@ -339,7 +363,7 @@
      "url": "https://github.com/Significant-Gravitas/AutoGPT",
      "publisher": "GitHub Search API",
      "grade": "",
-     "published_at": "2026-10-11T23:04:50Z",
+     "published_at": "2026-10-12T02:34:27Z",
      "title": "Significant-Gravitas/AutoGPT",
      "title_en": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
      "dataset": "repos"
@@ -359,7 +383,7 @@
      "url": "https://github.com/firecrawl/firecrawl",
      "publisher": "GitHub Search API",
      "grade": "",
-     "published_at": "2026-10-11T23:03:39Z",
+     "published_at": "2026-10-12T01:04:44Z",
      "title": "firecrawl/firecrawl",
      "title_en": "Supercharge your AI agents with data from the web and beyond. Building the library for superintelligence. 🔥",
      "dataset": "repos"
@@ -369,7 +393,7 @@
      "url": "https://github.com/NousResearch/hermes-agent",
      "publisher": "GitHub Search API",
      "grade": "",
-     "published_at": "2026-10-11T22:07:49Z",
+     "published_at": "2026-10-12T02:03:54Z",
      "title": "NousResearch/hermes-agent",
      "title_en": "The agent that grows with you",
      "dataset": "repos"
@@ -379,7 +403,7 @@
      "url": "https://github.com/affaan-m/ECC",
      "publisher": "GitHub Search API",
      "grade": "",
-     "published_at": "2026-10-11T23:04:02Z",
+     "published_at": "2026-10-12T02:02:10Z",
      "title": "affaan-m/ECC",
      "title_en": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
      "dataset": "repos"
@@ -388,7 +412,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-10-11T23:05+00:00"
+   "updated_at": "2026-10-12T02:35+00:00"
   },
   {
    "id": "sig_414363770b1b205d",
@@ -396,7 +420,7 @@
    "title": "السعودية: SANAD tension score crossed 60",
    "title_en": "Saudi Arabia: SANAD tension score crossed 60",
    "summary": "The deterministic SANAD tension output crossed its documented export threshold.",
-   "observed_at": "2026-10-11T23:04+00:00",
+   "observed_at": "2026-10-12T02:34+00:00",
    "observed_facts": [
     "Published tension score: 100; published level: حرج."
    ],
@@ -416,52 +440,52 @@
    ],
    "evidence": [
     {
-     "source_ref": "ev_03fa55f9eb906bf3",
-     "url": "https://www.iranintl.com/202610115619",
+     "source_ref": "ev_4fdc0a9e9d3d1bdb",
+     "url": "https://www.iranintl.com/202610123520",
      "publisher": "إيران إنترناشونال",
      "grade": "حسن",
-     "published_at": "2026-10-11T22:39+00:00",
-     "title": "الهجمات على مطار الرياض تسفر عن تحذير طيران أمريكي وإلغاء مشاركة «بي بي» في مؤتمر الطاقة",
+     "published_at": "2026-10-12T00:18+00:00",
+     "title": "دول آسيا والمحيط الهادئ تدين الهجمات على الرياض وتصدر تحذيرات سفر",
      "title_en": "",
      "dataset": "tension"
     },
     {
-     "source_ref": "ev_44958dc9848d4d47",
-     "url": "https://www.skynewsarabia.com/middle-east/1897724-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D9%85%D9%82%D8%AA%D9%84-%D8%B4%D8%AE%D8%B5-%D9%88%D8%A5%D8%B5%D8%A7%D8%A8%D8%A9-11-%D8%A7%D9%84%D9%87%D8%AC%D9%88%D9%85-%D9%85%D8%B7%D8%A7%D8%B1-%D8%A7%D9%84%D9%85%D9%84%D9%83-%D8%AE%D8%A7%D9%84%D8%AF",
-     "publisher": "سكاي نيوز عربية",
-     "grade": "حسن",
-     "published_at": "2026-10-11T22:37+00:00",
-     "title": "السعودية: مقتل شخص وإصابة 11 في الهجوم على مطار الملك خالد",
-     "title_en": "",
-     "dataset": "tension"
-    },
-    {
-     "source_ref": "ev_64ed55408a61bffd",
-     "url": "https://aawsat.com/node/5328480",
+     "source_ref": "ev_6dbbcd8ecfa68c74",
+     "url": "https://aawsat.com/node/5328517",
      "publisher": "الشرق الأوسط",
      "grade": "حسن",
-     "published_at": "2026-10-11T22:03+00:00",
-     "title": "مدرب الشباب يبدي تضامنه مع السعودية... ويشيد بأداء لاعبيه",
+     "published_at": "2026-10-12T00:06+00:00",
+     "title": "عبد العزيز بن سلمان: الرياض عاصمة أمن الطاقة",
      "title_en": "",
      "dataset": "tension"
     },
     {
-     "source_ref": "ev_eb6a40a0a68e6b88",
-     "url": "https://arabic.cnn.com/middle-east/article/2026/10/12/saudi-arabia-yemen-houthi-war",
-     "publisher": "CNN بالعربية",
+     "source_ref": "ev_c9b76c83aff60947",
+     "url": "https://aawsat.com/node/5328518",
+     "publisher": "الشرق الأوسط",
      "grade": "حسن",
-     "published_at": "2026-10-11T22:28+00:00",
-     "title": "السعودية تعلن سقوط قتيل ومصابين إثر هجوم الأحد على مطار الملك خالد",
+     "published_at": "2026-10-12T00:08+00:00",
+     "title": "اعتراض وتدمير «كروز» و«باليستي» في الرياض والخرج",
      "title_en": "",
      "dataset": "tension"
     },
     {
-     "source_ref": "ev_f6f7e528d4d49ab0",
-     "url": "https://arabic.cnn.com/sport/article/2026/10/12/merih-demiral-saudi-arabia",
-     "publisher": "CNN بالعربية",
+     "source_ref": "ev_e8626548ceda54f1",
+     "url": "https://www.skynewsarabia.com/middle-east/1897734-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%A7%D8%B9%D8%AA%D8%B1%D8%A7%D8%B6-%D8%B5%D8%A7%D8%B1%D9%88%D8%AE-%D8%A3%D8%B7%D9%84%D9%82%D9%87-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%88%D9%86-%D8%AE%D9%85%D9%8A%D8%B3-%D9%85%D8%B4%D9%8A%D8%B7",
+     "publisher": "سكاي نيوز عربية",
      "grade": "حسن",
-     "published_at": "2026-10-11T21:03+00:00",
-     "title": "\"بلدي الثاني\".. ديميرال يدافع عن السعودية بعد استهدافها من الحوثيين",
+     "published_at": "2026-10-12T01:22+00:00",
+     "title": "السعودية.. اعتراض صاروخ أطلقه الحوثيون تجاه خميس مشيط",
+     "title_en": "",
+     "dataset": "tension"
+    },
+    {
+     "source_ref": "ev_fd10343ac50b0dc7",
+     "url": "https://www.skynewsarabia.com/middle-east/1897733-%D9%85%D8%B7%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D9%85%D9%84%D8%A7%D8%AD%D8%A9-%D8%A7%D9%84%D8%AF%D9%88%D9%84%D9%8A%D8%A9-%D9%88%D8%B1%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%87%D8%AF%D8%A7%D9%81-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A",
+     "publisher": "سكاي نيوز عربية",
+     "grade": "حسن",
+     "published_at": "2026-10-12T01:07+00:00",
+     "title": "مطارات السعودية والملاحة الدولية.. ما وراء الاستهداف الحوثي؟",
      "title_en": "",
      "dataset": "tension"
     }
@@ -469,7 +493,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-10-10T18:47+00:00",
-   "updated_at": "2026-10-11T23:05+00:00"
+   "updated_at": "2026-10-12T02:35+00:00"
   },
   {
    "id": "sig_6fbc90c289184252",
@@ -477,7 +501,7 @@
    "title": "Watch term active: #غزة",
    "title_en": "Watch term active: #Gaza",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-11T23:05+00:00",
+   "observed_at": "2026-10-12T02:35+00:00",
    "observed_facts": [
     "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
@@ -507,9 +531,19 @@
      "url": "https://www.skynewsarabia.com/middle-east/1897710-%D8%A8%D9%85%D9%88%D8%A7%D9%81%D9%82%D8%A9-%D8%A5%D8%B3%D8%B1%D8%A7%D8%A6%D9%8A%D9%84-%D9%85%D8%B4%D8%B1%D9%88%D8%B9-%D8%AA%D8%AC%D8%B1%D9%8A%D8%A8%D9%8A-%D9%84%D8%AC%D9%85%D8%B9-%D8%A3%D8%B3%D9%84%D8%AD%D8%A9-%D8%AD%D9%85%D8%A7%D8%B3-%D8%BA%D8%B2%D8%A9",
      "publisher": "سكاي نيوز عربية",
      "grade": "حسن",
-     "published_at": "2026-10-11T19:20+00:00",
+     "published_at": "2026-10-11T19:24+00:00",
      "title": "بموافقة إسرائيل.. مشروع تجريبي لجمع أسلحة حماس في غزة",
-     "title_en": "With Israeli Approval, Pilot Project Launches to Collect Hamas Weapons in Gaza",
+     "title_en": "With Israeli Approval: Pilot Project to Collect Hamas Weapons in Gaza",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_24d32333fc763bec",
+     "url": "https://www.aljazeera.net/news/2026/10/12/%D9%85%D8%AC%D9%85%D8%B9%D8%A7%D8%AA-%D8%A8%D8%AD%D9%85%D8%A7%D9%8A%D8%A9-%D8%A7%D9%84%D8%AC%D9%8A%D8%B4-%D8%AA%D8%B3%D8%B1%D9%8A%D8%A8%D8%A7%D8%AA",
+     "publisher": "الجزيرة نت",
+     "grade": "حسن",
+     "published_at": "2026-10-12T00:35+00:00",
+     "title": "مجمعات بحماية الجيش.. تسريبات إسرائيلية عن مقترح جديد لجمع أسلحة حماس بغزة",
+     "title_en": "Army-Guarded Compounds: Israeli Leaks Reveal New Proposal to Collect Hamas Weapons in Gaza",
      "dataset": "osint"
     },
     {
@@ -519,7 +553,7 @@
      "grade": "حسن",
      "published_at": "2026-10-11T15:06+00:00",
      "title": "السعودية توفر خياماً وسلالاً غذائية لأسر نازحة في غزة بعد احتراق مأواها",
-     "title_en": "Saudi Arabia Provides Tents, Food Baskets to Displaced Gaza Families After Shelter Fire",
+     "title_en": "Saudi Arabia Provides Tents and Food Baskets to Displaced Families in Gaza After Shelter Fire",
      "dataset": "osint"
     },
     {
@@ -539,7 +573,7 @@
      "grade": "حسن",
      "published_at": "2026-10-11T18:29+00:00",
      "title": "كيف حوّلت إسرائيل اتفاق غزة إلى \"خدعة تكتيكية\" لاستمرار الإبادة؟",
-     "title_en": "How Israel Turned the Gaza Deal into a 'Tactical Trick' to Continue Genocide",
+     "title_en": "How Israel Turned Gaza Agreement into 'Tactical Trick' to Continue Genocide",
      "dataset": "osint"
     },
     {
@@ -566,7 +600,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-10-11T23:05+00:00"
+   "updated_at": "2026-10-12T02:35+00:00"
   },
   {
    "id": "sig_7ce5e1ca05c1e737",
@@ -574,7 +608,7 @@
    "title": "Watch term active: الحوثي",
    "title_en": "Watch term active: Houthi",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-11T23:05+00:00",
+   "observed_at": "2026-10-12T02:35+00:00",
    "observed_facts": [
     "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
@@ -596,6 +630,16 @@
      "grade": "حسن",
      "published_at": "2026-10-11T18:56+00:00",
      "title": "الحكومة اليمنية توافق على مشروع قانون يصنف جماعة الحوثي \"منظمة إرهابية\"",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_239431badc3a4173",
+     "url": "https://www.skynewsarabia.com/middle-east/1897738-%D8%AA%D8%B3%D8%AA%D8%AE%D8%AF%D9%85-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%8A%D9%86-%D9%84%D8%AA%D8%B4%D8%AA%D9%8A%D8%AA-%D8%A7%D9%84%D8%B6%D8%BA%D8%B7-%D8%B9%D9%84%D9%8A%D9%87%D8%A7",
+     "publisher": "سكاي نيوز عربية",
+     "grade": "حسن",
+     "published_at": "2026-10-12T02:25+00:00",
+     "title": "هل تستخدم إيران الحوثيين لتشتيت الضغط عليها؟",
      "title_en": "",
      "dataset": "osint"
     },
@@ -624,39 +668,19 @@
      "url": "https://www.alarabiya.net/arab-and-world/yemen/2026/10/11/%D8%AA%D9%88%D8%A7%D8%B5%D9%84-%D8%B9%D9%85%D9%84%D9%8A%D8%A7%D8%AA-%D9%81%D8%AC%D8%B1-%D8%A7%D9%84%D9%8A%D9%85%D9%86-%D9%85%D9%88%D8%A7%D9%82%D8%B9-%D9%88%D9%85%D8%AE%D8%A7%D8%B2%D9%86-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A-%D8%A8%D9%85%D8%B1%D9%85%D9%89-%D8%A7%D9%84%D9%86%D9%8A%D8%B1%D8%A7%D9%86",
      "publisher": "العربية",
      "grade": "حسن",
-     "published_at": "2026-10-11T22:36+00:00",
+     "published_at": "2026-10-12T00:50+00:00",
      "title": "تواصل عمليات \"فجر اليمن\".. مواقع ومخازن الحوثي بمرمى النيران",
-     "title_en": "Operation 'Dawn of Yemen' Continues, Targeting Houthi Sites and Depots",
+     "title_en": "'Dawn of Yemen' Operations Continue: Houthi Sites and Depots Under Fire",
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_aa43c258e7f425ff",
-     "url": "https://www.bbc.com/arabic/articles/cqx2894nyxw1o",
-     "publisher": "BBC",
+     "source_ref": "ev_e8626548ceda54f1",
+     "url": "https://www.skynewsarabia.com/middle-east/1897734-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%A7%D8%B9%D8%AA%D8%B1%D8%A7%D8%B6-%D8%B5%D8%A7%D8%B1%D9%88%D8%AE-%D8%A3%D8%B7%D9%84%D9%82%D9%87-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%88%D9%86-%D8%AE%D9%85%D9%8A%D8%B3-%D9%85%D8%B4%D9%8A%D8%B7",
+     "publisher": "سكاي نيوز عربية",
      "grade": "حسن",
-     "published_at": "2026-10-11T15:02+00:00",
-     "title": "لماذا يستهدف الحوثيون مطار الرياض في السعودية وكيف تطورت التصعيدات؟",
-     "title_en": "Why Are Houthis Targeting Riyadh Airport, and How Did the Escalation Unfold?",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_c2c615910b7e378e",
-     "url": "https://www.france24.com/ar/%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7/20261011-%D9%85%D8%A8%D8%A7%D8%B4%D8%B1-%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3-%D8%A7%D9%84%D8%A3%D9%85%D8%B1%D9%8A%D9%83%D9%8A-%D8%AF%D9%88%D9%86%D8%A7%D9%84%D8%AF-%D8%AA%D8%B1%D8%A7%D9%85%D8%A8-%D9%8A%D9%82%D9%88%D9%84-%D8%A5%D9%86-%D9%87%D8%AC%D9%88%D9%85-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%8A%D9%86-%D8%B9%D9%84%D9%89-%D9%85%D8%B7%D8%A7%D8%B1-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-%D8%BA%D9%8A%D8%B1-%D9%85%D9%82%D8%A8%D9%88%D9%84",
-     "publisher": "فرانس ٢٤ عربي",
-     "grade": "حسن",
-     "published_at": "2026-10-11T16:49+00:00",
-     "title": "الحوثيون يتبنون هجوم السبت على مطار الرياض ويشنون هجمات جديدة",
-     "title_en": "Houthis Claim Saturday's Riyadh Airport Strike, Launch New Attacks",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_ecbfaa117566e604",
-     "url": "https://arabic.cnn.com/middle-east/article/2026/10/11/amr-moussa-calls-for-an-urgent-arab-meeting-in-riyadh",
-     "publisher": "CNN Arabic",
-     "grade": "حسن",
-     "published_at": "2026-10-11T10:44+00:00",
-     "title": "\"نكون أو لا نكون\".. عمرو موسى يدعو لتحرك عربي عاجل بعد هجوم الحوثيين على السعودية",
-     "title_en": "\"To Be or Not to Be\": Amr Moussa Urges Swift Arab Action After Houthi Attack on Saudi Arabia",
+     "published_at": "2026-10-12T01:22+00:00",
+     "title": "السعودية.. اعتراض صاروخ أطلقه الحوثيون تجاه خميس مشيط",
+     "title_en": "",
      "dataset": "osint"
     },
     {
@@ -668,12 +692,22 @@
      "title": "\"بلدي الثاني\".. ديميرال يدافع عن السعودية بعد استهدافها من الحوثيين",
      "title_en": "",
      "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_fd10343ac50b0dc7",
+     "url": "https://www.skynewsarabia.com/middle-east/1897733-%D9%85%D8%B7%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D9%85%D9%84%D8%A7%D8%AD%D8%A9-%D8%A7%D9%84%D8%AF%D9%88%D9%84%D9%8A%D8%A9-%D9%88%D8%B1%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%87%D8%AF%D8%A7%D9%81-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A",
+     "publisher": "سكاي نيوز عربية",
+     "grade": "حسن",
+     "published_at": "2026-10-12T01:07+00:00",
+     "title": "مطارات السعودية والملاحة الدولية.. ما وراء الاستهداف الحوثي؟",
+     "title_en": "Saudi Airports and International Navigation: What Lies Behind Houthi Targeting?",
+     "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-09-06T20:02+00:00",
-   "updated_at": "2026-10-11T23:05+00:00"
+   "updated_at": "2026-10-12T02:35+00:00"
   },
   {
    "id": "sig_87c20191a60886e2",
@@ -681,7 +715,7 @@
    "title": "AI repository activity: RAG / knowledge",
    "title_en": "AI repository activity: RAG / knowledge",
    "summary": "The live GitHub radar contains a repeated repository class after deterministic ranking and deduplication.",
-   "observed_at": "2026-10-11T22:23:04Z",
+   "observed_at": "2026-10-12T02:33:59Z",
    "observed_facts": [
     "2 recently pushed, non-fork repositories share this SANAD radar classification."
    ],
@@ -715,7 +749,7 @@
      "url": "https://github.com/langgenius/dify",
      "publisher": "GitHub Search API",
      "grade": "",
-     "published_at": "2026-10-11T22:23:04Z",
+     "published_at": "2026-10-12T02:33:59Z",
      "title": "langgenius/dify",
      "title_en": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
      "dataset": "repos"
@@ -724,7 +758,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-09-21T05:57+00:00",
-   "updated_at": "2026-10-11T23:05+00:00"
+   "updated_at": "2026-10-12T02:35+00:00"
   },
   {
    "id": "sig_89aa1b3be697f580",
@@ -760,7 +794,7 @@
      "url": "https://www.skynewsarabia.com/middle-east/1897649-%D8%A7%D9%84%D8%A5%D9%85%D8%A7%D8%B1%D8%A7%D8%AA-%D8%AA%D8%AF%D9%8A%D9%86-%D8%A8%D8%B4%D8%AF%D8%A9-%D9%87%D8%AC%D9%85%D8%A7%D8%AA-%D8%AC%D9%85%D8%A7%D8%B9%D8%A9-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A-%D9%85%D8%B7%D8%A7%D8%B1-%D8%A7%D9%84%D9%85%D9%84%D9%83-%D8%AE%D8%A7%D9%84%D8%AF",
      "publisher": "سكاي نيوز عربية",
      "grade": "حسن",
-     "published_at": "2026-10-11T08:29+00:00",
+     "published_at": "2026-10-11T08:30+00:00",
      "title": "الإمارات تدين بشدة هجمات جماعة الحوثي على مطار الملك خالد",
      "title_en": "UAE Strongly Condemns Houthi Attacks on King Khalid Airport",
      "dataset": "news"
@@ -781,7 +815,7 @@
     "evt_7d595983bfb67e8c"
    ],
    "created_at": "2026-10-11T14:40+00:00",
-   "updated_at": "2026-10-11T23:05+00:00"
+   "updated_at": "2026-10-12T02:35+00:00"
   },
   {
    "id": "sig_9fafb493aca3836e",
@@ -839,7 +873,7 @@
    "title": "Watch term active: #إيران",
    "title_en": "Watch term active: #Iran",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-11T23:05+00:00",
+   "observed_at": "2026-10-12T02:35+00:00",
    "observed_facts": [
     "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
@@ -860,8 +894,38 @@
      "publisher": "إيران إنترناشونال",
      "grade": "حسن",
      "published_at": "2026-10-11T22:39+00:00",
-     "title": "الهجمات على مطار الرياض تسفر عن تحذير طيران أمريكي وإلغاء مشاركة «بي بي» في مؤتمر الطاقة",
-     "title_en": "Attacks on Riyadh Airport Prompt US Aviation Warning and BP Exit from Energy Conference",
+     "title": "الهجمات على مطار الرياض تسفر عن تحذير طيران أمريكي وإلغاء مشاركة \"بي بي\" في مؤتمر الطاقة",
+     "title_en": "Riyadh Airport Attacks Trigger US Aviation Warning, BP Cancels Energy Conference Appearance",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_239431badc3a4173",
+     "url": "https://www.skynewsarabia.com/middle-east/1897738-%D8%AA%D8%B3%D8%AA%D8%AE%D8%AF%D9%85-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%8A%D9%86-%D9%84%D8%AA%D8%B4%D8%AA%D9%8A%D8%AA-%D8%A7%D9%84%D8%B6%D8%BA%D8%B7-%D8%B9%D9%84%D9%8A%D9%87%D8%A7",
+     "publisher": "سكاي نيوز عربية",
+     "grade": "حسن",
+     "published_at": "2026-10-12T02:25+00:00",
+     "title": "هل تستخدم إيران الحوثيين لتشتيت الضغط عليها؟",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_4fdc0a9e9d3d1bdb",
+     "url": "https://www.iranintl.com/202610123520",
+     "publisher": "إيران إنترناشونال",
+     "grade": "حسن",
+     "published_at": "2026-10-12T00:18+00:00",
+     "title": "دول آسيا والمحيط الهادئ تدين الهجمات على الرياض وتصدر تحذيرات سفر",
+     "title_en": "Asia-Pacific Nations Condemn Attacks on Riyadh, Issue Travel Warnings",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_5688b831fd7b28ad",
+     "url": "https://www.bbc.com/persian/articles/c68xz49y91kjo?at_medium=RSS&at_campaign=rss",
+     "publisher": "بي بي سي فارسي",
+     "grade": "حسن",
+     "published_at": "2026-10-12T00:58+00:00",
+     "title": "معهد الدراسات المالية البريطاني يحذر من تأثير الحرب الإيرانية على ميزانية الحكومة",
+     "title_en": "UK Institute for Fiscal Studies Warns of Impact of Iran War on Government Budget",
      "dataset": "osint"
     },
     {
@@ -880,18 +944,18 @@
      "publisher": "إيران إنترناشونال",
      "grade": "حسن",
      "published_at": "2026-10-11T20:49+00:00",
-     "title": "كالياري 1-1 يوفنتوس؛ «اليوفي» يبتعد عن الصدارة مباراة تلو الأخرى",
-     "title_en": "Cagliari 1-1 Juventus: Juve Slip Further from Top Spot Match After Match",
+     "title": "كالياري 1-1 يوفنتوس؛ \"اليوفي\" يبتعد أكثر عن الصدارة في كل مباراة",
+     "title_en": "Cagliari 1-1 Juventus: Juve Slips Further from Top Spot with Each Match",
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_92f7863105f33681",
-     "url": "https://www.bbc.com/persian/articles/cm4g198y929go?at_medium=RSS&at_campaign=rss",
+     "source_ref": "ev_9c801be98b21fbe0",
+     "url": "https://www.bbc.com/persian/articles/c60qk1w2e9jpo?at_medium=RSS&at_campaign=rss",
      "publisher": "بي بي سي فارسي",
      "grade": "حسن",
-     "published_at": "2026-10-11T17:46+00:00",
-     "title": "الهجوم على مطار الرياض؛ لحظة خطيرة أخرى في نزاع متوتر بالفعل",
-     "title_en": "Riyadh Airport Attack: Another Perilous Moment in an Already Tense Conflict",
+     "published_at": "2026-10-11T23:06+00:00",
+     "title": "\"الجميع يكره الشرطة\"؛ ما تكشفه احتجاجات المدارس عن المجتمع الفرنسي المنقسم",
+     "title_en": "\"Everyone Hates the Police\": What School Protests Reveal About Divided French Society",
      "dataset": "osint"
     },
     {
@@ -903,42 +967,12 @@
      "title": "إيران والانتخابات في أميركا وإسرائيل.. هل تقترب الحرب؟",
      "title_en": "",
      "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_bccef7ead77ec0fc",
-     "url": "https://www.skynewsarabia.com/middle-east/1897695-3-%D9%82%D9%86%D9%88%D8%A7%D8%AA-%D9%887-%D8%B4%D8%B1%D9%88%D8%B7-%D8%B7%D9%87%D8%B1%D8%A7%D9%86-%D8%AA%D9%83%D8%B4%D9%81-%D8%AA%D8%B7%D9%88%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D9%81%D8%A7%D9%88%D8%B6%D8%A7%D8%AA-%D9%88%D8%A7%D8%B4%D9%86%D8%B7%D9%86",
-     "publisher": "سكاي نيوز عربية",
-     "grade": "حسن",
-     "published_at": "2026-10-11T17:11+00:00",
-     "title": "3 قنوات و7 شروط.. طهران تكشف تطورات المفاوضات مع واشنطن",
-     "title_en": "3 Channels and 7 Conditions: Tehran Discloses Details on Talks with Washington",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_bf7359fdcdc5f197",
-     "url": "https://www.alkhaleej.ae/2026-10-12/%D8%B9%D8%B1%D8%A8-%D9%88%D8%B9%D8%A7%D9%84%D9%85/%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85/%D8%B3%D9%86%D8%AA%D9%83%D9%88%D9%85-%D8%AA%D8%AD%D8%A8%D8%B7-%D9%85%D8%AD%D8%A7%D9%88%D9%84%D8%A9-%D8%B3%D9%81%D9%8A%D9%86%D8%A9-%D9%83%D8%B3%D8%B1-%D8%A7%D9%84%D8%AD%D8%B5%D8%A7%D8%B1-%D8%B9%D9%84%D9%89-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86",
-     "publisher": "صحيفة الخليج",
-     "grade": "حسن",
-     "published_at": "2026-10-11T20:20+00:00",
-     "title": "«سنتكوم» تحبط محاولة سفينة كسر الحصار على إيران",
-     "title_en": "",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_dc11bcdfbf203342",
-     "url": "https://www.skynewsarabia.com/middle-east/1897715-%D8%A7%D8%AA%D8%B5%D8%A7%D9%84-%D9%87%D8%A7%D8%AA%D9%81%D9%8A-%D9%88%D8%B2%D9%8A%D8%B1%D9%8A-%D8%AE%D8%A7%D8%B1%D8%AC%D9%8A%D8%A9-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D9%88%D8%A5%D9%8A%D8%B1%D8%A7%D9%86",
-     "publisher": "سكاي نيوز عربية",
-     "grade": "حسن",
-     "published_at": "2026-10-11T20:24+00:00",
-     "title": "اتصال هاتفي بين وزيري خارجية السعودية وإيران",
-     "title_en": "Saudi and Iranian Foreign Ministers Hold Phone Talks",
-     "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-10-11T23:05+00:00"
+   "updated_at": "2026-10-12T02:35+00:00"
   },
   {
    "id": "sig_bf1265daa6cefcac",
@@ -1066,9 +1100,9 @@
    "title": "Watch term active: ناقلة",
    "title_en": "Watch term active: tanker",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-11T23:05+00:00",
+   "observed_at": "2026-10-12T02:35+00:00",
    "observed_facts": [
-    "3 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 62."
+    "4 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 72."
    ],
    "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
    "inference": "Term matching indicates attention, not intent, coordination, or threat.",
@@ -1086,7 +1120,7 @@
      "url": "https://www.skynewsarabia.com/world/1897719-%D9%87%D9%8A%D8%A6%D8%A9-%D8%A8%D8%AD%D8%B1%D9%8A%D8%A9-%D9%87%D8%AC%D9%88%D9%85-%D8%A8%D9%85%D8%B3%D9%8A%D8%B1%D8%A9-%D9%8A%D8%B3%D8%AA%D9%87%D8%AF%D9%81-%D9%86%D8%A7%D9%82%D9%84%D8%A9-%D9%86%D9%81%D8%B7-%D9%82%D8%B1%D8%A8-%D8%B3%D9%84%D8%B7%D9%86%D8%A9-%D8%B9%D9%85%D8%A7%D9%86",
      "publisher": "سكاي نيوز عربية",
      "grade": "حسن",
-     "published_at": "2026-10-11T21:31+00:00",
+     "published_at": "2026-10-11T21:04+00:00",
      "title": "هيئة بحرية: هجوم بمسيرة يستهدف ناقلة نفط قرب سلطنة عمان",
      "title_en": "",
      "dataset": "osint"
@@ -1110,12 +1144,22 @@
      "title": "موعد مباراة برشلونة ضد غلطة سراي في دوري أبطال أوروبا والقنوات الناقلة",
      "title_en": "",
      "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_f811210e8719345f",
+     "url": "https://www.independentarabia.com/node/660200/%D8%A7%D9%84%D8%A3%D8%AE%D8%A8%D8%A7%D8%B1/%D9%87%D9%8A%D8%A6%D8%A9-%D8%A8%D8%AD%D8%B1%D9%8A%D8%A9-%D9%86%D8%A7%D9%82%D9%84%D8%A9-%D8%AA%D8%AA%D8%B9%D8%B1%D8%B6-%D9%84%D9%87%D8%AC%D9%88%D9%85-%D8%A8%D9%85%D8%B3%D9%8A%D8%B1%D8%A9-%D9%82%D8%B1%D8%A8-%D9%85%D9%86%D8%B7%D9%82%D8%A9-%D8%B1%D8%B3%D9%88-%D9%81%D9%8A-%D8%B9%D9%8F%D9%85%D8%A7%D9%86",
+     "publisher": "اندبندنت عربية",
+     "grade": "حسن",
+     "published_at": "2026-10-11T23:16+00:00",
+     "title": "هيئة بحرية: ناقلة تتعرض لهجوم بمسيرة قرب منطقة رسو في عُمان",
+     "title_en": "",
+     "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-10-05T18:48+00:00",
-   "updated_at": "2026-10-11T23:05+00:00"
+   "updated_at": "2026-10-12T02:35+00:00"
   },
   {
    "id": "sig_d16a97b1c2740ac8",
@@ -1123,9 +1167,9 @@
    "title": "Watch term active: #هرمز",
    "title_en": "Watch term active: #Hormuz",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-11T23:05+00:00",
+   "observed_at": "2026-10-12T02:35+00:00",
    "observed_facts": [
-    "5 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 82."
+    "3 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 62."
    ],
    "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
    "inference": "Term matching indicates attention, not intent, coordination, or threat.",
@@ -1149,16 +1193,6 @@
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_945dbe7634e8dcfe",
-     "url": "https://www.alarabiya.net/iran/2026/10/09/%D9%85%D9%82%D8%B0%D9%88%D9%81-%D9%8A%D8%B6%D8%B1%D8%A8-%D8%B3%D9%81%D9%8A%D9%86%D8%A9-%D9%82%D8%A8%D8%A7%D9%84%D8%A9-%D8%B3%D9%88%D8%A7%D8%AD%D9%84-%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D8%B1%D8%A7%D8%AA-%D9%88%D8%A7%D9%8A%D8%B1%D8%A7%D9%86-%D8%AA-%D8%B5%D8%B9%D8%AF-%D9%81%D9%8A-%D9%87%D8%B1%D9%85%D8%B2",
-     "publisher": "العربية",
-     "grade": "حسن",
-     "published_at": "2026-10-09T12:05+00:00",
-     "title": "مقذوف يضرب سفينة قبالة سواحل الإمارات.. وإيران تُصعد في هرمز",
-     "title_en": "Projectile Hits Vessel Off UAE Coast as Iran Escalates in Strait of Hormuz",
-     "dataset": "osint"
-    },
-    {
      "source_ref": "ev_ab0187eee990632b",
      "url": "https://www.alkhaleej.ae/2026-10-11/%D8%B9%D8%B1%D8%A8-%D9%88%D8%B9%D8%A7%D9%84%D9%85/%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85/%D8%B3%D9%86%D8%AA%D9%83%D9%88%D9%85-%D8%AA%D8%BA%D9%8A%D9%8A%D8%B1-%D9%85%D8%B3%D8%A7%D8%B1-133-%D8%B3%D9%81%D9%8A%D9%86%D8%A9-%D9%81%D9%8A-%D9%87%D8%B1%D9%85%D8%B2",
      "publisher": "صحيفة الخليج",
@@ -1172,7 +1206,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-09-23T11:59+00:00",
-   "updated_at": "2026-10-11T23:05+00:00"
+   "updated_at": "2026-10-12T02:35+00:00"
   }
  ]
 }
