@@ -1,107 +1,107 @@
 {
- "updated": "2026-10-12T19:59+00:00",
+ "updated": "2026-10-13T08:58+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.12307",
-   "title": "BudgetPix: Compute-Adaptive Tokenization for Pixel-Space Image Diffusion",
-   "abstract": "Most image generation models rely on uniform tokenization, allocating the exact same computational budget to equally-sized image patches. This static paradigm cannot adapt to different resource constraints at inference time, and yields suboptimal quality-cost tradeoff by devoting the same effort to both plain backgrounds and intricate details. We propose BudgetPix, an adaptive tokenization framework that dynamically allocates compute based on visual complexity and spatial layout, enabling flexible computational budgeting at inference time. BudgetPix comprises three key components: (1) an adapt",
+   "id": "2610.09326",
+   "title": "VIS-Ground: Video Interactive Storytelling with Contextual Grounding",
+   "abstract": "Video interactive storytelling enables viewers to actively steer how a video unfolds. However, once we allow viewers to intervene during generation, a new challenge arises: The viewer's request can have latent dependencies on both the grounding source and the current rendered video state. These dependencies may not be explicitly stated in any individual input, but emerge only when the source, rendered history, and new viewer intent are considered jointly. Existing interactive video generation systems primarily emphasize following viewer instructions, while source-grounded video generation meth",
    "authors": [
-    "Ozgur Kara",
-    "Yujia Chen",
-    "Daniel Watson",
-    "David Forsyth"
+    "Bingxuan Li",
+    "Yiwen Song",
+    "Xueqing Wu",
+    "Yanzhou Pan"
    ],
-   "link": "https://huggingface.co/papers/2610.12307",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-08T00:00",
-   "title_ar": "ميزانية البكسل: ترميز متكيف حسابيًا لنماذج انتشار الصور في فضاء البكسل",
-   "summary_ar": "تعتمد معظم نماذج توليد الصور على الترميز الموحد الذي يخصص نفس الميزانية الحسابية لأجزاء متساوية الحجم، وهو نموذج ثابت يعجز عن التكيف مع قيود الموارد المختلفة أثناء الاستدلال. يؤدي ذلك إلى مفاضلة غير مثالية بين الجودة والتكلفة نتيجة بذل الجهد نفسه."
-  },
-  {
-   "id": "2610.11069",
-   "title": "Clinician use of language models diverges from how the models are evaluated",
-   "abstract": "Large language model (LLM) assistants are being deployed to clinicians across health systems, and judgments about their readiness rest largely on benchmark scores, most of them derived from examination questions or curated cases. A benchmark predicts performance in deployment only to the extent that its items resemble real use, yet whether benchmarks reflect the work these systems receive has rarely been measured. Here we analyze 127,833 queries sent by 6,342 physicians, advanced practice providers and nurses in 35 specialties to an institutional assistant during an eight-month roll-out. We ch",
-   "authors": [
-    "Krithik Vishwanath",
-    "Haitong Lin",
-    "Anton Alyakin",
-    "Jin Vivian Lee"
-   ],
-   "link": "https://huggingface.co/papers/2610.11069",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-08T00:00",
-   "title_ar": "استخدام الأطباء للنماذج اللغوية يختلف عن طريقة تقييمها",
-   "summary_ar": "يُنشر المساعدون المعتمدون على النماذج اللغوية الكبيرة للأطباء، وتعتمد القرارات بشأن جاهزيتهم على درجات معايير التقييم المستمدة غالبًا من أسئلة الامتحانات أو الحالات المنسقة. لا يتنبأ معيار التقييم بالأداء عند النشر الفعلي إلا بقدر ما يعكس هذا الاستخدام."
-  },
-  {
-   "id": "2610.10512",
-   "title": "Video-Conditioned Generative Joint 2D-3D Hand Motion Recovery",
-   "abstract": "Recovering faithful 3D hand motion from video remains challenging due to frequent occlusions and incomplete visual observations, which make frame-wise pose estimates unreliable and temporally inconsistent. To address this problem, we propose JoHan, a unified generative framework that recovers hand motion directly from video sequences without relying on intermediate per-frame pose predictions. Trained from scratch, our model jointly generates aligned 2D and 3D local hand pose sequences by learning their temporal dynamics and cross-representation correspondence. The generated 2D trajectories exp",
-   "authors": [
-    "Chen Xu",
-    "Yunqi Li",
-    "Binbin Huang",
-    "Brent Yi"
-   ],
-   "link": "https://huggingface.co/papers/2610.10512",
+   "link": "https://huggingface.co/papers/2610.09326",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-07T00:00",
-   "title_ar": "استعادة توليدية مشتركة لحركة اليد ثنائية وثلاثية الأبعاد مشروطة بالفيديو",
-   "summary_ar": "تظل استعادة حركة اليد ثلاثية الأبعاد بدقة من الفيديو أمرًا صعبًا بسبب الانسدادات المتكررة والمشاهدات البصرية غير المكتملة التي تجعل تقديرات الوضعية غير موثوقة وغير متسقة زمنيًا. ولمعالجة هذه المشكلة، يقترح الباحثون \"JoHan\"، وهو إطار توليدي موحد يستعيد حركة اليد."
+   "title_ar": "VIS-Ground: سرد قصصي تفاعلي عبر الفيديو مع ربط سياقي",
+   "summary_ar": "يتيح السرد القصصي التفاعلي عبر الفيديو للمشاهدين توجيه مسار الفيديو بفعالية. ولكن بمجرد السماح بتدخل المشاهدين أثناء التوليد، يظهر تحدٍّ جديد يتمثل في احتمال وجود تبعيات كامنة لطلب المشاهد على كل من مصدر الربط وحالة الفيديو المعروضة حالياً."
   },
   {
-   "id": "2610.12102",
-   "title": "Few-Step Generation via Data-Space Iteration",
-   "abstract": "Flow matching has emerged as a scalable paradigm for training high-quality generative models, but sampling from the learned probability flow requires many network evaluations. Distillation can reduce this cost to one or a few evaluations; however, one-step generation often sacrifices quality, making few-step generation the practical operating regime. Existing few-step methods perform their iterative computation along the probability flow and therefore require a fixed, manually chosen timestep discretization. This discretization is often chosen heuristically and is expensive to tune; it may als",
+   "id": "2610.09116",
+   "title": "SPLATIFY: Reproduce, Discover, Innovate! From Papers and Ideas to Trainable 3DGS Code",
+   "abstract": "The rapid growth of 3D Gaussian Splatting (3DGS) research demands significant effort to reimplement papers before building on them. We introduce SPLATIFY, a multi-agent framework that converts 3DGS papers into trainable gsplat-based implementations, where generic paper-to-code methods and frontier models fail. SPLATIFY achieves this through five innovations: (1) A context-free grammar for gsplat over a modular method template with extension points for losses, densification, rendering, and optimization, constraining synthesis so generated code satisfies gsplat's architectural invariants by cons",
    "authors": [
-    "Shanchuan Lin",
-    "Yansong Peng",
-    "Fu-Yun Wang",
-    "Haoqi Fan"
+    "Seemandhar Jain",
+    "Keshav Gupta",
+    "Manmohan Chandraker"
    ],
-   "link": "https://huggingface.co/papers/2610.12102",
+   "link": "https://huggingface.co/papers/2610.09116",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-08T00:00",
-   "title_ar": "التوليد بخطوات قليلة عبر التكرار في فضاء البيانات",
-   "summary_ar": "برزت مطابقة التدفق كنموذج قابل للتوسع لتدريب نماذج توليدية عالية الجودة، لكن أخذ العينات يتطلب تقييمات شبكية متعددة. ورغم أن التقطير يقلل هذه التكلفة إلى تقييم واحد أو بضعة تقييمات، إلا أن التوليد بخطوة واحدة غالبًا ما يضحي بالجودة."
+   "published": "2026-10-06T00:00",
+   "title_ar": "SPLATIFY: أعد الإنتاج، واكتشف، وابتكر! من الأوراق البحثية والأفكار إلى كود 3DGS قابل للتدريب",
+   "summary_ar": "يتطلب النمو السريع لأبحاث تلطيخ غاوسي ثلاثي الأبعاد (3DGS) جهداً كبيراً لإعادة تنفيذ الأوراق قبل البناء عليها. لذلك، نقدم SPLATIFY، وهو إطار عمل متعدد الوكلاء يحول أوراق 3DGS إلى تطبيقات قابلة للتدريب قائمة على gsplat، حيث تقصر الطرق العامة لتحويل الأوراق إلى أكواد والوسائل الرائدة."
   },
   {
-   "id": "2610.11215",
-   "title": "GATOR: Generative and Agentic 3D Object Reconstruction From Casual Images",
-   "abstract": "Reconstructing complete, scene-aligned 3D objects from casual images requires integrating sparse, uncertain observations and inferring surfaces hidden by occlusions. We present GATOR, a generative and agentic framework that recovers textured object assets and their scene-relative pose from one or more images. Our local modality mixer couples patch-aligned RGB, target-mask, and pointmap features before cross-view reasoning, preserving scene context while distinguishing the target from its surroundings. Text-guided semantic conditioning complements these spatial cues with category names and obje",
+   "id": "2610.12933",
+   "title": "Learning More by Training Less: Uncertainty-Guided Progressive Contraction for Efficient Reasoning Post-Training",
+   "abstract": "Large language models have achieved remarkable advances in complex reasoning. However, scaling reasoning post-training with ever-larger corpora can substantially increase training cost without proportional performance gains. In this study, we therefore ask: how far can reasoning supervision be compressed without sacrificing capability? To this end, we propose an uncertainty-guided progressive contraction framework that concentrates supervision and optimization on the reasoning trajectories most valuable for learning. Specifically, rather than treating a teacher-generated chain-of-thought (CoT)",
    "authors": [
-    "Qirui Wu",
-    "Stan Birchfield",
-    "Hesam Rabeti",
-    "Angel X. Chang"
+    "Suorong Yang",
+    "Jiaxin Wang",
+    "Jiaming Su",
+    "Chentao Yue"
    ],
-   "link": "https://huggingface.co/papers/2610.11215",
+   "link": "https://huggingface.co/papers/2610.12933",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-08T04:13",
-   "title_ar": "غاتور: إعادة بناء توليدية ووكيلية للأجسام ثلاثية الأبعاد من صور عفوية",
-   "summary_ar": "تتطلب إعادة بناء أجسام ثلاثية الأبعاد كاملة ومتوافقة مع المشهد من صور عفوية دمج مشاهدات متفرقة وغير مؤكدة واستنتاج الأسطح المحجوبة بالانسدادات. يقدم البحث \"GATOR\"، وهو إطار توليدي ووكيلي يستعيد أصول الأجسام المكسوة وموضعها المرتبط بالمشهد من صورة واحدة أو أكثر."
+   "published": "2026-10-09T00:00",
+   "title_ar": "التعلم أكثر عبر تدريب أقل: الانكماش التدريجي الموجه بعدم اليقين لما بعد تدريب الاستدلال بكفاءة",
+   "summary_ar": "حققت النماذج اللغوية الكبيرة تقدماً ملحوظاً في الاستدلال المعقد، غير أن توسيع نطاق ما بعد تدريب الاستدلال بمجموعات بيانات متزايدة الضخامة يرفع تكلفة التدريب بشكل كبير دون مكاسب متناسبة في الأداء. ومن ثم، نتساءل في هذه الدراسة: إلى أي مدى يمكن ضغط إشراف الاستدلال؟"
   },
   {
-   "id": "2610.07207",
-   "title": "Distributionally Robust Mixture-of-Experts Training",
-   "abstract": "Mixture-of-Experts (MoE) transformers scale capacity by activating only a few experts per token, but this sparsity creates a hidden reliability problem: when routing is imperfect, load-balanced models may send tokens to experts that are insufficiently trained for the assigned inputs. We propose Distributionally Robust MoE Training (DRMoET), a drop-in objective that treats layer-wise experts as endogenous robustness groups and optimizes high-loss routing outcomes rather than merely equalizing traffic. DRMoET updates a per-layer expert distribution by an entropy-regularized softmax rule on EMA-s",
+   "id": "2610.13361",
+   "title": "AgentSWE: Can Coding Agents Build the Agent You Actually Want?",
+   "abstract": "As the production of software passes into the hands of software itself, coding agents are increasingly commissioned to build agents fitted to their users' own workflows. This delegation carries a quiet assumption, that the delivered agent will faithfully serve the requirement it was built for, rather than merely appear to. No existing benchmark tests that assumption. We introduce AgentSWE, a benchmark for agent software engineering spanning three stages of the agent development lifecycle: Creation of a complete agent from a natural-language requirement, Editing of production agent codebases, a",
    "authors": [
-    "Xin Teng",
-    "Muxiao Li",
-    "Hongyi Wen"
+    "Jiahao Wang",
+    "Hongjin Qian",
+    "Yuyang Hu",
+    "Jiajun Zhang"
    ],
-   "link": "https://huggingface.co/papers/2610.07207",
+   "link": "https://huggingface.co/papers/2610.13361",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-05T00:00",
-   "title_ar": "تدريب نماذج خليط الخبراء القوي توزيعيًا",
-   "summary_ar": "توسع محولات \"خليط الخبراء\" قدرتها بتفعيل عدد قليل من الخبراء لكل رمز، لكن هذه القلة تنشئ مشكلة موثوقية خفية عندما يكون التوجيه غير مثالي، حيث قد ترسل النماذج المتوازنة في الحمل رموزًا إلى خبراء غير مدربين كافيًا عليها. يقترح الباحثون تدريبًا قويًا توزيعيًا لمعالجة ذلك."
+   "published": "2026-10-09T00:00",
+   "title_ar": "AgentSWE: هل تستطيع وكلاء البرمجة بناء الوكيل الذي تريده حقاً؟",
+   "summary_ar": "مع انتقال إنتاج البرمجيات إلى أيدي البرمجيات نفسها، يُكلَّف وكلاء البرمجة بشكل متزايد ببناء وكلاء ملائمين لسير عمل مستخدميهم. ويحمل هذا التفويض افتراضاً ضمنياً بأن الوكيل المُسلَّم سيخدم بدقة المتطلب الذي بُني من أجله."
+  },
+  {
+   "id": "2609.39600",
+   "title": "GroundAnything: Reconciling Parallel Decoding with Precise Visual Grounding at Flash Speed",
+   "abstract": "Autoregressive (AR) grounding models serialize spatial predictions, introducing sequential latency and imposing a causal order on output tokens. We view grounding as visual evidence extraction: objects, locations, and spatial relations are jointly constrained by the image and query, yet their dependencies do not imply an intrinsic left-to-right generation order. This distinction makes bidirectional diffusion a natural fit, allowing spatial hypotheses to emerge in parallel and be jointly refined through iterative denoising. We introduce GroundAnything, a 4B-parameter grounding foundation model ",
+   "authors": [
+    "Qize Yu",
+    "Lianrui Fan",
+    "Bowen Ping",
+    "Xini Ding"
+   ],
+   "link": "https://huggingface.co/papers/2609.39600",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-30T00:00",
+   "title_ar": "GroundAnything: التوفيق بين فك التشفير المتوازي والربط المرئي الدقيق بسرعة فائقة",
+   "summary_ar": "تقوم نماذج الربط التوليدي التلقائي بتسلسل التنبؤات المكانية، مما يتسبب في تأخير زمني متعاقب ويفرض ترتيباً سببياً على الرموز الناتجة. ونحن نرى الربط كاستخراج للأدلة المرئية؛ حيث تخضع الكائنات والمواقع والعلاقات المكانية لقيود مشتركة يفرضها كل من الصورة والاستعلام، ومع ذلك فإن تبعياتها تظل قائمة."
+  },
+  {
+   "id": "2609.39601",
+   "title": "GroundingPI: A Grounding Foundation Model towards Physical Intelligence with Visual Primitives",
+   "abstract": "Precise grounding matters. It specifies which object is the target and where that object is, even in clutter and for tiny objects, and it has to be fast enough for closed-loop control. Yet vision-language-action (VLA) and world-action models (WAMs) take perception from general-purpose vision-language and video-generation backbones, which still fail in these settings. We introduce GroundingPI, a 4B grounding foundation model that generates points and boxes as quantized coordinates in a shared vocabulary. Training combines multimodal and spatial pretraining, supervised fine-tuning, and reinforce",
+   "authors": [
+    "Qize Yu",
+    "Lianrui Fan",
+    "Boyu Chen",
+    "Jiaqi Liang"
+   ],
+   "link": "https://huggingface.co/papers/2609.39601",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-30T00:00",
+   "title_ar": "GroundingPI: نموذج ربط أساسي نحو الذكاء المادي باستخدام الأوليات المرئية",
+   "summary_ar": "يعد الربط الدقيق أمراً مهماً، فهو يحدد ما هو الكائن المستهدف وأين يقع، حتى وسط الفوضى وبالنسبة للأجسام متناهية الصغر، كما يجب أن يكون سريعاً بما يكفي للتحكم في الحلقة المغلقة. ومع ذلك، فإن نماذج الرؤية واللغة والعمل (VLA) ونماذج العمل والعالم (WAMs) تستمد الإدراك من نماذج الرؤية واللغة العامة."
   }
  ],
  "n": 6
