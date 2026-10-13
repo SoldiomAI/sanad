@@ -1,107 +1,107 @@
 {
- "updated": "2026-10-13T08:58+00:00",
+ "updated": "2026-10-13T21:45+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.09326",
-   "title": "VIS-Ground: Video Interactive Storytelling with Contextual Grounding",
-   "abstract": "Video interactive storytelling enables viewers to actively steer how a video unfolds. However, once we allow viewers to intervene during generation, a new challenge arises: The viewer's request can have latent dependencies on both the grounding source and the current rendered video state. These dependencies may not be explicitly stated in any individual input, but emerge only when the source, rendered history, and new viewer intent are considered jointly. Existing interactive video generation systems primarily emphasize following viewer instructions, while source-grounded video generation meth",
+   "id": "2609.36642",
+   "title": "PR-OPD: Privileged Representation On-policy Self-Distillation for Agentic Reinforcement Learning",
+   "abstract": "Language-model agents are usually trained by reinforcement learning from one reward per episode, and privileged self-distillation enriches it by letting the same policy, given a skill, teach its skill-free self through token probabilities. However, we identify two phenomena that question this channel. Invisible Advantage: a skill in context lifts WebShop success from 42.2% to 56.2%, yet changes the probabilities of fewer than a quarter of the sampled tokens. Much to Align: a skill changes the hidden states of over 80% of response tokens, in a way that linear probes can trace back to the specif",
    "authors": [
-    "Bingxuan Li",
-    "Yiwen Song",
-    "Xueqing Wu",
-    "Yanzhou Pan"
+    "Muyang Li",
+    "Jie Yang",
+    "Zhengyu Fang",
+    "Junchao Zhu"
    ],
-   "link": "https://huggingface.co/papers/2610.09326",
+   "link": "https://huggingface.co/papers/2609.36642",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-07T00:00",
-   "title_ar": "VIS-Ground: سرد قصصي تفاعلي عبر الفيديو مع ربط سياقي",
-   "summary_ar": "يتيح السرد القصصي التفاعلي عبر الفيديو للمشاهدين توجيه مسار الفيديو بفعالية. ولكن بمجرد السماح بتدخل المشاهدين أثناء التوليد، يظهر تحدٍّ جديد يتمثل في احتمال وجود تبعيات كامنة لطلب المشاهد على كل من مصدر الربط وحالة الفيديو المعروضة حالياً."
+   "published": "2026-09-29T00:00",
+   "title_ar": "تقطير ذاتي على السياسة بتمثيل مميز للتعلم المعزز للوكلاء",
+   "summary_ar": "تُدرَّب وكلاء النماذج اللغوية عادةً بالتعلم المعزز عبر مكافأة واحدة لكل حلقة، ويُثري التقطير الذاتي المميز ذلك بجعل السياسة نفسها تُعلّم نسختها الخالية من المهارة باحتمالات الرموز عند تزويدها بمهارة. ومع ذلك، يرصد الباحثون ظاهرتين تثيران الشكوك حول هذه القناة."
   },
   {
-   "id": "2610.09116",
-   "title": "SPLATIFY: Reproduce, Discover, Innovate! From Papers and Ideas to Trainable 3DGS Code",
-   "abstract": "The rapid growth of 3D Gaussian Splatting (3DGS) research demands significant effort to reimplement papers before building on them. We introduce SPLATIFY, a multi-agent framework that converts 3DGS papers into trainable gsplat-based implementations, where generic paper-to-code methods and frontier models fail. SPLATIFY achieves this through five innovations: (1) A context-free grammar for gsplat over a modular method template with extension points for losses, densification, rendering, and optimization, constraining synthesis so generated code satisfies gsplat's architectural invariants by cons",
+   "id": "2610.12099",
+   "title": "UNITAS: A 3D-Native World Action Model for Embodied Manipulation",
+   "abstract": "World action models (WAMs) aim to answer a coupled physical question: given a task instruction, what motion should the robot execute, and how will that motion change the surrounding world? Most existing WAMs build on pretrained video generators and represent world evolution through images or visual latents. Robotic interaction, however, takes place in metric three-dimensional space, while images are view-dependent projections whose pixel distances do not directly encode physical distances. We introduce UNITAS, to our knowledge the first 3D-native world action model that unifies observations, a",
    "authors": [
-    "Seemandhar Jain",
-    "Keshav Gupta",
-    "Manmohan Chandraker"
+    "Ruixiang Wang",
+    "Yongyi Su",
+    "Wenlve Zhou",
+    "Bo Yue"
    ],
-   "link": "https://huggingface.co/papers/2610.09116",
+   "link": "https://huggingface.co/papers/2610.12099",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-06T00:00",
-   "title_ar": "SPLATIFY: أعد الإنتاج، واكتشف، وابتكر! من الأوراق البحثية والأفكار إلى كود 3DGS قابل للتدريب",
-   "summary_ar": "يتطلب النمو السريع لأبحاث تلطيخ غاوسي ثلاثي الأبعاد (3DGS) جهداً كبيراً لإعادة تنفيذ الأوراق قبل البناء عليها. لذلك، نقدم SPLATIFY، وهو إطار عمل متعدد الوكلاء يحول أوراق 3DGS إلى تطبيقات قابلة للتدريب قائمة على gsplat، حيث تقصر الطرق العامة لتحويل الأوراق إلى أكواد والوسائل الرائدة."
+   "published": "2026-10-08T00:00",
+   "title_ar": "UNITAS: نموذج حركة وعالم ثلاثي الأبعاد أصيل للمعالجة والتوجيه المتجسد",
+   "summary_ar": "تهدف نماذج حركة العالم إلى الإجابة عن مسألة فيزيائية مقترنة: ما الحركة التي يجب على الروبوت تنفيذها بناءً على تعليمات المهمة، وكيف ستغير تلك الحركة العالم المحيط؟ تُبنى معظم هذه النماذج الحالية على مولدات فيديو مدربة مسبقًا وتُمثّل تطور العالم عبر الصور أو المشاهد المرئية."
   },
   {
-   "id": "2610.12933",
-   "title": "Learning More by Training Less: Uncertainty-Guided Progressive Contraction for Efficient Reasoning Post-Training",
-   "abstract": "Large language models have achieved remarkable advances in complex reasoning. However, scaling reasoning post-training with ever-larger corpora can substantially increase training cost without proportional performance gains. In this study, we therefore ask: how far can reasoning supervision be compressed without sacrificing capability? To this end, we propose an uncertainty-guided progressive contraction framework that concentrates supervision and optimization on the reasoning trajectories most valuable for learning. Specifically, rather than treating a teacher-generated chain-of-thought (CoT)",
+   "id": "2610.05637",
+   "title": "Visual Grounding Safety in Vision-Language Models",
+   "abstract": "Vision-language models (VLMs) are increasingly trained to generate structured outputs like points and bounding boxes that downstream interfaces, agents, and robots can act on, yet safety alignment of this output channel has not been systematically analyzed. We study visual grounding safety by repurposing three safety benchmarks spanning direct harm (VLSU), social bias (BBQ-V), and situational safety (Asimov-2.0) into 15,401 matched pairs of harmful requests that differ only in the requested output: a free-text answer (VQA) or a grounding (point or bounding box). Across five VLMs, models that r",
    "authors": [
-    "Suorong Yang",
-    "Jiaxin Wang",
-    "Jiaming Su",
-    "Chentao Yue"
+    "Erfan Shayegani",
+    "Kundan Krishna",
+    "Yue Dong",
+    "Nael Abu-Ghazaleh"
    ],
-   "link": "https://huggingface.co/papers/2610.12933",
+   "link": "https://huggingface.co/papers/2610.05637",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-05T00:00",
+   "title_ar": "أمان الإرساء المرئي في نماذج الرؤية واللغة",
+   "summary_ar": "تُدرَّب نماذج الرؤية واللغة بشكل متزايد لتوليد مخرجات مهيكلة كنقاط وأطر محيطة لتتصرف بناءً عليها الواجهات والوكلاء والروبوتات، إلا أن محاذاة الأمان لقناة المخرجات هذه لم تُحلل بشكل منهجي. يدرس الباحثون أمان الإرساء المرئي عبر إعادة توظيف مخرجات هذه النماذج."
+  },
+  {
+   "id": "2610.02740",
+   "title": "Prospective Hindsight: Self-Calibrating Reinforcement Learning via Prediction-Reality Gaps",
+   "abstract": "Reinforcement learning for long-horizon agents relies on purely retrospective training signals: credit is assigned only after observing environmental consequences, leaving the agent's belief at action time invisible to the gradient. We introduce Prospective Hindsight (PH), a self-calibrating training principle that augments any retrospective base method with a signal derived from the gap between the agent's prospective prediction (before feedback) and the retrospective evaluation (after feedback). This per-rollout surprise identifies samples where the agent's self-model is most inaccurate and ",
+   "authors": [
+    "Jiaxin Zhang",
+    "Xiangyu Peng",
+    "Qinglin Chen",
+    "Yu Li"
+   ],
+   "link": "https://huggingface.co/papers/2610.02740",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-02T00:00",
+   "title_ar": "الإدراك المستقبلي المتأخر: تعلم معزز ذاتي المعايرة عبر فجوات التنبؤ والواقع",
+   "summary_ar": "يعتمد التعلم المعزز لوكلاء المهام طويلة المدى على إشارات تدريب استرجاعية بحتة تُنسب بعد مراقبة العواقب البيئية فقط، مما يحجب اعتقاد الوكيل وقت الفعل عن الانحدار. يقدم الباحثون \"الإدراك المستقبلي المتأخر\" كإطار تدريب ذاتي المعايرة."
+  },
+  {
+   "id": "2610.12998",
+   "title": "Evaluating LLM Creativity through Long-Tail Performance",
+   "abstract": "Creativity benchmarks for large language models (LLMs) vary widely in task and metric design. This raises the question of whether they capture a common notion of creativity. We propose that this shared target can be formalized as task-specific performance in the long tail of a reference input-output distribution, which describes how common input-output pairs are relative to a chosen source of text. We ground this proposition in the novelty-quality product formulation and evaluate it empirically across 15 benchmarks and 26 open-weight models, using n-gram absence from the pretraining data as a ",
+   "authors": [
+    "Yichen Wang",
+    "Tenghao Huang",
+    "Vishakh Padmakumar",
+    "Mina Lee"
+   ],
+   "link": "https://huggingface.co/papers/2610.12998",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-09T00:00",
-   "title_ar": "التعلم أكثر عبر تدريب أقل: الانكماش التدريجي الموجه بعدم اليقين لما بعد تدريب الاستدلال بكفاءة",
-   "summary_ar": "حققت النماذج اللغوية الكبيرة تقدماً ملحوظاً في الاستدلال المعقد، غير أن توسيع نطاق ما بعد تدريب الاستدلال بمجموعات بيانات متزايدة الضخامة يرفع تكلفة التدريب بشكل كبير دون مكاسب متناسبة في الأداء. ومن ثم، نتساءل في هذه الدراسة: إلى أي مدى يمكن ضغط إشراف الاستدلال؟"
+   "title_ar": "تقييم إبداع النماذج اللغوية الكبيرة عبر أداء الذيل الطويل",
+   "summary_ar": "تختلف معايير تقييم إبداع النماذج اللغوية الكبيرة اختلافًا كبيرًا في تصميم المهام والمقاييس، مما يثير التساؤل حول ما إذا كانت تلتقط مفهومًا مشتركًا للإبداع. يقترح الباحثون إمكانية صياغة هذا الهدف المشترك كأداء خاص بمهمة معينة في الذيل الطويل لمدخلات ومخرجات مرجعية."
   },
   {
-   "id": "2610.13361",
-   "title": "AgentSWE: Can Coding Agents Build the Agent You Actually Want?",
-   "abstract": "As the production of software passes into the hands of software itself, coding agents are increasingly commissioned to build agents fitted to their users' own workflows. This delegation carries a quiet assumption, that the delivered agent will faithfully serve the requirement it was built for, rather than merely appear to. No existing benchmark tests that assumption. We introduce AgentSWE, a benchmark for agent software engineering spanning three stages of the agent development lifecycle: Creation of a complete agent from a natural-language requirement, Editing of production agent codebases, a",
+   "id": "2610.03825",
+   "title": "Same Output, Different Gold: Measuring How Reference Choice Moves a Multilingual Benchmark Score",
+   "abstract": "A benchmark score compares a system output against a reference, and methodological attention falls almost entirely on the first term. We measure the second. The retained annotation record of a six-language benchmark for personally identifiable information contains two independent annotator labellings, the aggregate shipped as gold, and a reviewer gold from independent expert re-annotation of a sample. Using it, we hold the scored output fixed and exchange the reference. The score moves by 4.95 F1 points for one output and 2.00 for the other (95% CIs [3.23, 6.27] and [0.26, 3.37]), and by 7.55 ",
    "authors": [
-    "Jiahao Wang",
-    "Hongjin Qian",
-    "Yuyang Hu",
-    "Jiajun Zhang"
+    "Parth Kulshreshtha",
+    "Shivali Dalmia",
+    "Abhishek Mukherji"
    ],
-   "link": "https://huggingface.co/papers/2610.13361",
+   "link": "https://huggingface.co/papers/2610.03825",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-09T00:00",
-   "title_ar": "AgentSWE: هل تستطيع وكلاء البرمجة بناء الوكيل الذي تريده حقاً؟",
-   "summary_ar": "مع انتقال إنتاج البرمجيات إلى أيدي البرمجيات نفسها، يُكلَّف وكلاء البرمجة بشكل متزايد ببناء وكلاء ملائمين لسير عمل مستخدميهم. ويحمل هذا التفويض افتراضاً ضمنياً بأن الوكيل المُسلَّم سيخدم بدقة المتطلب الذي بُني من أجله."
-  },
-  {
-   "id": "2609.39600",
-   "title": "GroundAnything: Reconciling Parallel Decoding with Precise Visual Grounding at Flash Speed",
-   "abstract": "Autoregressive (AR) grounding models serialize spatial predictions, introducing sequential latency and imposing a causal order on output tokens. We view grounding as visual evidence extraction: objects, locations, and spatial relations are jointly constrained by the image and query, yet their dependencies do not imply an intrinsic left-to-right generation order. This distinction makes bidirectional diffusion a natural fit, allowing spatial hypotheses to emerge in parallel and be jointly refined through iterative denoising. We introduce GroundAnything, a 4B-parameter grounding foundation model ",
-   "authors": [
-    "Qize Yu",
-    "Lianrui Fan",
-    "Bowen Ping",
-    "Xini Ding"
-   ],
-   "link": "https://huggingface.co/papers/2609.39600",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-30T00:00",
-   "title_ar": "GroundAnything: التوفيق بين فك التشفير المتوازي والربط المرئي الدقيق بسرعة فائقة",
-   "summary_ar": "تقوم نماذج الربط التوليدي التلقائي بتسلسل التنبؤات المكانية، مما يتسبب في تأخير زمني متعاقب ويفرض ترتيباً سببياً على الرموز الناتجة. ونحن نرى الربط كاستخراج للأدلة المرئية؛ حيث تخضع الكائنات والمواقع والعلاقات المكانية لقيود مشتركة يفرضها كل من الصورة والاستعلام، ومع ذلك فإن تبعياتها تظل قائمة."
-  },
-  {
-   "id": "2609.39601",
-   "title": "GroundingPI: A Grounding Foundation Model towards Physical Intelligence with Visual Primitives",
-   "abstract": "Precise grounding matters. It specifies which object is the target and where that object is, even in clutter and for tiny objects, and it has to be fast enough for closed-loop control. Yet vision-language-action (VLA) and world-action models (WAMs) take perception from general-purpose vision-language and video-generation backbones, which still fail in these settings. We introduce GroundingPI, a 4B grounding foundation model that generates points and boxes as quantized coordinates in a shared vocabulary. Training combines multimodal and spatial pretraining, supervised fine-tuning, and reinforce",
-   "authors": [
-    "Qize Yu",
-    "Lianrui Fan",
-    "Boyu Chen",
-    "Jiaqi Liang"
-   ],
-   "link": "https://huggingface.co/papers/2609.39601",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-30T00:00",
-   "title_ar": "GroundingPI: نموذج ربط أساسي نحو الذكاء المادي باستخدام الأوليات المرئية",
-   "summary_ar": "يعد الربط الدقيق أمراً مهماً، فهو يحدد ما هو الكائن المستهدف وأين يقع، حتى وسط الفوضى وبالنسبة للأجسام متناهية الصغر، كما يجب أن يكون سريعاً بما يكفي للتحكم في الحلقة المغلقة. ومع ذلك، فإن نماذج الرؤية واللغة والعمل (VLA) ونماذج العمل والعالم (WAMs) تستمد الإدراك من نماذج الرؤية واللغة العامة."
+   "published": "2026-10-02T00:00",
+   "title_ar": "المخرج ذاته والمرجع مختلف: قياس أثر اختيار المرجع على نتائج المعايير متعددة اللغات",
+   "summary_ar": "تقارن نتيجة معيار التقييم مخرجات النظام بمرجع محدد، ويتركز الاهتمام المنهجي بالكامل تقريبًا على المخرجات وحدها. يقيس الباحثون أثر المرجع المعتمد عبر سجل توثيقي لمعيار لست لغات مخصص لمعلومات التعريف الشخصية يحوي وسمين مستقلين."
   }
  ],
  "n": 6
