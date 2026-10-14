@@ -1,107 +1,108 @@
 {
- "updated": "2026-10-13T21:45+00:00",
+ "updated": "2026-10-14T11:13+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2609.36642",
-   "title": "PR-OPD: Privileged Representation On-policy Self-Distillation for Agentic Reinforcement Learning",
-   "abstract": "Language-model agents are usually trained by reinforcement learning from one reward per episode, and privileged self-distillation enriches it by letting the same policy, given a skill, teach its skill-free self through token probabilities. However, we identify two phenomena that question this channel. Invisible Advantage: a skill in context lifts WebShop success from 42.2% to 56.2%, yet changes the probabilities of fewer than a quarter of the sampled tokens. Much to Align: a skill changes the hidden states of over 80% of response tokens, in a way that linear probes can trace back to the specif",
+   "id": "2610.16172",
+   "title": "EventLens: Event-Structure Reinforcement Learning for Video Understanding",
+   "abstract": "Recent multimodal large language models (MLLMs) achieve strong results on video question answering, yet often fail to recover the temporal structure that makes a video coherent. They may merge neighboring events, miss single-event progression, or infer implausible relations across events. We study structured temporal understanding as the ability to recover event structure from visual evidence, including event boundaries, single-event progression, and multi-event relations. We argue that this gap arises from a mismatch between current post-training objectives and temporal reasoning, where capti",
    "authors": [
-    "Muyang Li",
-    "Jie Yang",
-    "Zhengyu Fang",
-    "Junchao Zhu"
+    "Guowen Zhang",
+    "Boshen Xu",
+    "Zihao Yue",
+    "Ziheng Wang"
    ],
-   "link": "https://huggingface.co/papers/2609.36642",
+   "link": "https://huggingface.co/papers/2610.16172",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-12T00:00",
+   "title_ar": "إيفنت لينز (EventLens): التعلم المعزز لبنية الأحداث من أجل فهم الفيديو",
+   "summary_ar": "تُحقق النماذج اللغوية الكبيرة متعددة الوسائط الحديثة نتائج قوية في الإجابة عن أسئلة الفيديو، لكنها غالبًا ما تفشل في استعادة البنية الزمنية التي تجعل الفيديو متماسكًا. وتدرس هذه الورقة هذه المشكلات المتمثلة في دمج الأحداث المتجاورة، أو تفويت تتابع الحدث الواحد، أو استنتاج علاقات غير منطقية بين الأحداث."
+  },
+  {
+   "id": "2609.37377",
+   "title": "Beyond Prompt Count: How Data Shapes Transfer in On-Policy Distillation",
+   "abstract": "On-policy distillation (OPD) trains students using teacher feedback on their own sampled responses, yet how prompt choice shapes transfer across teacher-student pairs remains poorly understood. We systematically study prompt quantity, source, and selection across RL- and SFT-continuation pairs and cross-model settings. We find that OPD can be highly prompt-efficient: a few prompts can approach large-pool performance, with four DAPO prompts matching the observed mathematics score of 3,840 DeepMath prompts. However, prompt utility is relational rather than intrinsic: changing only the teacher ca",
+   "authors": [
+    "Jiaxuan Wang",
+    "Jiafei Lyu",
+    "Yuchen Cai",
+    "Siye Wu"
+   ],
+   "link": "https://huggingface.co/papers/2609.37377",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-09-29T00:00",
-   "title_ar": "تقطير ذاتي على السياسة بتمثيل مميز للتعلم المعزز للوكلاء",
-   "summary_ar": "تُدرَّب وكلاء النماذج اللغوية عادةً بالتعلم المعزز عبر مكافأة واحدة لكل حلقة، ويُثري التقطير الذاتي المميز ذلك بجعل السياسة نفسها تُعلّم نسختها الخالية من المهارة باحتمالات الرموز عند تزويدها بمهارة. ومع ذلك، يرصد الباحثون ظاهرتين تثيران الشكوك حول هذه القناة."
+   "title_ar": "ما وراء عدد التوجيهات: كيف تصيغ البيانات عملية الانتقال في التقطير وفق السياسة المتبعة",
+   "summary_ar": "يدرّب التقطير وفق السياسة المتبعة النماذج الطلابية باستخدام إفادات المعلم حول استجاباتهم المأخوذة ذاتيًا، ومع ذلك فإن كيفية تشكيل اختيار التوجيهات لانتقال المعرفة تظل غير مفهومة جيدًا. تبحث هذه الورقة بشكل منهجي كمية التوجيهات ومصدرها واختيارها عبر أزواج مختلفة من التعلم المعزز والمتابعة بالضبط الدقيق الخاضع للإشراف."
   },
   {
-   "id": "2610.12099",
-   "title": "UNITAS: A 3D-Native World Action Model for Embodied Manipulation",
-   "abstract": "World action models (WAMs) aim to answer a coupled physical question: given a task instruction, what motion should the robot execute, and how will that motion change the surrounding world? Most existing WAMs build on pretrained video generators and represent world evolution through images or visual latents. Robotic interaction, however, takes place in metric three-dimensional space, while images are view-dependent projections whose pixel distances do not directly encode physical distances. We introduce UNITAS, to our knowledge the first 3D-native world action model that unifies observations, a",
+   "id": "2602.05758",
+   "title": "LongR: Unleashing Long-Context Reasoning via Reinforcement Learning with Dense Utility Rewards",
+   "abstract": "Reinforcement Learning (RL) has emerged as a key driver for LLM reasoning. This capability is equally pivotal in long-context scenarios---such as long-dialogue understanding and structured data analysis---where the challenge extends beyond consuming tokens to performing rigorous deduction. While existing efforts focus on data synthesis or architectural changes, recent work points out that relying solely on sparse, outcome-only rewards yields limited gains, as such coarse signals are often insufficient to effectively guide the complex long-context reasoning. To address this, we propose LongR, a",
    "authors": [
-    "Ruixiang Wang",
-    "Yongyi Su",
-    "Wenlve Zhou",
-    "Bo Yue"
+    "Qize Yu",
+    "Zijun Chen",
+    "Chen Wu",
+    "Yue Chen"
    ],
-   "link": "https://huggingface.co/papers/2610.12099",
+   "link": "https://huggingface.co/papers/2602.05758",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-08T00:00",
-   "title_ar": "UNITAS: نموذج حركة وعالم ثلاثي الأبعاد أصيل للمعالجة والتوجيه المتجسد",
-   "summary_ar": "تهدف نماذج حركة العالم إلى الإجابة عن مسألة فيزيائية مقترنة: ما الحركة التي يجب على الروبوت تنفيذها بناءً على تعليمات المهمة، وكيف ستغير تلك الحركة العالم المحيط؟ تُبنى معظم هذه النماذج الحالية على مولدات فيديو مدربة مسبقًا وتُمثّل تطور العالم عبر الصور أو المشاهد المرئية."
+   "published": "2026-10-12T00:00",
+   "title_ar": "لونغ آر (LongR): إطلاق قدرات الاستدلال في السياقات الطويلة عبر التعلم المعزز بمكافآت المنفعة الكثيفة",
+   "summary_ar": "برز التعلم المعزز كمحرك رئيسي لاستدلال النماذج اللغوية الكبيرة، وتعد هذه القدرة محورية كذلك في سيناريوهات السياق الطويل كفهم الحوارات الطويلة وتحليل البيانات المنظمة. ولا يقتصر التحدي في هذه السيناريوهات على استيعاب الرموز فحسب، بل يمتد إلى إجراء استنتاج دقيق وصارم."
   },
   {
-   "id": "2610.05637",
-   "title": "Visual Grounding Safety in Vision-Language Models",
-   "abstract": "Vision-language models (VLMs) are increasingly trained to generate structured outputs like points and bounding boxes that downstream interfaces, agents, and robots can act on, yet safety alignment of this output channel has not been systematically analyzed. We study visual grounding safety by repurposing three safety benchmarks spanning direct harm (VLSU), social bias (BBQ-V), and situational safety (Asimov-2.0) into 15,401 matched pairs of harmful requests that differ only in the requested output: a free-text answer (VQA) or a grounding (point or bounding box). Across five VLMs, models that r",
+   "id": "2610.18774",
+   "title": "GreenWAM: A World Foundation Model for Robotics",
+   "abstract": "A robot needs a world model that predicts how its actions will change the scene and a policy that chooses those actions. Models are usually built and evaluated for only one of these roles, and every robot records its actions in its own format. We ask whether one robot world model can serve both roles across different bodies, and what makes this work. We present GreenWAM, a world foundation model for robotics, together with the recipe that produces it: (1) a shared anatomical action space that describes 20 robot families, from bimanual arms to dexterous humanoids, in common joint coordinates; (",
    "authors": [
-    "Erfan Shayegani",
-    "Kundan Krishna",
-    "Yue Dong",
-    "Nael Abu-Ghazaleh"
+    "Gennady Sidorov",
+    "Valerii Kornilov",
+    "Denis Grankin",
+    "Polina Fedotova"
    ],
-   "link": "https://huggingface.co/papers/2610.05637",
+   "link": "https://huggingface.co/papers/2610.18774",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-05T00:00",
-   "title_ar": "أمان الإرساء المرئي في نماذج الرؤية واللغة",
-   "summary_ar": "تُدرَّب نماذج الرؤية واللغة بشكل متزايد لتوليد مخرجات مهيكلة كنقاط وأطر محيطة لتتصرف بناءً عليها الواجهات والوكلاء والروبوتات، إلا أن محاذاة الأمان لقناة المخرجات هذه لم تُحلل بشكل منهجي. يدرس الباحثون أمان الإرساء المرئي عبر إعادة توظيف مخرجات هذه النماذج."
+   "published": "2026-10-13T00:00",
+   "title_ar": "غرين وام (GreenWAM): نموذج أساسي للعالَم من أجل الروبوتات",
+   "summary_ar": "يحتاج الروبوت إلى نموذج عالَم يتنبأ بكيفية تغيير أفعاله للمشهد، وإلى سياسة تختار تلك الأفعال. وعادةً ما تُبنى النماذج وتُقيّم لدور واحد فقط من هذين الدورين كما يسجل كل روبوت أفعاله بنسقه الخاص، لذا تبحث هذه الورقة في إمكانية خدمة نموذج عالَم روبوتي واحد لكلا الدورين."
   },
   {
-   "id": "2610.02740",
-   "title": "Prospective Hindsight: Self-Calibrating Reinforcement Learning via Prediction-Reality Gaps",
-   "abstract": "Reinforcement learning for long-horizon agents relies on purely retrospective training signals: credit is assigned only after observing environmental consequences, leaving the agent's belief at action time invisible to the gradient. We introduce Prospective Hindsight (PH), a self-calibrating training principle that augments any retrospective base method with a signal derived from the gap between the agent's prospective prediction (before feedback) and the retrospective evaluation (after feedback). This per-rollout surprise identifies samples where the agent's self-model is most inaccurate and ",
+   "id": "2610.17552",
+   "title": "FlashVSR+: Efficient Video Super-Resolution via Hybrid Attention and Reward-Yield Distribution Matching",
+   "abstract": "Recent video super-resolution (VSR) models achieve efficient one-step generation through diffusion distillation. However, high-resolution inference remains costly, and distilled models are difficult to align with human preferences. These challenges call for improvements in both model architecture and training strategy. We present FlashVSR+ to address both limitations. On the architecture side, we introduce hybrid attention based on the strong locality observed in pretrained VSR models, while retaining sparse global interaction for long-range consistency. It achieves up to 2times DiT speedup an",
    "authors": [
-    "Jiaxin Zhang",
-    "Xiangyu Peng",
-    "Qinglin Chen",
-    "Yu Li"
+    "Ruchang Yao",
+    "Shi Guo",
+    "Junhao Zhuang",
+    "Mingde Yao"
    ],
-   "link": "https://huggingface.co/papers/2610.02740",
+   "link": "https://huggingface.co/papers/2610.17552",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-02T00:00",
-   "title_ar": "الإدراك المستقبلي المتأخر: تعلم معزز ذاتي المعايرة عبر فجوات التنبؤ والواقع",
-   "summary_ar": "يعتمد التعلم المعزز لوكلاء المهام طويلة المدى على إشارات تدريب استرجاعية بحتة تُنسب بعد مراقبة العواقب البيئية فقط، مما يحجب اعتقاد الوكيل وقت الفعل عن الانحدار. يقدم الباحثون \"الإدراك المستقبلي المتأخر\" كإطار تدريب ذاتي المعايرة."
+   "published": "2026-10-13T00:00",
+   "title_ar": "فلاش في إس آر بلس (FlashVSR+): دقة فائقة فعالة للفيديو عبر الانتباه الهجين ومطابقة التوزيع الناتج عن المكافأة",
+   "summary_ar": "تحقق نماذج الدقة الفائقة للفيديو الحديثة توليدًا فعالًا بخطوة واحدة عبر تقطير الانتشار، ومع ذلك، يظل الاستدلال عالي الدقة مكلفًا ويصعب مواءمة النماذج المقطرة مع التفضيلات البشرية. وتتطلب هذه التحديات إدخال تحسينات على كل من بنية النموذج وأساليب العمل."
   },
   {
-   "id": "2610.12998",
-   "title": "Evaluating LLM Creativity through Long-Tail Performance",
-   "abstract": "Creativity benchmarks for large language models (LLMs) vary widely in task and metric design. This raises the question of whether they capture a common notion of creativity. We propose that this shared target can be formalized as task-specific performance in the long tail of a reference input-output distribution, which describes how common input-output pairs are relative to a chosen source of text. We ground this proposition in the novelty-quality product formulation and evaluate it empirically across 15 benchmarks and 26 open-weight models, using n-gram absence from the pretraining data as a ",
+   "id": "2610.18092",
+   "title": "LifeSearch: Benchmarking Deep Research Agents for Real-World Life and Productivity",
+   "abstract": "Deep research (DR) agents address open-ended information needs through multi-step reasoning, long-horizon web search, and evidence synthesis. However, existing benchmarks primarily focus on academic research or synthetic tasks, leaving DR agents' capabilities in real-world life and professional productivity settings insufficiently evaluated. To bridge this gap, we introduce LifeSearch, a challenging benchmark comprising 203 Chinese and English tasks derived from real-user query seeds across 7 concrete life and productivity domains. With more than 4,500 hours of human annotation, we construct o",
    "authors": [
-    "Yichen Wang",
-    "Tenghao Huang",
-    "Vishakh Padmakumar",
-    "Mina Lee"
+    "Yibo Wang",
+    "Senjie Jin",
+    "Yansong Ning",
+    "Xinbing Liang"
    ],
-   "link": "https://huggingface.co/papers/2610.12998",
+   "link": "https://huggingface.co/papers/2610.18092",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-09T00:00",
-   "title_ar": "تقييم إبداع النماذج اللغوية الكبيرة عبر أداء الذيل الطويل",
-   "summary_ar": "تختلف معايير تقييم إبداع النماذج اللغوية الكبيرة اختلافًا كبيرًا في تصميم المهام والمقاييس، مما يثير التساؤل حول ما إذا كانت تلتقط مفهومًا مشتركًا للإبداع. يقترح الباحثون إمكانية صياغة هذا الهدف المشترك كأداء خاص بمهمة معينة في الذيل الطويل لمدخلات ومخرجات مرجعية."
-  },
-  {
-   "id": "2610.03825",
-   "title": "Same Output, Different Gold: Measuring How Reference Choice Moves a Multilingual Benchmark Score",
-   "abstract": "A benchmark score compares a system output against a reference, and methodological attention falls almost entirely on the first term. We measure the second. The retained annotation record of a six-language benchmark for personally identifiable information contains two independent annotator labellings, the aggregate shipped as gold, and a reviewer gold from independent expert re-annotation of a sample. Using it, we hold the scored output fixed and exchange the reference. The score moves by 4.95 F1 points for one output and 2.00 for the other (95% CIs [3.23, 6.27] and [0.26, 3.37]), and by 7.55 ",
-   "authors": [
-    "Parth Kulshreshtha",
-    "Shivali Dalmia",
-    "Abhishek Mukherji"
-   ],
-   "link": "https://huggingface.co/papers/2610.03825",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-02T00:00",
-   "title_ar": "المخرج ذاته والمرجع مختلف: قياس أثر اختيار المرجع على نتائج المعايير متعددة اللغات",
-   "summary_ar": "تقارن نتيجة معيار التقييم مخرجات النظام بمرجع محدد، ويتركز الاهتمام المنهجي بالكامل تقريبًا على المخرجات وحدها. يقيس الباحثون أثر المرجع المعتمد عبر سجل توثيقي لمعيار لست لغات مخصص لمعلومات التعريف الشخصية يحوي وسمين مستقلين."
+   "published": "2026-10-13T00:00",
+   "title_ar": "لايف سيرش (LifeSearch): قياس أداء وكلاء البحث المتعمق للحياة الواقعية والإنتاجية",
+   "summary_ar": "يلبي وكلاء البحث المتعمق الاحتياجات المعلوماتية المفتوحة عبر الاستدلال متعدد الخطوات، والبحث الممتد على الويب، وتجميع الأدلة. ومع ذلك، تركز مقاييس الأداء الحالية أساسًا على الأبحاث الأكاديمية أو المهام الاصطناعية، مما يترك قدرات هؤلاء الوكلاء في مجالات الحياة الواقعية والإنتاجية المهنية دون اختبار كافٍ."
   }
  ],
  "n": 6
