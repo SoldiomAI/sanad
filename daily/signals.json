@@ -1,6 +1,6 @@
 {
  "schema_version": "1.0",
- "updated": "2026-10-15T01:40+00:00",
+ "updated": "2026-10-15T06:59+00:00",
  "thresholds": {
   "country_risk_score": 60,
   "watch_heat": 50,
@@ -13,9 +13,9 @@
    "title": "Watch term active: ترامب إيران",
    "title_en": "Watch term active: Trump Iran",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-15T01:40+00:00",
+   "observed_at": "2026-10-15T06:59+00:00",
    "observed_facts": [
-    "4 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 72."
+    "6 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 92."
    ],
    "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
    "inference": "Term matching indicates attention, not intent, coordination, or threat.",
@@ -28,6 +28,16 @@
     "إيران"
    ],
    "evidence": [
+    {
+     "id": "ev_374fe7cc83aa8e83",
+     "url": "https://www.alarabiya.net/iran/2026/10/15/%D8%AA%D8%B1%D8%A7%D9%85%D8%A8-%D9%82%D8%B6%D9%8A%D8%A9-%D8%A7%D9%8A%D8%B1%D8%A7%D9%86-%D8%B3%D8%AA%D8%AD%D9%84-%D8%B3%D8%B1%D9%8A%D8%B9%D8%A7-%D9%88%D8%A7%D9%84%D8%AD%D8%B1%D8%A8-%D8%B3%D8%AA%D9%86%D8%AA%D9%87%D9%8A-%D9%82%D8%B1%D9%8A%D8%A8%D8%A7-",
+     "source_name": "العربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-14T22:23+00:00",
+     "title": "ترامب: قضية إيران ستحل سريعاً والحرب ستنتهي قريباً",
+     "title_en": "Trump: Iran Issue Will Be Resolved Quickly and War Will End Soon",
+     "dataset": "osint"
+    },
     {
      "id": "ev_b62688bc03eebe0b",
      "url": "https://arabic.cnn.com/world/article/2026/10/15/trump-says-us-making-a-fortune-off-higher-oil-prices",
@@ -59,11 +69,21 @@
      "dataset": "osint"
     },
     {
+     "id": "ev_f30172f6b8caccd9",
+     "url": "https://www.bbc.com/persian/articles/c6p9g202xxpmo?at_medium=RSS&at_campaign=rss",
+     "source_name": "بي بي سي فارسي",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-15T02:06+00:00",
+     "title": "«ثورة الفلامنغو» في دولة يعتزم فيها إيفانكا ترامب وجاريد كوشنر بناء منتجع خاص",
+     "title_en": "'Flamingo Revolution' in Nation Where Ivanka Trump, Jared Kushner Plan Luxury Resort",
+     "dataset": "osint"
+    },
+    {
      "id": "ev_f85ad5db519566a0",
      "url": "https://www.bbc.co.uk/persian/live/cxj0lzpnz009t?at_medium=RSS&at_campaign=rss",
      "source_name": "بي بي سي فارسي",
      "source_grade": "حسن",
-     "observed_at": "2026-10-15T01:40+00:00",
+     "observed_at": "2026-10-15T06:59+00:00",
      "title": "قاليباف بشأن مقترح واشنطن: ترامب نقض العهد ويجب معاقبة أمريكا",
      "title_en": "Ghalibaf on Washington's Proposal: Trump Broke His Word, US Must Be Punished",
      "dataset": "osint"
@@ -72,7 +92,54 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-10-05T09:29+00:00",
-   "updated_at": "2026-10-15T01:40+00:00"
+   "updated_at": "2026-10-15T06:59+00:00"
+  },
+  {
+   "id": "sig_1f169b9e79a68432",
+   "type": "watchlist-match",
+   "title": "Watch term active: عقوبات",
+   "title_en": "Watch term active: sanctions",
+   "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
+   "observed_at": "2026-10-15T06:59+00:00",
+   "observed_facts": [
+    "2 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 52."
+   ],
+   "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
+   "inference": "Term matching indicates attention, not intent, coordination, or threat.",
+   "uncertainty": "Keyword matching can include unrelated uses of the same term.",
+   "confidence": 0.7,
+   "severity": "info",
+   "countries": [],
+   "sectors": [],
+   "topics": [
+    "اقتصاد"
+   ],
+   "evidence": [
+    {
+     "id": "ev_01956548105e8b77",
+     "url": "https://www.aljazeera.net/news/2026/10/15/%d8%a5%d8%af%d8%a7%d8%b1%d8%a9-%d8%aa%d8%b1%d9%85%d8%a8-%d8%aa%d8%af%d8%b1%d8%b3-%d8%aa%d8%ae%d9%81%d9%8a%d9%81-%d8%a7%d9%84%d8%b9%d9%82%d9%88%d8%a8%d8%a7%d8%aa-%d8%b9%d9%86-%d8%b3%d9%81%d9%86?traffic_source=rss",
+     "source_name": "الجزيرة نت",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-15T03:24+00:00",
+     "title": "رويترز: إدارة ترمب تدرس تخفيف العقوبات عن \"سفن أسطول الظل\"",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_84a338c337b28170",
+     "url": "https://www.aljazeera.net/ebusiness/2026/10/15/%d8%aa%d8%ad%d8%af%d9%8a%d8%a7-%d9%84%d9%84%d8%b9%d9%82%d9%88%d8%a8%d8%a7%d8%aa-%d8%b4%d8%b1%d9%83%d8%a9-%d8%b1%d9%88%d8%b3%d9%8a%d8%a9-%d8%aa%d8%b7%d9%84%d9%82-%d9%86%d8%b8%d8%a7%d9%85%d8%a7?traffic_source=rss",
+     "source_name": "الجزيرة نت",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-15T03:30+00:00",
+     "title": "تحديا للعقوبات.. شركة روسية تُطلق نظاما دوليا للمدفوعات بديلا عن سويفت",
+     "title_en": "",
+     "dataset": "osint"
+    }
+   ],
+   "contradictions": [],
+   "event_ids": [],
+   "created_at": "2026-10-15T06:59+00:00",
+   "updated_at": "2026-10-15T06:59+00:00"
   },
   {
    "id": "sig_24c7c29a11f8a3ab",
@@ -80,7 +147,7 @@
    "title": "Watch term active: #السعودية",
    "title_en": "Watch term active: #Saudi",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-15T01:40+00:00",
+   "observed_at": "2026-10-15T06:59+00:00",
    "observed_facts": [
     "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
@@ -106,80 +173,80 @@
      "dataset": "osint"
     },
     {
-     "id": "ev_46897750362d7dc0",
-     "url": "https://aawsat.com/node/5329774",
-     "source_name": "الشرق الأوسط",
+     "id": "ev_2ec268bd3ce25cfe",
+     "url": "https://www.france24.com/ar/%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7/20261015-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%A7%D9%84%D9%8A%D9%85%D9%86-%D8%AA%D8%B5%D8%B9%D9%8A%D8%AF-%D8%B9%D8%B3%D9%83%D8%B1%D9%8A-%D8%AA%D8%A3%D8%AC%D9%8A%D9%84-%D8%A8%D8%B7%D9%88%D9%84%D8%A9-%D8%A7%D9%84%D9%85%D9%84%D9%88%D9%83-%D8%A7%D9%84%D8%B3%D8%AA%D8%A9-%D9%84%D9%84%D8%AA%D9%86%D8%B3-%D9%83%D8%A3%D8%B3-%D8%A2%D8%B3%D9%8A%D8%A7-2027-%D9%87%D8%AC%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6",
+     "source_name": "فرانس ٢٤ عربي",
      "source_grade": "حسن",
-     "observed_at": "2026-10-15T00:53+00:00",
-     "title": "إدانة عراقية للاعتداءات على السعودية",
+     "observed_at": "2026-10-15T02:47+00:00",
+     "title": "إرجاء منافسات رياضية مقررة بالسعودية بينها بطولة العالم للرياضات الإلكترونية بسبب هجمات الحوثيين",
      "title_en": "",
      "dataset": "osint"
     },
     {
-     "id": "ev_6cca42d85d7e1eb5",
-     "url": "https://aawsat.com/node/5329772",
-     "source_name": "الشرق الأوسط",
-     "source_grade": "حسن",
-     "observed_at": "2026-10-15T00:45+00:00",
-     "title": "«التحالف» يدمّر صواريخ ومسيّرات في السعودية",
-     "title_en": "",
-     "dataset": "osint"
-    },
-    {
-     "id": "ev_85dac71fdd9ef2ba",
-     "url": "https://www.skynewsarabia.com/middle-east/1898125-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%AA%D8%B9%D9%84%D9%86-%D8%A7%D8%B9%D8%AA%D8%B1%D8%A7%D8%B6-%D8%B5%D9%88%D8%A7%D8%B1%D9%8A%D8%AE-%D9%88%D9%85%D8%B3%D9%8A%D8%B1%D8%A7%D8%AA-%D9%88%D8%B3%D9%82%D9%88%D8%B7-%D8%B4%D8%B8%D8%A7%D9%8A%D8%A7-%D8%A8%D8%A7%D9%84%D8%B8%D9%87%D8%B1%D8%A7%D9%86",
-     "source_name": "سكاي نيوز عربية",
-     "source_grade": "حسن",
-     "observed_at": "2026-10-13T19:52+00:00",
-     "title": "السعودية تعلن اعتراض صواريخ ومسيرات وسقوط شظايا بالظهران",
-     "title_en": "Saudi Arabia Intercepts Missiles and Drones, Debris Falls in Dhahran",
-     "dataset": "osint"
-    },
-    {
-     "id": "ev_94b06ebee63e6806",
-     "url": "https://arabic.cnn.com/middle-east/article/2026/10/14/why-billions-spent-on-defense-havent-shielded-saudi-arabia-from-houthi-attacks",
-     "source_name": "CNN Arabic",
-     "source_grade": "حسن",
-     "observed_at": "2026-10-14T05:47+00:00",
-     "title": "تحليل.. كيف نجح الحوثيون في استهداف منشآت السعودية الحيوية رغم إنفاق المملكة عشرات مليارات الدولارات سنويًا على الدفاع؟",
-     "title_en": "Analysis: How Houthis Hit Vital Saudi Sites Despite Billions Spent on Defense",
-     "dataset": "osint"
-    },
-    {
-     "id": "ev_a0fa340cd0211a5e",
-     "url": "https://arabic.cnn.com/middle-east/article/2026/10/14/houthis-say-they-will-continue-targeting-saudi-airports-and-oil-facilities",
-     "source_name": "CNN Arabic",
-     "source_grade": "حسن",
-     "observed_at": "2026-10-14T09:42+00:00",
-     "title": "الحوثيون يعلنون مواصلة استهداف المطارات والمنشآت النفطية السعودية في الأيام المقبلة",
-     "title_en": "Houthis Vow to Continue Targeting Saudi Airports and Oil Facilities in Coming Days",
-     "dataset": "osint"
-    },
-    {
-     "id": "ev_a1691247712e1a2b",
-     "url": "https://arabic.cnn.com/middle-east/article/2026/10/13/saudi-arabia-yemen-the-coalition-sanaa-the-houthis-riyadh-2",
+     "id": "ev_91aac3ae0c901bb7",
+     "url": "https://arabic.cnn.com/middle-east/article/2026/10/15/saudi-sexual-act-inside-mosque-in-mecca-execution-case",
      "source_name": "CNN بالعربية",
      "source_grade": "حسن",
-     "observed_at": "2026-10-13T19:08+00:00",
-     "title": "\"التحالف\" يعلن اعتراض وتدمير صاروخين استهدفا الظهران وحرض في السعودية",
+     "observed_at": "2026-10-15T06:08+00:00",
+     "title": "فعلا الفاحشة داخل مسجد في مكة.. السعودية تعلن إعدام رجل وامرأة",
      "title_en": "",
      "dataset": "osint"
     },
     {
-     "id": "ev_bd6e3193a56a1269",
-     "url": "https://www.skynewsarabia.com/middle-east/1898175-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%88%D9%86-%D8%A7%D8%B3%D8%AA%D9%87%D8%AF%D9%81%D9%86%D8%A7-%D9%85%D9%86%D8%B4%D8%A2%D8%AA-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D9%88%D8%B9%D9%85%D9%84%D9%8A%D8%A7%D8%AA%D9%86%D8%A7-%D8%B3%D8%AA%D8%B3%D8%AA%D9%85%D8%B1",
+     "id": "ev_a899fa9057fa9a3a",
+     "url": "https://www.france24.com/ar/%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7/20261015-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%88%D9%86-%D9%87%D8%AC%D9%85%D8%A7%D8%AA-%D9%85%D8%B7%D8%A7%D8%B1-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-%D9%85%D9%86%D8%AA%D8%AF%D9%89-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%AA%D8%A3%D8%AC%D9%8A%D9%84-%D8%A8%D8%B7%D9%88%D9%84%D8%A7%D8%AA-%D9%83%D8%A3%D8%B3-%D8%A2%D8%B3%D9%8A%D8%A7-%D8%A7%D9%84%D9%8A%D9%85%D9%86-%D8%A7%D9%84%D8%A3%D8%B2%D9%85%D8%A9-%D8%A7%D9%84%D8%A5%D9%86%D8%B3%D8%A7%D9%86%D9%8A%D8%A9",
+     "source_name": "فرانس ٢٤ عربي",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-15T00:42+00:00",
+     "title": "هجمات الحوثيين تربك فعاليات مقررة بالسعودية والتصعيد يفاقم الأزمة الإنسانية في اليمن",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_ca1fb4ca982c05ad",
+     "url": "https://www.alarabiya.net/aswaq/economy/2026/10/15/%D8%A7%D9%84%D8%AA%D8%B6%D8%AE%D9%85-%D9%81%D9%8A-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D9%8A%D8%B3%D8%AC%D9%84-19-%D8%AE%D9%84%D8%A7%D9%84-%D8%B4%D9%87%D8%B1-%D8%B3%D8%A8%D8%AA%D9%85%D8%A8%D8%B1",
+     "source_name": "العربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-15T05:59+00:00",
+     "title": "التضخم في السعودية يسجل 1.9% خلال شهر سبتمبر",
+     "title_en": "Saudi Inflation Reaches 1.9% in September",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_cbf56ca7163e0be8",
+     "url": "https://www.reuters.com/ar/business/CXAG7Z7FKBPBPARZNH6GQXLSMA-2026-10-15/",
+     "source_name": "Reuters",
+     "source_grade": "صحيح",
+     "observed_at": "2026-10-15T06:09+00:00",
+     "title": "ارتفاع مؤشر أسعار المستهلكين في السعودية 1.9% في سبتمبر على أساس سنوي",
+     "title_en": "Saudi Consumer Price Index Rises 1.9% Year-on-Year in September",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_e473516a03b9a1a3",
+     "url": "https://www.skynewsarabia.com/middle-east/1898121-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D9%85%D8%AD%D8%B7%D8%A9-%D8%A7%D9%84%D8%B5%D8%A8%D8%A7%D8%AD%D8%A9-%D9%88%D9%85%D8%AE%D8%A7%D8%B2%D9%86-%D9%88%D9%82%D9%88%D8%AF-%D8%AA%D8%BA%D8%B0%D9%8A-%D8%B9%D9%85%D9%84%D9%8A%D8%A7%D8%AA-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%8A%D9%86",
      "source_name": "سكاي نيوز عربية",
      "source_grade": "حسن",
-     "observed_at": "2026-10-14T08:26+00:00",
-     "title": "الحوثيون: استهدفنا منشآت في السعودية وعملياتنا ستستمر",
-     "title_en": "Houthis: We Struck Saudi Facilities and Operations Will Continue",
+     "observed_at": "2026-10-14T22:28+00:00",
+     "title": "السعودية: محطة الصباحة ومخازن وقود تغذي عمليات الحوثيين",
+     "title_en": "Saudi Arabia: Al-Sabaha Station and Fuel Depots Supply Houthi Operations",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_e6cc6d6b706d486d",
+     "url": "https://www.france24.com/ar/%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7/20261015-%D9%85%D8%B9%D8%AA%D9%85%D8%B1%D9%88%D9%86-%D9%85%D8%B7%D8%A7%D8%B1-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-%D8%A7%D9%84%D9%85%D9%84%D9%83-%D8%AE%D8%A7%D9%84%D8%AF-%D9%85%D8%B1%D9%85%D9%89-%D8%B6%D8%B1%D8%A8%D8%A7%D8%AA-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%88%D9%86-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%A7%D9%84%D9%8A%D9%85%D9%86",
+     "source_name": "فرانس ٢٤ عربي",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-15T05:15+00:00",
+     "title": "رغم تطمينات الرياض... هجمات الحوثيين تلقي بظلالها على رحلات المعتمرين في السعودية",
+     "title_en": "",
      "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-10-15T01:40+00:00"
+   "updated_at": "2026-10-15T06:59+00:00"
   },
   {
    "id": "sig_25d4dc8c032b76c2",
@@ -187,7 +254,7 @@
    "title": "AI repository activity: Models / inference",
    "title_en": "AI repository activity: Models / inference",
    "summary": "The live GitHub radar contains a repeated repository class after deterministic ranking and deduplication.",
-   "observed_at": "2026-10-15T01:37:10Z",
+   "observed_at": "2026-10-15T06:18:17Z",
    "observed_facts": [
     "3 recently pushed, non-fork repositories share this SANAD radar classification."
    ],
@@ -211,7 +278,7 @@
      "url": "https://github.com/f/prompts.chat",
      "source_name": "GitHub Search API",
      "source_grade": "",
-     "observed_at": "2026-10-14T08:58:33Z",
+     "observed_at": "2026-10-15T03:18:07Z",
      "title": "f/prompts.chat",
      "title_en": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete privacy.",
      "dataset": "repos"
@@ -221,7 +288,7 @@
      "url": "https://github.com/huggingface/transformers",
      "source_name": "GitHub Search API",
      "source_grade": "",
-     "observed_at": "2026-10-15T01:37:10Z",
+     "observed_at": "2026-10-15T06:18:17Z",
      "title": "huggingface/transformers",
      "title_en": "🤗 Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training.",
      "dataset": "repos"
@@ -231,7 +298,7 @@
      "url": "https://github.com/ollama/ollama",
      "source_name": "GitHub Search API",
      "source_grade": "",
-     "observed_at": "2026-10-15T01:19:27Z",
+     "observed_at": "2026-10-15T04:58:46Z",
      "title": "ollama/ollama",
      "title_en": "Get up and running with Kimi, GLM, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models.",
      "dataset": "repos"
@@ -240,7 +307,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-10-15T01:40+00:00"
+   "updated_at": "2026-10-15T06:59+00:00"
   },
   {
    "id": "sig_32c738617239f618",
@@ -248,7 +315,7 @@
    "title": "AI repository activity: Agents / workflows",
    "title_en": "AI repository activity: Agents / workflows",
    "summary": "The live GitHub radar contains a repeated repository class after deterministic ranking and deduplication.",
-   "observed_at": "2026-10-15T01:40:04Z",
+   "observed_at": "2026-10-15T06:59:07Z",
    "observed_facts": [
     "6 recently pushed, non-fork repositories share this SANAD radar classification."
    ],
@@ -272,7 +339,7 @@
      "url": "https://github.com/morluto/rea",
      "source_name": "GitHub Search API",
      "source_grade": "",
-     "observed_at": "2026-10-15T01:34:05Z",
+     "observed_at": "2026-10-15T06:59:07Z",
      "title": "morluto/rea",
      "title_en": "Reverse engineer anything with agents, from app behavior down to native binaries.",
      "dataset": "repos"
@@ -282,7 +349,7 @@
      "url": "https://github.com/Significant-Gravitas/AutoGPT",
      "source_name": "GitHub Search API",
      "source_grade": "",
-     "observed_at": "2026-10-15T01:40:04Z",
+     "observed_at": "2026-10-15T06:34:09Z",
      "title": "Significant-Gravitas/AutoGPT",
      "title_en": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
      "dataset": "repos"
@@ -302,7 +369,7 @@
      "url": "https://github.com/firecrawl/firecrawl",
      "source_name": "GitHub Search API",
      "source_grade": "",
-     "observed_at": "2026-10-15T00:09:00Z",
+     "observed_at": "2026-10-15T06:01:48Z",
      "title": "firecrawl/firecrawl",
      "title_en": "Supercharge your AI agents with data from the web and beyond. Building the library for superintelligence. 🔥",
      "dataset": "repos"
@@ -312,7 +379,7 @@
      "url": "https://github.com/NousResearch/hermes-agent",
      "source_name": "GitHub Search API",
      "source_grade": "",
-     "observed_at": "2026-10-15T01:27:00Z",
+     "observed_at": "2026-10-15T06:36:52Z",
      "title": "NousResearch/hermes-agent",
      "title_en": "The agent that grows with you",
      "dataset": "repos"
@@ -331,7 +398,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-10-15T01:40+00:00"
+   "updated_at": "2026-10-15T06:59+00:00"
   },
   {
    "id": "sig_34a63e60e757a938",
@@ -339,9 +406,9 @@
    "title": "Watch term active: #الكويت",
    "title_en": "Watch term active: #Kuwait",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-15T01:40+00:00",
+   "observed_at": "2026-10-15T06:59+00:00",
    "observed_facts": [
-    "5 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 82."
+    "4 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 72."
    ],
    "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
    "inference": "Term matching indicates attention, not intent, coordination, or threat.",
@@ -375,16 +442,6 @@
      "dataset": "osint"
     },
     {
-     "id": "ev_aec65603739bcabd",
-     "url": "https://aawsat.com/%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6%D8%A9/%D8%B1%D9%8A%D8%A7%D8%B6%D8%A9-%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9/5329735-%D8%A7%D9%84%D8%B3%D9%88%D8%A8%D8%B1-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A-%D9%81%D9%8A-%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA-%D8%A7%D9%84%D9%82%D8%A7%D8%AF%D8%B3%D9%8A%D8%A9-%D9%8A%D8%B5%D8%B7%D8%AF%D9%85-%D8%A8%D8%A7%D9%84%D8%A3%D9%87%D9%84%D9%8A-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1-%D9%8A%D9%88%D8%A7%D8%AC%D9%87-%D8%A7%D9%84%D8%AE%D9%84%D9%88%D8%AF",
-     "source_name": "الشرق الأوسط",
-     "source_grade": "حسن",
-     "observed_at": "2026-10-14T21:59+00:00",
-     "title": "«السوبر السعودي» في الكويت... القادسية يصطدم بالأهلي والنصر يواجه الخلود",
-     "title_en": "Saudi Super Cup in Kuwait: Al-Qadsiah Clashes with Al-Ahli, Al-Nassr Faces Al-Kholood",
-     "dataset": "osint"
-    },
-    {
      "id": "ev_cccebdc2b261e3a6",
      "url": "https://www.aljarida.com/article/147488",
      "source_name": "جريدة الجريدة الكويتية",
@@ -408,7 +465,54 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-10-14T08:25+00:00",
-   "updated_at": "2026-10-15T01:40+00:00"
+   "updated_at": "2026-10-15T06:59+00:00"
+  },
+  {
+   "id": "sig_3a5f5241ee6d9e3e",
+   "type": "watchlist-match",
+   "title": "Watch term active: حزب الله",
+   "title_en": "Watch term active: Hezbollah",
+   "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
+   "observed_at": "2026-10-15T06:59+00:00",
+   "observed_facts": [
+    "2 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 52."
+   ],
+   "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
+   "inference": "Term matching indicates attention, not intent, coordination, or threat.",
+   "uncertainty": "Keyword matching can include unrelated uses of the same term.",
+   "confidence": 0.7,
+   "severity": "info",
+   "countries": [],
+   "sectors": [],
+   "topics": [
+    "لبنان"
+   ],
+   "evidence": [
+    {
+     "id": "ev_1ca314250e2f5022",
+     "url": "https://www.bbc.com/arabic/articles/cx62ygn87292o?at_medium=RSS&at_campaign=rss",
+     "source_name": "بي بي سي عربي",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-13T14:07+00:00",
+     "title": "مع إعلان حزب الله عن مساعدات للنازحين، هل تلقى 200 مليون دولار من إيران؟",
+     "title_en": "As Hezbollah Pledges Aid for Displaced, Did It Receive $200M From Iran?",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_262bb51dbca015f7",
+     "url": "https://www.bbc.com/persian/articles/cwdd824338n3o?at_medium=RSS&at_campaign=rss",
+     "source_name": "بي بي سي فارسي",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-15T05:01+00:00",
+     "title": "هل تلقى حزب الله اللبناني 200 مليون دولار من إيران لمساعدة النازحين؟",
+     "title_en": "Did Hezbollah Receive $200M from Iran for Displaced Relief?",
+     "dataset": "osint"
+    }
+   ],
+   "contradictions": [],
+   "event_ids": [],
+   "created_at": "2026-10-15T06:59+00:00",
+   "updated_at": "2026-10-15T06:59+00:00"
   },
   {
    "id": "sig_414363770b1b205d",
@@ -416,7 +520,7 @@
    "title": "السعودية: SANAD tension score crossed 60",
    "title_en": "Saudi Arabia: SANAD tension score crossed 60",
    "summary": "The deterministic SANAD tension output crossed its documented export threshold.",
-   "observed_at": "2026-10-15T01:40+00:00",
+   "observed_at": "2026-10-15T06:58+00:00",
    "observed_facts": [
     "Published tension score: 100; published level: حرج."
    ],
@@ -436,52 +540,52 @@
    ],
    "evidence": [
     {
-     "id": "ev_1c6f57c77864e659",
-     "url": "https://www.alarabiya.net/arab-and-world/iraq/2026/10/14/%D8%A8%D8%BA%D8%AF%D8%A7%D8%AF-%D8%AC%D9%85%D9%8A%D8%B9-%D9%82%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA-%D8%A7%D9%84%D8%B9%D8%B1%D8%A7%D9%82-%D8%AA%D8%AF%D8%B1%D9%83-%D8%A7%D9%87%D9%85%D9%8A%D8%A9-%D8%A7%D9%84%D8%B9%D9%84%D8%A7%D9%82%D8%A7%D8%AA-%D9%85%D8%B9-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9",
+     "id": "ev_2ec268bd3ce25cfe",
+     "url": "https://www.france24.com/ar/%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7/20261015-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%A7%D9%84%D9%8A%D9%85%D9%86-%D8%AA%D8%B5%D8%B9%D9%8A%D8%AF-%D8%B9%D8%B3%D9%83%D8%B1%D9%8A-%D8%AA%D8%A3%D8%AC%D9%8A%D9%84-%D8%A8%D8%B7%D9%88%D9%84%D8%A9-%D8%A7%D9%84%D9%85%D9%84%D9%88%D9%83-%D8%A7%D9%84%D8%B3%D8%AA%D8%A9-%D9%84%D9%84%D8%AA%D9%86%D8%B3-%D9%83%D8%A3%D8%B3-%D8%A2%D8%B3%D9%8A%D8%A7-2027-%D9%87%D8%AC%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6",
+     "source_name": "فرانس ٢٤ عربي",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-15T02:47+00:00",
+     "title": "إرجاء منافسات رياضية مقررة بالسعودية بينها بطولة العالم للرياضات الإلكترونية بسبب هجمات الحوثيين",
+     "title_en": "",
+     "dataset": "tension"
+    },
+    {
+     "id": "ev_91aac3ae0c901bb7",
+     "url": "https://arabic.cnn.com/middle-east/article/2026/10/15/saudi-sexual-act-inside-mosque-in-mecca-execution-case",
+     "source_name": "CNN بالعربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-15T06:08+00:00",
+     "title": "فعلا الفاحشة داخل مسجد في مكة.. السعودية تعلن إعدام رجل وامرأة",
+     "title_en": "",
+     "dataset": "tension"
+    },
+    {
+     "id": "ev_ca1fb4ca982c05ad",
+     "url": "https://www.alarabiya.net/aswaq/economy/2026/10/15/%D8%A7%D9%84%D8%AA%D8%B6%D8%AE%D9%85-%D9%81%D9%8A-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D9%8A%D8%B3%D8%AC%D9%84-19-%D8%AE%D9%84%D8%A7%D9%84-%D8%B4%D9%87%D8%B1-%D8%B3%D8%A8%D8%AA%D9%85%D8%A8%D8%B1",
      "source_name": "العربية",
      "source_grade": "حسن",
-     "observed_at": "2026-10-14T19:29+00:00",
-     "title": "بغداد: جميع قيادات العراق تدرك أهمية العلاقات مع السعودية",
+     "observed_at": "2026-10-15T05:59+00:00",
+     "title": "التضخم في السعودية يسجل 1.9% خلال شهر سبتمبر",
      "title_en": "",
      "dataset": "tension"
     },
     {
-     "id": "ev_46897750362d7dc0",
-     "url": "https://aawsat.com/node/5329774",
-     "source_name": "الشرق الأوسط",
-     "source_grade": "حسن",
-     "observed_at": "2026-10-15T00:53+00:00",
-     "title": "إدانة عراقية للاعتداءات على السعودية",
+     "id": "ev_cbf56ca7163e0be8",
+     "url": "https://www.reuters.com/ar/business/CXAG7Z7FKBPBPARZNH6GQXLSMA-2026-10-15/",
+     "source_name": "Reuters",
+     "source_grade": "صحيح",
+     "observed_at": "2026-10-15T06:09+00:00",
+     "title": "ارتفاع مؤشر أسعار المستهلكين في السعودية 1.9% في سبتمبر على أساس سنوي",
      "title_en": "",
      "dataset": "tension"
     },
     {
-     "id": "ev_6cca42d85d7e1eb5",
-     "url": "https://aawsat.com/node/5329772",
-     "source_name": "الشرق الأوسط",
+     "id": "ev_e6cc6d6b706d486d",
+     "url": "https://www.france24.com/ar/%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7/20261015-%D9%85%D8%B9%D8%AA%D9%85%D8%B1%D9%88%D9%86-%D9%85%D8%B7%D8%A7%D8%B1-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-%D8%A7%D9%84%D9%85%D9%84%D9%83-%D8%AE%D8%A7%D9%84%D8%AF-%D9%85%D8%B1%D9%85%D9%89-%D8%B6%D8%B1%D8%A8%D8%A7%D8%AA-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%88%D9%86-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%A7%D9%84%D9%8A%D9%85%D9%86",
+     "source_name": "فرانس ٢٤ عربي",
      "source_grade": "حسن",
-     "observed_at": "2026-10-15T00:45+00:00",
-     "title": "«التحالف» يدمّر صواريخ ومسيّرات في السعودية",
-     "title_en": "",
-     "dataset": "tension"
-    },
-    {
-     "id": "ev_aec65603739bcabd",
-     "url": "https://aawsat.com/%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6%D8%A9/%D8%B1%D9%8A%D8%A7%D8%B6%D8%A9-%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9/5329735-%D8%A7%D9%84%D8%B3%D9%88%D8%A8%D8%B1-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A-%D9%81%D9%8A-%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA-%D8%A7%D9%84%D9%82%D8%A7%D8%AF%D8%B3%D9%8A%D8%A9-%D9%8A%D8%B5%D8%B7%D8%AF%D9%85-%D8%A8%D8%A7%D9%84%D8%A3%D9%87%D9%84%D9%8A-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1-%D9%8A%D9%88%D8%A7%D8%AC%D9%87-%D8%A7%D9%84%D8%AE%D9%84%D9%88%D8%AF",
-     "source_name": "الشرق الأوسط",
-     "source_grade": "حسن",
-     "observed_at": "2026-10-14T21:59+00:00",
-     "title": "«السوبر السعودي» في الكويت... القادسية يصطدم بالأهلي والنصر يواجه الخلود",
-     "title_en": "",
-     "dataset": "tension"
-    },
-    {
-     "id": "ev_e1f5eef03c5277a0",
-     "url": "https://www.bbc.com/arabic/articles/cqm24e4kzj72o",
-     "source_name": "BBC",
-     "source_grade": "حسن",
-     "observed_at": "2026-10-14T21:16+00:00",
-     "title": "جماعة أنصار الله الحوثية تعلن \"إصابة\" مقاتلة سعودية في أجواء محافظة صعدة",
+     "observed_at": "2026-10-15T05:15+00:00",
+     "title": "رغم تطمينات الرياض... هجمات الحوثيين تلقي بظلالها على رحلات المعتمرين في السعودية",
      "title_en": "",
      "dataset": "tension"
     }
@@ -489,7 +593,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-10-10T18:47+00:00",
-   "updated_at": "2026-10-15T01:40+00:00"
+   "updated_at": "2026-10-15T06:59+00:00"
   },
   {
    "id": "sig_5ed86e4817d42ba7",
@@ -567,7 +671,7 @@
    "title": "Watch term active: #غزة",
    "title_en": "Watch term active: #Gaza",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-15T01:40+00:00",
+   "observed_at": "2026-10-15T06:59+00:00",
    "observed_facts": [
     "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
@@ -583,13 +687,13 @@
    ],
    "evidence": [
     {
-     "id": "ev_1b7adc9817575702",
-     "url": "https://www.independentarabia.com/node/660458/%D8%A7%D9%84%D8%A3%D8%AE%D8%A8%D8%A7%D8%B1/%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7/4-%D9%82%D8%AA%D9%84%D9%89-%D9%81%D9%84%D8%B3%D8%B7%D9%8A%D9%86%D9%8A%D9%8A%D9%86-%D9%81%D9%8A-%D8%B6%D8%B1%D8%A8%D8%A7%D8%AA-%D8%A5%D8%B3%D8%B1%D8%A7%D8%A6%D9%8A%D9%84%D9%8A%D8%A9-%D8%B9%D9%84%D9%89-%D8%BA%D8%B2%D8%A9",
-     "source_name": "اندبندنت عربية",
+     "id": "ev_015d9a159ab50744",
+     "url": "https://www.skynewsarabia.com/middle-east/1898357-%D8%A5%D8%B3%D8%B1%D8%A7%D8%A6%D9%8A%D9%84-%D8%AA%D8%B9%D8%B1%D9%82%D9%84-%D9%82%D8%A7%D8%B9%D8%AF%D8%A9-%D8%BA%D8%B2%D8%A9",
+     "source_name": "سكاي نيوز عربية",
      "source_grade": "حسن",
-     "observed_at": "2026-10-14T23:40+00:00",
-     "title": "4 قتلى فلسطينيين في ضربات إسرائيلية على غزة",
-     "title_en": "Four Palestinians Killed in Israeli Strikes on Gaza",
+     "observed_at": "2026-10-15T06:38+00:00",
+     "title": "إسرائيل تعرقل قاعدة غزة",
+     "title_en": "Israel Obstructs Gaza Base",
      "dataset": "osint"
     },
     {
@@ -613,16 +717,6 @@
      "dataset": "osint"
     },
     {
-     "id": "ev_769ef93fd1595457",
-     "url": "https://www.ajnet.me/news/2026/10/13/%D8%A7%D9%84%D8%B5%D9%84%D9%8A%D8%A8-%D8%A7%D9%84%D8%A3%D8%AD%D9%85%D8%B1-%D9%87%D8%B0%D9%87-%D8%AA%D8%AD%D8%AF%D9%8A%D8%A7%D8%AA-%D8%A7%D9%86%D8%AA%D8%B4%D8%A7%D9%84",
-     "source_name": "الجزيرة نت",
-     "source_grade": "حسن",
-     "observed_at": "2026-10-13T14:08+00:00",
-     "title": "الصليب الأحمر: هذه تحديات انتشال جثامين قتلى غزة وتحديد هوياتهم",
-     "title_en": "ICRC Outlines Challenges of Recovering and Identifying Gaza Casualties",
-     "dataset": "osint"
-    },
-    {
      "id": "ev_7e3bb939c0680a8a",
      "url": "https://www.aljazeera.net/sport/2026/10/14/%D8%A7%D9%84%D8%A5%D9%86%D8%B3%D8%A7%D9%86%D9%8A%D8%A9-%D9%81%D9%82%D8%AF%D8%AA-%D8%B6%D9%85%D9%8A%D8%B1%D9%87%D8%A7-%D9%81%D9%8A-%D8%BA%D8%B2%D8%A9-%D8%AA%D8%B6%D8%A7%D9%85%D9%86",
      "source_name": "الجزيرة نت",
@@ -630,6 +724,16 @@
      "observed_at": "2026-10-14T08:04+00:00",
      "title": "\"الإنسانية فقدت ضميرها في غزة\".. تضامن لافت لجماهير غلطة سراي في ليلة الأبطال",
      "title_en": "'Humanity Lost Its Conscience in Gaza': Galatasaray Fans Show Solidarity in Champions League",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_9346f647fdec7b94",
+     "url": "https://www.aljazeera.net/politics/2026/10/15/%D8%BA%D8%A7%D8%B1%D8%AF%D9%8A%D8%A7%D9%86-%D8%A5%D8%B3%D8%B1%D8%A7%D8%A6%D9%8A%D9%84-%D8%AA%D8%B1%D9%81%D8%B6-%D8%A8%D9%86%D8%A7%D8%A1-%D9%82%D8%A7%D8%B9%D8%AF%D8%A9",
+     "source_name": "الجزيرة نت",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-15T02:28+00:00",
+     "title": "غارديان: إسرائيل تعرقل مشروعا أساسيا بخطة ترمب للسلام بغزة",
+     "title_en": "Guardian: Israel Blocks Key Project in Trump Gaza Peace Plan",
      "dataset": "osint"
     },
     {
@@ -653,26 +757,26 @@
      "dataset": "osint"
     },
     {
-     "id": "ev_fb2252a4d30dacdd",
-     "url": "https://www.aljazeera.net/news/2026/10/14/5-%D8%B4%D9%87%D8%AF%D8%A7%D8%A1-%D9%81%D9%8A-%D8%BA%D8%B2%D8%A9-%D9%88%D8%AE%D8%B1%D9%88%D9%82%D8%A7%D8%AA-%D8%A5%D8%B3%D8%B1%D8%A7%D8%A6%D9%8A%D9%84%D9%8A%D8%A9",
-     "source_name": "الجزيرة نت",
+     "id": "ev_d60ac93b3762fa34",
+     "url": "https://www.alarabiya.net/arab-and-world/2026/10/15/%D8%A7%D8%B3%D8%B1%D8%A7%D8%A6%D9%8A%D9%84-%D8%AA%D9%85%D9%86%D8%B9-%D8%AA%D9%86%D9%81%D9%8A%D8%B0-%D9%85%D8%B4%D8%B1%D9%88%D8%B9-%D8%B9%D8%B3%D9%83%D8%B1%D9%8A-%D9%84%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85-%D9%81%D9%8A-%D8%BA%D8%B2%D8%A9",
+     "source_name": "العربية",
      "source_grade": "حسن",
-     "observed_at": "2026-10-14T19:55+00:00",
-     "title": "5 شهداء في غزة وخروقات إسرائيلية متواصلة لوقف إطلاق النار",
-     "title_en": "Five Palestinians Killed in Gaza Amid Continued Israeli Ceasefire Violations",
+     "observed_at": "2026-10-15T02:28+00:00",
+     "title": "إسرائيل تمنع تنفيذ مشروع عسكري لمجلس السلام في غزة",
+     "title_en": "Israel Blocks Peace Council Military Project in Gaza",
      "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-10-15T01:40+00:00"
+   "updated_at": "2026-10-15T06:59+00:00"
   },
   {
    "id": "sig_792123d7f0d927d5",
    "type": "multi-source-event",
    "title": "الحوثيون يعلنون استهداف مطار الرياض بصاروخ بالستي",
-   "title_en": "Houthis Announce Ballistic Missile Attack on Riyadh Airport",
+   "title_en": "Houthis Claim Ballistic Missile Attack on Riyadh Airport",
    "summary": "2 named sources and 2 distinct evidence URLs cluster conservatively.",
    "observed_at": "2026-10-14T18:29+00:00",
    "observed_facts": [
@@ -710,16 +814,16 @@
      "observed_at": "2026-10-14T18:29+00:00",
      "title": "🔴 الحوثيون يعلنون استهداف مطار الرياض مجددا بصاروخ بالستي",
      "title_en": "",
-     "dataset": "news"
+     "dataset": "osint"
     },
     {
      "id": "ev_3647a2829af39566",
      "url": "https://www.skynewsarabia.com/middle-east/1898319-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%88%D9%86-%D9%8A%D8%B9%D9%84%D9%86%D9%88%D9%86-%D8%A7%D8%B3%D8%AA%D9%87%D8%AF%D8%A7%D9%81-%D9%85%D8%B7%D8%A7%D8%B1-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-%D8%A8%D8%B5%D8%A7%D8%B1%D9%88%D8%AE-%D8%A8%D8%A7%D9%84%D8%B3%D8%AA%D9%8A",
      "source_name": "سكاي نيوز عربية",
      "source_grade": "حسن",
-     "observed_at": "2026-10-14T18:22+00:00",
+     "observed_at": "2026-10-14T18:24+00:00",
      "title": "الحوثيون يعلنون استهداف مطار الرياض بصاروخ بالستي",
-     "title_en": "Houthis Announce Ballistic Missile Attack on Riyadh Airport",
+     "title_en": "Houthis Claim Ballistic Missile Attack on Riyadh Airport",
      "dataset": "news"
     }
    ],
@@ -728,7 +832,7 @@
     "evt_c1ab75be93f6d273"
    ],
    "created_at": "2026-10-14T20:00+00:00",
-   "updated_at": "2026-10-15T01:40+00:00"
+   "updated_at": "2026-10-15T06:59+00:00"
   },
   {
    "id": "sig_7ce5e1ca05c1e737",
@@ -736,7 +840,7 @@
    "title": "Watch term active: الحوثي",
    "title_en": "Watch term active: Houthi",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-15T01:40+00:00",
+   "observed_at": "2026-10-15T06:59+00:00",
    "observed_facts": [
     "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
@@ -762,33 +866,23 @@
      "dataset": "osint"
     },
     {
+     "id": "ev_2ec268bd3ce25cfe",
+     "url": "https://www.france24.com/ar/%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7/20261015-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%A7%D9%84%D9%8A%D9%85%D9%86-%D8%AA%D8%B5%D8%B9%D9%8A%D8%AF-%D8%B9%D8%B3%D9%83%D8%B1%D9%8A-%D8%AA%D8%A3%D8%AC%D9%8A%D9%84-%D8%A8%D8%B7%D9%88%D9%84%D8%A9-%D8%A7%D9%84%D9%85%D9%84%D9%88%D9%83-%D8%A7%D9%84%D8%B3%D8%AA%D8%A9-%D9%84%D9%84%D8%AA%D9%86%D8%B3-%D9%83%D8%A3%D8%B3-%D8%A2%D8%B3%D9%8A%D8%A7-2027-%D9%87%D8%AC%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6",
+     "source_name": "فرانس ٢٤ عربي",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-15T02:47+00:00",
+     "title": "إرجاء منافسات رياضية مقررة بالسعودية بينها بطولة العالم للرياضات الإلكترونية بسبب هجمات الحوثيين",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
      "id": "ev_3647a2829af39566",
      "url": "https://www.skynewsarabia.com/middle-east/1898319-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%88%D9%86-%D9%8A%D8%B9%D9%84%D9%86%D9%88%D9%86-%D8%A7%D8%B3%D8%AA%D9%87%D8%AF%D8%A7%D9%81-%D9%85%D8%B7%D8%A7%D8%B1-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-%D8%A8%D8%B5%D8%A7%D8%B1%D9%88%D8%AE-%D8%A8%D8%A7%D9%84%D8%B3%D8%AA%D9%8A",
      "source_name": "سكاي نيوز عربية",
      "source_grade": "حسن",
-     "observed_at": "2026-10-14T18:22+00:00",
+     "observed_at": "2026-10-14T18:24+00:00",
      "title": "الحوثيون يعلنون استهداف مطار الرياض بصاروخ بالستي",
-     "title_en": "Houthis Announce Ballistic Missile Attack on Riyadh Airport",
-     "dataset": "osint"
-    },
-    {
-     "id": "ev_792d3ac3cc969846",
-     "url": "https://www.reuters.com/ar/world/OZBSS7WUEFMGDCO2PTN2SD6MAM-2026-10-13/",
-     "source_name": "Reuters",
-     "source_grade": "حسن",
-     "observed_at": "2026-10-13T18:50+00:00",
-     "title": "السعودية تقصف العاصمة اليمنية والحوثيون يتوعدون بالرد",
-     "title_en": "Saudi Arabia Bombs Yemeni Capital as Houthis Vow Retaliation",
-     "dataset": "osint"
-    },
-    {
-     "id": "ev_94b06ebee63e6806",
-     "url": "https://arabic.cnn.com/middle-east/article/2026/10/14/why-billions-spent-on-defense-havent-shielded-saudi-arabia-from-houthi-attacks",
-     "source_name": "CNN Arabic",
-     "source_grade": "حسن",
-     "observed_at": "2026-10-14T05:47+00:00",
-     "title": "تحليل.. كيف نجح الحوثيون في استهداف منشآت السعودية الحيوية رغم إنفاق المملكة عشرات مليارات الدولارات سنويًا على الدفاع؟",
-     "title_en": "Analysis: How Houthis Hit Vital Saudi Sites Despite Billions Spent on Defense",
+     "title_en": "Houthis Claim Ballistic Missile Attack on Riyadh Airport",
      "dataset": "osint"
     },
     {
@@ -798,27 +892,17 @@
      "source_grade": "حسن",
      "observed_at": "2026-10-14T09:42+00:00",
      "title": "الحوثيون يعلنون مواصلة استهداف المطارات والمنشآت النفطية السعودية في الأيام المقبلة",
-     "title_en": "Houthis Vow to Continue Targeting Saudi Airports and Oil Facilities in Coming Days",
+     "title_en": "Houthis Vow Continued Strikes on Saudi Airports and Oil Facilities in Coming Days",
      "dataset": "osint"
     },
     {
-     "id": "ev_b23428a28b036e4f",
-     "url": "https://www.aljazeera.net/news/2026/10/13/%D8%B9%D8%A7%D8%AC%D9%84-%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D9%88%D8%B2%D8%B1%D8%A7%D8%A1-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A-%D9%85%D9%84%D9%8A%D8%B4%D9%8A%D8%A7",
-     "source_name": "الجزيرة نت",
+     "id": "ev_a899fa9057fa9a3a",
+     "url": "https://www.france24.com/ar/%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7/20261015-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%88%D9%86-%D9%87%D8%AC%D9%85%D8%A7%D8%AA-%D9%85%D8%B7%D8%A7%D8%B1-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-%D9%85%D9%86%D8%AA%D8%AF%D9%89-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%AA%D8%A3%D8%AC%D9%8A%D9%84-%D8%A8%D8%B7%D9%88%D9%84%D8%A7%D8%AA-%D9%83%D8%A3%D8%B3-%D8%A2%D8%B3%D9%8A%D8%A7-%D8%A7%D9%84%D9%8A%D9%85%D9%86-%D8%A7%D9%84%D8%A3%D8%B2%D9%85%D8%A9-%D8%A7%D9%84%D8%A5%D9%86%D8%B3%D8%A7%D9%86%D9%8A%D8%A9",
+     "source_name": "فرانس ٢٤ عربي",
      "source_grade": "حسن",
-     "observed_at": "2026-10-13T18:38+00:00",
-     "title": "السعودية تتوعد الحوثيين بعواقب استهداف مكة والمدينة",
-     "title_en": "Saudi Arabia Warns Houthis of Consequences for Targeting Mecca and Medina",
-     "dataset": "osint"
-    },
-    {
-     "id": "ev_bd6e3193a56a1269",
-     "url": "https://www.skynewsarabia.com/middle-east/1898175-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%88%D9%86-%D8%A7%D8%B3%D8%AA%D9%87%D8%AF%D9%81%D9%86%D8%A7-%D9%85%D9%86%D8%B4%D8%A2%D8%AA-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D9%88%D8%B9%D9%85%D9%84%D9%8A%D8%A7%D8%AA%D9%86%D8%A7-%D8%B3%D8%AA%D8%B3%D8%AA%D9%85%D8%B1",
-     "source_name": "سكاي نيوز عربية",
-     "source_grade": "حسن",
-     "observed_at": "2026-10-14T08:26+00:00",
-     "title": "الحوثيون: استهدفنا منشآت في السعودية وعملياتنا ستستمر",
-     "title_en": "Houthis: We Struck Saudi Facilities and Operations Will Continue",
+     "observed_at": "2026-10-15T00:42+00:00",
+     "title": "هجمات الحوثيين تربك فعاليات مقررة بالسعودية والتصعيد يفاقم الأزمة الإنسانية في اليمن",
+     "title_en": "",
      "dataset": "osint"
     },
     {
@@ -826,16 +910,86 @@
      "url": "https://www.bbc.com/arabic/articles/cqm24e4kzj72o",
      "source_name": "BBC",
      "source_grade": "حسن",
-     "observed_at": "2026-10-14T21:16+00:00",
+     "observed_at": "2026-10-14T22:11+00:00",
      "title": "جماعة أنصار الله الحوثية تعلن \"إصابة\" مقاتلة سعودية في أجواء محافظة صعدة",
-     "title_en": "Houthis Claim Saudi Fighter Jet 'Hit' Over Saada Province",
+     "title_en": "Houthis Claim Saudi Fighter Jet Hit in Skies Over Saada",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_e473516a03b9a1a3",
+     "url": "https://www.skynewsarabia.com/middle-east/1898121-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D9%85%D8%AD%D8%B7%D8%A9-%D8%A7%D9%84%D8%B5%D8%A8%D8%A7%D8%AD%D8%A9-%D9%88%D9%85%D8%AE%D8%A7%D8%B2%D9%86-%D9%88%D9%82%D9%88%D8%AF-%D8%AA%D8%BA%D8%B0%D9%8A-%D8%B9%D9%85%D9%84%D9%8A%D8%A7%D8%AA-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%8A%D9%86",
+     "source_name": "سكاي نيوز عربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-14T22:28+00:00",
+     "title": "السعودية: محطة الصباحة ومخازن وقود تغذي عمليات الحوثيين",
+     "title_en": "Saudi Arabia: Al-Sabaha Station and Fuel Depots Supply Houthi Operations",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_e6cc6d6b706d486d",
+     "url": "https://www.france24.com/ar/%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7/20261015-%D9%85%D8%B9%D8%AA%D9%85%D8%B1%D9%88%D9%86-%D9%85%D8%B7%D8%A7%D8%B1-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-%D8%A7%D9%84%D9%85%D9%84%D9%83-%D8%AE%D8%A7%D9%84%D8%AF-%D9%85%D8%B1%D9%85%D9%89-%D8%B6%D8%B1%D8%A8%D8%A7%D8%AA-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%88%D9%86-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%A7%D9%84%D9%8A%D9%85%D9%86",
+     "source_name": "فرانس ٢٤ عربي",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-15T05:15+00:00",
+     "title": "رغم تطمينات الرياض... هجمات الحوثيين تلقي بظلالها على رحلات المعتمرين في السعودية",
+     "title_en": "",
      "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-09-06T20:02+00:00",
-   "updated_at": "2026-10-15T01:40+00:00"
+   "updated_at": "2026-10-15T06:59+00:00"
+  },
+  {
+   "id": "sig_a54743f332a86b50",
+   "type": "multi-source-event",
+   "title": "الدولار يتراجع عن أعلى مستوى في 18 شهراً",
+   "title_en": "",
+   "summary": "2 named sources and 2 distinct evidence URLs cluster conservatively.",
+   "observed_at": "2026-10-15T06:58+00:00",
+   "observed_facts": [
+    "الشرق الأوسط published: الدولار يتراجع من أعلى مستوى في 18 شهراً",
+    "وكالة أنباء الإمارات (وام) published: الدولار يتراجع عن أعلى مستوى في 18 شهراً"
+   ],
+   "assessment": "2 named sources and 2 distinct evidence URLs cluster conservatively.",
+   "inference": "The sources may be reporting the same underlying event.",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.8,
+   "severity": "info",
+   "countries": [],
+   "sectors": [],
+   "topics": [
+    "اقتصاد"
+   ],
+   "evidence": [
+    {
+     "id": "ev_0b0cf70c558b6ba2",
+     "url": "https://news.google.com/rss/articles/CBMipAJBVV95cUxQZ0pydGJLemJyOW1MeFdkZ3pOeWJWejd4R2ZkYUt4azVlV2xsMG9aUzBpVUpTalJ1RTh5QU1RVXZLdl9JVld3TWsyWE5veUs4X1RmVTJERGFxQU5pOE1KUWZOYzRZLUYxdkdKaHVrTC03QUd6T1FWVkxmN2FfZHRzcXN6d2E2QUstQ0pqcG9kLVVaTHVsb0NCYVI2VVliVXVjdFMxX0RIT3hpWjB0b1ByV0hOZkUxZGRkQTVmLWk2X1hEcEgtTG02ekt0VUQxcWtGbkNQbWlWeVdic2EwUUlTRFZod2dXVE1FdFViTm5ILUZjRm1ycE82ZEFHdGtVODhjSEVGZFRaeHNhZkVjZXE5bFA5MXVIdmhfNUNtQl9yRmtGWHhx?oc=5",
+     "source_name": "وكالة أنباء الإمارات (وام)",
+     "source_grade": "",
+     "observed_at": "2026-10-15T06:58+00:00",
+     "title": "الدولار يتراجع عن أعلى مستوى في 18 شهراً",
+     "title_en": "",
+     "dataset": "official"
+    },
+    {
+     "id": "ev_ab2d0eeefde4530c",
+     "url": "https://aawsat.com/node/5329807",
+     "source_name": "الشرق الأوسط",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-15T06:32+00:00",
+     "title": "الدولار يتراجع من أعلى مستوى في 18 شهراً",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "event_ids": [
+    "evt_e8430aaf84c17db0"
+   ],
+   "created_at": "2026-10-15T06:59+00:00",
+   "updated_at": "2026-10-15T06:59+00:00"
   },
   {
    "id": "sig_b74f715cc66b0048",
@@ -843,7 +997,7 @@
    "title": "Watch term active: #إيران",
    "title_en": "Watch term active: #Iran",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-15T01:40+00:00",
+   "observed_at": "2026-10-15T06:59+00:00",
    "observed_facts": [
     "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
@@ -859,82 +1013,82 @@
    ],
    "evidence": [
     {
-     "id": "ev_1b5d950c88f4b88c",
-     "url": "https://aawsat.com/node/5329755",
+     "id": "ev_383465fa03830327",
+     "url": "https://aawsat.com/node/5329801",
      "source_name": "الشرق الأوسط",
      "source_grade": "حسن",
-     "observed_at": "2026-10-14T22:53+00:00",
-     "title": "روسيا والصين تناقشان التعاون وحربي أوكرانيا وإيران و«العلاقات مع أميركا»",
+     "observed_at": "2026-10-15T06:01+00:00",
+     "title": "تقرير: أميركا تدرس استخدام «أم القنابل» ضد إيران",
      "title_en": "",
      "dataset": "osint"
     },
     {
-     "id": "ev_1f43390233b23dfd",
-     "url": "https://www.bbc.com/persian/articles/c3vgxv7425v0o?at_medium=RSS&at_campaign=rss",
-     "source_name": "بي بي سي فارسي",
-     "source_grade": "حسن",
-     "observed_at": "2026-10-14T22:01+00:00",
-     "title": "إيلون ماسك: صلاحية ستار شيلد بيد الجيش والرئيس الأمريكي فقط",
-     "title_en": "Elon Musk: Starshield Authority Rests Solely with US Military and President",
-     "dataset": "osint"
-    },
-    {
-     "id": "ev_49a50bee2ef80252",
-     "url": "https://www.skynewsarabia.com/middle-east/1898331-%D8%A8%D8%A7%D9%84%D9%81%D9%8A%D8%AF%D9%8A%D9%88-%D8%B3%D9%86%D8%AA%D9%83%D9%88%D9%85-%D8%AA%D8%AF%D9%85%D8%B1-%D9%82%D8%A7%D8%B1%D8%A8%D8%A7-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86%D9%8A%D8%A7-%D9%8A%D8%B1%D8%A7%D9%82%D8%A8-%D8%A7%D9%84%D8%B3%D9%81%D9%86",
-     "source_name": "سكاي نيوز عربية",
-     "source_grade": "حسن",
-     "observed_at": "2026-10-14T21:26+00:00",
-     "title": "بالفيديو.. \"سنتكوم\" تدمر قاربا إيرانيا كان يراقب السفن",
-     "title_en": "Video: CENTCOM Destroys Iranian Vessel Monitoring Ships",
-     "dataset": "osint"
-    },
-    {
-     "id": "ev_5903aff9229d1c6b",
-     "url": "https://www.iranintl.com/202610144845",
+     "id": "ev_5c55b2819f2340c9",
+     "url": "https://www.iranintl.com/202610154324",
      "source_name": "إيران إنترناشونال",
      "source_grade": "حسن",
-     "observed_at": "2026-10-14T20:56+00:00",
-     "title": "مانشستر سيتي 2-4 باريس سان جيرمان؛ إذلال أصحاب الأرض على طريقة إنريكي أمام أعين بيب",
-     "title_en": "Man City 2-4 PSG: Enrique's Men Humiliate Hosts in Front of Pep",
+     "observed_at": "2026-10-15T06:36+00:00",
+     "title": "بحصده 3 ذهبيات وبرونزيتين؛ المنتخب الوطني الإيراني للمصارعة الرومانية تحت 23 عاماً يتوج بطلاً للعالم",
+     "title_en": "Iran Wins U23 World Greco-Roman Wrestling Title with 3 Golds, 2 Bronzes",
      "dataset": "osint"
     },
     {
-     "id": "ev_7bbe046fc70c513a",
-     "url": "https://www.iranintl.com/202610147910",
-     "source_name": "إيران إنترناشونال",
-     "source_grade": "حسن",
-     "observed_at": "2026-10-14T18:36+00:00",
-     "title": "لاسك 3-6 ليفربول؛ استعراض قوة من إيراولا في دوري أبطال أوروبا بسلاح اسمه باركولا",
-     "title_en": "LASK 3-6 Liverpool: Iraola Delivers Champions League Showcase Powered by Barcola",
-     "dataset": "osint"
-    },
-    {
-     "id": "ev_9059f9d8cd2b085f",
-     "url": "https://www.iranintl.com/202610142277",
-     "source_name": "إيران إنترناشونال",
-     "source_grade": "حسن",
-     "observed_at": "2026-10-14T20:45+00:00",
-     "title": "روما 3-4 ريال مدريد؛ ريمونتادا جنونية للريال في 5 دقائق فقط",
-     "title_en": "Roma 3-4 Real Madrid: Mad 5-Minute Comeback Seals Win for Los Blancos",
-     "dataset": "osint"
-    },
-    {
-     "id": "ev_918ac49dc8ad1fba",
-     "url": "https://aawsat.com/node/5329771",
-     "source_name": "الشرق الأوسط",
-     "source_grade": "حسن",
-     "observed_at": "2026-10-15T00:40+00:00",
-     "title": "تباين أميركي ــ إسرائيلي حول موعد ضرب إيران",
-     "title_en": "",
-     "dataset": "osint"
-    },
-    {
-     "id": "ev_b62688bc03eebe0b",
-     "url": "https://arabic.cnn.com/world/article/2026/10/15/trump-says-us-making-a-fortune-off-higher-oil-prices",
+     "id": "ev_7c65ea38251c4132",
+     "url": "https://arabic.cnn.com/middle-east/video/2026/10/15/v203557-singapore-ships-attacked-strait-of-hormuz",
      "source_name": "CNN بالعربية",
      "source_grade": "حسن",
-     "observed_at": "2026-10-14T22:37+00:00",
-     "title": "ردّاً على الانتقادات لحربه على إيران.. ترامب: أمريكا تجني أموالاً \"أكثر من أي وقت مضى\"",
+     "observed_at": "2026-10-15T06:46+00:00",
+     "title": "فيديو يظهر آثار تعرض سفينتين لمقذوفات مجهولة بمضيق هرمز قبل غرق إحداهما",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_801f70e6b8ae21ec",
+     "url": "https://www.bbc.com/persian/articles/c3rry7jzxjwno?at_medium=RSS&at_campaign=rss",
+     "source_name": "بي بي سي فارسي",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-15T05:53+00:00",
+     "title": "البيت الأبيض يدافع عن المتحدثة الصحفية الجديدة باسمه في أعقاب الشكوك حول مؤهلاتها القانونية",
+     "title_en": "White House Defends New Press Secretary Amid Scrutiny of Legal Credentials",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_a206e2d64f5a3ae5",
+     "url": "https://www.iranintl.com/202610156289",
+     "source_name": "إيران إنترناشونال",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-15T06:30+00:00",
+     "title": "سي إن إن: الولايات المتحدة تدرس استخدام «أم القنابل» ضد الجمهورية الإسلامية",
+     "title_en": "CNN: US Considers 'Mother of All Bombs' Against Iran",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_b083ea01abe037c7",
+     "url": "https://www.iranintl.com/202610151341",
+     "source_name": "إيران إنترناشونال",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-15T06:49+00:00",
+     "title": "أسعار النفط تتراجع بأكثر من واحد بالمئة رغم تصاعد الهجمات في مضيق هرمز",
+     "title_en": "Oil Drops Over 1% Despite Escalating Attacks in Strait of Hormuz",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_b0f8b6e83cd338d5",
+     "url": "https://www.iranintl.com/2026101549540",
+     "source_name": "إيران إنترناشونال",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-15T05:59+00:00",
+     "title": "صندوق النقد الدولي: الحرب الطويلة والاضطراب الجديد هما الخطر الأكبر على منطقة الشرق الأوسط",
+     "title_en": "IMF: Prolonged War and Renewed Turmoil Pose Biggest Risks to Middle East",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_da64d7ff3bdb30eb",
+     "url": "https://www.france24.com/ar/%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7/20261015-%D8%AA%D9%82%D8%A7%D8%B1%D9%8A%D8%B1-%D8%A5%D8%B9%D9%84%D8%A7%D9%85%D9%8A%D8%A9-%D8%A7%D9%84%D8%AC%D9%8A%D8%B4-%D8%A7%D9%84%D8%A3%D9%85%D8%B1%D9%8A%D9%83%D9%8A-%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D8%A7%D9%85-%D8%A3%D9%85-%D8%A7%D9%84%D9%82%D9%86%D8%A7%D8%A8%D9%84-%D8%AD%D8%B1%D8%A8-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86",
+     "source_name": "فرانس ٢٤ عربي",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-15T06:20+00:00",
+     "title": "وفق تقارير إعلامية... الجيش الأمريكي يدرس استخدام \"أم القنابل\" في حربه ضد إيران",
      "title_en": "",
      "dataset": "osint"
     }
@@ -942,7 +1096,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-10-15T01:40+00:00"
+   "updated_at": "2026-10-15T06:59+00:00"
   },
   {
    "id": "sig_bf1265daa6cefcac",
@@ -1010,9 +1164,9 @@
    "title": "Watch term active: #هرمز",
    "title_en": "Watch term active: #Hormuz",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-15T01:40+00:00",
+   "observed_at": "2026-10-15T06:59+00:00",
    "observed_facts": [
-    "4 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 72."
+    "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
    "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
    "inference": "Term matching indicates attention, not intent, coordination, or threat.",
@@ -1032,7 +1186,17 @@
      "source_grade": "حسن",
      "observed_at": "2026-10-14T05:14+00:00",
      "title": "مسؤولان إيرانيان يزعمان تغيير أساليب استهداف السفن عبر هرمز",
-     "title_en": "Two Iranian Officials Claim Shift in Hormuz Ship-Targeting Tactics",
+     "title_en": "Two Iranian Officials Claim Shift in Hormuz Ship Targeting Tactics",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_2b874cc3fa19705b",
+     "url": "https://www.bbc.co.uk/persian/live/cmwyq66ve970t?at_medium=RSS&at_campaign=rss",
+     "source_name": "بي بي سي فارسي",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-15T06:59+00:00",
+     "title": "أزمة الغذاء؛ يتعين على إيران والولايات المتحدة التوصل إلى اتفاق «في الأسابيع القليلة المقبلة» لعبور الأسمدة من مضيق هرمز",
+     "title_en": "Food Crisis: US and Iran Must Reach Deal Within Weeks on Hormuz Fertilizer Transit",
      "dataset": "osint"
     },
     {
@@ -1056,20 +1220,127 @@
      "dataset": "osint"
     },
     {
+     "id": "ev_7c65ea38251c4132",
+     "url": "https://arabic.cnn.com/middle-east/video/2026/10/15/v203557-singapore-ships-attacked-strait-of-hormuz",
+     "source_name": "CNN بالعربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-15T06:46+00:00",
+     "title": "فيديو يظهر آثار تعرض سفينتين لمقذوفات مجهولة بمضيق هرمز قبل غرق إحداهما",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_8b9d5b3f7e77c7a6",
+     "url": "https://www.skynewsarabia.com/world/1898321-%D9%87%D8%AC%D9%85%D8%A7%D8%AA-%D9%85%D8%B6%D9%8A%D9%82-%D9%87%D8%B1%D9%85%D8%B2-%D8%AA%D8%B3%D8%AC%D9%84-%D8%A3%D8%B9%D9%84%D9%89-%D9%88%D8%AA%D9%8A%D8%B1%D8%A9-%D8%A8%D8%AF%D8%A1-%D8%A7%D9%84%D8%AD%D8%B1%D8%A8",
+     "source_name": "سكاي نيوز عربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-15T01:11+00:00",
+     "title": "هجمات مضيق هرمز تسجل أعلى وتيرة منذ بدء الحرب",
+     "title_en": "Strait of Hormuz Attacks Surge to Highest Level Since Outbreak of War",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_b083ea01abe037c7",
+     "url": "https://www.iranintl.com/202610151341",
+     "source_name": "إيران إنترناشونال",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-15T06:49+00:00",
+     "title": "أسعار النفط تتراجع بأكثر من واحد بالمئة رغم تصاعد الهجمات في مضيق هرمز",
+     "title_en": "Oil Drops Over 1% Despite Escalating Attacks in Strait of Hormuz",
+     "dataset": "osint"
+    },
+    {
      "id": "ev_ec23c846b0303c22",
      "url": "https://www.alarabiya.net/iran/2026/10/14/%D8%BA%D8%B1%D9%82-%D8%B3%D9%81%D9%8A%D9%86%D8%A9-%D9%81%D9%8A-%D9%87%D8%B1%D9%85%D8%B2-%D9%88%D8%A7%D9%8A%D8%B1%D8%A7%D9%86-%D8%AA%D8%AA%D9%87%D9%85%D9%87%D8%A7-%D8%A8%D9%85%D8%AE%D8%A7%D9%84%D9%81%D8%A9-%D8%A7%D9%84%D9%85%D8%B3%D8%A7%D8%B1-%D8%A7%D9%84%D8%A7%D9%85%D9%86",
      "source_name": "العربية",
      "source_grade": "حسن",
      "observed_at": "2026-10-14T09:26+00:00",
      "title": "الحرس الثوري يعلن غرق سفينة في هرمز \"بلغم بحري\"",
-     "title_en": "IRGC Announces Sinking of Ship in Hormuz by Naval Mine",
+     "title_en": "IRGC Claims Ship Sunk by Naval Mine in Strait of Hormuz",
      "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-09-23T11:59+00:00",
-   "updated_at": "2026-10-15T01:40+00:00"
+   "updated_at": "2026-10-15T06:59+00:00"
+  },
+  {
+   "id": "sig_f28d27c3c609459d",
+   "type": "watchlist-match",
+   "title": "Watch term active: مضيق هرمز",
+   "title_en": "Watch term active: Strait of Hormuz",
+   "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
+   "observed_at": "2026-10-15T06:59+00:00",
+   "observed_facts": [
+    "5 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 82."
+   ],
+   "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
+   "inference": "Term matching indicates attention, not intent, coordination, or threat.",
+   "uncertainty": "Keyword matching can include unrelated uses of the same term.",
+   "confidence": 0.7,
+   "severity": "info",
+   "countries": [],
+   "sectors": [],
+   "topics": [
+    "ملاحة"
+   ],
+   "evidence": [
+    {
+     "id": "ev_2b874cc3fa19705b",
+     "url": "https://www.bbc.co.uk/persian/live/cmwyq66ve970t?at_medium=RSS&at_campaign=rss",
+     "source_name": "بي بي سي فارسي",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-15T06:59+00:00",
+     "title": "أزمة الغذاء؛ يتعين على إيران والولايات المتحدة التوصل إلى اتفاق «في الأسابيع القليلة المقبلة» لعبور الأسمدة من مضيق هرمز",
+     "title_en": "Food Crisis: US and Iran Must Reach Deal Within Weeks on Hormuz Fertilizer Transit",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_56d2408076259285",
+     "url": "https://www.skynewsarabia.com/middle-east/1898129-%D8%B3%D9%86%D8%AA%D9%83%D9%88%D9%85-%D8%AA%D9%86%D9%81%D9%8A-%D8%A7%D8%AF%D8%B9%D8%A7%D8%A1%D8%A7%D8%AA-%D9%82%D8%A7%D8%A6%D8%AF-%D8%A8%D8%A7%D9%84%D8%AD%D8%B1%D8%B3-%D8%A7%D9%84%D8%AB%D9%88%D8%B1%D9%8A-%D8%A8%D8%B4%D8%A3%D9%86-%D9%85%D8%B6%D9%8A%D9%82-%D9%87%D8%B1%D9%85%D8%B2",
+     "source_name": "سكاي نيوز عربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-13T21:11+00:00",
+     "title": "\"سنتكوم\" تنفي ادعاءات قائد بالحرس الثوري بشأن مضيق هرمز",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_7c65ea38251c4132",
+     "url": "https://arabic.cnn.com/middle-east/video/2026/10/15/v203557-singapore-ships-attacked-strait-of-hormuz",
+     "source_name": "CNN بالعربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-15T06:46+00:00",
+     "title": "فيديو يظهر آثار تعرض سفينتين لمقذوفات مجهولة بمضيق هرمز قبل غرق إحداهما",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_8b9d5b3f7e77c7a6",
+     "url": "https://www.skynewsarabia.com/world/1898321-%D9%87%D8%AC%D9%85%D8%A7%D8%AA-%D9%85%D8%B6%D9%8A%D9%82-%D9%87%D8%B1%D9%85%D8%B2-%D8%AA%D8%B3%D8%AC%D9%84-%D8%A3%D8%B9%D9%84%D9%89-%D9%88%D8%AA%D9%8A%D8%B1%D8%A9-%D8%A8%D8%AF%D8%A1-%D8%A7%D9%84%D8%AD%D8%B1%D8%A8",
+     "source_name": "سكاي نيوز عربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-15T01:11+00:00",
+     "title": "هجمات مضيق هرمز تسجل أعلى وتيرة منذ بدء الحرب",
+     "title_en": "Strait of Hormuz Attacks Surge to Highest Level Since Outbreak of War",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_b083ea01abe037c7",
+     "url": "https://www.iranintl.com/202610151341",
+     "source_name": "إيران إنترناشونال",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-15T06:49+00:00",
+     "title": "أسعار النفط تتراجع بأكثر من واحد بالمئة رغم تصاعد الهجمات في مضيق هرمز",
+     "title_en": "Oil Drops Over 1% Despite Escalating Attacks in Strait of Hormuz",
+     "dataset": "osint"
+    }
+   ],
+   "contradictions": [],
+   "event_ids": [],
+   "created_at": "2026-10-15T06:59+00:00",
+   "updated_at": "2026-10-15T06:59+00:00"
   }
  ]
 }
