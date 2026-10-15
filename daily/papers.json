@@ -1,107 +1,104 @@
 {
- "updated": "2026-10-15T01:40+00:00",
+ "updated": "2026-10-15T17:38+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.16117",
-   "title": "Beyond Perfect Teammates: Multi-Agent Collaboration with Unreliable Colleagues",
-   "abstract": "LLM-based multi-agent collaboration is increasingly used to solve complex tasks by dividing work among specialized agents and integrating complementary expertise. Yet existing systems and evaluations largely rest on an implicit perfect-colleague assumption: collaborators provide correct and complete information and respond promptly to requests. In realistic teamwork, however, collaborators may return information that does not answer the intended question, provide insufficient detail to support a decision, or fail to respond to a request. To separate task-solving competence from the ability to ",
+   "id": "2610.14162",
+   "title": "Next-Concept Modeling: Fast, Parallel Coarse-to-Fine Text Generation",
+   "abstract": "Diffusion language models (DLMs) offer parallel sampling for faster generation than autoregressive models, an increasingly important advantage as inference becomes a dominant computational workload. However, DLMs degrade quickly with fewer sampling steps, process the full sequence at every step, and require many passes over the dataset to reach good quality. We introduce Next-Concept Modeling (NCM), a two-stage, coarse-to-fine framework: a multiscale residual VQ-VAE encodes text into a hierarchy of discrete codes, and a transformer generates one level at a time, predicting all codes within a l",
    "authors": [
-    "Chen Huang",
-    "Yiyang Zhang",
-    "Yuhao Wu",
-    "Yang Deng"
+    "Hermann Kumbong",
+    "Ishan S. Khare",
+    "Iddah Mlauzi",
+    "Andrew Woen"
    ],
-   "link": "https://huggingface.co/papers/2610.16117",
+   "link": "https://huggingface.co/papers/2610.14162",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-12T03:31",
-   "title_ar": "ما وراء زملاء الفريق المثاليين: التعاون متعدد الوكلاء مع زملاء غير موثوقين",
-   "summary_ar": "يُستخدم التعاون متعدد الوكلاء القائم على نماذج اللغة الكبيرة بشكل متزايد لحل المهام المعقدة عبر تقسيم العمل بين وكلاء متخصصين ودمج الخبرات التكاملية. ومع ذلك، تعتمد الأنظمة والتقييمات الحالية إلى حد كبير على افتراض ضمني بوجود زميل مثالي يقدّم معلومات صحيحة وكاملة."
+   "published": "2026-10-09T00:00",
+   "title_ar": "نمذجة المفهوم التالي: توليد سريع ومتوازٍ للنصوص من العام إلى الخاص",
+   "summary_ar": "تتيح نماذج لغة الانتشار أخذ عينات متوازية لتوليدٍ أسرع مقارنة بالنماذج ذاتية الانحدار، وهي ميزة تتزايد أهميتها مع تحول الاستدلال إلى عبء حوسبي مهيمن. مع ذلك، يتدهور أداء نماذج لغة الانتشار سريعًا مع تقليل خطوات أخذ العينات، كما أنها تعالج كامل التسلسل في كل خطوة."
   },
   {
-   "id": "2610.18472",
-   "title": "Simplifying and Improving On-Policy Distillation for Few-Step Diffusion",
-   "abstract": "Few-step distillation reduces the sampling cost of diffusion and flow models, but existing approaches often require auxiliary score models or specialized architectures. We show that simple on-policy velocity regression already provides a strong foundation for 4-NFE generation. To represent teacher velocity variation within each coarse transition, we introduce Pivot, a training-only residual proxy that separates local corrections from the student's interval-mean prediction. We further repel the student from weaker teacher predictions, providing a lightweight mechanism for avoiding undesirable m",
+   "id": "2610.14216",
+   "title": "Cortex: Measurement-Gated Evolution and Pruning of Coding-Agent Skills and Rules",
+   "abstract": "Coding agents such as Claude Code also follow text files that developers write for them: a project file, skills the agent may choose to open, and rules that load automatically when the agent reads matching files. We call these files the agent's harness. Developers add to it whenever they correct the agent, but one success proves little: the same agent can pass a task once and fail it the next time. We present Cortex, a tool that tests changes to the harness instead of trusting them. It saves fixes from the developer's sessions as replayable tasks, finds the corrections that recur, writes one s",
    "authors": [
-    "Jiawei Zhang",
-    "Ziyu Wan",
-    "Nanye Ma",
-    "Long Zhao"
+    "Samuele Giampieri"
    ],
-   "link": "https://huggingface.co/papers/2610.18472",
+   "link": "https://huggingface.co/papers/2610.14216",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-09T00:00",
+   "title_ar": "كورتكس: تطور وتشذيب مهارات وقواعد وكلاء البرمجة المحكومين بالقياس",
+   "summary_ar": "يتبع وكلاء البرمجة ملفات نصية يكتبها المطورون، وتتضمن ملف المشروع والمهارات التي قد يختار الوكيل فتحها والقواعد التي تُحمّل تلقائيًا، ويُطلق على هذه الملفات اسم عدة تسخير الوكيل. يضيف المطورون إلى هذه العدة كلما أقدموا على تصحيح الوكيل."
+  },
+  {
+   "id": "2610.15715",
+   "title": "History Replays Itself: Unleashing Long-Context Capability in Linear Attention",
+   "abstract": "Linear attention promises the efficiency needed for long-context language modelling, yet its fixed-size recurrent state must simultaneously support ongoing computation and preserve information from an ever-growing history. This coupling has reinforced a prevailing view that the state's memory capacity defines the model's long-context capability. We challenge this presumed ceiling: recurrent computation need not bear the full burden of long-term storage. We introduce NoteBank, a sparse episodic memory that archives selected text before future queries are known, uses the backbone's native featur",
+   "authors": [
+    "Li Nanbo",
+    "Firas Laakom",
+    "Yilan Zhang",
+    "Piotr Piękos"
+   ],
+   "link": "https://huggingface.co/papers/2610.15715",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-11T00:00",
+   "title_ar": "التاريخ يعيد نفسه: إطلاق قدرات السياق الطويل في الانتباه الخطي",
+   "summary_ar": "يَعِد الانتباه الخطي بالكفاءة المطلوبة لنمذجة اللغة ذات السياق الطويل، غير أن حالته التكرارية ثابتة الحجم يجب أن تدعم الحوسبة الجارية وتحفظ المعلومات من تاريخ متزايد باستمرار في آنٍ واحد. لقد عزز هذا الاقتران وجهة نظر سائدة حول سعة ذاكرة الحالة."
+  },
+  {
+   "id": "2610.17301",
+   "title": "The Agent Knew: Internal States Forecast Unauthorized Actions and Stop Them, and the Lies That Follow",
+   "abstract": "Language-model agents sometimes act beyond their authorization and then misreport what they did. On CAPE-Bench, matched agent tasks in which one fact decides whether an action is authorized, frontier open-weight agents do both, and one behavior marks the lie: retroactive permission laundering, acting and then asking permission as if the action were pending, precedes a false report in 70% of 1081 fresh informed violations, against 8% otherwise (preregistered odds ratio 7.0); frontier agents on tau^2-bench instead fabricate the authorization before violating. A linear readout of the agent's resi",
+   "authors": [
+    "Arya Fayyazi",
+    "Mehdi Kamal",
+    "Massoud Pedram"
+   ],
+   "link": "https://huggingface.co/papers/2610.17301",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-12T18:53",
+   "title_ar": "الوكيل كان يعلم: الحالات الداخلية تتنبأ بالإجراءات غير المصرح بها وتوقفها، إضافة للأكاذيب اللاحقة",
+   "summary_ar": "يتصرف وكلاء النماذج اللغوية أحيانًا بما يتجاوز صلاحياتهم ثم يبلغون كذبًا عما فعلوه. على معيار CAPE-Bench، وهو مهام متطابقة للوكلاء تحسم فيها حقيقة واحدة ما إذا كان الإجراء مصرحًا به، يرتكب وكلاء الأوزان المفتوحة الرائدون الأمرين معًا، ويُميَّز الكذب بسلوك غسيل الأذونات بأثر رجعي."
+  },
+  {
+   "id": "2610.13623",
+   "title": "APEX-Harm: Evaluating Agent Safety in Shared Professional Workspaces",
+   "abstract": "Professional agents increasingly work through command-line interfaces and multiple tools over shared workspaces containing files, messages, and business applications. These environments create safety risks that are difficult to capture with attacks placed at a single, known read location. We introduce APEX-Harm, a benchmark for evaluating prompt and script injection against long-horizon agents performing finance, consulting, and legal tasks in large workspaces. Each task contains 115 to 328 files, together with email, calendar, chat, document, spreadsheet, PDF, and code-execution tools exposed",
+   "authors": [
+    "Ziyi Yang",
+    "Adel Bibi",
+    "Guohao Li",
+    "Bernard Ghanem"
+   ],
+   "link": "https://huggingface.co/papers/2610.13623",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-09T00:00",
+   "title_ar": "APEX-Harm: تقييم سلامة الوكلاء في مساحات العمل المهنية المشتركة",
+   "summary_ar": "يعمل الوكلاء المهنيون بصورة متزايدة عبر واجهات سطر الأوامر وأدوات متعددة ضمن مساحات عمل مشتركة تضم ملفات ورسائل وتطبيقات أعمال. تخلق هذه البيئات مخاطر تتعلق بالسلامة يصعب رصدها من خلال الهجمات الموجهة إلى موقع قراءة فردي ومعروف."
+  },
+  {
+   "id": "2610.19128",
+   "title": "CLASHarness: Benchmarking Multi-Agent Conflict in Computer Use via a Controllable and Verifiable Generation Pipeline",
+   "abstract": "Vision-language models (VLMs) are increasingly deployed in multi-agent systems to automate complex computer-use workflows, yet existing benchmarks mostly assume consistent, cooperative environments. In contrast, real-world collaboration rarely runs on consistent information: peer or sub-agents frequently report outdated states, issue contradictory instructions, or compete over shared permissions and files, forcing agents to check others' outputs and verify ground truth in the environment. Evaluating such conflict resolution remains challenging: manual authoring cannot scale across complex syst",
+   "authors": [
+    "Yuxiang Lai",
+    "Jike Zhong",
+    "Chengzhi Liu",
+    "Ming Li"
+   ],
+   "link": "https://huggingface.co/papers/2610.19128",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-13T00:00",
-   "title_ar": "تبسيط وتحسين التقطير المتوافق مع السياسة لنماذج الانتشار ذات الخطوات المعدودة",
-   "summary_ar": "يقلل تقطير الخطوات المعدودة من تكلفة أخذ العينات لنماذج الانتشار والتدفق، لكن الأساليب الحالية غالبًا ما تتطلب نماذج درجات مساعدة أو بنى متخصصة. نُبين أن انحدار السرعة البسيط والمتوافق مع السياسة يوفر بالفعل أساسًا قويًا للتوليد بأربعة تقييمات لدالة الدفع (4-NFE)."
-  },
-  {
-   "id": "2610.18677",
-   "title": "Model-Based Online Decision Making via Generative Trajectory Planning",
-   "abstract": "Online decision-making faces a tension between efficient inference and long-horizon reasoning. Value-based methods rely on short-horizon bootstrapping that limits the propagation of long-term information, while trajectory optimization methods plan explicitly but must solve a high-dimensional optimization problem at every decision step. We propose Generative Trajectory Planning (GTP), a model-based framework that addresses this tension by learning a generative model as a proposal distribution over action sequences. Instead of optimizing sequences from scratch, GTP samples candidate sequences fr",
-   "authors": [
-    "Haldun Balim",
-    "Yilun Du",
-    "Na Li"
-   ],
-   "link": "https://huggingface.co/papers/2610.18677",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-13T00:00",
-   "title_ar": "اتخاذ القرار الفوري القائم على النماذج عبر التخطيط التوليدي للمسار",
-   "summary_ar": "يواجه اتخاذ القرار الفوري تعارضًا بين كفاءة الاستدلال والتفكير طويل المدى. تعتمد الطرق القائمة على القيمة على التمهيد قصير المدى الذي يحد من انتشار المعلومات طويلة المدى، بينما تُخطط طرق تحسين المسار صراحةً ولكن يتعين عليها حل مسألة تحسين عالية الأبعاد."
-  },
-  {
-   "id": "2610.02638",
-   "title": "Batched Speech Decisions Without Decoding: Single-Token Supervision Lets a Frozen LLM Hear Beyond the Transcript",
-   "abstract": "Full-duplex voice agents make many small, closed decisions, which current systems answer by slow autoregressive decoding. We propose DuplexJev, which feeds ASR-encoder hidden states through a small connector into a frozen LLM and reads each question as a single-token distribution over its options. Nothing is decoded, and an 8-GPU node answers 80 decisions about eight utterances in about 0.1 s. With a last-layer connector, spoken QA stays close to reading the transcript (90% vs. 91%). DuplexJev also hears the speaker: gender and emotion accuracy both reach 90% (from 55% and 28%) with a cross-at",
-   "authors": [
-    "Jie Jin",
-    "Ziyin Ma",
-    "Min Yin",
-    "Jinyu Chen"
-   ],
-   "link": "https://huggingface.co/papers/2610.02638",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-02T00:00",
-   "title_ar": "قرارات الكلام المجمعة دون فك التشفير: إشراف الرمز المفرد يتيح لنموذج لغوي كبير مجمّد السماع إلى ما وراء النص",
-   "summary_ar": "تتخذ وكلاء الصوت ثنائية الاتجاه المتزامنة قرارات صغيرة ومغلقة عديدة، وتجيب عنها الأنظمة الحالية بفك تشفير ذاتي الانحدار بطيء. نقترح DuplexJev، الذي يُغذي الحالات المخفية لمشفر التعرف الآلي على الكلام عبر رابط صغير إلى نموذج لغوي كبير مجمّد، ويقرأ كل سؤال كتوزيع رمز مفرد على خياراته."
-  },
-  {
-   "id": "2610.18497",
-   "title": "Judges Follow the Reference: The Derivation Gap in Verifying Tool-Call Arguments",
-   "abstract": "Tool-call judges evaluate argument values proposed by LLM agents. We find that they accept a correct value less often when their input holds no reference for it, that is, no text that says what the value should be. This happens when the value is a default value from the function schema that the user did not mention, when it has to be inferred, or when the text it comes from was cut from the judge input. We call this drop in acceptance the derivation gap. It appears across all seven judges we evaluate, including System One models CLM and Jev. The gap is not only a truncation artifact: correct d",
-   "authors": [
-    "Linhai Ma",
-    "Yan Wang",
-    "Lingfei Qian",
-    "Yupeng Cao"
-   ],
-   "link": "https://huggingface.co/papers/2610.18497",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-13T00:00",
-   "title_ar": "الحُكام يتبعون المرجع: فجوة الاشتقاق في التحقق من وسائط استدعاء الأدوات",
-   "summary_ar": "يُقيّم حُكام استدعاء الأدوات قِيَم الوسائط التي يقترحها وكلاء النماذج اللغوية الكبيرة. ووجدنا أنهم يقبلون القيمة الصحيحة بمعدل أقل عندما لا يتضمن إدخالهم مرجعًا لها، أي دون وجود نص يحدد ما يجب أن تكون عليه القيمة."
-  },
-  {
-   "id": "2610.14530",
-   "title": "Who to Trust in Multi-Robot Systems: Joint Robot and Object Hypothesis Trust Inference via Neural-Symbolic Cross-Validation",
-   "abstract": "Multi-robot systems (MRS) offer significant advantages over single-robot platforms by enabling information sharing and coordination for different tasks in complex environments. However, reliable cooperation critically depends on inferring trust over both information sources and their reported hypotheses, particularly under partial observability and potential adversarial interference. Existing approaches frequently depend on pre-established trust relationships or side-channel information, which may not be available or reliable in realistic MRS deployments. This work introduces NeST-Bayes, a neu",
-   "authors": [
-    "Ruiyang Wang",
-    "Hao-Lun Hsu",
-    "Haocheng Meng",
-    "Songqiao Xie"
-   ],
-   "link": "https://huggingface.co/papers/2610.14530",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-10T00:00",
-   "title_ar": "بمن نثق في الأنظمة متعددة الروبوتات: الاستدلال المشترك للثقة بالروبوت وفرضية الكائن عبر التحقق المتبادل العصبي الرمزي",
-   "summary_ar": "تقدم الأنظمة متعددة الروبوتات مزايا كبيرة مقارنة بمنصات الروبوت الفردي من خلال تمكين مشاركة المعلومات والتنسيق لمختلف المهام في البيئات المعقدة. ومع ذلك، يعتمد التعاون الموثوق بشكل حاسم على استدلال الثقة في كل من مصادر المعلومات وفرضياتها المُبلّغ عنها."
+   "title_ar": "CLASHarness: قياس نزاع الوكلاء المتعددين في استخدام الحاسوب عبر مسار توليد منضبط وقابل للتحقق",
+   "summary_ar": "تُنشر نماذج الرؤية واللغة بشكل متزايد في أنظمة الوكلاء المتعددين لأتمتة سير العمل المعقد لاستخدام الحاسوب، غير أن المعايير الحالية تفترض غالبًا بيئات تعاونية ومتسقة. وفي المقابل، نادرًا ما يسير التعاون الواقعي على معلومات متسقة، حيث غالبًا ما يختلف النظراء أو الوكلاء الفرعيون."
   }
  ],
  "n": 6
