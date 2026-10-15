@@ -1,108 +1,107 @@
 {
- "updated": "2026-10-14T11:13+00:00",
+ "updated": "2026-10-15T01:40+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.16172",
-   "title": "EventLens: Event-Structure Reinforcement Learning for Video Understanding",
-   "abstract": "Recent multimodal large language models (MLLMs) achieve strong results on video question answering, yet often fail to recover the temporal structure that makes a video coherent. They may merge neighboring events, miss single-event progression, or infer implausible relations across events. We study structured temporal understanding as the ability to recover event structure from visual evidence, including event boundaries, single-event progression, and multi-event relations. We argue that this gap arises from a mismatch between current post-training objectives and temporal reasoning, where capti",
+   "id": "2610.16117",
+   "title": "Beyond Perfect Teammates: Multi-Agent Collaboration with Unreliable Colleagues",
+   "abstract": "LLM-based multi-agent collaboration is increasingly used to solve complex tasks by dividing work among specialized agents and integrating complementary expertise. Yet existing systems and evaluations largely rest on an implicit perfect-colleague assumption: collaborators provide correct and complete information and respond promptly to requests. In realistic teamwork, however, collaborators may return information that does not answer the intended question, provide insufficient detail to support a decision, or fail to respond to a request. To separate task-solving competence from the ability to ",
    "authors": [
-    "Guowen Zhang",
-    "Boshen Xu",
-    "Zihao Yue",
-    "Ziheng Wang"
+    "Chen Huang",
+    "Yiyang Zhang",
+    "Yuhao Wu",
+    "Yang Deng"
    ],
-   "link": "https://huggingface.co/papers/2610.16172",
+   "link": "https://huggingface.co/papers/2610.16117",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-12T00:00",
-   "title_ar": "إيفنت لينز (EventLens): التعلم المعزز لبنية الأحداث من أجل فهم الفيديو",
-   "summary_ar": "تُحقق النماذج اللغوية الكبيرة متعددة الوسائط الحديثة نتائج قوية في الإجابة عن أسئلة الفيديو، لكنها غالبًا ما تفشل في استعادة البنية الزمنية التي تجعل الفيديو متماسكًا. وتدرس هذه الورقة هذه المشكلات المتمثلة في دمج الأحداث المتجاورة، أو تفويت تتابع الحدث الواحد، أو استنتاج علاقات غير منطقية بين الأحداث."
+   "published": "2026-10-12T03:31",
+   "title_ar": "ما وراء زملاء الفريق المثاليين: التعاون متعدد الوكلاء مع زملاء غير موثوقين",
+   "summary_ar": "يُستخدم التعاون متعدد الوكلاء القائم على نماذج اللغة الكبيرة بشكل متزايد لحل المهام المعقدة عبر تقسيم العمل بين وكلاء متخصصين ودمج الخبرات التكاملية. ومع ذلك، تعتمد الأنظمة والتقييمات الحالية إلى حد كبير على افتراض ضمني بوجود زميل مثالي يقدّم معلومات صحيحة وكاملة."
   },
   {
-   "id": "2609.37377",
-   "title": "Beyond Prompt Count: How Data Shapes Transfer in On-Policy Distillation",
-   "abstract": "On-policy distillation (OPD) trains students using teacher feedback on their own sampled responses, yet how prompt choice shapes transfer across teacher-student pairs remains poorly understood. We systematically study prompt quantity, source, and selection across RL- and SFT-continuation pairs and cross-model settings. We find that OPD can be highly prompt-efficient: a few prompts can approach large-pool performance, with four DAPO prompts matching the observed mathematics score of 3,840 DeepMath prompts. However, prompt utility is relational rather than intrinsic: changing only the teacher ca",
+   "id": "2610.18472",
+   "title": "Simplifying and Improving On-Policy Distillation for Few-Step Diffusion",
+   "abstract": "Few-step distillation reduces the sampling cost of diffusion and flow models, but existing approaches often require auxiliary score models or specialized architectures. We show that simple on-policy velocity regression already provides a strong foundation for 4-NFE generation. To represent teacher velocity variation within each coarse transition, we introduce Pivot, a training-only residual proxy that separates local corrections from the student's interval-mean prediction. We further repel the student from weaker teacher predictions, providing a lightweight mechanism for avoiding undesirable m",
    "authors": [
-    "Jiaxuan Wang",
-    "Jiafei Lyu",
-    "Yuchen Cai",
-    "Siye Wu"
+    "Jiawei Zhang",
+    "Ziyu Wan",
+    "Nanye Ma",
+    "Long Zhao"
    ],
-   "link": "https://huggingface.co/papers/2609.37377",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-29T00:00",
-   "title_ar": "ما وراء عدد التوجيهات: كيف تصيغ البيانات عملية الانتقال في التقطير وفق السياسة المتبعة",
-   "summary_ar": "يدرّب التقطير وفق السياسة المتبعة النماذج الطلابية باستخدام إفادات المعلم حول استجاباتهم المأخوذة ذاتيًا، ومع ذلك فإن كيفية تشكيل اختيار التوجيهات لانتقال المعرفة تظل غير مفهومة جيدًا. تبحث هذه الورقة بشكل منهجي كمية التوجيهات ومصدرها واختيارها عبر أزواج مختلفة من التعلم المعزز والمتابعة بالضبط الدقيق الخاضع للإشراف."
-  },
-  {
-   "id": "2602.05758",
-   "title": "LongR: Unleashing Long-Context Reasoning via Reinforcement Learning with Dense Utility Rewards",
-   "abstract": "Reinforcement Learning (RL) has emerged as a key driver for LLM reasoning. This capability is equally pivotal in long-context scenarios---such as long-dialogue understanding and structured data analysis---where the challenge extends beyond consuming tokens to performing rigorous deduction. While existing efforts focus on data synthesis or architectural changes, recent work points out that relying solely on sparse, outcome-only rewards yields limited gains, as such coarse signals are often insufficient to effectively guide the complex long-context reasoning. To address this, we propose LongR, a",
-   "authors": [
-    "Qize Yu",
-    "Zijun Chen",
-    "Chen Wu",
-    "Yue Chen"
-   ],
-   "link": "https://huggingface.co/papers/2602.05758",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-12T00:00",
-   "title_ar": "لونغ آر (LongR): إطلاق قدرات الاستدلال في السياقات الطويلة عبر التعلم المعزز بمكافآت المنفعة الكثيفة",
-   "summary_ar": "برز التعلم المعزز كمحرك رئيسي لاستدلال النماذج اللغوية الكبيرة، وتعد هذه القدرة محورية كذلك في سيناريوهات السياق الطويل كفهم الحوارات الطويلة وتحليل البيانات المنظمة. ولا يقتصر التحدي في هذه السيناريوهات على استيعاب الرموز فحسب، بل يمتد إلى إجراء استنتاج دقيق وصارم."
-  },
-  {
-   "id": "2610.18774",
-   "title": "GreenWAM: A World Foundation Model for Robotics",
-   "abstract": "A robot needs a world model that predicts how its actions will change the scene and a policy that chooses those actions. Models are usually built and evaluated for only one of these roles, and every robot records its actions in its own format. We ask whether one robot world model can serve both roles across different bodies, and what makes this work. We present GreenWAM, a world foundation model for robotics, together with the recipe that produces it: (1) a shared anatomical action space that describes 20 robot families, from bimanual arms to dexterous humanoids, in common joint coordinates; (",
-   "authors": [
-    "Gennady Sidorov",
-    "Valerii Kornilov",
-    "Denis Grankin",
-    "Polina Fedotova"
-   ],
-   "link": "https://huggingface.co/papers/2610.18774",
+   "link": "https://huggingface.co/papers/2610.18472",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-13T00:00",
-   "title_ar": "غرين وام (GreenWAM): نموذج أساسي للعالَم من أجل الروبوتات",
-   "summary_ar": "يحتاج الروبوت إلى نموذج عالَم يتنبأ بكيفية تغيير أفعاله للمشهد، وإلى سياسة تختار تلك الأفعال. وعادةً ما تُبنى النماذج وتُقيّم لدور واحد فقط من هذين الدورين كما يسجل كل روبوت أفعاله بنسقه الخاص، لذا تبحث هذه الورقة في إمكانية خدمة نموذج عالَم روبوتي واحد لكلا الدورين."
+   "title_ar": "تبسيط وتحسين التقطير المتوافق مع السياسة لنماذج الانتشار ذات الخطوات المعدودة",
+   "summary_ar": "يقلل تقطير الخطوات المعدودة من تكلفة أخذ العينات لنماذج الانتشار والتدفق، لكن الأساليب الحالية غالبًا ما تتطلب نماذج درجات مساعدة أو بنى متخصصة. نُبين أن انحدار السرعة البسيط والمتوافق مع السياسة يوفر بالفعل أساسًا قويًا للتوليد بأربعة تقييمات لدالة الدفع (4-NFE)."
   },
   {
-   "id": "2610.17552",
-   "title": "FlashVSR+: Efficient Video Super-Resolution via Hybrid Attention and Reward-Yield Distribution Matching",
-   "abstract": "Recent video super-resolution (VSR) models achieve efficient one-step generation through diffusion distillation. However, high-resolution inference remains costly, and distilled models are difficult to align with human preferences. These challenges call for improvements in both model architecture and training strategy. We present FlashVSR+ to address both limitations. On the architecture side, we introduce hybrid attention based on the strong locality observed in pretrained VSR models, while retaining sparse global interaction for long-range consistency. It achieves up to 2times DiT speedup an",
+   "id": "2610.18677",
+   "title": "Model-Based Online Decision Making via Generative Trajectory Planning",
+   "abstract": "Online decision-making faces a tension between efficient inference and long-horizon reasoning. Value-based methods rely on short-horizon bootstrapping that limits the propagation of long-term information, while trajectory optimization methods plan explicitly but must solve a high-dimensional optimization problem at every decision step. We propose Generative Trajectory Planning (GTP), a model-based framework that addresses this tension by learning a generative model as a proposal distribution over action sequences. Instead of optimizing sequences from scratch, GTP samples candidate sequences fr",
    "authors": [
-    "Ruchang Yao",
-    "Shi Guo",
-    "Junhao Zhuang",
-    "Mingde Yao"
+    "Haldun Balim",
+    "Yilun Du",
+    "Na Li"
    ],
-   "link": "https://huggingface.co/papers/2610.17552",
+   "link": "https://huggingface.co/papers/2610.18677",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-13T00:00",
-   "title_ar": "فلاش في إس آر بلس (FlashVSR+): دقة فائقة فعالة للفيديو عبر الانتباه الهجين ومطابقة التوزيع الناتج عن المكافأة",
-   "summary_ar": "تحقق نماذج الدقة الفائقة للفيديو الحديثة توليدًا فعالًا بخطوة واحدة عبر تقطير الانتشار، ومع ذلك، يظل الاستدلال عالي الدقة مكلفًا ويصعب مواءمة النماذج المقطرة مع التفضيلات البشرية. وتتطلب هذه التحديات إدخال تحسينات على كل من بنية النموذج وأساليب العمل."
+   "title_ar": "اتخاذ القرار الفوري القائم على النماذج عبر التخطيط التوليدي للمسار",
+   "summary_ar": "يواجه اتخاذ القرار الفوري تعارضًا بين كفاءة الاستدلال والتفكير طويل المدى. تعتمد الطرق القائمة على القيمة على التمهيد قصير المدى الذي يحد من انتشار المعلومات طويلة المدى، بينما تُخطط طرق تحسين المسار صراحةً ولكن يتعين عليها حل مسألة تحسين عالية الأبعاد."
   },
   {
-   "id": "2610.18092",
-   "title": "LifeSearch: Benchmarking Deep Research Agents for Real-World Life and Productivity",
-   "abstract": "Deep research (DR) agents address open-ended information needs through multi-step reasoning, long-horizon web search, and evidence synthesis. However, existing benchmarks primarily focus on academic research or synthetic tasks, leaving DR agents' capabilities in real-world life and professional productivity settings insufficiently evaluated. To bridge this gap, we introduce LifeSearch, a challenging benchmark comprising 203 Chinese and English tasks derived from real-user query seeds across 7 concrete life and productivity domains. With more than 4,500 hours of human annotation, we construct o",
+   "id": "2610.02638",
+   "title": "Batched Speech Decisions Without Decoding: Single-Token Supervision Lets a Frozen LLM Hear Beyond the Transcript",
+   "abstract": "Full-duplex voice agents make many small, closed decisions, which current systems answer by slow autoregressive decoding. We propose DuplexJev, which feeds ASR-encoder hidden states through a small connector into a frozen LLM and reads each question as a single-token distribution over its options. Nothing is decoded, and an 8-GPU node answers 80 decisions about eight utterances in about 0.1 s. With a last-layer connector, spoken QA stays close to reading the transcript (90% vs. 91%). DuplexJev also hears the speaker: gender and emotion accuracy both reach 90% (from 55% and 28%) with a cross-at",
    "authors": [
-    "Yibo Wang",
-    "Senjie Jin",
-    "Yansong Ning",
-    "Xinbing Liang"
+    "Jie Jin",
+    "Ziyin Ma",
+    "Min Yin",
+    "Jinyu Chen"
    ],
-   "link": "https://huggingface.co/papers/2610.18092",
+   "link": "https://huggingface.co/papers/2610.02638",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-02T00:00",
+   "title_ar": "قرارات الكلام المجمعة دون فك التشفير: إشراف الرمز المفرد يتيح لنموذج لغوي كبير مجمّد السماع إلى ما وراء النص",
+   "summary_ar": "تتخذ وكلاء الصوت ثنائية الاتجاه المتزامنة قرارات صغيرة ومغلقة عديدة، وتجيب عنها الأنظمة الحالية بفك تشفير ذاتي الانحدار بطيء. نقترح DuplexJev، الذي يُغذي الحالات المخفية لمشفر التعرف الآلي على الكلام عبر رابط صغير إلى نموذج لغوي كبير مجمّد، ويقرأ كل سؤال كتوزيع رمز مفرد على خياراته."
+  },
+  {
+   "id": "2610.18497",
+   "title": "Judges Follow the Reference: The Derivation Gap in Verifying Tool-Call Arguments",
+   "abstract": "Tool-call judges evaluate argument values proposed by LLM agents. We find that they accept a correct value less often when their input holds no reference for it, that is, no text that says what the value should be. This happens when the value is a default value from the function schema that the user did not mention, when it has to be inferred, or when the text it comes from was cut from the judge input. We call this drop in acceptance the derivation gap. It appears across all seven judges we evaluate, including System One models CLM and Jev. The gap is not only a truncation artifact: correct d",
+   "authors": [
+    "Linhai Ma",
+    "Yan Wang",
+    "Lingfei Qian",
+    "Yupeng Cao"
+   ],
+   "link": "https://huggingface.co/papers/2610.18497",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-13T00:00",
-   "title_ar": "لايف سيرش (LifeSearch): قياس أداء وكلاء البحث المتعمق للحياة الواقعية والإنتاجية",
-   "summary_ar": "يلبي وكلاء البحث المتعمق الاحتياجات المعلوماتية المفتوحة عبر الاستدلال متعدد الخطوات، والبحث الممتد على الويب، وتجميع الأدلة. ومع ذلك، تركز مقاييس الأداء الحالية أساسًا على الأبحاث الأكاديمية أو المهام الاصطناعية، مما يترك قدرات هؤلاء الوكلاء في مجالات الحياة الواقعية والإنتاجية المهنية دون اختبار كافٍ."
+   "title_ar": "الحُكام يتبعون المرجع: فجوة الاشتقاق في التحقق من وسائط استدعاء الأدوات",
+   "summary_ar": "يُقيّم حُكام استدعاء الأدوات قِيَم الوسائط التي يقترحها وكلاء النماذج اللغوية الكبيرة. ووجدنا أنهم يقبلون القيمة الصحيحة بمعدل أقل عندما لا يتضمن إدخالهم مرجعًا لها، أي دون وجود نص يحدد ما يجب أن تكون عليه القيمة."
+  },
+  {
+   "id": "2610.14530",
+   "title": "Who to Trust in Multi-Robot Systems: Joint Robot and Object Hypothesis Trust Inference via Neural-Symbolic Cross-Validation",
+   "abstract": "Multi-robot systems (MRS) offer significant advantages over single-robot platforms by enabling information sharing and coordination for different tasks in complex environments. However, reliable cooperation critically depends on inferring trust over both information sources and their reported hypotheses, particularly under partial observability and potential adversarial interference. Existing approaches frequently depend on pre-established trust relationships or side-channel information, which may not be available or reliable in realistic MRS deployments. This work introduces NeST-Bayes, a neu",
+   "authors": [
+    "Ruiyang Wang",
+    "Hao-Lun Hsu",
+    "Haocheng Meng",
+    "Songqiao Xie"
+   ],
+   "link": "https://huggingface.co/papers/2610.14530",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-10T00:00",
+   "title_ar": "بمن نثق في الأنظمة متعددة الروبوتات: الاستدلال المشترك للثقة بالروبوت وفرضية الكائن عبر التحقق المتبادل العصبي الرمزي",
+   "summary_ar": "تقدم الأنظمة متعددة الروبوتات مزايا كبيرة مقارنة بمنصات الروبوت الفردي من خلال تمكين مشاركة المعلومات والتنسيق لمختلف المهام في البيئات المعقدة. ومع ذلك، يعتمد التعاون الموثوق بشكل حاسم على استدلال الثقة في كل من مصادر المعلومات وفرضياتها المُبلّغ عنها."
   }
  ],
  "n": 6
