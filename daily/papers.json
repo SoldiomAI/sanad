@@ -1,108 +1,106 @@
 {
- "updated": "2026-10-16T07:56+00:00",
+ "updated": "2026-10-16T20:33+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.20939",
-   "title": "MAI-Gym: An Open All-in-One Platform for GUI Agent Evaluation and RL Training across Mobile and Computer Environments",
-   "abstract": "Online reinforcement learning (RL) with verifiable rewards has driven rapid progress in mathematics, coding, and tool use, but scaling this success to GUI agents remains challenging due to the high cost of interactive environments and the scarcity of realistic training tasks. We introduce MAI-Gym, an open all-in-one platform that unifies GUI agent evaluation, data collection, and online RL training across mobile, computer, and web environments. Through a shared rollout pipeline, MAI-Gym ensures consistent agent behavior across evaluation and training, supports ten established benchmarks, and s",
+   "id": "2610.20680",
+   "title": "Diminishing Returns of Data in Sparse Autoencoders: Functional Behavior does not Guarantee Feature Reproducibility",
+   "abstract": "Sparse autoencoders (SAEs) are typically trained on hundreds of millions to billions of activation tokens, yet little work has tested whether this scale is necessary. We study how much activation data SAEs need by training four SAE architectures on three language models with budgets ranging from 5M tokens to a 500M-token reference. We measure two notions of convergence: functional behavior on standard evaluations and one-to-one reproducibility of learned features. Functional data requirements are strongly metric-dependent: reconstruction often approaches the full-data reference at substantiall",
    "authors": [
-    "Panrong Tong",
-    "Quyu Kong",
-    "Pengxiang Li",
-    "Tianyu Xia"
+    "Sambit Ghosh",
+    "Madelyn Mathai",
+    "R. Venkatesh Babu",
+    "Chirag Agarwal"
    ],
-   "link": "https://huggingface.co/papers/2610.20939",
+   "link": "https://huggingface.co/papers/2610.20680",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-14T00:00",
-   "title_ar": "منصة MAI-Gym: منصة مفتوحة وشاملة لتقييم وكلاء واجهات المستخدم الرسومية والتدريب بالتعلم المعزز عبر بيئات الهاتف والحاسوب",
-   "summary_ar": "يواجه توسيع نجاح التعلم المعزز عبر الإنترنت ذي المكافآت القابلة للتحقق إلى وكلاء واجهات المستخدم الرسومية صعوبة؛ نظرًا لارتفاع تكلفة البيئات التفاعلية وندرة مهام التدريب الواقعية. ولهذا السبب، يقدّم البحث منصة MAI-Gym."
+   "title_ar": "تناقص عوائد البيانات في المشفرات التلقائية المفرقة: السلوك الوظيفي لا يضمن قابلية تكرار الميزات",
+   "summary_ar": "تُدرَّب المشفرات التلقائية المفرقة عادةً على مئات الملايين إلى مليارات من رموز التنشيط، ومع ذلك اختبرت أعمال قليلة ما إذا كان هذا الحجم ضروريًا. يدرس هذا البحث حجم بيانات التنشيط التي تحتاجها هذه المشفرات من خلال تدريب أربع بنيات لها على ثلاثة نماذج لغوية بميزانيات تبدأ من 5 ملايين رمز."
   },
   {
-   "id": "2610.19397",
-   "title": "SERO: Learning from Executable Oracle Continuations for Long-Horizon Agentic Reinforcement Learning",
-   "abstract": "Long-horizon agentic RL is constrained by the futures visited by the current policy. When rollouts fail to reach useful behaviors, improved credit assignment cannot provide supervision for states and actions that were never encountered. On-policy distillation (OPD) introduces teacher guidance on policy-induced states, and recent multi-turn variants improve how this guidance is scheduled, replayed, refined, or validated. However, they do not directly use the oracle-controlled future itself as the training trajectory. We introduce State-Rooted Executable Rollout Optimization (SERO), which augmen",
+   "id": "2610.22280",
+   "title": "LEASH: Uncertainty-Aware Weak-to-Strong Escalation and Oversight for Computer-Use Agents",
+   "abstract": "Computer-use agents increasingly tackle long-horizon tasks, where running a frontier model at every step is expensive and a small open-weight model alone often fails. Weak-to-strong escalation offers a middle ground where a weak agent acts by default and hands control to a strong one only when needed. The core challenge is deciding when to escalate, which requires an uncertainty signal cheap enough to check at every step. However, even after handoff, the strong agent can still get lost, but a black-box API that the strong agent is usually served exposes no internals to monitor. To this end, we",
    "authors": [
-    "Dingyi Rong",
-    "Yue Shi",
-    "Chaofan Ma",
-    "Zongrui Wang"
+    "Qingni Wang",
+    "Changdae Oh",
+    "Yuzhe Yang",
+    "Sharon Li"
    ],
-   "link": "https://huggingface.co/papers/2610.19397",
+   "link": "https://huggingface.co/papers/2610.22280",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-15T00:00",
+   "title_ar": "LEASH: التصعيد والرقابة من الضعيف إلى القوي المدركان لعدم اليقين لوكلاء استخدام الحاسوب",
+   "summary_ar": "يتصدى وكلاء استخدام الحاسوب لمهام طويلة الأمد بصورة متزايدة، حيث يُعد تشغيل نموذج رائد في كل خطوة مكلفًا، وغالبًا ما يفشل النموذج الصغير مفتوح الأوزان بمفرده. يوفر التصعيد من الضعيف إلى القوي حلاً وسطًا بحيث يعمل الوكيل الضعيف تلقائيًا، ثم يسلّم التحكم إلى الوكيل القوي عند الحاجة فقط."
+  },
+  {
+   "id": "2610.15924",
+   "title": "Scalable Weak-to-Strong Verifier Hardening for Agent Environments",
+   "abstract": "Agent environments are essential for large language model (LLM) development. They use programmatic verifiers to turn complex outcomes into rewards. Verifiers can be attacked into awarding full credit to cheating agents without completing the intended task, causing inaccurate evaluation and misalignment in training. As agent environments scale in numbers and difficulty, so must the repairing of exploitable verifiers. To this end, we ask whether today's model with scaled compute can automatically harden agent environments to prevent potentially stronger future models from reward hacking. We intr",
+   "authors": [
+    "Chong Zeng",
+    "Ziqian Zhong",
+    "Kexun Zhang",
+    "Ivan Bercovich"
+   ],
+   "link": "https://huggingface.co/papers/2610.15924",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-11T00:00",
+   "title_ar": "تحصين قابل للتوسع للمُدقِّقات من الضعيف إلى القوي لبيئات الوكلاء",
+   "summary_ar": "تُعد بيئات الوكلاء أساسية لتطوير نماذج اللغة الكبيرة، وتعتمد على مُدقِّقات برمجية لتحويل النتائج المعقدة إلى مكافآت. يمكن استغلال هذه المُدقِّقات لمنح نقاط كاملة للوكلاء المخادعين دون إكمال المهمة المنشودة، مما يتسبب في تقييم غير دقيق واختلال في المحاذاة."
+  },
+  {
+   "id": "2610.17697",
+   "title": "LeanPRM: Lean-Grounded Process Supervision for Natural Language Proof Verification",
+   "abstract": "AI systems now write long and difficult mathematical proofs, and checking their step-by-step validity is becoming a bottleneck. A learned verifier could check proofs cheaply, but training one requires a correctness label on every step, and such labels are hard to obtain for open-ended proofs. Existing methods take them from human annotators, which is costly, or derive them from final answers, which proofs do not have, and formalizing each proof in Lean requires expert effort. We introduce LeanPRM, a framework that uses the Lean proof assistant to create step-level labels for natural-language p",
+   "authors": [
+    "Rodney Lafuente-Mercado",
+    "Salman Rahman",
+    "Jingyan Shen",
+    "James Shiffer"
+   ],
+   "link": "https://huggingface.co/papers/2610.17697",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-13T00:00",
+   "title_ar": "LeanPRM: إشراف على العمليات مستند إلى لغة Lean للتحقق من براهين اللغة الطبيعية",
+   "summary_ar": "أصبحت أنظمة الذكاء الاصطناعي تكتب براهين رياضية طويلة وصعبة، وبات التحقق من صحتها خطوة بخطوة عقبة رئيسية. يمكن لمُدقِّق مُتعلَّم فحص البراهين بتكلفة منخفضة، لكن تدريبه يتطلب وسمًا للصحة لكل خطوة، وهو أمر يصعب الحصول عليه للبراهين المفتوحة."
+  },
+  {
+   "id": "2610.20461",
+   "title": "Equal CER, Unequal Damage: Severity-Weighted Character Error Rate for OCR",
+   "abstract": "Character Error Rate (CER), the standard metric for OCR and vision-language models (VLMs), charges a typo as much as a wrong name. We introduce semCER, which keeps CER's alignment and denominator and charges each grapheme edit a severity from an LLM judge, with no word segmentation. Normalized CER keeps the score of a whole transcription, where it tracks readers as well as semCER or better, and semCER breaks that score down into named edits. The charges track readers' ratings edit by edit in English, Vietnamese, and Chinese and put the edits readers rate most severe near the top of a sorted li",
+   "authors": [
+    "Nguyen Nguyen",
+    "Yongyi Zang"
+   ],
+   "link": "https://huggingface.co/papers/2610.20461",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-14T00:00",
-   "title_ar": "أسلوب SERO: التعلم من استمراريات الخبير القابلة للتنفيذ للتعلم المعزز الوكيل طويل المدى",
-   "summary_ar": "يقيد التعلمُ المعزز الوكيل طويل المدى بالمسارات المستقبلية التي تزورها السياسة الحالية، إذ يعجز إسناد الفضل المحسَّن عن توفير إشراف لحالات وإجراءات لم تتم مواجهتها قط إذا فشلت مسارات الاستكشاف في بلوغ سلوكيات مفيدة. ويُدخل التقطير المتبع للسياسة توجيهًا من المعلم على السياسة الحالية."
+   "title_ar": "تساوٍ في معدل خطأ الرموز وتباين في الضرر: معدل خطأ الرموز المرجّح بالشدة للتعرف الضوئي على الحروف",
+   "summary_ar": "يُعامِل معدل خطأ الرموز، وهو المقياس القياسي للتعرف الضوئي على الحروف ونماذج الرؤية واللغة، الخطأ المطبعي كما يُعامل الاسم الخاطئ تمامًا. يقدم البحث مقياس semCER الذي يحافظ على محاذاة ومقام المقياس المذكور مع فرض شدة لكل تعديل حرفي عبر مُحكِّم بنموذج لغوي كبير دون تجزئة للكلمات."
   },
   {
-   "id": "2610.06598",
-   "title": "SimForcing: Distilling Simulation Motion Priors into Real-Domain Robot World Models",
-   "abstract": "Action-conditioned robot world models must respond precisely to robot trajectories while preserving realistic visual dynamics, yet learning both from heterogeneous robot videos remains challenging. Simulation offers structured motion supervision, but appearance differences hinder direct transfer, and inaccurate simulation predictions can misguide real-video generation. We present SimForcing, a simulation-guided framework that uses simulation both as a source of transferable motion knowledge and as a controllable reference for prediction. First, we transfer motion knowledge from a simulation te",
+   "id": "2610.22358",
+   "title": "PathFM: Fast Generative Forecasting of Multivariate Trajectories",
+   "abstract": "Time series foundation models are becoming increasingly popular for general-purpose forecasting. However, most leading models predict marginal quantiles, leaving the dependence structure of future trajectories unspecified. This distinction matters for trajectory-dependent quantities such as cumulative demand, peak load, and event timing, yet point and marginal scores do not reveal it. To model this dependence, we introduce PathFM, a trajectory-based forecasting model that uses flow matching to generate complete future paths. We further distill the model to one or two steps and share history at",
    "authors": [
-    "Xiaodong Wang",
-    "Tianle Li",
-    "Chuanxin Song",
-    "Junliang Xie"
+    "Jiachen Yao",
+    "Xiyuan Zhang",
+    "Annan Yu",
+    "Boran Han"
    ],
-   "link": "https://huggingface.co/papers/2610.06598",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-05T00:00",
-   "title_ar": "تقنية SimForcing: تقطير مسبقات حركة المحاكاة في نماذج عالم الروبوت بالدومين الحقيقي",
-   "summary_ar": "تفرض نماذج عالم الروبوت المشروطة بالإجراء استجابة دقيقة لمسارات الروبوت مع الحفاظ على ديناميكيات بصرية واقعية، غير أن تعلم الأمرين من فيديوهات الروبوت غير المتجانسة يظل أمرًا صعبًا. توفر المحاكاة إشرافًا مهيكلاً على الحركة، ولكن الاختلافات في المظهر تعيق النقل المباشر."
-  },
-  {
-   "id": "2610.21910",
-   "title": "CoWorld Reasoner: Agentic Multimodal Reasoning with the Evolving Video World Model-Driven Harness",
-   "abstract": "As Vision-Language Models (VLMs) advance, they are increasingly expected to perform spatiotemporal reasoning over motion, actions, and view changes beyond what the input images show. Video World Models (VWMs) provide a natural unified engine for visual imagination by generating task-relevant visual content as additional evidence. However, existing approaches typically invoke a VWM through fixed pipelines centered on a predefined form of visual imagination, such as novel-view synthesis. To support flexible visual imagination for diverse reasoning tasks, we introduce CoWorld Reasoner, an agentic",
-   "authors": [
-    "Dongjie Cheng",
-    "Ruifeng Yuan",
-    "Ran Wei",
-    "Ning Song"
-   ],
-   "link": "https://huggingface.co/papers/2610.21910",
+   "link": "https://huggingface.co/papers/2610.22358",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-15T00:00",
-   "title_ar": "مستدل CoWorld: الاستدلال متعدد الوسائط القائم على الوكلاء باستخدام إطار مدفوع بنموذج عالم الفيديو المتطور",
-   "summary_ar": "يُتوقع على نحو متزايد من نماذج الرؤية واللغة أداء استدلال مكاني وزماني على الحركة والإجراءات وتغيرات المشاهد لما يتجاوز ما تعرضه صور الإدخال. وتوفر نماذج عالم الفيديو محركًا موحدًا وطبيعيًا للتخيل البصري عن طريق توليد محتوى مرئي ذي صلة بالمهمة."
-  },
-  {
-   "id": "2610.22200",
-   "title": "OpenGCUA: Toward a Fully Open Stack for Generalist Computer Use",
-   "abstract": "Computer use has reached a turning point: the focus is expanding from GUI-only interaction to systems that complete tasks on users' computers through visual and programmatic interfaces. We define a generalist computer-use agent (GCUA) as a system in which the model chooses how to observe, act, and organize its work across visual and programmatic interfaces. Yet frontier implementations, such as GPT-6 Astra's computer-use system, remain largely closed, limiting systematic study of their design. We introduce Open Generalist CUA (OpenGCUA), an ongoing project to develop and open the full stack fo",
-   "authors": [
-    "Hanzhang Zhou",
-    "Long Li",
-    "Quyu Kong",
-    "Lei Wang"
-   ],
-   "link": "https://huggingface.co/papers/2610.22200",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-15T00:00",
-   "title_ar": "مبادرة OpenGCUA: نحو حزمة مفتوحة بالكامل لاستخدام الحاسوب العام",
-   "summary_ar": "توسع التركيز في استخدام الحاسوب من مجرد التفاعل عبر واجهة المستخدم الرسومية إلى أنظمة تنجز المهام على حواسيب المستخدمين عبر واجهات بصرية وبرمجية. ويُعرَّف وكيل استخدام الحاسوب العام بأنه نظام يختار فيه النموذج كيفية المراقبة والتصرف والعمل."
-  },
-  {
-   "id": "2610.22362",
-   "title": "CoDA: Co-Evolution of Data Engines and Action Policies",
-   "abstract": "Generative simulation can automate robot environment construction, but physically valid environments are not necessarily useful for training. The challenge is to identify environments that address a policy's failures and supervision that helps it overcome them. We introduce CoDA, a framework in which a simulation data engine and an action policy co-evolve through a shared heterogeneous memory of environment construction, policy failures, and learning progress. The memory compiles validated diagnoses from a vision-language critic into generation programs that recreate difficulties and training ",
-   "authors": [
-    "Tianjiao Yu",
-    "Zhilin Ou",
-    "Yifan Shen",
-    "Xinzhuo Li"
-   ],
-   "link": "https://huggingface.co/papers/2610.22362",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-15T00:00",
-   "title_ar": "نظام CoDA: التطور المشترك لمحركات البيانات وسياسات العمل",
-   "summary_ar": "يمكن للمحاكاة التوليدية أتمتة بناء بيئة الروبوت، ولكن البيئات الصالحة فيزيائيًا ليست بالضرورة مفيدة للتدريب. يكمن التحدي في تحديد البيئات التي تعالج إخفاقات السياسة وتوفير الإشراف الذي يساعدها على تجاوزها، ولهذا يقدّم البحث إطار عمل CoDA."
+   "title_ar": "PathFM: التنبؤ التوليدي السريع للمسارات متعددة المتغيرات",
+   "summary_ar": "تكتسب النماذج التأسيسية للسلاسل الزمنية شعبية متزايدة لأغراض التنبؤ العام. ومع ذلك، تتنبأ غالبية النماذج الرائدة بالمُئينات الحدية وتترك بنية الاعتماد للمسارات المستقبلية غير محددة، وهو فارق يؤثر في المقادير المعتمدة على المسار مثل التراكم."
   }
  ],
  "n": 6
