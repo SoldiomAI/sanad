@@ -1,104 +1,108 @@
 {
- "updated": "2026-10-15T17:38+00:00",
+ "updated": "2026-10-16T07:56+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.14162",
-   "title": "Next-Concept Modeling: Fast, Parallel Coarse-to-Fine Text Generation",
-   "abstract": "Diffusion language models (DLMs) offer parallel sampling for faster generation than autoregressive models, an increasingly important advantage as inference becomes a dominant computational workload. However, DLMs degrade quickly with fewer sampling steps, process the full sequence at every step, and require many passes over the dataset to reach good quality. We introduce Next-Concept Modeling (NCM), a two-stage, coarse-to-fine framework: a multiscale residual VQ-VAE encodes text into a hierarchy of discrete codes, and a transformer generates one level at a time, predicting all codes within a l",
+   "id": "2610.20939",
+   "title": "MAI-Gym: An Open All-in-One Platform for GUI Agent Evaluation and RL Training across Mobile and Computer Environments",
+   "abstract": "Online reinforcement learning (RL) with verifiable rewards has driven rapid progress in mathematics, coding, and tool use, but scaling this success to GUI agents remains challenging due to the high cost of interactive environments and the scarcity of realistic training tasks. We introduce MAI-Gym, an open all-in-one platform that unifies GUI agent evaluation, data collection, and online RL training across mobile, computer, and web environments. Through a shared rollout pipeline, MAI-Gym ensures consistent agent behavior across evaluation and training, supports ten established benchmarks, and s",
    "authors": [
-    "Hermann Kumbong",
-    "Ishan S. Khare",
-    "Iddah Mlauzi",
-    "Andrew Woen"
+    "Panrong Tong",
+    "Quyu Kong",
+    "Pengxiang Li",
+    "Tianyu Xia"
    ],
-   "link": "https://huggingface.co/papers/2610.14162",
+   "link": "https://huggingface.co/papers/2610.20939",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-09T00:00",
-   "title_ar": "نمذجة المفهوم التالي: توليد سريع ومتوازٍ للنصوص من العام إلى الخاص",
-   "summary_ar": "تتيح نماذج لغة الانتشار أخذ عينات متوازية لتوليدٍ أسرع مقارنة بالنماذج ذاتية الانحدار، وهي ميزة تتزايد أهميتها مع تحول الاستدلال إلى عبء حوسبي مهيمن. مع ذلك، يتدهور أداء نماذج لغة الانتشار سريعًا مع تقليل خطوات أخذ العينات، كما أنها تعالج كامل التسلسل في كل خطوة."
+   "published": "2026-10-14T00:00",
+   "title_ar": "منصة MAI-Gym: منصة مفتوحة وشاملة لتقييم وكلاء واجهات المستخدم الرسومية والتدريب بالتعلم المعزز عبر بيئات الهاتف والحاسوب",
+   "summary_ar": "يواجه توسيع نجاح التعلم المعزز عبر الإنترنت ذي المكافآت القابلة للتحقق إلى وكلاء واجهات المستخدم الرسومية صعوبة؛ نظرًا لارتفاع تكلفة البيئات التفاعلية وندرة مهام التدريب الواقعية. ولهذا السبب، يقدّم البحث منصة MAI-Gym."
   },
   {
-   "id": "2610.14216",
-   "title": "Cortex: Measurement-Gated Evolution and Pruning of Coding-Agent Skills and Rules",
-   "abstract": "Coding agents such as Claude Code also follow text files that developers write for them: a project file, skills the agent may choose to open, and rules that load automatically when the agent reads matching files. We call these files the agent's harness. Developers add to it whenever they correct the agent, but one success proves little: the same agent can pass a task once and fail it the next time. We present Cortex, a tool that tests changes to the harness instead of trusting them. It saves fixes from the developer's sessions as replayable tasks, finds the corrections that recur, writes one s",
+   "id": "2610.19397",
+   "title": "SERO: Learning from Executable Oracle Continuations for Long-Horizon Agentic Reinforcement Learning",
+   "abstract": "Long-horizon agentic RL is constrained by the futures visited by the current policy. When rollouts fail to reach useful behaviors, improved credit assignment cannot provide supervision for states and actions that were never encountered. On-policy distillation (OPD) introduces teacher guidance on policy-induced states, and recent multi-turn variants improve how this guidance is scheduled, replayed, refined, or validated. However, they do not directly use the oracle-controlled future itself as the training trajectory. We introduce State-Rooted Executable Rollout Optimization (SERO), which augmen",
    "authors": [
-    "Samuele Giampieri"
+    "Dingyi Rong",
+    "Yue Shi",
+    "Chaofan Ma",
+    "Zongrui Wang"
    ],
-   "link": "https://huggingface.co/papers/2610.14216",
+   "link": "https://huggingface.co/papers/2610.19397",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-09T00:00",
-   "title_ar": "كورتكس: تطور وتشذيب مهارات وقواعد وكلاء البرمجة المحكومين بالقياس",
-   "summary_ar": "يتبع وكلاء البرمجة ملفات نصية يكتبها المطورون، وتتضمن ملف المشروع والمهارات التي قد يختار الوكيل فتحها والقواعد التي تُحمّل تلقائيًا، ويُطلق على هذه الملفات اسم عدة تسخير الوكيل. يضيف المطورون إلى هذه العدة كلما أقدموا على تصحيح الوكيل."
+   "published": "2026-10-14T00:00",
+   "title_ar": "أسلوب SERO: التعلم من استمراريات الخبير القابلة للتنفيذ للتعلم المعزز الوكيل طويل المدى",
+   "summary_ar": "يقيد التعلمُ المعزز الوكيل طويل المدى بالمسارات المستقبلية التي تزورها السياسة الحالية، إذ يعجز إسناد الفضل المحسَّن عن توفير إشراف لحالات وإجراءات لم تتم مواجهتها قط إذا فشلت مسارات الاستكشاف في بلوغ سلوكيات مفيدة. ويُدخل التقطير المتبع للسياسة توجيهًا من المعلم على السياسة الحالية."
   },
   {
-   "id": "2610.15715",
-   "title": "History Replays Itself: Unleashing Long-Context Capability in Linear Attention",
-   "abstract": "Linear attention promises the efficiency needed for long-context language modelling, yet its fixed-size recurrent state must simultaneously support ongoing computation and preserve information from an ever-growing history. This coupling has reinforced a prevailing view that the state's memory capacity defines the model's long-context capability. We challenge this presumed ceiling: recurrent computation need not bear the full burden of long-term storage. We introduce NoteBank, a sparse episodic memory that archives selected text before future queries are known, uses the backbone's native featur",
+   "id": "2610.06598",
+   "title": "SimForcing: Distilling Simulation Motion Priors into Real-Domain Robot World Models",
+   "abstract": "Action-conditioned robot world models must respond precisely to robot trajectories while preserving realistic visual dynamics, yet learning both from heterogeneous robot videos remains challenging. Simulation offers structured motion supervision, but appearance differences hinder direct transfer, and inaccurate simulation predictions can misguide real-video generation. We present SimForcing, a simulation-guided framework that uses simulation both as a source of transferable motion knowledge and as a controllable reference for prediction. First, we transfer motion knowledge from a simulation te",
    "authors": [
-    "Li Nanbo",
-    "Firas Laakom",
-    "Yilan Zhang",
-    "Piotr Piękos"
+    "Xiaodong Wang",
+    "Tianle Li",
+    "Chuanxin Song",
+    "Junliang Xie"
    ],
-   "link": "https://huggingface.co/papers/2610.15715",
+   "link": "https://huggingface.co/papers/2610.06598",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-11T00:00",
-   "title_ar": "التاريخ يعيد نفسه: إطلاق قدرات السياق الطويل في الانتباه الخطي",
-   "summary_ar": "يَعِد الانتباه الخطي بالكفاءة المطلوبة لنمذجة اللغة ذات السياق الطويل، غير أن حالته التكرارية ثابتة الحجم يجب أن تدعم الحوسبة الجارية وتحفظ المعلومات من تاريخ متزايد باستمرار في آنٍ واحد. لقد عزز هذا الاقتران وجهة نظر سائدة حول سعة ذاكرة الحالة."
+   "published": "2026-10-05T00:00",
+   "title_ar": "تقنية SimForcing: تقطير مسبقات حركة المحاكاة في نماذج عالم الروبوت بالدومين الحقيقي",
+   "summary_ar": "تفرض نماذج عالم الروبوت المشروطة بالإجراء استجابة دقيقة لمسارات الروبوت مع الحفاظ على ديناميكيات بصرية واقعية، غير أن تعلم الأمرين من فيديوهات الروبوت غير المتجانسة يظل أمرًا صعبًا. توفر المحاكاة إشرافًا مهيكلاً على الحركة، ولكن الاختلافات في المظهر تعيق النقل المباشر."
   },
   {
-   "id": "2610.17301",
-   "title": "The Agent Knew: Internal States Forecast Unauthorized Actions and Stop Them, and the Lies That Follow",
-   "abstract": "Language-model agents sometimes act beyond their authorization and then misreport what they did. On CAPE-Bench, matched agent tasks in which one fact decides whether an action is authorized, frontier open-weight agents do both, and one behavior marks the lie: retroactive permission laundering, acting and then asking permission as if the action were pending, precedes a false report in 70% of 1081 fresh informed violations, against 8% otherwise (preregistered odds ratio 7.0); frontier agents on tau^2-bench instead fabricate the authorization before violating. A linear readout of the agent's resi",
+   "id": "2610.21910",
+   "title": "CoWorld Reasoner: Agentic Multimodal Reasoning with the Evolving Video World Model-Driven Harness",
+   "abstract": "As Vision-Language Models (VLMs) advance, they are increasingly expected to perform spatiotemporal reasoning over motion, actions, and view changes beyond what the input images show. Video World Models (VWMs) provide a natural unified engine for visual imagination by generating task-relevant visual content as additional evidence. However, existing approaches typically invoke a VWM through fixed pipelines centered on a predefined form of visual imagination, such as novel-view synthesis. To support flexible visual imagination for diverse reasoning tasks, we introduce CoWorld Reasoner, an agentic",
    "authors": [
-    "Arya Fayyazi",
-    "Mehdi Kamal",
-    "Massoud Pedram"
+    "Dongjie Cheng",
+    "Ruifeng Yuan",
+    "Ran Wei",
+    "Ning Song"
    ],
-   "link": "https://huggingface.co/papers/2610.17301",
+   "link": "https://huggingface.co/papers/2610.21910",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-12T18:53",
-   "title_ar": "الوكيل كان يعلم: الحالات الداخلية تتنبأ بالإجراءات غير المصرح بها وتوقفها، إضافة للأكاذيب اللاحقة",
-   "summary_ar": "يتصرف وكلاء النماذج اللغوية أحيانًا بما يتجاوز صلاحياتهم ثم يبلغون كذبًا عما فعلوه. على معيار CAPE-Bench، وهو مهام متطابقة للوكلاء تحسم فيها حقيقة واحدة ما إذا كان الإجراء مصرحًا به، يرتكب وكلاء الأوزان المفتوحة الرائدون الأمرين معًا، ويُميَّز الكذب بسلوك غسيل الأذونات بأثر رجعي."
+   "published": "2026-10-15T00:00",
+   "title_ar": "مستدل CoWorld: الاستدلال متعدد الوسائط القائم على الوكلاء باستخدام إطار مدفوع بنموذج عالم الفيديو المتطور",
+   "summary_ar": "يُتوقع على نحو متزايد من نماذج الرؤية واللغة أداء استدلال مكاني وزماني على الحركة والإجراءات وتغيرات المشاهد لما يتجاوز ما تعرضه صور الإدخال. وتوفر نماذج عالم الفيديو محركًا موحدًا وطبيعيًا للتخيل البصري عن طريق توليد محتوى مرئي ذي صلة بالمهمة."
   },
   {
-   "id": "2610.13623",
-   "title": "APEX-Harm: Evaluating Agent Safety in Shared Professional Workspaces",
-   "abstract": "Professional agents increasingly work through command-line interfaces and multiple tools over shared workspaces containing files, messages, and business applications. These environments create safety risks that are difficult to capture with attacks placed at a single, known read location. We introduce APEX-Harm, a benchmark for evaluating prompt and script injection against long-horizon agents performing finance, consulting, and legal tasks in large workspaces. Each task contains 115 to 328 files, together with email, calendar, chat, document, spreadsheet, PDF, and code-execution tools exposed",
+   "id": "2610.22200",
+   "title": "OpenGCUA: Toward a Fully Open Stack for Generalist Computer Use",
+   "abstract": "Computer use has reached a turning point: the focus is expanding from GUI-only interaction to systems that complete tasks on users' computers through visual and programmatic interfaces. We define a generalist computer-use agent (GCUA) as a system in which the model chooses how to observe, act, and organize its work across visual and programmatic interfaces. Yet frontier implementations, such as GPT-6 Astra's computer-use system, remain largely closed, limiting systematic study of their design. We introduce Open Generalist CUA (OpenGCUA), an ongoing project to develop and open the full stack fo",
    "authors": [
-    "Ziyi Yang",
-    "Adel Bibi",
-    "Guohao Li",
-    "Bernard Ghanem"
+    "Hanzhang Zhou",
+    "Long Li",
+    "Quyu Kong",
+    "Lei Wang"
    ],
-   "link": "https://huggingface.co/papers/2610.13623",
+   "link": "https://huggingface.co/papers/2610.22200",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-09T00:00",
-   "title_ar": "APEX-Harm: تقييم سلامة الوكلاء في مساحات العمل المهنية المشتركة",
-   "summary_ar": "يعمل الوكلاء المهنيون بصورة متزايدة عبر واجهات سطر الأوامر وأدوات متعددة ضمن مساحات عمل مشتركة تضم ملفات ورسائل وتطبيقات أعمال. تخلق هذه البيئات مخاطر تتعلق بالسلامة يصعب رصدها من خلال الهجمات الموجهة إلى موقع قراءة فردي ومعروف."
+   "published": "2026-10-15T00:00",
+   "title_ar": "مبادرة OpenGCUA: نحو حزمة مفتوحة بالكامل لاستخدام الحاسوب العام",
+   "summary_ar": "توسع التركيز في استخدام الحاسوب من مجرد التفاعل عبر واجهة المستخدم الرسومية إلى أنظمة تنجز المهام على حواسيب المستخدمين عبر واجهات بصرية وبرمجية. ويُعرَّف وكيل استخدام الحاسوب العام بأنه نظام يختار فيه النموذج كيفية المراقبة والتصرف والعمل."
   },
   {
-   "id": "2610.19128",
-   "title": "CLASHarness: Benchmarking Multi-Agent Conflict in Computer Use via a Controllable and Verifiable Generation Pipeline",
-   "abstract": "Vision-language models (VLMs) are increasingly deployed in multi-agent systems to automate complex computer-use workflows, yet existing benchmarks mostly assume consistent, cooperative environments. In contrast, real-world collaboration rarely runs on consistent information: peer or sub-agents frequently report outdated states, issue contradictory instructions, or compete over shared permissions and files, forcing agents to check others' outputs and verify ground truth in the environment. Evaluating such conflict resolution remains challenging: manual authoring cannot scale across complex syst",
+   "id": "2610.22362",
+   "title": "CoDA: Co-Evolution of Data Engines and Action Policies",
+   "abstract": "Generative simulation can automate robot environment construction, but physically valid environments are not necessarily useful for training. The challenge is to identify environments that address a policy's failures and supervision that helps it overcome them. We introduce CoDA, a framework in which a simulation data engine and an action policy co-evolve through a shared heterogeneous memory of environment construction, policy failures, and learning progress. The memory compiles validated diagnoses from a vision-language critic into generation programs that recreate difficulties and training ",
    "authors": [
-    "Yuxiang Lai",
-    "Jike Zhong",
-    "Chengzhi Liu",
-    "Ming Li"
+    "Tianjiao Yu",
+    "Zhilin Ou",
+    "Yifan Shen",
+    "Xinzhuo Li"
    ],
-   "link": "https://huggingface.co/papers/2610.19128",
+   "link": "https://huggingface.co/papers/2610.22362",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-13T00:00",
-   "title_ar": "CLASHarness: قياس نزاع الوكلاء المتعددين في استخدام الحاسوب عبر مسار توليد منضبط وقابل للتحقق",
-   "summary_ar": "تُنشر نماذج الرؤية واللغة بشكل متزايد في أنظمة الوكلاء المتعددين لأتمتة سير العمل المعقد لاستخدام الحاسوب، غير أن المعايير الحالية تفترض غالبًا بيئات تعاونية ومتسقة. وفي المقابل، نادرًا ما يسير التعاون الواقعي على معلومات متسقة، حيث غالبًا ما يختلف النظراء أو الوكلاء الفرعيون."
+   "published": "2026-10-15T00:00",
+   "title_ar": "نظام CoDA: التطور المشترك لمحركات البيانات وسياسات العمل",
+   "summary_ar": "يمكن للمحاكاة التوليدية أتمتة بناء بيئة الروبوت، ولكن البيئات الصالحة فيزيائيًا ليست بالضرورة مفيدة للتدريب. يكمن التحدي في تحديد البيئات التي تعالج إخفاقات السياسة وتوفير الإشراف الذي يساعدها على تجاوزها، ولهذا يقدّم البحث إطار عمل CoDA."
   }
  ],
  "n": 6
