@@ -1,8 +1,8 @@
 {
  "schema_version": "1.0",
- "generated_at": "2026-10-17T10:11+00:00",
- "updated_at": "2026-10-17T10:11+00:00",
- "cursor": "sha256:a3e1a135fe824d19cdd77c55d3cf2d871ee09c544b14e336023734f0c36653da",
+ "generated_at": "2026-10-17T13:52+00:00",
+ "updated_at": "2026-10-17T13:52+00:00",
+ "cursor": "sha256:c0dc6b822bdc8f0b01314cc0fde56d396608fba1c88746fb39cc7f266f3b3f9e",
  "producer": "SANAD",
  "authority": "SANAD",
  "read_only": true,
@@ -13,9 +13,9 @@
    "title": "Watch term active: ترامب إيران",
    "title_en": "Watch term active: Trump Iran",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-17T10:11+00:00",
+   "observed_at": "2026-10-17T13:52+00:00",
    "observed_facts": [
-    "5 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 82."
+    "6 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 92."
    ],
    "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
    "inference": "Term matching indicates attention, not intent, coordination, or threat.",
@@ -69,6 +69,16 @@
      "dataset": "osint"
     },
     {
+     "source_ref": "ev_db5e0fd6837cd5f5",
+     "url": "https://www.bbc.com/persian/articles/cmglwz33rpy5o?at_medium=RSS&at_campaign=rss",
+     "publisher": "بي بي سي فارسي",
+     "grade": "حسن",
+     "published_at": "2026-10-17T12:36+00:00",
+     "title": "استقالة مبكرة لكيتي زكريا؛ المتحدثة التي تعثرت في أيام ترامب الحساسة",
+     "title_en": "Early Resignation for Katie Zakaria: The Spokeswoman Who Stumbled in Trump's Sensitive Days",
+     "dataset": "osint"
+    },
+    {
      "source_ref": "ev_f8d4e552ee623c06",
      "url": "https://arabic.cnn.com/middle-east/article/2026/10/15/trump-says-he-may-have-gone-too-far-in-killing-multiple-levels-of-iranian-leaders",
      "publisher": "CNN Arabic",
@@ -82,64 +92,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-10-05T09:29+00:00",
-   "updated_at": "2026-10-17T10:11+00:00"
-  },
-  {
-   "id": "sig_1f169b9e79a68432",
-   "type": "watchlist-match",
-   "title": "Watch term active: عقوبات",
-   "title_en": "Watch term active: sanctions",
-   "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-17T10:11+00:00",
-   "observed_facts": [
-    "3 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 62."
-   ],
-   "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "inference": "Term matching indicates attention, not intent, coordination, or threat.",
-   "uncertainty": "Keyword matching can include unrelated uses of the same term.",
-   "confidence": 0.7,
-   "severity": "info",
-   "countries": [],
-   "sectors": [],
-   "topics": [
-    "اقتصاد"
-   ],
-   "evidence": [
-    {
-     "source_ref": "ev_3e110e0e360913ed",
-     "url": "https://www.bbc.com/arabic/articles/c6z7xlgnw0qro",
-     "publisher": "BBC",
-     "grade": "حسن",
-     "published_at": "2026-10-17T08:03+00:00",
-     "title": "ترامب يعلّق عقوبات جديدة على روسيا قبل دخولها حيّز التنفيذ",
-     "title_en": "Trump Suspends New Russia Sanctions Before Taking Effect",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_4ad7553987c8969d",
-     "url": "https://www.bbc.co.uk/persian/live/cqj9kvz0klg3t?at_medium=RSS&at_campaign=rss",
-     "publisher": "بي بي سي فارسي",
-     "grade": "حسن",
-     "published_at": "2026-10-17T10:11+00:00",
-     "title": "سعر النفط يصل إلى عتبة 110 دولارات؛ ترامب يعلق العديد من العقوبات الجديدة على روسيا",
-     "title_en": "Oil Reaches $110 Threshold as Trump Suspends Several New Sanctions on Russia",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_8f6006133c6c9dcf",
-     "url": "https://www.france24.com/ar/%D9%81%D9%8A%D8%AF%D9%8A%D9%88/20261017-%D8%AA%D8%B1%D8%A7%D9%85%D8%A8-%D9%8A%D8%B9%D9%81%D9%8A-%D8%B1%D9%88%D8%B3%D9%8A%D8%A7-%D9%85%D9%86-%D8%B9%D9%82%D9%88%D8%A8%D8%A7%D8%AA-%D9%81%D8%B1%D8%B6%D8%AA-%D8%B9%D9%84%D9%8A%D9%87%D8%A7-%D9%85%D8%A4%D8%AE%D8%B1%D8%A7-%D9%88%D8%B3%D8%B7-%D8%A3%D8%B2%D9%85%D8%A9-%D9%85%D8%B9-%D9%83%D9%8A%D9%8A%D9%81",
-     "publisher": "فرانس ٢٤ عربي",
-     "grade": "حسن",
-     "published_at": "2026-10-17T09:07+00:00",
-     "title": "ترامب يعفي روسيا من عقوبات فرضت عليها مؤخرا وسط أزمة مع كييف",
-     "title_en": "",
-     "dataset": "osint"
-    }
-   ],
-   "contradictions": [],
-   "event_ids": [],
-   "created_at": "2026-10-17T05:55+00:00",
-   "updated_at": "2026-10-17T10:11+00:00"
+   "updated_at": "2026-10-17T13:52+00:00"
   },
   {
    "id": "sig_24c7c29a11f8a3ab",
@@ -147,7 +100,7 @@
    "title": "Watch term active: #السعودية",
    "title_en": "Watch term active: #Saudi",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-17T10:11+00:00",
+   "observed_at": "2026-10-17T13:52+00:00",
    "observed_facts": [
     "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
@@ -167,29 +120,19 @@
      "url": "https://www.skynewsarabia.com/middle-east/1898794-%D8%A7%D9%84%D8%B3%D9%8A%D8%B3%D9%8A-%D9%8A%D8%B7%D9%84%D8%A8-%D8%AA%D9%81%D9%88%D9%8A%D8%B6%D8%A7-%D8%A8%D8%B1%D9%84%D9%85%D8%A7%D9%86%D9%8A%D8%A7-%D9%84%D9%84%D8%AF%D9%81%D8%A7%D8%B9-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%A7%D9%84%D8%AD%D8%A7%D8%AC%D8%A9",
      "publisher": "سكاي نيوز عربية",
      "grade": "حسن",
-     "published_at": "2026-10-17T09:20+00:00",
+     "published_at": "2026-10-17T09:06+00:00",
      "title": "السيسي يطلب تفويضا برلمانيا للدفاع عن السعودية عند الحاجة",
-     "title_en": "",
+     "title_en": "Sisi Seeks Parliamentary Mandate to Defend Saudi Arabia if Needed",
      "dataset": "osint"
     },
     {
      "source_ref": "ev_2a1540470323054b",
      "url": "https://arabic.cnn.com/middle-east/article/2026/10/17/sisi-protecting-saudi-speech-wgypt-military-academy",
-     "publisher": "CNN بالعربية",
+     "publisher": "CNN Arabic",
      "grade": "حسن",
      "published_at": "2026-10-17T09:26+00:00",
      "title": "السيسي: سننفذ أي إجراء لحماية السعودية وأدعو البرلمان لتفويض ذلك",
-     "title_en": "",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_51990984d682cd61",
-     "url": "https://www.aljazeera.net/news/2026/10/17/%D9%88%D9%88%D9%84-%D8%B3%D8%AA%D8%B1%D9%8A%D8%AA-%D8%AC%D9%88%D8%B1%D9%86%D8%A7%D9%84-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D8%AA%D8%B2%D9%88%D8%AF-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%8A%D9%86",
-     "publisher": "الجزيرة نت",
-     "grade": "حسن",
-     "published_at": "2026-10-17T05:55+00:00",
-     "title": "وول ستريت جورنال: هذه تفاصيل الدعم الإيراني للحوثيين لشن هجمات على السعودية",
-     "title_en": "WSJ: Details of Iranian Support for Houthi Attacks on Saudi Arabia",
+     "title_en": "Sisi: We Will Take Any Measure to Protect Saudi Arabia and I Urge Parliament to Authorize It",
      "dataset": "osint"
     },
     {
@@ -197,9 +140,9 @@
      "url": "https://www.skynewsarabia.com/world/1898772-%D9%84%D8%BA%D9%85-%D9%8A%D9%81%D8%AC%D8%B1-%D9%86%D8%A7%D9%82%D9%84%D8%A9-%D9%87%D8%B1%D9%85%D8%B2-%D9%88%D9%85%D9%82%D8%B0%D9%88%D9%81-%D9%8A%D8%B5%D9%8A%D8%A8-%D8%A3%D8%AE%D8%B1%D9%89-%D9%82%D8%B1%D8%A8-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9",
      "publisher": "سكاي نيوز عربية",
      "grade": "حسن",
-     "published_at": "2026-10-17T06:57+00:00",
+     "published_at": "2026-10-17T07:18+00:00",
      "title": "لغم يفجر ناقلة في هرمز.. ومقذوف يصيب أخرى قرب السعودية",
-     "title_en": "Mine Blasts Tanker in Hormuz, Projectile Hits Another Near Saudi Arabia",
+     "title_en": "Mine Blows Up Tanker in Strait of Hormuz, Projectile Hits Another Near Saudi Arabia",
      "dataset": "osint"
     },
     {
@@ -213,23 +156,33 @@
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_ab0545c156e6ff27",
-     "url": "https://www.bbc.com/arabic/articles/cmj6j1535lglo",
-     "publisher": "BBC",
+     "source_ref": "ev_8279704dcfdae609",
+     "url": "https://www.alarabiya.net/arab-and-world/egypt/2026/10/17/%D8%A8%D8%B9%D8%AF-%D8%AA%D8%B5%D8%B1%D9%8A%D8%AD-%D8%A7%D9%84%D8%B3%D9%8A%D8%B3%D9%8A-3-%D9%86%D8%B5%D9%88%D8%B5-%D9%82%D8%A7%D9%86%D9%88%D9%86%D9%8A%D8%A9-%D8%AA%D8%AC%D9%8A%D8%B2-%D9%84%D9%85%D8%B5%D8%B1-%D8%A7%D9%84%D8%AF%D9%81%D8%A7%D8%B9-%D8%B9%D9%86-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9",
+     "publisher": "العربية",
      "grade": "حسن",
-     "published_at": "2026-10-17T06:23+00:00",
-     "title": "السعودية وجماعة أنصار الله: ماذا نعرف عن الأسلحة المستخدمة في المواجهات بينهما؟",
-     "title_en": "Saudi Arabia and the Houthis: What We Know About the Weapons Used in the Clashes",
+     "published_at": "2026-10-17T11:30+00:00",
+     "title": "بعد تصريح السيسي.. 3 نصوص قانونية تجيز لمصر الدفاع عن السعودية",
+     "title_en": "Following Sisi's Remarks: 3 Legal Provisions Allowing Egypt to Defend Saudi Arabia",
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_ab0545c156e6ff27",
-     "url": "https://www.bbc.com/arabic/articles/cmj6j1535lglo?at_medium=RSS&at_campaign=rss",
-     "publisher": "بي بي سي عربي",
+     "source_ref": "ev_8fde38c673baf694",
+     "url": "https://arabic.cnn.com/middle-east/article/2026/10/17/ksa-moi-statement-execution-of-5-citizens-terrorism-crimes",
+     "publisher": "CNN Arabic",
      "grade": "حسن",
-     "published_at": "2026-10-17T06:18+00:00",
-     "title": "ماذا نعرف عن الأسلحة المستخدمة في المواجهات بين السعودية وجماعة أنصار الله؟",
-     "title_en": "What We Know About the Weapons Used in Clashes Between Saudi Arabia and Ansar Allah",
+     "published_at": "2026-10-17T11:26+00:00",
+     "title": "السعودية.. الداخلية تعلن إعدام 5 مواطنين بالمنطقة الشرقية وتكشف عن أسمائهم وجرائمهم \"الإرهابية\"",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_baebec5a8ac8ae17",
+     "url": "https://www.aljazeera.net/news/2026/10/17/%D8%B9%D8%A7%D8%AC%D9%84-%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3-%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A-%D9%84%D9%86-%D9%86%D9%82%D8%A8%D9%84-%D8%A7%D9%84%D9%85%D8%B3%D8%A7%D8%B3",
+     "publisher": "الجزيرة نت",
+     "grade": "حسن",
+     "published_at": "2026-10-17T10:51+00:00",
+     "title": "السيسي: لن نقبل بالمساس بأمن السعودية وسأطلب تفويضا برلمانيا لحمايتها",
+     "title_en": "Sisi: We Will Not Tolerate Compromising Saudi Security and I Will Seek Parliamentary Mandate to Protect It",
      "dataset": "osint"
     },
     {
@@ -239,14 +192,14 @@
      "grade": "حسن",
      "published_at": "2026-10-17T09:44+00:00",
      "title": "السيسي يطلب تفويضاً من البرلمان المصري في أي تدخل تطلبه السعودية",
-     "title_en": "Sisi Seeks Egyptian Parliamentary Mandate for Any Intervention Requested by Saudi Arabia",
+     "title_en": "Sisi Requests Egyptian Parliament Mandate for Any Intervention Requested by Saudi Arabia",
      "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-10-17T10:11+00:00"
+   "updated_at": "2026-10-17T13:52+00:00"
   },
   {
    "id": "sig_25d4dc8c032b76c2",
@@ -254,7 +207,7 @@
    "title": "AI repository activity: Models / inference",
    "title_en": "AI repository activity: Models / inference",
    "summary": "The live GitHub radar contains a repeated repository class after deterministic ranking and deduplication.",
-   "observed_at": "2026-10-17T07:59:45Z",
+   "observed_at": "2026-10-17T12:47:06Z",
    "observed_facts": [
     "3 recently pushed, non-fork repositories share this SANAD radar classification."
    ],
@@ -288,7 +241,7 @@
      "url": "https://github.com/huggingface/transformers",
      "publisher": "GitHub Search API",
      "grade": "",
-     "published_at": "2026-10-17T07:59:45Z",
+     "published_at": "2026-10-17T12:47:06Z",
      "title": "huggingface/transformers",
      "title_en": "🤗 Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training.",
      "dataset": "repos"
@@ -307,7 +260,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-10-16T03:12+00:00",
-   "updated_at": "2026-10-17T10:11+00:00"
+   "updated_at": "2026-10-17T13:52+00:00"
   },
   {
    "id": "sig_32c738617239f618",
@@ -315,7 +268,7 @@
    "title": "AI repository activity: Agents / workflows",
    "title_en": "AI repository activity: Agents / workflows",
    "summary": "The live GitHub radar contains a repeated repository class after deterministic ranking and deduplication.",
-   "observed_at": "2026-10-17T10:09:33Z",
+   "observed_at": "2026-10-17T13:52:28Z",
    "observed_facts": [
     "6 recently pushed, non-fork repositories share this SANAD radar classification."
    ],
@@ -339,7 +292,7 @@
      "url": "https://github.com/morluto/rea",
      "publisher": "GitHub Search API",
      "grade": "",
-     "published_at": "2026-10-17T10:09:33Z",
+     "published_at": "2026-10-17T13:47:01Z",
      "title": "morluto/rea",
      "title_en": "Reverse engineer anything with agents, from app behavior down to native binaries.",
      "dataset": "repos"
@@ -349,7 +302,7 @@
      "url": "https://github.com/Significant-Gravitas/AutoGPT",
      "publisher": "GitHub Search API",
      "grade": "",
-     "published_at": "2026-10-17T09:01:38Z",
+     "published_at": "2026-10-17T13:50:18Z",
      "title": "Significant-Gravitas/AutoGPT",
      "title_en": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
      "dataset": "repos"
@@ -379,7 +332,7 @@
      "url": "https://github.com/NousResearch/hermes-agent",
      "publisher": "GitHub Search API",
      "grade": "",
-     "published_at": "2026-10-17T09:16:43Z",
+     "published_at": "2026-10-17T13:52:28Z",
      "title": "NousResearch/hermes-agent",
      "title_en": "The agent that grows with you",
      "dataset": "repos"
@@ -398,7 +351,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-10-16T03:12+00:00",
-   "updated_at": "2026-10-17T10:11+00:00"
+   "updated_at": "2026-10-17T13:52+00:00"
   },
   {
    "id": "sig_34a63e60e757a938",
@@ -406,7 +359,7 @@
    "title": "Watch term active: #الكويت",
    "title_en": "Watch term active: #Kuwait",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-17T10:11+00:00",
+   "observed_at": "2026-10-17T13:52+00:00",
    "observed_facts": [
     "3 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 62."
    ],
@@ -427,7 +380,7 @@
      "publisher": "جريدة الجريدة الكويتية",
      "grade": "حسن",
      "published_at": "2026-10-15T12:46+00:00",
-     "title": "وزير الخارجية يتسلم نسخة من أوراق اعتماد سفير سلطنة عمان الجديد",
+     "title": "وزير الخارجية يتسلم نسخة من أوراق اعتماد سفيري سلطنة عمان والعراق",
      "title_en": "",
      "dataset": "osint"
     },
@@ -455,7 +408,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-10-14T08:25+00:00",
-   "updated_at": "2026-10-17T10:11+00:00"
+   "updated_at": "2026-10-17T13:52+00:00"
   },
   {
    "id": "sig_5ed86e4817d42ba7",
@@ -513,7 +466,7 @@
    "title": "Watch term active: #غزة",
    "title_en": "Watch term active: #Gaza",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-17T10:11+00:00",
+   "observed_at": "2026-10-17T13:52+00:00",
    "observed_facts": [
     "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
@@ -529,13 +482,13 @@
    ],
    "evidence": [
     {
-     "source_ref": "ev_015d9a159ab50744",
-     "url": "https://www.skynewsarabia.com/middle-east/1898357-%D8%A5%D8%B3%D8%B1%D8%A7%D8%A6%D9%8A%D9%84-%D8%AA%D8%B9%D8%B1%D9%82%D9%84-%D9%82%D8%A7%D8%B9%D8%AF%D8%A9-%D8%BA%D8%B2%D8%A9",
-     "publisher": "سكاي نيوز عربية",
+     "source_ref": "ev_0552b7fc5119aeab",
+     "url": "https://aawsat.com/%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A/%D8%A7%D9%84%D9%85%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A/5292868-%D9%85%D8%A7%D8%B0%D8%A7-%D9%8A%D8%B9%D9%86%D9%8A-%D8%AD%D9%84-%D8%A7%D9%84%D9%84%D8%AC%D9%86%D8%A9-%D8%A7%D9%84%D8%AD%D9%83%D9%88%D9%85%D9%8A%D8%A9-%D9%84%D9%80%D8%AD%D9%85%D8%A7%D8%B3-%D9%81%D9%8A-%D8%BA%D8%B2%D8%A9%D8%9F-%D9%88%D9%85%D8%A7-%D8%A7%D9%84%D8%AE%D8%B7%D9%88%D8%A9-%D8%A7%D9%84%D8%AA%D8%A7%D9%84%D9%8A%D8%A9%D8%9F",
+     "publisher": "الشرق الأوسط",
      "grade": "حسن",
-     "published_at": "2026-10-16T12:02+00:00",
-     "title": "إسرائيل تعرقل إنشاء \"قاعدة غزة\"",
-     "title_en": "Israel Obstructs Establishment of 'Gaza Base'",
+     "published_at": "2026-10-17T07:54+00:00",
+     "title": "ماذا يعني حل اللجنة الحكومية لـ«حماس» في غزة؟ وما الخطوة التالية؟",
+     "title_en": "What Does Dissolving Hamas's Administrative Committee in Gaza Mean, and What's Next?",
      "dataset": "osint"
     },
     {
@@ -565,7 +518,7 @@
      "grade": "حسن",
      "published_at": "2026-10-16T18:11+00:00",
      "title": "حركة استيطانية تعلن إقامة بؤرة جديدة قرب حدود غزة والجيش الإسرائيلي يغلق المنطقة",
-     "title_en": "Settler Movement Announces New Outpost Near Gaza Border; Israeli Army Closes Area",
+     "title_en": "Settler Movement Announces New Outpost Near Gaza Border as Israeli Army Closes Area",
      "dataset": "osint"
     },
     {
@@ -575,7 +528,7 @@
      "grade": "حسن",
      "published_at": "2026-10-16T16:24+00:00",
      "title": "حماس ترفض موقف ملادينوف وتنفي عرقلة دخول البضائع إلى غزة",
-     "title_en": "Hamas Rejects Mladenov's Position, Denies Obstructing Goods Flow into Gaza",
+     "title_en": "Hamas Rejects Mladenov's Stance and Denies Obstructing Goods Flow into Gaza",
      "dataset": "osint"
     },
     {
@@ -605,14 +558,14 @@
      "grade": "حسن",
      "published_at": "2026-10-16T17:28+00:00",
      "title": "بيان إماراتي في مجلس الأمن حول غزة وهجمات الحوثيين على السعودية",
-     "title_en": "UAE Delivers UN Security Council Statement on Gaza and Houthi Attacks on Saudi Arabia",
+     "title_en": "UAE Statement at UN Security Council on Gaza and Houthi Attacks on Saudi Arabia",
      "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-10-17T10:11+00:00"
+   "updated_at": "2026-10-17T13:52+00:00"
   },
   {
    "id": "sig_7ce5e1ca05c1e737",
@@ -620,7 +573,7 @@
    "title": "Watch term active: الحوثي",
    "title_en": "Watch term active: Houthi",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-17T10:11+00:00",
+   "observed_at": "2026-10-17T13:52+00:00",
    "observed_facts": [
     "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
@@ -640,9 +593,9 @@
      "url": "https://www.alarabiya.net/arab-and-world/yemen/2026/10/16/%D8%B9%D9%85%D9%84%D9%8A%D8%A7%D8%AA-%D9%81%D8%AC%D8%B1-%D8%A7%D9%84%D9%8A%D9%85%D9%86-%D9%85%D8%AA%D9%88%D8%A7%D8%B5%D9%84%D8%A9-%D8%A7%D8%B4%D8%AA%D8%B9%D8%A7%D9%84-%D8%A7%D9%84%D9%85%D9%88%D8%A7%D8%AC%D9%87%D8%A7%D8%AA-%D8%B6%D8%AF-%D9%85%D9%8A%D9%84%D9%8A%D8%B4%D9%8A%D8%A7-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A-%D8%A8%D8%B9%D8%AF%D8%A9-%D8%AC%D8%A8%D9%87%D8%A7%D8%AA",
      "publisher": "العربية",
      "grade": "حسن",
-     "published_at": "2026-10-17T07:42+00:00",
+     "published_at": "2026-10-17T10:03+00:00",
      "title": "القوات اليمنية تواصل عمليات \"فجر اليمن\" ضد ميليشيا الحوثي",
-     "title_en": "Yemeni Forces Continue 'Dawn of Yemen' Operations Against Houthi Militia",
+     "title_en": "Yemeni Forces Continue 'Fajr al-Yaman' Operations Against Houthi Militia",
      "dataset": "osint"
     },
     {
@@ -712,14 +665,14 @@
      "grade": "حسن",
      "published_at": "2026-10-16T19:28+00:00",
      "title": "ترامب: أعتقد أن السعودية ستقبل مساعدة إسرائيل في قتال الحوثيين",
-     "title_en": "Trump: I Think Saudi Arabia Would Accept Israeli Help in Fighting the Houthis",
+     "title_en": "Trump: I Think Saudi Arabia Would Accept Israeli Help in Fighting Houthis",
      "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-09-06T20:02+00:00",
-   "updated_at": "2026-10-17T10:11+00:00"
+   "updated_at": "2026-10-17T13:52+00:00"
   },
   {
    "id": "sig_b74f715cc66b0048",
@@ -727,7 +680,7 @@
    "title": "Watch term active: #إيران",
    "title_en": "Watch term active: #Iran",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-17T10:11+00:00",
+   "observed_at": "2026-10-17T13:52+00:00",
    "observed_facts": [
     "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
@@ -743,43 +696,33 @@
    ],
    "evidence": [
     {
-     "source_ref": "ev_138885b552249661",
-     "url": "https://www.bbc.com/persian/articles/cmd6dgq82n64o?at_medium=RSS&at_campaign=rss",
-     "publisher": "بي بي سي فارسي",
-     "grade": "حسن",
-     "published_at": "2026-10-17T03:27+00:00",
-     "title": "إذا كان البابا مريضاً، فمن يدير الكنيسة الكاثوليكية؟",
-     "title_en": "If the Pope Falls Ill, Who Runs the Catholic Church?",
-     "dataset": "osint"
-    },
-    {
      "source_ref": "ev_19e87165c898679c",
      "url": "https://www.bbc.com/persian/articles/c5evwm3emenno?at_medium=RSS&at_campaign=rss",
      "publisher": "بي بي سي فارسي",
      "grade": "حسن",
      "published_at": "2026-10-17T07:51+00:00",
      "title": "«إنها ملاك إنقاذ»؛ امرأة ترسل 10 آلاف دولار أسبوعياً للأطفال المهاجرين المحتجزين",
-     "title_en": "'A Guardian Angel': Woman Sends $10,000 Weekly to Detained Migrant Children",
+     "title_en": "'She Is a Guardian Angel': Woman Sends $10,000 Weekly to Detained Migrant Children",
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_28b4eeb543ee304f",
-     "url": "https://www.iranintl.com/202610125188",
+     "source_ref": "ev_2276d83dab757925",
+     "url": "https://www.bbc.com/persian/articles/cq74pw7gnj0po?at_medium=RSS&at_campaign=rss",
+     "publisher": "بي بي سي فارسي",
+     "grade": "حسن",
+     "published_at": "2026-10-17T11:51+00:00",
+     "title": "محاكمة وريثة سلسلة مطاعم في ألمانيا؛ من تهمة اختطاف الأطفال إلى فضيحة تجسس",
+     "title_en": "Trial of Restaurant Heiress in Germany: From Child Kidnapping Charges to Espionage Scandal",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_4aace7150e607a06",
+     "url": "https://www.iranintl.com/202610176462",
      "publisher": "إيران إنترناشونال",
      "grade": "حسن",
-     "published_at": "2026-10-16T21:52+00:00",
-     "title": "كيف تغير الانتخابات النصفية موازين القوى في أمريكا",
-     "title_en": "How Midterm Elections Shift the Balance of Power in the US",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_51990984d682cd61",
-     "url": "https://www.aljazeera.net/news/2026/10/17/%D9%88%D9%88%D9%84-%D8%B3%D8%AA%D8%B1%D9%8A%D8%AA-%D8%AC%D9%88%D8%B1%D9%86%D8%A7%D9%84-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D8%AA%D8%B2%D9%88%D8%AF-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%8A%D9%86",
-     "publisher": "الجزيرة نت",
-     "grade": "حسن",
-     "published_at": "2026-10-17T05:55+00:00",
-     "title": "وول ستريت جورنال: هذه تفاصيل الدعم الإيراني للحوثيين لشن هجمات على السعودية",
-     "title_en": "WSJ: Details of Iranian Support for Houthi Attacks on Saudi Arabia",
+     "published_at": "2026-10-17T12:30+00:00",
+     "title": "الرئيس المصري يعد بالتنحي في عام 2030 بعد سنوات في السلطة",
+     "title_en": "Egyptian President Promises to Step Down in 2030 After Years in Power",
      "dataset": "osint"
     },
     {
@@ -793,40 +736,50 @@
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_5f9cb048a9af75d8",
-     "url": "https://www.iranintl.com/202610172663",
+     "source_ref": "ev_6771d2f833b9f680",
+     "url": "https://www.alarabiya.net/iran/2026/10/17/%D9%88%D8%B2%D9%8A%D8%B1-%D8%A7%D9%84%D8%AF%D9%81%D8%A7%D8%B9-%D8%A7%D9%84%D8%A7%D9%8A%D8%B1%D8%A7%D9%86%D9%8A-%D8%A8%D8%A7%D9%84%D8%A7%D9%86%D8%A7%D8%A8%D8%A9-%D8%A7%D9%85-%D8%A7%D9%84%D9%82%D9%86%D8%A7%D8%A8%D9%84-%D9%84%D8%A7-%D8%AA%D8%AE%D9%8A%D9%81%D9%86%D8%A7-",
+     "publisher": "العربية",
+     "grade": "حسن",
+     "published_at": "2026-10-17T07:25+00:00",
+     "title": "وزير الدفاع الإيراني بالإنابة: \"أم القنابل\" الأميركية لا تخيفنا",
+     "title_en": "Iran's Acting Defense Minister: US 'Mother of All Bombs' Does Not Scare Us",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_b7b76291dc846e88",
+     "url": "https://www.aljazeera.net/video/2026/10/17/%d8%a5%d9%8a%d8%b1%d8%a7%d9%86-%d8%aa%d8%af%d8%b1%d8%a8-%d8%a7%d9%84%d9%85%d8%af%d9%86%d9%8a%d9%8a%d9%86-%d8%b9%d8%b3%d9%83%d8%b1%d9%8a%d8%a7-%d8%a7%d8%b3%d8%aa%d8%b9%d8%af%d8%a7%d8%af%d8%a7?traffic_source=rss",
+     "publisher": "الجزيرة نت",
+     "grade": "حسن",
+     "published_at": "2026-10-17T10:18+00:00",
+     "title": "إيران تدرب المدنيين عسكريا.. استعدادا للحرب أم تحسبا لاضطرابات داخلية؟",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_be6719fb562c3e59",
+     "url": "https://www.iranintl.com/202610174182",
      "publisher": "إيران إنترناشونال",
      "grade": "حسن",
-     "published_at": "2026-10-17T09:02+00:00",
-     "title": "مورينيو بشأن إيقاف فينيسيوس: أنا راضٍ؛ كنت أعتقد أنه سيُعاقب بالإيقاف لأكثر من أربع مباريات",
-     "title_en": "Mourinho on Vinicius's Suspension: I'm Satisfied; I Thought He Would Get More Than Four Matches",
+     "published_at": "2026-10-17T12:55+00:00",
+     "title": "إلغاء 60 وظيفة في أرسنال تزامناً مع تمديد عقد ميكيل أرتيتا مع «المدفعجية» بقيمة 20 مليون جنيه إسترليني",
+     "title_en": "Arsenal Cuts 60 Jobs Amid Mikel Arteta's £20M Contract Extension",
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_ce90e41f2150e27b",
-     "url": "https://www.bbc.com/persian/articles/cr1ex6lzeqd9o?at_medium=RSS&at_campaign=rss",
+     "source_ref": "ev_db5e0fd6837cd5f5",
+     "url": "https://www.bbc.com/persian/articles/cmglwz33rpy5o?at_medium=RSS&at_campaign=rss",
      "publisher": "بي بي سي فارسي",
      "grade": "حسن",
-     "published_at": "2026-10-17T06:26+00:00",
-     "title": "عرض روسي للوساطة؛ ما الذي يبحث عنه بوتين في حرب إيران؟",
-     "title_en": "Russian Mediation Offer: What Is Putin Seeking in the Iran War?",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_f02921224cdaa130",
-     "url": "https://www.bbc.com/persian/articles/cm89zedjjk0wo?at_medium=RSS&at_campaign=rss",
-     "publisher": "بي بي سي فارسي",
-     "grade": "حسن",
-     "published_at": "2026-10-17T01:09+00:00",
-     "title": "إطلاق نار في مدرسة بأوريغون؛ أحد المعلمين يمنع كارثة أكبر باشتباكه مع مطلق النار",
-     "title_en": "Oregon School Shooting: Teacher Prevents Larger Tragedy by Confronting Gunman",
+     "published_at": "2026-10-17T12:36+00:00",
+     "title": "استقالة مبكرة لكيتي زكريا؛ المتحدثة التي تعثرت في أيام ترامب الحساسة",
+     "title_en": "Early Resignation for Katie Zakaria: The Spokeswoman Who Stumbled in Trump's Sensitive Days",
      "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-10-17T10:11+00:00"
+   "updated_at": "2026-10-17T13:52+00:00"
   },
   {
    "id": "sig_bf1265daa6cefcac",
@@ -884,7 +837,7 @@
    "title": "Watch term active: ناقلة",
    "title_en": "Watch term active: tanker",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-17T10:11+00:00",
+   "observed_at": "2026-10-17T13:52+00:00",
    "observed_facts": [
     "2 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 52."
    ],
@@ -904,9 +857,9 @@
      "url": "https://www.skynewsarabia.com/world/1898772-%D9%84%D8%BA%D9%85-%D9%8A%D9%81%D8%AC%D8%B1-%D9%86%D8%A7%D9%82%D9%84%D8%A9-%D9%87%D8%B1%D9%85%D8%B2-%D9%88%D9%85%D9%82%D8%B0%D9%88%D9%81-%D9%8A%D8%B5%D9%8A%D8%A8-%D8%A3%D8%AE%D8%B1%D9%89-%D9%82%D8%B1%D8%A8-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9",
      "publisher": "سكاي نيوز عربية",
      "grade": "حسن",
-     "published_at": "2026-10-17T06:57+00:00",
+     "published_at": "2026-10-17T07:18+00:00",
      "title": "لغم يفجر ناقلة في هرمز.. ومقذوف يصيب أخرى قرب السعودية",
-     "title_en": "Mine Blasts Tanker in Hormuz, Projectile Hits Another Near Saudi Arabia",
+     "title_en": "Mine Blows Up Tanker in Strait of Hormuz, Projectile Hits Another Near Saudi Arabia",
      "dataset": "osint"
     },
     {
@@ -923,7 +876,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-10-17T05:55+00:00",
-   "updated_at": "2026-10-17T10:11+00:00"
+   "updated_at": "2026-10-17T13:52+00:00"
   },
   {
    "id": "sig_d16a97b1c2740ac8",
@@ -931,7 +884,7 @@
    "title": "Watch term active: #هرمز",
    "title_en": "Watch term active: #Hormuz",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-17T10:11+00:00",
+   "observed_at": "2026-10-17T13:52+00:00",
    "observed_facts": [
     "7 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
@@ -961,9 +914,9 @@
      "url": "https://www.skynewsarabia.com/world/1898772-%D9%84%D8%BA%D9%85-%D9%8A%D9%81%D8%AC%D8%B1-%D9%86%D8%A7%D9%82%D9%84%D8%A9-%D9%87%D8%B1%D9%85%D8%B2-%D9%88%D9%85%D9%82%D8%B0%D9%88%D9%81-%D9%8A%D8%B5%D9%8A%D8%A8-%D8%A3%D8%AE%D8%B1%D9%89-%D9%82%D8%B1%D8%A8-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9",
      "publisher": "سكاي نيوز عربية",
      "grade": "حسن",
-     "published_at": "2026-10-17T06:57+00:00",
+     "published_at": "2026-10-17T07:18+00:00",
      "title": "لغم يفجر ناقلة في هرمز.. ومقذوف يصيب أخرى قرب السعودية",
-     "title_en": "Mine Blasts Tanker in Hormuz, Projectile Hits Another Near Saudi Arabia",
+     "title_en": "Mine Blows Up Tanker in Strait of Hormuz, Projectile Hits Another Near Saudi Arabia",
      "dataset": "osint"
     },
     {
@@ -1020,7 +973,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-09-23T11:59+00:00",
-   "updated_at": "2026-10-17T10:11+00:00"
+   "updated_at": "2026-10-17T13:52+00:00"
   },
   {
    "id": "sig_f28d27c3c609459d",
@@ -1028,7 +981,7 @@
    "title": "Watch term active: مضيق هرمز",
    "title_en": "Watch term active: Strait of Hormuz",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-17T10:11+00:00",
+   "observed_at": "2026-10-17T13:52+00:00",
    "observed_facts": [
     "4 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 72."
    ],
@@ -1087,7 +1040,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-10-16T13:27+00:00",
-   "updated_at": "2026-10-17T10:11+00:00"
+   "updated_at": "2026-10-17T13:52+00:00"
   }
  ]
 }
