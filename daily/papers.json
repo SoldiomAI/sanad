@@ -1,7 +1,39 @@
 {
- "updated": "2026-10-16T20:33+00:00",
+ "updated": "2026-10-17T10:11+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
+  {
+   "id": "2610.21185",
+   "title": "Mine, Sample, Render: Test-Time Diversity Alignment Of Generative Models",
+   "abstract": "Modern generative models produce high-quality individual outputs but struggle to sample diversely, even when explicitly instructed to do so. We introduce MINE-SAMPLE-RENDER (MSR), a test-time approach that externalizes the diversity into an explicit, corpus-derived sampling procedure. Our pipeline (i) mines an interpretable categorical schema from a corpus of real artifacts and supplies statistics for sampling; (ii) samples attribute configurations from the corpus-derived statistics; (iii) uses a generative model purely as a conditional renderer of a sampled configuration. Across weather repor",
+   "authors": [
+    "Kostas Triaridis",
+    "Morris E. Sharp",
+    "Nebojsa Jojic"
+   ],
+   "link": "https://huggingface.co/papers/2610.21185",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-15T00:00",
+   "title_ar": "استخرج، عيّن، صيّر: محاذاة التنوع في النماذج التوليدية في وقت الاختبار",
+   "summary_ar": "تنتج النماذج التوليدية الحديثة مخرجات فردية عالية الجودة لكنها تواجه صعوبة في أخذ عينات متنوعة حتى عند توجيهها صراحةً بذلك. نقدم MSR، وهو نهج في وقت الاختبار ينقل التنوع إلى إجراء خارجي صريح لأخذ العينات مستمد من مجموعة نصوص."
+  },
+  {
+   "id": "2610.21261",
+   "title": "Behavioral Compositionality of Sparse Autoencoder Representations",
+   "abstract": "Sparse autoencoders (SAEs) represent model activations with sparse, linearly decoded features, but the downstream effects of those features need not compose additively. We introduce SAE Additivity Residuals (SAR), which measure the behavioral variation left unexplained above a chosen interaction order. Under independent feature subset sampling, population SAR is exactly the normalized energy of interactions above that order and bounds coalition ordering error for the optimal low order approximation. To distinguish compositionality associated with the SAE representation from that induced by dow",
+   "authors": [
+    "Haotian Ma",
+    "Ziye Mei",
+    "Frederic Sala"
+   ],
+   "link": "https://huggingface.co/papers/2610.21261",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-15T00:00",
+   "title_ar": "التركيبية السلوكية لتمثيلات المشفرات التلقائية المتناثرة",
+   "summary_ar": "تمثل المشفرات التلقائية المتناثرة تنشيطات النماذج بميزات متناثرة ومفككة خطيًا، لكن التأثيرات اللاحقة لتلك الميزات لا يلزم أن تتركب تجميعيًا. نقدم بواقي تجميعية المشفرات التلقائية المتناثرة (SAR)، والتي تقيس التباين السلوكي غير المفسر فوق رتبة تفاعل مختارة."
+  },
   {
    "id": "2610.20680",
    "title": "Diminishing Returns of Data in Sparse Autoencoders: Functional Behavior does not Guarantee Feature Reproducibility",
@@ -16,8 +48,8 @@
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-14T00:00",
-   "title_ar": "تناقص عوائد البيانات في المشفرات التلقائية المفرقة: السلوك الوظيفي لا يضمن قابلية تكرار الميزات",
-   "summary_ar": "تُدرَّب المشفرات التلقائية المفرقة عادةً على مئات الملايين إلى مليارات من رموز التنشيط، ومع ذلك اختبرت أعمال قليلة ما إذا كان هذا الحجم ضروريًا. يدرس هذا البحث حجم بيانات التنشيط التي تحتاجها هذه المشفرات من خلال تدريب أربع بنيات لها على ثلاثة نماذج لغوية بميزانيات تبدأ من 5 ملايين رمز."
+   "title_ar": "العوائد المتناقصة للبيانات في المشفرات التلقائية المتناثرة: السلوك الوظيفي لا يضمن قابلية تكرار الميزات",
+   "summary_ar": "تُدرَّب المشفرات التلقائية المتناثرة عادةً على مئات الملايين إلى المليارات من رموز التنشيط، ومع ذلك لم تختبر سوى أبحاث قليلة ما إذا كان هذا الحجم ضروريًا. ندرس مقدار بيانات التنشيط التي تحتاجها هذه المشفرات عن طريق تدريب أربعة هياكل منها على ثلاثة نماذج لغوية بميزانيات تتراوح من 5 ملايين."
   },
   {
    "id": "2610.22280",
@@ -33,8 +65,8 @@
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-15T00:00",
-   "title_ar": "LEASH: التصعيد والرقابة من الضعيف إلى القوي المدركان لعدم اليقين لوكلاء استخدام الحاسوب",
-   "summary_ar": "يتصدى وكلاء استخدام الحاسوب لمهام طويلة الأمد بصورة متزايدة، حيث يُعد تشغيل نموذج رائد في كل خطوة مكلفًا، وغالبًا ما يفشل النموذج الصغير مفتوح الأوزان بمفرده. يوفر التصعيد من الضعيف إلى القوي حلاً وسطًا بحيث يعمل الوكيل الضعيف تلقائيًا، ثم يسلّم التحكم إلى الوكيل القوي عند الحاجة فقط."
+   "title_ar": "LEASH: التصعيد والرقابة من الضعيف إلى القوي والمدركة لعدم اليقين لوكلاء استخدام الحاسوب",
+   "summary_ar": "يعالج وكلاء استخدام الحاسوب بشكل متزايد مهامًا طويلة المدى، حيث يعد تشغيل نموذج رائد في كل خطوة مكلفًا، وغالبًا ما يفشل النموذج الصغير مفتوح الأوزان بمفرده. يقدم التصعيد من الضعيف إلى القوي حلاً وسطًا؛ حيث يتصرف الوكيل الضعيف افتراضيًا ويسلم السيطرة إلى وكيل قوي فقط عند الحاجة."
   },
   {
    "id": "2610.15924",
@@ -50,8 +82,8 @@
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-11T00:00",
-   "title_ar": "تحصين قابل للتوسع للمُدقِّقات من الضعيف إلى القوي لبيئات الوكلاء",
-   "summary_ar": "تُعد بيئات الوكلاء أساسية لتطوير نماذج اللغة الكبيرة، وتعتمد على مُدقِّقات برمجية لتحويل النتائج المعقدة إلى مكافآت. يمكن استغلال هذه المُدقِّقات لمنح نقاط كاملة للوكلاء المخادعين دون إكمال المهمة المنشودة، مما يتسبب في تقييم غير دقيق واختلال في المحاذاة."
+   "title_ar": "تحصين قابل للتوسع لأجهزة التحقق من الضعيف إلى القوي لبيئات الوكلاء",
+   "summary_ar": "تعد بيئات الوكلاء ضرورية لتطوير نماذج اللغة الكبيرة، وتستخدم أجهزة تحقق برمجية لتحويل النتائج المعقدة إلى مكافآت. يمكن مهاجمة أجهزة التحقق هذه لمنح رصيد كامل للوكلاء المخادعين دون إكمال المهمة المقصودة، مما يتسبب في تقييم غير دقيق وعدم محاذاة."
   },
   {
    "id": "2610.17697",
@@ -67,40 +99,8 @@
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-13T00:00",
-   "title_ar": "LeanPRM: إشراف على العمليات مستند إلى لغة Lean للتحقق من براهين اللغة الطبيعية",
-   "summary_ar": "أصبحت أنظمة الذكاء الاصطناعي تكتب براهين رياضية طويلة وصعبة، وبات التحقق من صحتها خطوة بخطوة عقبة رئيسية. يمكن لمُدقِّق مُتعلَّم فحص البراهين بتكلفة منخفضة، لكن تدريبه يتطلب وسمًا للصحة لكل خطوة، وهو أمر يصعب الحصول عليه للبراهين المفتوحة."
-  },
-  {
-   "id": "2610.20461",
-   "title": "Equal CER, Unequal Damage: Severity-Weighted Character Error Rate for OCR",
-   "abstract": "Character Error Rate (CER), the standard metric for OCR and vision-language models (VLMs), charges a typo as much as a wrong name. We introduce semCER, which keeps CER's alignment and denominator and charges each grapheme edit a severity from an LLM judge, with no word segmentation. Normalized CER keeps the score of a whole transcription, where it tracks readers as well as semCER or better, and semCER breaks that score down into named edits. The charges track readers' ratings edit by edit in English, Vietnamese, and Chinese and put the edits readers rate most severe near the top of a sorted li",
-   "authors": [
-    "Nguyen Nguyen",
-    "Yongyi Zang"
-   ],
-   "link": "https://huggingface.co/papers/2610.20461",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-14T00:00",
-   "title_ar": "تساوٍ في معدل خطأ الرموز وتباين في الضرر: معدل خطأ الرموز المرجّح بالشدة للتعرف الضوئي على الحروف",
-   "summary_ar": "يُعامِل معدل خطأ الرموز، وهو المقياس القياسي للتعرف الضوئي على الحروف ونماذج الرؤية واللغة، الخطأ المطبعي كما يُعامل الاسم الخاطئ تمامًا. يقدم البحث مقياس semCER الذي يحافظ على محاذاة ومقام المقياس المذكور مع فرض شدة لكل تعديل حرفي عبر مُحكِّم بنموذج لغوي كبير دون تجزئة للكلمات."
-  },
-  {
-   "id": "2610.22358",
-   "title": "PathFM: Fast Generative Forecasting of Multivariate Trajectories",
-   "abstract": "Time series foundation models are becoming increasingly popular for general-purpose forecasting. However, most leading models predict marginal quantiles, leaving the dependence structure of future trajectories unspecified. This distinction matters for trajectory-dependent quantities such as cumulative demand, peak load, and event timing, yet point and marginal scores do not reveal it. To model this dependence, we introduce PathFM, a trajectory-based forecasting model that uses flow matching to generate complete future paths. We further distill the model to one or two steps and share history at",
-   "authors": [
-    "Jiachen Yao",
-    "Xiyuan Zhang",
-    "Annan Yu",
-    "Boran Han"
-   ],
-   "link": "https://huggingface.co/papers/2610.22358",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-15T00:00",
-   "title_ar": "PathFM: التنبؤ التوليدي السريع للمسارات متعددة المتغيرات",
-   "summary_ar": "تكتسب النماذج التأسيسية للسلاسل الزمنية شعبية متزايدة لأغراض التنبؤ العام. ومع ذلك، تتنبأ غالبية النماذج الرائدة بالمُئينات الحدية وتترك بنية الاعتماد للمسارات المستقبلية غير محددة، وهو فارق يؤثر في المقادير المعتمدة على المسار مثل التراكم."
+   "title_ar": "LeanPRM: إشراف على العمليات مستند إلى Lean للتحقق من براهين اللغة الطبيعية",
+   "summary_ar": "تكتب أنظمة الذكاء الاصطناعي الآن براهين رياضية طويلة وصعبة، وأصبح التحقق من صحتها خطوة بخطوة يمثل عقبة. يمكن لمدقق متعلَّم التحقق من البراهين بتكلفة منخفضة، لكن تدريبه يتطلب تصنيفًا للصحة عند كل خطوة، ويصعب الحصول على هذه التصنيفات للبراهين المفتوحة."
   }
  ],
  "n": 6
