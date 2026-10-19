@@ -1,105 +1,100 @@
 {
- "updated": "2026-10-19T01:34+00:00",
+ "updated": "2026-10-19T14:54+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.20628",
-   "title": "PRISM: PRIvileged Sibling-guided Multi-Agent Topology Design",
-   "abstract": "Multi-agent systems (MAS) based on large language models (LLMs) have become a powerful way to address complex problems, and their effectiveness depends critically on the collaboration topology that decides which agents participate and how they communicate. Recent work learns to generate this topology from the task query, fitting the generator to corpora of execution-verified graphs. The post-training method for such generators remains a limitation: a corpus lists the graphs that solved a query but never ranks them, leaving continued supervised fine-tuning (SFT) with no per-query preference to ",
+   "id": "2610.16763",
+   "title": "Relational Learning as World Modeling",
+   "abstract": "Relational learning typically predicts from a database state, but decision making asks a different question: how will that state change under an action? In operational systems, the answer depends on system-specific dynamics that may not be visible in the database itself. We view each such system as a relational \"world\" and ask whether a model can infer how it behaves from observed executions. We introduce TabWM (Tabular World Model) and WorldRel, a generator of executable relational worlds for pretraining. Given executions from an unseen world, TabWM uses them as context to predict the sparse ",
    "authors": [
-    "Phuong Tuan Dat",
-    "Qi Li",
-    "Xinchao Wang"
+    "Zheyu Zhang",
+    "Gjergji Kasneci"
    ],
-   "link": "https://huggingface.co/papers/2610.20628",
+   "link": "https://huggingface.co/papers/2610.16763",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-29T00:00",
-   "title_ar": "بريزم (PRISM): تصميم طوبولوجيا متعدّدة الوكلاء موجَّهة بالأقران ذوي الامتيازات",
-   "summary_ar": "أصبحت الأنظمة متعددة الوكلاء القائمة على نماذج اللغة الكبيرة وسيلة قوية لمعالجة المشكلات المعقدة، وتعتمد فعاليتها بشكل حاسم على طوبولوجيا التعاون التي تحدد الوكلاء المشاركين وكيفية تواصلهم. وتتجه الأعمال الحديثة نحو تعلم كيفية توليد هذه الطوبولوجيا."
+   "published": "2026-10-12T00:00",
+   "title_ar": "التعلم العلائقي كنمذجة للعالم",
+   "summary_ar": "يتنبأ التعلم العلائقي عادةً بناءً على حالة قاعدة البيانات، لكن اتخاذ القرار يتطلب معرفة كيفية تغير تلك الحالة بفعل إجراءٍ ما. تعتمد الإجابة في الأنظمة التشغيلية على ديناميكيات خاصة بالنظام قد لا تكون ظاهرة في قاعدة البيانات نفسها، حيث ننظر إلى كل نظام من هذا القبيل كنموذج."
   },
   {
-   "id": "2610.21185",
-   "title": "Mine, Sample, Render: Test-Time Diversity Alignment Of Generative Models",
-   "abstract": "Modern generative models produce high-quality individual outputs but struggle to sample diversely, even when explicitly instructed to do so. We introduce MINE-SAMPLE-RENDER (MSR), a test-time approach that externalizes the diversity into an explicit, corpus-derived sampling procedure. Our pipeline (i) mines an interpretable categorical schema from a corpus of real artifacts and supplies statistics for sampling; (ii) samples attribute configurations from the corpus-derived statistics; (iii) uses a generative model purely as a conditional renderer of a sampled configuration. Across weather repor",
+   "id": "2610.22697",
+   "title": "What It Is, Not What It Says: Securing Agentic Browsing Interactions with Web Semantics",
+   "abstract": "AI agents increasingly browse the web on users' behalf, yet they consume webpages as screenshots or text, exposing their LLMs to unvetted third-party content. Browsers enforce semantics under which what an element can do depends on what it is and where it comes from, not on what it says. Agents flatten these semantics, so injected text can persuade the LLM to exercise the user's authority for content that has none. As LLMs remain easy to persuade, the agent's interface to the web must itself ensure the integrity of what the agent reads, interprets, and does. We propose Intact, which runs on an",
    "authors": [
-    "Kostas Triaridis",
-    "Morris E. Sharp",
-    "Nebojsa Jojic"
+    "Umar Iqbal"
    ],
-   "link": "https://huggingface.co/papers/2610.21185",
+   "link": "https://huggingface.co/papers/2610.22697",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-15T00:00",
-   "title_ar": "استخراج، وعيّنة، وتصيير: محاذاة التنوع أثناء الاختبار للنماذج التوليدية",
-   "summary_ar": "تنتج النماذج التوليدية الحديثة مخرجات فردية عالية الجودة، ولكنها تواجه صعوبة في توليد عينات متنوعة حتى عند توجيهها صراحةً للقيام بذلك. نقدّم أسلوب \"استخراج-عيّنة-تصيير\" (MSR)، وهو نهج يُطبَّق في وقت الاختبار ويعمل على إسناد التنوع خارجيًا إلى إجراء أخذ عينات صريح ومستمد من مجموعة نصوص."
+   "title_ar": "ماهيته لا ما يقوله: تأمين تفاعلات التصفح الوكيلة باستخدام دلالات الويب",
+   "summary_ar": "يتصفح وكلاء الذكاء الاصطناعي الويب نيابة عن المستخدمين بصورة متزايدة، غير أنهم يتعاملون مع الصفحات كلقطات شاشة أو نصوص، مما يعرض نماذجهم اللغوية الكبيرة لمحتوى غير مدقق من أطراف ثالثة. تفرض المتصفحات دلالات يعتمد فيها ما يمكن للعنصر فعله على ماهيته ومصدره لا على ما يقوله، بينما يتجاهل الوكلاء ذلك."
   },
   {
-   "id": "2610.21261",
-   "title": "Behavioral Compositionality of Sparse Autoencoder Representations",
-   "abstract": "Sparse autoencoders (SAEs) represent model activations with sparse, linearly decoded features, but the downstream effects of those features need not compose additively. We introduce SAE Additivity Residuals (SAR), which measure the behavioral variation left unexplained above a chosen interaction order. Under independent feature subset sampling, population SAR is exactly the normalized energy of interactions above that order and bounds coalition ordering error for the optimal low order approximation. To distinguish compositionality associated with the SAE representation from that induced by dow",
+   "id": "2610.22306",
+   "title": "ARC-SORT: Adaptive, Robust, Compensated Multi-Object Tracking with Interacting Multiple Models",
+   "abstract": "Multi-object tracking in sports broadcasts is hard for two reasons: athletes move fast and change direction abruptly, and the camera pans and zooms at the same time. We present ARC-SORT (Adaptive, Robust, Compensated SORT), a tracking-by-detection tracker that trains nothing and runs in real time. Its design rule: the tracker measures its own uncertainty, and that measurement decides how it acts. An Interacting Multiple Model (IMM) Kalman filter gives every track a predictive covariance, and we turn it into a per-track search region: the less reliable the motion prediction, the larger the regi",
    "authors": [
-    "Haotian Ma",
-    "Ziye Mei",
-    "Frederic Sala"
+    "Girish Kumar Adari"
    ],
-   "link": "https://huggingface.co/papers/2610.21261",
+   "link": "https://huggingface.co/papers/2610.22306",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-15T00:00",
-   "title_ar": "التركيبية السلوكية لتمثيلات المشفرات التلقائية المتناثرة",
-   "summary_ar": "تمثّل المشفرات التلقائية المتناثرة (SAEs) تنشيطات النماذج عبر ميزات متناثرة ومفككة خطيًا، إلا أن التأثيرات اللاحقة لتلك الميزات لا يلزم بالضرورة أن تتركب بشكل تجميعي. نقدّم متبقيات الجمعية للمشفرات التلقائية المتناثرة (SAR)، والتي تقيس التباين السلوكي المتبقي غير المفسَّر فوق رتبة تفاعل محددة."
+   "title_ar": "ARC-SORT: تتبع متكيف ومتين ومعوض للأجسام المتعددة باستخدام نماذج تفاعلية متعددة",
+   "summary_ar": "يُعد تتبع الأجسام المتعددة في البث الرياضي صعبًا لتحرك الرياضيين بسرعة وتغير اتجاهاتهم فجأة، تزامنًا مع تحريك الكاميرا وتكبيرها. يُقدم البحث \"ARC-SORT\"، وهو متتبع يعتمد على الكشف دون الحاجة لأي تدريب ويعمل في الوقت الفعلي."
   },
   {
-   "id": "2610.20680",
-   "title": "Diminishing Returns of Data in Sparse Autoencoders: Functional Behavior does not Guarantee Feature Reproducibility",
-   "abstract": "Sparse autoencoders (SAEs) are typically trained on hundreds of millions to billions of activation tokens, yet little work has tested whether this scale is necessary. We study how much activation data SAEs need by training four SAE architectures on three language models with budgets ranging from 5M tokens to a 500M-token reference. We measure two notions of convergence: functional behavior on standard evaluations and one-to-one reproducibility of learned features. Functional data requirements are strongly metric-dependent: reconstruction often approaches the full-data reference at substantiall",
+   "id": "2610.21482",
+   "title": "AI-Driven Disaster Response and Displacement Monitoring",
+   "abstract": "ARTIFICIAL INTELLIGENCE (AI) has demonstrated its potential across a wide range of humanitarian tasks, offering scalable and data-driven solutions to some of the world's most pressing challenges. For instance, in addressing climate change, AI-powered models are being used for faster and more accurate global weather forecasting, control and design of renewable energy, and monitoring deforestation. Machine learning algorithms analyze satellite imagery and socioeconomic data to predict poverty and promote sustainable development. AI has also transformed disaster response and conflict monitoring, ",
    "authors": [
-    "Sambit Ghosh",
-    "Madelyn Mathai",
-    "R. Venkatesh Babu",
-    "Chirag Agarwal"
+    "Noora Al-Emadi",
+    "Muhammad Imran",
+    "Yin Yang",
+    "Ingmar Weber"
    ],
-   "link": "https://huggingface.co/papers/2610.20680",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-14T00:00",
-   "title_ar": "تناقص عوائد البيانات في المشفرات التلقائية المتناثرة: السلوك الوظيفي لا يضمن قابلية تكرار الميزات",
-   "summary_ar": "تُدرَّب المشفرات التلقائية المتناثرة عادةً على مئات الملايين إلى المليارات من رموز التنشيط، ومع ذلك فإن الأبحاث التي اختبرت ضرورة هذا الحجم لا تزال قليلة. ندرس حجم بيانات التنشيط التي تحتاجها هذه المشفرات عبر تدريب أربع بنيات منها على ثلاثة نماذج لغوية بميزانيات تبدأ من 5 ملايين."
-  },
-  {
-   "id": "2610.22280",
-   "title": "LEASH: Uncertainty-Aware Weak-to-Strong Escalation and Oversight for Computer-Use Agents",
-   "abstract": "Computer-use agents increasingly tackle long-horizon tasks, where running a frontier model at every step is expensive and a small open-weight model alone often fails. Weak-to-strong escalation offers a middle ground where a weak agent acts by default and hands control to a strong one only when needed. The core challenge is deciding when to escalate, which requires an uncertainty signal cheap enough to check at every step. However, even after handoff, the strong agent can still get lost, but a black-box API that the strong agent is usually served exposes no internals to monitor. To this end, we",
-   "authors": [
-    "Qingni Wang",
-    "Changdae Oh",
-    "Yuzhe Yang",
-    "Sharon Li"
-   ],
-   "link": "https://huggingface.co/papers/2610.22280",
+   "link": "https://huggingface.co/papers/2610.21482",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-15T00:00",
-   "title_ar": "لييش (LEASH): التصعيد والإشراف المدركان لعدم اليقين من الضعيف إلى القوي لوكلاء استخدام الحاسوب",
-   "summary_ar": "يعالج وكلاء استخدام الحاسوب مهامًا طويلة المدى على نحو متزايد، حيث يكون تشغيل نموذج رائد في كل خطوة مكلفًا، بينما غالبًا ما يفشل النموذج الصغير مفتوح الأوزان بمفرده. يوفّر التصعيد من الضعيف إلى القوي حلاً وسطًا؛ إذ يتصرف الوكيل الضعيف افتراضيًا ويسلّم التحكم للوكيل القوي فقط عند الحاجة."
+   "title_ar": "الاستجابة للكوارث ومراقبة النزوح المدفوعة بالذكاء الاصطناعي",
+   "summary_ar": "أظهر الذكاء الاصطناعي إمكاناته عبر مجموعة واسعة من المهام الإنسانية، مقدمًا حلولًا قابلة للتوسع وقائمة على البيانات لبعض أكثر تحديات العالم إلحاحًا. وعلى سبيل المثال، تُستخدم النماذج المدعومة بالذكاء الاصطناعي في مواجهة تغير المناخ لتحقيق نتائج أسرع وأكثر دقة."
   },
   {
-   "id": "2610.15924",
-   "title": "Scalable Weak-to-Strong Verifier Hardening for Agent Environments",
-   "abstract": "Agent environments are essential for large language model (LLM) development. They use programmatic verifiers to turn complex outcomes into rewards. Verifiers can be attacked into awarding full credit to cheating agents without completing the intended task, causing inaccurate evaluation and misalignment in training. As agent environments scale in numbers and difficulty, so must the repairing of exploitable verifiers. To this end, we ask whether today's model with scaled compute can automatically harden agent environments to prevent potentially stronger future models from reward hacking. We intr",
+   "id": "2610.23279",
+   "title": "Xiaomi-Lens-0 Technical Report",
+   "abstract": "Multimodal large language models (MLLMs) answer questions about whole images well, yet they still struggle with fine-grained region understanding. A key reason is that text-only supervision never specifies which regions support an answer. To close this gap, we present Xiaomi-Lens-0, a 4B MLLM built on Qwen3.5 that predicts masks from its own visual representations. Specifically, a lightweight decoder combines vision-encoder patch features with visual latents, the language model's mask-token states, so mask supervision reaches the shared backbone without an additional segmentation encoder. Beca",
    "authors": [
-    "Chong Zeng",
-    "Ziqian Zhong",
-    "Kexun Zhang",
-    "Ivan Bercovich"
+    "Pei Fu",
+    "Yike Liu",
+    "Yue Sun",
+    "Hanmo Wang"
    ],
-   "link": "https://huggingface.co/papers/2610.15924",
+   "link": "https://huggingface.co/papers/2610.23279",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-11T00:00",
-   "title_ar": "تقوية مدققات قابلة للتوسع من الضعيف إلى القوي لبيئات الوكلاء",
-   "summary_ar": "تُعد بيئات الوكلاء ضرورية لتطوير نماذج اللغة الكبيرة، حيث تستخدم مدققات برمجية لتحويل النتائج المعقدة إلى مكافآت. ويمكن مهاجمة هذه المدققات لمنح الدرجة الكاملة لوكلاء مخادعين دون إكمال المهمة المقصودة، مما يتسبب في تقييم غير دقيق وعدم محاذاة."
+   "published": "2026-10-16T00:00",
+   "title_ar": "التقرير التقني لـ Xiaomi-Lens-0",
+   "summary_ar": "تجيب النماذج اللغوية الكبيرة متعددة الوسائط عن الأسئلة المتعلقة بالصور الكاملة جيدًا، لكنها لا تزال تواجه صعوبة في فهم المناطق الدقيقة؛ ويعود ذلك أساسًا إلى أن الإشراف المعتمد على النصوص فقط لا يحدد المناطق الداعمة للإجابة. ولسد هذه الفجوة، يُقدم البحث Xiaomi-Lens-0، وهو نموذج لغوي كبير متعدد الوسائط بحجم 4 مليارات معامل."
+  },
+  {
+   "id": "2610.23751",
+   "title": "MTEdit: Packed Trajectories Beat Rollouts for Multi-Turn Image Editing",
+   "abstract": "Multi-turn image editing aims to modify an image according to a sequence of instructions, making it better aligned with human-AI collaborative creation than single-turn editing. However, constructing high-quality multi-turn training data remains challenging, as conventional sequential rollout accumulates errors and introduces visual-quality drift across editing turns. To address this challenge, we introduce MTEdit, a multi-turn image editing dataset built through a pipeline centered on packed trajectory canvas (PTC) generation. By jointly generating multiple editing states within a unified vis",
+   "authors": [
+    "Houyuan Chen",
+    "Fanzhou Wang",
+    "Xiangyu Fan",
+    "Songlin Yang"
+   ],
+   "link": "https://huggingface.co/papers/2610.23751",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-16T00:00",
+   "title_ar": "MTEdit: المسارات المجمعة تتفوق على عمليات الإطلاق المتسلسلة لتعديل الصور متعدد الجولات",
+   "summary_ar": "يهدف تعديل الصور متعدد الجولات إلى تعديل الصورة وفقًا لسلسلة من التعليمات، مما يجعله أكثر توافقًا مع الإبداع التعاوني بين الإنسان والذكاء الاصطناعي مقارنة بالتعديل أحادي الجولة. ومع ذلك، يظل بناء بيانات تدريب عالية الجودة لمهام الجولات المتعددة تحديًا؛ نظرًا لأن عمليات الإطلاق المتسلسلة التقليدية تتراكم فيها الأخطاء."
   }
  ],
  "n": 6
