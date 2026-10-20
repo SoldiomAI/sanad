@@ -1,108 +1,101 @@
 {
- "updated": "2026-10-20T03:28+00:00",
+ "updated": "2026-10-20T18:39+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.25090",
-   "title": "Think Visually Across Space and Time: Grounded Reasoning for Video Segmentation",
-   "abstract": "Video Reasoning Segmentation (VRS) requires a model to identify an implicitly described target and predict its pixel-level mask trajectory, while resolving the spatial relations and temporal events that determine the answer. Text-only Chain-of-Thought (CoT) can explain a target choice without making the underlying visual references explicit, leaving a video reference gap between linguistic inference and the evidence distributed across frames. We introduce Temporal Chain of Video Primitives (TCoVP), a spatiotemporally grounded form of Video CoT that organizes query-relevant observations into a ",
+   "id": "2610.22714",
+   "title": "First Passage Attention",
+   "abstract": "Augmenting softmax attention with forget gates typically relies on summing decay contributions along the key--query path. Because such accumulation is monotonic, these mechanisms cannot selectively erase intermediate context while preserving older, structurally relevant tokens. We propose First Passage Attention (FPA), which shifts from path summation to path extrema by lowering a key's logit proportionally to the deepest dip of a learned scalar field below that key's level over the intervening span. FPA encompasses the Forgetting Transformer (FoX) as a special case, and when the field and lev",
    "authors": [
-    "Junwei Wen",
-    "Deshui Miao",
-    "Guangming Lu",
-    "Ming-Hsuan Yang"
+    "Yuxuan Liu"
    ],
-   "link": "https://huggingface.co/papers/2610.25090",
+   "link": "https://huggingface.co/papers/2610.22714",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-15T00:00",
+   "title_ar": "انتباه الممر الأول",
+   "summary_ar": "تعتمد زيادة انتباه دالة التوزيع اللين (softmax) ببوابات النسيان عادةً على جمع إسهامات التلاشي على طول مسار المفتاح والاستعلام. ونظرًا لأن هذا التراكم رتيب، تعجز هذه الآليات عن محو السياق الوسيط انتقائيًا مع الحفاظ على الرموز الأقدم ذات الصلة البنيوية، لذا نقترح \"انتباه الممر الأول\"."
+  },
+  {
+   "id": "2610.22894",
+   "title": "Competence-Based Evaluation of Logical Reasoning in Large Language Models",
+   "abstract": "Recent advances in large language models (LLMs) have brought impressive performance across diverse tasks; however, shortcomings remain in logical reasoning, including inconsistencies under linguistic variation. To improve the reasoning capacity of LLMs, we must be able to accurately measure their reasoning capacity. Current benchmarks primarily report single accuracy numbers on selected reasoning tasks. Such a performance-based evaluation methodology says little about a model's generalization capacity in reasoning. To address this limitation, we argue for a different evaluation paradigm, calle",
+   "authors": [
+    "Jize Jiang",
+    "Chengxiang Zhai"
+   ],
+   "link": "https://huggingface.co/papers/2610.22894",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-16T00:00",
+   "title_ar": "تقييم الاستدلال المنطقي في نماذج اللغة الكبيرة القائم على الكفاءة",
+   "summary_ar": "حققت التطورات الحديثة في نماذج اللغة الكبيرة أداءً مذهلاً عبر مهام متنوعة، ومع ذلك لا تزال هناك أوجه قصور في الاستدلال المنطقي تشمل التناقضات تحت تأثير التغير اللغوي. ولتحسين القدرة الاستدلالية لهذه النماذج، يجب أن نكون قادرين على قياس منطقها بدقة."
+  },
+  {
+   "id": "2610.25159",
+   "title": "Legal Guidance in the Wild: How Users Seek Legal Help in Real-World LLM Conversations",
+   "abstract": "People ask conversational AI models about their legal rights, obligations, procedures, and personal situations that may have legal consequences. To study this behavior, we first need to distinguish requests for legal guidance from other legally themed discussions and unrelated conversations. We contribute a multi-axis taxonomy of legal queries capturing whether legal guidance is sought, how a request is formulated, and which legal domains it concerns; apply it to 2,122 naturally occurring WildChat-1M conversations; and create a human-reviewed gold evaluation set of 200 conversations. All annot",
+   "authors": [
+    "Amirreza Mohseni",
+    "Gerasimos Spanakis"
+   ],
+   "link": "https://huggingface.co/papers/2610.25159",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-18T00:00",
-   "title_ar": "التفكير بصريًا عبر المكان والزمان: الاستدلال المُرسَّخ لتقسيم الفيديو",
-   "summary_ar": "يتطلب تقسيم الفيديو القائم على الاستدلال من النموذج تحديد هدف موصوف ضمنيًا وتوقع مسار قناعه على مستوى البكسل، مع حل العلاقات المكانية والأحداث الزمنية المحددة للإجابة. يمكن لسلسلة الأفكار النصية فقط تفسير اختيار الهدف دون إجراء ذلك."
+   "title_ar": "التوجيه القانوني في الواقع الفعلي: كيف يطلب المستخدمون المساعدة القانونية في محادثات نماذج اللغة الكبيرة الواقعية",
+   "summary_ar": "يسأل الناس نماذج الذكاء الاصطناعي التوليدي الحواري عن حقوقهم القانونية والتزاماتهم وإجراءاتهم ومواقفهم الشخصية التي قد تترتب عليها عواقب قانونية. ولدراسة هذا السلوك، نحتاج أولاً إلى التمييز بين طلبات التوجيه القانوني والمناقشات الأخرى ذات الطابع القانوني أو المحادثات غير ذات الصلة."
   },
   {
-   "id": "2610.26081",
-   "title": "DeOverlay: A Benchmark and Source-Anchored Flow for Video Overlay Removal",
-   "abstract": "Video overlay removal aims to recover scenes obscured by subtitles, titles, and logos while preserving surrounding content. Existing methods use temporal propagation or source-conditioned generation, but can leave residual overlays and distort scene structure when useful source information is obscured. We propose DeOverlay, a source-anchored flow model that reconstructs the clean video from the source latent with fixed source guidance. Specifically, we train a shared velocity network along paired source-to-clean paths using region-weighted flow matching, enabling successive cor- rections from ",
+   "id": "2610.22512",
+   "title": "Predicting Privileged Information Effectiveness for On-Policy Self-Distillation",
+   "abstract": "On-policy self-distillation (OPSD) enables large language models (LLMs) to learn from privileged information (PI) without a separate teacher model. However, prior work largely treats PI as a fixed design choice, leaving the effects of its content and construction poorly understood. This challenge is particularly important in multi-turn agentic settings, where trajectories contain actions, observations, and reasoning that can be transformed into PI in many ways. We systematically evaluate 16 PI configurations across three multi-turn agentic benchmarks and three student models that vary in scale",
    "authors": [
-    "Deshui Miao",
-    "Yuhang Ma",
-    "Shaoyong Jia",
-    "Wenzhao Gao"
+    "Kaijian Zou",
+    "Emiliano Penaloza",
+    "MohammadHossein Rezaei",
+    "Anisha Gunjal"
    ],
-   "link": "https://huggingface.co/papers/2610.26081",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-19T00:00",
-   "title_ar": "DeOverlay: معيار مرجعي وتدفق مُثبَّت بالمصدر لإزالة تراكبات الفيديو",
-   "summary_ar": "تهدف إزالة تراكبات الفيديو إلى استعادة المشاهد التي تحجبها الترجمات والعناوين والشعارات مع الحفاظ على المحتوى المحيط. تستخدم الأساليب الحالية النشر الزمني أو التوليد المشروط بالمصدر، لكنها قد تترك تراكبات متبقية وتشوّه بنية المشهد عند حجب معلومات المصدر المفيدة."
-  },
-  {
-   "id": "2610.26770",
-   "title": "HarnessPro: Recursive Harness Self-Improvement with Pareto Optimization for Performance-Cost Trade-offs",
-   "abstract": "Harness development plays a crucial role in building capable AI agents. Recent approaches improve harnesses through recursive self-improvement (RSI), but their performance gains often come with higher execution costs. We introduce HarnessPro, a label-free method for evolving harnesses to improve task performance while reducing execution cost. In this setting, candidate harnesses are evaluated using LLM-generated tests without access to ground-truth solutions or official tests. Specialized agents diagnose execution trajectories, plan updates with different performance-cost priorities, and imple",
-   "authors": [
-    "Zhuoshi Pan",
-    "ZhiYuan Feng",
-    "Yukuo Cen",
-    "Honglin Lin"
-   ],
-   "link": "https://huggingface.co/papers/2610.26770",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-19T00:00",
-   "title_ar": "HarnessPro: التحسين الذاتي التكراري لأطر العمل مع تحسين باريتو لموازنة الأداء والتكلفة",
-   "summary_ar": "يلعب تطوير أطر العمل (Harnesses) دورًا حاسمًا في بناء وكلاء ذكاء اصطناعي أكفاء، ورغم أن المقاربات الحديثة تحسنها عبر التحسين الذاتي التكراري، فإن مكاسب أدائها تقترن غالبًا بتكاليف تنفيذ أعلى. نُقدّم HarnessPro، وهي طريقة خالية من التسميات لتطوير أطر العمل بهدف تحسين المهام."
-  },
-  {
-   "id": "2610.20597",
-   "title": "Co-Evolving Acting and Forecasting for Language Agents",
-   "abstract": "Training language agents is bottlenecked by the high cost of long-horizon rollouts, yet standard agentic reinforcement learning (RL) learns only from a terminal scalar reward, leaving the supervision in intermediate steps largely unused. Prior work exploits this supervision through value targets that estimate per-step success probabilities or observation targets that fit environment response. Both are hard to construct well: (1) value targets come from the same single scalar signal for each step in the trajectory, and (2) observation targets, such as web pages and terminal logs, are long and n",
-   "authors": [
-    "Haofei Yu",
-    "Yixing Chen",
-    "Yining Zhao",
-    "Xuyan Ye"
-   ],
-   "link": "https://huggingface.co/papers/2610.20597",
+   "link": "https://huggingface.co/papers/2610.22512",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-15T00:00",
-   "title_ar": "التطور المشترك للتنفيذ والتنبؤ لوكلاء اللغة",
-   "summary_ar": "يواجه تدريب وكلاء اللغة عقبة التكلفة العالية لعمليات الاستكشاف طويلة المدى، ومع ذلك فإن التعلم التعزيزي القياسي للوكلاء يتعلم فقط من مكافأة قياسية نهائية تاركًا الإشراف في الخطوات الوسيطة غير مستغل إلى حد كبير. تستغل الأعمال السابقة هذا الإشراف من خلال أهداف القيمة."
+   "title_ar": "التنبؤ بفعالية المعلومات المميزة للتقطير الذاتي على أساس السياسة الحالية",
+   "summary_ar": "يتيح التقطير الذاتي على أساس السياسة الحالية (OPSD) لنماذج اللغة الكبيرة التعلم من المعلومات المميزة (PI) دون الحاجة لنموذج معلّم منفصل. ومع ذلك، تعاملت الأعمال السابقة إلى حد كبير مع هذه المعلومات كخيار تصميمي ثابت، مما ترك آثار محتواها وبنائها غير مفهومة جيداً."
   },
   {
-   "id": "2610.21791",
-   "title": "RSIFlow: Adaptive Self-Improvement Workflows with an Evolving Meta-Agent",
-   "abstract": "Large language model (LLM) agents have demonstrated strong capabilities in complex tasks, including code generation, tool use, and multi-hop question answering. Existing self-improvement methods enhance agent performance through model optimization, harness evolution, and executable artifact refinement, while recursive self-improvement (RSI) further extends optimization to the improvement mechanisms themselves. However, adapting self-improvement workflows to evolving performance bottlenecks while improving workflow orchestration through execution feedback remains a key challenge. We propose RSI",
+   "id": "2610.22636",
+   "title": "Measuring Mechanistic Uncertainty in Large Language Models via Causal Robustness",
+   "abstract": "Large language models (LLMs) are increasingly used in critical domains, where their susceptibility to hallucinations makes reliable and interpretable uncertainty quantification essential. We introduce the concept of mechanistic uncertainty, which characterizes uncertainty through the stability of the internal mechanisms supporting a model's response. We propose the causal robustness margin, defined as the minimum internal intervention required to deviate the model's output, and operationalize it using Jacobian Lens (Jlens) concept steering vectors. Across three open-source models and five ques",
    "authors": [
-    "Huan Zhang",
-    "Mingju Chen",
-    "Dongxu Zhou",
-    "Can Lv"
+    "Aneesh Komanduri",
+    "Majid Afshar",
+    "Timothy A. Miller",
+    "Yanjun Gao"
    ],
-   "link": "https://huggingface.co/papers/2610.21791",
+   "link": "https://huggingface.co/papers/2610.22636",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-15T00:00",
-   "title_ar": "RSIFlow: سير عمل تكيّفي للتحسين الذاتي مع وكيل فائق متطور",
-   "summary_ar": "أظهر وكلاء نماذج اللغة الكبيرة قدرات قوية في المهام المعقدة، بما في ذلك توليد الأكواد واستخدام الأدوات والإجابة عن الأسئلة متعددة الخطوات. تُعزز أساليب التحسين الذاتي الحالية أداء الوكيل من خلال تحسين النموذج، وتطوير أطر العمل، وتنقيح النواتج القابلة للتنفيذ."
+   "title_ar": "قياس عدم اليقين الآلي في نماذج اللغة الكبيرة عبر المتانة السببية",
+   "summary_ar": "يتزايد استخدام نماذج اللغة الكبيرة في المجالات الحساسة؛ حيث يجعلها تعرضها للهلوسة بحاجة ماسة لقياس موثوق وقابل للتفسير لعدم اليقين. ونقدم هنا مفهوم \"عدم اليقين الآلي\"، والذي يصف عدم اليقين من خلال استقرار النموذج."
   },
   {
-   "id": "2610.25690",
-   "title": "ScaleNav: Scalable Internet Video Pretraining for Language-Conditioned Local Navigation",
-   "abstract": "We study language-conditioned local navigation, where a robot must navigate to a text-specified target visible in its initial observation and stop at the described location. End-to-end navigation policies require diverse training data to generalize across scenes, yet real-robot data is costly to collect and simulated data leaves a sim-to-real gap. Internet egocentric videos offer a scalable source of real-world navigation experience. Our key insight is to learn goal-directed visual dynamics from Internet egocentric videos, and use these dynamics to support robot action generation. To this end,",
+   "id": "2610.25525",
+   "title": "StopLoss: Teaching Agents to Predict Failure and Stop Early",
+   "abstract": "Coding agents keep working on runs that will fail verification, and asking a frontier model to watch for this is expensive in its own right. We introduce StopLoss, a small external monitor that learns failure recognition from completed trajectories and their verifier outcomes. The name is inspired by the stop-loss order in finance: StopLoss ends a run early when the run is likely to fail, which saves resources. Final outcomes label earlier local windows, so a fine-tuned language model can score the most recent tool steps in a single forward pass, and a threshold calibrated on successful runs t",
    "authors": [
-    "Yihui Yang",
-    "Yuanhong Yu",
-    "Jiawei Wang",
-    "Zhongrui Yu"
+    "Jiarong Liang",
+    "Xueguang Ma",
+    "Dongfu Jiang",
+    "Yuxuan Zhang"
    ],
-   "link": "https://huggingface.co/papers/2610.25690",
+   "link": "https://huggingface.co/papers/2610.25525",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-19T00:00",
-   "title_ar": "ScaleNav: تدريب مسبق قابل للتوسع على مقاطع فيديو الإنترنت للملاحة المحلية المشروطة باللغة",
-   "summary_ar": "ندرس الملاحة المحلية المشروطة باللغة، حيث يتعين على الروبوت الانتقال إلى هدف محدد بنص ومرئي في ملاحظته الأولية والتوقف عند الموقع الموصوف. تتطلب سياسات الملاحة الشاملة من البداية إلى النهاية بيانات تدريب متنوعة للتعميم عبر مختلف المشاهد، إلا أن جمع بيانات الروبوتات الحقيقية مكلف."
+   "published": "2026-10-18T00:00",
+   "title_ar": "وقف الخسارة (StopLoss): تعليم الوكلاء التنبؤ بالفشل والتوقف مبكرًا",
+   "summary_ar": "تستمر وكلاء البرمجة في العمل على مسارات ستفشل في التحقق، كما أن مطالبة نموذج رائد بمراقبة ذلك أمر مكلف بحد ذاته. لذلك نقدم StopLoss، وهو مراقب خارجي صغير يتعلم التعرف على الفشل من المسارات المكتملة ونتائج التحقق الخاصة بها."
   }
  ],
  "n": 6
