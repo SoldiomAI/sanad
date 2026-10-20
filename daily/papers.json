@@ -1,100 +1,108 @@
 {
- "updated": "2026-10-19T14:54+00:00",
+ "updated": "2026-10-20T03:28+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.16763",
-   "title": "Relational Learning as World Modeling",
-   "abstract": "Relational learning typically predicts from a database state, but decision making asks a different question: how will that state change under an action? In operational systems, the answer depends on system-specific dynamics that may not be visible in the database itself. We view each such system as a relational \"world\" and ask whether a model can infer how it behaves from observed executions. We introduce TabWM (Tabular World Model) and WorldRel, a generator of executable relational worlds for pretraining. Given executions from an unseen world, TabWM uses them as context to predict the sparse ",
+   "id": "2610.25090",
+   "title": "Think Visually Across Space and Time: Grounded Reasoning for Video Segmentation",
+   "abstract": "Video Reasoning Segmentation (VRS) requires a model to identify an implicitly described target and predict its pixel-level mask trajectory, while resolving the spatial relations and temporal events that determine the answer. Text-only Chain-of-Thought (CoT) can explain a target choice without making the underlying visual references explicit, leaving a video reference gap between linguistic inference and the evidence distributed across frames. We introduce Temporal Chain of Video Primitives (TCoVP), a spatiotemporally grounded form of Video CoT that organizes query-relevant observations into a ",
    "authors": [
-    "Zheyu Zhang",
-    "Gjergji Kasneci"
+    "Junwei Wen",
+    "Deshui Miao",
+    "Guangming Lu",
+    "Ming-Hsuan Yang"
    ],
-   "link": "https://huggingface.co/papers/2610.16763",
+   "link": "https://huggingface.co/papers/2610.25090",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-12T00:00",
-   "title_ar": "التعلم العلائقي كنمذجة للعالم",
-   "summary_ar": "يتنبأ التعلم العلائقي عادةً بناءً على حالة قاعدة البيانات، لكن اتخاذ القرار يتطلب معرفة كيفية تغير تلك الحالة بفعل إجراءٍ ما. تعتمد الإجابة في الأنظمة التشغيلية على ديناميكيات خاصة بالنظام قد لا تكون ظاهرة في قاعدة البيانات نفسها، حيث ننظر إلى كل نظام من هذا القبيل كنموذج."
+   "published": "2026-10-18T00:00",
+   "title_ar": "التفكير بصريًا عبر المكان والزمان: الاستدلال المُرسَّخ لتقسيم الفيديو",
+   "summary_ar": "يتطلب تقسيم الفيديو القائم على الاستدلال من النموذج تحديد هدف موصوف ضمنيًا وتوقع مسار قناعه على مستوى البكسل، مع حل العلاقات المكانية والأحداث الزمنية المحددة للإجابة. يمكن لسلسلة الأفكار النصية فقط تفسير اختيار الهدف دون إجراء ذلك."
   },
   {
-   "id": "2610.22697",
-   "title": "What It Is, Not What It Says: Securing Agentic Browsing Interactions with Web Semantics",
-   "abstract": "AI agents increasingly browse the web on users' behalf, yet they consume webpages as screenshots or text, exposing their LLMs to unvetted third-party content. Browsers enforce semantics under which what an element can do depends on what it is and where it comes from, not on what it says. Agents flatten these semantics, so injected text can persuade the LLM to exercise the user's authority for content that has none. As LLMs remain easy to persuade, the agent's interface to the web must itself ensure the integrity of what the agent reads, interprets, and does. We propose Intact, which runs on an",
+   "id": "2610.26081",
+   "title": "DeOverlay: A Benchmark and Source-Anchored Flow for Video Overlay Removal",
+   "abstract": "Video overlay removal aims to recover scenes obscured by subtitles, titles, and logos while preserving surrounding content. Existing methods use temporal propagation or source-conditioned generation, but can leave residual overlays and distort scene structure when useful source information is obscured. We propose DeOverlay, a source-anchored flow model that reconstructs the clean video from the source latent with fixed source guidance. Specifically, we train a shared velocity network along paired source-to-clean paths using region-weighted flow matching, enabling successive cor- rections from ",
    "authors": [
-    "Umar Iqbal"
+    "Deshui Miao",
+    "Yuhang Ma",
+    "Shaoyong Jia",
+    "Wenzhao Gao"
    ],
-   "link": "https://huggingface.co/papers/2610.22697",
+   "link": "https://huggingface.co/papers/2610.26081",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-19T00:00",
+   "title_ar": "DeOverlay: معيار مرجعي وتدفق مُثبَّت بالمصدر لإزالة تراكبات الفيديو",
+   "summary_ar": "تهدف إزالة تراكبات الفيديو إلى استعادة المشاهد التي تحجبها الترجمات والعناوين والشعارات مع الحفاظ على المحتوى المحيط. تستخدم الأساليب الحالية النشر الزمني أو التوليد المشروط بالمصدر، لكنها قد تترك تراكبات متبقية وتشوّه بنية المشهد عند حجب معلومات المصدر المفيدة."
+  },
+  {
+   "id": "2610.26770",
+   "title": "HarnessPro: Recursive Harness Self-Improvement with Pareto Optimization for Performance-Cost Trade-offs",
+   "abstract": "Harness development plays a crucial role in building capable AI agents. Recent approaches improve harnesses through recursive self-improvement (RSI), but their performance gains often come with higher execution costs. We introduce HarnessPro, a label-free method for evolving harnesses to improve task performance while reducing execution cost. In this setting, candidate harnesses are evaluated using LLM-generated tests without access to ground-truth solutions or official tests. Specialized agents diagnose execution trajectories, plan updates with different performance-cost priorities, and imple",
+   "authors": [
+    "Zhuoshi Pan",
+    "ZhiYuan Feng",
+    "Yukuo Cen",
+    "Honglin Lin"
+   ],
+   "link": "https://huggingface.co/papers/2610.26770",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-19T00:00",
+   "title_ar": "HarnessPro: التحسين الذاتي التكراري لأطر العمل مع تحسين باريتو لموازنة الأداء والتكلفة",
+   "summary_ar": "يلعب تطوير أطر العمل (Harnesses) دورًا حاسمًا في بناء وكلاء ذكاء اصطناعي أكفاء، ورغم أن المقاربات الحديثة تحسنها عبر التحسين الذاتي التكراري، فإن مكاسب أدائها تقترن غالبًا بتكاليف تنفيذ أعلى. نُقدّم HarnessPro، وهي طريقة خالية من التسميات لتطوير أطر العمل بهدف تحسين المهام."
+  },
+  {
+   "id": "2610.20597",
+   "title": "Co-Evolving Acting and Forecasting for Language Agents",
+   "abstract": "Training language agents is bottlenecked by the high cost of long-horizon rollouts, yet standard agentic reinforcement learning (RL) learns only from a terminal scalar reward, leaving the supervision in intermediate steps largely unused. Prior work exploits this supervision through value targets that estimate per-step success probabilities or observation targets that fit environment response. Both are hard to construct well: (1) value targets come from the same single scalar signal for each step in the trajectory, and (2) observation targets, such as web pages and terminal logs, are long and n",
+   "authors": [
+    "Haofei Yu",
+    "Yixing Chen",
+    "Yining Zhao",
+    "Xuyan Ye"
+   ],
+   "link": "https://huggingface.co/papers/2610.20597",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-15T00:00",
-   "title_ar": "ماهيته لا ما يقوله: تأمين تفاعلات التصفح الوكيلة باستخدام دلالات الويب",
-   "summary_ar": "يتصفح وكلاء الذكاء الاصطناعي الويب نيابة عن المستخدمين بصورة متزايدة، غير أنهم يتعاملون مع الصفحات كلقطات شاشة أو نصوص، مما يعرض نماذجهم اللغوية الكبيرة لمحتوى غير مدقق من أطراف ثالثة. تفرض المتصفحات دلالات يعتمد فيها ما يمكن للعنصر فعله على ماهيته ومصدره لا على ما يقوله، بينما يتجاهل الوكلاء ذلك."
+   "title_ar": "التطور المشترك للتنفيذ والتنبؤ لوكلاء اللغة",
+   "summary_ar": "يواجه تدريب وكلاء اللغة عقبة التكلفة العالية لعمليات الاستكشاف طويلة المدى، ومع ذلك فإن التعلم التعزيزي القياسي للوكلاء يتعلم فقط من مكافأة قياسية نهائية تاركًا الإشراف في الخطوات الوسيطة غير مستغل إلى حد كبير. تستغل الأعمال السابقة هذا الإشراف من خلال أهداف القيمة."
   },
   {
-   "id": "2610.22306",
-   "title": "ARC-SORT: Adaptive, Robust, Compensated Multi-Object Tracking with Interacting Multiple Models",
-   "abstract": "Multi-object tracking in sports broadcasts is hard for two reasons: athletes move fast and change direction abruptly, and the camera pans and zooms at the same time. We present ARC-SORT (Adaptive, Robust, Compensated SORT), a tracking-by-detection tracker that trains nothing and runs in real time. Its design rule: the tracker measures its own uncertainty, and that measurement decides how it acts. An Interacting Multiple Model (IMM) Kalman filter gives every track a predictive covariance, and we turn it into a per-track search region: the less reliable the motion prediction, the larger the regi",
+   "id": "2610.21791",
+   "title": "RSIFlow: Adaptive Self-Improvement Workflows with an Evolving Meta-Agent",
+   "abstract": "Large language model (LLM) agents have demonstrated strong capabilities in complex tasks, including code generation, tool use, and multi-hop question answering. Existing self-improvement methods enhance agent performance through model optimization, harness evolution, and executable artifact refinement, while recursive self-improvement (RSI) further extends optimization to the improvement mechanisms themselves. However, adapting self-improvement workflows to evolving performance bottlenecks while improving workflow orchestration through execution feedback remains a key challenge. We propose RSI",
    "authors": [
-    "Girish Kumar Adari"
+    "Huan Zhang",
+    "Mingju Chen",
+    "Dongxu Zhou",
+    "Can Lv"
    ],
-   "link": "https://huggingface.co/papers/2610.22306",
+   "link": "https://huggingface.co/papers/2610.21791",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-15T00:00",
-   "title_ar": "ARC-SORT: تتبع متكيف ومتين ومعوض للأجسام المتعددة باستخدام نماذج تفاعلية متعددة",
-   "summary_ar": "يُعد تتبع الأجسام المتعددة في البث الرياضي صعبًا لتحرك الرياضيين بسرعة وتغير اتجاهاتهم فجأة، تزامنًا مع تحريك الكاميرا وتكبيرها. يُقدم البحث \"ARC-SORT\"، وهو متتبع يعتمد على الكشف دون الحاجة لأي تدريب ويعمل في الوقت الفعلي."
+   "title_ar": "RSIFlow: سير عمل تكيّفي للتحسين الذاتي مع وكيل فائق متطور",
+   "summary_ar": "أظهر وكلاء نماذج اللغة الكبيرة قدرات قوية في المهام المعقدة، بما في ذلك توليد الأكواد واستخدام الأدوات والإجابة عن الأسئلة متعددة الخطوات. تُعزز أساليب التحسين الذاتي الحالية أداء الوكيل من خلال تحسين النموذج، وتطوير أطر العمل، وتنقيح النواتج القابلة للتنفيذ."
   },
   {
-   "id": "2610.21482",
-   "title": "AI-Driven Disaster Response and Displacement Monitoring",
-   "abstract": "ARTIFICIAL INTELLIGENCE (AI) has demonstrated its potential across a wide range of humanitarian tasks, offering scalable and data-driven solutions to some of the world's most pressing challenges. For instance, in addressing climate change, AI-powered models are being used for faster and more accurate global weather forecasting, control and design of renewable energy, and monitoring deforestation. Machine learning algorithms analyze satellite imagery and socioeconomic data to predict poverty and promote sustainable development. AI has also transformed disaster response and conflict monitoring, ",
+   "id": "2610.25690",
+   "title": "ScaleNav: Scalable Internet Video Pretraining for Language-Conditioned Local Navigation",
+   "abstract": "We study language-conditioned local navigation, where a robot must navigate to a text-specified target visible in its initial observation and stop at the described location. End-to-end navigation policies require diverse training data to generalize across scenes, yet real-robot data is costly to collect and simulated data leaves a sim-to-real gap. Internet egocentric videos offer a scalable source of real-world navigation experience. Our key insight is to learn goal-directed visual dynamics from Internet egocentric videos, and use these dynamics to support robot action generation. To this end,",
    "authors": [
-    "Noora Al-Emadi",
-    "Muhammad Imran",
-    "Yin Yang",
-    "Ingmar Weber"
+    "Yihui Yang",
+    "Yuanhong Yu",
+    "Jiawei Wang",
+    "Zhongrui Yu"
    ],
-   "link": "https://huggingface.co/papers/2610.21482",
+   "link": "https://huggingface.co/papers/2610.25690",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-15T00:00",
-   "title_ar": "الاستجابة للكوارث ومراقبة النزوح المدفوعة بالذكاء الاصطناعي",
-   "summary_ar": "أظهر الذكاء الاصطناعي إمكاناته عبر مجموعة واسعة من المهام الإنسانية، مقدمًا حلولًا قابلة للتوسع وقائمة على البيانات لبعض أكثر تحديات العالم إلحاحًا. وعلى سبيل المثال، تُستخدم النماذج المدعومة بالذكاء الاصطناعي في مواجهة تغير المناخ لتحقيق نتائج أسرع وأكثر دقة."
-  },
-  {
-   "id": "2610.23279",
-   "title": "Xiaomi-Lens-0 Technical Report",
-   "abstract": "Multimodal large language models (MLLMs) answer questions about whole images well, yet they still struggle with fine-grained region understanding. A key reason is that text-only supervision never specifies which regions support an answer. To close this gap, we present Xiaomi-Lens-0, a 4B MLLM built on Qwen3.5 that predicts masks from its own visual representations. Specifically, a lightweight decoder combines vision-encoder patch features with visual latents, the language model's mask-token states, so mask supervision reaches the shared backbone without an additional segmentation encoder. Beca",
-   "authors": [
-    "Pei Fu",
-    "Yike Liu",
-    "Yue Sun",
-    "Hanmo Wang"
-   ],
-   "link": "https://huggingface.co/papers/2610.23279",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-16T00:00",
-   "title_ar": "التقرير التقني لـ Xiaomi-Lens-0",
-   "summary_ar": "تجيب النماذج اللغوية الكبيرة متعددة الوسائط عن الأسئلة المتعلقة بالصور الكاملة جيدًا، لكنها لا تزال تواجه صعوبة في فهم المناطق الدقيقة؛ ويعود ذلك أساسًا إلى أن الإشراف المعتمد على النصوص فقط لا يحدد المناطق الداعمة للإجابة. ولسد هذه الفجوة، يُقدم البحث Xiaomi-Lens-0، وهو نموذج لغوي كبير متعدد الوسائط بحجم 4 مليارات معامل."
-  },
-  {
-   "id": "2610.23751",
-   "title": "MTEdit: Packed Trajectories Beat Rollouts for Multi-Turn Image Editing",
-   "abstract": "Multi-turn image editing aims to modify an image according to a sequence of instructions, making it better aligned with human-AI collaborative creation than single-turn editing. However, constructing high-quality multi-turn training data remains challenging, as conventional sequential rollout accumulates errors and introduces visual-quality drift across editing turns. To address this challenge, we introduce MTEdit, a multi-turn image editing dataset built through a pipeline centered on packed trajectory canvas (PTC) generation. By jointly generating multiple editing states within a unified vis",
-   "authors": [
-    "Houyuan Chen",
-    "Fanzhou Wang",
-    "Xiangyu Fan",
-    "Songlin Yang"
-   ],
-   "link": "https://huggingface.co/papers/2610.23751",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-16T00:00",
-   "title_ar": "MTEdit: المسارات المجمعة تتفوق على عمليات الإطلاق المتسلسلة لتعديل الصور متعدد الجولات",
-   "summary_ar": "يهدف تعديل الصور متعدد الجولات إلى تعديل الصورة وفقًا لسلسلة من التعليمات، مما يجعله أكثر توافقًا مع الإبداع التعاوني بين الإنسان والذكاء الاصطناعي مقارنة بالتعديل أحادي الجولة. ومع ذلك، يظل بناء بيانات تدريب عالية الجودة لمهام الجولات المتعددة تحديًا؛ نظرًا لأن عمليات الإطلاق المتسلسلة التقليدية تتراكم فيها الأخطاء."
+   "published": "2026-10-19T00:00",
+   "title_ar": "ScaleNav: تدريب مسبق قابل للتوسع على مقاطع فيديو الإنترنت للملاحة المحلية المشروطة باللغة",
+   "summary_ar": "ندرس الملاحة المحلية المشروطة باللغة، حيث يتعين على الروبوت الانتقال إلى هدف محدد بنص ومرئي في ملاحظته الأولية والتوقف عند الموقع الموصوف. تتطلب سياسات الملاحة الشاملة من البداية إلى النهاية بيانات تدريب متنوعة للتعميم عبر مختلف المشاهد، إلا أن جمع بيانات الروبوتات الحقيقية مكلف."
   }
  ],
  "n": 6
