@@ -1,101 +1,108 @@
 {
- "updated": "2026-10-20T18:39+00:00",
+ "updated": "2026-10-21T08:19+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.22714",
-   "title": "First Passage Attention",
-   "abstract": "Augmenting softmax attention with forget gates typically relies on summing decay contributions along the key--query path. Because such accumulation is monotonic, these mechanisms cannot selectively erase intermediate context while preserving older, structurally relevant tokens. We propose First Passage Attention (FPA), which shifts from path summation to path extrema by lowering a key's logit proportionally to the deepest dip of a learned scalar field below that key's level over the intervening span. FPA encompasses the Forgetting Transformer (FoX) as a special case, and when the field and lev",
+   "id": "2610.22444",
+   "title": "Event-STVG: Spatio-Temporal Video Grounding for Long-Form Event Reasoning",
+   "abstract": "Spatio-Temporal Video Grounding (STVG) aims to jointly localize a target in space and time given a natural-language query. Despite continued advances, existing STVG benchmarks remain largely centered on localizing targets through instance-specific descriptions, leaving them largely decoupled from long-form reasoning increasingly emphasized in multimodal large language models (MLLMs). In this paper, we introduce Event-STVG, a task that shifts STVG from locating what is described toward event-level reasoning by unifying long-form context, repeated-event reasoning, event localization, role infere",
    "authors": [
-    "Yuxuan Liu"
+    "Yizhe Zhang",
+    "Xujia Wang",
+    "Songqi Tang",
+    "Xujie Tang"
    ],
-   "link": "https://huggingface.co/papers/2610.22714",
+   "link": "https://huggingface.co/papers/2610.22444",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-15T00:00",
-   "title_ar": "انتباه الممر الأول",
-   "summary_ar": "تعتمد زيادة انتباه دالة التوزيع اللين (softmax) ببوابات النسيان عادةً على جمع إسهامات التلاشي على طول مسار المفتاح والاستعلام. ونظرًا لأن هذا التراكم رتيب، تعجز هذه الآليات عن محو السياق الوسيط انتقائيًا مع الحفاظ على الرموز الأقدم ذات الصلة البنيوية، لذا نقترح \"انتباه الممر الأول\"."
+   "title_ar": "Event-STVG: التموضع المكاني الزماني في الفيديو للاستدلال على الأحداث الطويلة",
+   "summary_ar": "يهدف التموضع المكاني الزماني في الفيديو (STVG) إلى تحديد موقع الهدف مكانيًا وزمانيًا بالاعتماد على استعلام باللغة الطبيعية. ورغم التقدم المستمر، لا تزال المعايير الحالية للتموضع تركز إلى حد كبير على تحديد مواقع الأهداف عبر أوصاف خاصة بالحالات، مما يبقيها غير مرتبطة بـ."
   },
   {
-   "id": "2610.22894",
-   "title": "Competence-Based Evaluation of Logical Reasoning in Large Language Models",
-   "abstract": "Recent advances in large language models (LLMs) have brought impressive performance across diverse tasks; however, shortcomings remain in logical reasoning, including inconsistencies under linguistic variation. To improve the reasoning capacity of LLMs, we must be able to accurately measure their reasoning capacity. Current benchmarks primarily report single accuracy numbers on selected reasoning tasks. Such a performance-based evaluation methodology says little about a model's generalization capacity in reasoning. To address this limitation, we argue for a different evaluation paradigm, calle",
+   "id": "2610.24628",
+   "title": "Muse Glimmer 30B: An On-Device Agentic Model",
+   "abstract": "We introduce Muse Glimmer, an open-source 30B parameter causal language model with perception encoder, purpose-built for autonomous agentic tasks on consumer hardware. Muse Glimmer integrates multi-step reasoning, reliable tool use and failure recovery into a single model that runs locally on consumer devices without requiring cloud infrastructure. The model accepts text and image inputs and produces text outputs, was trained on data from over a hundred languages, and is quantized to approximately 4-bit precision for efficient single-GPU inference. Muse Glimmer achieves state-of-the-art perfor",
    "authors": [
-    "Jize Jiang",
-    "Chengxiang Zhai"
+    "Arash Ebrahim Abtahizadeh",
+    "Muna Aghamelu",
+    "Adil Ahmed",
+    "Juan C. Angeles Acuna"
    ],
-   "link": "https://huggingface.co/papers/2610.22894",
+   "link": "https://huggingface.co/papers/2610.24628",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-16T00:00",
-   "title_ar": "تقييم الاستدلال المنطقي في نماذج اللغة الكبيرة القائم على الكفاءة",
-   "summary_ar": "حققت التطورات الحديثة في نماذج اللغة الكبيرة أداءً مذهلاً عبر مهام متنوعة، ومع ذلك لا تزال هناك أوجه قصور في الاستدلال المنطقي تشمل التناقضات تحت تأثير التغير اللغوي. ولتحسين القدرة الاستدلالية لهذه النماذج، يجب أن نكون قادرين على قياس منطقها بدقة."
+   "published": "2026-10-17T00:00",
+   "title_ar": "Muse Glimmer 30B: نموذج وكيلي يعمل على الأجهزة",
+   "summary_ar": "نُقدّم Muse Glimmer، وهو نموذج لغوي سببي مفتوح المصدر يحتوي على 30 مليار معلمة مع مُشفِّر للإدراك، ومبني خصيصًا لمهام الوكلاء المستقلين على الأجهزة الاستهلاكية. يدمج النموذج الاستدلال متعدد الخطوات، والاستخدام الموثوق للأدوات، والتعافي من الفشل في نموذج واحد يعمل محليًا على الأجهزة الاستهلاكية."
   },
   {
-   "id": "2610.25159",
-   "title": "Legal Guidance in the Wild: How Users Seek Legal Help in Real-World LLM Conversations",
-   "abstract": "People ask conversational AI models about their legal rights, obligations, procedures, and personal situations that may have legal consequences. To study this behavior, we first need to distinguish requests for legal guidance from other legally themed discussions and unrelated conversations. We contribute a multi-axis taxonomy of legal queries capturing whether legal guidance is sought, how a request is formulated, and which legal domains it concerns; apply it to 2,122 naturally occurring WildChat-1M conversations; and create a human-reviewed gold evaluation set of 200 conversations. All annot",
+   "id": "2610.28632",
+   "title": "Joints, Camera, Action! Co-Generating 3D Motion and Video for Arbitrary Rigs",
+   "abstract": "Video generation models can now depict remarkably realistic motion. Yet it is unclear how to use this motion beyond pixels: to animate a specific 3D asset and replay the animation in its 3D scene. For instance, a video model can show a monkey jumping over a crossbar, but it cannot return that jump as replayable 3D motion placed in the 3D scene. Here we present a model that directly co-generates the video and 3D motion for any supplied rig, along with a camera that registers this motion to the scene. Prior video-motion models either handle only human skeletons, often adding billions of paramete",
    "authors": [
-    "Amirreza Mohseni",
-    "Gerasimos Spanakis"
+    "Noam Rotstein",
+    "Yoad Tewel",
+    "Chen Tessler",
+    "Haggai Maron"
    ],
-   "link": "https://huggingface.co/papers/2610.25159",
+   "link": "https://huggingface.co/papers/2610.28632",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-20T00:00",
+   "title_ar": "مفاصل، كاميرا، حركة! توليد مشترك للحركة ثلاثية الأبعاد والفيديو لأي هياكل",
+   "summary_ar": "تستطيع نماذج توليد الفيديو الآن تصوير حركة واقعية بشكل ملحوظ، ومع ذلك لا يزال من غير الواضح كيفية استخدام هذه الحركة بما يتجاوز وحدات البكسل لتحريك أصل ثلاثي الأبعاد محدد وإعادة تشغيل الحركة في مشهده. فعلى سبيل المثال، يمكن لنموذج الفيديو إظهار قرد يقفز فوق عارضة، ولكنه لا يستطيع إرجاع هذه القفزة كـ."
+  },
+  {
+   "id": "2610.27360",
+   "title": "On the Limits of Scale: Inverse Scaling in Vision-Language Models",
+   "abstract": "Scaling laws suggest that increasing model size, training data, and compute generally yields monotonic performance improvements. While this often holds at the aggregate level, we present systematic evidence that vision-language models (VLMs) exhibit inverse scaling at the subtask level: specific question categories on which larger models perform worse than smaller counterparts within the same model family. We evaluate 19 models from four distinct model families across eight multimodal benchmarks (nine evaluation splits), answering 29,386 questions per model, 558,334 model-question evaluations ",
+   "authors": [
+    "Rohit Saxena",
+    "Alessandro Suglia",
+    "Marek Rei",
+    "Pasquale Minervini"
+   ],
+   "link": "https://huggingface.co/papers/2610.27360",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-19T00:00",
+   "title_ar": "عن حدود التوسع: التوسع العكسي في نماذج الرؤية واللغة",
+   "summary_ar": "تشير قوانين التوسع إلى أن زيادة حجم النموذج وبيانات التدريب والحوسبة تؤدي عمومًا إلى تحسينات رتيبة في الأداء. ورغم صحة ذلك غالبًا على المستوى الإجمالي، فإننا نقدم أدلة منهجية تثبت أن نماذج الرؤية واللغة تُظهر توسعًا عكسيًا على مستوى المهام الفرعية لأسئلة محددة."
+  },
+  {
+   "id": "2610.26837",
+   "title": "SpecKCast: Spectral Kalman Forecasting for Diffusion Acceleration",
+   "abstract": "Diffusion Transformers (DiTs) achieve high-fidelity image and video generation, but they suffer from substantial inference costs due to repeated transformer evaluations across many denoising steps. Feature caching reduces this cost by reusing features across denoising steps. Recent forecasting methods extend this idea by extrapolating features to skipped steps instead of reusing them. However, existing forecasting methods extrapolate the features they predict uniformly, even though the spatial-frequency components of these features change most at different stages of denoising. They also overlo",
+   "authors": [
+    "Javad Rajabi",
+    "Hakki Can Karaimer",
+    "David B. Lindell",
+    "Babak Taati"
+   ],
+   "link": "https://huggingface.co/papers/2610.26837",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-19T00:00",
+   "title_ar": "SpecKCast: التنبؤ الطيفي بكالمان لتسريع نماذج الانتشار",
+   "summary_ar": "تُحقق محولات الانتشار (DiTs) توليدًا عالي الدقة للصور والفيديو، لكنها تعاني من تكاليف استدلال كبيرة ناتجة عن تقييمات المحول المتكررة عبر خطوات إزالة الضوضاء المتعددة. يُقلل التخزين المؤقت للميزات هذه التكلفة عن طريق إعادة استخدام الميزات عبر الخطوات، في حين أن طرق التنبؤ الحديثة."
+  },
+  {
+   "id": "2610.24944",
+   "title": "Epi: Towards a Persistent, Self-Improving Agent for Autonomous Research",
+   "abstract": "We present Épi, an autonomous research agent that sustains investigations across model sessions and evolves its methods through accumulated experience. Épi combines persistent research history, hierarchical memory, branching and independent review to maintain research continuity, learn from experiments, and explore and revisit alternative approaches. Its experiments run across session boundaries, and a fixed verifier evaluates their outputs. Épi produced 120 record-setting results, comprising 20 numerical bound records across 12 families and 100 construction records across eight families. Thes",
+   "authors": [
+    "Yue Huang",
+    "Zhangchen Xu",
+    "Xiaonan Luo",
+    "Zheyuan Liu"
+   ],
+   "link": "https://huggingface.co/papers/2610.24944",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-18T00:00",
-   "title_ar": "التوجيه القانوني في الواقع الفعلي: كيف يطلب المستخدمون المساعدة القانونية في محادثات نماذج اللغة الكبيرة الواقعية",
-   "summary_ar": "يسأل الناس نماذج الذكاء الاصطناعي التوليدي الحواري عن حقوقهم القانونية والتزاماتهم وإجراءاتهم ومواقفهم الشخصية التي قد تترتب عليها عواقب قانونية. ولدراسة هذا السلوك، نحتاج أولاً إلى التمييز بين طلبات التوجيه القانوني والمناقشات الأخرى ذات الطابع القانوني أو المحادثات غير ذات الصلة."
-  },
-  {
-   "id": "2610.22512",
-   "title": "Predicting Privileged Information Effectiveness for On-Policy Self-Distillation",
-   "abstract": "On-policy self-distillation (OPSD) enables large language models (LLMs) to learn from privileged information (PI) without a separate teacher model. However, prior work largely treats PI as a fixed design choice, leaving the effects of its content and construction poorly understood. This challenge is particularly important in multi-turn agentic settings, where trajectories contain actions, observations, and reasoning that can be transformed into PI in many ways. We systematically evaluate 16 PI configurations across three multi-turn agentic benchmarks and three student models that vary in scale",
-   "authors": [
-    "Kaijian Zou",
-    "Emiliano Penaloza",
-    "MohammadHossein Rezaei",
-    "Anisha Gunjal"
-   ],
-   "link": "https://huggingface.co/papers/2610.22512",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-15T00:00",
-   "title_ar": "التنبؤ بفعالية المعلومات المميزة للتقطير الذاتي على أساس السياسة الحالية",
-   "summary_ar": "يتيح التقطير الذاتي على أساس السياسة الحالية (OPSD) لنماذج اللغة الكبيرة التعلم من المعلومات المميزة (PI) دون الحاجة لنموذج معلّم منفصل. ومع ذلك، تعاملت الأعمال السابقة إلى حد كبير مع هذه المعلومات كخيار تصميمي ثابت، مما ترك آثار محتواها وبنائها غير مفهومة جيداً."
-  },
-  {
-   "id": "2610.22636",
-   "title": "Measuring Mechanistic Uncertainty in Large Language Models via Causal Robustness",
-   "abstract": "Large language models (LLMs) are increasingly used in critical domains, where their susceptibility to hallucinations makes reliable and interpretable uncertainty quantification essential. We introduce the concept of mechanistic uncertainty, which characterizes uncertainty through the stability of the internal mechanisms supporting a model's response. We propose the causal robustness margin, defined as the minimum internal intervention required to deviate the model's output, and operationalize it using Jacobian Lens (Jlens) concept steering vectors. Across three open-source models and five ques",
-   "authors": [
-    "Aneesh Komanduri",
-    "Majid Afshar",
-    "Timothy A. Miller",
-    "Yanjun Gao"
-   ],
-   "link": "https://huggingface.co/papers/2610.22636",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-15T00:00",
-   "title_ar": "قياس عدم اليقين الآلي في نماذج اللغة الكبيرة عبر المتانة السببية",
-   "summary_ar": "يتزايد استخدام نماذج اللغة الكبيرة في المجالات الحساسة؛ حيث يجعلها تعرضها للهلوسة بحاجة ماسة لقياس موثوق وقابل للتفسير لعدم اليقين. ونقدم هنا مفهوم \"عدم اليقين الآلي\"، والذي يصف عدم اليقين من خلال استقرار النموذج."
-  },
-  {
-   "id": "2610.25525",
-   "title": "StopLoss: Teaching Agents to Predict Failure and Stop Early",
-   "abstract": "Coding agents keep working on runs that will fail verification, and asking a frontier model to watch for this is expensive in its own right. We introduce StopLoss, a small external monitor that learns failure recognition from completed trajectories and their verifier outcomes. The name is inspired by the stop-loss order in finance: StopLoss ends a run early when the run is likely to fail, which saves resources. Final outcomes label earlier local windows, so a fine-tuned language model can score the most recent tool steps in a single forward pass, and a threshold calibrated on successful runs t",
-   "authors": [
-    "Jiarong Liang",
-    "Xueguang Ma",
-    "Dongfu Jiang",
-    "Yuxuan Zhang"
-   ],
-   "link": "https://huggingface.co/papers/2610.25525",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-18T00:00",
-   "title_ar": "وقف الخسارة (StopLoss): تعليم الوكلاء التنبؤ بالفشل والتوقف مبكرًا",
-   "summary_ar": "تستمر وكلاء البرمجة في العمل على مسارات ستفشل في التحقق، كما أن مطالبة نموذج رائد بمراقبة ذلك أمر مكلف بحد ذاته. لذلك نقدم StopLoss، وهو مراقب خارجي صغير يتعلم التعرف على الفشل من المسارات المكتملة ونتائج التحقق الخاصة بها."
+   "title_ar": "Epi: نحو وكيل مستمر وذاتي التحسين للبحث المستقل",
+   "summary_ar": "نُقدّم Épi، وهو وكيل بحثي مستقل يواصل الاستقصاءات عبر جلسات النموذج المتعددة ويطور أساليبه من خلال الخبرة المتراكمة. يجمع Épi بين تاريخ البحث المستمر، والذاكرة الهرمية، والتفرع، والمراجعة المستقلة للحفاظ على استمرارية البحث والتعلم من التجارب."
   }
  ],
  "n": 6
