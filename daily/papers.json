@@ -1,108 +1,108 @@
 {
- "updated": "2026-10-21T08:19+00:00",
+ "updated": "2026-10-21T20:19+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.22444",
-   "title": "Event-STVG: Spatio-Temporal Video Grounding for Long-Form Event Reasoning",
-   "abstract": "Spatio-Temporal Video Grounding (STVG) aims to jointly localize a target in space and time given a natural-language query. Despite continued advances, existing STVG benchmarks remain largely centered on localizing targets through instance-specific descriptions, leaving them largely decoupled from long-form reasoning increasingly emphasized in multimodal large language models (MLLMs). In this paper, we introduce Event-STVG, a task that shifts STVG from locating what is described toward event-level reasoning by unifying long-form context, repeated-event reasoning, event localization, role infere",
+   "id": "2610.25459",
+   "title": "BiDex-100: A Comprehensive Benchmark for Bimanual Dexterous Manipulation Across 100+ Simulation Tasks",
+   "abstract": "Bimanual manipulation with dexterous hands has attracted growing attention in research on robotic action models. However, few studies have developed benchmarks specifically tailored for dexterous manipulation, leaving the dexterous manipulation capabilities of existing models insufficiently characterized. In this paper, we present BiDex-100, a simulation benchmark for bimanual dexterous manipulation that combines broad task coverage, multi-dimensional evaluation, and high-DoF hand embodiments. Concretely, the benchmark comprises 106 tasks organized along five capability axes: generalization, i",
    "authors": [
-    "Yizhe Zhang",
-    "Xujia Wang",
-    "Songqi Tang",
-    "Xujie Tang"
+    "Yong Wang",
+    "Kecheng Zheng",
+    "Xing Zhu",
+    "Chao Xu"
    ],
-   "link": "https://huggingface.co/papers/2610.22444",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-15T00:00",
-   "title_ar": "Event-STVG: التموضع المكاني الزماني في الفيديو للاستدلال على الأحداث الطويلة",
-   "summary_ar": "يهدف التموضع المكاني الزماني في الفيديو (STVG) إلى تحديد موقع الهدف مكانيًا وزمانيًا بالاعتماد على استعلام باللغة الطبيعية. ورغم التقدم المستمر، لا تزال المعايير الحالية للتموضع تركز إلى حد كبير على تحديد مواقع الأهداف عبر أوصاف خاصة بالحالات، مما يبقيها غير مرتبطة بـ."
-  },
-  {
-   "id": "2610.24628",
-   "title": "Muse Glimmer 30B: An On-Device Agentic Model",
-   "abstract": "We introduce Muse Glimmer, an open-source 30B parameter causal language model with perception encoder, purpose-built for autonomous agentic tasks on consumer hardware. Muse Glimmer integrates multi-step reasoning, reliable tool use and failure recovery into a single model that runs locally on consumer devices without requiring cloud infrastructure. The model accepts text and image inputs and produces text outputs, was trained on data from over a hundred languages, and is quantized to approximately 4-bit precision for efficient single-GPU inference. Muse Glimmer achieves state-of-the-art perfor",
-   "authors": [
-    "Arash Ebrahim Abtahizadeh",
-    "Muna Aghamelu",
-    "Adil Ahmed",
-    "Juan C. Angeles Acuna"
-   ],
-   "link": "https://huggingface.co/papers/2610.24628",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-17T00:00",
-   "title_ar": "Muse Glimmer 30B: نموذج وكيلي يعمل على الأجهزة",
-   "summary_ar": "نُقدّم Muse Glimmer، وهو نموذج لغوي سببي مفتوح المصدر يحتوي على 30 مليار معلمة مع مُشفِّر للإدراك، ومبني خصيصًا لمهام الوكلاء المستقلين على الأجهزة الاستهلاكية. يدمج النموذج الاستدلال متعدد الخطوات، والاستخدام الموثوق للأدوات، والتعافي من الفشل في نموذج واحد يعمل محليًا على الأجهزة الاستهلاكية."
-  },
-  {
-   "id": "2610.28632",
-   "title": "Joints, Camera, Action! Co-Generating 3D Motion and Video for Arbitrary Rigs",
-   "abstract": "Video generation models can now depict remarkably realistic motion. Yet it is unclear how to use this motion beyond pixels: to animate a specific 3D asset and replay the animation in its 3D scene. For instance, a video model can show a monkey jumping over a crossbar, but it cannot return that jump as replayable 3D motion placed in the 3D scene. Here we present a model that directly co-generates the video and 3D motion for any supplied rig, along with a camera that registers this motion to the scene. Prior video-motion models either handle only human skeletons, often adding billions of paramete",
-   "authors": [
-    "Noam Rotstein",
-    "Yoad Tewel",
-    "Chen Tessler",
-    "Haggai Maron"
-   ],
-   "link": "https://huggingface.co/papers/2610.28632",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-20T00:00",
-   "title_ar": "مفاصل، كاميرا، حركة! توليد مشترك للحركة ثلاثية الأبعاد والفيديو لأي هياكل",
-   "summary_ar": "تستطيع نماذج توليد الفيديو الآن تصوير حركة واقعية بشكل ملحوظ، ومع ذلك لا يزال من غير الواضح كيفية استخدام هذه الحركة بما يتجاوز وحدات البكسل لتحريك أصل ثلاثي الأبعاد محدد وإعادة تشغيل الحركة في مشهده. فعلى سبيل المثال، يمكن لنموذج الفيديو إظهار قرد يقفز فوق عارضة، ولكنه لا يستطيع إرجاع هذه القفزة كـ."
-  },
-  {
-   "id": "2610.27360",
-   "title": "On the Limits of Scale: Inverse Scaling in Vision-Language Models",
-   "abstract": "Scaling laws suggest that increasing model size, training data, and compute generally yields monotonic performance improvements. While this often holds at the aggregate level, we present systematic evidence that vision-language models (VLMs) exhibit inverse scaling at the subtask level: specific question categories on which larger models perform worse than smaller counterparts within the same model family. We evaluate 19 models from four distinct model families across eight multimodal benchmarks (nine evaluation splits), answering 29,386 questions per model, 558,334 model-question evaluations ",
-   "authors": [
-    "Rohit Saxena",
-    "Alessandro Suglia",
-    "Marek Rei",
-    "Pasquale Minervini"
-   ],
-   "link": "https://huggingface.co/papers/2610.27360",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-19T00:00",
-   "title_ar": "عن حدود التوسع: التوسع العكسي في نماذج الرؤية واللغة",
-   "summary_ar": "تشير قوانين التوسع إلى أن زيادة حجم النموذج وبيانات التدريب والحوسبة تؤدي عمومًا إلى تحسينات رتيبة في الأداء. ورغم صحة ذلك غالبًا على المستوى الإجمالي، فإننا نقدم أدلة منهجية تثبت أن نماذج الرؤية واللغة تُظهر توسعًا عكسيًا على مستوى المهام الفرعية لأسئلة محددة."
-  },
-  {
-   "id": "2610.26837",
-   "title": "SpecKCast: Spectral Kalman Forecasting for Diffusion Acceleration",
-   "abstract": "Diffusion Transformers (DiTs) achieve high-fidelity image and video generation, but they suffer from substantial inference costs due to repeated transformer evaluations across many denoising steps. Feature caching reduces this cost by reusing features across denoising steps. Recent forecasting methods extend this idea by extrapolating features to skipped steps instead of reusing them. However, existing forecasting methods extrapolate the features they predict uniformly, even though the spatial-frequency components of these features change most at different stages of denoising. They also overlo",
-   "authors": [
-    "Javad Rajabi",
-    "Hakki Can Karaimer",
-    "David B. Lindell",
-    "Babak Taati"
-   ],
-   "link": "https://huggingface.co/papers/2610.26837",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-19T00:00",
-   "title_ar": "SpecKCast: التنبؤ الطيفي بكالمان لتسريع نماذج الانتشار",
-   "summary_ar": "تُحقق محولات الانتشار (DiTs) توليدًا عالي الدقة للصور والفيديو، لكنها تعاني من تكاليف استدلال كبيرة ناتجة عن تقييمات المحول المتكررة عبر خطوات إزالة الضوضاء المتعددة. يُقلل التخزين المؤقت للميزات هذه التكلفة عن طريق إعادة استخدام الميزات عبر الخطوات، في حين أن طرق التنبؤ الحديثة."
-  },
-  {
-   "id": "2610.24944",
-   "title": "Epi: Towards a Persistent, Self-Improving Agent for Autonomous Research",
-   "abstract": "We present Épi, an autonomous research agent that sustains investigations across model sessions and evolves its methods through accumulated experience. Épi combines persistent research history, hierarchical memory, branching and independent review to maintain research continuity, learn from experiments, and explore and revisit alternative approaches. Its experiments run across session boundaries, and a fixed verifier evaluates their outputs. Épi produced 120 record-setting results, comprising 20 numerical bound records across 12 families and 100 construction records across eight families. Thes",
-   "authors": [
-    "Yue Huang",
-    "Zhangchen Xu",
-    "Xiaonan Luo",
-    "Zheyuan Liu"
-   ],
-   "link": "https://huggingface.co/papers/2610.24944",
+   "link": "https://huggingface.co/papers/2610.25459",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-18T00:00",
-   "title_ar": "Epi: نحو وكيل مستمر وذاتي التحسين للبحث المستقل",
-   "summary_ar": "نُقدّم Épi، وهو وكيل بحثي مستقل يواصل الاستقصاءات عبر جلسات النموذج المتعددة ويطور أساليبه من خلال الخبرة المتراكمة. يجمع Épi بين تاريخ البحث المستمر، والذاكرة الهرمية، والتفرع، والمراجعة المستقلة للحفاظ على استمرارية البحث والتعلم من التجارب."
+   "title_ar": "BiDex-100: معيار شامل للتلاعب اليدوي البارع بكلتا اليدين عبر أكثر من 100 مهمة محاكاة",
+   "summary_ar": "يجذب التلاعب بكلتا اليدين باستخدام أيدٍ بارعة اهتمامًا متزايدًا في أبحاث نماذج الأفعال الروبوتية، لكن قلة من الدراسات طوّرت معايير مخصصة له تحديدًا. ونتيجة لذلك، تظل قدرات التلاعب البارع للنماذج الحالية غير موصوفة بشكل كافٍ."
+  },
+  {
+   "id": "2610.28069",
+   "title": "Training the Whole Agent, Not Just the Model",
+   "abstract": "Training coding agents typically updates the policy while keeping the harness fixed. During training, trajectories reveal flawed repair strategies and interaction problems that vary across tasks and change as the policy learns. We introduce HarnessAdapt-RL, which trains the policy and adapts its harness during reinforcement learning. For flawed repair strategies, a frozen teacher generates task-specific mechanism-level skills. For interaction problems recurring across tasks, a separate teacher model evolves tools and hooks, keeping each change only if it improves the observed pass rate or the ",
+   "authors": [
+    "Lingxiao Tang",
+    "Wei Tao",
+    "Yiwen Guo",
+    "Lingfeng Bao"
+   ],
+   "link": "https://huggingface.co/papers/2610.28069",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-20T00:00",
+   "title_ar": "تدريب الوكيل بأكمله، وليس النموذج فحسب",
+   "summary_ar": "يُحدِّث تدريب وكلاء البرمجة السياسةَ عادةً مع إبقاء إطار الاختبار ثابتًا، بينما تكشف المسارات أثناء التدريب عن استراتيجيات إصلاح معيبة ومشاكل تفاعل تتغير مع تعلم السياسة. نُقدّم HarnessAdapt-RL، الذي يُدرّب السياسة ويُكيّف إطارها في الوقت نفسه."
+  },
+  {
+   "id": "2610.24519",
+   "title": "Axiomatic World Modeling for Physics Reasoning",
+   "abstract": "Recent research-level physics-reasoning benchmarks for LLMs reveal a failure mode that lies not in knowledge or execution, but in modeling the world being reasoned about. Models often silently alter given quantities, fabricate laws, or inject unstated assumptions to force a problem into familiar patterns, and then reason inside this corrupted world. We define this premise-level divergence as modeling drift: the gap between a model's internal axiomatic world model (AWM) and the true physical world specified in the problem. Although RLVR and PRM have yielded substantial gains in mathematics and ",
+   "authors": [
+    "Xinye Yang",
+    "Zhenyang Liu",
+    "Yuxuan Wang",
+    "Yuanyuan Lei"
+   ],
+   "link": "https://huggingface.co/papers/2610.24519",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-17T00:00",
+   "title_ar": "نمذجة العالم البديهية للاستدلال الفيزيائي",
+   "summary_ar": "تكشف معايير الاستدلال الفيزيائي البحثية لنماذج اللغة الكبيرة عن نمط فشل لا يكمن في المعرفة أو التنفيذ، بل في نمذجة العالم الجاري الاستدلال بشأنه. غالبًا ما تُغيّر النماذج الكميات المعطاة بصمت، أو تختلق قوانين، أو تُقحم افتراضات غير مصرح بها لحصر المشكلة في أنماط مألوفة."
+  },
+  {
+   "id": "2610.27914",
+   "title": "World Models with Configurable Perception",
+   "abstract": "Real-world observations are noisy and often contain excessive task-irrelevant information. Effective world modeling and planning need to abstract observations into world state representations while filtering out irrelevant information. However, encoders in existing world models are typically non-adaptive, leading to state representations that are easily distracted by task-irrelevant information. As a result, the model may not selectively filter observations to cater to different task demands. To address this problem, we introduce ConfigWM, which realizes configurable perception through task-co",
+   "authors": [
+    "Yijun Shen",
+    "Delong Chen",
+    "Xianming Hu",
+    "Kai Zhang"
+   ],
+   "link": "https://huggingface.co/papers/2610.27914",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-20T00:00",
+   "title_ar": "نماذج العالم ذات الإدراك القابل للضبط",
+   "summary_ar": "تتسم ملاحظات العالم الحقيقي بكونها مشوشة وتحتوي غالبًا على معلومات مفرطة لا صلة لها بالمهمة، مما يتطلب تجريدها لتصفية ما هو غير ذي صلة من أجل التخطيط ونمذجة العالم بفعالية. ومع ذلك، فإن المشفرات في نماذج العالم الحالية عادة ما تكون غير قابلة للتكيف."
+  },
+  {
+   "id": "2610.23400",
+   "title": "On the Tip of the Tongue: First-Token Cueing as a Behavioral Probe of Recall Failures in LLMs",
+   "abstract": "Large language models often answer factual questions incorrectly in closed-book settings, and such errors are usually attributed to missing knowledge. Yet models often encode answers they fail to produce. We show that many closed-book errors are first-token recall failures: the model commits to a wrong first token, but once given the right one it completes the answer and often recognizes it as correct. We study this with First-Token Cueing, a behavioral probe that prefills the response with the first token of the gold answer. Model uncertainty peaks at the first answer token, where it already ",
+   "authors": [
+    "Jaewon Sok",
+    "Jewon Yeom",
+    "Seonghyeon Park",
+    "Jeongjae Park"
+   ],
+   "link": "https://huggingface.co/papers/2610.23400",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-16T00:00",
+   "title_ar": "على طرف اللسان: التلميح بالرمز الأول كمسبار سلوكي لإخفاقات الاسترجاع في نماذج اللغة الكبيرة",
+   "summary_ar": "تُخطئ نماذج اللغة الكبيرة غالبًا في الإجابة عن الأسئلة الواقعية في بيئات الكتاب المغلق، وتُعزى هذه الأخطاء عادة إلى نقص المعرفة رغم تشفير النماذج للإجابات أحيانًا. نُبيّن أن العديد من أخطاء الكتاب المغلق هي إخفاقات في استرجاع الرمز الأول، حيث يلتزم النموذج ببداية خاطئة."
+  },
+  {
+   "id": "2610.28388",
+   "title": "Self-Credit: Credit Assignment for Long-Horizon Agentic RL via Intra-group Rescaling",
+   "abstract": "LLM agents are commonly trained with RLVR, but the sparse nature of typical RLVR rewards makes credit assignment challenging, especially for long-horizon tasks. We propose Self-Credit, an end-to-end agentic RL method that creates dense supervision signals from sparse outcome rewards using self-generated credit assignment via intra-group rescaling. Self-Credit builds on group-based RL with three components. First, during its rollouts, the policy model generates summaries with citations to earlier turns containing critical evidence, which serve as self-generated credit. Second, we refine this mo",
+   "authors": [
+    "Fangcong Yin",
+    "Ming Yin",
+    "Tanvi Bhandarkar",
+    "Aashu Singh"
+   ],
+   "link": "https://huggingface.co/papers/2610.28388",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-20T00:00",
+   "title_ar": "Self-Credit: إسناد الفضل للتعلم التعزيزي القائم على الوكلاء للمهام طويلة الأمد عبر إعادة القياس داخل المجموعة",
+   "summary_ar": "يُدرَّب وكلاء نماذج اللغة الكبيرة عادةً باستخدام التعلم التعزيزي مع التحقق من النتائج، إلا أن المكافآت الشحيحة تجعل إسناد الفضل تحديًا، لا سيما في المهام طويلة الأمد. نقترح Self-Credit، وهي طريقة تعلم تعزيزي شاملة للوكلاء تُنشئ إشارات إشرافية كثيفة من مكافآت النتائج الشحيحة بالاعتماد على التوليد الذاتي."
   }
  ],
  "n": 6
