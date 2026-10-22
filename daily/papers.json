@@ -1,107 +1,107 @@
 {
- "updated": "2026-10-22T08:25+00:00",
+ "updated": "2026-10-22T22:08+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.26659",
-   "title": "SpatialScout: Can VLM Agents Actively Explore and Map 3D Scenes?",
-   "abstract": "Spatial intelligence requires agents to actively acquire visual evidence and integrate observations into a coherent representation of the three-dimensional world. Yet spatial question answering offers limited evidence of whether models can construct accurate metric maps through autonomous exploration. We introduce SpatialScout, a benchmark for evaluating vision-language model (VLM) agents on active object-level 3D mapping. SpatialScout comprises 80 diverse indoor scenes containing 3,140 target objects. Given an object inventory, RGB observations, camera calibration, and camera poses, agents co",
+   "id": "2610.28940",
+   "title": "StyleStream 2.0: Fast and Controllable Streaming Voice Style Conversion",
+   "abstract": "Voice style conversion (VSC) aims to transform a source utterance to match the timbre, accent, and emotion of a target voice while preserving linguistic content. StyleStream 1.0 introduced the first streamable zero-shot VSC system with state-of-the-art conversion quality, but remained limited in two ways: approximately 1s end-to-end latency on consumer hardware, and the lack of a text-based interface for designing or editing target voices. We present StyleStream 2.0, a fast and controllable streaming VSC framework that addresses these limitations. To reduce latency, we train a few-step pixel M",
    "authors": [
-    "Zhaoxi Zhang",
-    "Hao Liang",
-    "Linxuan Wu",
-    "Yiming Wu"
+    "Yisi Liu",
+    "Nicholas Lee",
+    "Gopala K. Anumanchipalli"
    ],
-   "link": "https://huggingface.co/papers/2610.26659",
+   "link": "https://huggingface.co/papers/2610.28940",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-20T00:00",
+   "title_ar": "ستايل ستريم 2.0: تحويل سريع وقابل للتحكم لأسلوب الصوت في الوقت الفعلي",
+   "summary_ar": "يهدف تحويل أسلوب الصوت إلى تعديل منطوق المصدر ليطابق جرس الصوت المستهدف ولهجته وعاطفته مع الحفاظ على المحتوى اللغوي. قدّم \"ستايل ستريم 1.0\" أول نظام لتحويل أسلوب الصوت في الوقت الفعلي ودون أمثلة مسبقة وبجودة رائدة، ولكنه ظل محدودًا في جانبين."
+  },
+  {
+   "id": "2610.29932",
+   "title": "FrontierCS 2: A Benchmark for Computer Science R&D",
+   "abstract": "Can LLM agents make contributions to frontier computer science R&D? We introduce FrontierCS 2, a benchmark of 48 open-ended tasks. We take a paper and the code its authors released and delete the paper's contribution. The deleted code becomes the human reference that sets the bar. Earlier open-ended benchmarks give each agent a problem statement and grade one program after the run. FrontierCS 2 places the agent inside a research environment. The agent inherits a working repository and may submit a patch at any point. For each patch, a judge returns a development-suite score but keeps the evalu",
+   "authors": [
+    "Qiuyang Mang",
+    "Wenhao Chai",
+    "Runyuan He",
+    "Dongruixuan Li"
+   ],
+   "link": "https://huggingface.co/papers/2610.29932",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-21T00:00",
+   "title_ar": "فرونتير سي إس 2: معيار مرجعي للبحث والتطوير في علوم الحاسوب",
+   "summary_ar": "يبحث هذا العمل فيما إذا كان بإمكان وكلاء النماذج اللغوية الكبيرة المساهمة في طليعة البحث والتطوير في علوم الحاسوب، عبر تقديم \"فرونتير سي إس 2\" الذي يضم 48 مهمة مفتوحة. يعتمد المعيار على أخذ ورقة بحثية وكودها البرمجي وحذف المساهمة البحثية ليصبح هذا الكود المحذوف هو المرجع البشري المحدد للمستوى."
+  },
+  {
+   "id": "2610.23344",
+   "title": "Language Models Learn to Improve Language Models",
+   "abstract": "Large language models (LLMs) are increasingly used to automate AI research, including language-model (LM) development, offering a potential path toward recursive self-improvement. However, turning experimental feedback into a learned ability to propose effective improvements across models faces two challenges. First, training such an ability with real feedback is expensive: reinforcement learning (RL) requires evaluating tens of thousands of proposals, each potentially requiring a full model-training run. Even at ten GPU-hours per run, reward collection alone would consume hundreds of thousand",
+   "authors": [
+    "Minhua Lin",
+    "Zijun Wang",
+    "Zewen Liu",
+    "Zhaotian Weng"
+   ],
+   "link": "https://huggingface.co/papers/2610.23344",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-16T00:00",
+   "title_ar": "النماذج اللغوية تتعلم تحسين النماذج اللغوية",
+   "summary_ar": "يتزايد استخدام النماذج اللغوية الكبيرة لأتمتة أبحاث الذكاء الاصطناعي بما في ذلك تطوير النماذج اللغوية، مما يفتح مسارًا نحو التحسين الذاتي المتكرر. ومع ذلك، يواجه تحويل التغذية الراجعة التجريبية إلى قدرة مكتسبة لاقتراح تحسينات فعالة عبر النماذج عقبتين."
+  },
+  {
+   "id": "2610.28679",
+   "title": "VerifierBench: Benchmarking the Generation of Executable Verifiers for LLM Agents",
+   "abstract": "Agents need reliable ways to validate their outputs, both when completing tasks and when filtering synthetic training data. We study verifier generation: from the instruction and environment available for solving a task, an agent writes an executable verifier that must accept every valid solution and reject invalid ones. We introduce VerifierBench, a benchmark of 222 tasks from six agent benchmarks spanning tool-call, state-based, and code verification, with 4,993 hidden test cases that include alternative valid solutions and attacks; Verifier4Verifier (V4V), a six-check audit, screens its sou",
+   "authors": [
+    "Jianing Yin",
+    "Ziyi Chen",
+    "Hao Wang",
+    "Yiyou Sun"
+   ],
+   "link": "https://huggingface.co/papers/2610.28679",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-19T00:00",
-   "title_ar": "سبيشال سكاوت: هل يمكن لوكلاء نماذج الرؤية واللغة الاستكشاف النشط ورسم خرائط للمشاهد ثلاثية الأبعاد؟",
-   "summary_ar": "يتطلب الذكاء المكاني من الوكلاء جمع الأدلة البصرية بنشاط ودمج الملاحظات في تمثيل متماسك للعالم ثلاثي الأبعاد. ومع ذلك، فإن الإجابة عن الأسئلة المكانية تقدم دليلاً محدوداً حول ما إذا كان بإمكان النماذج بناء خرائط مترية دقيقة من خلال الاستكشاف الذاتي."
+   "title_ar": "فيريفاير بنش: تقييم معياري لتوليد مُدقِّقات قابلة للتنفيذ لوكلاء النماذج اللغوية الكبيرة",
+   "summary_ar": "يحتاج الوكلاء إلى طرق موثوقة للتحقق من مخرجاتهم عند إنجاز المهام وتصفية بيانات التدريب التركيبية. تدرس الورقة توليد المُدقِّقات، حيث يكتب الوكيل—بناءً على تعليمات المهمة وبيئتها—مُدقِّقًا قابلًا للتنفيذ يجب عليه قبول كل حل صحيح."
   },
   {
-   "id": "2610.29560",
-   "title": "From VLM Planners to Robotic Agents: Self-Evolving Harnesses for History-Dependent Manipulation",
-   "abstract": "Vision-language-action (VLA) models achieve strong performance across embodied manipulation tasks by unifying visual understanding, language conditioning, and action generation. However, long-horizon tasks can involve non-Markovian dependencies: successful decisions may require retaining task progress and past interaction outcomes, while partial observability and execution errors compound over time. Existing work has begun to address these challenges by augmenting foundation-model policies with memory and by introducing hierarchical architectures that separate high-level planning from low-leve",
+   "id": "2610.30066",
+   "title": "Looped Uniform Diffusion Language Models",
+   "abstract": "Uniform diffusion language models (UDLMs) generate text by iteratively denoising sequences of ordinary vocabulary tokens, any of which may be corrupted and subsequently revised. During training, UDLMs must denoise from a context that may itself be unreliable, whereas masked diffusion language models (MDLMs) always condition on a clean context. This challenging training objective makes UDLMs more FLOP-intensive to train than MDLMs, but it yields stronger downstream reasoning performance. Recently, selective looping, which recursively applies a few early Transformer layers within each denoising ",
    "authors": [
-    "Tingwen Du",
-    "Haoyu Guo",
-    "Hanxue Zhang",
-    "Xuanxu Wang"
+    "Saiteja Utpala",
+    "Chieh-Hsin Lai",
+    "Yuki Mitsufuji",
+    "Praneeth Vepakomma"
    ],
-   "link": "https://huggingface.co/papers/2610.29560",
+   "link": "https://huggingface.co/papers/2610.30066",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-21T00:00",
-   "title_ar": "من مخططات نماذج الرؤية واللغة إلى وكلاء الروبوت: أطر ذاتية التطوير للتحكم المعتمد على السجل التاريخي",
-   "summary_ar": "تحقق نماذج الرؤية واللغة والعمل أداءً قوياً في مهام المعالجة والتوجيه المتجسدة من خلال توحيد الفهم البصري والتكييف اللغوي وتوليد الأفعال. غير أن المهام طويلة المدى قد تنطوي على تبعيات غير ماركوفية، حيث قد تتطلب القرارات الناجحة الاحتفاظ بسير تقدم المهمة."
+   "title_ar": "نماذج الانتشار اللغوية المنتظمة ذات الحلقات المكررة",
+   "summary_ar": "تُولِّد نماذج الانتشار اللغوية المنتظمة النصوص عن طريق إزالة الضوضاء تكراريًا من تسلسلات مفردات عادية قد يتعرض أيٌّ منها للتشويه والتعديل لاحقًا. يجب على هذه النماذج أثناء التدريب إزالة الضوضاء من سياق قد يكون غير موثوق بحد ذاته، على عكس نماذج انتشار القناع اللغوية."
   },
   {
-   "id": "2610.13177",
-   "title": "CompactSplat: Spatially Adaptive Gaussian Distribution for Feedforward Scene Reconstruction",
-   "abstract": "Reconstructing 3D scenes from sparse views without per-scene optimization remains highly challenging, especially for recovering accurate geometry and fine textures. While recent feedforward approaches leverage generalizable 3D Gaussian Splatting (3DGS) for scene generation, they typically assign one or multiple Gaussians to each pixel. Such uniform allocation not only produces highly redundant representations by wasting primitives in homogeneous areas, but also fails to exploit the inherent geometric priors of planar surfaces, often resulting in sub-optimal structural modeling. To address thes",
+   "id": "2610.27861",
+   "title": "RoboCasa-Shift: Stage-Aware Robustness Evaluation of Vision-Language-Action Policies in Long-Horizon Household Manipulation",
+   "abstract": "Vision-language-action (VLA) robustness is commonly summarized by aggregate task success, which obscures how individual executions change under distribution shifts and where failures emerge in long-horizon tasks. We introduce RoboCasa-Shift, a diagnostic robustness benchmark built on RoboCasa365 that combines controlled single-factor shifts, matched clean-perturbed rollouts in which each pair shares the same underlying settings and differs only in the target shift, and simulator-grounded stage-aware diagnostics. We evaluate GR00T N1.5 on four long-horizon tasks that pass a predefined clean-per",
    "authors": [
-    "Bing He",
-    "Jingnan Gao",
-    "Yunuo Chen",
-    "Zhengxue Cheng"
+    "Haocheng Wang",
+    "Youquan Liu",
+    "Weiyu Guo",
+    "Aokai Zhang"
    ],
-   "link": "https://huggingface.co/papers/2610.13177",
+   "link": "https://huggingface.co/papers/2610.27861",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-09T00:00",
-   "title_ar": "كومباكت سبلاط: توزيع غاوسي متكيف مكانياً لإعادة بناء المشاهد بالتغذية الأمامية",
-   "summary_ar": "تظل إعادة بناء المشاهد ثلاثية الأبعاد من زوايا رؤية متفرقة دون تحسين لكل مشهد تحدياً كبيراً، لا سيما لاستعادة الهندسة الدقيقة والملامس المفصلة. ورغم أن أساليب التغذية الأمامية الحديثة تستفيد من التناثر الغاوسي ثلاثي الأبعاد القابل للتعميم لتوليد المشاهد، إلا أنها تخصص عادةً غاوسياً واحداً."
-  },
-  {
-   "id": "2610.11942",
-   "title": "Right Screen, Wrong Transition: World Models as Verifiers for GUI Agents",
-   "abstract": "A login screen that appears after a tap on Sign in is expected; the same screen after a tap on View order is an attack. For GUI agents, safety is therefore a property of the transition rather than of the screen, and a monitor that inspects only screens can be defeated by reusing a legitimate one. Judging a transition requires an expectation of what should have followed the action. Existing GUI world models provide one, but they output it as text, code, or images, so checking it against the observed screen requires a second model to judge the two. We argue that a world model meant for verificat",
-   "authors": [
-    "Jiaming Zhang",
-    "Xuan Wang",
-    "Fuyao Zhang",
-    "Yang Cao"
-   ],
-   "link": "https://huggingface.co/papers/2610.11942",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-08T00:00",
-   "title_ar": "الشاشة الصحيحة، الانتقال الخاطئ: نماذج العالم كأدوات تحقق لوكلاء واجهات المستخدم الرسومية",
-   "summary_ar": "شاشة تسجيل الدخول التي تظهر بعد النقر على \"تسجيل الدخول\" أمر متوقع، لكن ظهور نفس الشاشة بعد النقر على \"عرض الطلب\" يُعد هجوماً. بناءً على ذلك، فإن الأمان لدى وكلاء واجهات المستخدم الرسومية هو خاصية للانتقال وليس للشاشة نفسها، ويمكن التغلب على المراقب الذي يفحص الشاشات فقط عبر إعادة استخدام شاشة شرعية."
-  },
-  {
-   "id": "2610.29545",
-   "title": "PACE: Periodic and Channel-Aligned Encoding of Four-Bit Recurrent States",
-   "abstract": "Linear-attention language models keep their context in a recurrent state of fixed size, where an inference system stores one copy of this state for every sequence it decodes at the same time. Storing the state at lower precision therefore lets more sequences share an accelerator. Existing state quantizers round the state after every generated token and report that four bits lose accuracy unless the bit width is raised or the model is fine-tuned.\\par We introduce PACE, a post-hoc four-bit state quantizer. PACE rounds the state only once every few generated tokens, as chunked kernels already do ",
-   "authors": [
-    "Patrick Haller",
-    "Filipe Laitenberger",
-    "Alan Akbik"
-   ],
-   "link": "https://huggingface.co/papers/2610.29545",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-21T00:00",
-   "title_ar": "بيس: ترميز دوري ومحاذى للقنوات للحالات التكرارية ذات الأربعة بتات",
-   "summary_ar": "تحتفظ نماذج اللغة ذات الانتباه الخطي بسياقها في حالة تكرارية ثابتة الحجم، حيث يخزن نظام الاستدلال نسخة من هذه الحالة لكل تسلسل يفك شفرته في نفس الوقت. لذا، يتيح تخزين الحالة بدقة أقل مشاركة المزيد من التسلسلات لنفس المسرّع، مقارنة بما توفره أساليب تكميم الحالة الحالية."
-  },
-  {
-   "id": "2610.30023",
-   "title": "RealMe: Immersive Volumetric Video from Minimal Captures",
-   "abstract": "This paper addresses the problem of creating immersive volumetric videos from sparse and low-resolution capture resources. Conventional dense multi-view reconstruction methods can produce high-quality volumetric videos, but their reliance on costly capture setups makes them impractical in real-world scenarios. Recent approaches use generative models to relax capture requirements, but still suffer from limited resolution and 4D inconsistency. To overcome these constraints, we propose RealMe, a unified framework built around a high-resolution video diffusion model that enhances limited captures ",
-   "authors": [
-    "Chenxu Zhou",
-    "Zhiyuan Yu",
-    "Yudong Jin",
-    "Yinji Shentu"
-   ],
-   "link": "https://huggingface.co/papers/2610.30023",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-21T00:00",
-   "title_ar": "ريل مي: فيديو حجمي غامر من تسجيلات بالحد الأدنى",
-   "summary_ar": "تتناول هذه الورقة مشكلة إنشاء مقاطع فيديو حجمية غامرة انطلاقاً من موارد التقاط متفرقة ومنخفضة الدقة. وعلى الرغم من أن طرق إعادة البناء التقليدية متعددة المشاهد الكثيفة يمكنها إنتاج مقاطع فيديو حجمية عالية الجودة، فإن اعتمادها على إعدادات التقاط مكلفة يجعلها غير عملية في العالم الواقعي."
+   "published": "2026-10-20T00:00",
+   "title_ar": "روبوكاسا-شيفت: تقييم متانة سياسات الرؤية واللغة والعمل المدرك للمراحل في المهام المنزلية طويلة المدى",
+   "summary_ar": "يُلخَّص تقييم متانة نماذج الرؤية واللغة والعمل عادةً بمعدل النجاح الإجمالي للمهام، مما يحجب كيفية تغير التنفيذ الفردي ومواضع حدوث الفشل في المهام طويلة المدى تحت وطأة التحولات في التوزيع. تقدم هذه الورقة \"روبوكاسا-شيفت\"، وهو معيار تشخيصي للمتانة مبني على RoboCasa365."
   }
  ],
  "n": 6
