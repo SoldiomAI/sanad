@@ -1,107 +1,105 @@
 {
- "updated": "2026-10-22T22:08+00:00",
+ "updated": "2026-10-23T11:03+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.28940",
-   "title": "StyleStream 2.0: Fast and Controllable Streaming Voice Style Conversion",
-   "abstract": "Voice style conversion (VSC) aims to transform a source utterance to match the timbre, accent, and emotion of a target voice while preserving linguistic content. StyleStream 1.0 introduced the first streamable zero-shot VSC system with state-of-the-art conversion quality, but remained limited in two ways: approximately 1s end-to-end latency on consumer hardware, and the lack of a text-based interface for designing or editing target voices. We present StyleStream 2.0, a fast and controllable streaming VSC framework that addresses these limitations. To reduce latency, we train a few-step pixel M",
+   "id": "2610.22951",
+   "title": "MambaAct: Efficient Mamba Action Experts for Flow-Matching Vision-Language-Action Models",
+   "abstract": "Vision-language-action (VLA) models have shown strong promise for generalist robotic manipulation, but their inference cost remains a major bottleneck for real-time control. This limitation is especially pronounced in flow-matching VLAs such as π_{0.5}, where the action expert is evaluated repeatedly during iterative denoising. We introduce MambaAct, an efficient Mamba action expert for flow-matching VLA policies. MambaAct retains the pretrained visual-language prefix encoder of π_{0.5}, while replacing its transformer-based action expert with a compact Mamba-based action expert. Within this e",
    "authors": [
-    "Yisi Liu",
-    "Nicholas Lee",
-    "Gopala K. Anumanchipalli"
+    "Khuyen Pham",
+    "Tran Nguyen Le",
+    "Edoardo Fazzari",
+    "Cesare Stefanini"
    ],
-   "link": "https://huggingface.co/papers/2610.28940",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-20T00:00",
-   "title_ar": "ستايل ستريم 2.0: تحويل سريع وقابل للتحكم لأسلوب الصوت في الوقت الفعلي",
-   "summary_ar": "يهدف تحويل أسلوب الصوت إلى تعديل منطوق المصدر ليطابق جرس الصوت المستهدف ولهجته وعاطفته مع الحفاظ على المحتوى اللغوي. قدّم \"ستايل ستريم 1.0\" أول نظام لتحويل أسلوب الصوت في الوقت الفعلي ودون أمثلة مسبقة وبجودة رائدة، ولكنه ظل محدودًا في جانبين."
-  },
-  {
-   "id": "2610.29932",
-   "title": "FrontierCS 2: A Benchmark for Computer Science R&D",
-   "abstract": "Can LLM agents make contributions to frontier computer science R&D? We introduce FrontierCS 2, a benchmark of 48 open-ended tasks. We take a paper and the code its authors released and delete the paper's contribution. The deleted code becomes the human reference that sets the bar. Earlier open-ended benchmarks give each agent a problem statement and grade one program after the run. FrontierCS 2 places the agent inside a research environment. The agent inherits a working repository and may submit a patch at any point. For each patch, a judge returns a development-suite score but keeps the evalu",
-   "authors": [
-    "Qiuyang Mang",
-    "Wenhao Chai",
-    "Runyuan He",
-    "Dongruixuan Li"
-   ],
-   "link": "https://huggingface.co/papers/2610.29932",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-21T00:00",
-   "title_ar": "فرونتير سي إس 2: معيار مرجعي للبحث والتطوير في علوم الحاسوب",
-   "summary_ar": "يبحث هذا العمل فيما إذا كان بإمكان وكلاء النماذج اللغوية الكبيرة المساهمة في طليعة البحث والتطوير في علوم الحاسوب، عبر تقديم \"فرونتير سي إس 2\" الذي يضم 48 مهمة مفتوحة. يعتمد المعيار على أخذ ورقة بحثية وكودها البرمجي وحذف المساهمة البحثية ليصبح هذا الكود المحذوف هو المرجع البشري المحدد للمستوى."
-  },
-  {
-   "id": "2610.23344",
-   "title": "Language Models Learn to Improve Language Models",
-   "abstract": "Large language models (LLMs) are increasingly used to automate AI research, including language-model (LM) development, offering a potential path toward recursive self-improvement. However, turning experimental feedback into a learned ability to propose effective improvements across models faces two challenges. First, training such an ability with real feedback is expensive: reinforcement learning (RL) requires evaluating tens of thousands of proposals, each potentially requiring a full model-training run. Even at ten GPU-hours per run, reward collection alone would consume hundreds of thousand",
-   "authors": [
-    "Minhua Lin",
-    "Zijun Wang",
-    "Zewen Liu",
-    "Zhaotian Weng"
-   ],
-   "link": "https://huggingface.co/papers/2610.23344",
+   "link": "https://huggingface.co/papers/2610.22951",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-16T00:00",
-   "title_ar": "النماذج اللغوية تتعلم تحسين النماذج اللغوية",
-   "summary_ar": "يتزايد استخدام النماذج اللغوية الكبيرة لأتمتة أبحاث الذكاء الاصطناعي بما في ذلك تطوير النماذج اللغوية، مما يفتح مسارًا نحو التحسين الذاتي المتكرر. ومع ذلك، يواجه تحويل التغذية الراجعة التجريبية إلى قدرة مكتسبة لاقتراح تحسينات فعالة عبر النماذج عقبتين."
+   "title_ar": "مامبا آكت: خبراء حركة مامبا الفعالون لنماذج الرؤية واللغة والحركة القائمة على مطابقة التدفق",
+   "summary_ar": "أظهرت نماذج الرؤية واللغة والحركة إمكانات واعدة في التحكم الروبوتي العام، غير أن تكلفة استدلالها تظل عائقًا رئيسيًا أمام التحكم في الوقت الفعلي. ويتجلى هذا القيد بوضوح في نماذج مطابقة التدفق مثل π_{0.5}، حيث يُقيَّم خبير الحركة بصورة متكررة."
   },
   {
-   "id": "2610.28679",
-   "title": "VerifierBench: Benchmarking the Generation of Executable Verifiers for LLM Agents",
-   "abstract": "Agents need reliable ways to validate their outputs, both when completing tasks and when filtering synthetic training data. We study verifier generation: from the instruction and environment available for solving a task, an agent writes an executable verifier that must accept every valid solution and reject invalid ones. We introduce VerifierBench, a benchmark of 222 tasks from six agent benchmarks spanning tool-call, state-based, and code verification, with 4,993 hidden test cases that include alternative valid solutions and attacks; Verifier4Verifier (V4V), a six-check audit, screens its sou",
+   "id": "2610.30468",
+   "title": "SplatLab: Autonomous Scientific Discovery for 3DGS Research",
+   "abstract": "Reproducing a published 3DGS paper takes weeks of expert engineering before any extension can be proposed. Prior autonomous-research systems read papers, draft hypotheses, and write code, but are limited by short fixed templates, low executability, and weak traceability, and none has been demonstrated end-to-end in a live computer-vision subfield with intense activity. SplatLab is an autonomous research system for 3D Gaussian Splatting that addresses these limitations. Given a research prompt, a target-paper URL, or no input at all, it reproduces a published baseline, proposes an extension, tr",
    "authors": [
-    "Jianing Yin",
-    "Ziyi Chen",
-    "Hao Wang",
-    "Yiyou Sun"
+    "Seemandhar Jain",
+    "Manmohan Chandraker"
    ],
-   "link": "https://huggingface.co/papers/2610.28679",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-19T00:00",
-   "title_ar": "فيريفاير بنش: تقييم معياري لتوليد مُدقِّقات قابلة للتنفيذ لوكلاء النماذج اللغوية الكبيرة",
-   "summary_ar": "يحتاج الوكلاء إلى طرق موثوقة للتحقق من مخرجاتهم عند إنجاز المهام وتصفية بيانات التدريب التركيبية. تدرس الورقة توليد المُدقِّقات، حيث يكتب الوكيل—بناءً على تعليمات المهمة وبيئتها—مُدقِّقًا قابلًا للتنفيذ يجب عليه قبول كل حل صحيح."
-  },
-  {
-   "id": "2610.30066",
-   "title": "Looped Uniform Diffusion Language Models",
-   "abstract": "Uniform diffusion language models (UDLMs) generate text by iteratively denoising sequences of ordinary vocabulary tokens, any of which may be corrupted and subsequently revised. During training, UDLMs must denoise from a context that may itself be unreliable, whereas masked diffusion language models (MDLMs) always condition on a clean context. This challenging training objective makes UDLMs more FLOP-intensive to train than MDLMs, but it yields stronger downstream reasoning performance. Recently, selective looping, which recursively applies a few early Transformer layers within each denoising ",
-   "authors": [
-    "Saiteja Utpala",
-    "Chieh-Hsin Lai",
-    "Yuki Mitsufuji",
-    "Praneeth Vepakomma"
-   ],
-   "link": "https://huggingface.co/papers/2610.30066",
+   "link": "https://huggingface.co/papers/2610.30468",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-21T00:00",
-   "title_ar": "نماذج الانتشار اللغوية المنتظمة ذات الحلقات المكررة",
-   "summary_ar": "تُولِّد نماذج الانتشار اللغوية المنتظمة النصوص عن طريق إزالة الضوضاء تكراريًا من تسلسلات مفردات عادية قد يتعرض أيٌّ منها للتشويه والتعديل لاحقًا. يجب على هذه النماذج أثناء التدريب إزالة الضوضاء من سياق قد يكون غير موثوق بحد ذاته، على عكس نماذج انتشار القناع اللغوية."
+   "title_ar": "سبلايت لاب: الاكتشاف العلمي الذاتي لأبحاث التوجيه الضبابي ثلاثي الأبعاد",
+   "summary_ar": "تستغرق إعادة إنتاج بحث منشور في التوجيه الضبابي ثلاثي الأبعاد أسابيع من الجهد الهندسي المتخصص قبل تقديم أي إضافة جديدة. ورغم أن أنظمة الأبحاث الذاتية السابقة تقرأ الأوراق وتضع الفرضيات وتكتب التعليمات البرمجية، فإنها مقيدة بقوالب ثابتة قصيرة وضعف القابلية للتنفيذ وضعف إمكانية التتبع، ولم يُثبت نجاح أي منها."
   },
   {
-   "id": "2610.27861",
-   "title": "RoboCasa-Shift: Stage-Aware Robustness Evaluation of Vision-Language-Action Policies in Long-Horizon Household Manipulation",
-   "abstract": "Vision-language-action (VLA) robustness is commonly summarized by aggregate task success, which obscures how individual executions change under distribution shifts and where failures emerge in long-horizon tasks. We introduce RoboCasa-Shift, a diagnostic robustness benchmark built on RoboCasa365 that combines controlled single-factor shifts, matched clean-perturbed rollouts in which each pair shares the same underlying settings and differs only in the target shift, and simulator-grounded stage-aware diagnostics. We evaluate GR00T N1.5 on four long-horizon tasks that pass a predefined clean-per",
+   "id": "2610.20091",
+   "title": "RTAformer: Relation-Transition-Aware Transformer for Video Scene Graph Generation",
+   "abstract": "Video scene graph generation (VidSGG) aims to capture objects and their evolving relationships in videos. This requires accounting for both the persistence of object identities and abrupt changes in relationships. Existing methods aggregate information across frames to exploit temporal context, but an emphasis on consistency can obscure these changes. As a result, a model may retain its previous prediction even after the underlying relation has changed. We refer to this failure mode as relational semantic inertia. To address this issue, we propose Relation-Transition-Aware Transformer (RTAform",
    "authors": [
-    "Haocheng Wang",
-    "Youquan Liu",
-    "Weiyu Guo",
-    "Aokai Zhang"
+    "Jaeyeon Heo",
+    "Geuntaek Lim",
+    "Yukyung Choi"
    ],
-   "link": "https://huggingface.co/papers/2610.27861",
+   "link": "https://huggingface.co/papers/2610.20091",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-20T00:00",
-   "title_ar": "روبوكاسا-شيفت: تقييم متانة سياسات الرؤية واللغة والعمل المدرك للمراحل في المهام المنزلية طويلة المدى",
-   "summary_ar": "يُلخَّص تقييم متانة نماذج الرؤية واللغة والعمل عادةً بمعدل النجاح الإجمالي للمهام، مما يحجب كيفية تغير التنفيذ الفردي ومواضع حدوث الفشل في المهام طويلة المدى تحت وطأة التحولات في التوزيع. تقدم هذه الورقة \"روبوكاسا-شيفت\"، وهو معيار تشخيصي للمتانة مبني على RoboCasa365."
+   "published": "2026-10-14T00:00",
+   "title_ar": "آر تي إيه فورمر: محوّل مدرك لانتقال العلاقات لتوليد المخططات المشهدية للفيديو",
+   "summary_ar": "يهدف توليد المخططات المشهدية للفيديو إلى رصد الكائنات وعلاقاتها المتطورة عبر المقاطع المصورة، وهو ما يتطلب مراعاة استمرارية هويات الكائنات والتحولات المفاجئة في العلاقات. ورغم أن الأساليب الحالية تجمع المعلومات عبر الإطارات للاستفادة من السياق الزمني، إلا أنها لا تزال تواجه قيودًا."
+  },
+  {
+   "id": "2610.30949",
+   "title": "IQuest-Q1: Advancing Foundation Capabilities for Agentic CLI Systems",
+   "abstract": "We present IQuest-Q1, a sparse Mixture-of-Experts (MoE) agentic foundation model with 320B total parameters (15B activated). IQuest-Q1 is developed through a three-stage process: (1) stable and efficient pre-training, combining Stable SplitNorm, Muon, and muP with a two-stage curriculum whose second stage increases the coding-data mixture, preserving a wide stability margin between safe and optimal learning rates; (2) fine-grained mid-training, expanding the data mixture across domains and formats and progressively extending the context; and (3) multi-scaffold with multi-version post-training,",
+   "authors": [
+    "A. Jian Yang",
+    "An Huang",
+    "Bo Dan",
+    "Chen Mu"
+   ],
+   "link": "https://huggingface.co/papers/2610.30949",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-22T00:00",
+   "title_ar": "آي كويست-كيو 1: تعزيز القدرات التأسيسية لأنظمة واجهة سطر الأوامر الوكيلة",
+   "summary_ar": "نقدم آي كويست-كيو 1، وهو نموذج تأسيسي وكيلي يعتمد على بنية خليط الخبراء المتناثرة بإجمالي 320 مليار معامل (يُنشَّط منها 15 مليارًا). وقد جرى تطوير النموذج عبر عملية ثلاثية المراحل تبدأ بالتدريب المسبق المستقر والفعال من خلال دمج عدة تقنيات مع منهج تعليمي من مرحلتين."
+  },
+  {
+   "id": "2610.31329",
+   "title": "WeVisOne-VL: Unified Visual Perception from Objects to Pixels",
+   "abstract": "Existing vision-language models (VLMs) remain unreliable for fine-grained visual perception. In this report, we present WeVisOne-VL (WeChat Vision All-in-One), a powerful VLM that unifies object-level and pixel-level perception through structured next-token prediction. It supports multiple visual tasks including object detection, referring localization, counting, OCR, segmentation, and matting, enabling localization at any user-specific granularity, from points and boxes to masks and alpha mattes. Architecturally, we integrate a lightweight pixel decoder into the VLM via a special <OBJ> token ",
+   "authors": [
+    "Tianming Liang",
+    "Junyi Pan",
+    "Yuxi Li",
+    "Canmiao Fu"
+   ],
+   "link": "https://huggingface.co/papers/2610.31329",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-22T00:00",
+   "title_ar": "وي فيس ون-في إل: إدراك بصري موحد من مستوى الكائنات إلى وحدات البكسل",
+   "summary_ar": "لا تزال نماذج الرؤية واللغة الحالية غير موثوقة في الإدراك البصري الدقيق. ونقدم في هذا التقرير وي فيس ون-في إل، وهو نموذج رؤية ولغة قوي يوحد الإدراك على مستوى الكائنات ومستوى البكسل عبر التنبؤ المنظم بالرمز التالي، فضلًا عن دعمه لمهام بصرية متعددة."
+  },
+  {
+   "id": "2610.23987",
+   "title": "What Generation Knows: Unlocking Fine-Grained Understanding in Unified Multimodal Models",
+   "abstract": "Fine-grained visual understanding requires distinguishing subtle differences in local attributes and spatial relations, yet remains challenging for existing vision-language models. Unified multimodal models (UMMs) offer a new opportunity through generation pathways that preserve rich visual information complementary to understanding. However, existing generation-assisted understanding methods mainly rely on generative supervision or explicit generation and have not systematically explored direct use of native generation-side representations. To address this gap, we systematically analyze what ",
+   "authors": [
+    "Tengju Ru",
+    "Weitong Lian",
+    "Zecong Tang",
+    "Zhiheng Liu"
+   ],
+   "link": "https://huggingface.co/papers/2610.23987",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-14T00:00",
+   "title_ar": "ما يعرفه التوليد: إطلاق عنان الفهم الدقيق في النماذج متعددة الوسائط الموحدة",
+   "summary_ar": "يتطلب الفهم البصري الدقيق تمييز الفروق الطفيفة في السمات المحلية والعلاقات المكانية، وهو أمر يمثل تحديًا لنماذج الرؤية واللغة الحالية. وتتيح النماذج متعددة الوسائط الموحدة فرصة جديدة من خلال مسارات التوليد التي تحافظ على معلومات بصرية غنية."
   }
  ],
  "n": 6
