@@ -1,105 +1,106 @@
 {
- "updated": "2026-10-23T11:03+00:00",
+ "updated": "2026-10-24T01:23+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.22951",
-   "title": "MambaAct: Efficient Mamba Action Experts for Flow-Matching Vision-Language-Action Models",
-   "abstract": "Vision-language-action (VLA) models have shown strong promise for generalist robotic manipulation, but their inference cost remains a major bottleneck for real-time control. This limitation is especially pronounced in flow-matching VLAs such as π_{0.5}, where the action expert is evaluated repeatedly during iterative denoising. We introduce MambaAct, an efficient Mamba action expert for flow-matching VLA policies. MambaAct retains the pretrained visual-language prefix encoder of π_{0.5}, while replacing its transformer-based action expert with a compact Mamba-based action expert. Within this e",
+   "id": "2610.30043",
+   "title": "TARSphere: A Robot-Oriented Full-Stack Framework for Long-Horizon Embodied Agents in Evolving Physical and Social Environments",
+   "abstract": "Robots must act under physical and social constraints while adapting to changes in their environment and human needs. Existing embodied-agent systems often focus on specified goals or abstract execution into symbolic actions, limiting evaluation in an evolving world. We introduce TARSphere, a robot-oriented full-stack framework for physically and socially grounded long-horizon embodied agents. TARSphere-Infra runs robot policies in a physics simulator with embodied NPCs and constrained dialogue. An event-driven finite-state machine (FSM) uses completed actions and delivered information to upda",
    "authors": [
-    "Khuyen Pham",
-    "Tran Nguyen Le",
-    "Edoardo Fazzari",
-    "Cesare Stefanini"
+    "Yicheng Xu",
+    "Zhikai Xu",
+    "Ziyuan Chen",
+    "Yuhang Dong"
    ],
-   "link": "https://huggingface.co/papers/2610.22951",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-16T00:00",
-   "title_ar": "مامبا آكت: خبراء حركة مامبا الفعالون لنماذج الرؤية واللغة والحركة القائمة على مطابقة التدفق",
-   "summary_ar": "أظهرت نماذج الرؤية واللغة والحركة إمكانات واعدة في التحكم الروبوتي العام، غير أن تكلفة استدلالها تظل عائقًا رئيسيًا أمام التحكم في الوقت الفعلي. ويتجلى هذا القيد بوضوح في نماذج مطابقة التدفق مثل π_{0.5}، حيث يُقيَّم خبير الحركة بصورة متكررة."
-  },
-  {
-   "id": "2610.30468",
-   "title": "SplatLab: Autonomous Scientific Discovery for 3DGS Research",
-   "abstract": "Reproducing a published 3DGS paper takes weeks of expert engineering before any extension can be proposed. Prior autonomous-research systems read papers, draft hypotheses, and write code, but are limited by short fixed templates, low executability, and weak traceability, and none has been demonstrated end-to-end in a live computer-vision subfield with intense activity. SplatLab is an autonomous research system for 3D Gaussian Splatting that addresses these limitations. Given a research prompt, a target-paper URL, or no input at all, it reproduces a published baseline, proposes an extension, tr",
-   "authors": [
-    "Seemandhar Jain",
-    "Manmohan Chandraker"
-   ],
-   "link": "https://huggingface.co/papers/2610.30468",
+   "link": "https://huggingface.co/papers/2610.30043",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-21T00:00",
-   "title_ar": "سبلايت لاب: الاكتشاف العلمي الذاتي لأبحاث التوجيه الضبابي ثلاثي الأبعاد",
-   "summary_ar": "تستغرق إعادة إنتاج بحث منشور في التوجيه الضبابي ثلاثي الأبعاد أسابيع من الجهد الهندسي المتخصص قبل تقديم أي إضافة جديدة. ورغم أن أنظمة الأبحاث الذاتية السابقة تقرأ الأوراق وتضع الفرضيات وتكتب التعليمات البرمجية، فإنها مقيدة بقوالب ثابتة قصيرة وضعف القابلية للتنفيذ وضعف إمكانية التتبع، ولم يُثبت نجاح أي منها."
+   "title_ar": "TARSphere: إطار عمل متكامل موجه للروبوتات للوكلاء المجسدين طويلي المدى في بيئات فيزيائية واجتماعية متطورة",
+   "summary_ar": "يجب على الروبوتات التصرف وفق قيود فيزيائية واجتماعية مع التكيف مع تغيرات البيئة واحتياجات البشر، غير أن أنظمة الوكلاء المجسدين الحالية تركز غالباً على أهداف محددة أو تجريد التنفيذ، مما يحد من تقييمها في عالم متطور. ولذلك نُقدّم TARSphere كإطار عمل موجه للروبوتات."
   },
   {
-   "id": "2610.20091",
-   "title": "RTAformer: Relation-Transition-Aware Transformer for Video Scene Graph Generation",
-   "abstract": "Video scene graph generation (VidSGG) aims to capture objects and their evolving relationships in videos. This requires accounting for both the persistence of object identities and abrupt changes in relationships. Existing methods aggregate information across frames to exploit temporal context, but an emphasis on consistency can obscure these changes. As a result, a model may retain its previous prediction even after the underlying relation has changed. We refer to this failure mode as relational semantic inertia. To address this issue, we propose Relation-Transition-Aware Transformer (RTAform",
+   "id": "2610.22722",
+   "title": "The LLM-Attacker: A Unified Red-Team Framework for Privacy Evaluation of Split and Distributed LLM Systems",
+   "abstract": "Split language models keep input text on a client but send intermediate representations to a server. Attacks can reconstruct text from these messages. Comparing privacy evaluations is difficult when attackers see different messages, know different model weights or use different datasets and recovery measures. We present LLM-Attacker, a framework that records these choices and lets researchers check, compare and extend an evaluation. Compatible attacks reuse recorded messages, and their predictions are saved for independent scoring. The scoring rule requires a linked undefended reference before",
    "authors": [
-    "Jaeyeon Heo",
-    "Geuntaek Lim",
-    "Yukyung Choi"
+    "Georgios Politis",
+    "Evangelos Pappas"
    ],
-   "link": "https://huggingface.co/papers/2610.20091",
+   "link": "https://huggingface.co/papers/2610.22722",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-14T00:00",
-   "title_ar": "آر تي إيه فورمر: محوّل مدرك لانتقال العلاقات لتوليد المخططات المشهدية للفيديو",
-   "summary_ar": "يهدف توليد المخططات المشهدية للفيديو إلى رصد الكائنات وعلاقاتها المتطورة عبر المقاطع المصورة، وهو ما يتطلب مراعاة استمرارية هويات الكائنات والتحولات المفاجئة في العلاقات. ورغم أن الأساليب الحالية تجمع المعلومات عبر الإطارات للاستفادة من السياق الزمني، إلا أنها لا تزال تواجه قيودًا."
+   "published": "2026-10-15T00:00",
+   "title_ar": "مهاجم النماذج اللغوية الكبيرة: إطار موحد للفريق الأحمر لتقييم خصوصية أنظمة النماذج اللغوية المجزأة والموزعة",
+   "summary_ar": "تحتفظ نماذج اللغة المجزأة بالنص المدخل لدى العميل لكنها ترسل تمثيلات وسيطة إلى الخادم، والتي يمكن لهجمات إعادة بناء النص منها. ويصعب مقارنة تقييمات الخصوصية عندما يرى المهاجمون رسائل مختلفة، أو يعرفون أوزاناً مختلفة للنموذج، أو يستخدمون مجموعات بيانات واسترداداً متباينة."
   },
   {
-   "id": "2610.30949",
-   "title": "IQuest-Q1: Advancing Foundation Capabilities for Agentic CLI Systems",
-   "abstract": "We present IQuest-Q1, a sparse Mixture-of-Experts (MoE) agentic foundation model with 320B total parameters (15B activated). IQuest-Q1 is developed through a three-stage process: (1) stable and efficient pre-training, combining Stable SplitNorm, Muon, and muP with a two-stage curriculum whose second stage increases the coding-data mixture, preserving a wide stability margin between safe and optimal learning rates; (2) fine-grained mid-training, expanding the data mixture across domains and formats and progressively extending the context; and (3) multi-scaffold with multi-version post-training,",
+   "id": "2610.04184",
+   "title": "EvalResearchBench: Can AI Agents Build Their Own Feedback for Recursive Self-Improvement?",
+   "abstract": "Recursive self-improvement (RSI) relies on evaluation feedback to assess progress and guide further research, yet repeatedly running complex benchmarks is costly and slows iteration. Human experts reduce this cost by selecting benchmark subsets or designing compact suites. We ask whether AI agents can automate this design process and introduce EvalResearchBench (ERB), a benchmark for autonomous evaluation research. Given target materials, development references, candidate APIs, and fixed time and API budgets, an agent called the researcher selects or synthesizes tasks, implements graders, and ",
    "authors": [
-    "A. Jian Yang",
-    "An Huang",
-    "Bo Dan",
-    "Chen Mu"
+    "Yaolun Zhang",
+    "Tianyi Xu",
+    "Yujie Zhao",
+    "Jishen Zhao"
    ],
-   "link": "https://huggingface.co/papers/2610.30949",
+   "link": "https://huggingface.co/papers/2610.04184",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-16T00:00",
+   "title_ar": "EvalResearchBench: هل يمكن لوكلاء الذكاء الاصطناعي بناء تغذيتهم الراجعة الخاصة للتحسين الذاتي التكراري؟",
+   "summary_ar": "يعتمد التحسين الذاتي التكراري على التغذية الراجعة للتقييم لقياس التقدم وتوجيه البحث الإضافي، غير أن التشغيل المتكرر للاختبارات المعيارية المعقدة مكلف ويبطئ التكرار، وهو ما يقلصه الخبراء البشريون باختيار مجموعات فرعية أو تصميم حزم مدمجة. ونحن نتساءل عما إذا كان وكلاء الذكاء الاصطناعي قادرين على ذلك."
+  },
+  {
+   "id": "2610.25835",
+   "title": "Diffusion Language Models Change Speed Across Tasks and Languages",
+   "abstract": "Diffusion language models can write several tokens in one forward pass, and they decide during generation how many passes to spend. Two outputs of the same token length can therefore vary a lot in cost. To understand the underlying factors of this cost variation, we analyze two diffusion models across 10 tasks. We find that the number of forward passes per token depends heavily on the task. Text copied or lightly edited from the input is cheap, while open-ended writing is costly. In DiffusionGemma, generating a token for story writing requires more than three times as many forward passes as fo",
+   "authors": [
+    "Mohsen Fayyaz",
+    "Ali Modarressi",
+    "Daniel Israel",
+    "Lucas Bandarkar"
+   ],
+   "link": "https://huggingface.co/papers/2610.25835",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-19T05:47",
+   "title_ar": "نماذج اللغة القائمة على الانتشار تغيّر سرعتها عبر المهام واللغات",
+   "summary_ar": "تستطيع نماذج اللغة القائمة على الانتشار كتابة عدة رموز في تمريرة أمامية واحدة، وتحدد أثناء التوليد عدد التمريرات المستغرقة؛ ولذا قد تتفاوت تكلفة مخرجين لهما نفس عدد الرموز بشكل كبير. ولفهم العوامل الكامنة وراء هذا التفاوت في التكلفة، قمنا بتحليل نموذجي انتشار عبر مختلف المهام."
+  },
+  {
+   "id": "2610.31198",
+   "title": "Different Tasks, Different Timesteps: Temporal Task-Aware Quantization for Diffusion Language Models",
+   "abstract": "Diffusion Language Models (DLMs) introduce unique quantization challenges due to their iterative denoising process. In this work, we reveal that quantization sensitivity is both taskand time-dependent, with different downstream tasks exhibiting distinct precision requirements across denoising steps. We further show that these patterns can be predicted without groundtruth labels or task-specific evaluation metrics. Building on these findings, we introduce T 2Quant, a task and time-aware mixedprecision quantization framework that uses a label-free sensitivity signal to optimally allocate activat",
+   "authors": [
+    "Ofek Avivi",
+    "Eliron Rahimi",
+    "Avi Mendelson",
+    "Chaim Baskin"
+   ],
+   "link": "https://huggingface.co/papers/2610.31198",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-22T00:00",
-   "title_ar": "آي كويست-كيو 1: تعزيز القدرات التأسيسية لأنظمة واجهة سطر الأوامر الوكيلة",
-   "summary_ar": "نقدم آي كويست-كيو 1، وهو نموذج تأسيسي وكيلي يعتمد على بنية خليط الخبراء المتناثرة بإجمالي 320 مليار معامل (يُنشَّط منها 15 مليارًا). وقد جرى تطوير النموذج عبر عملية ثلاثية المراحل تبدأ بالتدريب المسبق المستقر والفعال من خلال دمج عدة تقنيات مع منهج تعليمي من مرحلتين."
+   "title_ar": "مهام مختلفة، خطوات زمنية مختلفة: تكميم زمني مدرك للمهام لنماذج اللغة القائمة على الانتشار",
+   "summary_ar": "تفرض نماذج اللغة القائمة على الانتشار تحديات تكميم فريدة نظراً لعملية إزالة الضوضاء التكرارية الخاصة بها. ونكشف في هذا العمل أن حساسية التكميم تعتمد على كل من المهمة والزمن، حيث تُظهر المهام النهائية المختلفة متطلبات دقة متمايزة عبر خطوات إزالة الضوضاء."
   },
   {
-   "id": "2610.31329",
-   "title": "WeVisOne-VL: Unified Visual Perception from Objects to Pixels",
-   "abstract": "Existing vision-language models (VLMs) remain unreliable for fine-grained visual perception. In this report, we present WeVisOne-VL (WeChat Vision All-in-One), a powerful VLM that unifies object-level and pixel-level perception through structured next-token prediction. It supports multiple visual tasks including object detection, referring localization, counting, OCR, segmentation, and matting, enabling localization at any user-specific granularity, from points and boxes to masks and alpha mattes. Architecturally, we integrate a lightweight pixel decoder into the VLM via a special <OBJ> token ",
+   "id": "2610.24385",
+   "title": "Bridging Exploration and Persona: Information-Directed Dueling for Test-Time Agent Personalization",
+   "abstract": "Effective test-time personalization requires LLM agents to adapt to query-dependent user preferences from lightweight interaction. We study persona selection with binary comparisons between candidate responses as the online signal. We present ID-TAP, a scalable, IDS-inspired neural dueling-bandit framework for large discrete persona spaces. ID-TAP combines a query-conditioned neural utility model with a lightweight Bradley-Terry explorer, and transfers comparison evidence across related queries through similarity-weighted warm starts. The neural model shares statistical strength across queries",
    "authors": [
-    "Tianming Liang",
-    "Junyi Pan",
-    "Yuxi Li",
-    "Canmiao Fu"
+    "Jie Mao",
+    "Pingchen Lu",
+    "Xiangyi Wang",
+    "Hengquan Huang"
    ],
-   "link": "https://huggingface.co/papers/2610.31329",
+   "link": "https://huggingface.co/papers/2610.24385",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-22T00:00",
-   "title_ar": "وي فيس ون-في إل: إدراك بصري موحد من مستوى الكائنات إلى وحدات البكسل",
-   "summary_ar": "لا تزال نماذج الرؤية واللغة الحالية غير موثوقة في الإدراك البصري الدقيق. ونقدم في هذا التقرير وي فيس ون-في إل، وهو نموذج رؤية ولغة قوي يوحد الإدراك على مستوى الكائنات ومستوى البكسل عبر التنبؤ المنظم بالرمز التالي، فضلًا عن دعمه لمهام بصرية متعددة."
-  },
-  {
-   "id": "2610.23987",
-   "title": "What Generation Knows: Unlocking Fine-Grained Understanding in Unified Multimodal Models",
-   "abstract": "Fine-grained visual understanding requires distinguishing subtle differences in local attributes and spatial relations, yet remains challenging for existing vision-language models. Unified multimodal models (UMMs) offer a new opportunity through generation pathways that preserve rich visual information complementary to understanding. However, existing generation-assisted understanding methods mainly rely on generative supervision or explicit generation and have not systematically explored direct use of native generation-side representations. To address this gap, we systematically analyze what ",
-   "authors": [
-    "Tengju Ru",
-    "Weitong Lian",
-    "Zecong Tang",
-    "Zhiheng Liu"
-   ],
-   "link": "https://huggingface.co/papers/2610.23987",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-14T00:00",
-   "title_ar": "ما يعرفه التوليد: إطلاق عنان الفهم الدقيق في النماذج متعددة الوسائط الموحدة",
-   "summary_ar": "يتطلب الفهم البصري الدقيق تمييز الفروق الطفيفة في السمات المحلية والعلاقات المكانية، وهو أمر يمثل تحديًا لنماذج الرؤية واللغة الحالية. وتتيح النماذج متعددة الوسائط الموحدة فرصة جديدة من خلال مسارات التوليد التي تحافظ على معلومات بصرية غنية."
+   "published": "2026-10-17T00:00",
+   "title_ar": "سد الفجوة بين الاستكشاف والشخصية: مبارزة موجهة بالمعلومات لتخصيص الوكلاء أثناء الاختبار",
+   "summary_ar": "يتطلب التخصيص الفعال أثناء الاختبار تكيف وكلاء النماذج اللغوية الكبيرة مع تفضيلات المستخدم المعتمدة على الاستعلام من خلال تفاعل خفيف، وندرس هنا اختيار الشخصية باستخدام مقارنات ثنائية بين الردود المرشحة كإشارة عبر الإنترنت. ونقدم ID-TAP، وهو إطار عمل مبارزة عصبية قابل للتوسع ومستوحى من IDS."
   }
  ],
  "n": 6
