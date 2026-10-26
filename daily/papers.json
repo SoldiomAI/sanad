@@ -1,106 +1,106 @@
 {
- "updated": "2026-10-25T18:10+00:00",
+ "updated": "2026-10-26T06:54+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.30043",
-   "title": "TARSphere: A Robot-Oriented Full-Stack Framework for Long-Horizon Embodied Agents in Evolving Physical and Social Environments",
-   "abstract": "Robots must act under physical and social constraints while adapting to changes in their environment and human needs. Existing embodied-agent systems often focus on specified goals or abstract execution into symbolic actions, limiting evaluation in an evolving world. We introduce TARSphere, a robot-oriented full-stack framework for physically and socially grounded long-horizon embodied agents. TARSphere-Infra runs robot policies in a physics simulator with embodied NPCs and constrained dialogue. An event-driven finite-state machine (FSM) uses completed actions and delivered information to upda",
+   "id": "2610.23234",
+   "title": "MultiAgent-OPD: End-to-End Training of Hierarchical Multi-Agent Systems with On-Policy Distillation",
+   "abstract": "In a hierarchical multi-agent system, a Leader assigns tasks and subagents carry them out. Jointly training the Leader and the subagents is difficult because a final answer gives only indirect feedback to the subagents. An LLM judge can score the performance of the subagents, but these scores depend on the judge's own assessment of the quality of subagents' responses. We present MultiAgent-OPD, which combines on-policy distillation with reinforcement learning to jointly train a shared-parameter Leader-Searcher-Answerer team end to end. We first train a Teacher in a Searcher-Answerer workflow u",
    "authors": [
-    "Yicheng Xu",
-    "Zhikai Xu",
-    "Ziyuan Chen",
-    "Yuhang Dong"
+    "Yuhan Sun",
+    "Jiaxin Zhao",
+    "Yongdong Luo",
+    "Yibo Hu"
    ],
-   "link": "https://huggingface.co/papers/2610.30043",
+   "link": "https://huggingface.co/papers/2610.23234",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-21T00:00",
-   "title_ar": "تارسفير: إطار عمل متكامل موجه للروبوتات للوكلاء المجسدين طويلي المدى في بيئات فيزيائية واجتماعية متطورة",
-   "summary_ar": "يجب على الروبوتات العمل تحت قيود فيزيائية واجتماعية مع التكيف مع التغيرات في بيئتها واحتياجات الإنسان، في حين تركز أنظمة الوكلاء المجسدين الحالية غالبًا على أهداف محددة أو تجريد التنفيذ إلى أفعال رمزية مما يحد من التقييم في عالم متطور. نقدم تارسفير كإطار عمل موجه للروبوتات."
+   "published": "2026-10-20T00:00",
+   "title_ar": "MultiAgent-OPD: تدريب الأنظمة متعددة الوكلاء الهرمية من البداية إلى النهاية باستخدام التقطير وفق السياسة",
+   "summary_ar": "يُكلِّف القائد في النظام متعدد الوكلاء الهرمي المهام للوكلاء الفرعيين لتنفيذها، ويُعد التدريب المشترك بينهما صعبًا لأن الإجابة النهائية تقدم تغذية راجعة غير مباشرة فقط للوكلاء الفرعيين. يمكن لحَكَم من نماذج اللغات الكبيرة تقييم أداء الوكلاء الفرعيين، إلا أن هذه الدرجات تعتمد على ذلك."
   },
   {
-   "id": "2610.22722",
-   "title": "The LLM-Attacker: A Unified Red-Team Framework for Privacy Evaluation of Split and Distributed LLM Systems",
-   "abstract": "Split language models keep input text on a client but send intermediate representations to a server. Attacks can reconstruct text from these messages. Comparing privacy evaluations is difficult when attackers see different messages, know different model weights or use different datasets and recovery measures. We present LLM-Attacker, a framework that records these choices and lets researchers check, compare and extend an evaluation. Compatible attacks reuse recorded messages, and their predictions are saved for independent scoring. The scoring rule requires a linked undefended reference before",
+   "id": "2610.32894",
+   "title": "LoCA: Enabling Multi-Modality in Geospatial Location Encoders",
+   "abstract": "Location encoders map geographic coordinates to high-dimensional descriptors through contrastive alignment with paired Earth Observation imagery. We prove that this construction is structurally limited: any Lipschitz location encoder produces an output of intrinsic dimension at most 2, regardless of architecture or bandwidth, which forces the contrastive loss to strictly exceed its asymptotic optimum. Empirically, joint training also collapses the encoder's embedding covariance to low rank. Although dimension-limited, current location encoders sidestep this spectral collapse by training agains",
    "authors": [
-    "Georgios Politis",
-    "Evangelos Pappas"
+    "Panagiotis Koromilas",
+    "Eleanna Vali",
+    "Diogenis Antonopoulos",
+    "Eleni Saka"
    ],
-   "link": "https://huggingface.co/papers/2610.22722",
+   "link": "https://huggingface.co/papers/2610.32894",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-15T00:00",
-   "title_ar": "مهاجم النماذج اللغوية الكبيرة: إطار عمل موحد للفريق الأحمر لتقييم خصوصية أنظمة النماذج اللغوية الكبيرة المجزأة والموزعة",
-   "summary_ar": "تحتفظ نماذج اللغة المجزأة بنص الإدخال على العميل ولكنها ترسل تمثيلات وسيطة إلى الخادم، ويمكن للهجمات إعادة بناء النص من هذه الرسائل. يصعب مقارنة تقييمات الخصوصية عندما يرى المهاجمون رسائل مختلفة، أو يعرفون أوزان نماذج مختلفة، أو يستخدمون مجموعات بيانات واستعادة مختلفة."
+   "published": "2026-10-23T00:00",
+   "title_ar": "LoCA: تمكين تعدد الوسائط في مُشفِّرات المواقع الجغرافية المكانية",
+   "summary_ar": "ترسم مُشفِّرات المواقع الإحداثيات الجغرافية إلى واصفات عالية الأبعاد عبر المحاذاة التباينية مع صور مراقبة الأرض المقترنة بها. ونُثبت أن هذا البناء محدود هيكليًا، حيث يُنتج أي مُشفِّر موقع ليoptionsتزي مخرجات ذات بُعد جوهري لا يتجاوز 2 بغض النظر عن ذلك."
   },
   {
-   "id": "2610.04184",
-   "title": "EvalResearchBench: Can AI Agents Build Their Own Feedback for Recursive Self-Improvement?",
-   "abstract": "Recursive self-improvement (RSI) relies on evaluation feedback to assess progress and guide further research, yet repeatedly running complex benchmarks is costly and slows iteration. Human experts reduce this cost by selecting benchmark subsets or designing compact suites. We ask whether AI agents can automate this design process and introduce EvalResearchBench (ERB), a benchmark for autonomous evaluation research. Given target materials, development references, candidate APIs, and fixed time and API budgets, an agent called the researcher selects or synthesizes tasks, implements graders, and ",
+   "id": "2610.32002",
+   "title": "DraMaze: A Multi-Agent Pipeline with Future-Aware Memory for Diverse Microdrama Script Generation",
+   "abstract": "The rapid growth of microdramas has increased demand for high-quality script production. Long-form microdrama script generation with LLMs requires both diverse plot progression and long-range narrative coherence. Our observations reveal that candidate continuations increasingly concentrate on fewer narrative mechanisms as generation progresses, while conventional retrieval may reinforce trope reuse and overlook historical information essential to future plots. To address these challenges, we propose DraMaze, a multi-agent pipeline that explores diverse causal paths through trope memory-guided ",
    "authors": [
-    "Yaolun Zhang",
-    "Tianyi Xu",
-    "Yujie Zhao",
-    "Jishen Zhao"
+    "Siyang He",
+    "Qiqi Wang",
+    "Fan Liu",
+    "Yuncheng Huang"
    ],
-   "link": "https://huggingface.co/papers/2610.04184",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-16T00:00",
-   "title_ar": "إيفال ريسيرش بنش: هل يستطيع وكلاء الذكاء الاصطناعي بناء تغذيتهم الراجعة الخاصة للتحسين الذاتي التكراري؟",
-   "summary_ar": "يعتمد التحسين الذاتي التكراري على التغذية الراجعة للتقييم لتقدير التقدم وتوجيه المزيد من الأبحاث، إلا أن التشغيل المتكرر للمقاييس المعقدة مكلف ويبطئ التكرار. يقلل الخبراء البشريون هذه التكلفة باختيار مجموعات فرعية من المقاييس أو تصميم مجموعات مدمجة، ونتساءل عما إذا كان بإمكان وكلاء الذكاء الاصطناعي فعل ذلك."
-  },
-  {
-   "id": "2610.25835",
-   "title": "Diffusion Language Models Change Speed Across Tasks and Languages",
-   "abstract": "Diffusion language models can write several tokens in one forward pass, and they decide during generation how many passes to spend. Two outputs of the same token length can therefore vary a lot in cost. To understand the underlying factors of this cost variation, we analyze two diffusion models across 10 tasks. We find that the number of forward passes per token depends heavily on the task. Text copied or lightly edited from the input is cheap, while open-ended writing is costly. In DiffusionGemma, generating a token for story writing requires more than three times as many forward passes as fo",
-   "authors": [
-    "Mohsen Fayyaz",
-    "Ali Modarressi",
-    "Daniel Israel",
-    "Lucas Bandarkar"
-   ],
-   "link": "https://huggingface.co/papers/2610.25835",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-19T05:47",
-   "title_ar": "نماذج لغة الانتشار تغير سرعتها عبر المهام واللغات",
-   "summary_ar": "يمكن لنماذج لغة الانتشار كتابة عدة رموز في تمريرة أمامية واحدة، وتقرر أثناء التوليد عدد التمريرات التي تستهلكها. وبناءً على ذلك، قد يختلف مخرجان لهما نفس طول الرموز اختلافًا كبيرًا في التكلفة، ولذا نحلل نموذجي انتشار لفهم العوامل الكامنة وراء هذا التباين."
-  },
-  {
-   "id": "2610.31198",
-   "title": "Different Tasks, Different Timesteps: Temporal Task-Aware Quantization for Diffusion Language Models",
-   "abstract": "Diffusion Language Models (DLMs) introduce unique quantization challenges due to their iterative denoising process. In this work, we reveal that quantization sensitivity is both taskand time-dependent, with different downstream tasks exhibiting distinct precision requirements across denoising steps. We further show that these patterns can be predicted without groundtruth labels or task-specific evaluation metrics. Building on these findings, we introduce T 2Quant, a task and time-aware mixedprecision quantization framework that uses a label-free sensitivity signal to optimally allocate activat",
-   "authors": [
-    "Ofek Avivi",
-    "Eliron Rahimi",
-    "Avi Mendelson",
-    "Chaim Baskin"
-   ],
-   "link": "https://huggingface.co/papers/2610.31198",
+   "link": "https://huggingface.co/papers/2610.32002",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-22T00:00",
-   "title_ar": "مهام مختلفة، خطوات زمنية مختلفة: تكميم زمني مدرك للمهام لنماذج لغة الانتشار",
-   "summary_ar": "تفرض نماذج لغة الانتشار تحديات تكميم فريدة بسبب عملية إزالة الضوضاء التكرارية الخاصة بها. نكشف في هذا العمل أن حساسية التكميم تعتمد على كل من المهمة والزمن، حيث تظهر المهام النهائية المختلفة متطلبات دقة متباينة عبر خطوات إزالة الضوضاء."
+   "title_ar": "DraMaze: خط أنابيب متعدد الوكلاء مع ذاكرة واعية بالمستقبل لتوليد نصوص درامية قصيرة متنوعة",
+   "summary_ar": "أدى النمو السريع للدراما القصيرة إلى زيادة الطلب على إنتاج نصوص عالية الجودة، ويتطلب توليد نصوصها الطويلة بنماذج اللغات الكبيرة تقدمًا متنوعًا في الحبكة وتماسكًا سرديًا بعيد المدى. وتكشف ملاحظاتنا أن الاستمراريات المرشحة تتركز بشكل متزايد على عدد أقل."
   },
   {
-   "id": "2610.24385",
-   "title": "Bridging Exploration and Persona: Information-Directed Dueling for Test-Time Agent Personalization",
-   "abstract": "Effective test-time personalization requires LLM agents to adapt to query-dependent user preferences from lightweight interaction. We study persona selection with binary comparisons between candidate responses as the online signal. We present ID-TAP, a scalable, IDS-inspired neural dueling-bandit framework for large discrete persona spaces. ID-TAP combines a query-conditioned neural utility model with a lightweight Bradley-Terry explorer, and transfers comparison evidence across related queries through similarity-weighted warm starts. The neural model shares statistical strength across queries",
+   "id": "2610.31931",
+   "title": "Every Weight Is a Path of Shared Discrete Decisions",
+   "abstract": "We introduce TWIG (Tree-structured Weights with Inherited Gates), a representation in which every weight of a neural network is the end of a path of small discrete decisions: a sign, a shift by a power of two, a zero gate, an index into a shared table. Weights that belong together share the upper part of their paths, and each decision is inherited by every weight below it, so it is stored once and applied once. This simple change has three consequences. Any trained network can be written as a TWIG, and when the decisions are powers of two its weight layers become circuits made almost entirely ",
    "authors": [
-    "Jie Mao",
-    "Pingchen Lu",
-    "Xiangyi Wang",
-    "Hengquan Huang"
+    "Ammar Ali",
+    "Stamatis Lefkimmiatis"
    ],
-   "link": "https://huggingface.co/papers/2610.24385",
+   "link": "https://huggingface.co/papers/2610.31931",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-17T00:00",
-   "title_ar": "جسر الهوة بين الاستكشاف والشخصية: مبارزة موجهة بالمعلومات لتخصيص الوكلاء أثناء وقت الاختبار",
-   "summary_ar": "يتطلب التخصيص الفعال أثناء وقت الاختبار تكيف وكلاء النماذج اللغوية الكبيرة مع تفضيلات المستخدم المعتمدة على الاستعلام من خلال تفاعل خفيف. ندرس اختيار الشخصية باستخدام مقارنات ثنائية بين الردود المرشحة كإشارة عبر الإنترنت، ونقدم ID-TAP كإطار عمل مبارز متعدد الأذرع عصبي قابل للتوسع ومستوحى من IDS."
+   "published": "2026-10-22T00:00",
+   "title_ar": "كل وزن هو مسار لقرارات منفصلة مشتركة",
+   "summary_ar": "نُقدّم TWIG (أوزان ذات بنية شجرية مع بوابات موروثة)، وهو تمثيل يكون فيه كل وزن في الشبكة العصبية نهاية مسار لقرارات منفصلة صغيرة: إشارة، وإزاحة بقوة للعدد اثنين، وبوابة صفرية، وفهرس في جدول مشترك. تتشارك الأوزان المترابطة معًا المسار العلوي."
+  },
+  {
+   "id": "2610.31066",
+   "title": "Dual Exam: Controlled Evaluation of Multimodal Agents and World Models",
+   "abstract": "World Models (WMs) can support Multimodal Agents (MAs) through simulated experience, while Agent trajectories can inform World Model refinement. Evaluating this interaction requires separate evidence about action selection and state evolution. We introduce Dual Exam, which tests Agents under fixed environment response mechanisms and World Models under fixed action interventions across physical, digital, social, and scientific domains. The Agent track compares 10 configurations on 1,088 items in 15 reporting categories. The World Model track contains 400 cases across eight scenarios; 15 configu",
+   "authors": [
+    "Zhefan Rao",
+    "Meng Chu",
+    "Xuan Zhang",
+    "Jingfan Chen"
+   ],
+   "link": "https://huggingface.co/papers/2610.31066",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-22T00:00",
+   "title_ar": "الاختبار المزدوج: تقييم منضبط للوكلاء متعددي الوسائط ونماذج العالم",
+   "summary_ar": "يمكن لنماذج العالم دعم الوكلاء متعددي الوسائط من خلال الخبرة المحاكاة، بينما يمكن لمسارات الوكلاء أن تُوجِّه تحسين نموذج العالم. يتطلب تقييم هذا التفاعل أدلة منفصلة حول اختيار الإجراء وتطور الحالة، لذا نُقدّم \"الاختبار المزدوج\" الذي يختبر الوكلاء في ظل بيئة ثابتة."
+  },
+  {
+   "id": "2610.31162",
+   "title": "HiSTEVE 1.0: Harnessing Human-Interface VLA Agents for Open-World Games",
+   "abstract": "Building virtual embodied agents that operate in open-ended games like human players is a long-standing goal requiring both long-horizon autonomy and reliable native-interface control. As a procedurally generated open world, Minecraft provides a natural testbed for studying the integration of these capabilities. Existing agents typically provide either native visuomotor control without long-horizon autonomy or high-level planning executed through environment APIs or predefined skills. To bridge this gap, we propose HiSTEVE, a hierarchical VLA agent with a capability-aware agent harness. At the",
+   "authors": [
+    "Zecong Tang",
+    "Zian Guan",
+    "Yuncheng Guo",
+    "Zhanqiu Zhang"
+   ],
+   "link": "https://huggingface.co/papers/2610.31162",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-22T00:00",
+   "title_ar": "HiSTEVE 1.0: تسخير وكلاء الرؤية واللغة والعمل بواجهات بشرية لألعاب العالم المفتوح",
+   "summary_ar": "يُعد بناء وكلاء مجسدين افتراضيين يعملون في ألعاب غير مقيدة كلاعبين بشريين هدفًا طويل الأمد يتطلب استقلالية بعيدة المدى وتحكمًا موثوقًا بالواجهة الأصلية. ويوفر عالم ماينكرافت المولد إجرائيًا بيئة اختبار طبيعية لدراسة دمج هذه الخصائص."
   }
  ],
  "n": 6
