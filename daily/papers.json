@@ -1,106 +1,106 @@
 {
- "updated": "2026-10-26T06:54+00:00",
+ "updated": "2026-10-26T19:46+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.23234",
-   "title": "MultiAgent-OPD: End-to-End Training of Hierarchical Multi-Agent Systems with On-Policy Distillation",
-   "abstract": "In a hierarchical multi-agent system, a Leader assigns tasks and subagents carry them out. Jointly training the Leader and the subagents is difficult because a final answer gives only indirect feedback to the subagents. An LLM judge can score the performance of the subagents, but these scores depend on the judge's own assessment of the quality of subagents' responses. We present MultiAgent-OPD, which combines on-policy distillation with reinforcement learning to jointly train a shared-parameter Leader-Searcher-Answerer team end to end. We first train a Teacher in a Searcher-Answerer workflow u",
+   "id": "2610.21109",
+   "title": "Kolab: Benchmarking Human-Agent Collaboration in Long-Horizon Workflows",
+   "abstract": "When humans collaborate with AI agents on long-horizon tasks, what happens to the agents' contributions? For solving long-horizon tasks, humans place greater importance on ongoing interaction with AI agents (e.g., revising plans) than on an agent's ability to complete the task in a single attempt. However, most agentic benchmarks have focused more on automation. Strong performance on such benchmarks does not imply effective real-world collaboration. Professional workflows offer a useful setting, as they often involve interdependent steps. To address this gap, we introduce Kolab, a new dataset ",
    "authors": [
-    "Yuhan Sun",
-    "Jiaxin Zhao",
-    "Yongdong Luo",
-    "Yibo Hu"
+    "Shirley Anugrah Hayati",
+    "Patricia Anugrah Setiani",
+    "Ruizi Wang",
+    "Zhouyi Li"
    ],
-   "link": "https://huggingface.co/papers/2610.23234",
+   "link": "https://huggingface.co/papers/2610.21109",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-15T00:00",
+   "title_ar": "كولاب: تقييم التعاون بين الإنسان والوكيل في مسارات العمل طويلة المدى",
+   "summary_ar": "يبحث هذا العمل في مساهمات وكلاء الذكاء الاصطناعي عند تعاونهم مع البشر في المهام طويلة المدى. ويولي البشر أهمية أكبر للتفاعل المستمر مع هؤلاء الوكلاء، مثل مراجعة الخطط، مقارنةً بقدرة الوكيل على إنجاز المهمة من محاولة واحدة."
+  },
+  {
+   "id": "2610.27364",
+   "title": "Predictive Closure: A Set-Level Characterization of JEPA's Feature Selection",
+   "abstract": "In joint-embedding predictive architectures (JEPA), an encoder and a predictor are trained together to produce a representation that minimizes the error in predicting the representation of the next observation. Because the representations of both the current and the next observation are learned, it is unclear which features they will include. Earlier characterizations describe the features JEPA selects in terms of their individual predictability, raising the concern that unpredictable features, like a traffic light, will not be encoded into the representation. However, the prediction error is ",
+   "authors": [
+    "Mosh Levy",
+    "Aly Lidayan",
+    "Yoav Goldberg"
+   ],
+   "link": "https://huggingface.co/papers/2610.27364",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-19T00:00",
+   "title_ar": "الإغلاق التنبؤي: توصيف على مستوى المجموعات لاختيار الميزات في بنية التنبؤ بالتضمين المشترك (JEPA)",
+   "summary_ar": "في بنى التنبؤ بالتضمين المشترك (JEPA)، يُدرَّب المشفِّر والمتنبئ معًا لإنتاج تمثيل يقلل من خطأ التنبؤ بتمثيل الملاحظة التالية. ويحدث هذا التعلم المشترك نظراً لأن تمثيلات كل من الملاحظة الحالية والملاحظة التالية يجري تعلمهما معاً."
+  },
+  {
+   "id": "2610.27528",
+   "title": "Judging the Justification: Decision Certificate Supervision for Generative Reward Models",
+   "abstract": "Generative reward models (GenRMs) generate natural language rationales to justify preference judgments, yet a correct verdict does not guarantee a sound justification. Existing approaches often rely on reference explanations to supervise rationales, but obtaining such references can be costly and does not necessarily establish whether generated rationales support the resulting verdict. To address these limitations, we propose DeCert, a framework that evaluates the validity and verdict consistency of generated rationales without requiring reference explanations. Crucially, DeCert translates the",
+   "authors": [
+    "Guiquan Sun",
+    "Bing Bai",
+    "Martin Renqiang Min",
+    "Dongjin Song"
+   ],
+   "link": "https://huggingface.co/papers/2610.27528",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-20T00:00",
-   "title_ar": "MultiAgent-OPD: تدريب الأنظمة متعددة الوكلاء الهرمية من البداية إلى النهاية باستخدام التقطير وفق السياسة",
-   "summary_ar": "يُكلِّف القائد في النظام متعدد الوكلاء الهرمي المهام للوكلاء الفرعيين لتنفيذها، ويُعد التدريب المشترك بينهما صعبًا لأن الإجابة النهائية تقدم تغذية راجعة غير مباشرة فقط للوكلاء الفرعيين. يمكن لحَكَم من نماذج اللغات الكبيرة تقييم أداء الوكلاء الفرعيين، إلا أن هذه الدرجات تعتمد على ذلك."
+   "title_ar": "الحكم على التبرير: الإشراف بشهادة القرار لنماذج المكافأة التوليدية",
+   "summary_ar": "تولد نماذج المكافأة التوليدية (GenRMs) تبريرات باللغة الطبيعية لتسويغ أحكام التفضيل، غير أن الحكم الصحيح لا يضمن سلامة التبرير. وتعتمد الأساليب الحالية غالباً على شروحات مرجعية للإشراف على التبريرات، لكن الحصول على هذه المراجع قد يكون مكلفاً."
   },
   {
-   "id": "2610.32894",
-   "title": "LoCA: Enabling Multi-Modality in Geospatial Location Encoders",
-   "abstract": "Location encoders map geographic coordinates to high-dimensional descriptors through contrastive alignment with paired Earth Observation imagery. We prove that this construction is structurally limited: any Lipschitz location encoder produces an output of intrinsic dimension at most 2, regardless of architecture or bandwidth, which forces the contrastive loss to strictly exceed its asymptotic optimum. Empirically, joint training also collapses the encoder's embedding covariance to low rank. Although dimension-limited, current location encoders sidestep this spectral collapse by training agains",
+   "id": "2610.31572",
+   "title": "On the Token Collapse Phenomenon in Textual Graph Soft Prompting",
+   "abstract": "Recent methods for injecting graph structure into LLM prompts include graph soft prompting, in which a graph neural network (GNN) learns graph-specific tokens that capture relational information among entities in textual prompts. G-Retriever combines graph soft prompts with a verbalized description of the same graph to strengthen the textual prompt signal. We conduct an in-depth analysis of G-Retriever and uncover a pathological behavior we term token collapse. Across three benchmarks, three graph encoders, two LLM families, and both frozen and LoRA-adapted models, G-Retriever's graph tokens b",
    "authors": [
-    "Panagiotis Koromilas",
-    "Eleanna Vali",
-    "Diogenis Antonopoulos",
-    "Eleni Saka"
+    "Andrea Giuseppe Di Francesco",
+    "Rishabh Jain",
+    "Franco Maria Nardini",
+    "Nicola Tonellotto"
    ],
-   "link": "https://huggingface.co/papers/2610.32894",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-23T00:00",
-   "title_ar": "LoCA: تمكين تعدد الوسائط في مُشفِّرات المواقع الجغرافية المكانية",
-   "summary_ar": "ترسم مُشفِّرات المواقع الإحداثيات الجغرافية إلى واصفات عالية الأبعاد عبر المحاذاة التباينية مع صور مراقبة الأرض المقترنة بها. ونُثبت أن هذا البناء محدود هيكليًا، حيث يُنتج أي مُشفِّر موقع ليoptionsتزي مخرجات ذات بُعد جوهري لا يتجاوز 2 بغض النظر عن ذلك."
-  },
-  {
-   "id": "2610.32002",
-   "title": "DraMaze: A Multi-Agent Pipeline with Future-Aware Memory for Diverse Microdrama Script Generation",
-   "abstract": "The rapid growth of microdramas has increased demand for high-quality script production. Long-form microdrama script generation with LLMs requires both diverse plot progression and long-range narrative coherence. Our observations reveal that candidate continuations increasingly concentrate on fewer narrative mechanisms as generation progresses, while conventional retrieval may reinforce trope reuse and overlook historical information essential to future plots. To address these challenges, we propose DraMaze, a multi-agent pipeline that explores diverse causal paths through trope memory-guided ",
-   "authors": [
-    "Siyang He",
-    "Qiqi Wang",
-    "Fan Liu",
-    "Yuncheng Huang"
-   ],
-   "link": "https://huggingface.co/papers/2610.32002",
+   "link": "https://huggingface.co/papers/2610.31572",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-22T00:00",
-   "title_ar": "DraMaze: خط أنابيب متعدد الوكلاء مع ذاكرة واعية بالمستقبل لتوليد نصوص درامية قصيرة متنوعة",
-   "summary_ar": "أدى النمو السريع للدراما القصيرة إلى زيادة الطلب على إنتاج نصوص عالية الجودة، ويتطلب توليد نصوصها الطويلة بنماذج اللغات الكبيرة تقدمًا متنوعًا في الحبكة وتماسكًا سرديًا بعيد المدى. وتكشف ملاحظاتنا أن الاستمراريات المرشحة تتركز بشكل متزايد على عدد أقل."
+   "title_ar": "حول ظاهرة انهيار الرموز في التوجيه المرن للرسوم البيانية النصية",
+   "summary_ar": "تشمل الطرق الحديثة لدمج بنية الرسم البياني في مطالبات النماذج اللغوية الكبيرة التوجيه المرن، حيث تتعلم شبكة عصبية بيانية رموزاً خاصة بالرسم لالتقاط العلاقات بين الكيانات في المطالبات النصية. ويجمع نموذج (G-Retriever) بين مطالبات الرسوم البيانية المرنة والوصف اللفظي."
   },
   {
-   "id": "2610.31931",
-   "title": "Every Weight Is a Path of Shared Discrete Decisions",
-   "abstract": "We introduce TWIG (Tree-structured Weights with Inherited Gates), a representation in which every weight of a neural network is the end of a path of small discrete decisions: a sign, a shift by a power of two, a zero gate, an index into a shared table. Weights that belong together share the upper part of their paths, and each decision is inherited by every weight below it, so it is stored once and applied once. This simple change has three consequences. Any trained network can be written as a TWIG, and when the decisions are powers of two its weight layers become circuits made almost entirely ",
+   "id": "2610.31779",
+   "title": "FLORA: An Open Model Suite for Scaling Robotics Data Engines",
+   "abstract": "The life-cycle of robotics foundation models crucially depends on data labels. Outcome reward labels are needed for monitoring real-world deployments. Process reward labels are needed during RL post-training. Timestamped captions are needed for filtering and balancing pretraining data. We present Flora, an industrial-quality data engine used for training GR00T models, that simultaneously covers these capabilities. Flora achieves SOTA scores on the captioning benchmark WGO-Bench and reward benchmarks RoboReward and Robometer. On internal benchmarks it is competitive with GPT-6 Astra while beati",
    "authors": [
-    "Ammar Ali",
-    "Stamatis Lefkimmiatis"
+    "Sicong Leng",
+    "Yunze Man",
+    "Zhiqi Li",
+    "Jing Wang"
    ],
-   "link": "https://huggingface.co/papers/2610.31931",
+   "link": "https://huggingface.co/papers/2610.31779",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-22T00:00",
-   "title_ar": "كل وزن هو مسار لقرارات منفصلة مشتركة",
-   "summary_ar": "نُقدّم TWIG (أوزان ذات بنية شجرية مع بوابات موروثة)، وهو تمثيل يكون فيه كل وزن في الشبكة العصبية نهاية مسار لقرارات منفصلة صغيرة: إشارة، وإزاحة بقوة للعدد اثنين، وبوابة صفرية، وفهرس في جدول مشترك. تتشارك الأوزان المترابطة معًا المسار العلوي."
+   "title_ar": "فلورا (FLORA): حزمة نماذج مفتوحة لتوسيع نطاق محركات بيانات الروبوتات",
+   "summary_ar": "تعتمد دورة حياة نماذج الروبوتات التأسيسية بشكل حاسم على تسميات البيانات، مثل مكافآت النتائج لمراقبة النشر، ومكافآت العمليات أثناء التدريب اللاحق بالتعلم المعزز، والتسميات التوضيحية الزمنية لتصفية بيانات ما قبل التدريب. ويقدم العمل حزمة نماذج تدعى \"فلورا\" (Flora)."
   },
   {
-   "id": "2610.31066",
-   "title": "Dual Exam: Controlled Evaluation of Multimodal Agents and World Models",
-   "abstract": "World Models (WMs) can support Multimodal Agents (MAs) through simulated experience, while Agent trajectories can inform World Model refinement. Evaluating this interaction requires separate evidence about action selection and state evolution. We introduce Dual Exam, which tests Agents under fixed environment response mechanisms and World Models under fixed action interventions across physical, digital, social, and scientific domains. The Agent track compares 10 configurations on 1,088 items in 15 reporting categories. The World Model track contains 400 cases across eight scenarios; 15 configu",
+   "id": "2610.20117",
+   "title": "KANLab: TensorFlow Playground for Kolmogorov-Arnold Networks",
+   "abstract": "KANLab is a browser-based visualization tool designed to interactively teach the core concepts of Kolmogorov-Arnold Networks (KAN), forked from the widely successful TensorFlow Playground. To maximize educational clarity, KANLab omits residual connections and learnable scaling parameters found in modern KAN implementations, ensuring that displayed B-spline activation curves directly correspond to their underlying trainable control points. Users can inspect and modify activation functions, initialization schemes and observe gradient descent correcting manual disruptions. Furthermore, user can e",
    "authors": [
-    "Zhefan Rao",
-    "Meng Chu",
-    "Xuan Zhang",
-    "Jingfan Chen"
+    "Lukas Niehaus",
+    "Robin Rawiel",
+    "Ulf Krumnack"
    ],
-   "link": "https://huggingface.co/papers/2610.31066",
+   "link": "https://huggingface.co/papers/2610.20117",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-22T00:00",
-   "title_ar": "الاختبار المزدوج: تقييم منضبط للوكلاء متعددي الوسائط ونماذج العالم",
-   "summary_ar": "يمكن لنماذج العالم دعم الوكلاء متعددي الوسائط من خلال الخبرة المحاكاة، بينما يمكن لمسارات الوكلاء أن تُوجِّه تحسين نموذج العالم. يتطلب تقييم هذا التفاعل أدلة منفصلة حول اختيار الإجراء وتطور الحالة، لذا نُقدّم \"الاختبار المزدوج\" الذي يختبر الوكلاء في ظل بيئة ثابتة."
-  },
-  {
-   "id": "2610.31162",
-   "title": "HiSTEVE 1.0: Harnessing Human-Interface VLA Agents for Open-World Games",
-   "abstract": "Building virtual embodied agents that operate in open-ended games like human players is a long-standing goal requiring both long-horizon autonomy and reliable native-interface control. As a procedurally generated open world, Minecraft provides a natural testbed for studying the integration of these capabilities. Existing agents typically provide either native visuomotor control without long-horizon autonomy or high-level planning executed through environment APIs or predefined skills. To bridge this gap, we propose HiSTEVE, a hierarchical VLA agent with a capability-aware agent harness. At the",
-   "authors": [
-    "Zecong Tang",
-    "Zian Guan",
-    "Yuncheng Guo",
-    "Zhanqiu Zhang"
-   ],
-   "link": "https://huggingface.co/papers/2610.31162",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-22T00:00",
-   "title_ar": "HiSTEVE 1.0: تسخير وكلاء الرؤية واللغة والعمل بواجهات بشرية لألعاب العالم المفتوح",
-   "summary_ar": "يُعد بناء وكلاء مجسدين افتراضيين يعملون في ألعاب غير مقيدة كلاعبين بشريين هدفًا طويل الأمد يتطلب استقلالية بعيدة المدى وتحكمًا موثوقًا بالواجهة الأصلية. ويوفر عالم ماينكرافت المولد إجرائيًا بيئة اختبار طبيعية لدراسة دمج هذه الخصائص."
+   "published": "2026-10-14T00:00",
+   "title_ar": "كانلاب: ساحة تجارب تنسرفلو لشبكات كولموغوروف-أرنولد",
+   "summary_ar": "\"كانلاب\" هي أداة تصور قائمة على المتصفح ومقتبسة من مشروع \"تنسرفلو بلاي غراوند\" لتعليم المفاهيم الأساسية لشبكات كولموغوروف-أرنولد (KAN) تفاعلياً. ولتعزيز الوضوح التعليمي إلى أقصى حد، تتجاهل الأداة الاتصالات المتبقية ومعلمات القياس القابلة للتعلم."
   }
  ],
  "n": 6
