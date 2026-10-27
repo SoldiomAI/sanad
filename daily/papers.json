@@ -1,105 +1,106 @@
 {
- "updated": "2026-10-27T08:41+00:00",
+ "updated": "2026-10-27T23:57+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.35385",
-   "title": "EmbodiedLab: Benchmarking Embodied Agents That Act to Know",
-   "abstract": "Embodied agents are expected to accomplish real-world goals by deciding for themselves how and when to interact with their surroundings. For many such goals, changing the physical state of the world is the means rather than the end: the agent changes the state of a system through interaction, observes the feedback, and explores until it either achieves the goal itself (e.g., discovering physical laws) or learns what the goal requires; it acts to know. Manipulation benchmarks stop at acting to change, with the target state given; scientific discovery benchmarks evaluate knowing but replace phys",
+   "id": "2610.19025",
+   "title": "How Far Can Coding Agents Go in Visual Generation?",
+   "abstract": "Modern image generation largely relies on specialized generative models that leave the process of image construction implicit in learned parameters. We explore an alternative: general-purpose coding agents that construct images through executable programs. Our study of zero-shot drawing on AgentDrawBench, a 200-prompt benchmark, reveals a distinctive capability profile. Agents excel at preserving structure and satisfying precise visual constraints, achieving competitive results in domains where compositional accuracy matters more than photorealistic appearance, while remaining limited in perce",
    "authors": [
-    "Hongcheng Gao",
-    "Zelin Zheng",
-    "Alex Zhou",
-    "Jay Zhu"
+    "Hengguang Zhou",
+    "Yuanhao Ban",
+    "Jiaqi Feng",
+    "Xiaohuan Pei"
    ],
-   "link": "https://huggingface.co/papers/2610.35385",
+   "link": "https://huggingface.co/papers/2610.19025",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-26T00:00",
-   "title_ar": "مختبر التجسيد: تقييم الوكلاء المجسدين الذين يتصرفون للمعرفة",
-   "summary_ar": "يُتوقع من الوكلاء المجسدين تحقيق أهداف العالم الحقيقي عبر تقرير كيفية ووقت التفاعل مع محيطهم بأنفسهم. وفي العديد من هذه الأهداف، يكون تغيير الحالة المادية للعالم وسيلة لا غاية، حيث يُغير الوكيل حالة النظام عبر التفاعل والملاحظة."
+   "published": "2026-10-13T00:00",
+   "title_ar": "إلى أي مدى يمكن لوكلاء البرمجة الوصول في التوليد البصري؟",
+   "summary_ar": "يعتمد توليد الصور الحديث غالبًا على نماذج توليدية متخصصة تترك عملية بناء الصورة ضمنية في المعاملات المتعلمة، بينما تستكشف هذه الورقة بديلًا يتمثل في وكلاء برمجة للأغراض العامة يبنون الصور عبر برامج قابلة للتنفيذ. تتناول الدراسة الرسم بدون تدريب مسبق (zero-shot) على منصة AgentDraw."
   },
   {
-   "id": "2610.33079",
-   "title": "Rethinking Video Storage for AI Training: Breaking Cross-Frame Dependencies for Efficient Random Access",
-   "abstract": "Large-scale AI training increasingly relies on massive video datasets with random temporal sampling patterns. However, existing video storage paradigms are optimized for sequential playback and employ sophisticated inter-frame reference structures to maximize compression efficiency. When applied to the random-sampling workloads of AI training, these paradigms face substantial decoding-efficiency bottlenecks. Workarounds such as independent JPEG frames and short groups of pictures (GOPs) reduce decoding work at the cost of larger storage and transfer volumes. In this paper, we identify two sour",
+   "id": "2610.21240",
+   "title": "Representation Redistribution in Sparse Autoencoders",
+   "abstract": "Sparse autoencoders (SAEs) decompose language model activations into sparse features, but prompt transformations designed to preserve the underlying request can redistribute activity across them. A feature change observed on one transformed prompt need not recur, and even a recurring change need not affect a downstream computation. We introduce the redistribution sensitivity score (RSS), which identifies large feature responses that recur in a consistent direction, and evaluate the resulting supports on variants excluded from selection. Across 27 pretrained SAEs spanning eight language models,",
    "authors": [
-    "Zetian Song",
-    "Qize Yu",
-    "Yue Chen",
-    "Bohan Zhou"
+    "Ziye Mei",
+    "Haotian Ma"
    ],
-   "link": "https://huggingface.co/papers/2610.33079",
+   "link": "https://huggingface.co/papers/2610.21240",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-21T00:00",
-   "title_ar": "إعادة التفكير في تخزين الفيديو لتدريب الذكاء الاصطناعي: كسر الاعتماديات بين الإطارات للوصول العشوائي الفعال",
-   "summary_ar": "يعتمد تدريب الذكاء الاصطناعي واسع النطاق بشكل متزايد على مجموعات بيانات فيديو ضخمة بأنماط أخذ عينات زمنية عشوائية. ومع ذلك، فإن نماذج تخزين الفيديو الحالية مُحسَّنة للتشغيل المتسلسل وتستخدم هياكل مرجعية معقدة بين الإطارات لتحقيق أقصى كفاءة في الضغط."
+   "published": "2026-10-15T00:00",
+   "title_ar": "إعادة توزيع التمثيل في المشفرات التلقائية المتفرقة",
+   "summary_ar": "تفكك المشفرات التلقائية المتفرقة (SAEs) تنشيطات النماذج اللغوية إلى ميزات متفرقة، غير أن تحويلات الأوامر المصممة للحفاظ على الطلب الأساسي قد تعيد توزيع النشاط عبرها. وعليه، فإن التغير الملاحظ في ميزة ما عند تطبيق أمر محوّل ليس بالضرورة أن يتكرر، وحتى التغير المتكرر قد لا يستمر."
   },
   {
-   "id": "2610.31818",
-   "title": "Nested Sparsity for Scalable Pretraining and Continual Learning",
-   "abstract": "Mixture-of-experts (MoE) transformers, the standard backbone for modern large-scale deep learning, employ conditional computation: only a sparse subset of model weights is used in each forward pass. In MoE transformers, this sparsity arises in the MoE operator, which generalizes the multi-layer perceptron in the classical transformer. In this work, we explore an alternative mechanism for conditional computation that analogously generalizes the attention operator. The sparsity induced by this mechanism naturally nests (i.e., hierarchically composes) with the sparsity induced by the MoE operator",
+   "id": "2610.33817",
+   "title": "EnvLunch: The Environment as a Free Lunch for Learning to Interact",
+   "abstract": "For agentic data analysis, language-model agents often require a large number of annotated tasks to learn how to interact effectively with executable environments (i.e., databases). While high-quality annotated tasks require heavy manual effort, an executable environment already provides rich interaction structure and verifiable outcomes. In this sense, the environment itself offers a free lunch, an additional set of verifiable tasks that require no human annotation. We propose EnvLunch, a warm-up stage that turns this environmental signal into agent training without human-written or model-gen",
    "authors": [
-    "Tianzhe Chu",
-    "Druv Pai",
-    "Yi Ma"
+    "Wei Liu",
+    "Min Gao",
+    "Yali Du",
+    "Yulan He"
    ],
-   "link": "https://huggingface.co/papers/2610.31818",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-22T00:00",
-   "title_ar": "التناثر المتداخل للتدريب المسبق القابل للتوسع والتعلم المستمر",
-   "summary_ar": "تستخدم محولات خليط الخبراء، وهي الركيزة الأساسية للتعلم العميق الحديث واسع النطاق، الحوسبة المشروطة بتفعيل مجموعة فرعية متناثرة فقط من أوزان النموذج في كل تمرير أمامي. وينشأ هذا التناثر في مشغّل خليط الخبراء، الذي يُعمم إدراك الطبقات المتعددة."
-  },
-  {
-   "id": "2610.33608",
-   "title": "Mycelium: A Meta-Study of Hallucination Detection Across Provenance, Typology, and Granularities",
-   "abstract": "Hallucination detection is increasingly important for evaluating and deploying large language models. However, existing methods are often compared across benchmarks that define and measure hallucination in substantially different ways, making reported scores difficult to interpret across settings. We study hallucination detection as a benchmark-conditioned measurement problem and organize existing benchmarks along three axes: provenance, which describes how model outputs and evidence conditions are obtained; typology, which captures the factuality and faithfulness failures represented by bench",
-   "authors": [
-    "Julia Belikova",
-    "Elisei Rykov"
-   ],
-   "link": "https://huggingface.co/papers/2610.33608",
+   "link": "https://huggingface.co/papers/2610.33817",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-24T00:00",
-   "title_ar": "مايسيليوم: دراسة شاملة لكشف الهلوسة عبر المصدر والأنواع ومستويات الدقة",
-   "summary_ar": "يزداد كشف الهلوسة أهمية لتقييم النماذج اللغوية الكبيرة ونشرها. غير أن الطرق الحالية تُقارن غالباً عبر معايير تُعرّف وتقيس الهلوسة بأساليب مختلفة تماماً، مما يجعل تفسير الدرجات المُبلغ عنها صعباً عبر مختلف البيئات."
+   "title_ar": "EnvLunch: البيئة كغنيمة مجانية لتعلم التفاعل",
+   "summary_ar": "غالبًا ما يحتاج وكلاء النماذج اللغوية في تحليل البيانات المعتمد على الوكلاء إلى عدد كبير من المهام المشروحة بتعليقات لتعلّم التفاعل الفعال مع البيئات القابلة للتنفيذ كقواعد البيانات. وبينما تتطلب هذه المهام المشروحة عالية الجودة جهدًا يدويًا كبيرًا، فإن البيئة القابلة للتنفيذ توفر بالفعل تفاعلًا غنيًا."
   },
   {
-   "id": "2610.34149",
-   "title": "Humans in Space: Can MLLMs Construct Human-Centric Spatial Understanding via Active Exocentric Exploration?",
-   "abstract": "While Multimodal Large Language Models (MLLMs) excel at zero-shot reasoning, their spatial capabilities are primarily evaluated through static, passive observation. In complex, human-centric scenes, occlusion often hides crucial geometric evidence, and passive benchmarks force models to guess rather than recognize their own visual uncertainty. To bridge this gap, we introduce SATE-Bench, a novel interactive benchmark comprising 316 real-world scenes and 2,525 multi-turn QA pairs to evaluate visual self-awareness and active exocentric view-exploration. It combines a Passive multi-view control w",
+   "id": "2610.32046",
+   "title": "Can Test-Time Memory Evolution Outperform Test-Time Training for Scientific Discovery?",
+   "abstract": "Recent test-time training (TTT) frameworks have enabled open-weight large language models (LLMs) to outperform inference-only frameworks powered by frontier models on scientific discovery tasks. However, TTT introduces additional computational cost for online weight updates during the discovery process, making computational efficiency an important consideration when scaling to larger models. This motivates us to explore an efficient test-time adaptation method for scientific discovery. We introduce Test-Time Memory Evolution (TTME), a plug-and-play test-time adaptation method, as an alternativ",
    "authors": [
-    "Tianchen Guo",
-    "Tengyue Zhang",
-    "Chen Liu",
-    "Ling Chen"
+    "Yepeng Liu",
+    "Shengmai Chen",
+    "Xuandong Zhao",
+    "Chengzhi Liu"
    ],
-   "link": "https://huggingface.co/papers/2610.34149",
+   "link": "https://huggingface.co/papers/2610.32046",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-25T00:00",
-   "title_ar": "البشر في الفضاء: هل يمكن للنماذج اللغوية الكبيرة متعددة الوسائط بناء فهم مكاني متمحور حول الإنسان عبر الاستكشاف الخارجي النشط؟",
-   "summary_ar": "على الرغم من تفوق النماذج اللغوية الكبيرة متعددة الوسائط في الاستدلال دون تدريب مسبق، إلا أن قدراتها المكانية تُقيَّم غالباً عبر الملاحظة السلبية الثابتة. وغالباً ما يحجب الانسداد في المشاهد المعقدة المتمحورة حول الإنسان الأدلة الهندسية الحاسمة، مما يجبر النماذج في المعايير السلبية على التخمين."
+   "published": "2026-10-23T00:00",
+   "title_ar": "هل يمكن لتطور الذاكرة وقت الاختبار أن يتفوق على التدريب وقت الاختبار في الاكتشاف العلمي؟",
+   "summary_ar": "مكنت أطر العمل الحديثة للتدريب وقت الاختبار (TTT) النماذج اللغوية الكبيرة مفتوحة الأوزان من التفوق على أطر الاستدلال فقط المدعومة بنماذج رائدة في مهام الاكتشاف العلمي. ومع ذلك، يفرض التدريب وقت الاختبار تكلفة حوسبية إضافية لتحديثات الأوزان المباشرة عبر الإنترنت خلال عملية الاكتشاف."
   },
   {
-   "id": "2610.35518",
-   "title": "S3AC: Stabilized, Selective, and Scalable Actor-Critic for LLM Reasoning",
-   "abstract": "Critic-free methods are widely used in reinforcement learning with verifiable rewards (RLVR) for long chain-of-thought (CoT) reasoning, avoiding difficult and costly critic training. Common alternatives lack token-level credit assignment and typically rely on grouped rollouts to estimate prompt-specific baselines. A critic can address both limitations, but long-CoT critic training is hindered by insufficient coverage of trajectories with diverse lengths and early gradients dominated by the newly initialized value head. We introduce S3AC (Stabilized, Selective, and Scalable Actor-Critic) for LL",
+   "id": "2610.35295",
+   "title": "Did the Model Use That? Counterfactual Training Boosts Self-Attribution in Language Models",
+   "abstract": "A fundamental challenge for explainable and accountable language models is revealing how external information influences their answers. This paper examines whether models are self-attributive: that is, whether they indicate when -- and only when -- their responses to questions are influenced by information provided alongside the question. Furthermore, we explore how self-attribution can be improved through counterfactual training, which explicitly teaches models to distinguish between answers that do and do not depend on supplied information. We found that most of the eleven frontier models ra",
    "authors": [
-    "Shuo Shen",
-    "Guangran Cheng",
-    "Chengqi Lyu",
-    "Xiangsen Wang"
+    "Zikai Zhou",
+    "Jiacheng Sang",
+    "Yilin Xu",
+    "Yufei Jin"
    ],
-   "link": "https://huggingface.co/papers/2610.35518",
+   "link": "https://huggingface.co/papers/2610.35295",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-26T00:00",
-   "title_ar": "S3AC: الفاعل-الناقد المستقر والانتقائي والقابل للتوسع لاستدلال النماذج اللغوية الكبيرة",
-   "summary_ar": "تُستخدم الطرق الخالية من الناقد على نطاق واسع في التعلم المعزز بمكافآت قابلة للتحقق لاستدلال سلاسل الأفكار الطويلة، متجنبةً بذلك تدريب الناقد الصعب والمكلف. وتفتقر البدائل الشائعة إلى تخصيص التقدير على مستوى الرمز، وتعتمد عادةً على عمليات تكرار مجمعة لتقدير قيمة الموجه."
+   "title_ar": "هل استخدم النموذج ذلك؟ التدريب المضاد للواقع يعزز الإسناد الذاتي في النماذج اللغوية",
+   "summary_ar": "يتمثل أحد التحديات الأساسية للنماذج اللغوية القابلة للتفسير والخاضعة للمساءلة في الكشف عن كيفية تأثير المعلومات الخارجية على إجاباتها. تبحث هذه الورقة فيما إذا كانت النماذج تمتلك ميزة الإسناد الذاتي، أي تحديد متى وفقط متى تتأثر إجاباتها عن الأسئلة بالمعلومات."
+  },
+  {
+   "id": "2610.34577",
+   "title": "Rethinking Verification in Agent Harnesses",
+   "abstract": "Agent harnesses enable large language models to act through tools, observe the results, and iteratively work toward a task goal. Verification checks and revises agents' work to improve output quality. Yet there is limited guidance on how harnesses should organize this effort. We study verification as an axis of test-time scaling by examining when to intervene, who checks the work, and how checking leads to revision. Our framework spans four layers of the agent lifecycle: initial instructions, mid-turn reminders, completion gates, and independent review. We compare 17 designs across seven front",
+   "authors": [
+    "Zhengxin Zhang",
+    "Erkang Zhu",
+    "Yin Lin",
+    "Claire Cardie"
+   ],
+   "link": "https://huggingface.co/papers/2610.34577",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-25T00:00",
+   "title_ar": "إعادة التفكير في التحقق داخل بيئات تشغيل الوكلاء",
+   "summary_ar": "تتيح بيئات تشغيل الوكلاء للنماذج اللغوية الكبيرة العمل عبر الأدوات، ومراقبة النتائج، والعمل بشكل تكراري نحو تحقيق هدف المهمة. ويقوم التحقق بفحص عمل الوكلاء ومراجعته لتحسين جودة المخرجات، ومع ذلك لا يوجد سوى القليل من التوجيه حول كيفية تنظيم بيئات التشغيل لهذا الجهد، لذا تدرس الورقة التحقق."
   }
  ],
  "n": 6
