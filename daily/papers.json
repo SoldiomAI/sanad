@@ -1,106 +1,105 @@
 {
- "updated": "2026-10-26T19:46+00:00",
+ "updated": "2026-10-27T08:41+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.21109",
-   "title": "Kolab: Benchmarking Human-Agent Collaboration in Long-Horizon Workflows",
-   "abstract": "When humans collaborate with AI agents on long-horizon tasks, what happens to the agents' contributions? For solving long-horizon tasks, humans place greater importance on ongoing interaction with AI agents (e.g., revising plans) than on an agent's ability to complete the task in a single attempt. However, most agentic benchmarks have focused more on automation. Strong performance on such benchmarks does not imply effective real-world collaboration. Professional workflows offer a useful setting, as they often involve interdependent steps. To address this gap, we introduce Kolab, a new dataset ",
+   "id": "2610.35385",
+   "title": "EmbodiedLab: Benchmarking Embodied Agents That Act to Know",
+   "abstract": "Embodied agents are expected to accomplish real-world goals by deciding for themselves how and when to interact with their surroundings. For many such goals, changing the physical state of the world is the means rather than the end: the agent changes the state of a system through interaction, observes the feedback, and explores until it either achieves the goal itself (e.g., discovering physical laws) or learns what the goal requires; it acts to know. Manipulation benchmarks stop at acting to change, with the target state given; scientific discovery benchmarks evaluate knowing but replace phys",
    "authors": [
-    "Shirley Anugrah Hayati",
-    "Patricia Anugrah Setiani",
-    "Ruizi Wang",
-    "Zhouyi Li"
+    "Hongcheng Gao",
+    "Zelin Zheng",
+    "Alex Zhou",
+    "Jay Zhu"
    ],
-   "link": "https://huggingface.co/papers/2610.21109",
+   "link": "https://huggingface.co/papers/2610.35385",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-15T00:00",
-   "title_ar": "كولاب: تقييم التعاون بين الإنسان والوكيل في مسارات العمل طويلة المدى",
-   "summary_ar": "يبحث هذا العمل في مساهمات وكلاء الذكاء الاصطناعي عند تعاونهم مع البشر في المهام طويلة المدى. ويولي البشر أهمية أكبر للتفاعل المستمر مع هؤلاء الوكلاء، مثل مراجعة الخطط، مقارنةً بقدرة الوكيل على إنجاز المهمة من محاولة واحدة."
+   "published": "2026-10-26T00:00",
+   "title_ar": "مختبر التجسيد: تقييم الوكلاء المجسدين الذين يتصرفون للمعرفة",
+   "summary_ar": "يُتوقع من الوكلاء المجسدين تحقيق أهداف العالم الحقيقي عبر تقرير كيفية ووقت التفاعل مع محيطهم بأنفسهم. وفي العديد من هذه الأهداف، يكون تغيير الحالة المادية للعالم وسيلة لا غاية، حيث يُغير الوكيل حالة النظام عبر التفاعل والملاحظة."
   },
   {
-   "id": "2610.27364",
-   "title": "Predictive Closure: A Set-Level Characterization of JEPA's Feature Selection",
-   "abstract": "In joint-embedding predictive architectures (JEPA), an encoder and a predictor are trained together to produce a representation that minimizes the error in predicting the representation of the next observation. Because the representations of both the current and the next observation are learned, it is unclear which features they will include. Earlier characterizations describe the features JEPA selects in terms of their individual predictability, raising the concern that unpredictable features, like a traffic light, will not be encoded into the representation. However, the prediction error is ",
+   "id": "2610.33079",
+   "title": "Rethinking Video Storage for AI Training: Breaking Cross-Frame Dependencies for Efficient Random Access",
+   "abstract": "Large-scale AI training increasingly relies on massive video datasets with random temporal sampling patterns. However, existing video storage paradigms are optimized for sequential playback and employ sophisticated inter-frame reference structures to maximize compression efficiency. When applied to the random-sampling workloads of AI training, these paradigms face substantial decoding-efficiency bottlenecks. Workarounds such as independent JPEG frames and short groups of pictures (GOPs) reduce decoding work at the cost of larger storage and transfer volumes. In this paper, we identify two sour",
    "authors": [
-    "Mosh Levy",
-    "Aly Lidayan",
-    "Yoav Goldberg"
+    "Zetian Song",
+    "Qize Yu",
+    "Yue Chen",
+    "Bohan Zhou"
    ],
-   "link": "https://huggingface.co/papers/2610.27364",
+   "link": "https://huggingface.co/papers/2610.33079",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-19T00:00",
-   "title_ar": "الإغلاق التنبؤي: توصيف على مستوى المجموعات لاختيار الميزات في بنية التنبؤ بالتضمين المشترك (JEPA)",
-   "summary_ar": "في بنى التنبؤ بالتضمين المشترك (JEPA)، يُدرَّب المشفِّر والمتنبئ معًا لإنتاج تمثيل يقلل من خطأ التنبؤ بتمثيل الملاحظة التالية. ويحدث هذا التعلم المشترك نظراً لأن تمثيلات كل من الملاحظة الحالية والملاحظة التالية يجري تعلمهما معاً."
+   "published": "2026-10-21T00:00",
+   "title_ar": "إعادة التفكير في تخزين الفيديو لتدريب الذكاء الاصطناعي: كسر الاعتماديات بين الإطارات للوصول العشوائي الفعال",
+   "summary_ar": "يعتمد تدريب الذكاء الاصطناعي واسع النطاق بشكل متزايد على مجموعات بيانات فيديو ضخمة بأنماط أخذ عينات زمنية عشوائية. ومع ذلك، فإن نماذج تخزين الفيديو الحالية مُحسَّنة للتشغيل المتسلسل وتستخدم هياكل مرجعية معقدة بين الإطارات لتحقيق أقصى كفاءة في الضغط."
   },
   {
-   "id": "2610.27528",
-   "title": "Judging the Justification: Decision Certificate Supervision for Generative Reward Models",
-   "abstract": "Generative reward models (GenRMs) generate natural language rationales to justify preference judgments, yet a correct verdict does not guarantee a sound justification. Existing approaches often rely on reference explanations to supervise rationales, but obtaining such references can be costly and does not necessarily establish whether generated rationales support the resulting verdict. To address these limitations, we propose DeCert, a framework that evaluates the validity and verdict consistency of generated rationales without requiring reference explanations. Crucially, DeCert translates the",
+   "id": "2610.31818",
+   "title": "Nested Sparsity for Scalable Pretraining and Continual Learning",
+   "abstract": "Mixture-of-experts (MoE) transformers, the standard backbone for modern large-scale deep learning, employ conditional computation: only a sparse subset of model weights is used in each forward pass. In MoE transformers, this sparsity arises in the MoE operator, which generalizes the multi-layer perceptron in the classical transformer. In this work, we explore an alternative mechanism for conditional computation that analogously generalizes the attention operator. The sparsity induced by this mechanism naturally nests (i.e., hierarchically composes) with the sparsity induced by the MoE operator",
    "authors": [
-    "Guiquan Sun",
-    "Bing Bai",
-    "Martin Renqiang Min",
-    "Dongjin Song"
+    "Tianzhe Chu",
+    "Druv Pai",
+    "Yi Ma"
    ],
-   "link": "https://huggingface.co/papers/2610.27528",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-20T00:00",
-   "title_ar": "الحكم على التبرير: الإشراف بشهادة القرار لنماذج المكافأة التوليدية",
-   "summary_ar": "تولد نماذج المكافأة التوليدية (GenRMs) تبريرات باللغة الطبيعية لتسويغ أحكام التفضيل، غير أن الحكم الصحيح لا يضمن سلامة التبرير. وتعتمد الأساليب الحالية غالباً على شروحات مرجعية للإشراف على التبريرات، لكن الحصول على هذه المراجع قد يكون مكلفاً."
-  },
-  {
-   "id": "2610.31572",
-   "title": "On the Token Collapse Phenomenon in Textual Graph Soft Prompting",
-   "abstract": "Recent methods for injecting graph structure into LLM prompts include graph soft prompting, in which a graph neural network (GNN) learns graph-specific tokens that capture relational information among entities in textual prompts. G-Retriever combines graph soft prompts with a verbalized description of the same graph to strengthen the textual prompt signal. We conduct an in-depth analysis of G-Retriever and uncover a pathological behavior we term token collapse. Across three benchmarks, three graph encoders, two LLM families, and both frozen and LoRA-adapted models, G-Retriever's graph tokens b",
-   "authors": [
-    "Andrea Giuseppe Di Francesco",
-    "Rishabh Jain",
-    "Franco Maria Nardini",
-    "Nicola Tonellotto"
-   ],
-   "link": "https://huggingface.co/papers/2610.31572",
+   "link": "https://huggingface.co/papers/2610.31818",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-22T00:00",
-   "title_ar": "حول ظاهرة انهيار الرموز في التوجيه المرن للرسوم البيانية النصية",
-   "summary_ar": "تشمل الطرق الحديثة لدمج بنية الرسم البياني في مطالبات النماذج اللغوية الكبيرة التوجيه المرن، حيث تتعلم شبكة عصبية بيانية رموزاً خاصة بالرسم لالتقاط العلاقات بين الكيانات في المطالبات النصية. ويجمع نموذج (G-Retriever) بين مطالبات الرسوم البيانية المرنة والوصف اللفظي."
+   "title_ar": "التناثر المتداخل للتدريب المسبق القابل للتوسع والتعلم المستمر",
+   "summary_ar": "تستخدم محولات خليط الخبراء، وهي الركيزة الأساسية للتعلم العميق الحديث واسع النطاق، الحوسبة المشروطة بتفعيل مجموعة فرعية متناثرة فقط من أوزان النموذج في كل تمرير أمامي. وينشأ هذا التناثر في مشغّل خليط الخبراء، الذي يُعمم إدراك الطبقات المتعددة."
   },
   {
-   "id": "2610.31779",
-   "title": "FLORA: An Open Model Suite for Scaling Robotics Data Engines",
-   "abstract": "The life-cycle of robotics foundation models crucially depends on data labels. Outcome reward labels are needed for monitoring real-world deployments. Process reward labels are needed during RL post-training. Timestamped captions are needed for filtering and balancing pretraining data. We present Flora, an industrial-quality data engine used for training GR00T models, that simultaneously covers these capabilities. Flora achieves SOTA scores on the captioning benchmark WGO-Bench and reward benchmarks RoboReward and Robometer. On internal benchmarks it is competitive with GPT-6 Astra while beati",
+   "id": "2610.33608",
+   "title": "Mycelium: A Meta-Study of Hallucination Detection Across Provenance, Typology, and Granularities",
+   "abstract": "Hallucination detection is increasingly important for evaluating and deploying large language models. However, existing methods are often compared across benchmarks that define and measure hallucination in substantially different ways, making reported scores difficult to interpret across settings. We study hallucination detection as a benchmark-conditioned measurement problem and organize existing benchmarks along three axes: provenance, which describes how model outputs and evidence conditions are obtained; typology, which captures the factuality and faithfulness failures represented by bench",
    "authors": [
-    "Sicong Leng",
-    "Yunze Man",
-    "Zhiqi Li",
-    "Jing Wang"
+    "Julia Belikova",
+    "Elisei Rykov"
    ],
-   "link": "https://huggingface.co/papers/2610.31779",
+   "link": "https://huggingface.co/papers/2610.33608",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-22T00:00",
-   "title_ar": "فلورا (FLORA): حزمة نماذج مفتوحة لتوسيع نطاق محركات بيانات الروبوتات",
-   "summary_ar": "تعتمد دورة حياة نماذج الروبوتات التأسيسية بشكل حاسم على تسميات البيانات، مثل مكافآت النتائج لمراقبة النشر، ومكافآت العمليات أثناء التدريب اللاحق بالتعلم المعزز، والتسميات التوضيحية الزمنية لتصفية بيانات ما قبل التدريب. ويقدم العمل حزمة نماذج تدعى \"فلورا\" (Flora)."
+   "published": "2026-10-24T00:00",
+   "title_ar": "مايسيليوم: دراسة شاملة لكشف الهلوسة عبر المصدر والأنواع ومستويات الدقة",
+   "summary_ar": "يزداد كشف الهلوسة أهمية لتقييم النماذج اللغوية الكبيرة ونشرها. غير أن الطرق الحالية تُقارن غالباً عبر معايير تُعرّف وتقيس الهلوسة بأساليب مختلفة تماماً، مما يجعل تفسير الدرجات المُبلغ عنها صعباً عبر مختلف البيئات."
   },
   {
-   "id": "2610.20117",
-   "title": "KANLab: TensorFlow Playground for Kolmogorov-Arnold Networks",
-   "abstract": "KANLab is a browser-based visualization tool designed to interactively teach the core concepts of Kolmogorov-Arnold Networks (KAN), forked from the widely successful TensorFlow Playground. To maximize educational clarity, KANLab omits residual connections and learnable scaling parameters found in modern KAN implementations, ensuring that displayed B-spline activation curves directly correspond to their underlying trainable control points. Users can inspect and modify activation functions, initialization schemes and observe gradient descent correcting manual disruptions. Furthermore, user can e",
+   "id": "2610.34149",
+   "title": "Humans in Space: Can MLLMs Construct Human-Centric Spatial Understanding via Active Exocentric Exploration?",
+   "abstract": "While Multimodal Large Language Models (MLLMs) excel at zero-shot reasoning, their spatial capabilities are primarily evaluated through static, passive observation. In complex, human-centric scenes, occlusion often hides crucial geometric evidence, and passive benchmarks force models to guess rather than recognize their own visual uncertainty. To bridge this gap, we introduce SATE-Bench, a novel interactive benchmark comprising 316 real-world scenes and 2,525 multi-turn QA pairs to evaluate visual self-awareness and active exocentric view-exploration. It combines a Passive multi-view control w",
    "authors": [
-    "Lukas Niehaus",
-    "Robin Rawiel",
-    "Ulf Krumnack"
+    "Tianchen Guo",
+    "Tengyue Zhang",
+    "Chen Liu",
+    "Ling Chen"
    ],
-   "link": "https://huggingface.co/papers/2610.20117",
+   "link": "https://huggingface.co/papers/2610.34149",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-14T00:00",
-   "title_ar": "كانلاب: ساحة تجارب تنسرفلو لشبكات كولموغوروف-أرنولد",
-   "summary_ar": "\"كانلاب\" هي أداة تصور قائمة على المتصفح ومقتبسة من مشروع \"تنسرفلو بلاي غراوند\" لتعليم المفاهيم الأساسية لشبكات كولموغوروف-أرنولد (KAN) تفاعلياً. ولتعزيز الوضوح التعليمي إلى أقصى حد، تتجاهل الأداة الاتصالات المتبقية ومعلمات القياس القابلة للتعلم."
+   "published": "2026-10-25T00:00",
+   "title_ar": "البشر في الفضاء: هل يمكن للنماذج اللغوية الكبيرة متعددة الوسائط بناء فهم مكاني متمحور حول الإنسان عبر الاستكشاف الخارجي النشط؟",
+   "summary_ar": "على الرغم من تفوق النماذج اللغوية الكبيرة متعددة الوسائط في الاستدلال دون تدريب مسبق، إلا أن قدراتها المكانية تُقيَّم غالباً عبر الملاحظة السلبية الثابتة. وغالباً ما يحجب الانسداد في المشاهد المعقدة المتمحورة حول الإنسان الأدلة الهندسية الحاسمة، مما يجبر النماذج في المعايير السلبية على التخمين."
+  },
+  {
+   "id": "2610.35518",
+   "title": "S3AC: Stabilized, Selective, and Scalable Actor-Critic for LLM Reasoning",
+   "abstract": "Critic-free methods are widely used in reinforcement learning with verifiable rewards (RLVR) for long chain-of-thought (CoT) reasoning, avoiding difficult and costly critic training. Common alternatives lack token-level credit assignment and typically rely on grouped rollouts to estimate prompt-specific baselines. A critic can address both limitations, but long-CoT critic training is hindered by insufficient coverage of trajectories with diverse lengths and early gradients dominated by the newly initialized value head. We introduce S3AC (Stabilized, Selective, and Scalable Actor-Critic) for LL",
+   "authors": [
+    "Shuo Shen",
+    "Guangran Cheng",
+    "Chengqi Lyu",
+    "Xiangsen Wang"
+   ],
+   "link": "https://huggingface.co/papers/2610.35518",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-26T00:00",
+   "title_ar": "S3AC: الفاعل-الناقد المستقر والانتقائي والقابل للتوسع لاستدلال النماذج اللغوية الكبيرة",
+   "summary_ar": "تُستخدم الطرق الخالية من الناقد على نطاق واسع في التعلم المعزز بمكافآت قابلة للتحقق لاستدلال سلاسل الأفكار الطويلة، متجنبةً بذلك تدريب الناقد الصعب والمكلف. وتفتقر البدائل الشائعة إلى تخصيص التقدير على مستوى الرمز، وتعتمد عادةً على عمليات تكرار مجمعة لتقدير قيمة الموجه."
   }
  ],
  "n": 6
