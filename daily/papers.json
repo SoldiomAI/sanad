@@ -1,106 +1,106 @@
 {
- "updated": "2026-10-27T23:57+00:00",
+ "updated": "2026-10-28T17:03+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.19025",
-   "title": "How Far Can Coding Agents Go in Visual Generation?",
-   "abstract": "Modern image generation largely relies on specialized generative models that leave the process of image construction implicit in learned parameters. We explore an alternative: general-purpose coding agents that construct images through executable programs. Our study of zero-shot drawing on AgentDrawBench, a 200-prompt benchmark, reveals a distinctive capability profile. Agents excel at preserving structure and satisfying precise visual constraints, achieving competitive results in domains where compositional accuracy matters more than photorealistic appearance, while remaining limited in perce",
+   "id": "2610.36082",
+   "title": "How Much Does the Hint Matter? Scope Conditions for Hindsight Self-Distillation in Financial Reasoning",
+   "abstract": "Financial institutions operating under data-residency constraints are restricted to open-weight models small enough to locally host, which trail frontier systems on multi-step quantitative reasoning. On-policy distillation narrows such gaps by supervising a student on its own rollouts, but traditional OPD requires a strong external teacher, and on-policy self-distillation (OPSD) conditions on a full reference solution. We ask how much of that signal is necessary. We present Fin-SD, a localized hindsight self-distillation recipe for multi-step reasoning. Given a problem the student fails, the s",
    "authors": [
-    "Hengguang Zhou",
-    "Yuanhao Ban",
-    "Jiaqi Feng",
-    "Xiaohuan Pei"
+    "Johnny Yu",
+    "Cyril Gorlla"
    ],
-   "link": "https://huggingface.co/papers/2610.19025",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-13T00:00",
-   "title_ar": "إلى أي مدى يمكن لوكلاء البرمجة الوصول في التوليد البصري؟",
-   "summary_ar": "يعتمد توليد الصور الحديث غالبًا على نماذج توليدية متخصصة تترك عملية بناء الصورة ضمنية في المعاملات المتعلمة، بينما تستكشف هذه الورقة بديلًا يتمثل في وكلاء برمجة للأغراض العامة يبنون الصور عبر برامج قابلة للتنفيذ. تتناول الدراسة الرسم بدون تدريب مسبق (zero-shot) على منصة AgentDraw."
-  },
-  {
-   "id": "2610.21240",
-   "title": "Representation Redistribution in Sparse Autoencoders",
-   "abstract": "Sparse autoencoders (SAEs) decompose language model activations into sparse features, but prompt transformations designed to preserve the underlying request can redistribute activity across them. A feature change observed on one transformed prompt need not recur, and even a recurring change need not affect a downstream computation. We introduce the redistribution sensitivity score (RSS), which identifies large feature responses that recur in a consistent direction, and evaluate the resulting supports on variants excluded from selection. Across 27 pretrained SAEs spanning eight language models,",
-   "authors": [
-    "Ziye Mei",
-    "Haotian Ma"
-   ],
-   "link": "https://huggingface.co/papers/2610.21240",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-15T00:00",
-   "title_ar": "إعادة توزيع التمثيل في المشفرات التلقائية المتفرقة",
-   "summary_ar": "تفكك المشفرات التلقائية المتفرقة (SAEs) تنشيطات النماذج اللغوية إلى ميزات متفرقة، غير أن تحويلات الأوامر المصممة للحفاظ على الطلب الأساسي قد تعيد توزيع النشاط عبرها. وعليه، فإن التغير الملاحظ في ميزة ما عند تطبيق أمر محوّل ليس بالضرورة أن يتكرر، وحتى التغير المتكرر قد لا يستمر."
-  },
-  {
-   "id": "2610.33817",
-   "title": "EnvLunch: The Environment as a Free Lunch for Learning to Interact",
-   "abstract": "For agentic data analysis, language-model agents often require a large number of annotated tasks to learn how to interact effectively with executable environments (i.e., databases). While high-quality annotated tasks require heavy manual effort, an executable environment already provides rich interaction structure and verifiable outcomes. In this sense, the environment itself offers a free lunch, an additional set of verifiable tasks that require no human annotation. We propose EnvLunch, a warm-up stage that turns this environmental signal into agent training without human-written or model-gen",
-   "authors": [
-    "Wei Liu",
-    "Min Gao",
-    "Yali Du",
-    "Yulan He"
-   ],
-   "link": "https://huggingface.co/papers/2610.33817",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-24T00:00",
-   "title_ar": "EnvLunch: البيئة كغنيمة مجانية لتعلم التفاعل",
-   "summary_ar": "غالبًا ما يحتاج وكلاء النماذج اللغوية في تحليل البيانات المعتمد على الوكلاء إلى عدد كبير من المهام المشروحة بتعليقات لتعلّم التفاعل الفعال مع البيئات القابلة للتنفيذ كقواعد البيانات. وبينما تتطلب هذه المهام المشروحة عالية الجودة جهدًا يدويًا كبيرًا، فإن البيئة القابلة للتنفيذ توفر بالفعل تفاعلًا غنيًا."
-  },
-  {
-   "id": "2610.32046",
-   "title": "Can Test-Time Memory Evolution Outperform Test-Time Training for Scientific Discovery?",
-   "abstract": "Recent test-time training (TTT) frameworks have enabled open-weight large language models (LLMs) to outperform inference-only frameworks powered by frontier models on scientific discovery tasks. However, TTT introduces additional computational cost for online weight updates during the discovery process, making computational efficiency an important consideration when scaling to larger models. This motivates us to explore an efficient test-time adaptation method for scientific discovery. We introduce Test-Time Memory Evolution (TTME), a plug-and-play test-time adaptation method, as an alternativ",
-   "authors": [
-    "Yepeng Liu",
-    "Shengmai Chen",
-    "Xuandong Zhao",
-    "Chengzhi Liu"
-   ],
-   "link": "https://huggingface.co/papers/2610.32046",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-23T00:00",
-   "title_ar": "هل يمكن لتطور الذاكرة وقت الاختبار أن يتفوق على التدريب وقت الاختبار في الاكتشاف العلمي؟",
-   "summary_ar": "مكنت أطر العمل الحديثة للتدريب وقت الاختبار (TTT) النماذج اللغوية الكبيرة مفتوحة الأوزان من التفوق على أطر الاستدلال فقط المدعومة بنماذج رائدة في مهام الاكتشاف العلمي. ومع ذلك، يفرض التدريب وقت الاختبار تكلفة حوسبية إضافية لتحديثات الأوزان المباشرة عبر الإنترنت خلال عملية الاكتشاف."
-  },
-  {
-   "id": "2610.35295",
-   "title": "Did the Model Use That? Counterfactual Training Boosts Self-Attribution in Language Models",
-   "abstract": "A fundamental challenge for explainable and accountable language models is revealing how external information influences their answers. This paper examines whether models are self-attributive: that is, whether they indicate when -- and only when -- their responses to questions are influenced by information provided alongside the question. Furthermore, we explore how self-attribution can be improved through counterfactual training, which explicitly teaches models to distinguish between answers that do and do not depend on supplied information. We found that most of the eleven frontier models ra",
-   "authors": [
-    "Zikai Zhou",
-    "Jiacheng Sang",
-    "Yilin Xu",
-    "Yufei Jin"
-   ],
-   "link": "https://huggingface.co/papers/2610.35295",
+   "link": "https://huggingface.co/papers/2610.36082",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-26T00:00",
-   "title_ar": "هل استخدم النموذج ذلك؟ التدريب المضاد للواقع يعزز الإسناد الذاتي في النماذج اللغوية",
-   "summary_ar": "يتمثل أحد التحديات الأساسية للنماذج اللغوية القابلة للتفسير والخاضعة للمساءلة في الكشف عن كيفية تأثير المعلومات الخارجية على إجاباتها. تبحث هذه الورقة فيما إذا كانت النماذج تمتلك ميزة الإسناد الذاتي، أي تحديد متى وفقط متى تتأثر إجاباتها عن الأسئلة بالمعلومات."
+   "title_ar": "ما مدى أهمية التلميح؟ شروط النطاق للتقطير الذاتي بأثر رجعي في الاستدلال المالي",
+   "summary_ar": "تقتصر المؤسسات المالية الخاضعة لقيود توطين البيانات على النماذج مفتوحة الأوزان الصغيرة بما يكفي للاستضافة محليًا، والتي تتخلف عن الأنظمة الرائدة في الاستدلال الكمي متعدد الخطوات. يُضيّق التقطير المباشر للسياسة هذه الفجوات عبر الإشراف على النموذج الطالب من خلال نتائجه الذاتية، لكن الطرق التقليدية"
   },
   {
-   "id": "2610.34577",
-   "title": "Rethinking Verification in Agent Harnesses",
-   "abstract": "Agent harnesses enable large language models to act through tools, observe the results, and iteratively work toward a task goal. Verification checks and revises agents' work to improve output quality. Yet there is limited guidance on how harnesses should organize this effort. We study verification as an axis of test-time scaling by examining when to intervene, who checks the work, and how checking leads to revision. Our framework spans four layers of the agent lifecycle: initial instructions, mid-turn reminders, completion gates, and independent review. We compare 17 designs across seven front",
+   "id": "2610.37364",
+   "title": "EmbeddingGemma 2: Unified and Efficient Multimodal Representations",
+   "abstract": "We present EmbeddingGemma 2, an open multimodal embedding model which natively represents text, images, audio, video, and combinations thereof in a unified space. Our approach introduces improvements such as simplified per-layer embeddings and a multi-stage curriculum with modality and objective progression which ensure strong quality across unimodal, cross-modal, and mixed-modal evaluations. Notably, in comprehensive embedding benchmarks across all modalities, EmbeddingGemma 2 establishes a new Pareto frontier, outperforming both specialist models and models two to twelve times larger. Furthe",
    "authors": [
-    "Zhengxin Zhang",
-    "Erkang Zhu",
-    "Yin Lin",
-    "Claire Cardie"
+    "Henrique Schechter Vera",
+    "Sahil Dua",
+    "Jovan Andonov",
+    "Sara Smoot"
    ],
-   "link": "https://huggingface.co/papers/2610.34577",
+   "link": "https://huggingface.co/papers/2610.37364",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-27T00:00",
+   "title_ar": "EmbeddingGemma 2: تمثيلات متعددة الوسائط موحدة وفعالة",
+   "summary_ar": "نقدم EmbeddingGemma 2، وهو نموذج تضمين مفتوح متعدد الوسائط يمثل النصوص والصور والصوت والفيديو ومجموعاتها بصورة أصلية في فضاء موحد. يقدم نهجنا تحسينات مثل تضمينات مبسطة لكل طبقة ومنهج متعدد المراحل مع تقدم في الوسائط والأهداف"
+  },
+  {
+   "id": "2610.29003",
+   "title": "T-DIG: Text-Conditioned Diversity for Image Generation",
+   "abstract": "Text-to-image (T2I) platforms typically return several images per prompt so users can explore different visual interpretations and choose one that matches their intent. However, T2I models are usually optimized for single-image quality which comes at a cost of multi-image diversity, limiting this exploration. Diversity is also contextual: one user wants variations in background, while another wants them in artistic style, and the same user may later want variations in clothing. The generated images should differ along whatever axis the user cares about. In this paper, we introduce T-DIG, a tex",
+   "authors": [
+    "Simran Khanuja",
+    "Rohit Gandikota",
+    "Gaurav Parmar",
+    "Graham Neubig"
+   ],
+   "link": "https://huggingface.co/papers/2610.29003",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-21T00:00",
+   "title_ar": "T-DIG: التنوع المشروط بالنص لتوليد الصور",
+   "summary_ar": "تُرجع منصات تحويل النص إلى صورة عادةً عدة صور لكل مطالبة حتى يتمكن المستخدمون من استكشاف تفسيرات بصرية مختلفة واختيار ما يطابق مرادهم. ومع ذلك، تُحسَّن هذه النماذج عادةً لجودة الصورة الواحدة على حساب تنوع الصور المتعددة، مما يحد من هذا الاستكشاف"
+  },
+  {
+   "id": "2610.35013",
+   "title": "Multiscale Policy Optimization for Long-Horizon LLM Agents",
+   "abstract": "Long-horizon LLM agents interact with their environments through complete assistant turns while generating each action token by token. We observe that critic values vary primarily across turns, motivating optimization anchored at turns with finer credit allocation among tokens. We propose Multiscale Policy Optimization (MPO), combining Multiscale Advantage Estimation (MAE) and turn-level importance sampling to align credit assignment and policy updates at the turn scale. Extensive experiments across search, tool-use, and automation tasks with 4B and 30B-A3B models demonstrate consistent gains ",
+   "authors": [
+    "Tao Ren",
+    "Hui Yang",
+    "Jia Deng",
+    "Tingyang Chen"
+   ],
+   "link": "https://huggingface.co/papers/2610.35013",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-26T00:00",
+   "title_ar": "تحسين السياسة متعدد النطاقات لوكلاء النماذج اللغوية الكبيرة طويلي المدى",
+   "summary_ar": "يتفاعل وكلاء النماذج اللغوية الكبيرة طويلي المدى مع بيئاتهم عبر أدوار مساعدة كاملة مع توليد كل إجراء رمزًا تلو الآخر. نلاحظ أن قيم الناقد تتباين بشكل أساسي عبر الأدوار، مما يدفع نحو تحسين يرتكز على الأدوار مع توزيع أدق للفضل بين الرموز، ونقترح تحسين السياسة متعدد النطاقات"
+  },
+  {
+   "id": "2610.35962",
+   "title": "h1: A Taste of the Bitter Lesson in Automated Theorem Proving",
+   "abstract": "While progress in informal mathematics has come largely from scaling the chain-of-thought and agentic reasoning of frontier language models, formal theorem proving has increasingly relied on human-designed workflows around these models, such as planning, decomposition, and orchestrating specialized provers. This raises a bitter-lesson question: can a simple agentic loop that scales test-time compute match these workflows? The answer matters as formal verification must scale to keep up with frontier models producing research mathematics, yet new workflows rarely settle it, as their gains are of",
+   "authors": [
+    "Skander Moalla",
+    "Ahmad Rammal",
+    "Niket Patel",
+    "Remi Munos"
+   ],
+   "link": "https://huggingface.co/papers/2610.35962",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-25T00:00",
-   "title_ar": "إعادة التفكير في التحقق داخل بيئات تشغيل الوكلاء",
-   "summary_ar": "تتيح بيئات تشغيل الوكلاء للنماذج اللغوية الكبيرة العمل عبر الأدوات، ومراقبة النتائج، والعمل بشكل تكراري نحو تحقيق هدف المهمة. ويقوم التحقق بفحص عمل الوكلاء ومراجعته لتحسين جودة المخرجات، ومع ذلك لا يوجد سوى القليل من التوجيه حول كيفية تنظيم بيئات التشغيل لهذا الجهد، لذا تدرس الورقة التحقق."
+   "title_ar": "h1: لمحة من الدرس المر في الإثبات الآلي للنظريات",
+   "summary_ar": "في حين جاء التقدم في الرياضيات غير الرسمية إلى حد كبير من توسيع نطاق سلسلة الأفكار والاستدلال القائم على الوكلاء في النماذج اللغوية الرائدة، اعتمد إثبات النظريات الرسمي بشكل متزايد على تدفقات عمل من تصميم بشري حول هذه النماذج. تشمل هذه التدفقات التخطيط، والتفكيك، وتنسيق نماذج متخصصة"
+  },
+  {
+   "id": "2602.10657",
+   "title": "The Lexical Imprint of Pre-training Data",
+   "abstract": "How much of zero-shot benchmark accuracy is captured by word-level alignment between a pre-training corpus and the benchmark target? We study this question through word-level unigram cross-entropy (UCE), a tokenizer-agnostic, model-free measure of lexical alignment between a reference corpus and a target benchmark. Likelihood training shapes the model's predictive distribution from the pre-training corpus, and zero-shot scores under likelihood-based evaluation depend in part on the lexical alignment between that corpus and the benchmark target. Cleanly tracing how the lexical imprint of pre-tr",
+   "authors": [
+    "Jeonghoon Kim",
+    "Woojin Chung",
+    "Woomin Song",
+    "Cheonbok Park"
+   ],
+   "link": "https://huggingface.co/papers/2602.10657",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-26T00:00",
+   "title_ar": "البصمة المعجمية لبيانات التدريب المسبق",
+   "summary_ar": "ما مقدار دقة معايير التقييم دون تدريب مسبق التي يُحددها المحاذاة على مستوى الكلمات بين مجموعة بيانات التدريب المسبق وهدف المعيار؟ ندرس هذا السؤال من خلال الإنتروبيا المتقاطعة لأحاديات الكلمات (UCE)، وهي مقياس مستقل عن النماذج والمحللات اللغوية للمحاذاة المعجمية بين مجموعة مرجعية وهدف"
   }
  ],
  "n": 6
