@@ -1,6 +1,6 @@
 {
  "schema_version": "1.0",
- "updated": "2026-10-28T21:38+00:00",
+ "updated": "2026-10-29T01:35+00:00",
  "thresholds": {
   "country_risk_score": 60,
   "watch_heat": 50,
@@ -13,9 +13,9 @@
    "title": "Watch term active: ترامب إيران",
    "title_en": "Watch term active: Trump Iran",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-28T21:38+00:00",
+   "observed_at": "2026-10-29T01:35+00:00",
    "observed_facts": [
-    "2 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 52."
+    "5 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 82."
    ],
    "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
    "inference": "Term matching indicates attention, not intent, coordination, or threat.",
@@ -29,6 +29,36 @@
    ],
    "evidence": [
     {
+     "id": "ev_0c2b19723609e715",
+     "url": "https://www.bbc.co.uk/persian/live/cm93z7dn7qwzt?at_medium=RSS&at_campaign=rss",
+     "source_name": "بي بي سي فارسي",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-29T01:35+00:00",
+     "title": "ترامب يؤكد رسالة فانس إلى رضائي لكنه قال إنها «تتعلق بمساعدات دوائية»",
+     "title_en": "Trump Confirms Vance Letter to Rezaei, Says It Addressed 'Medical Aid'",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_0e42c32fce48e628",
+     "url": "https://arabic.cnn.com/middle-east/article/2026/10/29/trump-says-recent-outreach-to-iran-is-humanitarian-in-nature",
+     "source_name": "CNN بالعربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-28T22:36+00:00",
+     "title": "ترامب يعلّق على \"تواصل\" نائبه مع مسؤول إيراني.. ومصدر يكشف لـCNN عن جهود لوقف القتال",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_4217251496c4c39f",
+     "url": "https://www.iranintl.com/202610286790",
+     "source_name": "إيران إنترناشونال",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-28T22:43+00:00",
+     "title": "ترامب ينفي إصدار أمر بـ«مفاوضات سلام» مع الحكومة الإيرانية ويصف موضوع اتصال فانس بالمساعدة الطبية",
+     "title_en": "Trump Denies Ordering 'Peace Talks' With Iran, Clarifies Vance Outreach Was for Medical Aid",
+     "dataset": "osint"
+    },
+    {
      "id": "ev_49f3ae9fbc7202c3",
      "url": "https://www.alarabiya.net/arab-and-world/american-elections-2016/2026/10/28/%D8%AA%D8%B1%D8%A7%D9%85%D8%A8-%D8%B9%D9%86-%D8%A7%D9%8A%D8%B1%D8%A7%D9%86-%D9%85%D9%85%D8%A7%D8%B7%D9%84%D8%AA%D9%87%D8%A7-%D9%84%D9%85%D8%A7-%D8%A8%D8%B9%D8%AF-%D8%A7%D9%84%D8%A7%D9%86%D8%AA%D8%AE%D8%A7%D8%A8%D8%A7%D8%AA-%D9%84%D9%86-%D8%AA%D9%81%D9%8A%D8%AF%D9%87%D8%A7",
      "source_name": "العربية",
@@ -39,20 +69,20 @@
      "dataset": "osint"
     },
     {
-     "id": "ev_842709d509b914cd",
-     "url": "https://www.skynewsarabia.com/middle-east/1900765-%D8%B3%D9%8A-%D8%A5%D9%86-%D8%AE%D8%B7%D8%B7-%D8%A3%D9%85%D9%8A%D8%B1%D9%83%D9%8A%D8%A9-%D9%84%D8%B6%D8%B1%D8%A8-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D8%AA%D9%86%D8%AA%D8%B8%D8%B1-%D9%82%D8%B1%D8%A7%D8%B1-%D8%AA%D8%B1%D8%A7%D9%85%D8%A8",
+     "id": "ev_ca8e7fda0893113f",
+     "url": "https://www.skynewsarabia.com/middle-east/1901242-%D8%AA%D8%B1%D8%A7%D9%85%D8%A8-%D9%8A%D9%82%D8%B1-%D8%A8%D8%AA%D9%88%D8%A7%D8%B5%D9%84-%D9%81%D8%A7%D9%86%D8%B3-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D9%84%D9%87%D8%AF%D9%81-%D8%A2%D8%AE%D8%B1",
      "source_name": "سكاي نيوز عربية",
      "source_grade": "حسن",
-     "observed_at": "2026-10-26T15:32+00:00",
-     "title": "\"سي إن إن\": خطط أميركية لضرب إيران تنتظر قرار ترامب",
-     "title_en": "CNN: US Plans to Strike Iran Await Trump's Decision",
+     "observed_at": "2026-10-29T01:08+00:00",
+     "title": "ترامب يقر بتواصل فانس مع إيران.. لكن \"لهدف آخر\"",
+     "title_en": "",
      "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-10-05T09:29+00:00",
-   "updated_at": "2026-10-28T21:38+00:00"
+   "updated_at": "2026-10-29T01:35+00:00"
   },
   {
    "id": "sig_24c7c29a11f8a3ab",
@@ -60,7 +90,7 @@
    "title": "Watch term active: #السعودية",
    "title_en": "Watch term active: #Saudi",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-28T21:38+00:00",
+   "observed_at": "2026-10-29T01:35+00:00",
    "observed_facts": [
     "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
@@ -159,7 +189,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-10-28T21:38+00:00"
+   "updated_at": "2026-10-29T01:35+00:00"
   },
   {
    "id": "sig_25d4dc8c032b76c2",
@@ -167,7 +197,7 @@
    "title": "AI repository activity: Models / inference",
    "title_en": "AI repository activity: Models / inference",
    "summary": "The live GitHub radar contains a repeated repository class after deterministic ranking and deduplication.",
-   "observed_at": "2026-10-28T21:17:03Z",
+   "observed_at": "2026-10-29T00:53:07Z",
    "observed_facts": [
     "3 recently pushed, non-fork repositories share this SANAD radar classification."
    ],
@@ -201,7 +231,7 @@
      "url": "https://github.com/huggingface/transformers",
      "source_name": "GitHub Search API",
      "source_grade": "",
-     "observed_at": "2026-10-28T21:17:03Z",
+     "observed_at": "2026-10-29T00:53:07Z",
      "title": "huggingface/transformers",
      "title_en": "🤗 Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training.",
      "dataset": "repos"
@@ -211,7 +241,7 @@
      "url": "https://github.com/ollama/ollama",
      "source_name": "GitHub Search API",
      "source_grade": "",
-     "observed_at": "2026-10-28T20:58:17Z",
+     "observed_at": "2026-10-28T23:44:29Z",
      "title": "ollama/ollama",
      "title_en": "Get up and running with Kimi, GLM, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models.",
      "dataset": "repos"
@@ -220,7 +250,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-10-21T23:35+00:00",
-   "updated_at": "2026-10-28T21:38+00:00"
+   "updated_at": "2026-10-29T01:35+00:00"
   },
   {
    "id": "sig_32c738617239f618",
@@ -228,7 +258,7 @@
    "title": "AI repository activity: Agents / workflows",
    "title_en": "AI repository activity: Agents / workflows",
    "summary": "The live GitHub radar contains a repeated repository class after deterministic ranking and deduplication.",
-   "observed_at": "2026-10-28T21:37:42Z",
+   "observed_at": "2026-10-29T01:27:48Z",
    "observed_facts": [
     "6 recently pushed, non-fork repositories share this SANAD radar classification."
    ],
@@ -252,7 +282,7 @@
      "url": "https://github.com/morluto/rea",
      "source_name": "GitHub Search API",
      "source_grade": "",
-     "observed_at": "2026-10-28T21:37:42Z",
+     "observed_at": "2026-10-29T01:27:48Z",
      "title": "morluto/rea",
      "title_en": "Reverse engineer anything with agents, from app behavior down to native binaries.",
      "dataset": "repos"
@@ -262,7 +292,7 @@
      "url": "https://github.com/Significant-Gravitas/AutoGPT",
      "source_name": "GitHub Search API",
      "source_grade": "",
-     "observed_at": "2026-10-28T18:47:36Z",
+     "observed_at": "2026-10-29T01:11:08Z",
      "title": "Significant-Gravitas/AutoGPT",
      "title_en": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
      "dataset": "repos"
@@ -282,7 +312,7 @@
      "url": "https://github.com/firecrawl/firecrawl",
      "source_name": "GitHub Search API",
      "source_grade": "",
-     "observed_at": "2026-10-28T20:51:22Z",
+     "observed_at": "2026-10-28T23:42:42Z",
      "title": "firecrawl/firecrawl",
      "title_en": "Supercharge your AI agents with data from the web and beyond. Building the library for superintelligence. 🔥",
      "dataset": "repos"
@@ -292,7 +322,7 @@
      "url": "https://github.com/NousResearch/hermes-agent",
      "source_name": "GitHub Search API",
      "source_grade": "",
-     "observed_at": "2026-10-28T21:34:33Z",
+     "observed_at": "2026-10-29T01:20:28Z",
      "title": "NousResearch/hermes-agent",
      "title_en": "The agent that grows with you",
      "dataset": "repos"
@@ -311,7 +341,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-10-21T23:35+00:00",
-   "updated_at": "2026-10-28T21:38+00:00"
+   "updated_at": "2026-10-29T01:35+00:00"
   },
   {
    "id": "sig_34a63e60e757a938",
@@ -319,9 +349,9 @@
    "title": "Watch term active: #الكويت",
    "title_en": "Watch term active: #Kuwait",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-28T21:38+00:00",
+   "observed_at": "2026-10-29T01:35+00:00",
    "observed_facts": [
-    "6 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 92."
+    "5 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 82."
    ],
    "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
    "inference": "Term matching indicates attention, not intent, coordination, or threat.",
@@ -349,7 +379,7 @@
      "url": "https://www.skynewsarabia.com/middle-east/1901153-%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA-%D8%AA%D8%B3%D8%AA%D8%AF%D8%B9%D9%8A-%D8%B3%D9%81%D9%8A%D8%B1-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D8%A7%D8%AD%D8%AA%D8%AC%D8%A7%D8%AC%D8%A7-%D8%A8%D9%8A%D8%A7%D9%86-%D8%B3%D9%81%D8%A7%D8%B1%D8%AA%D9%87",
      "source_name": "سكاي نيوز عربية",
      "source_grade": "حسن",
-     "observed_at": "2026-10-28T13:22+00:00",
+     "observed_at": "2026-10-28T12:25+00:00",
      "title": "الكويت تستدعي سفير إيران احتجاجا على بيان سفارته",
      "title_en": "Kuwait Summons Iranian Ambassador Over Embassy Statement",
      "dataset": "osint"
@@ -369,7 +399,7 @@
      "url": "https://www.alkhaleej.ae/2026-10-28/%D8%B9%D8%B1%D8%A8-%D9%88%D8%B9%D8%A7%D9%84%D9%85/%D8%A7%D9%84%D8%AE%D9%84%D9%8A%D8%AC/%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA-%D8%AA%D8%B3%D8%AA%D8%AF%D8%B9%D9%8A-%D8%A7%D9%84%D8%B3%D9%81%D9%8A%D8%B1-%D8%A7%D9%84%D8%A5%D9%8A%D8%B1%D8%A7%D9%86%D9%8A-%D9%88%D8%AA%D8%B3%D9%84%D9%85%D9%87-%D9%85%D8%B0%D9%83%D8%B1%D8%A9-%D8%A7%D8%AD%D8%AA%D8%AC%D8%A7%D8%AC",
      "source_name": "صحيفة الخليج",
      "source_grade": "حسن",
-     "observed_at": "2026-10-28T14:19+00:00",
+     "observed_at": "2026-10-28T19:04+00:00",
      "title": "الكويت تستدعي السفير الإيراني وتسلّمه مذكرة احتجاج",
      "title_en": "",
      "dataset": "osint"
@@ -381,24 +411,14 @@
      "source_grade": "حسن",
      "observed_at": "2026-10-28T08:56+00:00",
      "title": "الكويت تستدعي سفير إيران وتحتج على تدخل في شؤونها",
-     "title_en": "Kuwait Summons Iranian Ambassador, Protests Interference in Internal Affairs",
-     "dataset": "osint"
-    },
-    {
-     "id": "ev_e3727e077b38e766",
-     "url": "https://aawsat.com/%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A/%D8%A7%D9%84%D8%AE%D9%84%D9%8A%D8%AC/5333968-%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA-%D8%A7%D9%84%D8%A5%D8%B9%D8%AF%D8%A7%D9%85-%D9%84%D8%AB%D9%84%D8%A7%D8%AB%D8%A9-%D9%85%D8%AA%D9%87%D9%85%D9%8A%D9%86-%D8%A8%D8%A7%D9%84%D8%AA%D8%AE%D8%A7%D8%A8%D8%B1-%D9%85%D8%B9-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D9%88%D8%A7%D9%84%D8%AA%D8%AE%D8%B7%D9%8A%D8%B7-%D9%84%D8%A7%D8%BA%D8%AA%D9%8A%D8%A7%D9%84-%D9%88%D8%B2%D9%8A%D8%B1",
-     "source_name": "الشرق الأوسط",
-     "source_grade": "حسن",
-     "observed_at": "2026-10-26T18:18+00:00",
-     "title": "الكويت: الإعدام لثلاثة متهمين بالتخابر مع إيران والتخطيط لاغتيال وزير الداخلية",
-     "title_en": "Kuwait Sentences Three to Death for Spying for Iran and Plotting to Assassinate Interior Minister",
+     "title_en": "Kuwait Summons Iranian Ambassador to Protest Interference in Internal Affairs",
      "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-10-25T14:51+00:00",
-   "updated_at": "2026-10-28T21:38+00:00"
+   "updated_at": "2026-10-29T01:35+00:00"
   },
   {
    "id": "sig_5ed86e4817d42ba7",
@@ -466,7 +486,7 @@
    "title": "Watch term active: #غزة",
    "title_en": "Watch term active: #Gaza",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-28T21:38+00:00",
+   "observed_at": "2026-10-29T01:35+00:00",
    "observed_facts": [
     "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
@@ -481,6 +501,16 @@
     "فلسطين"
    ],
    "evidence": [
+    {
+     "id": "ev_00808bc5434eac22",
+     "url": "https://www.aljazeera.net/news/2026/10/29/5864",
+     "source_name": "الجزيرة نت",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-29T00:41+00:00",
+     "title": "مسؤولون مستقيلون من إدارة بايدن يطالبون بحظر عودة داعمي حرب غزة للحكومة",
+     "title_en": "Resigned Biden Administration Officials Urge Ban on Gaza War Supporters Rejoining Government",
+     "dataset": "osint"
+    },
     {
      "id": "ev_0fce9f72b81e42cf",
      "url": "https://aawsat.com/%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A/%D8%A7%D9%84%D9%85%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A/5333974-43-%D8%B9%D8%A7%D8%A6%D9%84%D8%A9-%D8%B3%D9%88%D8%B1%D9%8A%D8%A9-%D8%AA%D9%88%D8%A7%D8%AC%D9%87-%D8%B8%D8%B1%D9%88%D9%81%D8%A7%D9%8B-%D9%85%D8%B9%D9%8A%D8%B4%D9%8A%D8%A9-%D8%B5%D8%B9%D8%A8%D8%A9-%D9%81%D9%8A-%D8%BA%D8%B2%D8%A9",
@@ -498,7 +528,7 @@
      "source_grade": "حسن",
      "observed_at": "2026-10-27T20:27+00:00",
      "title": "ماكليمور يفتتح جولة \"فلسطين حرة\" بحفل مكتمل العدد وتضامن جماهيري مع غزة",
-     "title_en": "Macklemore Opens 'Free Palestine' Tour with Sold-Out Concert and Crowd Solidarity with Gaza",
+     "title_en": "Macklemore Opens 'Free Palestine' Tour With Sold-Out Show in Solidarity With Gaza",
      "dataset": "osint"
     },
     {
@@ -508,7 +538,7 @@
      "source_grade": "حسن",
      "observed_at": "2026-10-28T10:48+00:00",
      "title": "\"لا خصوصية ولا سلام: هكذا تبدو الحياة بعد مرور عام على وقف إطلاق النار في غزة\" - مقال في الغارديان",
-     "title_en": "'No Privacy, No Peace': Life One Year After Gaza Ceasefire, The Guardian Reports",
+     "title_en": "'No Privacy, No Peace: Life a Year After Gaza Ceasefire' – The Guardian",
      "dataset": "osint"
     },
     {
@@ -518,7 +548,7 @@
      "source_grade": "حسن",
      "observed_at": "2026-10-28T21:14+00:00",
      "title": "مقتل 4 فلسطينيين بغارات إسرائيلية على قطاع غزة",
-     "title_en": "Four Palestinians Killed in Israeli Airstrikes on Gaza Strip",
+     "title_en": "4 Palestinians Killed in Israeli Airstrikes on Gaza Strip",
      "dataset": "osint"
     },
     {
@@ -542,30 +572,20 @@
      "dataset": "osint"
     },
     {
-     "id": "ev_d898f50c382ed3eb",
-     "url": "https://www.aljazeera.net/news/2026/10/27/%D8%A8%D9%85%D8%B9%D8%AF%D9%84-21-%D8%AE%D8%A8%D8%B1%D8%A7-%D9%8A%D9%88%D9%85%D9%8A%D8%A7-%D8%A3%D9%84%D8%A8%D8%A7%D9%86%D9%8A%D8%B2%D9%8A-%D8%A7%D9%84%D8%A5%D8%B9%D9%84%D8%A7%D9%85",
-     "source_name": "الجزيرة نت",
+     "id": "ev_a0c25fa99f690a36",
+     "url": "https://aawsat.com/%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A/%D8%A7%D9%84%D9%85%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A/5334925-%D9%85%D9%82%D8%AA%D9%84-5-%D9%81%D9%84%D8%B3%D8%B7%D9%8A%D9%86%D9%8A%D9%8A%D9%86-%D8%A8%D8%BA%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A5%D8%B3%D8%B1%D8%A7%D8%A6%D9%8A%D9%84%D9%8A%D8%A9-%D8%B9%D9%84%D9%89-%D9%82%D8%B7%D8%A7%D8%B9-%D8%BA%D8%B2%D8%A9",
+     "source_name": "الشرق الأوسط",
      "source_grade": "حسن",
-     "observed_at": "2026-10-27T17:41+00:00",
-     "title": "بمعدل 21 خبرا يوميا.. ألبانيزي: الإعلام الإسرائيلي حرّض على الإبادة في غزة",
-     "title_en": "At Rate of 21 Reports Daily, Israeli Media Incited Genocide in Gaza: Albanese",
-     "dataset": "osint"
-    },
-    {
-     "id": "ev_eb6df0869f15ffc3",
-     "url": "https://www.skynewsarabia.com/program/aldhahira/1900947-%D8%A7%D9%86%D8%AA%D8%AE%D8%A7%D8%A8%D8%A7%D8%AA-%D8%A5%D8%B3%D8%B1%D8%A7%D8%A6%D9%8A%D9%84-%D9%8A%D9%86%D8%AA%D8%B8%D8%B1-%D8%BA%D8%B2%D8%A9-%D9%88%D9%84%D8%A8%D9%86%D8%A7%D9%86-%D9%88%D8%A5%D9%8A%D8%B1%D8%A7%D9%86",
-     "source_name": "سكاي نيوز عربية",
-     "source_grade": "حسن",
-     "observed_at": "2026-10-27T17:58+00:00",
-     "title": "انتخابات إسرائيل.. كيف ستتأثر ملفات غزة ولبنان وإيران؟",
-     "title_en": "Israeli Elections: How Files on Gaza, Lebanon, and Iran Will Be Affected",
+     "observed_at": "2026-10-28T21:23+00:00",
+     "title": "مقتل 5 فلسطينيين بغارات إسرائيلية على قطاع غزة",
+     "title_en": "5 Palestinians Killed in Israeli Airstrikes on Gaza Strip",
      "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-10-28T21:38+00:00"
+   "updated_at": "2026-10-29T01:35+00:00"
   },
   {
    "id": "sig_7ce5e1ca05c1e737",
@@ -573,7 +593,7 @@
    "title": "Watch term active: الحوثي",
    "title_en": "Watch term active: Houthi",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-28T21:38+00:00",
+   "observed_at": "2026-10-29T01:35+00:00",
    "observed_facts": [
     "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
@@ -590,22 +610,22 @@
    "evidence": [
     {
      "id": "ev_116aa20e760df1de",
+     "url": "https://www.bbc.com/arabic/articles/cw4g1vz4dxgzo",
+     "source_name": "BBC",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-28T22:37+00:00",
+     "title": "وزارة النقل اليمنية: الحوثيون استهدفوا مطار عدن مرتين، ومقتل 14 شخصاً في هجوم \"سعودي\" على مدينة الحزم",
+     "title_en": "Yemeni Transport Ministry: Houthis Targeted Aden Airport Twice; 14 Killed in 'Saudi' Attack on Al-Hazm",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_116aa20e760df1de",
      "url": "https://www.bbc.com/arabic/articles/cw4g1vz4dxgzo?at_medium=RSS&at_campaign=rss",
      "source_name": "بي بي سي عربي",
      "source_grade": "حسن",
      "observed_at": "2026-10-28T17:38+00:00",
      "title": "وزارة النقل اليمنية: الحوثيون استهدفوا مطار عدن مرتين، ومقتل 14 شخصاً في هجوم \"سعودي\" على مدينة الحزم",
      "title_en": "Yemeni Transport Ministry: Houthis Targeted Aden Airport Twice; 14 Killed in 'Saudi' Attack on Al-Hazm",
-     "dataset": "osint"
-    },
-    {
-     "id": "ev_13e71d542cfd224c",
-     "url": "https://arabic.cnn.com/middle-east/article/2026/10/27/the-coalition-two-missiles-launched-by-the-houthi-group-toward-riyad-intercepted",
-     "source_name": "CNN Arabic",
-     "source_grade": "حسن",
-     "observed_at": "2026-10-27T12:47+00:00",
-     "title": "\"التحالف\" يعترض صاروخين باتجاه الرياض.. والحوثي يعلن استهداف وزارة الدفاع السعودية",
-     "title_en": "",
      "dataset": "osint"
     },
     {
@@ -635,7 +655,7 @@
      "source_grade": "حسن",
      "observed_at": "2026-10-28T20:21+00:00",
      "title": "\"فجر اليمن\".. القوات اليمنية توسع تقدمها وتستهدف معاقل الحوثيين",
-     "title_en": "'Dawn of Yemen': Yemeni Forces Expand Advance, Target Houthi Strongholds",
+     "title_en": "'Fajr al-Yaman': Yemeni Forces Advance, Target Houthi Strongholds",
      "dataset": "osint"
     },
     {
@@ -672,7 +692,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-09-06T20:02+00:00",
-   "updated_at": "2026-10-28T21:38+00:00"
+   "updated_at": "2026-10-29T01:35+00:00"
   },
   {
    "id": "sig_9fafb493aca3836e",
@@ -730,7 +750,7 @@
    "title": "Watch term active: #إيران",
    "title_en": "Watch term active: #Iran",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-28T21:38+00:00",
+   "observed_at": "2026-10-29T01:35+00:00",
    "observed_facts": [
     "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
@@ -746,90 +766,90 @@
    ],
    "evidence": [
     {
-     "id": "ev_118259aeebf81b24",
-     "url": "https://www.iranintl.com/202610285376",
-     "source_name": "إيران إنترناشونال",
-     "source_grade": "حسن",
-     "observed_at": "2026-10-28T20:08+00:00",
-     "title": "فينيسيا 0-2 إنتر؛ النيراتزوري يحافظ على الصدارة بهدفين ذاتيين من فينيسيا",
-     "title_en": "Venezia 0-2 Inter: Nerazzurri Maintain Lead with Two Venezia Own Goals",
-     "dataset": "osint"
-    },
-    {
-     "id": "ev_1dfa9530be8005e5",
-     "url": "https://www.iranintl.com/202610286929",
-     "source_name": "إيران إنترناشونال",
-     "source_grade": "حسن",
-     "observed_at": "2026-10-28T19:30+00:00",
-     "title": "بتصويت جماهيري وفي منافسة مع ميسي؛ كرة رونالدو الذهبية لعام 2008 تُختار كأفضل كرة ذهبية في التاريخ",
-     "title_en": "Fan Vote Outpaces Messi: Ronaldo's 2008 Ballon d'Or Voted Greatest in History",
-     "dataset": "osint"
-    },
-    {
-     "id": "ev_2bf91960100a17dd",
-     "url": "https://www.france24.com/ar/%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7/20261028-%D8%B9%D8%B1%D8%A7%D9%82%D8%AC%D9%8A-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D8%A7%D9%84%D9%88%D9%84%D8%A7%D9%8A%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D8%AA%D8%AD%D8%AF%D8%A9-%D8%AA%D8%B1%D8%A7%D9%85%D8%A8-%D8%AD%D8%B1%D8%A8-%D8%A7%D9%84%D8%AE%D9%84%D9%8A%D8%AC-%D8%A7%D9%84%D9%88%D8%B3%D8%B7%D8%A7%D8%A1-%D9%85%D9%82%D8%AA%D8%B1%D8%AD%D8%A7%D8%AA",
-     "source_name": "فرانس ٢٤ عربي",
-     "source_grade": "حسن",
-     "observed_at": "2026-10-28T19:40+00:00",
-     "title": "عراقجي يؤكد أن إيران على اتصال وثيق مع الوسطاء لضمان تنفيذ مقترحها لإنهاء الحرب",
-     "title_en": "",
-     "dataset": "osint"
-    },
-    {
-     "id": "ev_485a1d71d1476df7",
-     "url": "https://www.aljazeera.net/news/liveblog/2026/10/29/%d8%a5%d9%8a%d8%b1%d8%a7%d9%86-%d9%85%d8%a8%d8%a7%d8%b4%d8%b1-%d8%b3%d9%86%d8%aa%d9%83%d9%88%d9%85-%d8%aa%d9%83%d8%b0%d8%a8-%d8%b1%d9%88%d8%a7%d9%8a%d8%a9-%d8%b7%d9%87%d8%b1%d8%a7%d9%86-%d8%b9%d9%86?traffic_source=rss",
-     "source_name": "الجزيرة نت",
-     "source_grade": "حسن",
-     "observed_at": "2026-10-28T18:01+00:00",
-     "title": "إيران مباشر.. فانس يبعث برسالة إلى رضائي وسنتكوم تكذب رواية طهران عن ألغام هرمز",
-     "title_en": "",
-     "dataset": "osint"
-    },
-    {
-     "id": "ev_8619a4792d3815b3",
-     "url": "https://www.alkhaleej.ae/2026-10-28/%D8%B9%D8%B1%D8%A8-%D9%88%D8%B9%D8%A7%D9%84%D9%85/%D8%A7%D9%84%D8%AE%D9%84%D9%8A%D8%AC/%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA-%D8%AA%D8%B3%D8%AA%D8%AF%D8%B9%D9%8A-%D8%A7%D9%84%D8%B3%D9%81%D9%8A%D8%B1-%D8%A7%D9%84%D8%A5%D9%8A%D8%B1%D8%A7%D9%86%D9%8A-%D9%88%D8%AA%D8%B3%D9%84%D9%85%D9%87-%D9%85%D8%B0%D9%83%D8%B1%D8%A9-%D8%A7%D8%AD%D8%AA%D8%AC%D8%A7%D8%AC",
-     "source_name": "صحيفة الخليج",
-     "source_grade": "حسن",
-     "observed_at": "2026-10-28T14:19+00:00",
-     "title": "الكويت تستدعي السفير الإيراني وتسلّمه مذكرة احتجاج",
-     "title_en": "",
-     "dataset": "osint"
-    },
-    {
-     "id": "ev_88fbbc9baa4b619a",
-     "url": "https://arabic.cnn.com/middle-east/article/2026/10/29/us-tells-some-gulf-countries-of-a-potential-short-but-intense-military",
+     "id": "ev_0e42c32fce48e628",
+     "url": "https://arabic.cnn.com/middle-east/article/2026/10/29/trump-says-recent-outreach-to-iran-is-humanitarian-in-nature",
      "source_name": "CNN بالعربية",
      "source_grade": "حسن",
-     "observed_at": "2026-10-28T21:24+00:00",
-     "title": "\"قصيرة ولكن مكثفة\".. مصدر يكشف لـCNN ما أبلغته أمريكا لدول خليجية عن \"احتمالية\" شن حملة ضد إيران",
+     "observed_at": "2026-10-28T22:36+00:00",
+     "title": "ترامب يعلّق على \"تواصل\" نائبه مع مسؤول إيراني.. ومصدر يكشف لـCNN عن جهود لوقف القتال",
      "title_en": "",
      "dataset": "osint"
     },
     {
-     "id": "ev_cc4baee029da6c2e",
-     "url": "https://www.bbc.com/persian/articles/cm79pjqy3y1lo?at_medium=RSS&at_campaign=rss",
-     "source_name": "بي بي سي فارسي",
+     "id": "ev_3b46d35386d6a429",
+     "url": "https://www.skynewsarabia.com/middle-east/1901222-%D8%AA%D8%AD%D8%B1%D9%83%D8%A7%D8%AA-%D8%AD%D8%AB%D9%8A%D8%AB%D8%A9-%D9%84%D8%A7%D8%B3%D8%AA%D8%A6%D9%86%D8%A7%D9%81-%D9%85%D9%81%D8%A7%D9%88%D8%B6%D8%A7%D8%AA-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D8%A7%D9%84%D9%85%D9%88%D8%B9%D8%AF-%D8%A7%D9%84%D9%85%D8%B1%D8%AA%D9%82%D8%A8",
+     "source_name": "سكاي نيوز عربية",
      "source_grade": "حسن",
-     "observed_at": "2026-10-28T21:31+00:00",
-     "title": "دعوة جديدة من رضا بهلوي ومخاوف بشأن أمان بوت تيليغرام",
-     "title_en": "New Call from Reza Pahlavi Amid Telegram Bot Security Concerns",
+     "observed_at": "2026-10-28T22:32+00:00",
+     "title": "تحركات حثيثة لاستئناف مفاوضات إيران قبل \"الموعد المرتقب\"",
+     "title_en": "",
      "dataset": "osint"
     },
     {
-     "id": "ev_f0c747fbd56c6be9",
-     "url": "https://www.bbc.com/persian/articles/ckqxnl98n11no?at_medium=RSS&at_campaign=rss",
+     "id": "ev_4217251496c4c39f",
+     "url": "https://www.iranintl.com/202610286790",
+     "source_name": "إيران إنترناشونال",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-28T22:43+00:00",
+     "title": "ترامب ينفي إصدار أمر بـ«مفاوضات سلام» مع الحكومة الإيرانية ويصف موضوع اتصال فانس بالمساعدة الطبية",
+     "title_en": "Trump Denies Ordering 'Peace Talks' With Iran, Clarifies Vance Outreach Was for Medical Aid",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_c7fd2a5bff02f94f",
+     "url": "https://www.bbc.com/persian/articles/cqkgl8m7xkxdo?at_medium=RSS&at_campaign=rss",
      "source_name": "بي بي سي فارسي",
      "source_grade": "حسن",
-     "observed_at": "2026-10-28T14:45+00:00",
-     "title": "ماي ساتو: الحرب لم تُقلص قمع الشعب الإيراني فحسب بل شددته",
-     "title_en": "Mai Sato: War Has Not Reduced Oppression of the Iranian People, but Intensified It",
+     "observed_at": "2026-10-29T00:50+00:00",
+     "title": "اجتماع مهم للحزب الشيوعي الصيني؛ شي يسعى إلى «مزيد من الصرامة في الانضباط الحزبي»",
+     "title_en": "Key CCP Meeting: Xi Pushes for Stricter Party Discipline",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_ca8e7fda0893113f",
+     "url": "https://www.skynewsarabia.com/middle-east/1901242-%D8%AA%D8%B1%D8%A7%D9%85%D8%A8-%D9%8A%D9%82%D8%B1-%D8%A8%D8%AA%D9%88%D8%A7%D8%B5%D9%84-%D9%81%D8%A7%D9%86%D8%B3-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D9%84%D9%87%D8%AF%D9%81-%D8%A2%D8%AE%D8%B1",
+     "source_name": "سكاي نيوز عربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-29T01:08+00:00",
+     "title": "ترامب يقر بتواصل فانس مع إيران.. لكن \"لهدف آخر\"",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_d6fdcc5b89fb4e33",
+     "url": "https://aawsat.com/node/5334966",
+     "source_name": "الشرق الأوسط",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-28T23:38+00:00",
+     "title": "رفض إيران الوساطة يقرّبها من الحرب",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_e1cd0886be5c7072",
+     "url": "https://www.iranintl.com/202610285420",
+     "source_name": "إيران إنترناشونال",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-28T23:40+00:00",
+     "title": "خسارة عدم اللعب في آزادي؛ دخل برسبوليس من تبرعات الجماهير أكثر بـ20 ضعفاً من بيع التذاكر",
+     "title_en": "Impact of Missing Azadi Matches: Persepolis Earns 20 Times More From Donations Than Ticket Sales",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_ed4fbb25584b0fbf",
+     "url": "https://www.iranintl.com/202610289550",
+     "source_name": "إيران إنترناشونال",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-28T22:24+00:00",
+     "title": "ليفربول 6 (1-1) 5 تشيلسي؛ ليفربول لا يزال غير مهزوم في ركلات الترجيح",
+     "title_en": "Liverpool 6 (1-1) 5 Chelsea: Liverpool Remains Unbeaten on Penalties",
      "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-10-28T21:38+00:00"
+   "updated_at": "2026-10-29T01:35+00:00"
   },
   {
    "id": "sig_bf1265daa6cefcac",
@@ -880,6 +900,64 @@
    "event_ids": [],
    "created_at": "2026-10-27T23:57+00:00",
    "updated_at": "2026-10-28T17:03+00:00"
+  },
+  {
+   "id": "sig_c3daf3b99a8277c6",
+   "type": "multi-source-event",
+   "title": "مقتل 4 فلسطينيين بغارات إسرائيلية على قطاع غزة",
+   "title_en": "4 Palestinians Killed in Israeli Airstrikes on Gaza Strip",
+   "summary": "2 named sources and 2 distinct evidence URLs cluster conservatively.",
+   "observed_at": "2026-10-28T21:23+00:00",
+   "observed_facts": [
+    "الشرق الأوسط published: مقتل 5 فلسطينيين بغارات إسرائيلية على قطاع غزة",
+    "اندبندنت عربية published: مقتل 4 فلسطينيين بغارات إسرائيلية على قطاع غزة"
+   ],
+   "assessment": "2 named sources and 2 distinct evidence URLs cluster conservatively.",
+   "inference": "The sources may be reporting the same underlying event.",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.8,
+   "severity": "info",
+   "countries": [
+    "il",
+    "ps"
+   ],
+   "sectors": [
+    "technology"
+   ],
+   "topics": [
+    "artificial-intelligence",
+    "عالم",
+    "غزة",
+    "فلسطين"
+   ],
+   "evidence": [
+    {
+     "id": "ev_676138c614e6f1e8",
+     "url": "https://www.independentarabia.com/node/661519/%D8%A7%D9%84%D8%A3%D8%AE%D8%A8%D8%A7%D8%B1/%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7/%D9%85%D9%82%D8%AA%D9%84-4-%D9%81%D9%84%D8%B3%D8%B7%D9%8A%D9%86%D9%8A%D9%8A%D9%86-%D8%A8%D8%BA%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A5%D8%B3%D8%B1%D8%A7%D8%A6%D9%8A%D9%84%D9%8A%D8%A9-%D8%B9%D9%84%D9%89-%D9%82%D8%B7%D8%A7%D8%B9-%D8%BA%D8%B2%D8%A9",
+     "source_name": "اندبندنت عربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-28T21:14+00:00",
+     "title": "مقتل 4 فلسطينيين بغارات إسرائيلية على قطاع غزة",
+     "title_en": "4 Palestinians Killed in Israeli Airstrikes on Gaza Strip",
+     "dataset": "news"
+    },
+    {
+     "id": "ev_a0c25fa99f690a36",
+     "url": "https://aawsat.com/%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A/%D8%A7%D9%84%D9%85%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A/5334925-%D9%85%D9%82%D8%AA%D9%84-5-%D9%81%D9%84%D8%B3%D8%B7%D9%8A%D9%86%D9%8A%D9%8A%D9%86-%D8%A8%D8%BA%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A5%D8%B3%D8%B1%D8%A7%D8%A6%D9%8A%D9%84%D9%8A%D8%A9-%D8%B9%D9%84%D9%89-%D9%82%D8%B7%D8%A7%D8%B9-%D8%BA%D8%B2%D8%A9",
+     "source_name": "الشرق الأوسط",
+     "source_grade": "حسن",
+     "observed_at": "2026-10-28T21:23+00:00",
+     "title": "مقتل 5 فلسطينيين بغارات إسرائيلية على قطاع غزة",
+     "title_en": "5 Palestinians Killed in Israeli Airstrikes on Gaza Strip",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "event_ids": [
+    "evt_a853a89dff4aad5b"
+   ],
+   "created_at": "2026-10-29T01:35+00:00",
+   "updated_at": "2026-10-29T01:35+00:00"
   },
   {
    "id": "sig_c83a004d327c9b7b",
@@ -937,7 +1015,7 @@
    "title": "Watch term active: #هرمز",
    "title_en": "Watch term active: #Hormuz",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-28T21:38+00:00",
+   "observed_at": "2026-10-29T01:35+00:00",
    "observed_facts": [
     "3 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 62."
    ],
@@ -976,7 +1054,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-10-27T20:27+00:00",
-   "updated_at": "2026-10-28T21:38+00:00"
+   "updated_at": "2026-10-29T01:35+00:00"
   }
  ]
 }
