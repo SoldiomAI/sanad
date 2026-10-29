@@ -1,108 +1,104 @@
 {
- "updated": "2026-10-29T08:05+00:00",
+ "updated": "2026-10-29T20:27+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2601.15351",
-   "title": "OmniSpectra: A Unified Foundation Model for Universal Spectra Representation Learning",
-   "abstract": "Standard sequence models encode position by token rank rather than physical coordinate, typically forcing practitioners to destructively resample continuous physical signals such as spectra observed across heterogeneous instruments. We identify this coordinate mismatch as a structural limitation in cross-instrument representation learning, and propose OmniSpectra, a wavelength-native foundation model for spectral representation learning: a continuous-coordinate masked autoencoder that discards the integer pixel indexing of sequence modeling. Mapping physical coordinates to a logarithmic basis ",
+   "id": "2610.35671",
+   "title": "Evaluating DeepSeek V4.1 Flash-1017 for loss of control and harmful manipulation risks",
+   "abstract": "As frontier language models grow increasingly capable and autonomous, independent third-party evaluations are critical for characterizing their systemic safety risks. While closed-source releases are routinely accompanied by comprehensive system cards, open-weight models receive less scrutiny regarding frontier risks. To address this gap, we present an independent safety evaluation of DeepSeek V4.1 Flash-1017, the latest version of V4.1 Flash that departs from V4 with a new architecture, scaled-up training, and strong agentic capabilities. Drawing on the EU General-Purpose AI Code of Practice,",
    "authors": [
-    "Md Khairul Islam",
-    "Zeyu Xia",
-    "Adam S. Bolton",
-    "Judy Fox"
+    "Yao Huang",
+    "Zhiyuan Zeng",
+    "Yu Wang",
+    "Zhitong Zhu"
    ],
-   "link": "https://huggingface.co/papers/2601.15351",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-23T00:00",
-   "title_ar": "أومني سبكترا: نموذج أساس موحد لتعلم التمثيل الشامل للأطياف",
-   "summary_ar": "تُشفر نماذج التسلسل القياسية الموضع عبر رتبة الرمز بدلاً من الإحداثيات الفيزيائية، مما يضطر الممارسين عادةً إلى إعادة أخذ عينات من الإشارات الفيزيائية المستمرة بشكل هدام كالأطياف المرصودة عبر أدوات متباينة. ويحدد الباحثون عدم تطابق الإحداثيات هذا كقيد هيكلي."
-  },
-  {
-   "id": "2610.31670",
-   "title": "Sensorimotor Alignment: A Platonic Proxy for Embodied Policy Success",
-   "abstract": "Robot foundation models are typically evaluated through costly closed-loop rollouts, motivating low-cost offline proxies for model capability. The Platonic Representation Hypothesis (PRH) suggests that as representations improve, modalities such as vision and language converge toward a shared statistical model of reality. We ask whether motion trajectories form another such modality: as embodied models become more capable, should their sensory representations converge toward the structure of physical motion? To test this, we propose Sensorimotor Alignment (S^2), a training-free offline metric ",
-   "authors": [
-    "Yunfei Xie",
-    "Howard H. Qian",
-    "Shiyi Lan",
-    "Kaiyu Hang"
-   ],
-   "link": "https://huggingface.co/papers/2610.31670",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-23T00:00",
-   "title_ar": "المحاذاة الحسية الحركية: بديل أفلاطوني لنجاح السياسة المجسدة",
-   "summary_ar": "تُقيَّم نماذج الأساس للروبوتات عادةً من خلال عمليات تشغيل مغلقة ومكلفة، مما يدفع نحو إيجاد بدائل غير متصلة بالإنترنت ومنخفضة التكلفة لتقييم قدرة النموذج. وتشير فرضية التمثيل الأفلاطوني إلى أنه مع تحسن التمثيلات، تتقارب الوسائط مثل الرؤية واللغة نحو حالة مشتركة."
-  },
-  {
-   "id": "2610.37230",
-   "title": "TAO: Tool-Aware Joint Scheduling for LLM-Based Agentic Serving",
-   "abstract": "Agentic services alternate between model inference on clustered GPUs and external tools on distributed CPUs. In this scenario, existing systems (1) overlook tool-return readiness in service evaluation, wasting limited resources, and (2) use heuristic strategies to decide admission and placement on GPUs, resulting in suboptimal scheduling decisions. To bridge this gap, we present TAO, a tool-aware joint scheduling framework for LLM-based agentic serving. Its value interface combines near-term tool readiness, node-specific cache credit with time-aware decay, and token footprint; a dynamic progra",
-   "authors": [
-    "Shuhuai Li",
-    "Shengdong Ye",
-    "Dongdong Ge",
-    "Yinyu Ye"
-   ],
-   "link": "https://huggingface.co/papers/2610.37230",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-27T00:00",
-   "title_ar": "تاو: جدولة مشتركة مدركة للأدوات لخدمات الوكلاء المعتمدة على النماذج اللغوية الكبيرة",
-   "summary_ar": "تتناوب خدمات الوكلاء بين استدلال النماذج على وحدات معالجة الرسومات المجمعة واستخدام الأدوات الخارجية على وحدات المعالجة المركزية الموزعة. وفي هذا السيناريو، تغفل الأنظمة الحالية جاهزية عودة الأدوات في تقييم الخدمة مما يهدر الموارد المحدودة، وتستخدم استراتيجيات كشفية لتحديد القبول والموضع."
-  },
-  {
-   "id": "2610.35684",
-   "title": "OmniShowcase: Omnidirectional Subject-Consistent Video Generation from Multi-View Images",
-   "abstract": "Generating videos of a specific subject from a few reference images remains challenging when the camera reveals surfaces that are not visible in the input. Early subject-to-video (S2V) methods condition on a single reference image and must therefore infer the subject's unseen appearance and geometry as the viewpoint changes. To address this limitation, recent methods extend S2V to multiple reference views, providing more information about the subject from different viewpoints. However, they do not explicitly specify the 3D structure that connects these observations. In addition, existing train",
-   "authors": [
-    "Junyeong Ahn",
-    "Geonwoo Kim",
-    "Kinam Kim",
-    "Gihwi Kim"
-   ],
-   "link": "https://huggingface.co/papers/2610.35684",
+   "link": "https://huggingface.co/papers/2610.35671",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-26T00:00",
-   "title_ar": "أومني شوكيس: توليد فيديو متعدد الاتجاهات ومتسق مع الموضوع من صور متعددة الزوايا",
-   "summary_ar": "يظل توليد مقاطع فيديو لموضوع معين من بضع صور مرجعية أمرًا صعبًا عندما تكشف الكاميرا عن أسطح غير مرئية في المدخلات. وتعتمد الطرق المبكرة لتحويل الموضوع إلى فيديو على صورة مرجعية واحدة، ولذلك يجب عليها استنتاج المظهر والهندسة غير المرئية للموضوع."
+   "title_ar": "تقييم DeepSeek V4.1 Flash-1017 لمخاطر فقدان السيطرة والتلاعب الضار",
+   "summary_ar": "مع تزايد قدرات نماذج اللغة الرائدة واستقلاليتها، تصبح التقييمات المستقلة من أطراف ثالثة حاسمة لتحديد مخاطر السلامة المنهجية لديها. وفي حين تُرفق الإصدارات مغلقة المصدر ببطاقات نظام شاملة بانتظام، فإن النماذج مفتوحة الأوزان تحظى بتدقيق أقل."
   },
   {
-   "id": "2610.32749",
-   "title": "Efficient Streaming Audio-Visual Target Speaker Extraction for Real-World Acoustic Scenes",
-   "abstract": "Streaming audio-visual target speaker extraction (AVTSE) is essential for latency-sensitive applications. However, current causal systems face two coupled gaps. First, standard benchmarks fix the number of speakers at two and ignore the near-/far-field interference, reverberation, and sudden noise of real scenes. Second, high-performance causal architectures are too heavy for edge deployment. Lightweight alternatives try to reclaim capacity by repeatedly invoking a small separator, which offsets the savings. To address the first gap, we release RealSSA, a realistic AVTSE benchmark consisting o",
+   "id": "2610.20832",
+   "title": "Amortizing Sequential Experimental Design in Reasoning LLMs",
+   "abstract": "Despite their extensive pretraining knowledge and strong reasoning capabilities, large language models (LLMs) struggle to adaptively gather information in experimental design tasks. We study how to amortize sequential Bayesian experimental design (BED) into an LLM by explicitly training the reasoning that guides action selection using information-gain rewards. Our approach specifies the experimental generative model independently of the LLM's own beliefs, allowing us to optimize expected information gain under a model of our choosing. We investigate the design choices for amortization, includi",
    "authors": [
-    "Wendi Sang",
-    "Kai Li",
-    "Yifan Li",
-    "Jianqiang Huang"
+    "Anita Kriz",
+    "Antonin Berthon",
+    "Nicolás Astorga",
+    "Mihaela van der Schaar"
    ],
-   "link": "https://huggingface.co/papers/2610.32749",
+   "link": "https://huggingface.co/papers/2610.20832",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-23T00:00",
-   "title_ar": "استخراج متدفق فعال للمتحدث المستهدف سمعيًا وبصريًا للمشاهد الصوتية الواقعية",
-   "summary_ar": "يعد الاستخراج المتدفق للمتحدث المستهدف سمعيًا وبصريًا أمرًا أساسيًا للتطبيقات الحساسة للتأخير. ومع ذلك، تواجه الأنظمة السببية الحالية فجوتين مقترنين، أولهما أن المعايير القياسية تثبت عدد المتحدثين عند اثنين وتتجاهل تداخل المجال القريب/البعيد والتردد والضوضاء المفاجئة."
+   "published": "2026-10-14T00:00",
+   "title_ar": "إطفاء تكلفة التصميم التجريبي المتسلسل في نماذج اللغة الكبيرة الاستدلالية",
+   "summary_ar": "تواجه نماذج اللغة الكبيرة صعوبة في جمع المعلومات بشكل تكيّفي في مهام التصميم التجريبي، على الرغم من معارفها الواسعة وقدراتها الاستدلالية القوية. وتبحث هذه الدراسة في كيفية إطفاء تكلفة التصميم التجريبي البيزي المتسلسل داخل نموذج لغة كبير عبر تدريب استدلاله بشكل صريح."
   },
   {
-   "id": "2610.35201",
-   "title": "DTCA: Denoising Token Credit Assignment for Reinforcement Learning in Diffusion Language Models",
-   "abstract": "Diffusion language models (DLMs) generate text through iterative denoising, enabling bidirectional context modeling and parallel token refinement. Recent studies have applied reinforcement learning (RL) to DLMs and improved their reasoning performance. However, the iterative denoising process makes credit assignment more challenging, as final outcome rewards provide limited information about how different tokens contribute to the final output. In this paper, we propose Denoising Token Credit Assignment (DTCA), a framework for token-level credit assignment in reinforcement learning for diffusio",
+   "id": "2610.22507",
+   "title": "RealCLI: Toward a Unified Evaluation of Human-Agent Collaboration for CLI Agents",
+   "abstract": "Command-line interface (CLI) agents increasingly execute longer-horizon tasks, yet existing benchmarks either assume that user instructions remain fixed throughout execution or evaluate task outcomes without capturing runtime collaboration quality. In this paper, we present REALCLI, a paired benchmark that unifies the evaluation of task execution and human-agent collaboration quality on realistic CLI tasks. To comprehensively measure collaboration, REALCLI builds a five-dimensional framework, operationalized into 22 sub-dimensions and 51 interaction scenario templates. REALCLI provides two mod",
    "authors": [
-    "Hongze Chen",
-    "Miao Pan",
-    "Lizhou Liang",
-    "Qinfeng Li"
+    "Yunqi Liu",
+    "Peiyu Wang",
+    "Bingli Wang",
+    "Leo Luo"
    ],
-   "link": "https://huggingface.co/papers/2610.35201",
+   "link": "https://huggingface.co/papers/2610.22507",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-26T00:00",
-   "title_ar": "دي تي سي إيه: إسناد استحقاق رموز إزالة الضوضاء للتعلم المعزز في نماذج اللغة الانتشارية",
-   "summary_ar": "تُولد نماذج اللغة الانتشارية النصوص من خلال إزالة الضوضاء التكرارية، مما يتيح نمذجة السياق ثنائي الاتجاه وتحسين الرموز المتوازية. ورغم تطبيق دراسات حديثة للتعلم المعزز على هذه النماذج وتحسين أدائها في الاستدلال، إلا أن عملية إزالة الضوضاء التكرارية تسبب صعوبات معينة."
+   "published": "2026-10-15T00:00",
+   "title_ar": "RealCLI: نحو تقييم موحد للتعاون بين الإنسان والوكيل لوكلاء واجهة سطر الأوامر",
+   "summary_ar": "ينفذ وكلاء واجهة سطر الأوامر مهام ذات أفق أطول على نحو متزايد، غير أن المعايير الحالية تفترض ثبات تعليمات المستخدم أو تقيم النتائج دون رصد جودة التعاون أثناء التشغيل. وتقدم هذه الورقة REALCLI، وهو معيار مزدوج لمعالجة هذا القصور."
+  },
+  {
+   "id": "2610.30132",
+   "title": "LongZero: Enhancing Long-Context Reasoning in LLMs from Zero Data",
+   "abstract": "Reinforcement learning (RL) is an effective way to strengthen the long-context reasoning of large language models (LLMs), but it needs training data that are long, diverse, challenging, and verifiable. Human annotation of such data is expensive, naturally occurring data are too scarce to sustain RL, and existing synthesis methods depend on external corpora or stronger teacher models, which become harder to obtain as the trained models get stronger. Recently, RL from zero data, in which a model learns from tasks it proposes itself, has achieved excellent performance, but existing methods target",
+   "authors": [
+    "Zhennan Wan",
+    "Jianfei Chen"
+   ],
+   "link": "https://huggingface.co/papers/2610.30132",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-21T00:00",
+   "title_ar": "LongZero: تعزيز استدلال النماذج اللغوية الكبيرة في السياقات الطويلة دون أي بيانات",
+   "summary_ar": "يُعد التعلم التعزيزي وسيلة فعالة لتعزيز استدلال نماذج اللغة الكبيرة في السياقات الطويلة، لكنه يتطلب بيانات تدريب طويلة ومتنوعة ومليئة بالتحديات وقابلة للتحقق. وتعتبر الرقمنة البشرية لهذه البيانات باهظة الثمن، كما أن البيانات الطبيعية شحيحة للغاية لدعم التعلم التعزيزي."
+  },
+  {
+   "id": "2610.30161",
+   "title": "TauIndianBankBench: Procedure-Aware, Action-Oriented Evaluation of Tool-Using Conversational Agents",
+   "abstract": "Many Indian banks serve customers through FAQ pages and scripted chatbots. Assistants based on language models could respond faster and carry out requests such as blocking a card, but only if they give correct information and follow the bank's rules. These rules prescribe a procedure, a set of required steps, such as obtaining a closure quote before closing a deposit. Adapting models to this domain requires measuring how well they follow the procedure, before and after training. Benchmarks usually judge only the records left at the end of a conversation. Many required steps, however, leave the",
+   "authors": [
+    "Krishanu Adhikary",
+    "Prashant Devadiga"
+   ],
+   "link": "https://huggingface.co/papers/2610.30161",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-09-30T00:00",
+   "title_ar": "TauIndianBankBench: تقييم واعٍ بالإجراءات وموجه نحو الأفعال للوكلاء الحواريين مستخدمي الأدوات",
+   "summary_ar": "تخدم العديد من البنوك الهندية عملاءها عبر صفحات الأسئلة الشائعة وروبوتات الدردشة المبرمجة مسبقاً، ويمكن للمساعدين المعتمدين على النماذج اللغوية الاستجابة بشكل أسرع وتنفيذ الطلبات كحظر البطاقات بشرط تقديم معلومات صحيحة واتباع قواعد البنك. وتحدد هذه القواعد إجراءات معينة ومجموعة من المتطلبات."
+  },
+  {
+   "id": "2610.29702",
+   "title": "CausGround: Causal Interaction Grounding for Adaptive Embodied Planning",
+   "abstract": "Multimodal large language models (MLLMs) show promising reasoning capabilities, but reliable physical interaction requires planning that accounts for when actions are executable and how they change the world. These preconditions and effects are environment-dependent and often not captured by MLLMs, making adaptation challenging. Yet existing approaches either require costly environment-specific training or rely on unstructured interaction experience that is difficult to reuse. Therefore, we introduce CausGround, a non-parametric causal interaction grounding framework that distills interaction ",
+   "authors": [
+    "Yijun Shen",
+    "Diqi He",
+    "Jinbang Guo",
+    "Wanyue Zhang"
+   ],
+   "link": "https://huggingface.co/papers/2610.29702",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-21T00:00",
+   "title_ar": "CausGround: تجذير التفاعل السببي للتخطيط التجسيدي التكيفي",
+   "summary_ar": "تُظهر النماذج اللغوية الكبيرة متعددة الوسائط قدرات استدلالية واعدة، إلا أن التفاعل المادي الموثوق يتطلب تخطيطاً يراعي متى تكون الأفعال قابلة للتنفيذ وكيف تُغيّر العالم. وتعتمد هذه الشروط المسبقة والآثار على البيئة المحيطة وغالباً لا تلتقطها هذه النماذج."
   }
  ],
  "n": 6
