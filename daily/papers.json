@@ -1,106 +1,108 @@
 {
- "updated": "2026-10-28T17:03+00:00",
+ "updated": "2026-10-29T08:05+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.36082",
-   "title": "How Much Does the Hint Matter? Scope Conditions for Hindsight Self-Distillation in Financial Reasoning",
-   "abstract": "Financial institutions operating under data-residency constraints are restricted to open-weight models small enough to locally host, which trail frontier systems on multi-step quantitative reasoning. On-policy distillation narrows such gaps by supervising a student on its own rollouts, but traditional OPD requires a strong external teacher, and on-policy self-distillation (OPSD) conditions on a full reference solution. We ask how much of that signal is necessary. We present Fin-SD, a localized hindsight self-distillation recipe for multi-step reasoning. Given a problem the student fails, the s",
+   "id": "2601.15351",
+   "title": "OmniSpectra: A Unified Foundation Model for Universal Spectra Representation Learning",
+   "abstract": "Standard sequence models encode position by token rank rather than physical coordinate, typically forcing practitioners to destructively resample continuous physical signals such as spectra observed across heterogeneous instruments. We identify this coordinate mismatch as a structural limitation in cross-instrument representation learning, and propose OmniSpectra, a wavelength-native foundation model for spectral representation learning: a continuous-coordinate masked autoencoder that discards the integer pixel indexing of sequence modeling. Mapping physical coordinates to a logarithmic basis ",
    "authors": [
-    "Johnny Yu",
-    "Cyril Gorlla"
+    "Md Khairul Islam",
+    "Zeyu Xia",
+    "Adam S. Bolton",
+    "Judy Fox"
    ],
-   "link": "https://huggingface.co/papers/2610.36082",
+   "link": "https://huggingface.co/papers/2601.15351",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-26T00:00",
-   "title_ar": "ما مدى أهمية التلميح؟ شروط النطاق للتقطير الذاتي بأثر رجعي في الاستدلال المالي",
-   "summary_ar": "تقتصر المؤسسات المالية الخاضعة لقيود توطين البيانات على النماذج مفتوحة الأوزان الصغيرة بما يكفي للاستضافة محليًا، والتي تتخلف عن الأنظمة الرائدة في الاستدلال الكمي متعدد الخطوات. يُضيّق التقطير المباشر للسياسة هذه الفجوات عبر الإشراف على النموذج الطالب من خلال نتائجه الذاتية، لكن الطرق التقليدية"
+   "published": "2026-10-23T00:00",
+   "title_ar": "أومني سبكترا: نموذج أساس موحد لتعلم التمثيل الشامل للأطياف",
+   "summary_ar": "تُشفر نماذج التسلسل القياسية الموضع عبر رتبة الرمز بدلاً من الإحداثيات الفيزيائية، مما يضطر الممارسين عادةً إلى إعادة أخذ عينات من الإشارات الفيزيائية المستمرة بشكل هدام كالأطياف المرصودة عبر أدوات متباينة. ويحدد الباحثون عدم تطابق الإحداثيات هذا كقيد هيكلي."
   },
   {
-   "id": "2610.37364",
-   "title": "EmbeddingGemma 2: Unified and Efficient Multimodal Representations",
-   "abstract": "We present EmbeddingGemma 2, an open multimodal embedding model which natively represents text, images, audio, video, and combinations thereof in a unified space. Our approach introduces improvements such as simplified per-layer embeddings and a multi-stage curriculum with modality and objective progression which ensure strong quality across unimodal, cross-modal, and mixed-modal evaluations. Notably, in comprehensive embedding benchmarks across all modalities, EmbeddingGemma 2 establishes a new Pareto frontier, outperforming both specialist models and models two to twelve times larger. Furthe",
+   "id": "2610.31670",
+   "title": "Sensorimotor Alignment: A Platonic Proxy for Embodied Policy Success",
+   "abstract": "Robot foundation models are typically evaluated through costly closed-loop rollouts, motivating low-cost offline proxies for model capability. The Platonic Representation Hypothesis (PRH) suggests that as representations improve, modalities such as vision and language converge toward a shared statistical model of reality. We ask whether motion trajectories form another such modality: as embodied models become more capable, should their sensory representations converge toward the structure of physical motion? To test this, we propose Sensorimotor Alignment (S^2), a training-free offline metric ",
    "authors": [
-    "Henrique Schechter Vera",
-    "Sahil Dua",
-    "Jovan Andonov",
-    "Sara Smoot"
+    "Yunfei Xie",
+    "Howard H. Qian",
+    "Shiyi Lan",
+    "Kaiyu Hang"
    ],
-   "link": "https://huggingface.co/papers/2610.37364",
+   "link": "https://huggingface.co/papers/2610.31670",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-23T00:00",
+   "title_ar": "المحاذاة الحسية الحركية: بديل أفلاطوني لنجاح السياسة المجسدة",
+   "summary_ar": "تُقيَّم نماذج الأساس للروبوتات عادةً من خلال عمليات تشغيل مغلقة ومكلفة، مما يدفع نحو إيجاد بدائل غير متصلة بالإنترنت ومنخفضة التكلفة لتقييم قدرة النموذج. وتشير فرضية التمثيل الأفلاطوني إلى أنه مع تحسن التمثيلات، تتقارب الوسائط مثل الرؤية واللغة نحو حالة مشتركة."
+  },
+  {
+   "id": "2610.37230",
+   "title": "TAO: Tool-Aware Joint Scheduling for LLM-Based Agentic Serving",
+   "abstract": "Agentic services alternate between model inference on clustered GPUs and external tools on distributed CPUs. In this scenario, existing systems (1) overlook tool-return readiness in service evaluation, wasting limited resources, and (2) use heuristic strategies to decide admission and placement on GPUs, resulting in suboptimal scheduling decisions. To bridge this gap, we present TAO, a tool-aware joint scheduling framework for LLM-based agentic serving. Its value interface combines near-term tool readiness, node-specific cache credit with time-aware decay, and token footprint; a dynamic progra",
+   "authors": [
+    "Shuhuai Li",
+    "Shengdong Ye",
+    "Dongdong Ge",
+    "Yinyu Ye"
+   ],
+   "link": "https://huggingface.co/papers/2610.37230",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-27T00:00",
-   "title_ar": "EmbeddingGemma 2: تمثيلات متعددة الوسائط موحدة وفعالة",
-   "summary_ar": "نقدم EmbeddingGemma 2، وهو نموذج تضمين مفتوح متعدد الوسائط يمثل النصوص والصور والصوت والفيديو ومجموعاتها بصورة أصلية في فضاء موحد. يقدم نهجنا تحسينات مثل تضمينات مبسطة لكل طبقة ومنهج متعدد المراحل مع تقدم في الوسائط والأهداف"
+   "title_ar": "تاو: جدولة مشتركة مدركة للأدوات لخدمات الوكلاء المعتمدة على النماذج اللغوية الكبيرة",
+   "summary_ar": "تتناوب خدمات الوكلاء بين استدلال النماذج على وحدات معالجة الرسومات المجمعة واستخدام الأدوات الخارجية على وحدات المعالجة المركزية الموزعة. وفي هذا السيناريو، تغفل الأنظمة الحالية جاهزية عودة الأدوات في تقييم الخدمة مما يهدر الموارد المحدودة، وتستخدم استراتيجيات كشفية لتحديد القبول والموضع."
   },
   {
-   "id": "2610.29003",
-   "title": "T-DIG: Text-Conditioned Diversity for Image Generation",
-   "abstract": "Text-to-image (T2I) platforms typically return several images per prompt so users can explore different visual interpretations and choose one that matches their intent. However, T2I models are usually optimized for single-image quality which comes at a cost of multi-image diversity, limiting this exploration. Diversity is also contextual: one user wants variations in background, while another wants them in artistic style, and the same user may later want variations in clothing. The generated images should differ along whatever axis the user cares about. In this paper, we introduce T-DIG, a tex",
+   "id": "2610.35684",
+   "title": "OmniShowcase: Omnidirectional Subject-Consistent Video Generation from Multi-View Images",
+   "abstract": "Generating videos of a specific subject from a few reference images remains challenging when the camera reveals surfaces that are not visible in the input. Early subject-to-video (S2V) methods condition on a single reference image and must therefore infer the subject's unseen appearance and geometry as the viewpoint changes. To address this limitation, recent methods extend S2V to multiple reference views, providing more information about the subject from different viewpoints. However, they do not explicitly specify the 3D structure that connects these observations. In addition, existing train",
    "authors": [
-    "Simran Khanuja",
-    "Rohit Gandikota",
-    "Gaurav Parmar",
-    "Graham Neubig"
+    "Junyeong Ahn",
+    "Geonwoo Kim",
+    "Kinam Kim",
+    "Gihwi Kim"
    ],
-   "link": "https://huggingface.co/papers/2610.29003",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-21T00:00",
-   "title_ar": "T-DIG: التنوع المشروط بالنص لتوليد الصور",
-   "summary_ar": "تُرجع منصات تحويل النص إلى صورة عادةً عدة صور لكل مطالبة حتى يتمكن المستخدمون من استكشاف تفسيرات بصرية مختلفة واختيار ما يطابق مرادهم. ومع ذلك، تُحسَّن هذه النماذج عادةً لجودة الصورة الواحدة على حساب تنوع الصور المتعددة، مما يحد من هذا الاستكشاف"
-  },
-  {
-   "id": "2610.35013",
-   "title": "Multiscale Policy Optimization for Long-Horizon LLM Agents",
-   "abstract": "Long-horizon LLM agents interact with their environments through complete assistant turns while generating each action token by token. We observe that critic values vary primarily across turns, motivating optimization anchored at turns with finer credit allocation among tokens. We propose Multiscale Policy Optimization (MPO), combining Multiscale Advantage Estimation (MAE) and turn-level importance sampling to align credit assignment and policy updates at the turn scale. Extensive experiments across search, tool-use, and automation tasks with 4B and 30B-A3B models demonstrate consistent gains ",
-   "authors": [
-    "Tao Ren",
-    "Hui Yang",
-    "Jia Deng",
-    "Tingyang Chen"
-   ],
-   "link": "https://huggingface.co/papers/2610.35013",
+   "link": "https://huggingface.co/papers/2610.35684",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-26T00:00",
-   "title_ar": "تحسين السياسة متعدد النطاقات لوكلاء النماذج اللغوية الكبيرة طويلي المدى",
-   "summary_ar": "يتفاعل وكلاء النماذج اللغوية الكبيرة طويلي المدى مع بيئاتهم عبر أدوار مساعدة كاملة مع توليد كل إجراء رمزًا تلو الآخر. نلاحظ أن قيم الناقد تتباين بشكل أساسي عبر الأدوار، مما يدفع نحو تحسين يرتكز على الأدوار مع توزيع أدق للفضل بين الرموز، ونقترح تحسين السياسة متعدد النطاقات"
+   "title_ar": "أومني شوكيس: توليد فيديو متعدد الاتجاهات ومتسق مع الموضوع من صور متعددة الزوايا",
+   "summary_ar": "يظل توليد مقاطع فيديو لموضوع معين من بضع صور مرجعية أمرًا صعبًا عندما تكشف الكاميرا عن أسطح غير مرئية في المدخلات. وتعتمد الطرق المبكرة لتحويل الموضوع إلى فيديو على صورة مرجعية واحدة، ولذلك يجب عليها استنتاج المظهر والهندسة غير المرئية للموضوع."
   },
   {
-   "id": "2610.35962",
-   "title": "h1: A Taste of the Bitter Lesson in Automated Theorem Proving",
-   "abstract": "While progress in informal mathematics has come largely from scaling the chain-of-thought and agentic reasoning of frontier language models, formal theorem proving has increasingly relied on human-designed workflows around these models, such as planning, decomposition, and orchestrating specialized provers. This raises a bitter-lesson question: can a simple agentic loop that scales test-time compute match these workflows? The answer matters as formal verification must scale to keep up with frontier models producing research mathematics, yet new workflows rarely settle it, as their gains are of",
+   "id": "2610.32749",
+   "title": "Efficient Streaming Audio-Visual Target Speaker Extraction for Real-World Acoustic Scenes",
+   "abstract": "Streaming audio-visual target speaker extraction (AVTSE) is essential for latency-sensitive applications. However, current causal systems face two coupled gaps. First, standard benchmarks fix the number of speakers at two and ignore the near-/far-field interference, reverberation, and sudden noise of real scenes. Second, high-performance causal architectures are too heavy for edge deployment. Lightweight alternatives try to reclaim capacity by repeatedly invoking a small separator, which offsets the savings. To address the first gap, we release RealSSA, a realistic AVTSE benchmark consisting o",
    "authors": [
-    "Skander Moalla",
-    "Ahmad Rammal",
-    "Niket Patel",
-    "Remi Munos"
+    "Wendi Sang",
+    "Kai Li",
+    "Yifan Li",
+    "Jianqiang Huang"
    ],
-   "link": "https://huggingface.co/papers/2610.35962",
+   "link": "https://huggingface.co/papers/2610.32749",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-25T00:00",
-   "title_ar": "h1: لمحة من الدرس المر في الإثبات الآلي للنظريات",
-   "summary_ar": "في حين جاء التقدم في الرياضيات غير الرسمية إلى حد كبير من توسيع نطاق سلسلة الأفكار والاستدلال القائم على الوكلاء في النماذج اللغوية الرائدة، اعتمد إثبات النظريات الرسمي بشكل متزايد على تدفقات عمل من تصميم بشري حول هذه النماذج. تشمل هذه التدفقات التخطيط، والتفكيك، وتنسيق نماذج متخصصة"
+   "published": "2026-10-23T00:00",
+   "title_ar": "استخراج متدفق فعال للمتحدث المستهدف سمعيًا وبصريًا للمشاهد الصوتية الواقعية",
+   "summary_ar": "يعد الاستخراج المتدفق للمتحدث المستهدف سمعيًا وبصريًا أمرًا أساسيًا للتطبيقات الحساسة للتأخير. ومع ذلك، تواجه الأنظمة السببية الحالية فجوتين مقترنين، أولهما أن المعايير القياسية تثبت عدد المتحدثين عند اثنين وتتجاهل تداخل المجال القريب/البعيد والتردد والضوضاء المفاجئة."
   },
   {
-   "id": "2602.10657",
-   "title": "The Lexical Imprint of Pre-training Data",
-   "abstract": "How much of zero-shot benchmark accuracy is captured by word-level alignment between a pre-training corpus and the benchmark target? We study this question through word-level unigram cross-entropy (UCE), a tokenizer-agnostic, model-free measure of lexical alignment between a reference corpus and a target benchmark. Likelihood training shapes the model's predictive distribution from the pre-training corpus, and zero-shot scores under likelihood-based evaluation depend in part on the lexical alignment between that corpus and the benchmark target. Cleanly tracing how the lexical imprint of pre-tr",
+   "id": "2610.35201",
+   "title": "DTCA: Denoising Token Credit Assignment for Reinforcement Learning in Diffusion Language Models",
+   "abstract": "Diffusion language models (DLMs) generate text through iterative denoising, enabling bidirectional context modeling and parallel token refinement. Recent studies have applied reinforcement learning (RL) to DLMs and improved their reasoning performance. However, the iterative denoising process makes credit assignment more challenging, as final outcome rewards provide limited information about how different tokens contribute to the final output. In this paper, we propose Denoising Token Credit Assignment (DTCA), a framework for token-level credit assignment in reinforcement learning for diffusio",
    "authors": [
-    "Jeonghoon Kim",
-    "Woojin Chung",
-    "Woomin Song",
-    "Cheonbok Park"
+    "Hongze Chen",
+    "Miao Pan",
+    "Lizhou Liang",
+    "Qinfeng Li"
    ],
-   "link": "https://huggingface.co/papers/2602.10657",
+   "link": "https://huggingface.co/papers/2610.35201",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-26T00:00",
-   "title_ar": "البصمة المعجمية لبيانات التدريب المسبق",
-   "summary_ar": "ما مقدار دقة معايير التقييم دون تدريب مسبق التي يُحددها المحاذاة على مستوى الكلمات بين مجموعة بيانات التدريب المسبق وهدف المعيار؟ ندرس هذا السؤال من خلال الإنتروبيا المتقاطعة لأحاديات الكلمات (UCE)، وهي مقياس مستقل عن النماذج والمحللات اللغوية للمحاذاة المعجمية بين مجموعة مرجعية وهدف"
+   "title_ar": "دي تي سي إيه: إسناد استحقاق رموز إزالة الضوضاء للتعلم المعزز في نماذج اللغة الانتشارية",
+   "summary_ar": "تُولد نماذج اللغة الانتشارية النصوص من خلال إزالة الضوضاء التكرارية، مما يتيح نمذجة السياق ثنائي الاتجاه وتحسين الرموز المتوازية. ورغم تطبيق دراسات حديثة للتعلم المعزز على هذه النماذج وتحسين أدائها في الاستدلال، إلا أن عملية إزالة الضوضاء التكرارية تسبب صعوبات معينة."
   }
  ],
  "n": 6
