@@ -1,8 +1,8 @@
 {
  "schema_version": "1.0",
- "generated_at": "2026-10-29T20:27+00:00",
- "updated_at": "2026-10-29T20:27+00:00",
- "cursor": "sha256:45bc6f429b7d716035d3560bd29578e8b7df73bb15b2865dd5079a8d4c5e52ef",
+ "generated_at": "2026-10-30T00:10+00:00",
+ "updated_at": "2026-10-30T00:10+00:00",
+ "cursor": "sha256:c6f4bf8379fc3cee3934b24907412944a96aeb663dd2c48ac4278ae7e6d0036f",
  "producer": "SANAD",
  "authority": "SANAD",
  "read_only": true,
@@ -13,9 +13,9 @@
    "title": "Watch term active: ترامب إيران",
    "title_en": "Watch term active: Trump Iran",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-29T20:27+00:00",
+   "observed_at": "2026-10-30T00:10+00:00",
    "observed_facts": [
-    "4 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 72."
+    "7 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
    "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
    "inference": "Term matching indicates attention, not intent, coordination, or threat.",
@@ -49,12 +49,32 @@
      "dataset": "osint"
     },
     {
+     "source_ref": "ev_a1cbebc1aba94977",
+     "url": "https://www.skynewsarabia.com/middle-east/1901472-%D8%AA%D8%B1%D8%A7%D9%85%D8%A8-%D9%8A%D8%AD%D8%B6%D8%B1-%D8%A7%D8%AC%D8%AA%D9%85%D8%A7%D8%B9%D8%A7-%D8%AD%D8%B5%D8%A7%D8%B1-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86",
+     "publisher": "سكاي نيوز عربية",
+     "grade": "حسن",
+     "published_at": "2026-10-29T23:57+00:00",
+     "title": "ترامب يحضر اجتماعا عن \"حصار إيران\"",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_c8f7da4eed2e4835",
+     "url": "https://www.iranintl.com/202610290967",
+     "publisher": "إيران إنترناشونال",
+     "grade": "حسن",
+     "published_at": "2026-10-29T20:17+00:00",
+     "title": "وول ستريت جورنال: قائد القيادة المركزية الأمريكية عرض على ترامب خيارات لشن هجوم على الجمهورية الإسلامية",
+     "title_en": "WSJ: US CENTCOM Chief Presented Trump with Strike Options on Iran",
+     "dataset": "osint"
+    },
+    {
      "source_ref": "ev_d325a7cd57c7df2a",
      "url": "https://www.bbc.com/arabic/articles/cm4g14554xzlo?at_medium=RSS&at_campaign=rss",
      "publisher": "بي بي سي عربي",
      "grade": "حسن",
-     "published_at": "2026-10-29T18:54+00:00",
-     "title": "إيران تؤكد تلقي رسالة من نائب ترامب، والحرس الثوري يعلن اندلاع حرائق بناقلات في هرمز",
+     "published_at": "2026-10-29T22:53+00:00",
+     "title": "ترامب يعلق على رسالة فانس لإيران وتقارير عن خيارات عسكرية جديدة وسط توتر في هرمز",
      "title_en": "",
      "dataset": "osint"
     },
@@ -65,14 +85,82 @@
      "grade": "حسن",
      "published_at": "2026-10-29T16:59+00:00",
      "title": "الولايات المتحدة وإيران: طهران تؤكد تلقي رسالة من نائب ترامب، والحرس الثوري يعلن اندلاع حرائق بناقلات في هرمز",
-     "title_en": "US and Iran: Tehran Confirms Receiving Message from Trump's VP; IRGC Reports Tanker Fires in Hormuz",
+     "title_en": "US-Iran: Tehran Confirms Receiving Message from Trump's Running Mate; IRGC Reports Tanker Fires in Hormuz",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_e83f2d8d56a0ce08",
+     "url": "https://arabic.cnn.com/middle-east/article/2026/10/29/john-kerry-trump-iran-wa-whole-bunch-false-assumptions",
+     "publisher": "CNN Arabic",
+     "grade": "حسن",
+     "published_at": "2026-10-29T16:30+00:00",
+     "title": "كيري يحذّر ترامب من ضرب إيران مجددًا: \"خطأ فادح سيُبعدها عن المفاوضات\"",
+     "title_en": "Kerry Warns Trump Against Striking Iran Again: 'A Huge Mistake That Will Derail Negotiations'",
      "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-10-05T09:29+00:00",
-   "updated_at": "2026-10-29T20:27+00:00"
+   "updated_at": "2026-10-30T00:10+00:00"
+  },
+  {
+   "id": "sig_174f5e3287e6287f",
+   "type": "multi-source-event",
+   "title": "زعيم كوريا الشمالية يحث على تحقيق \"التفوق المطلق\" في تكنولوجيا المسيرات",
+   "title_en": "North Korean Leader Urges 'Absolute Superiority' in Drone Technology",
+   "summary": "2 named sources and 2 distinct evidence URLs cluster conservatively.",
+   "observed_at": "2026-10-29T23:38+00:00",
+   "observed_facts": [
+    "Reuters published: زعيم كوريا الشمالية يحث على تحقيق \"التفوق المطلق\" في تكنولوجيا المسيرات",
+    "الشرق الأوسط published: زعيم كوريا الشمالية يحث على تحقيق «التفوق المطلق» في تكنولوجيا المسيرات"
+   ],
+   "assessment": "2 named sources and 2 distinct evidence URLs cluster conservatively.",
+   "inference": "The sources may be reporting the same underlying event.",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.95,
+   "severity": "info",
+   "countries": [
+    "kp",
+    "ml"
+   ],
+   "sectors": [
+    "finance",
+    "technology"
+   ],
+   "topics": [
+    "economy",
+    "technology",
+    "عالم"
+   ],
+   "evidence": [
+    {
+     "source_ref": "ev_185f1a1aece644ae",
+     "url": "https://www.reuters.com/ar/world/PFURY4X5BRIWTF4Q3I2B6E532Q-2026-10-29/",
+     "publisher": "Reuters",
+     "grade": "صحيح",
+     "published_at": "2026-10-29T21:53+00:00",
+     "title": "زعيم كوريا الشمالية يحث على تحقيق \"التفوق المطلق\" في تكنولوجيا المسيرات",
+     "title_en": "North Korean Leader Urges 'Absolute Superiority' in Drone Technology",
+     "dataset": "news"
+    },
+    {
+     "source_ref": "ev_51db24bbfb4ee17d",
+     "url": "https://aawsat.com/%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85/%D8%A2%D8%B3%D9%8A%D8%A7/5335413-%D8%B2%D8%B9%D9%8A%D9%85-%D9%83%D9%88%D8%B1%D9%8A%D8%A7-%D8%A7%D9%84%D8%B4%D9%85%D8%A7%D9%84%D9%8A%D8%A9-%D9%8A%D8%AD%D8%AB-%D8%B9%D9%84%D9%89-%D8%AA%D8%AD%D9%82%D9%8A%D9%82-%D8%A7%D9%84%D8%AA%D9%81%D9%88%D9%82-%D8%A7%D9%84%D9%85%D8%B7%D9%84%D9%82-%D9%81%D9%8A-%D8%AA%D9%83%D9%86%D9%88%D9%84%D9%88%D8%AC%D9%8A%D8%A7-%D8%A7%D9%84%D9%85%D8%B3%D9%8A%D8%B1%D8%A7%D8%AA",
+     "publisher": "الشرق الأوسط",
+     "grade": "حسن",
+     "published_at": "2026-10-29T23:38+00:00",
+     "title": "زعيم كوريا الشمالية يحث على تحقيق «التفوق المطلق» في تكنولوجيا المسيرات",
+     "title_en": "North Korean Leader Urges 'Absolute Superiority' in Drone Technology",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "event_ids": [
+    "evt_3a72fa0afdfdd9d4"
+   ],
+   "created_at": "2026-10-30T00:10+00:00",
+   "updated_at": "2026-10-30T00:10+00:00"
   },
   {
    "id": "sig_24c7c29a11f8a3ab",
@@ -80,7 +168,7 @@
    "title": "Watch term active: #السعودية",
    "title_en": "Watch term active: #Saudi",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-29T20:27+00:00",
+   "observed_at": "2026-10-30T00:10+00:00",
    "observed_facts": [
     "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
@@ -95,6 +183,16 @@
     "الخليج"
    ],
    "evidence": [
+    {
+     "source_ref": "ev_13e71d542cfd224c",
+     "url": "https://arabic.cnn.com/middle-east/article/2026/10/27/the-coalition-two-missiles-launched-by-the-houthi-group-toward-riyad-intercepted",
+     "publisher": "CNN Arabic",
+     "grade": "حسن",
+     "published_at": "2026-10-27T12:47+00:00",
+     "title": "\"التحالف\" يعترض صاروخين باتجاه الرياض.. والحوثي يعلن استهداف وزارة الدفاع السعودية",
+     "title_en": "",
+     "dataset": "osint"
+    },
     {
      "source_ref": "ev_219dac3d3f2d3eed",
      "url": "https://www.alarabiya.net/aswaq/companies/2026/10/29/%D9%86%D9%85%D9%88-%D8%A7%D8%B1%D8%A8%D8%A7%D8%AD-%D8%AF%D8%B1%D8%A8-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-359-%D8%AE%D9%84%D8%A7%D9%84-%D8%A7%D9%84%D8%B1%D8%A8%D8%B9-%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB",
@@ -122,7 +220,7 @@
      "grade": "حسن",
      "published_at": "2026-10-29T19:31+00:00",
      "title": "كيف تفاعل المصريون مع قرار تفويض السيسي دعم السعودية عسكريا؟",
-     "title_en": "How Egyptians Reacted to Mandating Sisi for Military Support to Saudi Arabia",
+     "title_en": "How Egyptians Reacted to Decision Authorizing Sisi to Support Saudi Arabia Militarily",
      "dataset": "osint"
     },
     {
@@ -132,7 +230,7 @@
      "grade": "حسن",
      "published_at": "2026-10-29T13:27+00:00",
      "title": "إنذار مبكر في نجران والسعودية تعترض صاروخا باليستيا أطلقه الحوثيون",
-     "title_en": "Early Warning in Najran as Saudi Arabia Intercepts Houthi Ballistic Missile",
+     "title_en": "Early Warning in Najran as Saudi Arabia Intercepts Houthi-Launched Ballistic Missile",
      "dataset": "osint"
     },
     {
@@ -140,7 +238,7 @@
      "url": "https://www.skynewsarabia.com/middle-east/1901250-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%AA%D8%B9%D9%84%D9%86-%D8%A7%D8%B9%D8%AA%D8%B1%D8%A7%D8%B6-%D8%B5%D8%A7%D8%B1%D9%88%D8%AE-%D8%A8%D8%A7%D9%84%D8%B3%D8%AA%D9%8A-%D8%AD%D9%88%D8%AB%D9%8A",
      "publisher": "سكاي نيوز عربية",
      "grade": "حسن",
-     "published_at": "2026-10-29T02:16+00:00",
+     "published_at": "2026-10-29T02:18+00:00",
      "title": "السعودية تعلن اعتراض صاروخ بالستي حوثي",
      "title_en": "Saudi Arabia Announces Interception of Houthi Ballistic Missile",
      "dataset": "osint"
@@ -164,22 +262,12 @@
      "title": "عراقجي يعقّب على اجتماع وزراء دفاع إيران وتركيا والسعودية وباكستان في طهران",
      "title_en": "Araghchi Comments on Tehran Meeting of Defense Ministers from Iran, Turkey, Saudi Arabia, and Pakistan",
      "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_e6e539cfc0b15e5c",
-     "url": "https://www.france24.com/ar/%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7/20261027-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%88%D9%86-%D8%A7%D9%84%D9%8A%D9%85%D9%86-%D9%87%D8%AC%D9%85%D8%A7%D8%AA-%D8%B5%D8%A7%D8%B1%D9%88%D8%AE%D9%8A%D8%A9-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-%D9%85%D8%B5%D9%81%D8%A7%D8%A9-%D8%B1%D8%A3%D8%B3-%D8%AA%D9%86%D9%88%D8%B1%D8%A9-%D8%A8%D8%A7%D8%A8-%D8%A7%D9%84%D9%85%D9%86%D8%AF%D8%A8-%D9%85%D8%B6%D9%8A%D9%82-%D9%87%D8%B1%D9%85%D8%B2-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D9%82%D8%B7%D8%B1-%D9%85%D8%B5%D8%B1-%D9%85%D8%AD%D8%A7%D8%AF%D8%AB%D8%A7%D8%AA-%D8%B7%D9%87%D8%B1%D8%A7%D9%86-%D8%A7%D9%84%D8%AA%D8%B5%D8%B9%D9%8A%D8%AF-%D8%A7%D9%84%D8%B9%D8%B3%D9%83%D8%B1%D9%8A",
-     "publisher": "فرانس ٢٤ عربي",
-     "grade": "حسن",
-     "published_at": "2026-10-27T23:07+00:00",
-     "title": "تصعيد بين السعودية والحوثيين و97 قتيلا في معارك باليمن وسط جهود دبلوماسية",
-     "title_en": "",
-     "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-10-29T20:27+00:00"
+   "updated_at": "2026-10-30T00:10+00:00"
   },
   {
    "id": "sig_25d4dc8c032b76c2",
@@ -187,7 +275,7 @@
    "title": "AI repository activity: Models / inference",
    "title_en": "AI repository activity: Models / inference",
    "summary": "The live GitHub radar contains a repeated repository class after deterministic ranking and deduplication.",
-   "observed_at": "2026-10-29T19:43:01Z",
+   "observed_at": "2026-10-29T23:51:02Z",
    "observed_facts": [
     "3 recently pushed, non-fork repositories share this SANAD radar classification."
    ],
@@ -221,7 +309,7 @@
      "url": "https://github.com/huggingface/transformers",
      "publisher": "GitHub Search API",
      "grade": "",
-     "published_at": "2026-10-29T19:43:01Z",
+     "published_at": "2026-10-29T23:51:02Z",
      "title": "huggingface/transformers",
      "title_en": "🤗 Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training.",
      "dataset": "repos"
@@ -240,7 +328,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-10-21T23:35+00:00",
-   "updated_at": "2026-10-29T20:27+00:00"
+   "updated_at": "2026-10-30T00:10+00:00"
   },
   {
    "id": "sig_32c738617239f618",
@@ -248,7 +336,7 @@
    "title": "AI repository activity: Agents / workflows",
    "title_en": "AI repository activity: Agents / workflows",
    "summary": "The live GitHub radar contains a repeated repository class after deterministic ranking and deduplication.",
-   "observed_at": "2026-10-29T20:27:20Z",
+   "observed_at": "2026-10-30T00:10:06Z",
    "observed_facts": [
     "6 recently pushed, non-fork repositories share this SANAD radar classification."
    ],
@@ -272,7 +360,7 @@
      "url": "https://github.com/morluto/rea",
      "publisher": "GitHub Search API",
      "grade": "",
-     "published_at": "2026-10-29T20:27:20Z",
+     "published_at": "2026-10-29T22:49:39Z",
      "title": "morluto/rea",
      "title_en": "Reverse engineer anything with agents, from app behavior down to native binaries.",
      "dataset": "repos"
@@ -282,7 +370,7 @@
      "url": "https://github.com/Significant-Gravitas/AutoGPT",
      "publisher": "GitHub Search API",
      "grade": "",
-     "published_at": "2026-10-29T19:22:24Z",
+     "published_at": "2026-10-30T00:10:06Z",
      "title": "Significant-Gravitas/AutoGPT",
      "title_en": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
      "dataset": "repos"
@@ -302,7 +390,7 @@
      "url": "https://github.com/firecrawl/firecrawl",
      "publisher": "GitHub Search API",
      "grade": "",
-     "published_at": "2026-10-29T20:22:19Z",
+     "published_at": "2026-10-29T23:56:59Z",
      "title": "firecrawl/firecrawl",
      "title_en": "Supercharge your AI agents with data from the web and beyond. Building the library for superintelligence. 🔥",
      "dataset": "repos"
@@ -312,7 +400,7 @@
      "url": "https://github.com/NousResearch/hermes-agent",
      "publisher": "GitHub Search API",
      "grade": "",
-     "published_at": "2026-10-29T20:05:47Z",
+     "published_at": "2026-10-29T23:22:11Z",
      "title": "NousResearch/hermes-agent",
      "title_en": "The agent that grows with you",
      "dataset": "repos"
@@ -322,7 +410,7 @@
      "url": "https://github.com/affaan-m/ECC",
      "publisher": "GitHub Search API",
      "grade": "",
-     "published_at": "2026-10-29T20:09:05Z",
+     "published_at": "2026-10-30T00:08:07Z",
      "title": "affaan-m/ECC",
      "title_en": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
      "dataset": "repos"
@@ -331,7 +419,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-10-21T23:35+00:00",
-   "updated_at": "2026-10-29T20:27+00:00"
+   "updated_at": "2026-10-30T00:10+00:00"
   },
   {
    "id": "sig_34a63e60e757a938",
@@ -339,7 +427,7 @@
    "title": "Watch term active: #الكويت",
    "title_en": "Watch term active: #Kuwait",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-29T20:27+00:00",
+   "observed_at": "2026-10-30T00:10+00:00",
    "observed_facts": [
     "5 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 82."
    ],
@@ -381,7 +469,7 @@
      "grade": "حسن",
      "published_at": "2026-10-28T13:12+00:00",
      "title": "الكويت تستدعي سفير إيران بعد بيان طهران بشأن \"إعدامات التخابر\" | CNN Arabic | CNN",
-     "title_en": "Kuwait Summons Iranian Ambassador Following Tehran's Statement on Espionage Executions",
+     "title_en": "Kuwait Summons Iranian Ambassador Following Tehran's Statement on 'Espionage Executions'",
      "dataset": "osint"
     },
     {
@@ -401,14 +489,95 @@
      "grade": "حسن",
      "published_at": "2026-10-28T08:56+00:00",
      "title": "الكويت تستدعي سفير إيران وتحتج على تدخل في شؤونها",
-     "title_en": "Kuwait Summons Iranian Ambassador, Protests Interference in Internal Affairs",
+     "title_en": "Kuwait Summons Iranian Ambassador to Protest Interference in Domestic Affairs",
      "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-10-25T14:51+00:00",
-   "updated_at": "2026-10-29T20:27+00:00"
+   "updated_at": "2026-10-30T00:10+00:00"
+  },
+  {
+   "id": "sig_414363770b1b205d",
+   "type": "country-risk-threshold",
+   "title": "السعودية: SANAD tension score crossed 60",
+   "title_en": "Saudi Arabia: SANAD tension score crossed 60",
+   "summary": "The deterministic SANAD tension output crossed its documented export threshold.",
+   "observed_at": "2026-10-30T00:08+00:00",
+   "observed_facts": [
+    "Published tension score: 74; published level: متوتّر."
+   ],
+   "assessment": "The deterministic SANAD tension output crossed its documented export threshold.",
+   "inference": "This is a threshold notification, not a prediction of violence or a government warning.",
+   "uncertainty": "The score reflects the inputs and weights published by SANAD and can change as source coverage changes.",
+   "confidence": 0.75,
+   "severity": "medium",
+   "countries": [
+    "sa"
+   ],
+   "sectors": [
+    "government"
+   ],
+   "topics": [
+    "risk-threshold"
+   ],
+   "evidence": [
+    {
+     "source_ref": "ev_08020d8016d8fa43",
+     "url": "https://www.skynewsarabia.com/middle-east/1901461-%D8%A5%D8%B5%D8%A7%D8%A8%D8%A9-%D8%B4%D8%AE%D8%B5-%D9%88%D8%A3%D8%B6%D8%B1%D8%A7%D8%B1-%D9%85%D8%A7%D8%AF%D9%8A%D8%A9-%D9%86%D8%AA%D9%8A%D8%AC%D8%A9-%D8%B3%D9%82%D9%88%D8%B7-%D8%B4%D8%B8%D8%A7%D9%8A%D8%A7-%D8%B5%D8%A7%D8%B1%D9%88%D8%AE%D9%8A%D9%86-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6",
+     "publisher": "سكاي نيوز عربية",
+     "grade": "حسن",
+     "published_at": "2026-10-29T21:31+00:00",
+     "title": "إصابة شخص وأضرار مادية نتيجة سقوط شظايا صاروخين في الرياض",
+     "title_en": "",
+     "dataset": "tension"
+    },
+    {
+     "source_ref": "ev_116aa20e760df1de",
+     "url": "https://www.bbc.com/arabic/articles/cw4g1vz4dxgzo?at_medium=RSS&at_campaign=rss",
+     "publisher": "بي بي سي عربي",
+     "grade": "حسن",
+     "published_at": "2026-10-29T22:55+00:00",
+     "title": "الحوثيون يعلنون استهداف مطارات ومصافٍ نفطية سعودية والتحالف يعترض صاروخين فوق الرياض",
+     "title_en": "",
+     "dataset": "tension"
+    },
+    {
+     "source_ref": "ev_219dac3d3f2d3eed",
+     "url": "https://www.alarabiya.net/aswaq/companies/2026/10/29/%D9%86%D9%85%D9%88-%D8%A7%D8%B1%D8%A8%D8%A7%D8%AD-%D8%AF%D8%B1%D8%A8-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-359-%D8%AE%D9%84%D8%A7%D9%84-%D8%A7%D9%84%D8%B1%D8%A8%D8%B9-%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB",
+     "publisher": "العربية",
+     "grade": "حسن",
+     "published_at": "2026-10-29T14:42+00:00",
+     "title": "نمو أرباح \"درب السعودية\" 35.9% خلال الربع الثالث",
+     "title_en": "",
+     "dataset": "tension"
+    },
+    {
+     "source_ref": "ev_2c8077868d6414d5",
+     "url": "https://www.bbc.com/arabic/articles/c679pj93dpz8o",
+     "publisher": "BBC",
+     "grade": "حسن",
+     "published_at": "2026-10-29T19:31+00:00",
+     "title": "كيف تفاعل المصريون مع قرار تفويض السيسي دعم السعودية عسكريا؟",
+     "title_en": "",
+     "dataset": "tension"
+    },
+    {
+     "source_ref": "ev_4fc4fff7556bb812",
+     "url": "https://www.aljazeera.net/news/2026/10/29/%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%AA%D8%B9%D8%AA%D8%B1%D8%B6-%D8%B5%D8%A7%D8%B1%D9%88%D8%AE%D8%A7-%D8%AD%D9%88%D8%AB%D9%8A%D8%A7-%D9%88%D8%A5%D9%86%D8%B0%D8%A7%D8%B1%D8%A7%D8%AA",
+     "publisher": "الجزيرة نت",
+     "grade": "حسن",
+     "published_at": "2026-10-29T13:27+00:00",
+     "title": "إنذار مبكر في نجران والسعودية تعترض صاروخا باليستيا أطلقه الحوثيون",
+     "title_en": "",
+     "dataset": "tension"
+    }
+   ],
+   "contradictions": [],
+   "event_ids": [],
+   "created_at": "2026-10-30T00:10+00:00",
+   "updated_at": "2026-10-30T00:10+00:00"
   },
   {
    "id": "sig_5ed86e4817d42ba7",
@@ -486,7 +655,7 @@
    "title": "Watch term active: #غزة",
    "title_en": "Watch term active: #Gaza",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-29T20:27+00:00",
+   "observed_at": "2026-10-30T00:10+00:00",
    "observed_facts": [
     "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
@@ -568,7 +737,7 @@
      "grade": "حسن",
      "published_at": "2026-10-29T15:46+00:00",
      "title": "هل تُخيّر إسرائيل نشطاء غزة بين قتلهم وحدهم أو مع أسرهم؟",
-     "title_en": "Is Israel Giving Gaza Activists a Choice Between Being Killed Alone or with Their Families?",
+     "title_en": "Is Israel Giving Gaza Activists the Choice to Die Alone or with Their Families?",
      "dataset": "osint"
     },
     {
@@ -578,14 +747,14 @@
      "grade": "حسن",
      "published_at": "2026-10-29T11:31+00:00",
      "title": "\"فشل كامل في التنفيذ\".. هبة قصاص تتحدث عن وقف إطلاق النار في غزة",
-     "title_en": "'A Complete Failure to Execute': Heba Qassas on the Gaza Ceasefire",
+     "title_en": "'Total Failure in Implementation': Heba Qassas Speaks on Gaza Ceasefire",
      "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-10-29T20:27+00:00"
+   "updated_at": "2026-10-30T00:10+00:00"
   },
   {
    "id": "sig_7ce5e1ca05c1e737",
@@ -593,9 +762,9 @@
    "title": "Watch term active: الحوثي",
    "title_en": "Watch term active: Houthi",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-29T20:27+00:00",
+   "observed_at": "2026-10-30T00:10+00:00",
    "observed_facts": [
-    "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
+    "6 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 92."
    ],
    "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
    "inference": "Term matching indicates attention, not intent, coordination, or threat.",
@@ -609,6 +778,16 @@
    ],
    "evidence": [
     {
+     "source_ref": "ev_116aa20e760df1de",
+     "url": "https://www.bbc.com/arabic/articles/cw4g1vz4dxgzo?at_medium=RSS&at_campaign=rss",
+     "publisher": "بي بي سي عربي",
+     "grade": "حسن",
+     "published_at": "2026-10-29T22:55+00:00",
+     "title": "الحوثيون يعلنون استهداف مطارات ومصافٍ نفطية سعودية والتحالف يعترض صاروخين فوق الرياض",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
      "source_ref": "ev_13e71d542cfd224c",
      "url": "https://arabic.cnn.com/middle-east/article/2026/10/27/the-coalition-two-missiles-launched-by-the-houthi-group-toward-riyad-intercepted",
      "publisher": "CNN Arabic",
@@ -619,33 +798,13 @@
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_478286f2ee763cf6",
-     "url": "https://www.aljazeera.net/news/2026/10/27/%D8%B9%D8%A7%D8%AC%D9%84-%D8%A7%D9%84%D9%86%D8%A7%D8%B7%D9%82-%D8%A7%D9%84%D8%B9%D8%B3%D9%83%D8%B1%D9%8A-%D8%A8%D8%A7%D8%B3%D9%85-%D8%A3%D9%86%D8%B5%D8%A7%D8%B1-%D8%A7%D9%84%D9%84%D9%87-6",
-     "publisher": "الجزيرة نت",
-     "grade": "حسن",
-     "published_at": "2026-10-27T16:56+00:00",
-     "title": "الحوثيون يستهدفون الرياض ومطار أبها والتحالف يؤكد اعتراض صواريخ ومسيّرات",
-     "title_en": "Houthis Target Riyadh and Abha Airport; Coalition Confirms Intercepting Missiles and Drones",
-     "dataset": "osint"
-    },
-    {
      "source_ref": "ev_4fc4fff7556bb812",
      "url": "https://www.aljazeera.net/news/2026/10/29/%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%AA%D8%B9%D8%AA%D8%B1%D8%B6-%D8%B5%D8%A7%D8%B1%D9%88%D8%AE%D8%A7-%D8%AD%D9%88%D8%AB%D9%8A%D8%A7-%D9%88%D8%A5%D9%86%D8%B0%D8%A7%D8%B1%D8%A7%D8%AA",
      "publisher": "الجزيرة نت",
      "grade": "حسن",
      "published_at": "2026-10-29T13:27+00:00",
      "title": "إنذار مبكر في نجران والسعودية تعترض صاروخا باليستيا أطلقه الحوثيون",
-     "title_en": "Early Warning in Najran as Saudi Arabia Intercepts Houthi Ballistic Missile",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_5363c8fea4d9f443",
-     "url": "https://www.alarabiya.net/saudi-today/2026/10/28/%D8%A7%D9%84%D8%B3%D9%81%D9%8A%D8%B1%D8%A9-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D9%81%D9%8A-%D8%A7%D9%85%D9%8A%D8%B1%D9%83%D8%A7-%D8%AA%D8%AF%D8%B9%D9%88-%D8%A7%D9%84%D9%89-%D8%AA%D8%B4%D9%83%D9%8A%D9%84-%D8%AA%D8%AD%D8%A7%D9%84%D9%81-%D8%AF%D9%88%D9%84%D9%8A-%D9%84%D9%85%D9%88%D8%A7%D8%AC%D9%87%D8%A9-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%8A%D9%86-",
-     "publisher": "العربية",
-     "grade": "حسن",
-     "published_at": "2026-10-27T20:42+00:00",
-     "title": "السفيرة السعودية في أميركا تدعو إلى تشكيل تحالف دولي لمواجهة الحوثيين",
-     "title_en": "Saudi Ambassador to US Calls for International Coalition to Confront Houthis",
+     "title_en": "Early Warning in Najran as Saudi Arabia Intercepts Houthi-Launched Ballistic Missile",
      "dataset": "osint"
     },
     {
@@ -669,16 +828,6 @@
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_e6e539cfc0b15e5c",
-     "url": "https://www.france24.com/ar/%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%88%D8%B3%D8%B7/20261027-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%88%D9%86-%D8%A7%D9%84%D9%8A%D9%85%D9%86-%D9%87%D8%AC%D9%85%D8%A7%D8%AA-%D8%B5%D8%A7%D8%B1%D9%88%D8%AE%D9%8A%D8%A9-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-%D9%85%D8%B5%D9%81%D8%A7%D8%A9-%D8%B1%D8%A3%D8%B3-%D8%AA%D9%86%D9%88%D8%B1%D8%A9-%D8%A8%D8%A7%D8%A8-%D8%A7%D9%84%D9%85%D9%86%D8%AF%D8%A8-%D9%85%D8%B6%D9%8A%D9%82-%D9%87%D8%B1%D9%85%D8%B2-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D9%82%D8%B7%D8%B1-%D9%85%D8%B5%D8%B1-%D9%85%D8%AD%D8%A7%D8%AF%D8%AB%D8%A7%D8%AA-%D8%B7%D9%87%D8%B1%D8%A7%D9%86-%D8%A7%D9%84%D8%AA%D8%B5%D8%B9%D9%8A%D8%AF-%D8%A7%D9%84%D8%B9%D8%B3%D9%83%D8%B1%D9%8A",
-     "publisher": "فرانس ٢٤ عربي",
-     "grade": "حسن",
-     "published_at": "2026-10-27T23:07+00:00",
-     "title": "تصعيد بين السعودية والحوثيين و97 قتيلا في معارك باليمن وسط جهود دبلوماسية",
-     "title_en": "",
-     "dataset": "osint"
-    },
-    {
      "source_ref": "ev_ff877175c0e7bc7b",
      "url": "https://www.aljazeera.net/news/2026/10/28/%d9%87%d9%84-%d8%a3%d8%b3%d8%b1-%d8%a7%d9%84%d8%ad%d9%88%d8%ab%d9%8a%d9%88%d9%86-%d8%ac%d9%86%d9%88%d8%af%d9%8b%d8%a7-%d8%a8%d8%a7%d9%83%d8%b3%d8%aa%d8%a7%d9%86%d9%8a%d9%8a%d9%86-%d9%82%d8%b1%d8%a8?traffic_source=rss",
      "publisher": "الجزيرة نت",
@@ -692,7 +841,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-09-06T20:02+00:00",
-   "updated_at": "2026-10-29T20:27+00:00"
+   "updated_at": "2026-10-30T00:10+00:00"
   },
   {
    "id": "sig_b74f715cc66b0048",
@@ -700,7 +849,7 @@
    "title": "Watch term active: #إيران",
    "title_en": "Watch term active: #Iran",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-29T20:27+00:00",
+   "observed_at": "2026-10-30T00:10+00:00",
    "observed_facts": [
     "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
@@ -716,73 +865,63 @@
    ],
    "evidence": [
     {
-     "source_ref": "ev_1acc58a35d8ff434",
-     "url": "https://www.skynewsarabia.com/world/1901442-%D8%AA%D9%82%D8%B1%D9%8A%D8%B1-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D8%AA%D8%AE%D8%B7%D8%B7-%D9%84%D8%AA%D8%B9%D8%B7%D9%8A%D9%84-%D8%A7%D9%84%D8%A7%D9%86%D8%AA%D8%AE%D8%A7%D8%A8%D8%A7%D8%AA-%D8%A7%D9%84%D8%A3%D9%85%D9%8A%D8%B1%D9%83%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D8%A5%D8%B3%D8%B1%D8%A7%D8%A6%D9%8A%D9%84%D9%8A%D8%A9",
-     "publisher": "سكاي نيوز عربية",
-     "grade": "حسن",
-     "published_at": "2026-10-29T19:25+00:00",
-     "title": "تقرير: إيران تخطط لتعطيل الانتخابات الأميركية والإسرائيلية",
-     "title_en": "",
-     "dataset": "osint"
-    },
-    {
      "source_ref": "ev_3a2ddb51ae2615ed",
      "url": "https://www.alkhaleej.ae/2026-10-29/%D8%B9%D8%B1%D8%A8-%D9%88%D8%B9%D8%A7%D9%84%D9%85/%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85/%D9%87%D9%8A%D8%A6%D8%A9-%D8%A8%D8%B1%D9%8A%D8%B7%D8%A7%D9%86%D9%8A%D8%A9-%D8%BA%D8%B1%D9%82-%D9%82%D8%A7%D8%B1%D8%A8-%D9%81%D9%8A-%D9%85%D8%B6%D9%8A%D9%82-%D9%87%D8%B1%D9%85%D8%B2-%D8%A8%D8%A7%D9%84%D9%82%D8%B1%D8%A8-%D9%85%D9%86-%D8%B3%D9%84%D8%B7%D9%86%D8%A9-%D8%B9%D9%85%D8%A7%D9%86",
      "publisher": "صحيفة الخليج",
      "grade": "حسن",
-     "published_at": "2026-10-29T18:00+00:00",
+     "published_at": "2026-10-29T20:28+00:00",
      "title": "هيئة بريطانية: غرق قارب في مضيق هرمز بالقرب من سلطنة عُمان",
      "title_en": "",
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_774a8737bc6c197f",
-     "url": "https://www.iranintl.com/202610296755",
-     "publisher": "إيران إنترناشونال",
-     "grade": "حسن",
-     "published_at": "2026-10-29T19:59+00:00",
-     "title": "النصر 5-3 الخلود؛ وفجأة ثلاثية (هاتريك) لرونالدو والوصول إلى الهدف رقم 985 في مسيرته الاحترافية",
-     "title_en": "Al-Nassr 5-3 Al-Kholood: Ronaldo Nets Sudden Hat-Trick to Reach 985 Career Goals",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_83bd1db5fd170384",
-     "url": "https://www.skynewsarabia.com/world/1901453-%D9%82%D8%A7%D9%84%D9%8A%D8%A8%D8%A7%D9%81-%D8%AA%D9%82%D8%AF%D9%85-%D8%AA%D9%84%D8%A8%D9%8A%D8%A9-%D8%B4%D8%B1%D9%88%D8%B7-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D8%A7%D9%847",
-     "publisher": "سكاي نيوز عربية",
-     "grade": "حسن",
-     "published_at": "2026-10-29T18:50+00:00",
-     "title": "قاليباف: لا تقدم دون تلبية شروط إيران الـ7",
-     "title_en": "",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_91b292dc6fe83ff7",
-     "url": "https://www.skynewsarabia.com/world/1901445-%D8%A7%D8%B3%D8%AA%D9%81%D8%A7%D8%AF-%D9%82%D8%B1%D8%A7%D8%B5%D9%86%D8%A9-%D8%A7%D9%84%D8%B5%D9%88%D9%85%D8%A7%D9%84-%D8%AD%D8%B1%D8%A8-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86",
-     "publisher": "سكاي نيوز عربية",
-     "grade": "حسن",
-     "published_at": "2026-10-29T17:38+00:00",
-     "title": "كيف استفاد قراصنة الصومال من حرب إيران؟",
-     "title_en": "",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_cb2e42e18d70d87d",
-     "url": "https://www.skynewsarabia.com/world/1901449-%D8%A7%D8%AA%D9%87%D8%A7%D9%85-%D8%AC%D9%86%D8%AF%D9%8A-%D8%A5%D8%B3%D8%B1%D8%A7%D8%A6%D9%8A%D9%84%D9%8A-%D8%A8%D8%AA%D8%B5%D9%88%D9%8A%D8%B1-%D9%85%D8%B9%D8%AF%D8%A7%D8%AA-%D8%B9%D8%B3%D9%83%D8%B1%D9%8A%D8%A9-%D9%84%D8%B5%D8%A7%D9%84%D8%AD-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86",
-     "publisher": "سكاي نيوز عربية",
-     "grade": "حسن",
-     "published_at": "2026-10-29T18:17+00:00",
-     "title": "اتهام جندي إسرائيلي بتصوير معدات عسكرية لصالح إيران",
-     "title_en": "",
-     "dataset": "osint"
-    },
-    {
-     "source_ref": "ev_cc4baee029da6c2e",
-     "url": "https://www.bbc.com/persian/articles/cm79pjqy3y1lo?at_medium=RSS&at_campaign=rss",
+     "source_ref": "ev_80fbeb0c87883fec",
+     "url": "https://www.bbc.com/persian/articles/cw5yn730g35jo?at_medium=RSS&at_campaign=rss",
      "publisher": "بي بي سي فارسي",
      "grade": "حسن",
-     "published_at": "2026-10-29T17:08+00:00",
-     "title": "دعوة جديدة من رضا بهلوي ومخاوف بشأن أمان روبوت تلغرام",
-     "title_en": "New Call from Reza Pahlavi Raises Concerns Over Telegram Bot Security",
+     "published_at": "2026-10-29T22:11+00:00",
+     "title": "وفاة باتريك ستيوارت، الممثل الشهير في «ستار تريك»",
+     "title_en": "Patrick Stewart, Renowned 'Star Trek' Actor, Dies",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_a1cbebc1aba94977",
+     "url": "https://www.skynewsarabia.com/middle-east/1901472-%D8%AA%D8%B1%D8%A7%D9%85%D8%A8-%D9%8A%D8%AD%D8%B6%D8%B1-%D8%A7%D8%AC%D8%AA%D9%85%D8%A7%D8%B9%D8%A7-%D8%AD%D8%B5%D8%A7%D8%B1-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86",
+     "publisher": "سكاي نيوز عربية",
+     "grade": "حسن",
+     "published_at": "2026-10-29T23:57+00:00",
+     "title": "ترامب يحضر اجتماعا عن \"حصار إيران\"",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_ac0b3471ad245ee9",
+     "url": "https://www.iranintl.com/202610292288",
+     "publisher": "إيران إنترناشونال",
+     "grade": "حسن",
+     "published_at": "2026-10-29T22:22+00:00",
+     "title": "برشلونة يغلق مدرج المشجعين بعد تسجيل 17 مخالفة في الكلاسيكو",
+     "title_en": "Barcelona Closes Supporters' Stand After 17 Violations Recorded in El Clásico",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_ac54049bb700fe64",
+     "url": "https://aawsat.com/node/5335412",
+     "publisher": "الشرق الأوسط",
+     "grade": "حسن",
+     "published_at": "2026-10-29T23:15+00:00",
+     "title": "إيران تدرس رسالة فانس... وتصعّد في «هرمز»",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_c6e0bf1f2ee658a6",
+     "url": "https://www.tasnimnews.ir/ar/news/2026/10/30/3735623/%D8%B3%D9%81%DB%8C%D8%B1-%D8%A5%DB%8C%D8%B1%D8%A7%D9%86-%D8%A7%D9%84%D9%85%D8%B9%D8%AA%D8%AF%D9%88%D9%86-%DB%8C%D8%AA%D8%AD%D9%85%D9%84%D9%88%D9%86-%D9%85%D8%B3%D8%A4%D9%88%D9%84%DB%8C%D8%A9-%D8%A3%DB%8C-%D8%B9%D8%B1%D9%82%D9%84%D8%A9-%D9%84%D9%84%D9%85%D9%84%D8%A7%D8%AD%D8%A9-%D9%81%DB%8C-%D8%A7%D9%84%D8%AE%D9%84%DB%8C%D8%AC-%D8%A7%D9%84%D9%81%D8%A7%D8%B1%D8%B3%DB%8C-%D9%88%D9%85%D8%B6%DB%8C%D9%82-%D9%87%D8%B1%D9%85%D8%B2/amp",
+     "publisher": "تسنیم",
+     "grade": "حسن",
+     "published_at": "2026-10-29T22:59+00:00",
+     "title": "سفير إيران: المعتدون يتحملون مسؤولية أي عرقلة للملاحة في الخليج الفارسي ومضيق هرمز",
+     "title_en": "",
      "dataset": "osint"
     },
     {
@@ -790,16 +929,26 @@
      "url": "https://www.bbc.com/arabic/articles/cm4g14554xzlo?at_medium=RSS&at_campaign=rss",
      "publisher": "بي بي سي عربي",
      "grade": "حسن",
-     "published_at": "2026-10-29T18:54+00:00",
-     "title": "إيران تؤكد تلقي رسالة من نائب ترامب، والحرس الثوري يعلن اندلاع حرائق بناقلات في هرمز",
+     "published_at": "2026-10-29T22:53+00:00",
+     "title": "ترامب يعلق على رسالة فانس لإيران وتقارير عن خيارات عسكرية جديدة وسط توتر في هرمز",
      "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_db67cbc2f1363c15",
+     "url": "https://www.bbc.com/persian/articles/cj75pk7kkx3no?at_medium=RSS&at_campaign=rss",
+     "publisher": "بي بي سي فارسي",
+     "grade": "حسن",
+     "published_at": "2026-10-29T20:27+00:00",
+     "title": "سبعة أسئلة رئيسية حول انتخابات التجديد النصفي الأمريكية: ما هي تداعياتها ولماذا هي مهمة؟",
+     "title_en": "Seven Key Questions on US Midterms: What Are the Repercussions and Why Do They Matter?",
      "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-10-29T20:27+00:00"
+   "updated_at": "2026-10-30T00:10+00:00"
   },
   {
    "id": "sig_bf1265daa6cefcac",
@@ -907,9 +1056,9 @@
    "title": "Watch term active: #هرمز",
    "title_en": "Watch term active: #Hormuz",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-29T20:27+00:00",
+   "observed_at": "2026-10-30T00:10+00:00",
    "observed_facts": [
-    "6 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 92."
+    "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
    "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
    "inference": "Term matching indicates attention, not intent, coordination, or threat.",
@@ -927,8 +1076,18 @@
      "url": "https://www.alkhaleej.ae/2026-10-29/%D8%B9%D8%B1%D8%A8-%D9%88%D8%B9%D8%A7%D9%84%D9%85/%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85/%D9%87%D9%8A%D8%A6%D8%A9-%D8%A8%D8%B1%D9%8A%D8%B7%D8%A7%D9%86%D9%8A%D8%A9-%D8%BA%D8%B1%D9%82-%D9%82%D8%A7%D8%B1%D8%A8-%D9%81%D9%8A-%D9%85%D8%B6%D9%8A%D9%82-%D9%87%D8%B1%D9%85%D8%B2-%D8%A8%D8%A7%D9%84%D9%82%D8%B1%D8%A8-%D9%85%D9%86-%D8%B3%D9%84%D8%B7%D9%86%D8%A9-%D8%B9%D9%85%D8%A7%D9%86",
      "publisher": "صحيفة الخليج",
      "grade": "حسن",
-     "published_at": "2026-10-29T18:00+00:00",
+     "published_at": "2026-10-29T20:28+00:00",
      "title": "هيئة بريطانية: غرق قارب في مضيق هرمز بالقرب من سلطنة عُمان",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_3cbef5c894f9b7f1",
+     "url": "https://www.alarabiya.net/arab-and-world/gulf/social/2026/10/29/%D9%86%D8%B4%D8%B1%D8%A9-%D8%A7%D9%84%D8%AE%D9%84%D9%8A%D8%AC-%D8%AA%D8%AD%D8%B0%D9%8A%D8%B1-%D8%AE%D9%84%D9%8A%D8%AC%D9%8A-%D9%88%D8%A7%D8%AD%D8%AA%D8%AC%D8%A7%D8%AC-%D9%83%D9%88%D9%8A%D8%AA%D9%8A-%D9%88%D9%82%D9%85%D8%A9-%D8%A7%D9%84%D8%BA%D8%A7%D8%B2-%D9%88%D8%B1%D8%AD%D9%8A%D9%84-%D8%A7%D9%84%D8%B9%D9%84%D9%8A-%D9%88%D9%85%D9%82%D9%87%D9%89-%D9%87%D8%B1%D9%85%D8%B2",
+     "publisher": "العربية",
+     "grade": "حسن",
+     "published_at": "2026-10-29T14:47+00:00",
+     "title": "نشرة الخليج: تحذير خليجي واحتجاج كويتي وقمة الغاز ورحيل العلي ومقهى هرمز",
      "title_en": "",
      "dataset": "osint"
     },
@@ -943,12 +1102,32 @@
      "dataset": "osint"
     },
     {
-     "source_ref": "ev_cba06a8d17c85d7b",
-     "url": "https://aawsat.com/%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A/%D8%A7%D9%84%D8%AE%D9%84%D9%8A%D8%AC/5270853-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%AA%D8%A4%D9%83%D8%AF-%D9%81%D9%8A-%D8%A7%D9%84%D8%A3%D9%85%D9%85-%D8%A7%D9%84%D9%85%D8%AA%D8%AD%D8%AF%D8%A9-%D8%A3%D9%87%D9%85%D9%8A%D8%A9-%D8%AD%D9%85%D8%A7%D9%8A%D8%A9-%D8%AD%D8%B1%D9%8A%D8%A9-%D8%A7%D9%84%D9%85%D9%84%D8%A7%D8%AD%D8%A9-%D8%A8%D9%80%D9%87%D8%B1%D9%85%D8%B2",
+     "source_ref": "ev_65afc8f6d8888eb6",
+     "url": "https://www.aljazeera.net/news/2026/10/29/%D8%B1%D9%88%D8%A7%D9%8A%D8%A7%D8%AA-%D9%85%D8%AA%D8%B6%D8%A7%D8%B1%D8%A8%D8%A9-%D9%81%D9%88%D9%82-%D9%85%D9%8A%D8%A7%D9%87-%D9%85%D9%84%D8%BA%D9%85%D8%A9-%D9%83%D9%8A%D9%81",
+     "publisher": "الجزيرة نت",
+     "grade": "حسن",
+     "published_at": "2026-10-29T20:12+00:00",
+     "title": "بين تأكيد الحرس الثوري ونفي سنتكوم.. ما قصة الممرات الملغمة في هرمز؟",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_ac54049bb700fe64",
+     "url": "https://aawsat.com/node/5335412",
      "publisher": "الشرق الأوسط",
      "grade": "حسن",
-     "published_at": "2026-10-27T09:29+00:00",
-     "title": "السعودية تؤكد في الأمم المتحدة أهمية حماية حرية الملاحة بـ«هرمز»",
+     "published_at": "2026-10-29T23:15+00:00",
+     "title": "إيران تدرس رسالة فانس... وتصعّد في «هرمز»",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_c6e0bf1f2ee658a6",
+     "url": "https://www.tasnimnews.ir/ar/news/2026/10/30/3735623/%D8%B3%D9%81%DB%8C%D8%B1-%D8%A5%DB%8C%D8%B1%D8%A7%D9%86-%D8%A7%D9%84%D9%85%D8%B9%D8%AA%D8%AF%D9%88%D9%86-%DB%8C%D8%AA%D8%AD%D9%85%D9%84%D9%88%D9%86-%D9%85%D8%B3%D8%A4%D9%88%D9%84%DB%8C%D8%A9-%D8%A3%DB%8C-%D8%B9%D8%B1%D9%82%D9%84%D8%A9-%D9%84%D9%84%D9%85%D9%84%D8%A7%D8%AD%D8%A9-%D9%81%DB%8C-%D8%A7%D9%84%D8%AE%D9%84%DB%8C%D8%AC-%D8%A7%D9%84%D9%81%D8%A7%D8%B1%D8%B3%DB%8C-%D9%88%D9%85%D8%B6%DB%8C%D9%82-%D9%87%D8%B1%D9%85%D8%B2/amp",
+     "publisher": "تسنیم",
+     "grade": "حسن",
+     "published_at": "2026-10-29T22:59+00:00",
+     "title": "سفير إيران: المعتدون يتحملون مسؤولية أي عرقلة للملاحة في الخليج الفارسي ومضيق هرمز",
      "title_en": "",
      "dataset": "osint"
     },
@@ -957,8 +1136,8 @@
      "url": "https://www.bbc.com/arabic/articles/cm4g14554xzlo?at_medium=RSS&at_campaign=rss",
      "publisher": "بي بي سي عربي",
      "grade": "حسن",
-     "published_at": "2026-10-29T18:54+00:00",
-     "title": "إيران تؤكد تلقي رسالة من نائب ترامب، والحرس الثوري يعلن اندلاع حرائق بناقلات في هرمز",
+     "published_at": "2026-10-29T22:53+00:00",
+     "title": "ترامب يعلق على رسالة فانس لإيران وتقارير عن خيارات عسكرية جديدة وسط توتر في هرمز",
      "title_en": "",
      "dataset": "osint"
     },
@@ -969,14 +1148,14 @@
      "grade": "حسن",
      "published_at": "2026-10-29T16:59+00:00",
      "title": "الولايات المتحدة وإيران: طهران تؤكد تلقي رسالة من نائب ترامب، والحرس الثوري يعلن اندلاع حرائق بناقلات في هرمز",
-     "title_en": "US and Iran: Tehran Confirms Receiving Message from Trump's VP; IRGC Reports Tanker Fires in Hormuz",
+     "title_en": "US-Iran: Tehran Confirms Receiving Message from Trump's Running Mate; IRGC Reports Tanker Fires in Hormuz",
      "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-10-27T20:27+00:00",
-   "updated_at": "2026-10-29T20:27+00:00"
+   "updated_at": "2026-10-30T00:10+00:00"
   },
   {
    "id": "sig_f28d27c3c609459d",
@@ -984,7 +1163,7 @@
    "title": "Watch term active: مضيق هرمز",
    "title_en": "Watch term active: Strait of Hormuz",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-10-29T20:27+00:00",
+   "observed_at": "2026-10-30T00:10+00:00",
    "observed_facts": [
     "2 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 52."
    ],
@@ -1004,8 +1183,18 @@
      "url": "https://www.alkhaleej.ae/2026-10-29/%D8%B9%D8%B1%D8%A8-%D9%88%D8%B9%D8%A7%D9%84%D9%85/%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85/%D9%87%D9%8A%D8%A6%D8%A9-%D8%A8%D8%B1%D9%8A%D8%B7%D8%A7%D9%86%D9%8A%D8%A9-%D8%BA%D8%B1%D9%82-%D9%82%D8%A7%D8%B1%D8%A8-%D9%81%D9%8A-%D9%85%D8%B6%D9%8A%D9%82-%D9%87%D8%B1%D9%85%D8%B2-%D8%A8%D8%A7%D9%84%D9%82%D8%B1%D8%A8-%D9%85%D9%86-%D8%B3%D9%84%D8%B7%D9%86%D8%A9-%D8%B9%D9%85%D8%A7%D9%86",
      "publisher": "صحيفة الخليج",
      "grade": "حسن",
-     "published_at": "2026-10-29T18:00+00:00",
+     "published_at": "2026-10-29T20:28+00:00",
      "title": "هيئة بريطانية: غرق قارب في مضيق هرمز بالقرب من سلطنة عُمان",
+     "title_en": "",
+     "dataset": "osint"
+    },
+    {
+     "source_ref": "ev_c6e0bf1f2ee658a6",
+     "url": "https://www.tasnimnews.ir/ar/news/2026/10/30/3735623/%D8%B3%D9%81%DB%8C%D8%B1-%D8%A5%DB%8C%D8%B1%D8%A7%D9%86-%D8%A7%D9%84%D9%85%D8%B9%D8%AA%D8%AF%D9%88%D9%86-%DB%8C%D8%AA%D8%AD%D9%85%D9%84%D9%88%D9%86-%D9%85%D8%B3%D8%A4%D9%88%D9%84%DB%8C%D8%A9-%D8%A3%DB%8C-%D8%B9%D8%B1%D9%82%D9%84%D8%A9-%D9%84%D9%84%D9%85%D9%84%D8%A7%D8%AD%D8%A9-%D9%81%DB%8C-%D8%A7%D9%84%D8%AE%D9%84%DB%8C%D8%AC-%D8%A7%D9%84%D9%81%D8%A7%D8%B1%D8%B3%DB%8C-%D9%88%D9%85%D8%B6%DB%8C%D9%82-%D9%87%D8%B1%D9%85%D8%B2/amp",
+     "publisher": "تسنیم",
+     "grade": "حسن",
+     "published_at": "2026-10-29T22:59+00:00",
+     "title": "سفير إيران: المعتدون يتحملون مسؤولية أي عرقلة للملاحة في الخليج الفارسي ومضيق هرمز",
      "title_en": "",
      "dataset": "osint"
     }
@@ -1013,7 +1202,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-10-29T09:21+00:00",
-   "updated_at": "2026-10-29T20:27+00:00"
+   "updated_at": "2026-10-30T00:10+00:00"
   }
  ]
 }
