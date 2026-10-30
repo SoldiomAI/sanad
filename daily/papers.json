@@ -1,105 +1,90 @@
 {
- "updated": "2026-10-30T09:38+00:00",
+ "updated": "2026-10-30T22:49+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.39301",
-   "title": "Youtu-Parsing-Omni: One Encoder, One Schema, All Modalities",
-   "abstract": "We present Youtu-Parsing-Omni, an omni-modal parser that converts documents, images, audio, and video into structured records grounded in space and time, providing a perception layer for agents that read, locate, and cite evidence across modalities. Its design rests on one encoder for every modality and one schema for every task. Youtu-Omni-Encoder, initialized from a pre-trained language model to strengthen text reading, encodes all modalities with shared weights in a unified space-time coordinate system, and a few fusion layers let video frames attend to concurrent audio, bringing cross-moda",
+   "id": "2610.38293",
+   "title": "EPSBench: Benchmarking LLM Agents for Earnings Forecasting",
+   "abstract": "Quarterly earnings forecasting requires an agent to connect financial evidence to the income-statement line items that produce a company's reported earnings. We introduce EPSBench, a benchmark for studying this ability across 149 firm-quarters from 86 US companies. Agents read a fixed collection of filings, earnings-call transcripts, and news, then estimate company-specific income-statement drivers with cited evidence. A shared accounting calculator converts these estimates into GAAP diluted earnings per share (EPS), providing a common basis for comparing forecast assumptions. We evaluate six ",
    "authors": [
-    "Yunhang Shen",
-    "Zhangquan Chen",
-    "Xiaotian Li",
-    "Zhongpeng Cai"
+    "Yanbin Yin",
+    "Chuyu Xu",
+    "Liqin Ye",
+    "Jing Peng"
    ],
-   "link": "https://huggingface.co/papers/2610.39301",
+   "link": "https://huggingface.co/papers/2610.38293",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-29T00:00",
-   "title_ar": "يوتو-بارسينغ-أومني: مُشفِّر واحد ومخطط واحد لجميع الوسائط",
-   "summary_ar": "نُقدّم Youtu-Parsing-Omni، وهو مُحلِّل شامل لجميع الوسائط يُحوّل المستندات والصور والصوت والفيديو إلى سجلات مُنظَّمة مُرتبطة بالمكان والزمان، ليُوفّر طبقة إدراك للوكلاء لقراءة الأدلة وتحديد مواقعها والاستشهاد بها عبر مختلف الوسائط. ويعتمد تصميمه على مُشفِّر واحد لكل وسيط."
+   "published": "2026-10-28T05:24"
   },
   {
-   "id": "2610.39287",
-   "title": "OpenFlyV2: An onboard vision-language-action model for aerial perception and navigation",
-   "abstract": "Human cognition flexibly draws on a shared perceptual foundation to understand environments, attend to referenced entities, reason about spatial relationships, and act. Endowing aerial robots with an analogous functional organization remains challenging, as existing systems are often specialized for individual capabilities, dependent on offboard computation, or unable to sustain closed-loop operation on resource-constrained platforms. We present OpenFlyV2, a unified onboard vision-language-action architecture that uses a shared vision-language representation to support semantic understanding, ",
+   "id": "2610.38681",
+   "title": "Weaken to Strengthen: Weakening-Induced On-Policy Self-Distillation for Large Reasoning Models",
+   "abstract": "Self-distillation offers a way to improve reasoning models when a suitable external teacher is unavailable. However, common approaches rely on privileged information to construct a stronger self-teacher, limiting their use when only unlabeled prompts are available. In this paper, we introduce Weakening-Induced On-Policy Self-Distillation (WISD), which instead constructs a weaker counterpart of the original model and uses the contrast between the two as a training signal without requiring privileged information. We explore two ways to construct the weaker model: low-bit quantization and magnitu",
    "authors": [
-    "Junli Liu",
-    "Zhongrui You",
-    "Chenhui Li",
-    "Zhen Li"
+    "Yecheng Wu",
+    "Song Han",
+    "Han Cai"
    ],
-   "link": "https://huggingface.co/papers/2610.39287",
+   "link": "https://huggingface.co/papers/2610.38681",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-29T00:00",
-   "title_ar": "أوبن فلاي في 2: نموذج رؤية ولغة وحركة على متن الطائرة للإدراك والملاحة الجويين",
-   "summary_ar": "يعتمد الإدراك البشري بمرونة على أساس إدراكي مشترك لفهم البيئات، والتركيز على الكيانات المُشار إليها، والاستدلال على العلاقات المكانية، والتصرف. ولا يزال تزويد الروبوتات الجوية بتنظيم وظيفي مُماثل يُمثّل تحديًا، نظرًا لأن الأنظمة الحالية غالبًا ما تكون متخصصة."
+   "published": "2026-10-28T00:00"
   },
   {
-   "id": "2610.40453",
-   "title": "PhysInsert: Physically Plausible Object Insertion with Geometric Priors and Bidirectional Object-Scene Interactions",
-   "abstract": "We present PhysInsert, a framework for physically plausible reference-based object insertion that jointly adapts objects and their surrounding scenes. Existing methods often rely on masked inputs, generation-based pairs, or training pairs with limited viewpoint variation, leaving pose and illumination adaptation and bidirectional object-scene interactions insufficiently constrained. We construct the Insert World dataset with strictly aligned Blender-rendered counterfactual pairs and object references across viewpoints and lighting conditions. Building on these data, Geometry-Guided Adaptation ",
+   "id": "2610.39293",
+   "title": "Unlocking Any-Order Generation in Pretrained Autoregressive Image Models",
+   "abstract": "Autoregressive (AR) image generators are powerful in principle but inflexible in practice: training with a fixed raster-scan order hardcodes a single factorization of the image distribution into the model, leaving it unable to inpaint, outpaint, or edit at inference time. Existing solutions, including the modern discrete-diffusion family, train from scratch on a mixture of token orderings, paying roughly 3x the compute of standard raster-scan training; discrete diffusion further sacrifices compatibility with the AR inference ecosystem (KV caching, vLLM) by construction. We argue that this cost",
    "authors": [
-    "Yue Gong",
-    "Le Zhang",
-    "Rui Chen",
-    "Song Chang"
+    "Rishav Pramanik",
+    "Marco Pedersoli",
+    "Zhaozheng Yin"
    ],
-   "link": "https://huggingface.co/papers/2610.40453",
+   "link": "https://huggingface.co/papers/2610.39293",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-29T00:00",
-   "title_ar": "فيز إنسيرت: إدراج أجسام معقول فيزيائيًا باستخدام مُسبقات هندسية وتفاعلات ثنائية الاتجاه بين الجسم والمشهد",
-   "summary_ar": "نُقدّم PhysInsert، وهو إطار عمل لإدراج الأجسام بالاستناد إلى مرجع وبشكل معقول فيزيائيًا، حيث يُكيّف الأجسام والمشاهد المحيطة بها معًا. تعتمد الطرق الحالية غالبًا على مدخلات مقنعة، أو أزواج قائمة على التوليد، أو أزواج تدريب ذات تنوع محدود في زوايا الرؤية، مما يترك الوضعية والإضاءة غير معالجة بالشكل الكافي."
+   "published": "2026-10-29T00:00"
   },
   {
-   "id": "2610.39663",
-   "title": "AB-Attention: Accurate Block Attention for Accelerating Video Diffusion Transformers",
-   "abstract": "Video diffusion transformers generate high-quality videos, but the quadratic cost of 3D full attention dominates their inference. Dynamic block-sparse attention reduces this cost by computing exact attention only on key/value blocks selected from current activations. However, its fidelity degrades under aggressive sparsity: blocks are scored from coarse summaries or formed by costly global clustering, pruned blocks vanish from the softmax, and whole tiles are kept or dropped even when only a few of their keys matter. To address these limitations, we propose Accurate Block Attention (AB-Attenti",
+   "id": "2610.34298",
+   "title": "Matched Capabilities, Different Behaviors: A Controlled Study of MCP and CLI Interfaces for Language Agents",
+   "abstract": "Language agents increasingly act through external tools and interactive environments, making the interface between the model and its executable capabilities part of the decision process. Model Context Protocol (MCP) and command-line interfaces (CLI) can expose the same semantic operations through markedly different model-facing representations. We study whether these representational differences change agent behavior when executable capabilities are matched. We introduce Matched Interface Comparison and Analysis (MICA), which renders MCP and CLI from a shared semantic action contract and route",
    "authors": [
-    "Bin Xu",
-    "Mo Zhang",
-    "Zhengfeiyang Zhang",
-    "Xinfeng Yang"
+    "Zhenning Shi",
+    "Liang Pang",
+    "Yongqi Li"
    ],
-   "link": "https://huggingface.co/papers/2610.39663",
+   "link": "https://huggingface.co/papers/2610.34298",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-29T00:00",
-   "title_ar": "انتباه إيه بي: انتباه كُتلي دقيق لتسريع محولات توليد الفيديو بالانتشار",
-   "summary_ar": "تُولِّد محولات توليد الفيديو بالانتشار مقاطع فيديو عالية الجودة، غير أن التكلفة التربيعية للانتباه الكلي ثلاثي الأبعاد تُهيمن على استدلالها. يُقلل الانتباه الكُتلي المتناثر والديناميكي هذه التكلفة عبر حساب الانتباه الدقيق فقط على كتل المفاتيح/القيم المختارة من التنشيطات الحالية، إلا أن دقته تتدهور."
+   "published": "2026-10-25T00:00"
   },
   {
-   "id": "2610.38331",
-   "title": "Multi-Token Prediction Done Right",
-   "abstract": "Multi-Token Prediction (MTP) is now a common ingredient in language-model pre-training, as it improves downstream performance and enables faster inference through speculative decoding. We identify a flaw in standard MTP training, in which a residual component of the MTP gradient interferes with both next-token and multi-token learning, increasingly so with scale. Specifically, the MTP cross-entropy gradient can be decomposed exactly into a KL self-distillation term that pulls each MTP head toward the model's own next-token prediction (NTP) distribution and improves speculative decoding, and a ",
+   "id": "2609.05881",
+   "title": "Broken on Arrival: Non-Functional Quantized LLM Artifacts in Public Model Registries and How to Catch Them",
+   "abstract": "Developers download quantized large language models (LLMs) from public registries to run them locally. None of the registries we examined documented functional testing of their files. We tested all 305 eligible code-capable GGUF tags (the llama.cpp format) across 15 model lines in the official Ollama library, plus 22 popular Hugging Face community files. A 15-task code screen identified suspects, which we retested on all 164 HumanEval+ tasks. Seven official tags (2.3%) solved at most six of them. All were low-bit quantizations of models with at most four billion parameters. We rebuilt five sus",
    "authors": [
-    "Jayden Teoh"
+    "Aditi Patodiya"
    ],
-   "link": "https://huggingface.co/papers/2610.38331",
+   "link": "https://huggingface.co/papers/2609.05881",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-28T00:00",
-   "title_ar": "التنبؤ بعدة رموز بالطريقة الصحيحة",
-   "summary_ar": "أصبح التنبؤ بعدة رموز (MTP) عنصرًا شائعًا في التدريب المسبق لنماذج اللغة، إذ يُحسّن الأداء في المهام اللاحقة ويُتيح استدلالًا أسرع عبر فك التشفير التخميني. نكشف في هذا العمل عن خلل في تدريب MTP القياسي، حيث يتداخل مُكوّن متبقٍّ من تدرج MTP مع الأداء."
+   "published": "2026-10-25T00:00"
   },
   {
-   "id": "2610.40647",
-   "title": "Read, Allocate, Route: Role-Coupled Tokenization for Pixel-Space Generative Transformers",
-   "abstract": "Pixel-space generative Transformers typically use one token per image patch, so capturing finer detail requires more tokens and makes global attention increasingly expensive. We observe that finer detail does not necessarily require more global communication: low-frequency structure benefits from global exchange, while high-frequency detail can be modeled locally. Based on this insight, we introduce SpecSlot, a pixel-space rectified-flow Transformer that decouples output detail from the length of the global attention sequence. SpecSlot expands each spatial anchor into multiple slots, each assi",
+   "id": "2610.40564",
+   "title": "Training Foundation Models with a Single Algorithm",
+   "abstract": "Foundation models are typically trained in stages: pretraining, midtraining, supervised fine-tuning (SFT), and reinforcement learning (RL), with changes in both data and learning algorithms. We show that this algorithmic separation is not fundamental. By deriving suitable RL objectives as maximum-likelihood fitting to model-generated target distributions, we place all of these stages under a single likelihood-based training algorithm, unified training. This perspective turns the foundation-model training lifecycle into a problem of choosing which data to train on, in what proportions, and when",
    "authors": [
-    "Jiongfan Yang",
-    "Weichen Fan",
-    "Haiwen Diao",
-    "Zhongang Cai"
+    "Yuda Song",
+    "Alvin Zhang",
+    "Fahim Tajwar",
+    "Daman Arora"
    ],
-   "link": "https://huggingface.co/papers/2610.40647",
+   "link": "https://huggingface.co/papers/2610.40564",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-29T00:00",
-   "title_ar": "اقرأ، خصص، وجّه: ترميز مقترن بالأدوار لمحولات التوليد في فضاء البكسل",
-   "summary_ar": "تستخدم محولات التوليد في فضاء البكسل عادةً رمزًا واحدًا لكل رقعة صورة، وبالتالي فإن التقاط تفاصيل أدق يتطلب رموزًا أكثر ويجعل الانتباه الشامل مكلفًا للغاية. ونلاحظ أن التفاصيل الأدق لا تتطلب بالضرورة مزيدًا من التواصل الشامل، حيث تستفيد البنية منخفضة التردد من التواصل الشامل."
+   "published": "2026-10-29T00:00"
   }
  ],
  "n": 6
