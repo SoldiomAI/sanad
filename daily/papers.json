@@ -1,104 +1,105 @@
 {
- "updated": "2026-10-29T20:27+00:00",
+ "updated": "2026-10-30T09:38+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.35671",
-   "title": "Evaluating DeepSeek V4.1 Flash-1017 for loss of control and harmful manipulation risks",
-   "abstract": "As frontier language models grow increasingly capable and autonomous, independent third-party evaluations are critical for characterizing their systemic safety risks. While closed-source releases are routinely accompanied by comprehensive system cards, open-weight models receive less scrutiny regarding frontier risks. To address this gap, we present an independent safety evaluation of DeepSeek V4.1 Flash-1017, the latest version of V4.1 Flash that departs from V4 with a new architecture, scaled-up training, and strong agentic capabilities. Drawing on the EU General-Purpose AI Code of Practice,",
+   "id": "2610.39301",
+   "title": "Youtu-Parsing-Omni: One Encoder, One Schema, All Modalities",
+   "abstract": "We present Youtu-Parsing-Omni, an omni-modal parser that converts documents, images, audio, and video into structured records grounded in space and time, providing a perception layer for agents that read, locate, and cite evidence across modalities. Its design rests on one encoder for every modality and one schema for every task. Youtu-Omni-Encoder, initialized from a pre-trained language model to strengthen text reading, encodes all modalities with shared weights in a unified space-time coordinate system, and a few fusion layers let video frames attend to concurrent audio, bringing cross-moda",
    "authors": [
-    "Yao Huang",
-    "Zhiyuan Zeng",
-    "Yu Wang",
-    "Zhitong Zhu"
+    "Yunhang Shen",
+    "Zhangquan Chen",
+    "Xiaotian Li",
+    "Zhongpeng Cai"
    ],
-   "link": "https://huggingface.co/papers/2610.35671",
+   "link": "https://huggingface.co/papers/2610.39301",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-26T00:00",
-   "title_ar": "تقييم DeepSeek V4.1 Flash-1017 لمخاطر فقدان السيطرة والتلاعب الضار",
-   "summary_ar": "مع تزايد قدرات نماذج اللغة الرائدة واستقلاليتها، تصبح التقييمات المستقلة من أطراف ثالثة حاسمة لتحديد مخاطر السلامة المنهجية لديها. وفي حين تُرفق الإصدارات مغلقة المصدر ببطاقات نظام شاملة بانتظام، فإن النماذج مفتوحة الأوزان تحظى بتدقيق أقل."
+   "published": "2026-10-29T00:00",
+   "title_ar": "يوتو-بارسينغ-أومني: مُشفِّر واحد ومخطط واحد لجميع الوسائط",
+   "summary_ar": "نُقدّم Youtu-Parsing-Omni، وهو مُحلِّل شامل لجميع الوسائط يُحوّل المستندات والصور والصوت والفيديو إلى سجلات مُنظَّمة مُرتبطة بالمكان والزمان، ليُوفّر طبقة إدراك للوكلاء لقراءة الأدلة وتحديد مواقعها والاستشهاد بها عبر مختلف الوسائط. ويعتمد تصميمه على مُشفِّر واحد لكل وسيط."
   },
   {
-   "id": "2610.20832",
-   "title": "Amortizing Sequential Experimental Design in Reasoning LLMs",
-   "abstract": "Despite their extensive pretraining knowledge and strong reasoning capabilities, large language models (LLMs) struggle to adaptively gather information in experimental design tasks. We study how to amortize sequential Bayesian experimental design (BED) into an LLM by explicitly training the reasoning that guides action selection using information-gain rewards. Our approach specifies the experimental generative model independently of the LLM's own beliefs, allowing us to optimize expected information gain under a model of our choosing. We investigate the design choices for amortization, includi",
+   "id": "2610.39287",
+   "title": "OpenFlyV2: An onboard vision-language-action model for aerial perception and navigation",
+   "abstract": "Human cognition flexibly draws on a shared perceptual foundation to understand environments, attend to referenced entities, reason about spatial relationships, and act. Endowing aerial robots with an analogous functional organization remains challenging, as existing systems are often specialized for individual capabilities, dependent on offboard computation, or unable to sustain closed-loop operation on resource-constrained platforms. We present OpenFlyV2, a unified onboard vision-language-action architecture that uses a shared vision-language representation to support semantic understanding, ",
    "authors": [
-    "Anita Kriz",
-    "Antonin Berthon",
-    "Nicolás Astorga",
-    "Mihaela van der Schaar"
+    "Junli Liu",
+    "Zhongrui You",
+    "Chenhui Li",
+    "Zhen Li"
    ],
-   "link": "https://huggingface.co/papers/2610.20832",
+   "link": "https://huggingface.co/papers/2610.39287",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-14T00:00",
-   "title_ar": "إطفاء تكلفة التصميم التجريبي المتسلسل في نماذج اللغة الكبيرة الاستدلالية",
-   "summary_ar": "تواجه نماذج اللغة الكبيرة صعوبة في جمع المعلومات بشكل تكيّفي في مهام التصميم التجريبي، على الرغم من معارفها الواسعة وقدراتها الاستدلالية القوية. وتبحث هذه الدراسة في كيفية إطفاء تكلفة التصميم التجريبي البيزي المتسلسل داخل نموذج لغة كبير عبر تدريب استدلاله بشكل صريح."
+   "published": "2026-10-29T00:00",
+   "title_ar": "أوبن فلاي في 2: نموذج رؤية ولغة وحركة على متن الطائرة للإدراك والملاحة الجويين",
+   "summary_ar": "يعتمد الإدراك البشري بمرونة على أساس إدراكي مشترك لفهم البيئات، والتركيز على الكيانات المُشار إليها، والاستدلال على العلاقات المكانية، والتصرف. ولا يزال تزويد الروبوتات الجوية بتنظيم وظيفي مُماثل يُمثّل تحديًا، نظرًا لأن الأنظمة الحالية غالبًا ما تكون متخصصة."
   },
   {
-   "id": "2610.22507",
-   "title": "RealCLI: Toward a Unified Evaluation of Human-Agent Collaboration for CLI Agents",
-   "abstract": "Command-line interface (CLI) agents increasingly execute longer-horizon tasks, yet existing benchmarks either assume that user instructions remain fixed throughout execution or evaluate task outcomes without capturing runtime collaboration quality. In this paper, we present REALCLI, a paired benchmark that unifies the evaluation of task execution and human-agent collaboration quality on realistic CLI tasks. To comprehensively measure collaboration, REALCLI builds a five-dimensional framework, operationalized into 22 sub-dimensions and 51 interaction scenario templates. REALCLI provides two mod",
+   "id": "2610.40453",
+   "title": "PhysInsert: Physically Plausible Object Insertion with Geometric Priors and Bidirectional Object-Scene Interactions",
+   "abstract": "We present PhysInsert, a framework for physically plausible reference-based object insertion that jointly adapts objects and their surrounding scenes. Existing methods often rely on masked inputs, generation-based pairs, or training pairs with limited viewpoint variation, leaving pose and illumination adaptation and bidirectional object-scene interactions insufficiently constrained. We construct the Insert World dataset with strictly aligned Blender-rendered counterfactual pairs and object references across viewpoints and lighting conditions. Building on these data, Geometry-Guided Adaptation ",
    "authors": [
-    "Yunqi Liu",
-    "Peiyu Wang",
-    "Bingli Wang",
-    "Leo Luo"
+    "Yue Gong",
+    "Le Zhang",
+    "Rui Chen",
+    "Song Chang"
    ],
-   "link": "https://huggingface.co/papers/2610.22507",
+   "link": "https://huggingface.co/papers/2610.40453",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-15T00:00",
-   "title_ar": "RealCLI: نحو تقييم موحد للتعاون بين الإنسان والوكيل لوكلاء واجهة سطر الأوامر",
-   "summary_ar": "ينفذ وكلاء واجهة سطر الأوامر مهام ذات أفق أطول على نحو متزايد، غير أن المعايير الحالية تفترض ثبات تعليمات المستخدم أو تقيم النتائج دون رصد جودة التعاون أثناء التشغيل. وتقدم هذه الورقة REALCLI، وهو معيار مزدوج لمعالجة هذا القصور."
+   "published": "2026-10-29T00:00",
+   "title_ar": "فيز إنسيرت: إدراج أجسام معقول فيزيائيًا باستخدام مُسبقات هندسية وتفاعلات ثنائية الاتجاه بين الجسم والمشهد",
+   "summary_ar": "نُقدّم PhysInsert، وهو إطار عمل لإدراج الأجسام بالاستناد إلى مرجع وبشكل معقول فيزيائيًا، حيث يُكيّف الأجسام والمشاهد المحيطة بها معًا. تعتمد الطرق الحالية غالبًا على مدخلات مقنعة، أو أزواج قائمة على التوليد، أو أزواج تدريب ذات تنوع محدود في زوايا الرؤية، مما يترك الوضعية والإضاءة غير معالجة بالشكل الكافي."
   },
   {
-   "id": "2610.30132",
-   "title": "LongZero: Enhancing Long-Context Reasoning in LLMs from Zero Data",
-   "abstract": "Reinforcement learning (RL) is an effective way to strengthen the long-context reasoning of large language models (LLMs), but it needs training data that are long, diverse, challenging, and verifiable. Human annotation of such data is expensive, naturally occurring data are too scarce to sustain RL, and existing synthesis methods depend on external corpora or stronger teacher models, which become harder to obtain as the trained models get stronger. Recently, RL from zero data, in which a model learns from tasks it proposes itself, has achieved excellent performance, but existing methods target",
+   "id": "2610.39663",
+   "title": "AB-Attention: Accurate Block Attention for Accelerating Video Diffusion Transformers",
+   "abstract": "Video diffusion transformers generate high-quality videos, but the quadratic cost of 3D full attention dominates their inference. Dynamic block-sparse attention reduces this cost by computing exact attention only on key/value blocks selected from current activations. However, its fidelity degrades under aggressive sparsity: blocks are scored from coarse summaries or formed by costly global clustering, pruned blocks vanish from the softmax, and whole tiles are kept or dropped even when only a few of their keys matter. To address these limitations, we propose Accurate Block Attention (AB-Attenti",
    "authors": [
-    "Zhennan Wan",
-    "Jianfei Chen"
+    "Bin Xu",
+    "Mo Zhang",
+    "Zhengfeiyang Zhang",
+    "Xinfeng Yang"
    ],
-   "link": "https://huggingface.co/papers/2610.30132",
+   "link": "https://huggingface.co/papers/2610.39663",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-21T00:00",
-   "title_ar": "LongZero: تعزيز استدلال النماذج اللغوية الكبيرة في السياقات الطويلة دون أي بيانات",
-   "summary_ar": "يُعد التعلم التعزيزي وسيلة فعالة لتعزيز استدلال نماذج اللغة الكبيرة في السياقات الطويلة، لكنه يتطلب بيانات تدريب طويلة ومتنوعة ومليئة بالتحديات وقابلة للتحقق. وتعتبر الرقمنة البشرية لهذه البيانات باهظة الثمن، كما أن البيانات الطبيعية شحيحة للغاية لدعم التعلم التعزيزي."
+   "published": "2026-10-29T00:00",
+   "title_ar": "انتباه إيه بي: انتباه كُتلي دقيق لتسريع محولات توليد الفيديو بالانتشار",
+   "summary_ar": "تُولِّد محولات توليد الفيديو بالانتشار مقاطع فيديو عالية الجودة، غير أن التكلفة التربيعية للانتباه الكلي ثلاثي الأبعاد تُهيمن على استدلالها. يُقلل الانتباه الكُتلي المتناثر والديناميكي هذه التكلفة عبر حساب الانتباه الدقيق فقط على كتل المفاتيح/القيم المختارة من التنشيطات الحالية، إلا أن دقته تتدهور."
   },
   {
-   "id": "2610.30161",
-   "title": "TauIndianBankBench: Procedure-Aware, Action-Oriented Evaluation of Tool-Using Conversational Agents",
-   "abstract": "Many Indian banks serve customers through FAQ pages and scripted chatbots. Assistants based on language models could respond faster and carry out requests such as blocking a card, but only if they give correct information and follow the bank's rules. These rules prescribe a procedure, a set of required steps, such as obtaining a closure quote before closing a deposit. Adapting models to this domain requires measuring how well they follow the procedure, before and after training. Benchmarks usually judge only the records left at the end of a conversation. Many required steps, however, leave the",
+   "id": "2610.38331",
+   "title": "Multi-Token Prediction Done Right",
+   "abstract": "Multi-Token Prediction (MTP) is now a common ingredient in language-model pre-training, as it improves downstream performance and enables faster inference through speculative decoding. We identify a flaw in standard MTP training, in which a residual component of the MTP gradient interferes with both next-token and multi-token learning, increasingly so with scale. Specifically, the MTP cross-entropy gradient can be decomposed exactly into a KL self-distillation term that pulls each MTP head toward the model's own next-token prediction (NTP) distribution and improves speculative decoding, and a ",
    "authors": [
-    "Krishanu Adhikary",
-    "Prashant Devadiga"
+    "Jayden Teoh"
    ],
-   "link": "https://huggingface.co/papers/2610.30161",
+   "link": "https://huggingface.co/papers/2610.38331",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-30T00:00",
-   "title_ar": "TauIndianBankBench: تقييم واعٍ بالإجراءات وموجه نحو الأفعال للوكلاء الحواريين مستخدمي الأدوات",
-   "summary_ar": "تخدم العديد من البنوك الهندية عملاءها عبر صفحات الأسئلة الشائعة وروبوتات الدردشة المبرمجة مسبقاً، ويمكن للمساعدين المعتمدين على النماذج اللغوية الاستجابة بشكل أسرع وتنفيذ الطلبات كحظر البطاقات بشرط تقديم معلومات صحيحة واتباع قواعد البنك. وتحدد هذه القواعد إجراءات معينة ومجموعة من المتطلبات."
+   "published": "2026-10-28T00:00",
+   "title_ar": "التنبؤ بعدة رموز بالطريقة الصحيحة",
+   "summary_ar": "أصبح التنبؤ بعدة رموز (MTP) عنصرًا شائعًا في التدريب المسبق لنماذج اللغة، إذ يُحسّن الأداء في المهام اللاحقة ويُتيح استدلالًا أسرع عبر فك التشفير التخميني. نكشف في هذا العمل عن خلل في تدريب MTP القياسي، حيث يتداخل مُكوّن متبقٍّ من تدرج MTP مع الأداء."
   },
   {
-   "id": "2610.29702",
-   "title": "CausGround: Causal Interaction Grounding for Adaptive Embodied Planning",
-   "abstract": "Multimodal large language models (MLLMs) show promising reasoning capabilities, but reliable physical interaction requires planning that accounts for when actions are executable and how they change the world. These preconditions and effects are environment-dependent and often not captured by MLLMs, making adaptation challenging. Yet existing approaches either require costly environment-specific training or rely on unstructured interaction experience that is difficult to reuse. Therefore, we introduce CausGround, a non-parametric causal interaction grounding framework that distills interaction ",
+   "id": "2610.40647",
+   "title": "Read, Allocate, Route: Role-Coupled Tokenization for Pixel-Space Generative Transformers",
+   "abstract": "Pixel-space generative Transformers typically use one token per image patch, so capturing finer detail requires more tokens and makes global attention increasingly expensive. We observe that finer detail does not necessarily require more global communication: low-frequency structure benefits from global exchange, while high-frequency detail can be modeled locally. Based on this insight, we introduce SpecSlot, a pixel-space rectified-flow Transformer that decouples output detail from the length of the global attention sequence. SpecSlot expands each spatial anchor into multiple slots, each assi",
    "authors": [
-    "Yijun Shen",
-    "Diqi He",
-    "Jinbang Guo",
-    "Wanyue Zhang"
+    "Jiongfan Yang",
+    "Weichen Fan",
+    "Haiwen Diao",
+    "Zhongang Cai"
    ],
-   "link": "https://huggingface.co/papers/2610.29702",
+   "link": "https://huggingface.co/papers/2610.40647",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-21T00:00",
-   "title_ar": "CausGround: تجذير التفاعل السببي للتخطيط التجسيدي التكيفي",
-   "summary_ar": "تُظهر النماذج اللغوية الكبيرة متعددة الوسائط قدرات استدلالية واعدة، إلا أن التفاعل المادي الموثوق يتطلب تخطيطاً يراعي متى تكون الأفعال قابلة للتنفيذ وكيف تُغيّر العالم. وتعتمد هذه الشروط المسبقة والآثار على البيئة المحيطة وغالباً لا تلتقطها هذه النماذج."
+   "published": "2026-10-29T00:00",
+   "title_ar": "اقرأ، خصص، وجّه: ترميز مقترن بالأدوار لمحولات التوليد في فضاء البكسل",
+   "summary_ar": "تستخدم محولات التوليد في فضاء البكسل عادةً رمزًا واحدًا لكل رقعة صورة، وبالتالي فإن التقاط تفاصيل أدق يتطلب رموزًا أكثر ويجعل الانتباه الشامل مكلفًا للغاية. ونلاحظ أن التفاصيل الأدق لا تتطلب بالضرورة مزيدًا من التواصل الشامل، حيث تستفيد البنية منخفضة التردد من التواصل الشامل."
   }
  ],
  "n": 6
