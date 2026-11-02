@@ -1,102 +1,105 @@
 {
- "updated": "2026-11-01T23:48+00:00",
+ "updated": "2026-11-02T12:49+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.38293",
-   "title": "EPSBench: Benchmarking LLM Agents for Earnings Forecasting",
-   "abstract": "Quarterly earnings forecasting requires an agent to connect financial evidence to the income-statement line items that produce a company's reported earnings. We introduce EPSBench, a benchmark for studying this ability across 149 firm-quarters from 86 US companies. Agents read a fixed collection of filings, earnings-call transcripts, and news, then estimate company-specific income-statement drivers with cited evidence. A shared accounting calculator converts these estimates into GAAP diluted earnings per share (EPS), providing a common basis for comparing forecast assumptions. We evaluate six ",
+   "id": "2610.40256",
+   "title": "When Requirements Interact: Scaling Long-Horizon Coding via Interdependent Specifications",
+   "abstract": "To succeed in real-world long-horizon software development, coding agents must satisfy multi-dimensional task specifications, such as interface compatibility and error handling, and do so without breaking existing dependencies. However, current works lack specification in both quantity and diversity, often emphasizing primary goals while ignoring complex constraints. Synthesizing tasks to bridge this gap presents two challenges: naively adding specifications risks reducing tasks to trivial checklists rather than compelling joint reasoning, and verifying these subtle interactions risks overlook",
    "authors": [
-    "Yanbin Yin",
-    "Chuyu Xu",
-    "Liqin Ye",
-    "Jing Peng"
+    "Yishuo Cai",
+    "Minzheng Wang",
+    "Liang Zhao",
+    "Linghao Zhang"
    ],
-   "link": "https://huggingface.co/papers/2610.38293",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-28T05:24",
-   "title_ar": "إي بي إس بنش: تقييم وكلاء النماذج اللغوية الكبيرة في التنبؤ بالأرباح",
-   "summary_ar": "يتطلب التنبؤ بالأرباح الربع سنوية قدرة الوكيل على ربط الأدلة المالية ببنود قائمة الدخل التي تحدد أرباح الشركة المعلنة. نُقدم \"إي بي إس بنش\"، وهو معيار لدراسة هذه القدرة عبر 149 ربعاً سنوياً لـ 86 شركة أمريكية حيث يقرأ الوكلاء مجموعة ثابتة من البيانات."
-  },
-  {
-   "id": "2610.38681",
-   "title": "Weaken to Strengthen: Weakening-Induced On-Policy Self-Distillation for Large Reasoning Models",
-   "abstract": "Self-distillation offers a way to improve reasoning models when a suitable external teacher is unavailable. However, common approaches rely on privileged information to construct a stronger self-teacher, limiting their use when only unlabeled prompts are available. In this paper, we introduce Weakening-Induced On-Policy Self-Distillation (WISD), which instead constructs a weaker counterpart of the original model and uses the contrast between the two as a training signal without requiring privileged information. We explore two ways to construct the weaker model: low-bit quantization and magnitu",
-   "authors": [
-    "Yecheng Wu",
-    "Song Han",
-    "Han Cai"
-   ],
-   "link": "https://huggingface.co/papers/2610.38681",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-28T00:00",
-   "title_ar": "الإضعاف من أجل التعزيز: التقطير الذاتي وفق السياسة المتبعة والمستحث بالإضعاف لنماذج الاستدلال الكبيرة",
-   "summary_ar": "يوفر التقطير الذاتي وسيلة لتحسين نماذج الاستدلال في حال عدم توفر مُعلّم خارجي مناسب. ومع ذلك، تعتمد الطرق الشائعة على معلومات مميزة لبناء مُعلّم ذاتي أقوى، مما يحدّ من استخدامها عند توفر مطالبات غير معنونة فقط؛ لذا نُقدّم في هذه الورقة طريقة الإضعاف."
-  },
-  {
-   "id": "2610.39293",
-   "title": "Unlocking Any-Order Generation in Pretrained Autoregressive Image Models",
-   "abstract": "Autoregressive (AR) image generators are powerful in principle but inflexible in practice: training with a fixed raster-scan order hardcodes a single factorization of the image distribution into the model, leaving it unable to inpaint, outpaint, or edit at inference time. Existing solutions, including the modern discrete-diffusion family, train from scratch on a mixture of token orderings, paying roughly 3x the compute of standard raster-scan training; discrete diffusion further sacrifices compatibility with the AR inference ecosystem (KV caching, vLLM) by construction. We argue that this cost",
-   "authors": [
-    "Rishav Pramanik",
-    "Marco Pedersoli",
-    "Zhaozheng Yin"
-   ],
-   "link": "https://huggingface.co/papers/2610.39293",
+   "link": "https://huggingface.co/papers/2610.40256",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-29T00:00",
-   "title_ar": "إتاحة التوليد بأي ترتيب في نماذج الصور الانحدارية الذاتية المدربة مسبقاً",
-   "summary_ar": "تُعد مولدات الصور الانحدارية الذاتية قوية نظرياً لكنها غير مرنة عملياً، حيث إن التدريب بترتيب مسح نقطي ثابت يفرض تحليلاً وحيداً لتوزيع الصورة داخل النموذج، مما يجعله عاجزاً عن استكمال الأجزاء الداخلية أو الخارجية أو التعديل أثناء الاستدلال. وتتضمن الحلول الحالية..."
+   "title_ar": "عندما تتفاعل المتطلبات: توسيع نطاق البرمجة طويلة المدى عبر المواصفات المترابطة",
+   "summary_ar": "لكي تنجح وكلاء البرمجة في تطوير البرمجيات الواقعية طويلة المدى، يجب عليها تلبية مواصفات مهام متعددة الأبعاد كالتوافق مع الواجهات ومعالجة الأخطاء دون الإخلال بالاعتماديات القائمة. ومع ذلك، تفتقر الأعمال الحالية إلى المواصفات من حيث الكم والتنوع معاً."
   },
   {
-   "id": "2610.34298",
-   "title": "Matched Capabilities, Different Behaviors: A Controlled Study of MCP and CLI Interfaces for Language Agents",
-   "abstract": "Language agents increasingly act through external tools and interactive environments, making the interface between the model and its executable capabilities part of the decision process. Model Context Protocol (MCP) and command-line interfaces (CLI) can expose the same semantic operations through markedly different model-facing representations. We study whether these representational differences change agent behavior when executable capabilities are matched. We introduce Matched Interface Comparison and Analysis (MICA), which renders MCP and CLI from a shared semantic action contract and route",
+   "id": "2610.37393",
+   "title": "Learning Quality-Controllable Robot Policies with Iterative Hindsight Relabeling",
+   "abstract": "Robot policy evaluation often relies on a binary success signal for task completion. In real-world deployment, however, desired execution behaviors are also defined by quality attributes such as execution speed and motion smoothness, which need to be dynamically controlled according to task requirements. To address this, we introduce Quality-Controllable Policy (QCP), a robot policy that enables inference-time control over both individual quality attributes and their combinations. To extend the controllable quality range beyond initial demonstrations, we further propose an iterative hindsight ",
    "authors": [
-    "Zhenning Shi",
-    "Liang Pang",
-    "Yongqi Li"
+    "Sinjae Kang",
+    "Dong Kyu Shin",
+    "Jaehong Kim",
+    "Kamin Lee"
    ],
-   "link": "https://huggingface.co/papers/2610.34298",
+   "link": "https://huggingface.co/papers/2610.37393",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-25T00:00",
-   "title_ar": "قدرات متطابقة وسلوكيات مختلفة: دراسة مضبوطة لواجهتي بروتوكول سياق النموذج (MCP) وسطر الأوامر (CLI) للوكلاء اللغويين",
-   "summary_ar": "يتصرف الوكلاء اللغويون بشكل متزايد عبر أدوات خارجية وبيئات تفاعلية، مما يجعل الواجهة بين النموذج وقدراته القابلة للتنفيذ جزءاً من عملية اتخاذ القرار. يمكن لبروتوكول سياق النموذج وواجهات سطر الأوامر عرض العمليات الدلالية ذاتها من خلال عدة..."
+   "published": "2026-10-27T00:00",
+   "title_ar": "تعلم سياسات روبوتية قابلة للتحكم في الجودة باستخدام إعادة الوسم التكراري بأثر رجعي",
+   "summary_ar": "غالباً ما يعتمد تقييم سياسات الروبوت على إشارة نجاح ثنائية لإنجاز المهمة. غير أن سلوكيات التنفيذ المطلوبة في التطبيق العملي تُحدد أيضاً بخصائص الجودة مثل سرعة التنفيذ وسلاسة الحركة، والتي تحتاج إلى تحكم ديناميكي وفقاً لمتطلبات المهمة."
   },
   {
-   "id": "2609.05881",
-   "title": "Broken on Arrival: Non-Functional Quantized LLM Artifacts in Public Model Registries and How to Catch Them",
-   "abstract": "Developers download quantized large language models (LLMs) from public registries to run them locally. None of the registries we examined documented functional testing of their files. We tested all 305 eligible code-capable GGUF tags (the llama.cpp format) across 15 model lines in the official Ollama library, plus 22 popular Hugging Face community files. A 15-task code screen identified suspects, which we retested on all 164 HumanEval+ tasks. Seven official tags (2.3%) solved at most six of them. All were low-bit quantizations of models with at most four billion parameters. We rebuilt five sus",
+   "id": "2610.34926",
+   "title": "Supervising the Visible State: Separating Representation from View Selection in Streaming Video",
+   "abstract": "An action seen once and the same action seen three times receive the same action-recognition label, so that supervision does not require a model to count. Answers shared across histories that differ in event order, accumulation, or relations leave those distinctions unconstrained; we call this state under-specification. Visible-State Supervision (ViSS) addresses it by training on source-grounded probes of event identity, order, accumulation, relation change, and answer sufficiency; under the same recent-frame interface it improves OVO-Bench over a strict-matched generic temporal supervision ba",
    "authors": [
-    "Aditi Patodiya"
+    "Yihao Hu",
+    "Pan Wang",
+    "Yitong Lin",
+    "Zhihao Wen"
    ],
-   "link": "https://huggingface.co/papers/2609.05881",
+   "link": "https://huggingface.co/papers/2610.34926",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-25T00:00",
-   "title_ar": "معطوبة عند الوصول: عناصر النماذج اللغوية الكبيرة المكممة غير الوظيفية في السجلات العامة وكيفية رصدها",
-   "summary_ar": "يُنزّل المطورون نماذج لغوية كبيرة مُكمّمة من سجلات عامة لتشغيلها محلياً، دون أن يوثق أي من السجلات المفحوصة اختبارات وظيفية لملفاته. اختبرنا جميع وسوم صيغة GGUF المؤهلة والداعمة للبرمجة البالغ عددها 305 عبر 15 خط إنتاج للنماذج في مستودع أولاما الرسمي."
+   "published": "2026-10-26T00:00",
+   "title_ar": "الإشراف على الحالة المرئية: فصل التمثيل عن اختيار زاوية العرض في بث الفيديو",
+   "summary_ar": "يتلقى الفعل الذي يُرى مرة واحدة والفعل نفسه الذي يُرى ثلاث مرات نفس تصنيف التعرف على الحركة، مما يجعل الإشراف لا يتطلب من النموذج إجراء العد. وتؤدي الإجابات المشتركة عبر سجلات تختلف في ترتيب الأحداث أو تراكمها أو علاقاتها إلى ترك تلك التمايزات بلا قيود؛ وهو ما نطلق عليه هذه الحالة."
   },
   {
-   "id": "2610.40564",
-   "title": "Training Foundation Models with a Single Algorithm",
-   "abstract": "Foundation models are typically trained in stages: pretraining, midtraining, supervised fine-tuning (SFT), and reinforcement learning (RL), with changes in both data and learning algorithms. We show that this algorithmic separation is not fundamental. By deriving suitable RL objectives as maximum-likelihood fitting to model-generated target distributions, we place all of these stages under a single likelihood-based training algorithm, unified training. This perspective turns the foundation-model training lifecycle into a problem of choosing which data to train on, in what proportions, and when",
+   "id": "2610.37918",
+   "title": "Venus-DefakerOne2: A Vision-Forensics Foundation Model with Broader Coverage",
+   "abstract": "Real-world forgery is inherently heterogeneous: it manifests not only as digital manipulation but also as physical spoofing, and is carried not only by images but also by videos. Despite substantial progress, a unified anti-forgery foundation model covering such a broad threat spectrum remains absent. In this paper, we present Venus-DefakerOne2, which substantially extends the forensic capability boundary along both the forgery-form and media-type dimensions. Trained on tens of millions of open-source and in-house samples, it incorporates two key designs. Tide-Style-Tuning alternates LoRA and ",
    "authors": [
-    "Yuda Song",
-    "Alvin Zhang",
-    "Fahim Tajwar",
-    "Daman Arora"
+    "Chenfan Qu",
+    "Yachao Liang",
+    "Mingqi Fang",
+    "Jiangwei Xie"
    ],
-   "link": "https://huggingface.co/papers/2610.40564",
+   "link": "https://huggingface.co/papers/2610.37918",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-29T00:00",
-   "title_ar": "تدريب النماذج التأسيسية بخوارزمية واحدة",
-   "summary_ar": "تُدرَّب النماذج التأسيسية عادةً على مراحل تشمل التدريب المسبق، والتدريب المتوسط، والضبط الدقيق المُوجَّه، والتعلم المعزز، مع تغيرات في البيانات وخوارزميات التعلم معاً. نوضح أن هذا الفصل الخوارزمي ليس جوهرياً، وذلك عبر اشتقاق أهداف تعلم معزز مناسبة كتعظيم أقصى احتمالية."
+   "published": "2026-10-27T00:00",
+   "title_ar": "فينوس-ديفيكر ون 2: نموذج أساس للطب الشرعي البصري بتغطية أوسع",
+   "summary_ar": "يتسم التزييف في العالم الحقيقي بتباين بنيوي، إذ يتجلى كتلاعب رقمي وانتحال فيزيائي، وينتقل عبر الصور والفيديوهات على حد سواء. وعلى الرغم من التقدم الملحوظ، لا يزال هناك غياب لنموذج أساس موحد لمكافحة التزييف يغطي هذا النطاق الواسع من التهديدات."
+  },
+  {
+   "id": "2610.39276",
+   "title": "MemSteer: Turning User Histories into Supervision for Agent Memory Optimization",
+   "abstract": "An effective agent memory system should adapt to a user's history and task requirements. Human-annotated supervision can guide this adaptation by providing feedback for evaluating and improving memory designs. Yet suitable labels are rarely available for new user histories, and manually constructing QA pairs and supporting evidence is costly. We introduce MemSteer, which turns unlabeled user histories into question-answer (QA) supervision with supporting evidence for memory-design optimization. MemSteer constructs an evidence-grounded answer plan that specifies how facts across related records",
+   "authors": [
+    "Jie Huang",
+    "Cuiling Lan",
+    "Qize Yu",
+    "Xiulian Peng"
+   ],
+   "link": "https://huggingface.co/papers/2610.39276",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-29T03:28",
+   "title_ar": "ميم ستير: تحويل سجلات المستخدمين إلى إشراف لتحسين ذاكرة الوكيل",
+   "summary_ar": "ينبغي لنظام ذاكرة الوكيل الفعال أن يتكيف مع سجل المستخدم ومتطلبات المهمة. ويمكن للإشراف المُعلَّم بشرياً توجيه هذا التكيف عبر تقديم تعقيبات لتقييم تصاميم الذاكرة وتحسينها، غير أن التسميات المناسبة نادراً ما تتوفر لسجلات المستخدمين الجديدة، فضلاً عن صعوبة بنائها يدوياً."
+  },
+  {
+   "id": "2610.40727",
+   "title": "VoxLock: Target-Speaker Extraction for Voice Agents Without an Enrollment Step",
+   "abstract": "A voice agent's speech recognizer transcribes everyone near the microphone, including people other than the caller. I fine-tuned a public causal target-speaker extraction model (REAL-TSE, 27M parameters) on one GPU to work from a voice sample cut from the call itself, and released it as VoxLock. I score it by what a recognizer writes on real recordings. On Krisp's 265-recording benchmark it reaches 4.95% WER against 23.21% unprocessed and lets 9 background words into the transcript over 85 minutes of background-only speech. Its WER is not significantly different from Krisp's best filters and i",
+   "authors": [
+    "Arbaz Siddiqui"
+   ],
+   "link": "https://huggingface.co/papers/2610.40727",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-29T10:16",
+   "title_ar": "فوكس لوك: استخراج المتحدث المستهدف للوكلاء الصوتيين دون خطوة تسجيل مسبق",
+   "summary_ar": "يقوم نظام التعرف على الكلام في الوكيل الصوتي بنسخ حديث كل شخص قريب من الميكروفون، بمن فيهم غير المتصل. ولهذا، قمت بضبط دقيق لنموذج سببي عام لاستخراج المتحدث المستهدف (REAL-TSE، بـ 27 مليون معامل) على وحدة معالجة رسومية واحدة ليعمل عبر عينة صوتية مقتطعة من المكالمة نفسها، وأطلقته باسم VoxLock."
   }
  ],
  "n": 6
