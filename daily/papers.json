@@ -1,105 +1,108 @@
 {
- "updated": "2026-11-02T12:49+00:00",
+ "updated": "2026-11-03T03:37+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.40256",
-   "title": "When Requirements Interact: Scaling Long-Horizon Coding via Interdependent Specifications",
-   "abstract": "To succeed in real-world long-horizon software development, coding agents must satisfy multi-dimensional task specifications, such as interface compatibility and error handling, and do so without breaking existing dependencies. However, current works lack specification in both quantity and diversity, often emphasizing primary goals while ignoring complex constraints. Synthesizing tasks to bridge this gap presents two challenges: naively adding specifications risks reducing tasks to trivial checklists rather than compelling joint reasoning, and verifying these subtle interactions risks overlook",
+   "id": "2610.41216",
+   "title": "TinyAstral: Transferring Self-Evolving Harnesses to Tiny Generalist Manipulation Agents",
+   "abstract": "Robot agents built on vision-language models depend on both the planner and its harness: the tools, feedback, memory, and recovery logic around it. Can improvements to a large teacher's harness be carried into a compact agent with lower inference compute cost? We present TinyAstral, a two-stage approach. We first freeze an open-weight teacher and improve its harness through recursive self-improvement (RSI): frontier LLM agents read the teacher's trajectories and propose harness edits, and each edit is accepted only if it passes a paired statistical test. We then freeze the final harness, colle",
    "authors": [
-    "Yishuo Cai",
-    "Minzheng Wang",
-    "Liang Zhao",
-    "Linghao Zhang"
+    "Kehong Gong",
+    "Xiaoxu Zheng",
+    "Guanli Hou",
+    "Seunghun Lee"
    ],
-   "link": "https://huggingface.co/papers/2610.40256",
+   "link": "https://huggingface.co/papers/2610.41216",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-30T03:53",
+   "title_ar": "تايني أسترال: نقل أُطُر العمل ذاتية التطور إلى وكلاء معالجة عموميين متناهيي الصغر",
+   "summary_ar": "يعتمد وكلاء الروبوتات المبنيون على نماذج الرؤية واللغة على كل من المخطط وإطار عمله من أدوات وتغذية راجعة وذاكرة ومنطق استعادة. يطرح هذا البحث \"تايني أسترال\"، وهو نهج من مرحلتين يبحث في إمكانية نقل تحسينات إطار عمل نموذج معلّم كبير إلى وكيل مدمج بتكلفة حوسبة استدلال أقل."
+  },
+  {
+   "id": "2610.27954",
+   "title": "Lost in Recovery: Demystifying Recovery Behavior of Computer-Use Agents via Goal-Oriented Action Replay",
+   "abstract": "Recent advances in large (vision) language models have enabled computer-use agents that automate digital workflows via fine-grained keyboard and mouse operations. However, such agents remain fragile in long-horizon settings, where errors accumulate and executed actions leave unintended side effects, making the ability to recover from failures critical. Yet, existing remedies remain inadequate: environment resets are infeasible in proprietary settings, action replay is prohibitively expensive over long horizons, and API-based rollback is limited to web environments, leaving model-based recovery",
+   "authors": [
+    "Byeonghun Bang",
+    "Sangwoo Park",
+    "Jinheon Baek",
+    "Kangsan Kim"
+   ],
+   "link": "https://huggingface.co/papers/2610.27954",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-20T00:00",
+   "title_ar": "الضياع في الاستعادة: إزالة الغموض عن سلوك الاستعادة لدى وكلاء استخدام الحاسوب عبر إعادة تشغيل الإجراء الموجه نحو الهدف",
+   "summary_ar": "مكنت التطورات الحديثة في نماذج (الرؤية) واللغة الكبيرة وكلاء استخدام الحاسوب من أتمتة مهام العمل الرقمية عبر عمليات دقيقة للوحة المفاتيح والفأرة. ومع ذلك، يظل هؤلاء الوكلاء عرضة للخلل في المهام ذات المدى الطويل، حيث تتراكم الأخطاء وتترك الإجراءات المنفذة آثاراً جانبية غير مقصودة."
+  },
+  {
+   "id": "2610.40191",
+   "title": "Video Generation Meets Agent Harness: Agentic Video Generation, Agentic World Modeling and Recursive Self-Improvement",
+   "abstract": "Video generation is shifting from end-to-end synthesis toward agentic generation, where planning, tool use, and feedback enable coherent, controllable multi-shot videos. In parallel, video world models provide action-conditioned observations and predicted futures, serving as interactive environments for agents. We study their intersection through the agent harness: an executable runtime that constructs context, exposes tools, maintains state, routes feedback, and manages budgets around video models. This report examines three directions. First, agentic video generation, where harnesses coordin",
+   "authors": [
+    "Liaoyuan Fan",
+    "Yuhao Zheng",
+    "Dongxing Mao",
+    "Hangyu Ran"
+   ],
+   "link": "https://huggingface.co/papers/2610.40191",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-29T14:47",
+   "title_ar": "توليد الفيديو يلتقي بإطار عمل الوكيل: توليد الفيديو بالوكلاء، ونمذجة العالم بالوكلاء، والتحسين الذاتي التكراري",
+   "summary_ar": "يتحول توليد الفيديو من التخليق الشامل المباشر إلى التوليد القائم على الوكلاء، حيث يتيح التخطيط واستخدام الأدوات والتغذية الراجعة إنتاج مقاطع مترابطة وقابلة للتحكم ومتعددة اللقطات. بالتوازي مع ذلك، توفر نماذج العالم للفيديو ملاحظات مشروطة بالإجراءات وتنبؤات مستقبلية لتعمل كبيئات تفاعلية."
+  },
+  {
+   "id": "2610.39419",
+   "title": "Diagnosing the Reference Gap: What Visual Scaffolds Can and Cannot Fix in Multimodal Reasoning",
+   "abstract": "Multimodal large language models can recognize visual content yet struggle to reason reliably over it across multiple steps. In counting, a model may see all objects but lose track of which ones it has counted. We argue that such failures, commonly attributed to perception, reveal a reference gap: the failure to bind language to the relevant visual entities, regions, or locations. Motivated by the theory of visual routines, we test whether external references such as numbering can narrow this gap. We introduce ReGap-Bench, a paired benchmark of five visual reasoning tasks in which the scene, q",
+   "authors": [
+    "Guizhen Chen",
+    "Weiwen Xu",
+    "Wotao Yin",
+    "Anh Tuan Luu"
+   ],
+   "link": "https://huggingface.co/papers/2610.39419",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-29T06:00",
+   "title_ar": "تشخيص فجوة الإسناد: ما يمكن وما لا يمكن للسقالات البصرية إصلاحه في الاستدلال متعدد الوسائط",
+   "summary_ar": "تستطيع نماذج اللغة الكبيرة متعددة الوسائط التعرف على المحتوى البصري لكنها تواجه صعوبة في الاستدلال الموثوق عبر خطوات متعددة، مثل رؤية كل العناصر في مهام العد مع فقدان تتبع ما تم عده منها. يرى البحث أن هذا القصور، الذي يُنسب عادةً إلى الإدراك، يكشف عن وجود فجوة في الإسناد."
+  },
+  {
+   "id": "2611.00172",
+   "title": "From Fragmentation to Fusion: A Survey and Roadmap for Omnimodal Embeddings",
+   "abstract": "Embedding models underpin virtually every modern AI system, from search engines to recommendation systems. Despite shared mathematical foundations, research on embedding models remains fragmented by modality: the communities develop largely in isolation, seldom exchanging insights. We argue that this fragmentation obscures a deeper convergence. Driven by contrastive learning, Transformer architectures, and a granularity shift, embedding research across modalities is converging toward a common set of principles, even as modality-specific challenges remain underexplored. To reason across this co",
+   "authors": [
+    "Ziyin Zhang",
+    "Yuyu Guo",
+    "Ying Zhang",
+    "Siqiao Xue"
+   ],
+   "link": "https://huggingface.co/papers/2611.00172",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-30T00:00",
+   "title_ar": "من التجزئة إلى الاندماج: مسح وخارطة طريق للتضمينات الشاملة لجميع الوسائط",
+   "summary_ar": "تدعم نماذج التضمين تقريباً كل أنظمة الذكاء الاصطناعي الحديثة، بدءاً من محركات البحث وحتى أنظمة التوصية. ورغم الأسس الرياضية المشتركة، لا تزال أبحاث نماذج التضمين مجزأة بحسب نوع الوسائط وتتطور مجتمعاتها بشكل منعزل مع ندرة تبادل الرؤى، وهو ما يرى البحث أنه يمثل مشكلة."
+  },
+  {
+   "id": "2610.40293",
+   "title": "MAServeBench: Benchmarking Multi-Agent LLM Serving Systems with Hierarchical Collaboration Workloads",
+   "abstract": "Large language model (LLM)-based multi-agent systems (MAS) coordinate specialized agents to solve complex tasks, turning each user request into interdependent model and tool operations. Unlike independent requests, these operations become ready at different times and consume evolving context as agents coordinate and exchange results. This creates changing patterns of concurrency, computation, and memory demand that can expose different bottlenecks in LLM serving hardware. Yet benchmarking these effects requires capturing the collaboration rules that generate serving workloads, beyond the reque",
+   "authors": [
+    "Shengxuan Qiu",
+    "Haochen Huang",
+    "Shuzhang Zhong",
+    "Zizhuo Fu"
+   ],
+   "link": "https://huggingface.co/papers/2610.40293",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-29T00:00",
-   "title_ar": "عندما تتفاعل المتطلبات: توسيع نطاق البرمجة طويلة المدى عبر المواصفات المترابطة",
-   "summary_ar": "لكي تنجح وكلاء البرمجة في تطوير البرمجيات الواقعية طويلة المدى، يجب عليها تلبية مواصفات مهام متعددة الأبعاد كالتوافق مع الواجهات ومعالجة الأخطاء دون الإخلال بالاعتماديات القائمة. ومع ذلك، تفتقر الأعمال الحالية إلى المواصفات من حيث الكم والتنوع معاً."
-  },
-  {
-   "id": "2610.37393",
-   "title": "Learning Quality-Controllable Robot Policies with Iterative Hindsight Relabeling",
-   "abstract": "Robot policy evaluation often relies on a binary success signal for task completion. In real-world deployment, however, desired execution behaviors are also defined by quality attributes such as execution speed and motion smoothness, which need to be dynamically controlled according to task requirements. To address this, we introduce Quality-Controllable Policy (QCP), a robot policy that enables inference-time control over both individual quality attributes and their combinations. To extend the controllable quality range beyond initial demonstrations, we further propose an iterative hindsight ",
-   "authors": [
-    "Sinjae Kang",
-    "Dong Kyu Shin",
-    "Jaehong Kim",
-    "Kamin Lee"
-   ],
-   "link": "https://huggingface.co/papers/2610.37393",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-27T00:00",
-   "title_ar": "تعلم سياسات روبوتية قابلة للتحكم في الجودة باستخدام إعادة الوسم التكراري بأثر رجعي",
-   "summary_ar": "غالباً ما يعتمد تقييم سياسات الروبوت على إشارة نجاح ثنائية لإنجاز المهمة. غير أن سلوكيات التنفيذ المطلوبة في التطبيق العملي تُحدد أيضاً بخصائص الجودة مثل سرعة التنفيذ وسلاسة الحركة، والتي تحتاج إلى تحكم ديناميكي وفقاً لمتطلبات المهمة."
-  },
-  {
-   "id": "2610.34926",
-   "title": "Supervising the Visible State: Separating Representation from View Selection in Streaming Video",
-   "abstract": "An action seen once and the same action seen three times receive the same action-recognition label, so that supervision does not require a model to count. Answers shared across histories that differ in event order, accumulation, or relations leave those distinctions unconstrained; we call this state under-specification. Visible-State Supervision (ViSS) addresses it by training on source-grounded probes of event identity, order, accumulation, relation change, and answer sufficiency; under the same recent-frame interface it improves OVO-Bench over a strict-matched generic temporal supervision ba",
-   "authors": [
-    "Yihao Hu",
-    "Pan Wang",
-    "Yitong Lin",
-    "Zhihao Wen"
-   ],
-   "link": "https://huggingface.co/papers/2610.34926",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-26T00:00",
-   "title_ar": "الإشراف على الحالة المرئية: فصل التمثيل عن اختيار زاوية العرض في بث الفيديو",
-   "summary_ar": "يتلقى الفعل الذي يُرى مرة واحدة والفعل نفسه الذي يُرى ثلاث مرات نفس تصنيف التعرف على الحركة، مما يجعل الإشراف لا يتطلب من النموذج إجراء العد. وتؤدي الإجابات المشتركة عبر سجلات تختلف في ترتيب الأحداث أو تراكمها أو علاقاتها إلى ترك تلك التمايزات بلا قيود؛ وهو ما نطلق عليه هذه الحالة."
-  },
-  {
-   "id": "2610.37918",
-   "title": "Venus-DefakerOne2: A Vision-Forensics Foundation Model with Broader Coverage",
-   "abstract": "Real-world forgery is inherently heterogeneous: it manifests not only as digital manipulation but also as physical spoofing, and is carried not only by images but also by videos. Despite substantial progress, a unified anti-forgery foundation model covering such a broad threat spectrum remains absent. In this paper, we present Venus-DefakerOne2, which substantially extends the forensic capability boundary along both the forgery-form and media-type dimensions. Trained on tens of millions of open-source and in-house samples, it incorporates two key designs. Tide-Style-Tuning alternates LoRA and ",
-   "authors": [
-    "Chenfan Qu",
-    "Yachao Liang",
-    "Mingqi Fang",
-    "Jiangwei Xie"
-   ],
-   "link": "https://huggingface.co/papers/2610.37918",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-27T00:00",
-   "title_ar": "فينوس-ديفيكر ون 2: نموذج أساس للطب الشرعي البصري بتغطية أوسع",
-   "summary_ar": "يتسم التزييف في العالم الحقيقي بتباين بنيوي، إذ يتجلى كتلاعب رقمي وانتحال فيزيائي، وينتقل عبر الصور والفيديوهات على حد سواء. وعلى الرغم من التقدم الملحوظ، لا يزال هناك غياب لنموذج أساس موحد لمكافحة التزييف يغطي هذا النطاق الواسع من التهديدات."
-  },
-  {
-   "id": "2610.39276",
-   "title": "MemSteer: Turning User Histories into Supervision for Agent Memory Optimization",
-   "abstract": "An effective agent memory system should adapt to a user's history and task requirements. Human-annotated supervision can guide this adaptation by providing feedback for evaluating and improving memory designs. Yet suitable labels are rarely available for new user histories, and manually constructing QA pairs and supporting evidence is costly. We introduce MemSteer, which turns unlabeled user histories into question-answer (QA) supervision with supporting evidence for memory-design optimization. MemSteer constructs an evidence-grounded answer plan that specifies how facts across related records",
-   "authors": [
-    "Jie Huang",
-    "Cuiling Lan",
-    "Qize Yu",
-    "Xiulian Peng"
-   ],
-   "link": "https://huggingface.co/papers/2610.39276",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-29T03:28",
-   "title_ar": "ميم ستير: تحويل سجلات المستخدمين إلى إشراف لتحسين ذاكرة الوكيل",
-   "summary_ar": "ينبغي لنظام ذاكرة الوكيل الفعال أن يتكيف مع سجل المستخدم ومتطلبات المهمة. ويمكن للإشراف المُعلَّم بشرياً توجيه هذا التكيف عبر تقديم تعقيبات لتقييم تصاميم الذاكرة وتحسينها، غير أن التسميات المناسبة نادراً ما تتوفر لسجلات المستخدمين الجديدة، فضلاً عن صعوبة بنائها يدوياً."
-  },
-  {
-   "id": "2610.40727",
-   "title": "VoxLock: Target-Speaker Extraction for Voice Agents Without an Enrollment Step",
-   "abstract": "A voice agent's speech recognizer transcribes everyone near the microphone, including people other than the caller. I fine-tuned a public causal target-speaker extraction model (REAL-TSE, 27M parameters) on one GPU to work from a voice sample cut from the call itself, and released it as VoxLock. I score it by what a recognizer writes on real recordings. On Krisp's 265-recording benchmark it reaches 4.95% WER against 23.21% unprocessed and lets 9 background words into the transcript over 85 minutes of background-only speech. Its WER is not significantly different from Krisp's best filters and i",
-   "authors": [
-    "Arbaz Siddiqui"
-   ],
-   "link": "https://huggingface.co/papers/2610.40727",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-29T10:16",
-   "title_ar": "فوكس لوك: استخراج المتحدث المستهدف للوكلاء الصوتيين دون خطوة تسجيل مسبق",
-   "summary_ar": "يقوم نظام التعرف على الكلام في الوكيل الصوتي بنسخ حديث كل شخص قريب من الميكروفون، بمن فيهم غير المتصل. ولهذا، قمت بضبط دقيق لنموذج سببي عام لاستخراج المتحدث المستهدف (REAL-TSE، بـ 27 مليون معامل) على وحدة معالجة رسومية واحدة ليعمل عبر عينة صوتية مقتطعة من المكالمة نفسها، وأطلقته باسم VoxLock."
+   "title_ar": "ماسيرف بينش: تقييم أنظمة خدمة نماذج اللغة الكبيرة متعددة الوكلاء باستخدام أعباء عمل التعاون الهرمي",
+   "summary_ar": "تنسق الأنظمة متعددة الوكلاء القائمة على نماذج اللغة الكبيرة عملاً بين وكلاء متخصصين لحل المهام المعقدة، محولةً كل طلب مستخدم إلى عمليات مترابطة للنماذج والأدوات. وخلافاً للطلبات المستقلة، تصبح هذه العمليات جاهزة في أوقات مختلفة وتستهلك سياقاً متطوراً مع تفاعل الوكلاء."
   }
  ],
  "n": 6
