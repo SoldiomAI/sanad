@@ -1,108 +1,107 @@
 {
- "updated": "2026-11-03T03:37+00:00",
+ "updated": "2026-11-03T19:07+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.41216",
-   "title": "TinyAstral: Transferring Self-Evolving Harnesses to Tiny Generalist Manipulation Agents",
-   "abstract": "Robot agents built on vision-language models depend on both the planner and its harness: the tools, feedback, memory, and recovery logic around it. Can improvements to a large teacher's harness be carried into a compact agent with lower inference compute cost? We present TinyAstral, a two-stage approach. We first freeze an open-weight teacher and improve its harness through recursive self-improvement (RSI): frontier LLM agents read the teacher's trajectories and propose harness edits, and each edit is accepted only if it passes a paired statistical test. We then freeze the final harness, colle",
+   "id": "2611.03424",
+   "title": "IdeaTaste: Do LLMs Share the Research Taste of Human Researchers?",
+   "abstract": "Research taste, the judgment of what to read, which problems to pursue, and which methods to try, increasingly shapes the work of AI scientists, yet it remains far less understood than their ability to execute research. We introduce IdeaTaste, a benchmark that scores an LLM by how closely the research proposals it writes from a literature snapshot frozen at 2025 match the work the same communities published in 2026. Our experiments span six contemporary language models and four research areas from established to emerging fields, covering more than 90{,}000 proposals in total. LLM agents fall w",
    "authors": [
-    "Kehong Gong",
-    "Xiaoxu Zheng",
-    "Guanli Hou",
-    "Seunghun Lee"
+    "Shanshan Zhong",
+    "Chen Xu",
+    "Jingjie Ning",
+    "Zhengzhong Liu"
    ],
-   "link": "https://huggingface.co/papers/2610.41216",
+   "link": "https://huggingface.co/papers/2611.03424",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-30T03:53",
-   "title_ar": "تايني أسترال: نقل أُطُر العمل ذاتية التطور إلى وكلاء معالجة عموميين متناهيي الصغر",
-   "summary_ar": "يعتمد وكلاء الروبوتات المبنيون على نماذج الرؤية واللغة على كل من المخطط وإطار عمله من أدوات وتغذية راجعة وذاكرة ومنطق استعادة. يطرح هذا البحث \"تايني أسترال\"، وهو نهج من مرحلتين يبحث في إمكانية نقل تحسينات إطار عمل نموذج معلّم كبير إلى وكيل مدمج بتكلفة حوسبة استدلال أقل."
+   "published": "2026-11-02T00:00",
+   "title_ar": "آيديا تيست: هل تشارك النماذج اللغوية الكبيرة الباحثين البشريين ذوقهم البحثي؟",
+   "summary_ar": "يوجِّه الذوق البحثي، المتمثل في الحكم على ما يُقرأ والمشكلات التي تُتابع والأساليب التي تُجرَّب، عمل علماء الذكاء الاصطناعي على نحو متزايد، مع بقائه أقل فهمًا بكثير من قدرتهم على تنفيذ البحث. نقدّم \"آيديا تيست\"، وهو معيار يقيس كفاءة النموذج اللغوي الكبير بمدى مضاهاة أبحاثه."
   },
   {
-   "id": "2610.27954",
-   "title": "Lost in Recovery: Demystifying Recovery Behavior of Computer-Use Agents via Goal-Oriented Action Replay",
-   "abstract": "Recent advances in large (vision) language models have enabled computer-use agents that automate digital workflows via fine-grained keyboard and mouse operations. However, such agents remain fragile in long-horizon settings, where errors accumulate and executed actions leave unintended side effects, making the ability to recover from failures critical. Yet, existing remedies remain inadequate: environment resets are infeasible in proprietary settings, action replay is prohibitively expensive over long horizons, and API-based rollback is limited to web environments, leaving model-based recovery",
+   "id": "2611.02112",
+   "title": "Order-Only On-Policy Distillation",
+   "abstract": "On-policy distillation (OPD) trains a student on its own generations by matching the teacher's token probabilities. These probabilities entangle two kinds of information: which tokens the teacher prefers, and how confident it is. The latter reflects the teacher's own capacity and calibration, which a smaller student may be unable to reproduce. Because the teacher temperature changes these values without changing the ordering, OPD is also sensitive to the temperature choice. We ask whether the teacher's ordering of candidate tokens is enough, and propose Order-Only On-Policy Distillation (O^{3}",
    "authors": [
-    "Byeonghun Bang",
-    "Sangwoo Park",
-    "Jinheon Baek",
-    "Kangsan Kim"
+    "Guangzeng Han",
+    "Yu Wu",
+    "Xiaolei Huang"
    ],
-   "link": "https://huggingface.co/papers/2610.27954",
+   "link": "https://huggingface.co/papers/2611.02112",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-20T00:00",
-   "title_ar": "الضياع في الاستعادة: إزالة الغموض عن سلوك الاستعادة لدى وكلاء استخدام الحاسوب عبر إعادة تشغيل الإجراء الموجه نحو الهدف",
-   "summary_ar": "مكنت التطورات الحديثة في نماذج (الرؤية) واللغة الكبيرة وكلاء استخدام الحاسوب من أتمتة مهام العمل الرقمية عبر عمليات دقيقة للوحة المفاتيح والفأرة. ومع ذلك، يظل هؤلاء الوكلاء عرضة للخلل في المهام ذات المدى الطويل، حيث تتراكم الأخطاء وتترك الإجراءات المنفذة آثاراً جانبية غير مقصودة."
+   "published": "2026-11-01T00:00",
+   "title_ar": "التقطير المتوافق مع السياسة المعتمد على الترتيب فقط",
+   "summary_ar": "يدرّب التقطير المتوافق مع السياسة نموذج الطالب على توليداته الخاصة عبر مطابقة احتمالات رموز المعلم، التي تدمج نوعين من المعلومات: الرموز التي يفضلها المعلم ومدى ثقته. تعكس الثقة قدرة المعلم ومعايرته الخاصة."
   },
   {
-   "id": "2610.40191",
-   "title": "Video Generation Meets Agent Harness: Agentic Video Generation, Agentic World Modeling and Recursive Self-Improvement",
-   "abstract": "Video generation is shifting from end-to-end synthesis toward agentic generation, where planning, tool use, and feedback enable coherent, controllable multi-shot videos. In parallel, video world models provide action-conditioned observations and predicted futures, serving as interactive environments for agents. We study their intersection through the agent harness: an executable runtime that constructs context, exposes tools, maintains state, routes feedback, and manages budgets around video models. This report examines three directions. First, agentic video generation, where harnesses coordin",
+   "id": "2610.32878",
+   "title": "Advancing SVD-based LLM Compression via Layer-Wise Error Model Search",
+   "abstract": "Low-rank SVD-based compression offers a powerful strategy to reduce the computational costs of LLMs. However, existing methods face two key limitations: (i) global rank allocation, where uncalibrated error proxies fail to capture complex error propagation, and (ii) decomposition quality, where Fisher-based estimators suffer from severe rank collapse. In this work, we address these limitations by introducing Layer-wise Error Modeling Search (LEMS) and KFAC-SVD. LEMS advances rank allocation by introducing a layer-wise error surrogate that integrates local and global layer importance alongside a",
    "authors": [
-    "Liaoyuan Fan",
-    "Yuhao Zheng",
-    "Dongxing Mao",
-    "Hangyu Ran"
+    "Moritz Thoma",
+    "Maximilian Groezinger",
+    "Maximilian Forstenhäusler",
+    "Emad Aghajanzadeh"
    ],
-   "link": "https://huggingface.co/papers/2610.40191",
+   "link": "https://huggingface.co/papers/2610.32878",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-29T14:47",
-   "title_ar": "توليد الفيديو يلتقي بإطار عمل الوكيل: توليد الفيديو بالوكلاء، ونمذجة العالم بالوكلاء، والتحسين الذاتي التكراري",
-   "summary_ar": "يتحول توليد الفيديو من التخليق الشامل المباشر إلى التوليد القائم على الوكلاء، حيث يتيح التخطيط واستخدام الأدوات والتغذية الراجعة إنتاج مقاطع مترابطة وقابلة للتحكم ومتعددة اللقطات. بالتوازي مع ذلك، توفر نماذج العالم للفيديو ملاحظات مشروطة بالإجراءات وتنبؤات مستقبلية لتعمل كبيئات تفاعلية."
+   "published": "2026-10-23T00:00",
+   "title_ar": "تطوير ضغط النماذج اللغوية الكبيرة المعتمد على تفكيك القيمة المفردة عبر البحث في نموذج الخطأ على مستوى الطبقات",
+   "summary_ar": "يقدّم الضغط المعتمد على تفكيك القيمة المفردة منخفض الرتبة استراتيجية قوية لتقليل التكاليف الحسابية للنماذج اللغوية الكبيرة. تواجه الأساليب الحالية قيدين رئيسيين: التخصيص العام للرتب حيث تفشل مؤشرات الخطأ غير المعايرة في تمثيل انتشار الخطأ المعقد، وجودة التفكيك."
   },
   {
-   "id": "2610.39419",
-   "title": "Diagnosing the Reference Gap: What Visual Scaffolds Can and Cannot Fix in Multimodal Reasoning",
-   "abstract": "Multimodal large language models can recognize visual content yet struggle to reason reliably over it across multiple steps. In counting, a model may see all objects but lose track of which ones it has counted. We argue that such failures, commonly attributed to perception, reveal a reference gap: the failure to bind language to the relevant visual entities, regions, or locations. Motivated by the theory of visual routines, we test whether external references such as numbering can narrow this gap. We introduce ReGap-Bench, a paired benchmark of five visual reasoning tasks in which the scene, q",
+   "id": "2610.41994",
+   "title": "DAMI: Dual-Axis Memory Initialization for Enhanced Long-Context Retrieval in Gated Linear Attention",
+   "abstract": "Linear attention scales linearly with sequence length, but its finite-state memory can limit long-context retrieval. In gated linear recurrences, memory retention depends on state decay, which is shaped jointly by gate parameters A_log and dt_bias and by input activations. In controlled Gated DeltaNet (GDN) experiments, both parameters remain highly correlated with their initial values after training, highlighting the importance of initialization. Therefore, we introduce Dual-Axis Memory Initialization (DAMI), which jointly configures these parameters before training. DAMI assigns geometric ti",
    "authors": [
-    "Guizhen Chen",
-    "Weiwen Xu",
-    "Wotao Yin",
-    "Anh Tuan Luu"
+    "Zhangchi Feng",
+    "Harry Jiang",
+    "Yangyifei Luo",
+    "Ray Zhang"
    ],
-   "link": "https://huggingface.co/papers/2610.39419",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-29T06:00",
-   "title_ar": "تشخيص فجوة الإسناد: ما يمكن وما لا يمكن للسقالات البصرية إصلاحه في الاستدلال متعدد الوسائط",
-   "summary_ar": "تستطيع نماذج اللغة الكبيرة متعددة الوسائط التعرف على المحتوى البصري لكنها تواجه صعوبة في الاستدلال الموثوق عبر خطوات متعددة، مثل رؤية كل العناصر في مهام العد مع فقدان تتبع ما تم عده منها. يرى البحث أن هذا القصور، الذي يُنسب عادةً إلى الإدراك، يكشف عن وجود فجوة في الإسناد."
-  },
-  {
-   "id": "2611.00172",
-   "title": "From Fragmentation to Fusion: A Survey and Roadmap for Omnimodal Embeddings",
-   "abstract": "Embedding models underpin virtually every modern AI system, from search engines to recommendation systems. Despite shared mathematical foundations, research on embedding models remains fragmented by modality: the communities develop largely in isolation, seldom exchanging insights. We argue that this fragmentation obscures a deeper convergence. Driven by contrastive learning, Transformer architectures, and a granularity shift, embedding research across modalities is converging toward a common set of principles, even as modality-specific challenges remain underexplored. To reason across this co",
-   "authors": [
-    "Ziyin Zhang",
-    "Yuyu Guo",
-    "Ying Zhang",
-    "Siqiao Xue"
-   ],
-   "link": "https://huggingface.co/papers/2611.00172",
+   "link": "https://huggingface.co/papers/2610.41994",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-30T00:00",
-   "title_ar": "من التجزئة إلى الاندماج: مسح وخارطة طريق للتضمينات الشاملة لجميع الوسائط",
-   "summary_ar": "تدعم نماذج التضمين تقريباً كل أنظمة الذكاء الاصطناعي الحديثة، بدءاً من محركات البحث وحتى أنظمة التوصية. ورغم الأسس الرياضية المشتركة، لا تزال أبحاث نماذج التضمين مجزأة بحسب نوع الوسائط وتتطور مجتمعاتها بشكل منعزل مع ندرة تبادل الرؤى، وهو ما يرى البحث أنه يمثل مشكلة."
+   "title_ar": "دامي: تهيئة الذاكرة ثنائية المحور لتعزيز الاسترجاع في السياقات الطويلة في الانتباه الخطي ذي البوابات",
+   "summary_ar": "يتدرج الانتباه الخطي خطيًا مع طول التسلسل، إلا أن ذاكرته ذات الحالات المحدودة قد تقيّد استرجاع السياقات الطويلة. يعتمد حفظ الذاكرة في التكرارات الخطية ذات البوابات على اضمحلال الحالة المشكَّل بمعلمات البوابات وتنشيطات الإدخال معًا."
   },
   {
-   "id": "2610.40293",
-   "title": "MAServeBench: Benchmarking Multi-Agent LLM Serving Systems with Hierarchical Collaboration Workloads",
-   "abstract": "Large language model (LLM)-based multi-agent systems (MAS) coordinate specialized agents to solve complex tasks, turning each user request into interdependent model and tool operations. Unlike independent requests, these operations become ready at different times and consume evolving context as agents coordinate and exchange results. This creates changing patterns of concurrency, computation, and memory demand that can expose different bottlenecks in LLM serving hardware. Yet benchmarking these effects requires capturing the collaboration rules that generate serving workloads, beyond the reque",
+   "id": "2611.03097",
+   "title": "DR Pixel: Page-Native Deep Research with Vision-Language Models",
+   "abstract": "Complex documents such as scientific papers contain rich information in tables, figures, and equations; however, existing deep research (DR) agents typically reduce papers to OCR-extracted text. We instead ask whether vision-language models (VLMs) can enable page-native deep research: directly retrieving and reasoning over rendered document page images. We introduce DR Pixel, the first open-source end-to-end multimodal DR agent that uses rendered page images as its sole retrieval and reasoning unit, operating over a corpus of 1.06M pages. To evaluate this setting, we construct DRPixelBench, a ",
    "authors": [
-    "Shengxuan Qiu",
-    "Haochen Huang",
-    "Shuzhang Zhong",
-    "Zizhuo Fu"
+    "Tiansheng Hu",
+    "Yichuan Wang",
+    "James V. Talwar",
+    "Nicholas Tomlin"
    ],
-   "link": "https://huggingface.co/papers/2610.40293",
+   "link": "https://huggingface.co/papers/2611.03097",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-29T00:00",
-   "title_ar": "ماسيرف بينش: تقييم أنظمة خدمة نماذج اللغة الكبيرة متعددة الوكلاء باستخدام أعباء عمل التعاون الهرمي",
-   "summary_ar": "تنسق الأنظمة متعددة الوكلاء القائمة على نماذج اللغة الكبيرة عملاً بين وكلاء متخصصين لحل المهام المعقدة، محولةً كل طلب مستخدم إلى عمليات مترابطة للنماذج والأدوات. وخلافاً للطلبات المستقلة، تصبح هذه العمليات جاهزة في أوقات مختلفة وتستهلك سياقاً متطوراً مع تفاعل الوكلاء."
+   "published": "2026-11-02T00:00",
+   "title_ar": "دي آر بيكسل: بحث عميق يعتمد على الصفحات الأصلية باستخدام نماذج الرؤية واللغة",
+   "summary_ar": "تحتوي المستندات المعقدة كالأوراق العلمية على معلومات غنية في الجداول والأشكال والمعادلات، لكن وكلاء البحث العميق الحاليين يختزلون الأوراق عادةً في نصوص مستخرجة بالتعرف الضوئي على المحارف. نتساءل بدلًا من ذلك عما إذا كان بإمكان نماذج الرؤية واللغة تمكين بحث عميق معتمد على الصفحات الأصلية."
+  },
+  {
+   "id": "2610.38623",
+   "title": "Cross-Primitive Consistency in Jev",
+   "abstract": "Jev enables efficient decision-making with large language models (LLMs) through typed querying primitives, allowing the same semantic state to be expressed in different formats, such as binary and multiple-choice queries. However, the consistency of decisions across primitives has not been systematically evaluated. This work introduces PrimaCons, a four-axis benchmark for assessing cross-primitive consistency while preserving the semantics of the query. Evaluations across three Jev sizes reveal consistency violations across all four axes. Our analysis shows that these violations follow systema",
+   "authors": [
+    "Xu Liu",
+    "Guikun Chen",
+    "Kanzhi Wu",
+    "Wenguan Wang"
+   ],
+   "link": "https://huggingface.co/papers/2610.38623",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-28T00:00",
+   "title_ar": "الاتساق عبر البدائيات في جيف",
+   "summary_ar": "يتيح \"جيف\" اتخاذ قرارات فعالة بالنماذج اللغوية الكبيرة عبر بدائيات استعلام محددة النوع، مما يسمح بالتعبير عن الحالة الدلالية نفسها بتنسيقات مختلفة كالاستعلامات الثنائية ومتعددة الخيارات. ومع ذلك، لم يُدرس اتساق القرارات عبر هذه البدائيات بشكل منهجي."
   }
  ],
  "n": 6
