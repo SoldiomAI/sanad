@@ -1,107 +1,105 @@
 {
- "updated": "2026-11-03T19:07+00:00",
+ "updated": "2026-11-04T10:32+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2611.03424",
-   "title": "IdeaTaste: Do LLMs Share the Research Taste of Human Researchers?",
-   "abstract": "Research taste, the judgment of what to read, which problems to pursue, and which methods to try, increasingly shapes the work of AI scientists, yet it remains far less understood than their ability to execute research. We introduce IdeaTaste, a benchmark that scores an LLM by how closely the research proposals it writes from a literature snapshot frozen at 2025 match the work the same communities published in 2026. Our experiments span six contemporary language models and four research areas from established to emerging fields, covering more than 90{,}000 proposals in total. LLM agents fall w",
+   "id": "2611.05193",
+   "title": "Factorized MLLM Embeddings for Composed Image Retrieval",
+   "abstract": "Composed Image Retrieval (CIR) aims to retrieve a target image given a reference image and a modification text. Although recent approaches leveraging Multimodal Large Language Models (MLLMs) have shown significant progress, we argue that the MLLM's compositional understanding remains underutilized. This stems from directly mapping composed queries into a retrieval embedding via contrastive supervision alone, without explicitly resolving the intended visual modifications. In this work, we introduce Factorized MLLM Embeddings (FactEmbed), which decouples compositional query comprehension from bu",
    "authors": [
-    "Shanshan Zhong",
-    "Chen Xu",
-    "Jingjie Ning",
-    "Zhengzhong Liu"
+    "WonJun Moon",
+    "Seongchan Kim",
+    "Dahun Kim",
+    "Seungryong Kim"
    ],
-   "link": "https://huggingface.co/papers/2611.03424",
+   "link": "https://huggingface.co/papers/2611.05193",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-02T00:00",
-   "title_ar": "آيديا تيست: هل تشارك النماذج اللغوية الكبيرة الباحثين البشريين ذوقهم البحثي؟",
-   "summary_ar": "يوجِّه الذوق البحثي، المتمثل في الحكم على ما يُقرأ والمشكلات التي تُتابع والأساليب التي تُجرَّب، عمل علماء الذكاء الاصطناعي على نحو متزايد، مع بقائه أقل فهمًا بكثير من قدرتهم على تنفيذ البحث. نقدّم \"آيديا تيست\"، وهو معيار يقيس كفاءة النموذج اللغوي الكبير بمدى مضاهاة أبحاثه."
+   "published": "2026-11-03T00:00",
+   "title_ar": "تضمينات مفككة لنماذج اللغة الكبيرة متعددة الوسائط لاسترجاع الصور المركبة",
+   "summary_ar": "يهدف استرجاع الصور المركبة إلى جلب صورة مستهدفة بناءً على صورة مرجعية ونص تعديلي. ورغم التقدم الملحوظ للأساليب الحديثة المعتمدة على النماذج متعددة الوسائط، يرى الباحثون أن الفهم التركيبي لهذه النماذج لا يزال غير مستغل بالكامل."
   },
   {
-   "id": "2611.02112",
-   "title": "Order-Only On-Policy Distillation",
-   "abstract": "On-policy distillation (OPD) trains a student on its own generations by matching the teacher's token probabilities. These probabilities entangle two kinds of information: which tokens the teacher prefers, and how confident it is. The latter reflects the teacher's own capacity and calibration, which a smaller student may be unable to reproduce. Because the teacher temperature changes these values without changing the ordering, OPD is also sensitive to the temperature choice. We ask whether the teacher's ordering of candidate tokens is enough, and propose Order-Only On-Policy Distillation (O^{3}",
+   "id": "2611.04814",
+   "title": "Think Less, Locally: Local Preference Learning for Reasoning Compression",
+   "abstract": "Large reasoning models achieve strong performance on challenging tasks, but their long chain-of-thought often incurs substantial inference costs by continuing to deliberate after sufficient information has been obtained. Existing reasoning compression methods primarily operate on reasoning trajectories, paying less attention to the local decision of whether further reasoning is necessary given the current state. We propose LoCo, a local preference learning method for reasoning compression. LoCo detects candidate overthinking states from the model's own traces, freezes the corresponding reasoni",
    "authors": [
-    "Guangzeng Han",
-    "Yu Wu",
-    "Xiaolei Huang"
+    "Muyao Yuan",
+    "Liyan Xu",
+    "Weizhan Zhang",
+    "Muyan Jiao"
    ],
-   "link": "https://huggingface.co/papers/2611.02112",
+   "link": "https://huggingface.co/papers/2611.04814",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-01T00:00",
-   "title_ar": "التقطير المتوافق مع السياسة المعتمد على الترتيب فقط",
-   "summary_ar": "يدرّب التقطير المتوافق مع السياسة نموذج الطالب على توليداته الخاصة عبر مطابقة احتمالات رموز المعلم، التي تدمج نوعين من المعلومات: الرموز التي يفضلها المعلم ومدى ثقته. تعكس الثقة قدرة المعلم ومعايرته الخاصة."
+   "published": "2026-11-03T00:00",
+   "title_ar": "فكّر أقل، ومحليًا: تعلم التفضيل المحلي لضغط التفكير",
+   "summary_ar": "تحقق نماذج الاستدلال الكبيرة أداءً قويًا في المهام الصعبة، غير أن سلاسل أفكارها الطويلة تتسبب في تكاليف استدلال باهظة لاستمرارها في المداولة بعد جمع المعلومات الكافية. وتعمل أساليب ضغط التفكير الحالية أساسًا على مسارات الاستدلال."
   },
   {
-   "id": "2610.32878",
-   "title": "Advancing SVD-based LLM Compression via Layer-Wise Error Model Search",
-   "abstract": "Low-rank SVD-based compression offers a powerful strategy to reduce the computational costs of LLMs. However, existing methods face two key limitations: (i) global rank allocation, where uncalibrated error proxies fail to capture complex error propagation, and (ii) decomposition quality, where Fisher-based estimators suffer from severe rank collapse. In this work, we address these limitations by introducing Layer-wise Error Modeling Search (LEMS) and KFAC-SVD. LEMS advances rank allocation by introducing a layer-wise error surrogate that integrates local and global layer importance alongside a",
+   "id": "2611.05306",
+   "title": "You don't need long context",
+   "abstract": "Later tokens are costlier to generate than earlier tokens. On frontier open weight models, the disparity in cost may rise to as much as 7x. Through frequent compaction, we show across a broad range of long-horizon and long-input tasks that frontier language models sacrifice little to no task accuracy when maintaining short contexts. We further demonstrate that LLM performance does not collapse on long-horizon software engineering tasks even when taking at most one action per context, and based on that we outline the concept of semantic state space models (SSSMs). Our findings question the need",
    "authors": [
-    "Moritz Thoma",
-    "Maximilian Groezinger",
-    "Maximilian Forstenhäusler",
-    "Emad Aghajanzadeh"
+    "Peter Belcak",
+    "Saurav Muralidharan",
+    "Jindong Jiang",
+    "Yonggan Fu"
    ],
-   "link": "https://huggingface.co/papers/2610.32878",
+   "link": "https://huggingface.co/papers/2611.05306",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-23T00:00",
-   "title_ar": "تطوير ضغط النماذج اللغوية الكبيرة المعتمد على تفكيك القيمة المفردة عبر البحث في نموذج الخطأ على مستوى الطبقات",
-   "summary_ar": "يقدّم الضغط المعتمد على تفكيك القيمة المفردة منخفض الرتبة استراتيجية قوية لتقليل التكاليف الحسابية للنماذج اللغوية الكبيرة. تواجه الأساليب الحالية قيدين رئيسيين: التخصيص العام للرتب حيث تفشل مؤشرات الخطأ غير المعايرة في تمثيل انتشار الخطأ المعقد، وجودة التفكيك."
+   "published": "2026-11-03T00:00",
+   "title_ar": "لست بحاجة إلى سياق طويل",
+   "summary_ar": "يعد توليد الرموز اللاحقة أكثر تكلفة من الرموز المبكرة، حيث قد يصل التفاوت في التكلفة إلى 7 أضعاف في النماذج الرائدة مفتوحة الأوزان. ويُظهر البحث عبر ضغط السياق المتكرر أن النماذج الرائدة تضحي بقدر ضئيل جدًا من دقة المهام أو لا تضحي بشيء عبر نطاق واسع من المهام الطويلة."
   },
   {
-   "id": "2610.41994",
-   "title": "DAMI: Dual-Axis Memory Initialization for Enhanced Long-Context Retrieval in Gated Linear Attention",
-   "abstract": "Linear attention scales linearly with sequence length, but its finite-state memory can limit long-context retrieval. In gated linear recurrences, memory retention depends on state decay, which is shaped jointly by gate parameters A_log and dt_bias and by input activations. In controlled Gated DeltaNet (GDN) experiments, both parameters remain highly correlated with their initial values after training, highlighting the importance of initialization. Therefore, we introduce Dual-Axis Memory Initialization (DAMI), which jointly configures these parameters before training. DAMI assigns geometric ti",
+   "id": "2611.02476",
+   "title": "GigaSpeech 3: Scaling Multi-Dialect Arabic Speech Recognition with Weakly Labeled Data",
+   "abstract": "Dialectal Arabic speech recognition remains constrained by the scarcity of dialect-resolved transcribed speech despite the abundance of web audio. We introduce GigaSpeech 3, a corpus of 39,000 hours and 10 million weakly transcribed speech segments covering Algerian, Egyptian, Iraqi, Saudi, and Syrian Arabic. Starting from 60 hours of manual transcription per dialect, we train labeling models using speech-recognition-biased self-supervised learning and apply them to dialect-matched web audio. Data selection and four rounds of noisy-student refinement for Saudi and Syrian Arabic yield the final",
    "authors": [
-    "Zhangchi Feng",
-    "Harry Jiang",
-    "Yangyifei Luo",
-    "Ray Zhang"
+    "Junzhe Liu",
+    "Yujie Tu",
+    "Yifan Yang",
+    "Peng Wang"
    ],
-   "link": "https://huggingface.co/papers/2610.41994",
+   "link": "https://huggingface.co/papers/2611.02476",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-30T00:00",
-   "title_ar": "دامي: تهيئة الذاكرة ثنائية المحور لتعزيز الاسترجاع في السياقات الطويلة في الانتباه الخطي ذي البوابات",
-   "summary_ar": "يتدرج الانتباه الخطي خطيًا مع طول التسلسل، إلا أن ذاكرته ذات الحالات المحدودة قد تقيّد استرجاع السياقات الطويلة. يعتمد حفظ الذاكرة في التكرارات الخطية ذات البوابات على اضمحلال الحالة المشكَّل بمعلمات البوابات وتنشيطات الإدخال معًا."
+   "published": "2026-11-03T00:00",
+   "title_ar": "جيغاسبيتش 3: توسيع نطاق التعرف على الكلام العربي متعدد اللهجات باستخدام بيانات موسومة بضعف",
+   "summary_ar": "يظل التعرف على الكلام العربي اللهجي مقيدًا بندرة الكلام المفرغ نصيًا ومحدد اللهجات رغم وفرة الصوتيات على الويب. يقدم هذا العمل \"GigaSpeech 3\"، وهو مجموعة بيانات تضم 39,000 ساعة و10 ملايين مقطع كلامي مفرغ نصيًا بضعف تغطي لهجات جزائرية ومصرية وعراقية وسعودية وسورية."
   },
   {
-   "id": "2611.03097",
-   "title": "DR Pixel: Page-Native Deep Research with Vision-Language Models",
-   "abstract": "Complex documents such as scientific papers contain rich information in tables, figures, and equations; however, existing deep research (DR) agents typically reduce papers to OCR-extracted text. We instead ask whether vision-language models (VLMs) can enable page-native deep research: directly retrieving and reasoning over rendered document page images. We introduce DR Pixel, the first open-source end-to-end multimodal DR agent that uses rendered page images as its sole retrieval and reasoning unit, operating over a corpus of 1.06M pages. To evaluate this setting, we construct DRPixelBench, a ",
+   "id": "2610.37914",
+   "title": "Muon Makes the First Mixture-of-Experts Layer Harder to Balance",
+   "abstract": "Many open mixture-of-experts (MoE) language models train with Muon instead of AdamW. Most balance the load with a bias on each expert's routing score, adjusted after every step. Their recipes disagree on whether Muon should also train the router. In models with 55M and 108M active parameters, we measure how the optimizer changes the span of these biases, the largest minus the smallest in a layer. The span grows when all tokens favor the same experts, so it shows how hard a layer is to balance. At learning rates tuned on shorter runs, Muon raised the span of the first MoE layer at every seed, r",
    "authors": [
-    "Tiansheng Hu",
-    "Yichuan Wang",
-    "James V. Talwar",
-    "Nicholas Tomlin"
+    "Marcos Hernanz"
    ],
-   "link": "https://huggingface.co/papers/2611.03097",
+   "link": "https://huggingface.co/papers/2610.37914",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-02T00:00",
-   "title_ar": "دي آر بيكسل: بحث عميق يعتمد على الصفحات الأصلية باستخدام نماذج الرؤية واللغة",
-   "summary_ar": "تحتوي المستندات المعقدة كالأوراق العلمية على معلومات غنية في الجداول والأشكال والمعادلات، لكن وكلاء البحث العميق الحاليين يختزلون الأوراق عادةً في نصوص مستخرجة بالتعرف الضوئي على المحارف. نتساءل بدلًا من ذلك عما إذا كان بإمكان نماذج الرؤية واللغة تمكين بحث عميق معتمد على الصفحات الأصلية."
+   "published": "2026-10-27T00:00",
+   "title_ar": "مُحسِّن Muon يزيد من صعوبة موازنة الطبقة الأولى في نماذج خليط الخبراء",
+   "summary_ar": "تُدرَّب العديد من نماذج لغة خليط الخبراء المفتوحة باستخدام Muon بدلًا من AdamW، وتوازن الحمل عبر انحياز في درجة توجيه كل خبير يُعدل بعد كل خطوة. وتختلف وصفات التدريب حول ما إذا كان يجب تدريب الموجِّه باستخدام Muon أيضًا، حيث أُجريت قياسات في نماذج ذات 55 و108 ملايين معلمة نشطة."
   },
   {
-   "id": "2610.38623",
-   "title": "Cross-Primitive Consistency in Jev",
-   "abstract": "Jev enables efficient decision-making with large language models (LLMs) through typed querying primitives, allowing the same semantic state to be expressed in different formats, such as binary and multiple-choice queries. However, the consistency of decisions across primitives has not been systematically evaluated. This work introduces PrimaCons, a four-axis benchmark for assessing cross-primitive consistency while preserving the semantics of the query. Evaluations across three Jev sizes reveal consistency violations across all four axes. Our analysis shows that these violations follow systema",
+   "id": "2611.03183",
+   "title": "Auto-Research Agent on MSA Organization to Improve Protein-Protein Complex Structure Prediction",
+   "abstract": "Protein-complex structure prediction with AlphaFold 3 depends on MSA content, depth, and cross-chain pairing. Current pipelines apply uniform recipes, typically maximizing depth and pairing by species, yet even whether cross-chain pairing helps AF3 remains contested. We show that the value of both depth and pairing is strongly target-dependent, so no single recipe is optimal across interfaces. We introduce an autonomous agent that treats a frozen AF3 as a black-box experimental instrument. For each target, the agent formulates biological hypotheses, analyzes and reorganizes the MSA, and iterat",
    "authors": [
-    "Xu Liu",
-    "Guikun Chen",
-    "Kanzhi Wu",
-    "Wenguan Wang"
+    "Zilu Zhang",
+    "Jing Bao",
+    "Lifeng Qiao",
+    "Sheng Xu"
    ],
-   "link": "https://huggingface.co/papers/2610.38623",
+   "link": "https://huggingface.co/papers/2611.03183",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-28T00:00",
-   "title_ar": "الاتساق عبر البدائيات في جيف",
-   "summary_ar": "يتيح \"جيف\" اتخاذ قرارات فعالة بالنماذج اللغوية الكبيرة عبر بدائيات استعلام محددة النوع، مما يسمح بالتعبير عن الحالة الدلالية نفسها بتنسيقات مختلفة كالاستعلامات الثنائية ومتعددة الخيارات. ومع ذلك، لم يُدرس اتساق القرارات عبر هذه البدائيات بشكل منهجي."
+   "published": "2026-11-02T14:17",
+   "title_ar": "وكيل بحث ذاتي لتنظيم محاذاة التسلسلات المتعددة لتحسين التنبؤ ببنية معقدات البروتين-البروتين",
+   "summary_ar": "يعتمد التنبؤ ببنية المعقدات البروتينية باستخدام AlphaFold 3 على محتوى محاذاة التسلسلات المتعددة وعمقها واقتران السلاسل المتصالبة. تطبق المسارات الحالية وصفات موحدة لزيادة العمق والاقتران حسب الأنواع، رغم استمرار الجدل حول فائدة الاقتران لـ AF3، ويوضح البحث قيمة العمق."
   }
  ],
  "n": 6
