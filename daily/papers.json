@@ -1,104 +1,102 @@
 {
- "updated": "2026-11-05T01:39+00:00",
+ "updated": "2026-11-05T17:17+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2611.04166",
-   "title": "Say the Same, Act Differently: Diagnosing and Steering Text-Action Divergence in Reasoning VLAs",
-   "abstract": "Reasoning vision-language-action (VLA) models pair physical control with natural-language rationales that supervisors can read to monitor embodied safety. Prior attacks on VLA reasoning corrupt the rationale itself and leave visible evidence in the text. We show that visual perturbations can instead alter the physical action while keeping the generated rationale word-for-word identical. At the shared text/action interface of Alpamayo for driving and InstructVLA for manipulation, our text-neutral action-subspace (TNAS) diagnostic shows that the locally most action-sensitive direction is nearly ",
+   "id": "2611.04408",
+   "title": "Halley: A Predictive Control Plane for Optical AI Data Center Networks",
+   "abstract": "A frontier AI model is trained in an AI data center, on tens of thousands of accelerators joined by a dedicated network, and every training step ends with all of them exchanging data at once. Between racks, that network is optical, and each of its four layers, from lasers to switches, runs a fixed or after-the-fact policy. Lasers sharing an enclosure, cooling, and power can fail together. At a fixed spare ratio, correlated failure provably caps a pool's availability however large it grows. In this paper, we present a comprehensive predictive control plane framework, called Halley, that reads e",
    "authors": [
-    "Zihao Feng",
-    "Qingzhao Zhang",
-    "Chunyu Xia",
-    "Bo Yu"
+    "Manav Mishra",
+    "Krishna M. Sivalingam"
    ],
-   "link": "https://huggingface.co/papers/2611.04166",
+   "link": "https://huggingface.co/papers/2611.04408",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-03T06:45",
+   "title_ar": "هالي: مستوي تحكّم تنبؤي لشبكات مراكز بيانات الذكاء الاصطناعي الضوئية",
+   "summary_ar": "يُدرَّب نموذج ذكاء اصطناعي رائد في مركز بيانات على عشرات الآلاف من المسرّعات المترابطة بشبكة مخصصة، حيث تنتهي كل خطوة تدريب بتبادل البيانات بينها جميعًا في وقت واحد. تكون هذه الشبكة ضوئية بين الرفوف، وتعمل كل طبقة من طبقاتها الأربع، بدءًا من الليزر وحتى المفاتيح، وفق آلية ثابتة."
+  },
+  {
+   "id": "2611.03394",
+   "title": "TaoMate-HD: Progressive-Resolution Autoregressive Audio-Video Generation",
+   "abstract": "Streaming digital humans produce detailed video while continuing speech as new text arrives. High-resolution denoising is costly, and text updates can cause repeated or interrupted speech. We present TaoMate-HD, an autoregressive model for high-resolution audio-video streaming. For each short segment, or chunk, two denoising steps establish coarse video structure at low resolution. A final step refines the video to high resolution, with audio generated throughout the same trajectory. Each stage passes its audiovisual predictions to the same stage of the next chunk as history. Across text updat",
+   "authors": [
+    "Qijun Gan",
+    "Chenwei Zhang",
+    "Xinyang Li",
+    "Meiguang Jin"
+   ],
+   "link": "https://huggingface.co/papers/2611.03394",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-02T00:00",
+   "title_ar": "تاوميت-إتش دي: توليد ذاتي الانحدار للصوت والفيديو بدقة تدريجية",
+   "summary_ar": "يُنتج البشر الرقميون المتدفقون فيديو مفصلًا مع استمرار الكلام بالتزامن مع وصول نصوص جديدة. ونظرًا لأن إزالة التشويش بدقة عالية مكلفة وقد تؤدي تحديثات النص إلى تكرار الكلام أو انقطاعه، نقدم \"تاوميت-إتش دي\" كنموذج ذاتي الانحدار للبث الصوتي والمرئي عالي الدقة."
+  },
+  {
+   "id": "2611.03330",
+   "title": "The SIMPLE Law for Energy Cost of LLM Inference",
+   "abstract": "Generative AI is billed per token, yet tokens are not equally expensive. Each token enters the KV-cache and raises the cost of those that follow, so energy grows non-linearly along a sequence whose tokens look identical. No analytical model states what a token costs, and the most accurate SOTA model is a fit, not a law: it absorbs architecture into fitted coefficients, requiring per-LLM fitting. We derive closed-form expressions of the computational and memory-access complexity of LLM inference in terms of architectural hyperparameters, covering MHA and GQA, and compare a family of analytical ",
+   "authors": [
+    "Hiari Pizzini Cavagna",
+    "Andrea Proia",
+    "Daniele Cesarini",
+    "Zeynep Kiziltan"
+   ],
+   "link": "https://huggingface.co/papers/2611.03330",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-02T00:00",
+   "title_ar": "قانون سيمبل لتكلفة طاقة الاستدلال في النماذج اللغوية الكبيرة",
+   "summary_ar": "تُحسب تكلفة الذكاء الاصطناعي التوليدي بالرمز، غير أن الرموز لا تتساوى في تكلفتها؛ إذ يدخل كل رمز في ذاكرة التخزين المؤقت للمفتاح والقيمة ليرفع تكلفة ما يليه، مما يجعل استهلاك الطاقة ينمو بصورة غير خطية عبر تسلسل تبدو رموزه متطابقة. ولا يوجد نموذج تحليلي يحدد تكلفة الرمز، كما أن أدق النماذج المتطورة يفتقر لذلك."
+  },
+  {
+   "id": "2611.04949",
+   "title": "HERIT: Enabling Global Access to Hanja-to-English Historical Translation by Mitigating Temporal Bias",
+   "abstract": "Historical archives are invaluable for multidisciplinary research but remain inaccessible globally due to severe language barriers. While manual translation is prohibitively expensive and time-consuming, simply applying existing machine translation models is inadequate due to unique linguistic nuances and the temporal bias inherent in scarce human-labeled corpora. To address these challenges, we propose HERIT, a systematic domain-adaptation pipeline that leverages retrieval-augmented generation (RAG) to generate high-quality pseudo-labeled data from abundant Hanja-Korean corpora. This approach",
+   "authors": [
+    "Dayeon Jeong",
+    "Kyeongpil Kang"
+   ],
+   "link": "https://huggingface.co/papers/2611.04949",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-03T00:00",
-   "title_ar": "قل نفس الشيء وتصرف بشكل مختلف: تشخيص وتوجيه تباين النص والفعل في نماذج الرؤية واللغة والعمل الاستدلالية",
-   "summary_ar": "تقرن نماذج الرؤية واللغة والعمل (VLA) الاستدلالية التحكم المادي بمبررات باللغة الطبيعية لتمكين المشرفين من مراقبة السلامة، بينما تفسد الهجمات السابقة التبرير نفسه مخلفةً أدلة مرئية في النص. نُبيّن أن الاضطرابات البصرية يمكنها بدلاً من ذلك إحداث هذا التأثير."
+   "title_ar": "هيريت: تمكين الوصول العالمي للترجمة التاريخية من الهانجا إلى الإنجليزية عبر تخفيف الانحياز الزمني",
+   "summary_ar": "تُعدّ الأرشيفات التاريخية قيّمة للغاية للبحوث متعددة التخصصات، لكنها تظل غير متاحة عالميًا بسبب الحواجز اللغوية الشديدة. وفي حين أن الترجمة اليدوية باهظة التكلفة وتستغرق وقتًا طويلًا، فإن مجرد تطبيق نماذج الترجمة الآلية الحالية يُعد غير كافٍ نظرًا للفروق اللغوية الدقيقة والفريدة."
   },
   {
-   "id": "2611.01621",
-   "title": "FinForesight: A Diagnostic Backtesting Benchmark for Deep Research Systems in Financial Forecasting",
-   "abstract": "Anticipating financial outcomes requires synthesizing evolving evidence and reasoning under uncertainty, making deep research systems promising tools for forecasting. Yet evaluating forecasting ability is challenging because historical backtests may reward memorized outcomes or information retrieved after the forecast date. Live forecasting avoids direct access to realized outcomes, but feedback arrives only after events resolve. To obtain timely feedback and assess historical scores, we introduce FinForesight, a diagnostic backtesting benchmark for financial deep research systems. Across the ",
+   "id": "2610.36544",
+   "title": "Monitor Accuracy Isn't the Answer: A Decision-Value Framework for Evaluating AI Agent Restart Monitors",
+   "abstract": "Classification accuracy and true-positive and false-positive rates alone do not determine whether restarting an AI agent improves success. Using an exact alarm-to-action identity for an independent clean restart with zero monitoring overhead, we show analytically that a monitor with fixed 90% accuracy can swing from a five-percentage-point loss to a 35-point gain in success rate, depending solely on the replacement attempt's residual-budget success probability. We introduce two techniques for evaluating monitors and progress signals in decision terms. First, a decision-sufficiency criterion, a",
    "authors": [
-    "Fengyuan Liu",
-    "Mukai Li",
-    "Jieshun You",
-    "Yilin Zheng"
+    "Siddharth Jain",
+    "Venkat N. Vedam"
    ],
-   "link": "https://huggingface.co/papers/2611.01621",
+   "link": "https://huggingface.co/papers/2610.36544",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-01T00:00",
-   "title_ar": "FinForesight: معيار تشخيصي للاختبار الرجعي لأنظمة البحث العميق في التنبؤ المالي",
-   "summary_ar": "يتطلب توقع النتائج المالية تجميع الأدلة المتطورة والاستدلال في ظل عدم اليقين، مما يجعل أنظمة البحث العميق أدوات واعدة للتنبؤ. ومع ذلك، يُمثّل تقييم القدرة على التنبؤ تحدياً لأن الاختبارات الرجعية التاريخية قد تكافئ النتائج المحفوظة أو المعلومات المسترجعة."
+   "published": "2026-10-27T00:00",
+   "title_ar": "دقة المِرقاب ليست الحل: إطار عمل لقيمة القرار لتقييم مراقبِي إعادة تشغيل وكلاء الذكاء الاصطناعي",
+   "summary_ar": "لا تحدد دقة التصنيف ومعدلات الإيجابية الحقيقية والخاطئة وحدها ما إذا كانت إعادة تشغيل وكيل الذكاء الاصطناعي تحسّن النجاح. ونوضح تحليليًا، عبر استخدام تطابق دقيق بين الإنذار والإجراء لإعادة تشغيل نظيفة ومستقلة دون أعباء مراقبة، أن مِرقابًا بدقة ثابتة تبلغ 90% ليس هو المعيار الحاسم."
   },
   {
-   "id": "2610.35497",
-   "title": "When Fine-Grained Credit Assignment Helps and Hurts: Multimodal Agentic Reinforcement Learning through Video Editing",
-   "abstract": "Reinforcement learning (RL) has shown promise for training multimodal agents to reason and use tools. However, it remains unclear when fine-grained credit assignment improves learning and when it fails to improve task performance. Video editing provides a useful testbed for this question, combining multimodal perception, long-horizon planning, and tool use with delayed outcome feedback. We construct four movie-trailer editing task types---Content Selection, Narrative Sequencing, Rough Cut, and Fine Cut---that reflect real-world editing workflows and span different levels of task complexity and",
+   "id": "2611.03517",
+   "title": "Ask, Don't Equip: Question-Driven Coding Agents for Deep Kernel Optimization",
+   "abstract": "LLM agents for GPU kernel optimization sit at two ends of a structure-freedom tradeoff. Scripted agents fix what the model does at each step, via a learned policy, an optimization menu, or fixed roles, and are sample-efficient where the recipe applies and stall where it does not. Open-ended agents let a self-directed model mutate a population of kernels and pay for the freedom in trials: thousands of evaluations, repeated edits, and wrong candidates. Both respond to hard targets by equipping the agent with more: parsed profiler output, disassembly analysis, retrieval over documentation and lib",
    "authors": [
-    "Lei Zhao",
-    "Zongheng Cao",
-    "Xinyu Hu"
+    "Gabriele Oliaro",
+    "Jaeseong Lee",
+    "Zhaoyuan Su",
+    "Sreeram Vennam"
    ],
-   "link": "https://huggingface.co/papers/2610.35497",
+   "link": "https://huggingface.co/papers/2611.03517",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-26T00:00",
-   "title_ar": "متى يفيد تخصيص المكافأة الدقيق ومتى يضر: التعلم التعزيزي القائم على الوكلاء متعددي الوسائط من خلال تحرير الفيديو",
-   "summary_ar": "أظهر التعلم التعزيزي واعدية في تدريب الوكلاء متعددي الوسائط على الاستدلال واستخدام الأدوات، ولكن لا يزال غير واضح متى يؤدي تخصيص المكافأة الدقيق لتحسين التعلم ومتى يفشل في تعزيز أداء المهام. يوفّر تحرير الفيديو بيئة اختبار مفيدة لهذا التساؤل من خلال الجمع بين عناصر مختلفة."
-  },
-  {
-   "id": "2611.00352",
-   "title": "Cross-Prompt Reuse of Entity-Replacement Responses",
-   "abstract": "With model weights fixed, we measure how much of an entity-replacement response transfers between English factual questions, beyond whether answers change. We add the hidden-state change from two source questions to a target question about the same entity, comparing the predicted log-probability shift between two relations' published answers, given known answer prefixes, with the measured one. Hidden reuse injects the aligned change at 50% depth before the target's remaining layers; direct reuse adds source output-score changes. With other-relation sources, hidden reuse removes 45% and 49% of ",
-   "authors": [
-    "Jinkun Chen",
-    "Xuemin Yu",
-    "Sijia Han",
-    "Vlado Keselj"
-   ],
-   "link": "https://huggingface.co/papers/2611.00352",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-30T00:00",
-   "title_ar": "إعادة الاستخدام عبر المطالبات لاستجابات استبدال الكيانات",
-   "summary_ar": "مع تثبيت أوزان النموذج، نقيس مقدار انتقال استجابة استبدال الكيان بين الأسئلة الواقعية باللغة الإنجليزية، بما يتجاوز مجرد تغير الإجابات. نضيف تغير الحالة الخفية من سؤالي مصدر إلى سؤال هدف حول نفس الكيان، مقارنين التحول المتوقع في الاحتمالية اللوغاريتمية."
-  },
-  {
-   "id": "2611.04414",
-   "title": "SphereFlow: Missing Modality Imputation via Geometric Transport on Hypersphere",
-   "abstract": "Missing modality imputation aims to synthesize unobserved modalities from observed ones. Existing methods treat each modality as living on its own latent manifold, forcing the generator to learn a long, unstructured jump between them. We present SphereFlow, which takes a fundamentally different view: by projecting all modalities into a shared hyperspherical latent space via a frozen self-supervised encoder, cross-modal imputation reduces to short-range geometric transport between nearby points on the sphere. Realizing this idea with flow matching, however, exposes two geometric conflicts: the ",
-   "authors": [
-    "Huihan Wang",
-    "Juncheng Wang",
-    "Yuxiang Feng",
-    "Wenlong Hou"
-   ],
-   "link": "https://huggingface.co/papers/2611.04414",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-03T00:00",
-   "title_ar": "SphereFlow: احتساب النمط المفقود عبر النقل الهندسي على الكرة الفائقة",
-   "summary_ar": "يهدف احتساب النمط المفقود إلى توليد الأنماط غير المرصودة انطلاقاً من تلك المرصودة. تعامل الطرق الحالية كل نمط كأنه يقع في متعدد شعب كامن خاص به مما يجبر المولد على تعلم قفزة طويلة وغير منظمة بينها، بينما نقدم SphereFlow الذي يتبنى منظوراً مختلفاً جوهرياً."
-  },
-  {
-   "id": "2611.04169",
-   "title": "Length Is Cheap, Competition Is Not: Attention Predicts Context Rot in Retrieval",
-   "abstract": "Why do language models fail on long inputs? The common answer is length. We show that, for retrieval, length is cheap and competition is not. On five open models (0.5B to 3B parameters, four families), neutral filler costs nothing: accuracy stays at 0.97 to 1.00, up to 32K tokens on Qwen2.5-1.5B. Statements in the format of the evidence, placed at the same positions, drop it to 0.16 to 0.33. A single statement that gives the queried key a rival value multiplies the loss by 9 to 110, and every additional rival adds to it. Inside the model, one quantity tracks the failure: the attention mass lef",
-   "authors": [
-    "Yinuo Liu"
-   ],
-   "link": "https://huggingface.co/papers/2611.04169",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-03T00:00",
-   "title_ar": "الطول رخيص والمنافسة ليست كذلك: الانتباه يتنبأ بتلف السياق في الاسترجاع",
-   "summary_ar": "يُعزى فشل نماذج اللغة مع المدخلات الطويلة عادةً إلى الطول، لكننا نبيّن أنه بالنسبة للاسترجاع فإن الطول رخيص الثمن بينما المنافسة ليست كذلك. عبر خمسة نماذج مفتوحة المصدر، لا يكلف الحشو المحايد أي شيء حيث تبقى الدقة بين 0.97 و1.00 حتى 32 ألف رمز في النموذج Qwen2.5-1.5B."
+   "published": "2026-11-02T00:00",
+   "title_ar": "اسأل ولا تُجهّز: وكلاء برمجة مدفوعون بالأسئلة للتحسين العميق لنوى المعالجة",
+   "summary_ar": "يقف وكلاء النماذج اللغوية الكبيرة لتحسين نوى وحدات معالجة الرسومات عند طرفي موازنة بين الهيكلة والحرية؛ فالوكلاء المُبرمجون مسبقًا يحددون ما يفعله النموذج في كل خطوة عبر سياسة متعلَّمة أو قائمة تحسينات أو أدوار ثابتة، مما يجعلهم ذوي كفاءة في استهلاك العينات عند ملاءمة الوصفة وتوقفهم عند عدم ملاءمتها. أما الوكلاء غير المقيَّدين فينتهجون مسارًا مختلفًا."
   }
  ],
  "n": 6
