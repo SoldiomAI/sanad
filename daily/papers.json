@@ -1,105 +1,104 @@
 {
- "updated": "2026-11-04T10:32+00:00",
+ "updated": "2026-11-05T01:39+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2611.05193",
-   "title": "Factorized MLLM Embeddings for Composed Image Retrieval",
-   "abstract": "Composed Image Retrieval (CIR) aims to retrieve a target image given a reference image and a modification text. Although recent approaches leveraging Multimodal Large Language Models (MLLMs) have shown significant progress, we argue that the MLLM's compositional understanding remains underutilized. This stems from directly mapping composed queries into a retrieval embedding via contrastive supervision alone, without explicitly resolving the intended visual modifications. In this work, we introduce Factorized MLLM Embeddings (FactEmbed), which decouples compositional query comprehension from bu",
+   "id": "2611.04166",
+   "title": "Say the Same, Act Differently: Diagnosing and Steering Text-Action Divergence in Reasoning VLAs",
+   "abstract": "Reasoning vision-language-action (VLA) models pair physical control with natural-language rationales that supervisors can read to monitor embodied safety. Prior attacks on VLA reasoning corrupt the rationale itself and leave visible evidence in the text. We show that visual perturbations can instead alter the physical action while keeping the generated rationale word-for-word identical. At the shared text/action interface of Alpamayo for driving and InstructVLA for manipulation, our text-neutral action-subspace (TNAS) diagnostic shows that the locally most action-sensitive direction is nearly ",
    "authors": [
-    "WonJun Moon",
-    "Seongchan Kim",
-    "Dahun Kim",
-    "Seungryong Kim"
+    "Zihao Feng",
+    "Qingzhao Zhang",
+    "Chunyu Xia",
+    "Bo Yu"
    ],
-   "link": "https://huggingface.co/papers/2611.05193",
+   "link": "https://huggingface.co/papers/2611.04166",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-03T00:00",
-   "title_ar": "تضمينات مفككة لنماذج اللغة الكبيرة متعددة الوسائط لاسترجاع الصور المركبة",
-   "summary_ar": "يهدف استرجاع الصور المركبة إلى جلب صورة مستهدفة بناءً على صورة مرجعية ونص تعديلي. ورغم التقدم الملحوظ للأساليب الحديثة المعتمدة على النماذج متعددة الوسائط، يرى الباحثون أن الفهم التركيبي لهذه النماذج لا يزال غير مستغل بالكامل."
+   "title_ar": "قل نفس الشيء وتصرف بشكل مختلف: تشخيص وتوجيه تباين النص والفعل في نماذج الرؤية واللغة والعمل الاستدلالية",
+   "summary_ar": "تقرن نماذج الرؤية واللغة والعمل (VLA) الاستدلالية التحكم المادي بمبررات باللغة الطبيعية لتمكين المشرفين من مراقبة السلامة، بينما تفسد الهجمات السابقة التبرير نفسه مخلفةً أدلة مرئية في النص. نُبيّن أن الاضطرابات البصرية يمكنها بدلاً من ذلك إحداث هذا التأثير."
   },
   {
-   "id": "2611.04814",
-   "title": "Think Less, Locally: Local Preference Learning for Reasoning Compression",
-   "abstract": "Large reasoning models achieve strong performance on challenging tasks, but their long chain-of-thought often incurs substantial inference costs by continuing to deliberate after sufficient information has been obtained. Existing reasoning compression methods primarily operate on reasoning trajectories, paying less attention to the local decision of whether further reasoning is necessary given the current state. We propose LoCo, a local preference learning method for reasoning compression. LoCo detects candidate overthinking states from the model's own traces, freezes the corresponding reasoni",
+   "id": "2611.01621",
+   "title": "FinForesight: A Diagnostic Backtesting Benchmark for Deep Research Systems in Financial Forecasting",
+   "abstract": "Anticipating financial outcomes requires synthesizing evolving evidence and reasoning under uncertainty, making deep research systems promising tools for forecasting. Yet evaluating forecasting ability is challenging because historical backtests may reward memorized outcomes or information retrieved after the forecast date. Live forecasting avoids direct access to realized outcomes, but feedback arrives only after events resolve. To obtain timely feedback and assess historical scores, we introduce FinForesight, a diagnostic backtesting benchmark for financial deep research systems. Across the ",
    "authors": [
-    "Muyao Yuan",
-    "Liyan Xu",
-    "Weizhan Zhang",
-    "Muyan Jiao"
+    "Fengyuan Liu",
+    "Mukai Li",
+    "Jieshun You",
+    "Yilin Zheng"
    ],
-   "link": "https://huggingface.co/papers/2611.04814",
+   "link": "https://huggingface.co/papers/2611.01621",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-01T00:00",
+   "title_ar": "FinForesight: معيار تشخيصي للاختبار الرجعي لأنظمة البحث العميق في التنبؤ المالي",
+   "summary_ar": "يتطلب توقع النتائج المالية تجميع الأدلة المتطورة والاستدلال في ظل عدم اليقين، مما يجعل أنظمة البحث العميق أدوات واعدة للتنبؤ. ومع ذلك، يُمثّل تقييم القدرة على التنبؤ تحدياً لأن الاختبارات الرجعية التاريخية قد تكافئ النتائج المحفوظة أو المعلومات المسترجعة."
+  },
+  {
+   "id": "2610.35497",
+   "title": "When Fine-Grained Credit Assignment Helps and Hurts: Multimodal Agentic Reinforcement Learning through Video Editing",
+   "abstract": "Reinforcement learning (RL) has shown promise for training multimodal agents to reason and use tools. However, it remains unclear when fine-grained credit assignment improves learning and when it fails to improve task performance. Video editing provides a useful testbed for this question, combining multimodal perception, long-horizon planning, and tool use with delayed outcome feedback. We construct four movie-trailer editing task types---Content Selection, Narrative Sequencing, Rough Cut, and Fine Cut---that reflect real-world editing workflows and span different levels of task complexity and",
+   "authors": [
+    "Lei Zhao",
+    "Zongheng Cao",
+    "Xinyu Hu"
+   ],
+   "link": "https://huggingface.co/papers/2610.35497",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-26T00:00",
+   "title_ar": "متى يفيد تخصيص المكافأة الدقيق ومتى يضر: التعلم التعزيزي القائم على الوكلاء متعددي الوسائط من خلال تحرير الفيديو",
+   "summary_ar": "أظهر التعلم التعزيزي واعدية في تدريب الوكلاء متعددي الوسائط على الاستدلال واستخدام الأدوات، ولكن لا يزال غير واضح متى يؤدي تخصيص المكافأة الدقيق لتحسين التعلم ومتى يفشل في تعزيز أداء المهام. يوفّر تحرير الفيديو بيئة اختبار مفيدة لهذا التساؤل من خلال الجمع بين عناصر مختلفة."
+  },
+  {
+   "id": "2611.00352",
+   "title": "Cross-Prompt Reuse of Entity-Replacement Responses",
+   "abstract": "With model weights fixed, we measure how much of an entity-replacement response transfers between English factual questions, beyond whether answers change. We add the hidden-state change from two source questions to a target question about the same entity, comparing the predicted log-probability shift between two relations' published answers, given known answer prefixes, with the measured one. Hidden reuse injects the aligned change at 50% depth before the target's remaining layers; direct reuse adds source output-score changes. With other-relation sources, hidden reuse removes 45% and 49% of ",
+   "authors": [
+    "Jinkun Chen",
+    "Xuemin Yu",
+    "Sijia Han",
+    "Vlado Keselj"
+   ],
+   "link": "https://huggingface.co/papers/2611.00352",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-30T00:00",
+   "title_ar": "إعادة الاستخدام عبر المطالبات لاستجابات استبدال الكيانات",
+   "summary_ar": "مع تثبيت أوزان النموذج، نقيس مقدار انتقال استجابة استبدال الكيان بين الأسئلة الواقعية باللغة الإنجليزية، بما يتجاوز مجرد تغير الإجابات. نضيف تغير الحالة الخفية من سؤالي مصدر إلى سؤال هدف حول نفس الكيان، مقارنين التحول المتوقع في الاحتمالية اللوغاريتمية."
+  },
+  {
+   "id": "2611.04414",
+   "title": "SphereFlow: Missing Modality Imputation via Geometric Transport on Hypersphere",
+   "abstract": "Missing modality imputation aims to synthesize unobserved modalities from observed ones. Existing methods treat each modality as living on its own latent manifold, forcing the generator to learn a long, unstructured jump between them. We present SphereFlow, which takes a fundamentally different view: by projecting all modalities into a shared hyperspherical latent space via a frozen self-supervised encoder, cross-modal imputation reduces to short-range geometric transport between nearby points on the sphere. Realizing this idea with flow matching, however, exposes two geometric conflicts: the ",
+   "authors": [
+    "Huihan Wang",
+    "Juncheng Wang",
+    "Yuxiang Feng",
+    "Wenlong Hou"
+   ],
+   "link": "https://huggingface.co/papers/2611.04414",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-03T00:00",
-   "title_ar": "فكّر أقل، ومحليًا: تعلم التفضيل المحلي لضغط التفكير",
-   "summary_ar": "تحقق نماذج الاستدلال الكبيرة أداءً قويًا في المهام الصعبة، غير أن سلاسل أفكارها الطويلة تتسبب في تكاليف استدلال باهظة لاستمرارها في المداولة بعد جمع المعلومات الكافية. وتعمل أساليب ضغط التفكير الحالية أساسًا على مسارات الاستدلال."
+   "title_ar": "SphereFlow: احتساب النمط المفقود عبر النقل الهندسي على الكرة الفائقة",
+   "summary_ar": "يهدف احتساب النمط المفقود إلى توليد الأنماط غير المرصودة انطلاقاً من تلك المرصودة. تعامل الطرق الحالية كل نمط كأنه يقع في متعدد شعب كامن خاص به مما يجبر المولد على تعلم قفزة طويلة وغير منظمة بينها، بينما نقدم SphereFlow الذي يتبنى منظوراً مختلفاً جوهرياً."
   },
   {
-   "id": "2611.05306",
-   "title": "You don't need long context",
-   "abstract": "Later tokens are costlier to generate than earlier tokens. On frontier open weight models, the disparity in cost may rise to as much as 7x. Through frequent compaction, we show across a broad range of long-horizon and long-input tasks that frontier language models sacrifice little to no task accuracy when maintaining short contexts. We further demonstrate that LLM performance does not collapse on long-horizon software engineering tasks even when taking at most one action per context, and based on that we outline the concept of semantic state space models (SSSMs). Our findings question the need",
+   "id": "2611.04169",
+   "title": "Length Is Cheap, Competition Is Not: Attention Predicts Context Rot in Retrieval",
+   "abstract": "Why do language models fail on long inputs? The common answer is length. We show that, for retrieval, length is cheap and competition is not. On five open models (0.5B to 3B parameters, four families), neutral filler costs nothing: accuracy stays at 0.97 to 1.00, up to 32K tokens on Qwen2.5-1.5B. Statements in the format of the evidence, placed at the same positions, drop it to 0.16 to 0.33. A single statement that gives the queried key a rival value multiplies the loss by 9 to 110, and every additional rival adds to it. Inside the model, one quantity tracks the failure: the attention mass lef",
    "authors": [
-    "Peter Belcak",
-    "Saurav Muralidharan",
-    "Jindong Jiang",
-    "Yonggan Fu"
+    "Yinuo Liu"
    ],
-   "link": "https://huggingface.co/papers/2611.05306",
+   "link": "https://huggingface.co/papers/2611.04169",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-03T00:00",
-   "title_ar": "لست بحاجة إلى سياق طويل",
-   "summary_ar": "يعد توليد الرموز اللاحقة أكثر تكلفة من الرموز المبكرة، حيث قد يصل التفاوت في التكلفة إلى 7 أضعاف في النماذج الرائدة مفتوحة الأوزان. ويُظهر البحث عبر ضغط السياق المتكرر أن النماذج الرائدة تضحي بقدر ضئيل جدًا من دقة المهام أو لا تضحي بشيء عبر نطاق واسع من المهام الطويلة."
-  },
-  {
-   "id": "2611.02476",
-   "title": "GigaSpeech 3: Scaling Multi-Dialect Arabic Speech Recognition with Weakly Labeled Data",
-   "abstract": "Dialectal Arabic speech recognition remains constrained by the scarcity of dialect-resolved transcribed speech despite the abundance of web audio. We introduce GigaSpeech 3, a corpus of 39,000 hours and 10 million weakly transcribed speech segments covering Algerian, Egyptian, Iraqi, Saudi, and Syrian Arabic. Starting from 60 hours of manual transcription per dialect, we train labeling models using speech-recognition-biased self-supervised learning and apply them to dialect-matched web audio. Data selection and four rounds of noisy-student refinement for Saudi and Syrian Arabic yield the final",
-   "authors": [
-    "Junzhe Liu",
-    "Yujie Tu",
-    "Yifan Yang",
-    "Peng Wang"
-   ],
-   "link": "https://huggingface.co/papers/2611.02476",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-03T00:00",
-   "title_ar": "جيغاسبيتش 3: توسيع نطاق التعرف على الكلام العربي متعدد اللهجات باستخدام بيانات موسومة بضعف",
-   "summary_ar": "يظل التعرف على الكلام العربي اللهجي مقيدًا بندرة الكلام المفرغ نصيًا ومحدد اللهجات رغم وفرة الصوتيات على الويب. يقدم هذا العمل \"GigaSpeech 3\"، وهو مجموعة بيانات تضم 39,000 ساعة و10 ملايين مقطع كلامي مفرغ نصيًا بضعف تغطي لهجات جزائرية ومصرية وعراقية وسعودية وسورية."
-  },
-  {
-   "id": "2610.37914",
-   "title": "Muon Makes the First Mixture-of-Experts Layer Harder to Balance",
-   "abstract": "Many open mixture-of-experts (MoE) language models train with Muon instead of AdamW. Most balance the load with a bias on each expert's routing score, adjusted after every step. Their recipes disagree on whether Muon should also train the router. In models with 55M and 108M active parameters, we measure how the optimizer changes the span of these biases, the largest minus the smallest in a layer. The span grows when all tokens favor the same experts, so it shows how hard a layer is to balance. At learning rates tuned on shorter runs, Muon raised the span of the first MoE layer at every seed, r",
-   "authors": [
-    "Marcos Hernanz"
-   ],
-   "link": "https://huggingface.co/papers/2610.37914",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-27T00:00",
-   "title_ar": "مُحسِّن Muon يزيد من صعوبة موازنة الطبقة الأولى في نماذج خليط الخبراء",
-   "summary_ar": "تُدرَّب العديد من نماذج لغة خليط الخبراء المفتوحة باستخدام Muon بدلًا من AdamW، وتوازن الحمل عبر انحياز في درجة توجيه كل خبير يُعدل بعد كل خطوة. وتختلف وصفات التدريب حول ما إذا كان يجب تدريب الموجِّه باستخدام Muon أيضًا، حيث أُجريت قياسات في نماذج ذات 55 و108 ملايين معلمة نشطة."
-  },
-  {
-   "id": "2611.03183",
-   "title": "Auto-Research Agent on MSA Organization to Improve Protein-Protein Complex Structure Prediction",
-   "abstract": "Protein-complex structure prediction with AlphaFold 3 depends on MSA content, depth, and cross-chain pairing. Current pipelines apply uniform recipes, typically maximizing depth and pairing by species, yet even whether cross-chain pairing helps AF3 remains contested. We show that the value of both depth and pairing is strongly target-dependent, so no single recipe is optimal across interfaces. We introduce an autonomous agent that treats a frozen AF3 as a black-box experimental instrument. For each target, the agent formulates biological hypotheses, analyzes and reorganizes the MSA, and iterat",
-   "authors": [
-    "Zilu Zhang",
-    "Jing Bao",
-    "Lifeng Qiao",
-    "Sheng Xu"
-   ],
-   "link": "https://huggingface.co/papers/2611.03183",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-02T14:17",
-   "title_ar": "وكيل بحث ذاتي لتنظيم محاذاة التسلسلات المتعددة لتحسين التنبؤ ببنية معقدات البروتين-البروتين",
-   "summary_ar": "يعتمد التنبؤ ببنية المعقدات البروتينية باستخدام AlphaFold 3 على محتوى محاذاة التسلسلات المتعددة وعمقها واقتران السلاسل المتصالبة. تطبق المسارات الحالية وصفات موحدة لزيادة العمق والاقتران حسب الأنواع، رغم استمرار الجدل حول فائدة الاقتران لـ AF3، ويوضح البحث قيمة العمق."
+   "title_ar": "الطول رخيص والمنافسة ليست كذلك: الانتباه يتنبأ بتلف السياق في الاسترجاع",
+   "summary_ar": "يُعزى فشل نماذج اللغة مع المدخلات الطويلة عادةً إلى الطول، لكننا نبيّن أنه بالنسبة للاسترجاع فإن الطول رخيص الثمن بينما المنافسة ليست كذلك. عبر خمسة نماذج مفتوحة المصدر، لا يكلف الحشو المحايد أي شيء حيث تبقى الدقة بين 0.97 و1.00 حتى 32 ألف رمز في النموذج Qwen2.5-1.5B."
   }
  ],
  "n": 6
