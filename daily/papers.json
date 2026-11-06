@@ -1,105 +1,102 @@
 {
- "updated": "2026-11-06T10:27+00:00",
+ "updated": "2026-11-06T23:26+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2610.40119",
-   "title": "SynthFaces: Balanced Large Scale Human Dataset",
-   "abstract": "The pursuit of fair and equitable AI in human-centric tasks is critically hindered by the inherent biases and privacy risks of real-world datasets, which offer imbalanced representations of identity and often contain sensitive personal information. Consequently, state-of-the-art generative models trained on this skewed data exhibit unfair performance, particularly in identity-preserving generation. In this work we propose a pipeline for controllable generation of dataset with diverse faces for generative models training and finetuning. We achieve this by expanding foundational Arc2Face diffusi",
+   "id": "2611.06498",
+   "title": "Signed but Steerable: Measuring and Closing the Text-Vector Integrity Gap in Offline Retrieval-Augmented Generation",
+   "abstract": "Offline retrieval-augmented generation (RAG) on edge devices is updated through signed knowledge packs that carry text and precomputed embedding vectors. A signature proves who published a pack, not that its vectors encode its text. We study this text-vector integrity gap. A verifier that recomputes vectors and accepts them within a cosine tolerance concedes a predictable share of queries to an attacker who controls the vectors: the hijack rate equals the distribution of angular retrieval margins at the tolerance (the margin law). Margins are small in five corpora and two embedding models, so ",
    "authors": [
-    "Sergey Karpukhin",
-    "Denis Bobkov",
-    "Kirill Morozov",
-    "Aibek Alanov"
+    "Georgios Feretzakis",
+    "Alexandros Papaspyridis"
    ],
-   "link": "https://huggingface.co/papers/2610.40119",
+   "link": "https://huggingface.co/papers/2611.06498",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-29T00:00",
-   "title_ar": "وجوه اصطناعية: مجموعة بيانات بشرية متوازنة وواسعة النطاق",
-   "summary_ar": "يتعرقل السعي وراء ذكاء اصطناعي عادل ومنصف في المهام المتمحورة حول الإنسان بشكل حرج بسبب الانحيازات المتأصلة ومخاطر الخصوصية في مجموعات بيانات العالم الحقيقي، والتي تقدم تمثيلات غير متوازنة للهوية وغالبًا ما تحتوي على معلومات شخصية حساسة. ونتيجة لذلك، فإن أحدث النماذج التوليدية..."
+   "published": "2026-11-04T13:32",
+   "title_ar": "موقَّع ولكنه قابل للتوجيه: قياس وسد فجوة تكامل النص والمُتجه في التوليد المُعزز بالاسترجاع دون اتصال بالإنترنت",
+   "summary_ar": "يُحدَّث التوليد المُعزز بالاسترجاع دون اتصال بالإنترنت على الأجهزة الطرفية عبر حزم معرفية موقَّعة تحمل نصوصًا ومُتجهات تضمين محسوبة مسبقًا. يُثبت التوقيع ناشر الحزمة، لكنه لا يُثبت أن مُتجهاتها تُشفِّر نصوصها، وتدرس هذه الورقة فجوة تكامل النص والمُتجه."
   },
   {
-   "id": "2611.02075",
-   "title": "Decoupled Predictive Decision Making: A Shared Conditional Predictor for Agents",
-   "abstract": "Agent decisions depend on empirical relationships that deployment observations reveal and task descriptions alone may leave unresolved. We introduce Decoupled Predictive Decision Making (DPDM), an architecture that formulates heterogeneous agent decisions as conditional prediction with a shared pretrained learner. Language models provide semantic representations of current and historical records, while a general-purpose conditional predictor predicts task-defined targets from the represented evidence. Pretraining supplies reusable inference capability; deployment evidence instantiates problem-",
+   "id": "2611.04386",
+   "title": "StepX-OPD: Rethinking Multi-Teacher On-Policy Distillation in Diffusion Models",
+   "abstract": "A deployable text-to-image diffusion model must hold several capabilities at once, such as instruction following, text rendering and human preference, and must sample in a few steps. Capabilities and few-step sampling are built in separate stages: a full-step model first consolidates capabilities through multi-teacher on-policy distillation, then serves as a fixed teacher for step distillation. Every full-step model we evaluate scores lower once compressed, and the second stage cannot begin until the first finishes. We introduce StepX-OPD, which merges the two stages: one student acquires ever",
    "authors": [
-    "Lang Mo",
-    "Xingxuan Zhang",
-    "Qi Wang",
-    "Mingchao Hao"
+    "Chenru Wang",
+    "Xuanyang Zhang",
+    "Yucheng Han",
+    "Wenbo Nie"
    ],
-   "link": "https://huggingface.co/papers/2611.02075",
+   "link": "https://huggingface.co/papers/2611.04386",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-01T00:00",
-   "title_ar": "صنع القرار التنبؤي المفكك: متنبئ شرطي مشترك للوكلاء",
-   "summary_ar": "تعتمد قرارات الوكيل على علاقات تجريبية تكشفها ملاحظات النشر وقد تعجز توصيفات المهام وحدها عن حسمها. نقدم بنية صنع القرار التنبؤي المفكك (DPDM)، والتي تصيغ قرارات الوكلاء غير المتجانسين كتنبؤ شرطي باستخدام نموذج مُدرب مسبقًا ومشترك."
+   "published": "2026-11-03T00:00",
+   "title_ar": "StepX-OPD: إعادة التفكير في التقطير وفق السياسة المتبعة متعدد المعلمين في نماذج الانتشار",
+   "summary_ar": "يجب أن يمتلك نموذج الانتشار القابل للنشر لتحويل النص إلى صورة قدرات متعددة معًا، مثل اتباع التعليمات وتصيير النصوص وملاءمة التفضيلات البشرية، مع أخذ العينات في خطوات معدودة. تُبنى القدرات وأخذ العينات بخطوات معدودة في مراحل منفصلة، حيث يدمج نموذج كامل الخطوات القدراتِ أولًا."
   },
   {
-   "id": "2611.08089",
-   "title": "SAE Interprets MoE: Sparse AutoEncoders Reveal That MoE Experts Exhibit Human-Interpretable Fine-Grained Specialization",
-   "abstract": "Mixture-of-Experts (MoE) models route each token to a few of many experts, yet what an individual expert is responsible for remains unsettled. Existing analyses count how often an expert is selected on domain-labeled corpora, an instrument that fixes the taxonomy in advance, stays coarse, and records selection rather than contribution. We instead study specialization in feature space by training a sparse autoencoder (SAE) on the output of an MoE layer. Since this output is a router-weighted sum of expert outputs and the SAE encoder is affine, the pre-activation of every latent decomposes exact",
+   "id": "2611.08483",
+   "title": "SwarmEvolve: Latent Agent Swarms for Evolutionary Discovery and Optimization",
+   "abstract": "LLM-guided evolutionary search uses AI agents to improve programs for mathematical and computational problems by iteratively refining solutions and combining high-scoring methods. However, the process is often slow because the LLM generates a long textual chain of thought for each round and must repeat this generation many times to maintain population diversity. We present SwarmEvolve, a framework in which hundreds of low-cost agents per round work in swarms, reason in latent space without decoding to text, and share information by passing KV caches. Each swarm studies the problem from a diffe",
    "authors": [
-    "Anyuan Zhuo",
-    "Shaohua Zhang",
-    "Yuan Lin",
-    "Pinyan Lu"
+    "Qile Jiang",
+    "George Em Karniadakis"
    ],
-   "link": "https://huggingface.co/papers/2611.08089",
+   "link": "https://huggingface.co/papers/2611.08483",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-05T14:35",
-   "title_ar": "المشفرات التلقائية المتفرقة تفسر نماذج خليط الخبراء: المشفرات التلقائية المتفرقة تكشف أن خبراء خليط الخبراء يظهرون تخصصًا دقيقًا وقابلًا للتفسير البشري",
-   "summary_ar": "توجه نماذج خليط الخبراء كل رمز إلى عدد قليل من الخبراء، ومع ذلك يظل ما يختص به كل خبير غير محسوم. وتكتفي التحليلات الحالية بإحصاء وتيرة اختيار الخبير ضمن مجموعات نصوص مصنفة مجاليًا، وهي أداة تحدد التصنيف مسبقًا وتظل تقريبية وتسجل..."
+   "published": "2026-11-05T00:00",
+   "title_ar": "SwarmEvolve: أسراب وكلاء كامنة للاكتشاف والتطوير التطوري",
+   "summary_ar": "يستخدم البحث التطوري الموجَّه بالنماذج اللغوية الكبيرة وكلاء الذكاء الاصطناعي لتحسين البرمجيات للمسائل الرياضية والحسابية عبر تنقيح الحلول تكراريًا ودمج الطرق عالية النقاط. ومع ذلك، غالبًا ما تكون هذه العملية بطيئة لأن النموذج اللغوي يولد سلسلة أفكار نصية طويلة لكل جولة ويجب عليه التكرار."
   },
   {
-   "id": "2611.02660",
-   "title": "HeLM: Hierarchical Explicit Language Memory for Non-Markovian Manipulation",
-   "abstract": "Recent advances in Vision-Language-Action (VLA) models have enabled fine manipulation capabilities, yet performing tasks that require working memory remains a key challenge. Most existing VLA architectures operate under a Markovian assumption, mapping only the current observation to an action, which leads to failure in non-Markovian environments. Inspired by the human 'inner monologue', we propose Hierarchical Explicit Language Memory (HeLM), a hierarchical VLA framework that maintains task-relevant history in explicit language through factorized event detection and event-triggered memory upda",
+   "id": "2610.37739",
+   "title": "OpenFrontiers: A Collection of Open Research Problems and a Benchmark for Scientific Rediscovery",
+   "abstract": "Large language models (LLMs) have shown increasing promise in research-level problem solving, yet a comprehensive collection of such problems is still missing, and evaluating them on research-level problems remains challenging. We introduce OpenFrontiers, a cross-disciplinary resource that combines a structured corpus of open research problems with a retrospective benchmark of recently resolved problems in mathematics. The corpus records problem statements, context, progress, and other information for 12,151 problems. The benchmark contains 200 problems, 110 resolved in 2026 and 90 still open,",
    "authors": [
-    "Gyeonghun Kim",
-    "Donghoon Kim",
-    "Minsoo Choi",
-    "Suyun Lee"
+    "Jiarui Yao",
+    "Ruida Wang",
+    "Tong Zhang"
    ],
-   "link": "https://huggingface.co/papers/2611.02660",
+   "link": "https://huggingface.co/papers/2610.37739",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-02T07:20",
-   "title_ar": "هيلم (HeLM): ذاكرة لغوية صريحة هرمية للمناولة غير الماركوفية",
-   "summary_ar": "مكنت التطورات الأخيرة في نماذج الرؤية واللغة والعمل من قدرات مناولة دقيقة، إلا أن تنفيذ المهام التي تتطلب ذاكرة عاملة لا يزال يمثل تحديًا رئيسيًا. وتعمل معظم بنيات هذه النماذج الحالية وفق افتراض ماركوفي عبر ربط الملاحظة الحالية فقط بفعل ما، وهو ما..."
+   "published": "2026-10-27T00:00",
+   "title_ar": "OpenFrontiers: مجموعة من المسائل البحثية المفتوحة ومعيار لإعادة الاكتشاف العلمي",
+   "summary_ar": "أظهرت النماذج اللغوية الكبيرة إمكانات واعدة متزايدة في حل المسائل على المستوى البحثي، ولكن لا تزال هناك حاجة لمجموعة شاملة من هذه المسائل، ويظل تقييمها عليها أمرًا صعبًا. نُقدِّم OpenFrontiers، وهو مورد عابر للتخصصات يجمع بين هذه الجوانب."
   },
   {
-   "id": "2611.06741",
-   "title": "TailSteer: Trajectory-Tail Steering for Drift-Resistant Multi-turn Image Editing",
-   "abstract": "Strong single-turn editing performance does not guarantee reliable multi-turn interaction: as edited outputs are repeatedly reused, small unintended changes can accumulate into severe visual drift. This long-term drift is often mitigated through training on multi-turn data or cross-turn rollouts, potentially altering pretrained priors, or through specialized inference-time mechanisms that are difficult to scale to foundation models. We introduce TailSteer, a final-stage training framework that improves multi-turn robustness while retaining the generative and editing capabilities acquired throu",
+   "id": "2611.08237",
+   "title": "Terminal-style Mathematical Modeling Bench: The First Agentic and Verifiable Benchmark for Mathematical Modeling",
+   "abstract": "Mathematical modeling turns an open-ended real-world problem into assumptions, a model, a solution, and a defended recommendation, and its answers matter only if they are both close to a credible reference and physically feasible; existing benchmarks either score solver fragments or grade reports with an LLM judge, leaving those numbers unchecked. We introduce TB-MathModel (the Terminal-style Mathematical Modeling Bench), the first benchmark to make complete contest-style modeling problems agentic, verifiable, and terminal at once, over 18 real CUMCM and MCM problems (2023--2025). Each task sh",
    "authors": [
-    "Ruikang Li",
-    "Zixuan Chen",
-    "Jiarui Wu",
-    "Mingde Yao"
+    "Xiaojun Wu",
+    "Cehao Yang",
+    "Xuhui Jiang",
+    "Chengjin Xu"
    ],
-   "link": "https://huggingface.co/papers/2611.06741",
+   "link": "https://huggingface.co/papers/2611.08237",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-04T00:00",
-   "title_ar": "تيل ستير (TailSteer): التوجيه في أواخر المسار لتحرير الصور متعدد الجولات والمقاوم للانحراف",
-   "summary_ar": "الأداء القوي في التحرير خلال جولة واحدة لا يضمن تفاعلًا موثوقًا متعدد الجولات، إذ يمكن أن تتراكم التغييرات الطفيفة غير المقصودة لتحدث انحرافًا بصريًا حادًا مع إعادة استخدام المخرجات المحررة مرارًا. وغالبًا ما يُخفف هذا الانحراف طويل المدى من خلال التدريب على بيانات متعددة الجولات أو التنفيذ عبر الجولات، مما..."
+   "published": "2026-11-05T16:18",
+   "title_ar": "معيار النمذجة الرياضية بأسلوب الطرفية: أول معيار قائم على الوكلاء وقابل للتحقق للنمذجة الرياضية",
+   "summary_ar": "تُحوِّل النمذجة الرياضية مشكلة واقعية مفتوحة النهاية إلى افتراضات ونموذج وحل وتوصية مُدعمة، ولا تكتسب إجاباتها أهمية إلا إذا قاربت مرجعًا موثوقًا وكانت مجدية فيزيائيًا. ومع ذلك، فإن المعايير الحالية إما تُقيّم أجزاءً من الحلول أو تمنح درجات للتقارير."
   },
   {
-   "id": "2611.05376",
-   "title": "From Autonomous Agents to Cognitive Symbionts: Toward AI-Augmented Human Intelligence",
-   "abstract": "For a decade, progress in artificial intelligence has been measured by how much a machine can do on its own. Large foundation models now write code and run multistep tasks, and personal agents act on a person's behalf. Yet people still forget what they once knew, miss what they are not looking at, fail to find the right words, and face hard choices without the benefit of their own history, because the machine that could help stands outside the situation. As AI moves into the physical world, attention has settled on one kind of intelligent individual, the embodied robot; we argue that the era o",
+   "id": "2611.08376",
+   "title": "Muir: Linear Attention with Sensitivity-Allocated Gating and Matched-Filter Readout",
+   "abstract": "Linear attention compresses context into a fixed-size key-value state for linear-time training and constant-memory inference. Gated delta-rule models decay this state and erase its prediction for an incoming key before writing a new value; Gated DeltaNet-2 (GDN-2) generalizes this with channel-wise decay and decoupled, full-rank erase and write gates. However, we show that state updates are far less sensitive to erasure than to writes: key activation and unit normalization concentrate key energy onto a sparse subset of channels, whereas value writes scale all channels, so the erase gate can be",
    "authors": [
-    "Hao Fei"
+    "Tushaar Gangavarapu",
+    "Gil Tabak",
+    "Clemens JS Schaefer"
    ],
-   "link": "https://huggingface.co/papers/2611.05376",
+   "link": "https://huggingface.co/papers/2611.08376",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-03T18:59",
-   "title_ar": "من الوكلاء المستقلين إلى التكافل المعرفي: نحو ذكاء بشري معزز بالذكاء الاصطناعي",
-   "summary_ar": "طوال عقد من الزمان، قِيس التقدم في الذكاء الاصطناعي بمدى ما يمكن للآلة إنجازه بمفردها. فالنماذج التأسيسية الكبيرة تكتب البرمجيات حاليًا وتنفذ مهام متعددة الخطوات، ويعمل الوكلاء الشخصيون نيابة عن الإنسان، ورغم ذلك لا يزال البشر ينسون ما عرفوه سابقًا ويغفلون عما لا ينظرون إليه..."
+   "published": "2026-11-05T17:53",
+   "title_ar": "Muir: الانتباه الخطي مع بوابات مخصصة للحساسية وقراءة بمرشح مُطابق",
+   "summary_ar": "يضغط الانتباه الخطي السياق في حالة مفتاح-قيمة ثابتة الحجم لتدريب بزمن خطي واستدلال بذاكرة ثابتة. وتُضائل نماذج قاعدة دلتا ذات البوابات هذه الحالة وتمحو تنبؤها لمفتاح قادم قبل كتابة قيمة جديدة، ويُعمم Gated DeltaNet-2 ذلك عبر القنوات."
   }
  ],
  "n": 6
