@@ -13,8 +13,11 @@ const {
   validatePublicUrl,
 } = require('./_verify-media');
 const {
+  PROVIDER_LABEL,
   analyzeWithWorker,
   clearManifestCache,
+  publicModelVersion,
+  publicProvider,
 } = require('./_media-worker');
 
 const RAW_BASE = 'https://raw.githubusercontent.com/SoldiomAI/sanad-data/main/daily';
@@ -723,9 +726,11 @@ function publicMedia(details, forensics, note = '', mediaReason = null) {
     signals_for: Array.isArray(evidence.signals_for) ? evidence.signals_for : [],
     signals_against: Array.isArray(evidence.signals_against) ? evidence.signals_against : [],
     limitations: Array.isArray(evidence.limitations) ? evidence.limitations : [],
-    provider: evidence.provider || 'none',
+    // `publicMedia` هي المَخرجُ الوحيدُ لكلِّ مساراتِ التحليل — فالحجبُ هنا يشملُ
+    // المسارَ المستقبليَّ الذي لا يمرُّ على تطبيعِ ردِّ العامل.
+    provider: publicProvider(evidence.provider),
     provider_status: evidence.provider_status || 'not_run',
-    model_version: evidence.model_version || '',
+    model_version: publicModelVersion(evidence.model_version),
     worker_version: evidence.worker_version || '',
     ...(evidence.sampling ? { sampling: evidence.sampling } : {}),
     budget_scope: 'soft_per_instance',
@@ -835,14 +840,14 @@ function mergeGrok(base, grokParsed, usd) {
   const g = grokParsed || {};
   return {
     ...base,
-    tier: 'grok',
+    tier: 'paid',
     source: base.source,
     claim: noVendor(g.claim || base.claim),
     news: base.news,
     media: base.media,
     grade: base.grade,
     agent: 'الفاحِص',
-    cost_tier: 'grok',
+    cost_tier: 'text-model',
     _usd: usd,
   };
 }
@@ -1066,8 +1071,8 @@ function createHandler(deps = {}) {
           settleProviderBudget(reservation, evidence?.usd);
         }
         if (evidence.provider_status === 'completed') {
-          result.tier = 'gemini';
-          result.cost_tier = 'gemini';
+          result.tier = 'paid';
+          result.cost_tier = 'media-model';
         } else {
           result.cost_tier = 'blocked';
         }
@@ -1082,7 +1087,7 @@ function createHandler(deps = {}) {
                 ? 'skipped_oidc_unavailable'
                 : 'skipped_budget';
         evidence = baseForensics(mediaDetails, status);
-        evidence.provider = 'gemini';
+        evidence.provider = PROVIDER_LABEL;
         evidence.limitations.push(
           status === 'skipped_oidc_unavailable'
             ? 'The production Vercel OIDC token was unavailable, so authenticated worker analysis was not attempted.'
@@ -1106,8 +1111,8 @@ function createHandler(deps = {}) {
           settleProviderBudget(reservation, evidence?.usd);
         }
         if (evidence.provider_status === 'completed') {
-          result.tier = 'grok';
-          result.cost_tier = 'grok';
+          result.tier = 'paid';
+          result.cost_tier = 'media-model';
         }
       } else {
         const status = skippedStatus(reservation);
@@ -1132,7 +1137,7 @@ function createHandler(deps = {}) {
       } else {
         evidence.limitations.push('The media format is not supported by the configured worker.');
       }
-      evidence.provider = 'gemini';
+      evidence.provider = PROVIDER_LABEL;
       result.media = publicMedia(mediaDetails, evidence, result.media.note, page.mediaReason);
     }
 
@@ -1193,6 +1198,7 @@ module.exports._internals = {
   cacheGet,
   cacheSet,
   clearCache,
+  noVendor,
   fromFetchHeuristic,
   hasCapabilityPath,
   hasSensitiveQuery,

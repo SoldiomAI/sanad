@@ -81,7 +81,8 @@ test('worker call forwards only bounded media evidence and the incoming OIDC bea
     'scope',
   ]);
   assert.equal(JSON.stringify(captured).includes('http://'), false);
-  assert.equal(result.provider, 'gemini');
+  assert.equal(result.provider, 'media-worker');
+  assert.equal(result.model_version, 'ext-de40dabae318');
   assert.equal(result.provider_status, 'completed');
   assert.equal(result.verdict_label_en, 'No clear manipulation indicators detected');
   assert.equal(result.bytes_analyzed, input.buffer.length);
