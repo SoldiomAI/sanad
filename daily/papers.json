@@ -1,102 +1,105 @@
 {
- "updated": "2026-11-05T17:17+00:00",
+ "updated": "2026-11-06T10:27+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2611.04408",
-   "title": "Halley: A Predictive Control Plane for Optical AI Data Center Networks",
-   "abstract": "A frontier AI model is trained in an AI data center, on tens of thousands of accelerators joined by a dedicated network, and every training step ends with all of them exchanging data at once. Between racks, that network is optical, and each of its four layers, from lasers to switches, runs a fixed or after-the-fact policy. Lasers sharing an enclosure, cooling, and power can fail together. At a fixed spare ratio, correlated failure provably caps a pool's availability however large it grows. In this paper, we present a comprehensive predictive control plane framework, called Halley, that reads e",
+   "id": "2610.40119",
+   "title": "SynthFaces: Balanced Large Scale Human Dataset",
+   "abstract": "The pursuit of fair and equitable AI in human-centric tasks is critically hindered by the inherent biases and privacy risks of real-world datasets, which offer imbalanced representations of identity and often contain sensitive personal information. Consequently, state-of-the-art generative models trained on this skewed data exhibit unfair performance, particularly in identity-preserving generation. In this work we propose a pipeline for controllable generation of dataset with diverse faces for generative models training and finetuning. We achieve this by expanding foundational Arc2Face diffusi",
    "authors": [
-    "Manav Mishra",
-    "Krishna M. Sivalingam"
+    "Sergey Karpukhin",
+    "Denis Bobkov",
+    "Kirill Morozov",
+    "Aibek Alanov"
    ],
-   "link": "https://huggingface.co/papers/2611.04408",
+   "link": "https://huggingface.co/papers/2610.40119",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-03T06:45",
-   "title_ar": "هالي: مستوي تحكّم تنبؤي لشبكات مراكز بيانات الذكاء الاصطناعي الضوئية",
-   "summary_ar": "يُدرَّب نموذج ذكاء اصطناعي رائد في مركز بيانات على عشرات الآلاف من المسرّعات المترابطة بشبكة مخصصة، حيث تنتهي كل خطوة تدريب بتبادل البيانات بينها جميعًا في وقت واحد. تكون هذه الشبكة ضوئية بين الرفوف، وتعمل كل طبقة من طبقاتها الأربع، بدءًا من الليزر وحتى المفاتيح، وفق آلية ثابتة."
+   "published": "2026-10-29T00:00",
+   "title_ar": "وجوه اصطناعية: مجموعة بيانات بشرية متوازنة وواسعة النطاق",
+   "summary_ar": "يتعرقل السعي وراء ذكاء اصطناعي عادل ومنصف في المهام المتمحورة حول الإنسان بشكل حرج بسبب الانحيازات المتأصلة ومخاطر الخصوصية في مجموعات بيانات العالم الحقيقي، والتي تقدم تمثيلات غير متوازنة للهوية وغالبًا ما تحتوي على معلومات شخصية حساسة. ونتيجة لذلك، فإن أحدث النماذج التوليدية..."
   },
   {
-   "id": "2611.03394",
-   "title": "TaoMate-HD: Progressive-Resolution Autoregressive Audio-Video Generation",
-   "abstract": "Streaming digital humans produce detailed video while continuing speech as new text arrives. High-resolution denoising is costly, and text updates can cause repeated or interrupted speech. We present TaoMate-HD, an autoregressive model for high-resolution audio-video streaming. For each short segment, or chunk, two denoising steps establish coarse video structure at low resolution. A final step refines the video to high resolution, with audio generated throughout the same trajectory. Each stage passes its audiovisual predictions to the same stage of the next chunk as history. Across text updat",
+   "id": "2611.02075",
+   "title": "Decoupled Predictive Decision Making: A Shared Conditional Predictor for Agents",
+   "abstract": "Agent decisions depend on empirical relationships that deployment observations reveal and task descriptions alone may leave unresolved. We introduce Decoupled Predictive Decision Making (DPDM), an architecture that formulates heterogeneous agent decisions as conditional prediction with a shared pretrained learner. Language models provide semantic representations of current and historical records, while a general-purpose conditional predictor predicts task-defined targets from the represented evidence. Pretraining supplies reusable inference capability; deployment evidence instantiates problem-",
    "authors": [
-    "Qijun Gan",
-    "Chenwei Zhang",
-    "Xinyang Li",
-    "Meiguang Jin"
+    "Lang Mo",
+    "Xingxuan Zhang",
+    "Qi Wang",
+    "Mingchao Hao"
    ],
-   "link": "https://huggingface.co/papers/2611.03394",
+   "link": "https://huggingface.co/papers/2611.02075",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-02T00:00",
-   "title_ar": "تاوميت-إتش دي: توليد ذاتي الانحدار للصوت والفيديو بدقة تدريجية",
-   "summary_ar": "يُنتج البشر الرقميون المتدفقون فيديو مفصلًا مع استمرار الكلام بالتزامن مع وصول نصوص جديدة. ونظرًا لأن إزالة التشويش بدقة عالية مكلفة وقد تؤدي تحديثات النص إلى تكرار الكلام أو انقطاعه، نقدم \"تاوميت-إتش دي\" كنموذج ذاتي الانحدار للبث الصوتي والمرئي عالي الدقة."
+   "published": "2026-11-01T00:00",
+   "title_ar": "صنع القرار التنبؤي المفكك: متنبئ شرطي مشترك للوكلاء",
+   "summary_ar": "تعتمد قرارات الوكيل على علاقات تجريبية تكشفها ملاحظات النشر وقد تعجز توصيفات المهام وحدها عن حسمها. نقدم بنية صنع القرار التنبؤي المفكك (DPDM)، والتي تصيغ قرارات الوكلاء غير المتجانسين كتنبؤ شرطي باستخدام نموذج مُدرب مسبقًا ومشترك."
   },
   {
-   "id": "2611.03330",
-   "title": "The SIMPLE Law for Energy Cost of LLM Inference",
-   "abstract": "Generative AI is billed per token, yet tokens are not equally expensive. Each token enters the KV-cache and raises the cost of those that follow, so energy grows non-linearly along a sequence whose tokens look identical. No analytical model states what a token costs, and the most accurate SOTA model is a fit, not a law: it absorbs architecture into fitted coefficients, requiring per-LLM fitting. We derive closed-form expressions of the computational and memory-access complexity of LLM inference in terms of architectural hyperparameters, covering MHA and GQA, and compare a family of analytical ",
+   "id": "2611.08089",
+   "title": "SAE Interprets MoE: Sparse AutoEncoders Reveal That MoE Experts Exhibit Human-Interpretable Fine-Grained Specialization",
+   "abstract": "Mixture-of-Experts (MoE) models route each token to a few of many experts, yet what an individual expert is responsible for remains unsettled. Existing analyses count how often an expert is selected on domain-labeled corpora, an instrument that fixes the taxonomy in advance, stays coarse, and records selection rather than contribution. We instead study specialization in feature space by training a sparse autoencoder (SAE) on the output of an MoE layer. Since this output is a router-weighted sum of expert outputs and the SAE encoder is affine, the pre-activation of every latent decomposes exact",
    "authors": [
-    "Hiari Pizzini Cavagna",
-    "Andrea Proia",
-    "Daniele Cesarini",
-    "Zeynep Kiziltan"
+    "Anyuan Zhuo",
+    "Shaohua Zhang",
+    "Yuan Lin",
+    "Pinyan Lu"
    ],
-   "link": "https://huggingface.co/papers/2611.03330",
+   "link": "https://huggingface.co/papers/2611.08089",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-02T00:00",
-   "title_ar": "قانون سيمبل لتكلفة طاقة الاستدلال في النماذج اللغوية الكبيرة",
-   "summary_ar": "تُحسب تكلفة الذكاء الاصطناعي التوليدي بالرمز، غير أن الرموز لا تتساوى في تكلفتها؛ إذ يدخل كل رمز في ذاكرة التخزين المؤقت للمفتاح والقيمة ليرفع تكلفة ما يليه، مما يجعل استهلاك الطاقة ينمو بصورة غير خطية عبر تسلسل تبدو رموزه متطابقة. ولا يوجد نموذج تحليلي يحدد تكلفة الرمز، كما أن أدق النماذج المتطورة يفتقر لذلك."
+   "published": "2026-11-05T14:35",
+   "title_ar": "المشفرات التلقائية المتفرقة تفسر نماذج خليط الخبراء: المشفرات التلقائية المتفرقة تكشف أن خبراء خليط الخبراء يظهرون تخصصًا دقيقًا وقابلًا للتفسير البشري",
+   "summary_ar": "توجه نماذج خليط الخبراء كل رمز إلى عدد قليل من الخبراء، ومع ذلك يظل ما يختص به كل خبير غير محسوم. وتكتفي التحليلات الحالية بإحصاء وتيرة اختيار الخبير ضمن مجموعات نصوص مصنفة مجاليًا، وهي أداة تحدد التصنيف مسبقًا وتظل تقريبية وتسجل..."
   },
   {
-   "id": "2611.04949",
-   "title": "HERIT: Enabling Global Access to Hanja-to-English Historical Translation by Mitigating Temporal Bias",
-   "abstract": "Historical archives are invaluable for multidisciplinary research but remain inaccessible globally due to severe language barriers. While manual translation is prohibitively expensive and time-consuming, simply applying existing machine translation models is inadequate due to unique linguistic nuances and the temporal bias inherent in scarce human-labeled corpora. To address these challenges, we propose HERIT, a systematic domain-adaptation pipeline that leverages retrieval-augmented generation (RAG) to generate high-quality pseudo-labeled data from abundant Hanja-Korean corpora. This approach",
+   "id": "2611.02660",
+   "title": "HeLM: Hierarchical Explicit Language Memory for Non-Markovian Manipulation",
+   "abstract": "Recent advances in Vision-Language-Action (VLA) models have enabled fine manipulation capabilities, yet performing tasks that require working memory remains a key challenge. Most existing VLA architectures operate under a Markovian assumption, mapping only the current observation to an action, which leads to failure in non-Markovian environments. Inspired by the human 'inner monologue', we propose Hierarchical Explicit Language Memory (HeLM), a hierarchical VLA framework that maintains task-relevant history in explicit language through factorized event detection and event-triggered memory upda",
    "authors": [
-    "Dayeon Jeong",
-    "Kyeongpil Kang"
+    "Gyeonghun Kim",
+    "Donghoon Kim",
+    "Minsoo Choi",
+    "Suyun Lee"
    ],
-   "link": "https://huggingface.co/papers/2611.04949",
+   "link": "https://huggingface.co/papers/2611.02660",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-03T00:00",
-   "title_ar": "هيريت: تمكين الوصول العالمي للترجمة التاريخية من الهانجا إلى الإنجليزية عبر تخفيف الانحياز الزمني",
-   "summary_ar": "تُعدّ الأرشيفات التاريخية قيّمة للغاية للبحوث متعددة التخصصات، لكنها تظل غير متاحة عالميًا بسبب الحواجز اللغوية الشديدة. وفي حين أن الترجمة اليدوية باهظة التكلفة وتستغرق وقتًا طويلًا، فإن مجرد تطبيق نماذج الترجمة الآلية الحالية يُعد غير كافٍ نظرًا للفروق اللغوية الدقيقة والفريدة."
+   "published": "2026-11-02T07:20",
+   "title_ar": "هيلم (HeLM): ذاكرة لغوية صريحة هرمية للمناولة غير الماركوفية",
+   "summary_ar": "مكنت التطورات الأخيرة في نماذج الرؤية واللغة والعمل من قدرات مناولة دقيقة، إلا أن تنفيذ المهام التي تتطلب ذاكرة عاملة لا يزال يمثل تحديًا رئيسيًا. وتعمل معظم بنيات هذه النماذج الحالية وفق افتراض ماركوفي عبر ربط الملاحظة الحالية فقط بفعل ما، وهو ما..."
   },
   {
-   "id": "2610.36544",
-   "title": "Monitor Accuracy Isn't the Answer: A Decision-Value Framework for Evaluating AI Agent Restart Monitors",
-   "abstract": "Classification accuracy and true-positive and false-positive rates alone do not determine whether restarting an AI agent improves success. Using an exact alarm-to-action identity for an independent clean restart with zero monitoring overhead, we show analytically that a monitor with fixed 90% accuracy can swing from a five-percentage-point loss to a 35-point gain in success rate, depending solely on the replacement attempt's residual-budget success probability. We introduce two techniques for evaluating monitors and progress signals in decision terms. First, a decision-sufficiency criterion, a",
+   "id": "2611.06741",
+   "title": "TailSteer: Trajectory-Tail Steering for Drift-Resistant Multi-turn Image Editing",
+   "abstract": "Strong single-turn editing performance does not guarantee reliable multi-turn interaction: as edited outputs are repeatedly reused, small unintended changes can accumulate into severe visual drift. This long-term drift is often mitigated through training on multi-turn data or cross-turn rollouts, potentially altering pretrained priors, or through specialized inference-time mechanisms that are difficult to scale to foundation models. We introduce TailSteer, a final-stage training framework that improves multi-turn robustness while retaining the generative and editing capabilities acquired throu",
    "authors": [
-    "Siddharth Jain",
-    "Venkat N. Vedam"
+    "Ruikang Li",
+    "Zixuan Chen",
+    "Jiarui Wu",
+    "Mingde Yao"
    ],
-   "link": "https://huggingface.co/papers/2610.36544",
+   "link": "https://huggingface.co/papers/2611.06741",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-27T00:00",
-   "title_ar": "دقة المِرقاب ليست الحل: إطار عمل لقيمة القرار لتقييم مراقبِي إعادة تشغيل وكلاء الذكاء الاصطناعي",
-   "summary_ar": "لا تحدد دقة التصنيف ومعدلات الإيجابية الحقيقية والخاطئة وحدها ما إذا كانت إعادة تشغيل وكيل الذكاء الاصطناعي تحسّن النجاح. ونوضح تحليليًا، عبر استخدام تطابق دقيق بين الإنذار والإجراء لإعادة تشغيل نظيفة ومستقلة دون أعباء مراقبة، أن مِرقابًا بدقة ثابتة تبلغ 90% ليس هو المعيار الحاسم."
+   "published": "2026-11-04T00:00",
+   "title_ar": "تيل ستير (TailSteer): التوجيه في أواخر المسار لتحرير الصور متعدد الجولات والمقاوم للانحراف",
+   "summary_ar": "الأداء القوي في التحرير خلال جولة واحدة لا يضمن تفاعلًا موثوقًا متعدد الجولات، إذ يمكن أن تتراكم التغييرات الطفيفة غير المقصودة لتحدث انحرافًا بصريًا حادًا مع إعادة استخدام المخرجات المحررة مرارًا. وغالبًا ما يُخفف هذا الانحراف طويل المدى من خلال التدريب على بيانات متعددة الجولات أو التنفيذ عبر الجولات، مما..."
   },
   {
-   "id": "2611.03517",
-   "title": "Ask, Don't Equip: Question-Driven Coding Agents for Deep Kernel Optimization",
-   "abstract": "LLM agents for GPU kernel optimization sit at two ends of a structure-freedom tradeoff. Scripted agents fix what the model does at each step, via a learned policy, an optimization menu, or fixed roles, and are sample-efficient where the recipe applies and stall where it does not. Open-ended agents let a self-directed model mutate a population of kernels and pay for the freedom in trials: thousands of evaluations, repeated edits, and wrong candidates. Both respond to hard targets by equipping the agent with more: parsed profiler output, disassembly analysis, retrieval over documentation and lib",
+   "id": "2611.05376",
+   "title": "From Autonomous Agents to Cognitive Symbionts: Toward AI-Augmented Human Intelligence",
+   "abstract": "For a decade, progress in artificial intelligence has been measured by how much a machine can do on its own. Large foundation models now write code and run multistep tasks, and personal agents act on a person's behalf. Yet people still forget what they once knew, miss what they are not looking at, fail to find the right words, and face hard choices without the benefit of their own history, because the machine that could help stands outside the situation. As AI moves into the physical world, attention has settled on one kind of intelligent individual, the embodied robot; we argue that the era o",
    "authors": [
-    "Gabriele Oliaro",
-    "Jaeseong Lee",
-    "Zhaoyuan Su",
-    "Sreeram Vennam"
+    "Hao Fei"
    ],
-   "link": "https://huggingface.co/papers/2611.03517",
+   "link": "https://huggingface.co/papers/2611.05376",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-02T00:00",
-   "title_ar": "اسأل ولا تُجهّز: وكلاء برمجة مدفوعون بالأسئلة للتحسين العميق لنوى المعالجة",
-   "summary_ar": "يقف وكلاء النماذج اللغوية الكبيرة لتحسين نوى وحدات معالجة الرسومات عند طرفي موازنة بين الهيكلة والحرية؛ فالوكلاء المُبرمجون مسبقًا يحددون ما يفعله النموذج في كل خطوة عبر سياسة متعلَّمة أو قائمة تحسينات أو أدوار ثابتة، مما يجعلهم ذوي كفاءة في استهلاك العينات عند ملاءمة الوصفة وتوقفهم عند عدم ملاءمتها. أما الوكلاء غير المقيَّدين فينتهجون مسارًا مختلفًا."
+   "published": "2026-11-03T18:59",
+   "title_ar": "من الوكلاء المستقلين إلى التكافل المعرفي: نحو ذكاء بشري معزز بالذكاء الاصطناعي",
+   "summary_ar": "طوال عقد من الزمان، قِيس التقدم في الذكاء الاصطناعي بمدى ما يمكن للآلة إنجازه بمفردها. فالنماذج التأسيسية الكبيرة تكتب البرمجيات حاليًا وتنفذ مهام متعددة الخطوات، ويعمل الوكلاء الشخصيون نيابة عن الإنسان، ورغم ذلك لا يزال البشر ينسون ما عرفوه سابقًا ويغفلون عما لا ينظرون إليه..."
   }
  ],
  "n": 6
