@@ -1,7 +1,24 @@
 {
- "updated": "2026-11-06T23:26+00:00",
+ "updated": "2026-11-07T16:46+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
+  {
+   "id": "2611.06500",
+   "title": "Tools Need Not Speak in Text: Latent Context Compression for Agents",
+   "abstract": "Large language model (LLM) agents typically append raw tool outputs to their context. Over multi-step interactions, long and noisy observations incur substantial context overhead and dilute the agent's attention to task-relevant information. Existing token pruning and summarization methods remain constrained by discrete text representations, limiting the achievable compression ratios. In this work, we challenge the prevailing assumption that agents must consume tool observations as explicit text tokens. To this end, we propose Coca-Cola, a continuous latent context compression model for LLM ag",
+   "authors": [
+    "Yuetong Liu",
+    "Zhehao Zhou",
+    "Yitong Zhang",
+    "Haorui Chen"
+   ],
+   "link": "https://huggingface.co/papers/2611.06500",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-04T00:00",
+   "title_ar": "لا حاجة لأن تتحدث الأدوات بالنص: ضغط السياق الكامن للوكلاء",
+   "summary_ar": "يُلحق وكلاء النماذج اللغوية الكبيرة عادةً مخرجات الأدوات الخام بسياقهم، مما يفرض عبئًا كبيرًا على السياق ويُشتت انتباه الوكيل عن المعلومات ذات الصلة بالمهمة عبر التفاعلات متعددة الخطوات. وتظل الطرق الحالية لتقليم الرموز والتلخيص محصورة."
+  },
   {
    "id": "2611.06498",
    "title": "Signed but Steerable: Measuring and Closing the Text-Vector Integrity Gap in Offline Retrieval-Augmented Generation",
@@ -14,8 +31,8 @@
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-04T13:32",
-   "title_ar": "موقَّع ولكنه قابل للتوجيه: قياس وسد فجوة تكامل النص والمُتجه في التوليد المُعزز بالاسترجاع دون اتصال بالإنترنت",
-   "summary_ar": "يُحدَّث التوليد المُعزز بالاسترجاع دون اتصال بالإنترنت على الأجهزة الطرفية عبر حزم معرفية موقَّعة تحمل نصوصًا ومُتجهات تضمين محسوبة مسبقًا. يُثبت التوقيع ناشر الحزمة، لكنه لا يُثبت أن مُتجهاتها تُشفِّر نصوصها، وتدرس هذه الورقة فجوة تكامل النص والمُتجه."
+   "title_ar": "موقَّع ولكن قابل للتوجيه: قياس فجوة تكامل النص والمتجه وسدها في توليد الاسترجاع المعزز دون اتصال بالإنترنت",
+   "summary_ar": "يُحدَّث توليد الاسترجاع المعزز دون اتصال بالإنترنت على الأجهزة الطرفية عبر حزم معرفية موقعة تحوي نصوصًا ومتجهات تضمين مسبقة الحساب، حيث يُثبت التوقيع ناشر الحزمة لا ترميز المتجهات لنصها. وتبحث هذه الدراسة فجوة تكامل النص والمتجه، وتتناول أداة تحقق تعيد الحساب."
   },
   {
    "id": "2611.04386",
@@ -31,8 +48,8 @@
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-03T00:00",
-   "title_ar": "StepX-OPD: إعادة التفكير في التقطير وفق السياسة المتبعة متعدد المعلمين في نماذج الانتشار",
-   "summary_ar": "يجب أن يمتلك نموذج الانتشار القابل للنشر لتحويل النص إلى صورة قدرات متعددة معًا، مثل اتباع التعليمات وتصيير النصوص وملاءمة التفضيلات البشرية، مع أخذ العينات في خطوات معدودة. تُبنى القدرات وأخذ العينات بخطوات معدودة في مراحل منفصلة، حيث يدمج نموذج كامل الخطوات القدراتِ أولًا."
+   "title_ar": "StepX-OPD: إعادة التفكير في التقطير وفق السياسة متعدد المعلمين في نماذج الانتشار",
+   "summary_ar": "يجب أن يمتلك نموذج الانتشار القابل للنشر لتحويل النص إلى صورة قدرات متعددة معًا؛ مثل اتباع التعليمات وتجسيد النص والتفضيل البشري، وأن يأخذ العينات في خطوات معدودة. وتُبنى هذه القدرات وأخذ العينات في خطوات معدودة على مراحل منفصلة، حيث يدمج نموذج كامل الخطوات القدرات أولًا."
   },
   {
    "id": "2611.08483",
@@ -46,8 +63,8 @@
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-05T00:00",
-   "title_ar": "SwarmEvolve: أسراب وكلاء كامنة للاكتشاف والتطوير التطوري",
-   "summary_ar": "يستخدم البحث التطوري الموجَّه بالنماذج اللغوية الكبيرة وكلاء الذكاء الاصطناعي لتحسين البرمجيات للمسائل الرياضية والحسابية عبر تنقيح الحلول تكراريًا ودمج الطرق عالية النقاط. ومع ذلك، غالبًا ما تكون هذه العملية بطيئة لأن النموذج اللغوي يولد سلسلة أفكار نصية طويلة لكل جولة ويجب عليه التكرار."
+   "title_ar": "SwarmEvolve: أسراب الوكلاء الكامنة للاكتشاف والتطوير التطوري",
+   "summary_ar": "يستخدم البحث التطوري الموجه بالنماذج اللغوية الكبيرة وكلاء الذكاء الاصطناعي لتحسين برامج المسائل الرياضية والحاسوبية عبر تحسين الحلول تكراريًا والجمع بين الأساليب عالية الدرجات. ومع ذلك، غالبًا ما تكون العملية بطيئة لأن النموذج ينشئ سلسلة تفكير نصية طويلة لكل جولة ويضطر إلى التكرار."
   },
   {
    "id": "2610.37739",
@@ -62,8 +79,8 @@
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-10-27T00:00",
-   "title_ar": "OpenFrontiers: مجموعة من المسائل البحثية المفتوحة ومعيار لإعادة الاكتشاف العلمي",
-   "summary_ar": "أظهرت النماذج اللغوية الكبيرة إمكانات واعدة متزايدة في حل المسائل على المستوى البحثي، ولكن لا تزال هناك حاجة لمجموعة شاملة من هذه المسائل، ويظل تقييمها عليها أمرًا صعبًا. نُقدِّم OpenFrontiers، وهو مورد عابر للتخصصات يجمع بين هذه الجوانب."
+   "title_ar": "OpenFrontiers: مجموعة من المشكلات البحثية المفتوحة ومعيار لإعادة الاكتشاف العلمي",
+   "summary_ar": "أظهرت النماذج اللغوية الكبيرة إمكانات متزايدة في حل المشكلات على المستوى البحثي، ومع ذلك لا تزال هناك حاجة إلى مجموعة شاملة من هذه المشكلات، كما يظل تقييمها عليها أمرًا صعبًا. ولذلك نقدم OpenFrontiers، وهو مورد متعدد التخصصات يجمع بين هذه الجوانب."
   },
   {
    "id": "2611.08237",
@@ -79,24 +96,8 @@
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-05T16:18",
-   "title_ar": "معيار النمذجة الرياضية بأسلوب الطرفية: أول معيار قائم على الوكلاء وقابل للتحقق للنمذجة الرياضية",
-   "summary_ar": "تُحوِّل النمذجة الرياضية مشكلة واقعية مفتوحة النهاية إلى افتراضات ونموذج وحل وتوصية مُدعمة، ولا تكتسب إجاباتها أهمية إلا إذا قاربت مرجعًا موثوقًا وكانت مجدية فيزيائيًا. ومع ذلك، فإن المعايير الحالية إما تُقيّم أجزاءً من الحلول أو تمنح درجات للتقارير."
-  },
-  {
-   "id": "2611.08376",
-   "title": "Muir: Linear Attention with Sensitivity-Allocated Gating and Matched-Filter Readout",
-   "abstract": "Linear attention compresses context into a fixed-size key-value state for linear-time training and constant-memory inference. Gated delta-rule models decay this state and erase its prediction for an incoming key before writing a new value; Gated DeltaNet-2 (GDN-2) generalizes this with channel-wise decay and decoupled, full-rank erase and write gates. However, we show that state updates are far less sensitive to erasure than to writes: key activation and unit normalization concentrate key energy onto a sparse subset of channels, whereas value writes scale all channels, so the erase gate can be",
-   "authors": [
-    "Tushaar Gangavarapu",
-    "Gil Tabak",
-    "Clemens JS Schaefer"
-   ],
-   "link": "https://huggingface.co/papers/2611.08376",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-05T17:53",
-   "title_ar": "Muir: الانتباه الخطي مع بوابات مخصصة للحساسية وقراءة بمرشح مُطابق",
-   "summary_ar": "يضغط الانتباه الخطي السياق في حالة مفتاح-قيمة ثابتة الحجم لتدريب بزمن خطي واستدلال بذاكرة ثابتة. وتُضائل نماذج قاعدة دلتا ذات البوابات هذه الحالة وتمحو تنبؤها لمفتاح قادم قبل كتابة قيمة جديدة، ويُعمم Gated DeltaNet-2 ذلك عبر القنوات."
+   "title_ar": "منصة اختبار النمذجة الرياضية بأسلوب الطرفية: أول معيار وكيلي وقابل للتحقق للنمذجة الرياضية",
+   "summary_ar": "تُحوّل النمذجة الرياضية المشكلة الواقعية المفتوحة إلى افتراضات ونموذج وحل وتوصية مُدعمة، ولا تكتسب إجاباتها أهمية إلا إذا قاربت مرجعًا موثوقًا وكانت مجدية فيزيائيًا. وتقتصر المعايير الحالية إما على تقييم أجزاء من أدوات الحل أو تقييم التقارير."
   }
  ],
  "n": 6
