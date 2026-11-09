@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-09T10:06+00:00",
+ "updated": "2026-11-09T10:56+00:00",
  "note": "رصدُ كلماتٍ وهاشتاقاتٍ للمؤسسات — حصيلة سَنَد المُسنَدة + إشارات أخبار مفتوحة منسوبة. ليس حكمًا استخباراتيًّا رسميًّا.",
  "note_en": "Enterprise keyword/hashtag watch — graded Sanad corpus + attributable open news signals. Not an official intelligence assessment.",
  "channels": [
@@ -9,7 +9,7 @@
  "reach_note": "Deep social (X/Twitter, Reddit sessions) is org-operated; see Agent-Reach for session-based reach: https://github.com/Panniantong/Agent-Reach",
  "seeds": 15,
  "active": 15,
- "total_hits": 166,
+ "total_hits": 167,
  "watches": [
   {
    "term": "#إيران",
@@ -19,18 +19,27 @@
    "heat": 100,
    "n_sanad": 8,
    "n_open": 8,
-   "sahih": 1,
-   "hasan": 7,
-   "summary": "«#إيران»: 8 خبرًا مُسنَدًا من سَنَد (1 صحيح · 7 حسن) و8 إشارة مفتوحة من الأخبار.",
-   "summary_en": "“#Iran”: 8 graded Sanad hits (1 verified · 7 credible) and 8 open news signals.",
+   "sahih": 0,
+   "hasan": 8,
+   "summary": "«#إيران»: 8 خبرًا مُسنَدًا من سَنَد (0 صحيح · 8 حسن) و8 إشارة مفتوحة من الأخبار.",
+   "summary_en": "“#Iran”: 8 graded Sanad hits (0 verified · 8 credible) and 8 open news signals.",
    "hits": [
     {
-     "head": "حصري-أمريكا تسعى لتقييد تجارة إيران البرية بقوة مهام",
-     "he": "",
-     "grade": "صحيح",
-     "src": "Reuters",
-     "link": "https://www.reuters.com/ar/world/W6FV7J4W7JOVVPFALK2F3ERRMM-2026-11-07/",
-     "at": "2026-11-07T22:36+00:00",
+     "head": "ترامب: إيران تنفي تضرر بنيتها التحتية إثر هجوم أمريكي وروبيو يقول إن المفاوضات لم تحرز سوى ‌\"تقدم ⁠ضئيل\"",
+     "he": "Trump Says Iran Denies US Strike Damage as Rubio Reports 'Little Progress' in Talks",
+     "grade": "حسن",
+     "src": "BBC",
+     "link": "https://www.bbc.com/arabic/articles/cw98z810nv68o",
+     "at": "2026-11-09T10:38+00:00",
+     "channel": "sanad"
+    },
+    {
+     "head": "اندلاع حريق في ثاني أكبر مصفاة نفط في روسيا إثر هجوم بمسيرة أوكرانية",
+     "he": "Fire Breaks Out at Russia's Second-Largest Oil Refinery After Ukrainian Drone Strike",
+     "grade": "حسن",
+     "src": "إيران إنترناشونال",
+     "link": "https://www.iranintl.com/202611091889",
+     "at": "2026-11-09T10:04+00:00",
      "channel": "sanad"
     },
     {
@@ -70,6 +79,15 @@
      "channel": "sanad"
     },
     {
+     "head": "انطلاق قمة الأمم المتحدة للمناخ وسط تحذير من عدم كفاية سرعة مواجهة الاحتباس الحراري",
+     "he": "UN Climate Summit Opens Amid Warnings of Insufficient Action on Global Warming",
+     "grade": "حسن",
+     "src": "إيران إنترناشونال",
+     "link": "https://www.iranintl.com/2026110936240",
+     "at": "2026-11-09T09:19+00:00",
+     "channel": "sanad"
+    },
+    {
      "head": "إيران تجدد تمسكها بـ\"خطة اليومين\" لفتح مضيق هرمز بعد تلبية مطالبها",
      "he": "",
      "grade": "حسن",
@@ -79,39 +97,12 @@
      "channel": "sanad"
     },
     {
-     "head": "بيع قميص كوبي براينت مقابل 1.8 مليون دولار",
-     "he": "Kobe Bryant Jersey Sells for $1.8 Million at Auction",
-     "grade": "حسن",
-     "src": "إيران إنترناشونال",
-     "link": "https://www.iranintl.com/202611092630",
-     "at": "2026-11-09T09:03+00:00",
-     "channel": "sanad"
-    },
-    {
-     "head": "ترامب: إيران تنفي تضرر بنيتها التحتية إثر هجوم أمريكي وروبيو يقول إن المفاوضات لم تحرز سوى ‌\"تقدماً ⁠ضئيلاً\"",
-     "he": "Trump: Iran Denies Strike Damage as Rubio Cites 'Little Progress' in Talks",
-     "grade": "حسن",
-     "src": "BBC",
-     "link": "https://www.bbc.com/arabic/articles/cw98z810nv68o",
-     "at": "2026-11-09T08:48+00:00",
-     "channel": "sanad"
-    },
-    {
      "head": "إيران تعرض إعادة فتح «هرمز»... وأميركا تقصف جزيرة قشم (تغطية حية) - الشرق الأوسط",
      "he": "",
      "grade": "",
      "src": "الشرق الأوسط",
      "link": "https://news.google.com/rss/articles/CBMitgRBVV95cUxNM3lVelJ4akZjWEhIdnRlVU5hSkdpWmp3UW5tdXBicWpvUTF2ekVSaHk1RXl4XzNqR0Zsak84UmNTUzlYNjJyZkxPejVaZmhQTjRlUGlrbmVzRktfX0hqYmViS29tTUxXVGdMbEEtQk95STZlaFJnU3BPYlRpQzU2WFUySGk3MGNOWGpvUUlqSTV4SE56SnFpZjh4ajhFbld1MjJ4OURFdWVQRTJhMm1tZTJvVUVoRkFIYmdnUWNSV2ppNFdJTHNQRVRoQmYxUXJ1akZBQ1owaXN4alFqV3lUekFNWURRSVhlNGRKSVpQN3pRZHg1SUlXSDZyaXpKcUFab0N4Tm5FZzFpOE5KQzZ3ZVgtN0JDa3l3dVAwZEN2VUVrRjA2elZ0Mk5ydHljNjUzZnJNcjFCTXNuN0VGOG40aGdkaTY1VGQ1VWJPeXkxRS11cHZlYmh0cHYyNWtLX3JVVWdGMHZyQWJ3bGg5NUxmT1lRdkNJOUJ3eWppd0xNOWJtVWdBZVVERENnbXlRRGR6MFZ3Wk5mWFpndTBwYTlUZEt5QjlXVV9xWDhrNDBGOHMzODlMRGRyeGdDYkV1Y3dxWmJHdzhWV2t2NUV1ODlyTFRxTlk0ZmU1ZHFRWk1jZjc3VXlGTXdvR1VLTkxkUEtEOGpYWGNiSE05eENVdkpnSnhSN2VZVFkzV21iTGJSQ0FOZk1jWFpXblJQZmlSbDd5a2hzQmtOd184T1pfNFNnRlRiZUN4dw?oc=5",
      "at": "Sun, 01 Nov 2026 05:00:55 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "هل تنجح أميركا في استقطاب خبراء من داخل برنامج إيران النووي؟ - سكاي نيوز عربية",
-     "he": "",
-     "grade": "",
-     "src": "سكاي نيوز عربية",
-     "link": "https://news.google.com/rss/articles/CBMixwNBVV95cUxOWTZaYUY5UTF6ckoxZWl1N3dSdVd3VTJCY3A5OEZ4eGI4WTJtUUdMZzV5V3laYTlLZ1RtS0pKZk1CcVlqNlhjLXV4MElnWWNkVFdmNnBDRnJyZ1RsSGZNWEtjYXUzdUxRXy1TdVZkSjV4eUJXcHo2RmVyc0tWUFJNblJScTVqVDhJVlpTTGJzelUzdTdNempxT0xSLW1sM2M3ZFp5N1Q3NnZMWThRT3RJbldCbmUwN1VnYTNoUXh6RW40TmVJbFBkbGlFVThxNEllNXlRWEh5ZDJSUlFhYVBjQnFvby1nMTFZV2Nxd0hsMDVVTW52b0RwQVM3d29PVjczT2xObXhPMGlaOUxqUVFmaEQwV1pzc0J6bk1LZXBiSTlQb0lUZ0p1YmFCZE5lVlhQNWs1bTJEM3l2X2NuZ2RvZk1iTlk5WF9JOUtzV1o5RHotc3NXZnZiTWxrSGh5SXFGVGhrMnhPa2lRbWFwNjhJVk0xZ2c3V3E3Ny1IcUw1aXo1clo4cFV3U1hQcHRFNDZ4QzNSbWdaTDlmeEFsMmloUk1HdFdmYUx2VGJVc1hESW5MTjBkU3pSWjdXaS1iRjlmSG9EWkFZSQ?oc=5",
-     "at": "Mon, 09 Nov 2026 09:11:10 GMT",
      "channel": "gnews"
     },
     {
@@ -142,12 +133,12 @@
      "channel": "gnews"
     },
     {
-     "head": "إيران.. طهران تتمسك بمقترحها لإطلاق المفاوضات وترمب يتوقع اتفاقا - الجزيرة نت",
+     "head": "ترامب: إيران تنفي تضرر بنيتها التحتية إثر هجوم أمريكي وروبيو يقول إن المفاوضات لم تحرز سوى ‌\"تقدم ⁠ضئيل\" - BBC",
      "he": "",
      "grade": "",
-     "src": "الجزيرة نت",
-     "link": "https://news.google.com/rss/articles/CBMi5wJBVV95cUxOWXZvTjFxWnU5VUJzNnhJdXdXaFF5ZlRReG5QQVhqUDMtQlBCQzBKNEMydVpEYTJZUF9OWjhMY0VWWGtqYWZNeFhEWWFIMk81SDE3SF9vSjZRTDEzQW1zTkRJdzhaeEJvWU1VNW9xNlFPRGU2UVRaTG5vWXZwNy01NHowYXBRajB6WHdfM0FoTV9rWWNPaGd1dkFVZjZxY2Z1NHZad1NqeGRsZWNseXktam4wa0tuZXJQSTJERE9KQXdnVmhGUmZiVlBmUmgwb1JycWJ5a2NuY1lFMEduSWVnb1RPR202Qk04SGZlbHZiYm9yQWR6ME9PUEhaR190VkFLeVNQMC14a1BJU0lVdGhnV0hkNWpmUUZ6bnZxSTdoeHVTeW9rVTR6SmNwa2E5eWRiaHBiTHNaNlJOUnBZVUZ0bzlrVW5OY010bWxWN3VKa2Vadk0yNVhOMEpuQmJ0ZzBJaDZQN3g2dw?oc=5",
-     "at": "Mon, 09 Nov 2026 09:31:57 GMT",
+     "src": "BBC",
+     "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1obm5RaW5xQUZ1bnhxQUtxOFNvRk01WENaSnY4ZDd5dnFvWXgtSG1tTmx6UmZoWXBHVVVaaUlIMnEtRTNpNjY0S2Z1OGZDOXJaMDdnSFA4MXZUUXFVRWfSAWNBVV95cUxOQTF6WGxFb0Q2dExDTC1taEYzeDA3U2FZVUhpalV0bjdxWnVKS3hhNFVSOERhcTJLdGhEVk5MTGJ4d256U0UzV2FGZzc3ZlNsQmN6RmE2c3hZdmFQdnQ3ZWFWMU0?oc=5",
+     "at": "Mon, 09 Nov 2026 10:38:41 GMT",
      "channel": "gnews"
     },
     {
@@ -167,6 +158,15 @@
      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9TaGhESXhmNFFjbE10RmdrRGxxcG5Hc3dZMFk3bFctVXFkelR3aDhjRDFSR2pCQ002dlg1NFFTUl9pZk9IUUtQUHByTFZ4QWZHSHZNamln?oc=5",
      "at": "Mon, 09 Nov 2026 07:26:33 GMT",
      "channel": "gnews"
+    },
+    {
+     "head": "\"البوابة الحديدية\".. جبهة أميركية جديدة في حصار إيران - الحرة",
+     "he": "",
+     "grade": "",
+     "src": "الحرة",
+     "link": "https://news.google.com/rss/articles/CBMiPkFVX3lxTE1LY1hZa1hRU1RUOVhNWTNVNlJGWHlfSV8xYWg5ejhIVHVUaFZwS1lEYUZtSjAwT3pVM3BRdXdn?oc=5",
+     "at": "Mon, 09 Nov 2026 05:46:00 GMT",
+     "channel": "gnews"
     }
    ]
   },
@@ -184,8 +184,17 @@
    "summary_en": "“#Saudi”: 8 graded Sanad hits (0 verified · 8 credible) and 8 open news signals.",
    "hits": [
     {
+     "head": "مناولة الحاويات في الموانئ السعودية ترتفع 14 %... و«جدة الإسلامي» يسجل رقماً قياسياً",
+     "he": "",
+     "grade": "حسن",
+     "src": "الشرق الأوسط",
+     "link": "https://aawsat.com/node/5339230",
+     "at": "2026-11-09T10:45+00:00",
+     "channel": "sanad"
+    },
+    {
      "head": "ثقة الأعمال في السعودية تحافظ على مستوى التفاؤل عند 55.5 نقطة خلال أكتوبر",
-     "he": "Saudi Business Confidence Holds at Optimistic 55.5 Points in October",
+     "he": "Saudi Business Confidence Remains Optimistic at 55.5 Points in October",
      "grade": "حسن",
      "src": "العربية",
      "link": "https://www.alarabiya.net/aswaq/saudi-economy/2026/11/09/%D8%AB%D9%82%D8%A9-%D8%A7%D9%84%D8%A7%D8%B9%D9%85%D8%A7%D9%84-%D9%81%D9%8A-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%AA%D8%AD%D8%A7%D9%81%D8%B8-%D8%B9%D9%84%D9%89-%D9%85%D8%B3%D8%AA%D9%88%D9%89-%D8%A7%D9%84%D8%AA%D9%81%D8%A7%D8%A4%D9%84-%D8%B9%D9%86%D8%AF-555-%D9%86%D9%82%D8%B7%D8%A9-%D8%AE%D9%84%D8%A7%D9%84-%D8%A7%D9%83%D8%AA%D9%88%D8%A8%D8%B1",
@@ -203,7 +212,7 @@
     },
     {
      "head": "ارتفاع إيرادات شركات الاتصالات السعودية 3.8% بالربع الثالث إلى 7.4 مليار دولار",
-     "he": "Saudi Telecom Firms' Q3 Revenue Rises 3.8% to $7.4 Billion",
+     "he": "Saudi Telecom Revenues Rise 3.8% to $7.4 Billion in Q3",
      "grade": "حسن",
      "src": "العربية",
      "link": "https://www.alarabiya.net/aswaq/special-stories/2026/11/09/%D8%A7%D8%B1%D8%AA%D9%81%D8%A7%D8%B9-%D8%A7%D9%8A%D8%B1%D8%A7%D8%AF%D8%A7%D8%AA-%D8%B4%D8%B1%D9%83%D8%A7%D8%AA-%D8%A7%D9%84%D8%A7%D8%AA%D8%B5%D8%A7%D9%84%D8%A7%D8%AA-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-38-%D8%A8%D8%A7%D9%84%D8%B1%D8%A8%D8%B9-%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB-%D8%A7%D9%84%D9%89-74-%D9%85%D9%84%D9%8A%D8%A7%D8%B1-%D8%AF%D9%88%D9%84%D8%A7%D8%B1",
@@ -212,7 +221,7 @@
     },
     {
      "head": "الأجانب يسجلون صافي شراء في الأسهم السعودية بأكثر من 59 مليون دولار خلال أسبوع",
-     "he": "Foreign Investors Post Over $59 Million in Saudi Equity Net Inflows in a Week",
+     "he": "Foreign Investors Post Over $59M in Net Purchases of Saudi Stocks in a Week",
      "grade": "حسن",
      "src": "العربية",
      "link": "https://www.alarabiya.net/aswaq/special-stories/2026/11/09/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D9%86%D8%A8-%D9%8A%D8%B3%D8%AC%D9%84%D9%88%D9%86-%D8%B5%D8%A7%D9%81%D9%8A-%D8%B4%D8%B1%D8%A7%D8%A1-%D9%81%D9%8A-%D8%A7%D9%84%D8%A7%D8%B3%D9%87%D9%85-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%A8%D8%A7%D9%83%D8%AB%D8%B1-%D9%85%D9%86-59-%D9%85%D9%84%D9%8A%D9%88%D9%86-%D8%AF%D9%88%D9%84%D8%A7%D8%B1-%D8%AE%D9%84%D8%A7%D9%84-%D8%A7%D8%B3%D8%A8%D9%88%D8%B9",
@@ -229,30 +238,21 @@
      "channel": "sanad"
     },
     {
+     "head": "كيف يرى معارضو السعودية حرب الرياض مع الحوثيين؟",
+     "he": "How Saudi Opponents View Riyadh's War with the Houthis",
+     "grade": "حسن",
+     "src": "بي بي سي فارسي",
+     "link": "https://www.bbc.com/persian/articles/cw80z9kxnk7jo?at_medium=RSS&at_campaign=rss",
+     "at": "2026-11-08T21:53+00:00",
+     "channel": "sanad"
+    },
+    {
      "head": "السعودية تعزي مصر وأسر المتوفين في حادث قطار العياط",
      "he": "Saudi Arabia Extends Condolences to Egypt and Victims' Families After Al-Ayyat Train Crash",
      "grade": "حسن",
      "src": "الشرق الأوسط",
      "link": "https://aawsat.com/%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A/%D8%A7%D9%84%D8%AE%D9%84%D9%8A%D8%AC/5339013-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%AA%D8%B9%D8%B2%D9%8A-%D9%85%D8%B5%D8%B1-%D9%88%D8%A3%D8%B3%D8%B1-%D8%A7%D9%84%D9%85%D8%AA%D9%88%D9%81%D9%8A%D9%86-%D9%81%D9%8A-%D8%AD%D8%A7%D8%AF%D8%AB-%D9%82%D8%B7%D8%A7%D8%B1-%D8%A7%D9%84%D8%B9%D9%8A%D8%A7%D8%B7",
      "at": "2026-11-08T21:23+00:00",
-     "channel": "sanad"
-    },
-    {
-     "head": "\"أنصار الله\" تتبنى استهداف مركز الملك عبدالله المالي في الرياض، والسعودية تعلن \"محاولة استهداف\" مبنى لشركة أرامكو",
-     "he": "Ansar Allah Claims Strike on King Abdullah Financial District in Riyadh; Saudi Arabia Reports 'Attempted Attack' on Aramco Site",
-     "grade": "حسن",
-     "src": "BBC",
-     "link": "https://www.bbc.com/arabic/articles/c6kg5ryrzp17o",
-     "at": "2026-11-08T14:31+00:00",
-     "channel": "sanad"
-    },
-    {
-     "head": "قطر تدين هجمات الحوثيين على السعودية وتؤكد تضامنها مع الرياض",
-     "he": "Qatar Condemns Houthi Attacks on Saudi Arabia, Affirms Solidarity with Riyadh",
-     "grade": "حسن",
-     "src": "الجزيرة نت",
-     "link": "https://www.aljazeera.net/news/2026/11/8/%D8%B9%D8%A7%D8%AC%D9%84-%D8%A7%D9%84%D8%AE%D8%A7%D8%B1%D8%AC%D9%8A%D8%A9-%D8%A7%D9%84%D9%82%D8%B7%D8%B1%D9%8A%D8%A9-%D9%86%D8%AF%D9%8A%D9%86-%D8%A8%D8%B4%D8%AF%D8%A9",
-     "at": "2026-11-08T13:15+00:00",
      "channel": "sanad"
     },
     {
@@ -265,30 +265,30 @@
      "channel": "gnews"
     },
     {
-     "head": "ثقة الأعمال في السعودية تحافظ على مستوى التفاؤل عند 55.5 نقطة خلال أكتوبر - العربية",
-     "he": "",
-     "grade": "",
-     "src": "العربية",
-     "link": "https://news.google.com/rss/articles/CBMixARBVV95cUxOYnNGMWZkZnRWaVk3MjREWEQxZ3dQRTkyOWw2UmZXTEFDOW95WXVaQUFSZWpCZnFGUVRNTTNaUXVEcmw5TDlPOWpBOWhBa00zVS1RTGk0UjQ2bHdiUExoYy1TaFhTSmEzcTd5ZWo5RVZuTDhYLVNMRkNnNkJwU0NJUDltdGVkeW1Vc0dYVnc0dUxNQlJjd2JycE9fV1BLSkRYbEwzc2VyeDQ5U1dxY2xUTjN1Nl9mTS0xeE9mX3AyT0hBYlJSaGd2VGVNUGNSckFxZU9PUENGYS1FM1ZsR3hZSk94dENIODJUd0xQSVBZeG55azJ5anpLZnpsWTNNZ2JqNmNiRlJQdnZWQ2R2Nk4zeHlqVW5ZSjl5ZU1MS0xtSWh2WHVNZFNlVzB3M0xBa3R3TThPUzlieFAtV3lWTGFvYThMOHlyaFh5aVFOUVdYeGlxaGttMlloTzZoeWdtSFJxekNYUWFYclJPYUdSaWo0X3hZNkc1LTVDa0lWS3ByOEtxVjdYYVo0YU9laDlDcWIxSXhUZEQxRWRpWDVzMHpjUHkwN0x6X19fYnc2dFB1WXpyaHluMHVzR1RuMXZINzA1bGcza2dYVXB6b05rVWxFc0ZZcDVVWW52WF9aOXNnbW1kVnZlU3VjTmVyRnVveW55eE9SOHpEOXBoamFtQ0ZEbmhKTDZZcUdLTUVnM2hzX3EtU2FJSlh1Yy1HcmdrLWZvcEloamEwVzU1TzROcHA0M01BMl84OWx0NEV3QjdfVXlaVkdy0gHKBEFVX3lxTFBSa2pfbUs1czZweHZ5bUwzSldCMk5veWVYMW9CRUhqMlZXZXRMakFQNzd3NG9CLVU5QTZjY1hBT0JzTS1sajdBUEt0SUMzQUpjaGg3eXN0NXNxcGZEWC1OajR3MVdxd3Z1NHNvS1owTlFGT1dKaEg4VFRJaTBTd0M4aFJiSXdpUlJCaDRuemxXSFdOaHNZRXV4emNRbHAwdWJQQmNoV0Q5dlEwSm96bWtxY2tiWlZKYVhxd3huRF9LR1phYmdyY0JaYnBxQzh1U1FxWmhmRnBPRG1laDRKeWJiSENTOW9PelFTMFVZRkhxdEZMVFhZSUx5MS1zcnI3ODE1YWQtbDdSY20xRm5FcWRmSHZOc21LRDU3Qkwya25jUWRndno5T1E0OTM4WHR0XzFMNkVpNnBsN1pRMGd3THdsdVEtbUpfRDI5a0dJVVJ2UVJrN1BtdmRuWEgwUXFIQVpvM2JrYmhGbFZpMHhyYUdvODcwMTdBTFRXeE9rX3ltZEdUM19faUsycGFQdXl1Y3ZUUDFjOWo4Z2tnVTVQbWltOHQ0Xy01Y0dwRGZsSE83RlU3Vk5ZUjZhQXBSV1pkd1BYanB1QTB1UDZraE5ndk1sVU9jVDJWRnByNmUtS09abjY1Uk4xcTN2Z1FkQzlwUXYtZTZkQ3l4YUxsd0ZhSjNVaTJHUjRhUWQwSER5MElLWDNRSEozYmpPOFpsaVdGWkI3R2lzRlpRUHk4WnVpVUpqbTVmN0VjbEh1LVdzYU16NGk4YmhJMHpRQ1E?oc=5",
-     "at": "Mon, 09 Nov 2026 07:58:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "السعودية.. اتفاقيات بـ1.5 مليار دولار لتطوير النقل في مكة المكرمة - الجزيرة نت",
-     "he": "",
-     "grade": "",
-     "src": "الجزيرة نت",
-     "link": "https://news.google.com/rss/articles/CBMixAJBVV95cUxNcDI5OWxiS2lfdnFXeHdNRVJUT1R5LW5jcFZfTVV4X19DajhORjFGb1paWXRvMmlVamNOWHhvSjhQdzhCMFJxWjhaT09OX1N2TUh0ei1kRzNMV2Q4bEhKUm5uU2JadF81TXpjOXhZeklYa1F6WGVsSm5XWU1ZRENrN3BLTVVON3lNSWY3WGEtQVdhV0FZYlR5UGlNWXNTQkdDYWMtWEU3b3Z2YXphMzQwc0E5OEFDdUZfUWU0R0g4M1E5ZXctNnVXUzBrN2hydmJtOXUxM1lkcGlkMkVTWUJUQ2ZQNnFVV1VpUjVVbmxtZml6bzJsZ1ZHTk1jMlltUE11X3FQWUZiaDVxR1hmMko4ME5MLWhyRURPbXRfZmZ6MTAxTVEtMWN6RC16NXByWGoxd1FBN2tINTdmS01SaWs1dkJFaFA?oc=5",
-     "at": "Mon, 09 Nov 2026 06:51:35 GMT",
-     "channel": "gnews"
-    },
-    {
      "head": "أرباح «أديس» السعودية تنخفض بـ55.8 % في الربع الثالث متأثرة بتعليق العمليات - الشرق الأوسط",
      "he": "",
      "grade": "",
      "src": "الشرق الأوسط",
      "link": "https://news.google.com/rss/articles/CBMi2wRBVV95cUxNTXlOZDVVdW5JdlFUc1lHV0lPMEprby1LeDVCeHZvbnRzaURSU2ZubXpGZWVuelZjUlBZVDBvbHBFQVE5M3ZKUXRkelZfRU5fOV9aZnpRTGxiM2p0Rm1ZYXRnWlAyZHlDcjl4bktCY0NocEN5Q1ZqODRycUd0cHAyU2U2cFNESnJTa2xqVlFDS29Neno5X2liRHllc2FTVWhiaFVFTWhoZTZiZ0pzemc1S0Q2TTNObHBhT2cwNVVzUVR2MjhCSTBrcmFVVjBaZ01rWW9zZDJJQlRaeGljbjBucUgtVGVXOFIyUkR0UFpJOVl4dlozMkQxcy11NVZLVU5wVzEwaGhLT1IxVkV6Y1JGNXhwMjVaeHBsN2U1eXJfOVhpV210Rk56QnctX1BTby1QN2hHdURxV0p3cS10Tlp5Y1JBcjdqNloxQzdoUGZmdkxtQlBMYWF3YVlKckVKWHFINHZZOC0xX29aam44NVFUOGF0NXBHaW5EUGpuMVBreWs3S0EyeHJUUUJOSEVGa2lUbGQwQ05UaUhOVlprOTJQT2p4NXF2am1GVEFNcFJOaVFXc0o0ZmpObWdfSVQ5cUcwTGVyeGFZbElRUFlObGtDaFZpUG9ocFJZb0cyWjUyeG82MEpCdWxEV3BxSzFkSFFDM1FwWEE0V2xkTjZya3QwbGlzREx3STVUWENMaXAwTFpVRlp4ZkE4NWJfVGhvRjhjLUpVX0JnZWRFTUo3TDIwd0JUSTBzQWtLUjg2NGw0dW9LY2RpSjhXaEhsdHE3VmtqczdMQ1A4RWFDMG8?oc=5",
      "at": "Mon, 09 Nov 2026 09:19:33 GMT",
+     "channel": "gnews"
+    },
+    {
+     "head": "ارتفاع القيمة السوقية لملكية السعوديين بسوق الأسهم 28.9 مليار دولار خلال أسبوع - العربية",
+     "he": "",
+     "grade": "",
+     "src": "العربية",
+     "link": "https://news.google.com/rss/articles/CBMi8wRBVV95cUxPc3JkTGoxb0JFZTJQVHhESEN3SWFxbE9fMkJ2X3dNVnVTX2o5OEhMbDRlTDN3SURxWjN1TE10MTlUQ005S3VNZTk2dTAxeEVJUTZGVmpjeUI5cmwtUEN0OWdfWTNjQll4aEluV3V1YVdEcWg0eDVsNmxCREg3NVRzaWU0aXRJTXYwU0pWSHZpU0lTeHRmbzZuUVIwckl2U2ZFYVRqVVQ0cm1PVXNFMWtNenlSbnIxUmp1RDBoRy1ZdG9UdHVDdGdaT2loeWhZZWpPS1EzdU9LaWFWeVFPUzBEdEV1Q2Fkai0xQ1g5UTdVYU1zcThkZFlZcl91NjJPSTg0eG9hVE9nYVNaaDFBUlBPNk5NZklpazg2SjdpTW5IYmNFdzlwUGlwamdFTllydmR1Wi02UVU3UVJiX2FELTV1WnBNOTZJQ0c3aktoaERBVjZ2cUdOeG9rSkIwd1gtaTR0NXFmTmJFejVQWEoyYW0wdm9TVThFeWctVXFpMzh6Tkh0NlJnUjV6X3NmZTFRNlhBZVdCQVdfTUc2N0JTRHlaV1NYLXg0N3ZseUNnX21MWHZMMWx5Snp3NlU1QmFWWG5xdTVUUXZieGFuWDBSTDlYQnVVTFZISDNEQVZiaWx1azdiWUdHWUNkcDF1NV93UnFfUDhOWWFXM043TFZjeVkzLUFDSVlablcwSDRMakR2WERhbHgtOEZscGFYaFk5YVFYdm1oS0JYM2tMM1d4Z2pYUkFSMkFvQzctaGVQanNlUUhtV2VTYXl0U2k5WXpZOTBHakczVGtnWHdlbElrVFJDVEtrdWtjZF9hR0pyOVJlUTRRS0nSAfgEQVVfeXFMT0hLTkpIdTFqWlZhSTdzWlR5UGwydnNlNDh1RkNTZ3Ytbnd6QXBvWmZ4VWM0aFpUS3huVXM3YWprVlFJZ2FScGEwX0pnYklTaXRYNkVwUG5nR09KMEhGTnlhWUdhQW50VHlDSXFFWlFRaU1kZU9vT015NGNIRjNzb0lzVEREclJQMV9sWWNHSmpQQ2p4aG1keXp4a0lzOGRoa0owLWt5U3lFOUU3MEM3aDVpRVFpd1dIc2luM2dXWGFYYTYyUUY1ZmtXQ0pXV0lxR3dPWXlpb0thVXd5X0NlNkFOc3N1NkJUa1NSYW1zcXBaQ2R0cEYtQVhLRXJmT0xPeWZkbElfMGRfYkFGNFBaakR2Mk04eW9ncWlGZkxWZWpxbmM0dEczY1IzNTJpT0lDNGNjdnBGWE15Zk5RVXI5bGdyR1pSRnBVN0VTb3ViN1d0YjZULVdjQmdwVkxUWDNzekg5YXFMdFhudlgxRld2Y04xbVl0cFRBT3hHR0p6WUdfX1J0SjNJUnZiS0MxVWl6MGZIc2RXdW1TRUZaQnlQeHoxLURDdWU0bHFiMmxmU3J0MERXT0dVRV95U2I4UFVOY1dnUW1lVjhBN0tfUUhEdHQzMUJhYm1NOUhQdWJFNm5ZcTJkbURTNlpfS01wcllYU1BGdEY4VWtFeG1lVTY1Z2pCQzVpYlVDZm9aeWlpMWJPcEFHOXhuOExMbVhtdkdjRng0ZFdraFYyNWUxeDMzVEdjckdsVlh4dGFnZ2djLW0wbzZscjJfc3ZwQWhUcGZHZk50dzg2RXM5SXB5bnloUmkyYlFRX2l6WmdjWTItelR2UlVqTDJLQlg?oc=5",
+     "at": "Mon, 09 Nov 2026 08:04:00 GMT",
+     "channel": "gnews"
+    },
+    {
+     "head": "مؤشر ثقة الأعمال في السعودية يسجل مستوى 55.5 نقطة في شهر أكتوبر - معلومات مباشر",
+     "he": "",
+     "grade": "",
+     "src": "معلومات مباشر",
+     "link": "https://news.google.com/rss/articles/CBMi5gNBVV95cUxPY24xbm1CazBjSnJrV2ctcm5VVUhpZXRiZi05OTdEMld3SjVBOHMtQ0ozaWNtSTRyTU1Sa1FGS05waXBmSTBGQkMwTkFvRGxiZmRaaXhJQkw0SWM0Z1pKRGlIUTJzTU94ZkFKb2ZMSDVUb3ZzWHAzN2pyZ19qVnlweTNxSTlYeDVTSXJMWGZnRHF4UU1lNWZPR3lTdGNLejJzcjVxNHgzSVRSbWxZcF82dnVSNGVyZ0E2TGIyX0RySkxJeXBRMm9HN1hscTVBTkpIeTdicHR6eG02QzhhSHhBdGxJVXBmckZzaERlQUt3QVJ2RjR3VTVaNWIxUmpRbDNOdF9VbXpSTTBDeXFsQlhnSkNRelREZlJSYjVoMm9uUzQ5ZndrN3RtOVVONlExN2dOZlRTaE9HVjh6aWVRd1Naa2hKZFQ2SDlMdzN0RVdqRDcyM2RhMEZTTHI1bm1YWV9uZnZGeUFjc29BSklHVkxiaHJpN3BnRUhUWTZHYWY5S295LWU1bF9TTXI5MXBoYlo1X1NpazZLRC1rSkVKMVhuaWl6dm9DR29uNEoyMHljOUJpRUNkRzVaa01VNE1ldWVXTVRpdWg4OHRjYkJCN1BTYTZVQ3ZqalVMREUxSE9ONUM2S3YtcUE?oc=5",
+     "at": "Mon, 09 Nov 2026 08:30:00 GMT",
      "channel": "gnews"
     },
     {
@@ -301,6 +301,15 @@
      "channel": "gnews"
     },
     {
+     "head": "أسوشيتد برس: مقاتلون سوريون في طريقهم لتقديم دعم عسكري للسعودية - الجزيرة نت",
+     "he": "",
+     "grade": "",
+     "src": "الجزيرة نت",
+     "link": "https://news.google.com/rss/articles/CBMiugJBVV95cUxNQUpSMl9uaHRaaHE2QTRibU9fQ0VyN2E1eVl2bEt0UTRhalFaWFdqZzFsNlVpTFpKQ0xhaE83d2VUTUNia0VZTVZRVUtxSDMwQlFvdmxydldZX2M2d1d3TFVWSDJIZjNLYnBGRUt0UVNEcThGS1JmbEh5aVY5cHNRdWp1eTFqMWJRM3k1Wk5CSXRtV1ByOV85eVNLSUNCQmVodWFGRlZEc1hKbFZHLVo1Wkg0S0FXaXFGUmYxRnliRVlTWmFUMFlodERGbnFBTGJZMHowanVfZUVScDFJNWM2UXM3WmhHaEMtckx5SEZzZkZpa3d6cG9IZzdSWGpBRkpibDNydmRUelJfaGVGMXZiYjVqQnRzaUlDLUplOHF6MzBjRkRzRW41RlV5SFRVaHJRWUtzdDVQMUp6UQ?oc=5",
+     "at": "Mon, 09 Nov 2026 02:13:39 GMT",
+     "channel": "gnews"
+    },
+    {
      "head": "السعودية: اعتراض وتدمير 4 صواريخ باليستية وكروز حوثية - سكاي نيوز عربية",
      "he": "",
      "grade": "",
@@ -310,21 +319,12 @@
      "channel": "gnews"
     },
     {
-     "head": "التحالف يدمر 3 منصات حوثية.. وإدانات عربية ضد اعتداءات الميليشيا باتجاه السعودية - العربية",
+     "head": "الحوثيون يستهدفون منشآت بالسعودية والتحالف يعلن اعتراض 5 صواريخ ومسيّرة - الجزيرة نت",
      "he": "",
      "grade": "",
-     "src": "العربية",
-     "link": "https://news.google.com/rss/articles/CBMi9wRBVV95cUxNOXNCQXluSVJNNGdwcWNiMGdBU0h2em12d1VVeDh5NnFTaXNIa3JBRUNVMFNGckRaYkZaVUxYbDNiWlItLTVnUVdrY2YzZC1wMTNmTF9GVC14aGNSaGszQkVOY0NKQUQ4aWxZWHhZLV9Nb0hjWmI5TDlqdU1LM2NPa1FVOW00Yk1zRGcwb1AtMmc0aUZ6emhGQnhSWE5wUlQxQl9XU3lfSEh2bU80YjI4bTlNdnNUYjYwVXJUSlU2THBpaF8tYkM4WC1ObGVJcXljeWVMdDAydVZsSURISElTaWM4VU1wOVpndUxvc1JWd19xN1Z5NjdXTFlabUNfU2xuU0p0ekFWcGFoTm5GOXN5Ukh5Q2tlQ1pCelFiYVl6OHJjQ3luTGVzeHN0MlRhNUZWbG9UZGVZLW9ZM0xwYURxaVlWN1d2Wm9nWjBPeDRUTzNkaGlaOEg0X2pITVVrR09pamRDcWJEX1dXSVV0ckdNY0hSOE8wM1hyLVVMdUNYXzN0c1FZSzUwNkE0NVNIQTFfUzNReXlqenkwaGhyRVR4TGJGSjVVRzJmOTdTVm9xenR6Ul8xblFHQUQ1MUNqclJNc3gxZGwzMWkySHJVbHpZbkZoeWROTnliVFdsZ0M5emc4NnZLLXJqazQtTThtSEQtS05ETEFNN29FRHhkZjROOXpkVjROMlRBLUVQUEFlVm1OVEhCUml0Z2hUUm1zSWk3aThlOVZwakNrZUNvZEhacHJXX0ZicWZuTGo0dXd6dUNjTUxDeGNlQ0JXeTFhR2ZwUVRfYk1JYklEYkZUZmdJTUh4eUJ1Wk1lWU01cFo2TGJNT3NfemFF0gH8BEFVX3lxTE5vdDBxeXd4ZkhSNUVhMVBKdHg4VkdyaThFcTNsMGJ4SWp1bTdsWFFXa0pLYm5vUUttQmJmTVRTLTZfNzgzNDExUHVvbG0zS1NFQkRuU2pqNWNzRElFVXMtNmV2c0VrQWdrd3ZhNWlxZGlHQTNWRksxQ3FVU1d6RjhmOUQ0a0NVNDlDUmVkbFRVWDdZZjRZUUZrb0FUVHl6Z09reFQ4VEZVdjEtZnBVNzNDM0xBWjYyRjdNWktGanctZXlLR0d3MG5wa3pQbm9laGFVeW90S044UkN0S05GVnAtcXMxb09PNGFGelJ3ZG9ydjJnSUk0b3BPRUdTNmdMUlVHU0RDcU1fRUFIZUw5WUxMTmVibG80Q054eDNHN01TdlBLN2lZRnhibDN2ZWR4OENlQWdhU2E1SFAwM1ZJNjc2ZFlhN3ZtVDdVQy1rQ0RXeUN5X096SDM2NE1NNHRGUE9oTkhBQlhUVk1CTHg4eTFjV2JybGFiUVltR0VFbzdvWjVyMmlMMlk5SGRKSVh4UThVZlUyVk5FLXRKUHN2cHBLNnUwdDRETXo3M3JUcVlzWFFvOURiWHpROUotbFZqWHdIa3N4OFR3Um5CRHRFbERZSmlYdERWTnprQUh0a2gzMmF1bi1FdmUtaC1ySjhmckczZDlmTXotV013Wkx5Zm9KbDBRSFZzQUtjQVZCM3p6M1B2RmVjWXpYVXB3ZzFtaDEwRGpLZTg2ci0yeUphbkhweXNseno4TE1wc0xuYzRVSE9FV3IwdHZaLTctSm1EOXNpbWhpcHBvcExOTkJ6ajBoS29OSUhIQ0hmSXBiQVN3XzJHMDlJMUhJRjN0UQ?oc=5",
-     "at": "Sun, 08 Nov 2026 23:59:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "وسط إدانات لاستمرار الاعتداءات على أراضى السعودية.. تدمير 5 صواريخ ومسيرة أطلقها الحوثيون تجاه المملكة.. أضرار مادية محدودة دون إصابات بمحاولة استهداف مبنى تابع لأرامكو.. فجر اليمن: تنفيذ 875 عملية خلال 24 ساعة - اليوم السابع",
-     "he": "",
-     "grade": "",
-     "src": "اليوم السابع",
-     "link": "https://news.google.com/rss/articles/CBMilwRBVV95cUxQbW5HYjBUOHVTZk9oY2JIcHBrOEZrNmZsRjFCcXhKeTg0TExwNzU5OWU4MHE5UTV3ZnVNUFg1U0N2dVE4bzl2OUxLWTdXSUJLYzFwZ1hMWEJ3NDRtLVlkckczWlp4ZDBQaTdmR3g5ZlhqZnpEN1dQZEJnUTc5YVFQbDkxWV9rOWZOOWRLUk9LZWNweWJacEJvQ25QN0FaVVVUQkV1U1lVZ1ljLTd6V0drTE9lTWtMWlNPOUVGV1VNclMtMFJrOWU4THozTDR1eC1FVXJuNzNqWi1yZTZtSlZTQVFVcXVaSjFKRkp4ei14aVJhMEhYQS0wTm1ubDAyQ1FNb2N2cnpCOXRfTS1Vc1JGMHc1VUM0WWRLMEVOcHF6UkdMc3NEVVlVdl93ZHVaelUydjNObVhuc2l3b09sTWtoOHI5R0lNM01xTDlMMjZyNWp5R0Izay1fV1dLQ3VzLUpOS1BVWXFDRWpTelZzUXJFeDVZQnVlRndYeEdkNlEtamlrcHVjc0RxZlZHek9tZnlNdmFnZEkwcko3T3cwZk93M3NIMFJRYW03aXVxRGVNR3MtVEV4MDVEdGc1dmFxelRPcnZaRW15ZW8xdUUzUkhkOFhfYWV2Q0ZuLWplSW5VZkRCSDhiNFQwWEw3dk5Wc0tPcWRpRGRpODBsOXpjekF0LTM3TmV1a0xYWXVxSFh5VG56NEZZemxj0gGSBEFVX3lxTFAyWmg3eGlYRXUzd1I1eWZPRDc2Wm9QT2JrV0tJWWpvQWMzb2F3aGd0aHJ5blg4OVlWVzBxVmFDdjl6Vkk0TldmM0VyN2d1RU1lZ19OVDNYMmVJMVJNbmJnQUw1UWFCU0dXOTdpeElpc2w2Y2g1eHRpZU1xbFg2TmxoTGxJc0ljbEpsVHYtUE83Rllxc05GSk53SHQ2YnBHNEpaME8yWEJTX21ZOE9hZTgtNDNKYm9FYk5iZFMwbFhlckRmUXpKWGxlNERTa2pNb3RKamJRbkpBU2RRY3NCaThKR0ZHeTQ3WFpkQjJ3RVhaVHBIdmEzTmczRDhZaGtKaUx6N21WeHUtVkViUUxUcDJGaHZCSUxNQkNoTjdTcGlWRlg4UFF6TjNZWDdsYUYtWFZRdWcwMWFSTXlRRWhEVElOMGNLTldlZVFmdmVvYW5ja0pOZXQ4c25qM25hNHJGU09GMl9jSWo5U0xxTFZRemJrYW12RFluMk5LZ1ViWU9xTU1OSzE5VjlBVlhjdGRCcnJvb09jMmQxTHAxVkgyMWZzUENDc0taWVhMY0k2ZlNRNm5mYVBfQmp5S2ZBamRCNjVTY1FRLUFyQjJ3RmJWOWhSeGk1QWlrZkJqbm05d01wNzhfVlJjbHA1LTlaaURGLVpWUUVjM1ZTRHhiZEE2cHhLcm1ZeEJDYUQ3N2lxNUttc1BR?oc=5",
-     "at": "Sun, 08 Nov 2026 15:40:00 GMT",
+     "src": "الجزيرة نت",
+     "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1DUW1xTk8xdEJ6cUlFUFRObnQ4NmViWU01WW1qYW9MS21RU2hnOVM1NTZkTkJreTBsVVlsZlBGNHJDckJBNmNBcFlleDZ6a25KV0NIVG5PRDFMdHZ4d3RaV2VzdHR3Um5EZmwxTE0zUVpvYWtFN3FEakxVYzBkYk0?oc=5",
+     "at": "Sun, 08 Nov 2026 07:31:00 GMT",
      "channel": "gnews"
     }
    ]
@@ -343,8 +343,17 @@
    "summary_en": "“#Gaza”: 8 graded Sanad hits (0 verified · 8 credible) and 8 open news signals.",
    "hits": [
     {
+     "head": "شتاء غزة.. خيام تغرق ومعاناة تتجدد",
+     "he": "Gaza Winter: Tents Submerged as Suffering Renews",
+     "grade": "حسن",
+     "src": "الجزيرة نت",
+     "link": "https://www.aljazeera.net/blogs/2026/11/9/%D8%B4%D8%AA%D8%A7%D8%A1-%D8%BA%D8%B2%D8%A9-%D8%AE%D9%8A%D8%A7%D9%85-%D8%AA%D8%BA%D8%B1%D9%82-%D9%88%D9%85%D8%B9%D8%A7%D9%86%D8%A7%D8%A9-%D8%AA%D8%AA%D8%AC%D8%AF%D8%AF",
+     "at": "2026-11-09T10:37+00:00",
+     "channel": "sanad"
+    },
+    {
      "head": "بضغوط أمريكية.. وصول قوة دولية لحدود غزة تمهيدا لتنفيذ \"خطة السلام\"",
-     "he": "Under US Pressure, International Force Reaches Gaza Border Ahead of 'Peace Plan'",
+     "he": "Under US Pressure, International Force Arrives at Gaza Border Ahead of Peace Plan",
      "grade": "حسن",
      "src": "الجزيرة نت",
      "link": "https://www.aljazeera.net/news/2026/11/9/%D8%A8%D8%B6%D8%BA%D9%88%D8%B7-%D8%A3%D9%85%D8%B1%D9%8A%D9%83%D9%8A%D8%A9-%D9%88%D8%B5%D9%88%D9%84-%D9%82%D9%88%D8%A9-%D8%AF%D9%88%D9%84%D9%8A%D8%A9-%D9%84%D8%AD%D8%AF%D9%88%D8%AF-%D8%BA%D8%B2%D8%A9",
@@ -353,7 +362,7 @@
     },
     {
      "head": "الأمطار تغرق خيام النازحين على ساحل مدينة غزة",
-     "he": "Heavy Rain Floods Displaced Persons' Tents on Gaza City Coast",
+     "he": "Rains Submerge Displaced Persons' Tents on Gaza City Coast",
      "grade": "حسن",
      "src": "سكاي نيوز عربية",
      "link": "https://www.skynewsarabia.com/video/1903528-%D8%A7%D9%84%D8%A3%D9%85%D8%B7%D8%A7%D8%B1-%D8%AA%D8%BA%D8%B1%D9%82-%D8%AE%D9%8A%D8%A7%D9%85-%D8%A7%D9%84%D9%86%D8%A7%D8%B2%D8%AD%D9%8A%D9%86-%D8%B3%D8%A7%D8%AD%D9%84-%D9%85%D8%AF%D9%8A%D9%86%D8%A9-%D8%BA%D8%B2%D8%A9",
@@ -370,6 +379,15 @@
      "channel": "sanad"
     },
     {
+     "head": "\"هربوا من القصف فدفنتهم الرمال\".. الموت يطارد أطفال غزة داخل خيام النزوح",
+     "he": "",
+     "grade": "حسن",
+     "src": "الجزيرة نت",
+     "link": "https://www.aljazeera.net/news/2026/11/9/%d9%87%d8%b1%d8%a8%d9%88%d8%a7-%d9%85%d9%86-%d8%a7%d9%84%d9%82%d8%b5%d9%81-%d9%81%d8%af%d9%81%d9%86%d8%aa%d9%87%d9%85-%d8%a7%d9%84%d8%b1%d9%85%d8%a7%d9%84-%d8%a7%d9%84%d9%85%d9%88%d8%aa?traffic_source=rss",
+     "at": "2026-11-09T06:59+00:00",
+     "channel": "sanad"
+    },
+    {
      "head": "عاجل | الهلال الأحمر الفلسطيني: 10 مصابين في قصف من مسيرة إسرائيلية على منطقة الصناعة بمدينة غزة",
      "he": "",
      "grade": "حسن",
@@ -380,7 +398,7 @@
     },
     {
      "head": "وثائق وأرزاق وكسوة شتاء.. السيول تجرف ما حمته خيام النزوح في غزة",
-     "he": "Floods Wash Away Possessions and Shelter Materials in Gaza Camps",
+     "he": "Floods Wash Away Food, Winter Clothes, and Documents in Gaza Displacement Camps",
      "grade": "حسن",
      "src": "الجزيرة نت",
      "link": "https://www.aljazeera.net/politics/2026/11/9/%D8%BA%D8%B2%D8%A9-%D8%AE%D9%8A%D8%A7%D9%85-%D8%BA%D8%B1%D9%82-%D8%A7%D8%AD%D8%AA%D9%84%D8%A7%D9%84-%D9%85%D8%B7%D8%B1-%D8%B4%D8%AA%D8%A7%D8%A1-%D8%AD%D8%B5%D8%A7%D8%B1",
@@ -389,7 +407,7 @@
     },
     {
      "head": "المطبخ المركزي السعودي يواصل دعم الفئات الأكثر احتياجاً في قطاع غزة",
-     "he": "Saudi Central Kitchen Continues Relief Support for Neediest in Gaza",
+     "he": "Saudi Central Kitchen Continues Support for Most Vulnerable in Gaza Strip",
      "grade": "حسن",
      "src": "العربية",
      "link": "https://www.alarabiya.net/saudi-today/2026/11/09/%D8%A7%D9%84%D9%85%D8%B7%D8%A8%D8%AE-%D8%A7%D9%84%D9%85%D8%B1%D9%83%D8%B2%D9%8A-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A-%D9%8A%D9%88%D8%A7%D8%B5%D9%84-%D8%AF%D8%B9%D9%85-%D8%A7%D9%84%D9%81%D8%A6%D8%A7%D8%AA-%D8%A7%D9%84%D8%A7%D9%83%D8%AB%D8%B1-%D8%A7%D8%AD%D8%AA%D9%8A%D8%A7%D8%AC%D8%A7-%D9%81%D9%8A-%D9%82%D8%B7%D8%A7%D8%B9-%D8%BA%D8%B2%D8%A9-",
@@ -397,48 +415,12 @@
      "channel": "sanad"
     },
     {
-     "head": "خمسة قتلى بانهيار رملي فوق خيمة نازحين في غزة، والأمطار تغرق مخيمات النزوح",
-     "he": "Five Killed in Gaza Sand Collapse on Tent as Rains Inundate Displacement Camps",
-     "grade": "حسن",
-     "src": "BBC",
-     "link": "https://www.bbc.com/arabic/articles/c3vgx2kge2yqo",
-     "at": "2026-11-08T19:01+00:00",
-     "channel": "sanad"
-    },
-    {
-     "head": "مفتي سلطنة عمان: أهيب بمسلمي العالم إغاثة غزة من السيول",
-     "he": "",
-     "grade": "حسن",
-     "src": "خبرگزاری بین المللی قرآن",
-     "link": "https://iqna.ir/ar/news/3507040/%D9%85%D9%81%D8%AA%D9%8A-%D8%B3%D9%84%D8%B7%D9%86%D8%A9-%D8%B9%D9%85%D8%A7%D9%86-%D8%A7%D9%87%D9%8A%D8%A8-%D8%A8%D9%85%D8%B3%D9%84%D9%85%D9%8A-%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85-%D8%A7%D8%BA%D8%A7%D8%AB%D8%A9-%D8%BA%D8%B2%D8%A9-%D9%85%D9%86-%D8%A7%D9%84%D8%B3%D9%8A%D9%88%D9%84",
-     "at": "2026-11-08T18:59+00:00",
-     "channel": "sanad"
-    },
-    {
-     "head": "في ظلام غزة.. شاشة صغيرة تضيء دفاتر الأطفال - سكاي نيوز عربية",
+     "head": "الأمطار تغرق خيام النازحين على ساحل مدينة غزة - سكاي نيوز عربية",
      "he": "",
      "grade": "",
      "src": "سكاي نيوز عربية",
-     "link": "https://news.google.com/rss/articles/CBMi5AJBVV95cUxObFQ0alY1bl9yZGJGc2JBelBEYnhKS21hLV9YOEcxRHFuSFNid2RhMHJjYml2S2szWDR0b2RpU1V1ajNEcmMyUm9SelNGOTFlYV9KWVpHdUl6bDJJNmg5VEVHN3VVTjQ2RVlSVTAtY0hyT1VmQjB4ZjFlbE5fcDdsWGhkb0c2Y3J5Z3lBbmhDMG56dFlSOXZkUENKNHFJWXFobTB3QlFGaUU5V0kyM0d5Zmd5QVNURDJmLTZIQ2liWnVudmdfOTBQVktPYVZMQ0ZoY2NVSV9GMmtVMnFETFZZMXhTZFRvS09UOTRPNzhBUlJXTzhKLVdLNU5qWlJMVTdLTC1wdF9ROXJaWHhMeXpaVzZBdkNDOWh6YXZEUzVtWF85VEk3dXI0dzR3WEVzcFlFY0lGeVdoSGdGTURnOXJ3N20yVmR0MHl2ZmYxRkJlQTJKY0RsUW1xYnJ3TVZmRml5aWN3NNIB6gJBVV95cUxPT0xjU3FOTTdBS2MyR05jcTRSZEpVdlJXa0gxMWxuVl9fRTEybENqb1B1U0dYMWI2NGpxaFRVWDdLcG5ZWkFDclppbW5ST1RqSUphT2pIYXdOYnoySUNvb3h2aXRoLW4wUWZYZ0FJaVhyUHBmWnpOalpOY2dqVnZ6T0o4d2ZwakF4ZTNQQWdjbER4ckJ5Q1NnN2FsMlRzZ0Q0cFl5TDE4Xy0ySFp0YWZNOWVZS3ZIZlctUEFiQkRkUTZNbUhhQUtYX0VXOXdUZFlFTWNqYjN2a2F6aWtYZThoeVNrQkJuVENBS3haVktRMHJfbjJBb0ZJNTNyR0pOa3QwMjRKRjRwN19DVVdoSzA5czN4TmxtWnRfSmNYVEJQcnBzUWNBMUFZSVVvMy1JeXZXVkk2cmhPN3p4NVI5NnFuNE4wTUlNeHY0WHMzM0RWMjI4eGlXa0ZEZ29WOUxkZDlPRW5UcWpqb083QQ?oc=5",
-     "at": "Mon, 09 Nov 2026 09:22:32 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "متحدث اللجنة المصرية فى غزة: نطالب العالم بأن يحذو حذو مصر بدعم القطاع - اليوم السابع",
-     "he": "",
-     "grade": "",
-     "src": "اليوم السابع",
-     "link": "https://news.google.com/rss/articles/CBMixgNBVV95cUxQOFJNcXI4WThzUnp3WmNRbURka19ENnp4dkNXMGY3ajQtLVlObWYyUERHLVVyd04yU0JmT18ta2s5NFJaUkd2dUxCZWIwU2NjQ3ZZSGhWRl94WWs2LWY0Z2ZiQ3VRbUlKZlhjeFZDTVRBVUpOendTZFloYkdKQW5qbGhnWFFDSE95U2xteFNsc0R3dzVCRWRzbkxaN1ZFQXlrN3pkWXdCMDIyNGZiZUs0ck44cjZsc3BuSHExWUZMWEhSTldVdWNJRUowUTE5dV95UFpYN3RZZld5VkU0ZFgwT1RNakpPUEoxNm40NUZFMXJacHZPVUUxZXZ5c1lPNnpCXy0ydmhuYUJqU1UxSEFMT1cwd2tQUkpJVXI1U1FDWnBqQWROMXpKWEhXbXZ5MTRLamN3ZEotVEdUMGxzR3JOeW5aMkNUOWZXVXkxZ1pnSEhKdFVqVThhTU5seUFBQndHRTRDNFZuaEZ2MHdjS0J2R2RCNmtLUmEwWUUweTlfR2tRWmJJRmlMQi14Z1htMWtLam9ldEFQc1VwM1I4MkEzWjZjV2Y0VzY3ZElhZ2doZnR6dEtyVWNzU0lPN2xDNDB2bi1yR0J30gHAA0FVX3lxTE9lc1RxSWVlMlJqeEo0b3VWeW9Mal9xNC1Bd2Y1MDFhMGRMQ2pYT0F5TG1YMmo1S1VDQWdDV1dZY0JmejVqYnlwVEpXQThTb1UzVEZ3R0h6dzFjUFdZZkJjbFdMRlE1cC1KNi0tWV9wMWl2WXIwRDljcEMzeGRybGQ4MmdITTZaVkNDOUI5dERoVmxZcE11M3Vfcm5hTnA5SkFyNVJsSGV4ZU1VbGd6dU10OUVCQkVnUjRpRlllRXhseWVhdXZfaXFKandmVzRSU2tPSThCVVhWU3FGemFGcmZMdzE1RjNqS1hHaF91bWY3UDlIRzNYdDBncUllZHIwR3owRTlxMnNieU5wV0VZdkxIQ21RbFdkazZwT0ZnaVZ3TXR2MG9vamhuMTVJaldhMjFZbXduZ3ZMYUlzS0VueHhlZGhMbnFERTB1N2t1c2hYNGpGNE9HMTdRZHM4UUxkMmZyMHVCYXI0RUJRbUdzZkd2UGpYOHpLSGRrRVNmdFNZSGxhUTZZU212RjM1cXA1LVB3bXNLOFJtVEtFNUFvUkE1NHN5SXFCMUwyclU0amtzRlFOd0lmMWk2cHRNN0I2a20?oc=5",
-     "at": "Mon, 09 Nov 2026 09:05:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "خيام تتحول إلى قبور.. مأساة جديدة تضرب نازحي غزة - سكاي نيوز عربية",
-     "he": "",
-     "grade": "",
-     "src": "سكاي نيوز عربية",
-     "link": "https://news.google.com/rss/articles/CBMigANBVV95cUxQWFVrZ3hvOVg1WUk1WGJ2RmhTUHIxV1kxQWFLR3lrU2tFQ2g4V1RyMzFWVUViSTZTLTkyNXdYNmtWVHJacVNxUmM2ZzdJVnNfSGtVcjJNRVVBX1hpQTFoV0UwZ0Vhd1lsZ3NsMURvNEU2eHNMOFFnZ3hWNjFGSEVqMVRwWUhkRWFLTmlnakF6aDF5cjdiUDc5MmRYSFVCZlZneW5abDNtcWJUWm1hblB3SjZQMFVnU1hDLXJTYnA3OTdTeE5FTTMwYVBKb0FjWnNNbXdpdFdlVURmNlBPR3cyQTlVUEpIYmZKZlAxQk93d1dQZmcxcHlvUDFGNjJiNUpzcWJPenJ3SVl1elB0Q05zc1VMbWE3Wk1TSkprcDFWbDNjVTVHVUZLdnhtOUdSdGZXMnhLbmpyX1RsUUlfRG9KQ1NrY1FKeUdsTTAzNzJrenpTcG1TQ0V1WTN3SXFhRW1DUjBLUmY2UDBmYU9VZ0RINlpNQkIwMDdra1d1NVdKMzPSAYYDQVVfeXFMT0NDekplWFpIRHlZc2FaRGtaUmQyVUpEQndxLWlHTHZESF9HdUctQzZLVmstaWR5Q1ZSZE56YUZSellWSTU4MGR2YmFjV3JhTU5zWTNlTjVKcC1LN2dHYVphUlREcE0weTlGeDA5emxhLUJNN0Q5cnRoMWhjUFhQcDlZSE1vTEYtczFjWXktSVBBOVYtTUZwMzZ2UU1sb2w0S1ROekVGNjFWTEdNdFd4ODZLd1RWX1lSbGFSd1prREphZG9Pcl9Qb1RhVWRsdTA3UmhFLUxudWEyVUlLTkpOTTM2X2NHX2xjRkhsV01HMnVxWDB1WFpfY2RUdjk0ZG45QXRTR1NCTUtvZkt6dWkyVTY4X296emhmOWFIS3JxdDhLMkNydW1uRERhRV91WkJ6VzRYNFpvbVFwbzZ5TnMtd2ZWbzBqWnRaNkNjenQydWF4SnV1dWxwWkhqZjRqSGVkUWp6T2QyQU1fZ1IwZHZTbVIxd1ItSkk5c2Y5UEY3Rm10VTJkeGFn?oc=5",
-     "at": "Mon, 09 Nov 2026 04:41:23 GMT",
+     "link": "https://news.google.com/rss/articles/CBMi9wJBVV95cUxOVVFCSGFQM0UwNFRtcW5IQUFxeW83UXN5cEFOUV9kd0sxRVlWS3QzRktjb3JIX3NvTVhqNV9jVWMwNVJISnVmcjE1MUhyTWhGUWZaOVh6UkE1UlJmb0pqUnE3Z1dhdEdnS1h6M0JIZGZNandPYnBKZGRTWW1QUHkwWUYtbnowUmZoeDFleDZUZU1IejVUNGJqMU1DclRhd1NkTXk3OU9lQ2ZCU0w1ZGNIM0F6aFdNdl94TzVJdkl6Z1RSMDFKVmdaSjlsa0ZCX25DOFBVcG5Yd2x5QUI3OHhQNVdoU0xQT05SbzVJRFJsUmlzQy1rbWg0cFo4VmtFczBJN21ROGVFbE01YmdDZTZ1MGc2akYtVko2VzV4Uk9jR21iVzllajl4RmxGUldrRlAxS0xDQTJHa0ExX2FMbkxaOHJ3Xzc4M3R6cHh4anQ3SG1CNTQtOVA0cmNDUWpKMWNucnhfV3dDZk1sdHVsTFp0N3RMLUVOQ0nSAfwCQVVfeXFMTWJvSjNRUndwV0VWS3MxYzdWTjlYMmc2bFBfRU9QWm1aUy1VdE5xVVFIZ0k4N1dac1RJUVdLX3dhR3VucWRYbzRYR3RnNjl2T250TEcwZUItejY5bElpNkM3cU1JZkxpZEpuN3FJM0c4c2NLclVKaFVfbFFtdDRlcHpKLWU5SUZ2WnBjSG9QZTJZZGJRRllvY2lsQ1hnREx1bms3QVlHcnpzVE5LR1FYZTVHMEo2RWxYRE5KOEhhQlpINXVGTjQxYVQ5aFFoVGI4ZlJCZUxTVUt1MVRXbU15OEhfSmI3QjJqcmFMZl9NakFraDhzNU9JM282Z1JOT0cyMlk2TGtZdW9MRU14Q3FtRUMzWC0xTmViRWxFWFd6R0M2Rk0yNmFISk55a2pGUmJXUWhZYkNUWlpYRjZqS2Z3S1U1eHZtd0w3TzNEZ0lyU3VwNjVBcDExQkdOZjBiQmltYThpVzhzMUZib1VxYnkteXljZWF3ZUZQeVRfajA?oc=5",
+     "at": "Mon, 09 Nov 2026 08:22:28 GMT",
      "channel": "gnews"
     },
     {
@@ -451,21 +433,12 @@
      "channel": "gnews"
     },
     {
-     "head": "غزة: أزمة الخيام تتفاقم بعد انحسار الأمطار وسط عجز فرق الإنقاذ.. وتحذير من انتشار الأمراض - مونت كارلو الدولية",
+     "head": "شتاء غزة.. خيام تغرق ومعاناة تتجدد - الجزيرة نت",
      "he": "",
      "grade": "",
-     "src": "مونت كارلو الدولية",
-     "link": "https://news.google.com/rss/articles/CBMi-wVBVV95cUxNdW1lSDU4UWFET1JXV2V0dWQtWlhENGh0UVVrRjlzNS1VbEdKX0kxbE5ZeFV5aGt5OWNjZ0xrQVBfMktvcjEwcFBrMmMyWVUxUlRqR09aa2xYXy0tLUdwbmFMaG82bC02eFNWM3RTUHgwY1E2bG91Nm9OQzUzcEd4YkE2QjhkVGRocDVqRWQyOUJUa3hMUk1nYmowSS15N2FsbjlkWlhqNWpSS0pfWXhXZWlOWWZOekROU3dMM3ItOEJ4MFBKc1VYNDNRLWhPNTFCQ1A3RjljbUVSWC1fbFFQVDNVeVJiejNJYzZZdm9EQkJUNTgxOWp4M2J3RjdSOXkySmE3N3NmSlE1NGlDclhJd1V6SUppTTNmVUotU2ZIenpiMHBvYmdiQVlVNWdJNTJNNVdJejFOQXlld0hlSmZUZWwwX1RqZ2VZNHEyMUYyVE85akxudGJmNzZlVVJRMFh6azFENEFhNmtTQnYya0tlbEhOSzRWN1I2SmJObFpHNGxHR01KbDEtRWxfXzdFZUR2aHUtMm5kUktCV1FraThhbWlpUll6aEhKS3FSbU9rdkJLR2M1OEhORm1KMHhrTkRhYTZJeE1GMmUxZFVEZnBiSkhpNlBlNGx4Znp5eVB3SXF6SEdYRUcxYWc3cWtKOVhraU1lZkdBODJ6aTN6QjQyRTk5QkFOb2ctZXI5VnE1cnNBUUVQVlpCQklHR25KV201QlBFdFRnamZFaW05MDNSenpUY0tZdDRiclhUN05VYm9EdkVoeVRtOVY5a1BXaE5uWC1nRjg0WHg2ZU5qOXNGbWNVYXFidWRHYzN4N2JTRGN1N1E2OHVQVTU2aWVOUkF5QjFXQ1RHNzdNaUpjWUlHRlVJVVlrZlNCZGwtdVV1U1N2Q0V6UUNXNnhxeEJQcTA5RXdISnZZTlUxdHQ4LXNnZHh3WjJKOTlBNEd6WEZXcnJadW8zcWEtanN5SmhMMEZOU3hUaXRSS3ZZZDg2YThUbGhUYlJ3c0FmTXR3?oc=5",
-     "at": "Mon, 09 Nov 2026 08:12:48 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "إعلام إسرائيلي: استعدادات لدخول قوة استقرار متعددة الجنسيات إلى غزة - العربية",
-     "he": "",
-     "grade": "",
-     "src": "العربية",
-     "link": "https://news.google.com/rss/articles/CBMitgRBVV95cUxPMWQ1a2p1Uk5XM2lpMmNJZGxOQWV2cTF1YWpkak94NlVxUmN6NW5DN3R3cDAtcHBTUmRGRG9mTE1ZSEdpQXN6V2VsX0MyaW5qM0E1NDRqa0dkVFRSb2xLNWJQUzdYOXVVTU15ak1aeU54d2hvVm1Wc1lKS3JPV1pvaVRsOXNqLThKQ0dxaC1LT0YyZWFQZ0p1ZWFvRXJtajc2RERFTm5Kdm9WLWhVeDJMOHFkOFlDcFVtUHdxQzZ4TllmeWNTbmwzdTZhWlVaWGFSOTVjU3FvbV94R0lyMU9FVGlvWnRfX3gybk5Gbk93YXBoUkI2LTFMM2JXNGNjNm13OXlra0dsZ3VSWVFZYVBLTnN6VUY5dm1nTmJkdzNSSWtGajAyQjZlTllTblowLWotSkVnVi1xaTlPSmdZeDBmVm94bVAxZkJTVE9WQVRsb2NkUTYwODFubkpyZ3JfQkxWY21jcmM3aEFhdW0yTWVESk5UOTJOZnFwOHVEUDlnRW5ydUJWU2I4TFVNTC1EZVlaR2p2R0Rob1AxRXBNUDRYc0xVQ21NeWo3LVBLRi1felU1Wm1abXAxSXZUSGl1cW5YdjhnQjJuTFh2TjF2ZmhvZkV3NkI3Rkh4S2dRRjJRVDR2Rm0tamM3cFZjdWFKRW1NSVBUeUpFdjI1dUtpMm56cTl3alhsM1dNU0l0OGV5UF9zcE9rUF9FLTVDNzE4MEw1OFdJeE1qaDYyOURfVVF5akpoci0tZ9IBuwRBVV95cUxPSEhzR1Y0Z0huekRTYktGVWRWY0FsSHlGMFZDNTg4UENCMUtIX19seVlGcXJaWEpTVG5uX3MxbUVOOVdDVkdUbnV6T1dTT2FlZUdDMFh5dDVLMnZfVTh6LTRKa29Qa2hCS0UyTTZfVDN4RXo3WlJLMTl0SlJjYU1Hek9rZ2x4b1g4bG9CZDRZSkVDRnJMWUxjYTVEZlJrRlBYYnYxb3o4bV9ha0h6VC1Od3ROcXpxVlZjd2pkU2o3dzN4R200cnpkVXlLVmNKakxvVThvNVAySDUwS1JjWGFScl9xalIzZ2hISmxzTXY1QVlqbDlPSEV5UE94MHhyUzQ3U2VjQThWLVVLeWQ3MDJOOWttakNtYkhOMWVrWlhDOGxmWHJRbHhwVDJFeWgxRW80OVpJV2RvYkVuSTFlWnFjR0gxSDZxeUQtd0tUSVdwempOTGUtMmRLRTZ5WU9NXy00T2xuTnlRQ00zbm5kd19KS00xSW9lMkpUM2VCZXBKa2pJdkRVNU1CaE03ei0tNzR1TFZmMXhHYkMwWm9PRDF5cklaNVJldUd0MmRBbHJ2bm9kY3M4Z1lIMi1hS0tnZ3Q2c1FBYlBqTS1WTTJjVkhudVljaHZrOEpuV3BsVnlRbHRGbHpEcW9JZlh6OU4zcTRuU0NNTkxmeE1GM1oyNXR4a1JEb1J4VDR6QnpDdHptbmljMThRYTF5OVlHaFZDQ2dfZVVvOWFrUXJHdWdZNDdPWWxOcV9COGFZLXVN?oc=5",
-     "at": "Mon, 09 Nov 2026 07:19:00 GMT",
+     "src": "الجزيرة نت",
+     "link": "https://news.google.com/rss/articles/CBMiswJBVV95cUxQVi1KUXhoQXFPUDFKQ0szY0NGQVNucUh2T29Gb1RxMjZYVEwyX0s2Y0FoQVJwS0c3R0NrYmRWVXRZTDItTVVxQkxtX0RGek9TRGZldVlISjdtQ1dwMzlmbkFKS0JCbU9VcVlZUFFSM2NBWVRMRWhMSUlibkxqdVQxdHRTaENDYl9RUllOTFlVQ0xNbWpGdjF2NmdlandyV3BjbS1tYkQzb3JpSTJoSE0yRXdab04xeUxPMWd4dG5heHU1bXV4czVacjRFMFoyY0VmNWVtckZJSU5BWGdZNnh1Rkk3NHhJa1N5QWZOTmJvT1ZPTHZNRl9JYldOb0dvWTlWOF9EZlBTeFY3Z3JzX2ZMTy1waVM1THpaNTl6UUVsNUNtTldWVkRlSVpiT1lQVkN6ZmRj?oc=5",
+     "at": "Mon, 09 Nov 2026 10:37:28 GMT",
      "channel": "gnews"
     },
     {
@@ -478,12 +451,39 @@
      "channel": "gnews"
     },
     {
+     "head": "تقرير: ترمب طالب نتنياهو باستئناف تنفيذ خطة غزة - الشرق الأوسط",
+     "he": "",
+     "grade": "",
+     "src": "الشرق الأوسط",
+     "link": "https://news.google.com/rss/articles/CBMiugRBVV95cUxNemdKZzdWbzljU3laM0VlU0VZcE12UUFwb1JXOGljYmlwNXhkbVFBRDZldUpxVUNEeWJNMER6TEI0dmJXcElFbFN1ZkNBR0FhcUZpZnlSRHI2MS0tV29mS1RINDE5WWdqRmtoeS1FRUhkaElCdHNXVlZnejRrWjg3UEFPSnpDZ0FFbjU3dWxqdWtUTFlNN2JKVnVpS09PZEFvZDdNRXdVQ0xYSnFDaTJfQmFLZzV6dUp5d2d0S1NfRWlST0FTUnUtZ3VmYjJKNUZDZkZXU1NmTTNSeldkZ0hGQ0VsTkRHaVpMZ1I1V29SYXlhbldmd3pJbHg5UEREU29nTjRMMlBKSVB0b05aMlY0Mk1SZHplS0huY1g5b0lKZDV2WVdrQ010Z3hkaVJCSWpRM2pfRjhpeWROSldyQ0hjaE9Ub2hBOWxDaUNzMXUxX2JUcDJaOXRlYVh2MFBpVjNXZHk0LWY0d3dNQXdpRXBjdzVnbzdnMTdLQkZGWTBmVHQ2dkZGMk51R2Rmdk9WdFE3bGh0enUwdGVYZVhPRVIyXzZXUHBUTE51YmxEWkRwV3NEakQwaVlCeHlUcV9CLUR6WGdMWnYwaUpab19XcHUwb0JienktYnh5UlFNSGFMS1piZjNxWFl0Y0ZHaXM2T3JzblgxQVl3azNESmQ4TmtyQ2JjQ01LOE5zeW80QWpTYUkyb1VDS0pOSk1tQlpEdGZGa0hrYTVJZ2ljc0RYcGNfbW00T1MzdWZIdVE?oc=5",
+     "at": "Mon, 09 Nov 2026 10:10:23 GMT",
+     "channel": "gnews"
+    },
+    {
      "head": "غزة تدخل سباق الرئاسة الفرنسية.. تحول في خطاب اليسار - سكاي نيوز عربية",
      "he": "",
      "grade": "",
      "src": "سكاي نيوز عربية",
      "link": "https://news.google.com/rss/articles/CBMioANBVV95cUxNbGF0SVFIQnRmMEtfTFZ6NGhGZ0pUc1RRem9KT2J3STAzOHhmbks0N2xHaHFjSGczZGxoSGxFcmlXbHhiaDVtZEVHVlNCdHFPNDJLV0UwSjNaQU9qMVpOejNpOEEtNHNINW40UmhNMU5CTGdwR3ZaeDhfZk1WZjlIMXotaE9VMjMwSjluUzZmRUZyVXc5X09sRy1oQW56NENJUVJzY05Kd2lSbVk2V0ZmY2JJTFhPc0ZsN1BhWllEUVlQeC1oUThCTmc1NHFrOGpobk5jeFhPZEwzM1J0UVR1THNSZFdCZFpaUnluN3pnbVFMMWt0VVQ3OS12OHh4Z2w2UnhoLXh1ZENHTGVDSS1zNDliN0YzVkJXblFJeHRzS2o2NkoydGluOVJLYU9Ka1U0X3dMSDlLOE11bUF5TXoybzhzanBzSXJ5cmhXblNobGdKUjh1RG05WUNxcDVobnBXNzJsR2FXbGo3UTNlSkJfeHNiZTZrQkVwTmg3T2NIYktOUmJwcWRUQmU3OXh5b2MyTmlYQU9mX3RuUGpoRUtoVdIBpgNBVV95cUxPZ1dJOWQxcWJPMzRrREdDdDFGWGlvRUVaaHAzUjNFSzE0UDhlU09xLW9oaE5pT0pYSVpCMnMwOTdxOHBRMUxtSnoxTXhPWGI0bWdJeU1fanpyTmpVcjY1WWJxWGdVbG9BTGZnUWw2N1hpXzVSOENmcEJlZlVHcFFWTkNCS2tGeVVXUDBYRFRJNC1TRzJQVEVkVEhfMmFydVl6Z0oxblR6UklWdUVibTZ0TmVpQU9oUFNMSmdMNHgwM1lDckxYWEtpZFVSdlJWeEYyUmNiV1hFVnk5QVFHU3JPejJWN1NiWklETEQ4Y3FuOWRaOENVM25hYUNScmZCT3BsUDVXZHE5RzNLei1RTFNNOU55eVRYNEdOaWlHRG11bW1KODA5SUFFMWo3N0VkMzFqRVdpVWFTaUc0eEZwVk42LTFKWC1qNVh6VGtqLW1NdWwzLUp3WGhCbEFrWVJyX3RubGtUYjVvUjVYb2ZORkdYLU5XV0tVdTktZ1lJRzNKaU13MlF4WmlUTGxhWXF0Z3p6NVJTM2hZZmZYUlRub0hNNWJpS0pPUQ?oc=5",
      "at": "Sun, 08 Nov 2026 08:49:14 GMT",
+     "channel": "gnews"
+    },
+    {
+     "head": "القاهرة الإخبارية: مصابون جراء قصف الاحتلال الإسرائيلى شارع الصناعة بغزة - اليوم السابع",
+     "he": "",
+     "grade": "",
+     "src": "اليوم السابع",
+     "link": "https://news.google.com/rss/articles/CBMi1gRBVV95cUxQOW5idlZPUUVhaU1Tcm9JenNjU2lGbVJhdFY2VFd4dEpPZjNlejZaclF4dzlfaVpWOTNHR2lZR3FXM3FxMS1fM1B6QUsxMXNHNVY0MF9VWjRGY0UxNUg0cHdQc2RmdURtUFhXOGRlcTlha1MtTmk5VmxodG8zblI2QXBWczB1UTJHQllUWE00QmNpY2JYb0hnWUxId0hHQXItYzBzNEFlempvQm84SWFzZEtfcG1iQkZXN3NSM1VoTkYxNzRmX2pEUjVOSk1yZUI3bzI0eHM4NVZqbnNrQjZRak5XdHk1WEx2WUtJSGZzWkRwRENLSHNuYWVrV1NSTGVWeC1fQUw2c08tWU1FZ2xPQktMM2pQcFE4N3poV2ZDbUJ5ZjNucU0wV1prcmNwLV9wSGgyYXk3eWdVSzR3bFdlcjNBbFoxZnc4aWNOdzRxSFNOcUdrY1FWdE8zOVVrYjYyZWlCaGFrVW9pN3ZVS09MdDhTSEV0WTlzZVlNQ1dhb0h0ZlppWFNzcDNrb1dfUGlNSFExSjFsUmxLQ1hFWGs1OE1QWmcwWWVJNlMxbU5LMlBYeWFOQ19TOFZnbnN2OTZKODdBR1NfMEZxZjVnbkhlUXJtcllRYzZyak1ISDlXWUp0R2NLdzVaV1JZeXE5eDdZS1BpcE5YT2xKVGZXMkFBUi1wbFR0VlVJdXFhLVpPY0xkbTA3ckhRV2xFN05oSEcxMjlaUEZoUENYdkd5b2lxZlI4WGFiOUdyZmF1WjlvQmd1TzZCVVNPa05OSHFZWWdRQmhfM0930gHQBEFVX3lxTFBHeHJhMDdJU2tjWkRXMkNxQk1FRE55bDRJY3pxUHY2QmFQRDBWbWV1ZElNSng4Mk1KSmQxNzZIQWdQNC0wenFTVUNVR2x4TFdEVXhlSGdTMDc3V3lJdloxRWdPOXpFY21XU2pPX3NTa2hROHMzNlZXTWViYmxTWWxtUzkxLTZCd014Rm1iaUtwLTF1czlkN2Jla1pDSFFFaWZDaEF3UlQ1R3h2V1VhS0Rqd0c1Z2pmMEdNRWozMVBPU3FSTUMzRFN5NkItMTR4YUVJREgtb0o5Y2ttdkpZOW9yZFdtV1g0ZWE1MGtuMmdKSVJOT1RYMDZZQWhZRWtybFB0R2Z3cHJMSk1Gc3hHcVplRGRGT0JjQmlNaTZXOTNPcnp1MWhoUkg1NjcyZ3JzNmZiMWl6VnpKSVV2TTFIUFJUX2lXSFhmNmFXcWwwVFJucjNacGpDT3I4d0RHQVdEVWg4UnlJNllSaEVOdFYwQmE5OUxPb1R5S1NNOWJZX3hnY0F6UnYtUG9NTXZmUzNzeC1jNk1GX3g3SHo1ZFlTcVF5bG9PXzdneXhKaDk0TmpEeUR2LWU2SEg5UW5MM3FMYUFFWHc3SC1JV0Jack5QYTJXRklNTG1nc3k4U25KbDNmTW1ZUGtVNzN2aHRvNnRSTU9ZVE5veXJicmFsNmppSWhTbHk4clpTdVlkN3ZtRjZSZ0l4MndYTXBwWWFCUWV1YzY1WmdWbGYyTmZrYWxMRkY5ODk1b1hpQlY0OUh1cW9FQVowX0ZFcEF4N19HakQ0Mmw?oc=5",
+     "at": "Mon, 09 Nov 2026 08:34:00 GMT",
+     "channel": "gnews"
+    },
+    {
+     "head": "عاجل | الهلال الأحمر الفلسطيني: 10 مصابين في قصف من مسيرة إسرائيلية على منطقة الصناعة بمدينة غزة - الجزيرة نت",
+     "he": "",
+     "grade": "",
+     "src": "الجزيرة نت",
+     "link": "https://news.google.com/rss/articles/CBMi1AJBVV95cUxPNVRvNmhTRWpta3hSZTFZSlh0bDEzenI5c0VSYWF4bTJBS0RtQVRqRGJHeUEzZW5lZDdaZVhsVkFmS0VxNnFXSjh3ZFFBenZtWW9xVzhndXh5LTUwWUNrZWFjaVVXSElTSndBZWRTTXVLOUZ3eTlLR0VOZW5XSFY0NHhfVHJhUjJuYW5oTFhHMGdnWWhuWWJ0cUdBN01BZVctNnMtR2lRUjB1Z3d0emRKa01FajlvMWpGTGNFcGlUUUJfVHEzMVZ5X2xZT0duUjdnLTRTWWNSZVlsMkUxcnFpVWwxT0UxMHl2RTZ6aWI4NGFwVVV1TWc0cHJPXzhOaVN4V0NGVE9SVXF5c1hLOTllelFVclhYTmdsSWNra2RTR3N3SnB5OWtZbmFqYUFkd0Q0UE9ka2VCMjNNMENGZFJ0SXZkY1lDMUZWX2tIUnA4LWdQMTkz?oc=5",
+     "at": "Mon, 09 Nov 2026 09:29:27 GMT",
      "channel": "gnews"
     }
    ]
@@ -502,17 +502,17 @@
    "summary_en": "“Trump Iran”: 8 graded Sanad hits (0 verified · 8 credible) and 8 open news signals.",
    "hits": [
     {
-     "head": "ترامب: إيران تنفي تضرر بنيتها التحتية إثر هجوم أمريكي وروبيو يقول إن المفاوضات لم تحرز سوى ‌\"تقدماً ⁠ضئيلاً\"",
-     "he": "Trump: Iran Denies Strike Damage as Rubio Cites 'Little Progress' in Talks",
+     "head": "ترامب: إيران تنفي تضرر بنيتها التحتية إثر هجوم أمريكي وروبيو يقول إن المفاوضات لم تحرز سوى ‌\"تقدم ⁠ضئيل\"",
+     "he": "Trump Says Iran Denies US Strike Damage as Rubio Reports 'Little Progress' in Talks",
      "grade": "حسن",
      "src": "BBC",
      "link": "https://www.bbc.com/arabic/articles/cw98z810nv68o",
-     "at": "2026-11-09T08:48+00:00",
+     "at": "2026-11-09T10:38+00:00",
      "channel": "sanad"
     },
     {
      "head": "ترامب يستبعد ضرب إيران مجددا.. ويهدد بتدمير 38 جسرا",
-     "he": "Trump Rules Out Fresh Strikes on Iran, Threatens Destruction of 38 Bridges",
+     "he": "Trump Rules Out Striking Iran Again, Threatens to Destroy 38 Bridges",
      "grade": "حسن",
      "src": "سكاي نيوز عربية",
      "link": "https://www.skynewsarabia.com/world/1903454-%D8%AA%D8%B1%D8%A7%D9%85%D8%A8-%D9%8A%D8%B3%D8%AA%D8%A8%D8%B9%D8%AF-%D8%B6%D8%B1%D8%A8-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D9%85%D8%AC%D8%AF%D8%AF%D8%A7-%D9%88%D9%8A%D9%87%D8%AF%D8%AF-%D8%A8%D8%AA%D8%AF%D9%85%D9%8A%D8%B1-38-%D8%AC%D8%B3%D8%B1%D8%A7",
@@ -521,7 +521,7 @@
     },
     {
      "head": "ترامب في أول مقابلة بعد هزيمة الجمهوريين: الحرب على إيران أضرت بنا",
-     "he": "Trump in Post-Election Interview: War on Iran Harmed Us",
+     "he": "In First Post-Defeat Interview, Trump Says War on Iran Hurt Republicans",
      "grade": "حسن",
      "src": "العربية",
      "link": "https://www.alarabiya.net/arab-and-world/american-elections-2016/2026/11/09/%D8%AA%D8%B1%D8%A7%D9%85%D8%A8-%D9%81%D9%8A-%D8%A7%D9%88%D9%84-%D9%85%D9%82%D8%A7%D8%A8%D9%84%D8%A9-%D8%A8%D8%B9%D8%AF-%D9%87%D8%B2%D9%8A%D9%85%D8%A9-%D8%A7%D9%84%D8%AC%D9%85%D9%87%D9%88%D8%B1%D9%8A%D9%8A%D9%86-%D8%A7%D9%84%D8%AD%D8%B1%D8%A8-%D8%B9%D9%84%D9%89-%D8%A7%D9%8A%D8%B1%D8%A7%D9%86-%D8%A7%D8%B6%D8%B1%D8%AA-%D8%A8%D9%86%D8%A7",
@@ -530,7 +530,7 @@
     },
     {
      "head": "تحالف ترامب قد انهار؛ ماذا سيفعل الجمهوريون الآن؟",
-     "he": "Trump’s Coalition Fractures: What Lies Ahead for Republicans?",
+     "he": "Trump's Coalition Has Collapsed; What Will Republicans Do Now?",
      "grade": "حسن",
      "src": "بي بي سي فارسي",
      "link": "https://www.bbc.com/persian/articles/cq398g4ez18vo?at_medium=RSS&at_campaign=rss",
@@ -628,21 +628,21 @@
      "channel": "gnews"
     },
     {
+     "head": "في أوكرانيا وإيران .. مجموعة السبع تختبر توجهات ترامب بعد \"الهزيمة\" - إرم نيوز",
+     "he": "",
+     "grade": "",
+     "src": "إرم نيوز",
+     "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBDbGRFblI2QkZxa3ZLdV9NLVlfb0JtWnZuS1lDTnBWVE92aGhiWm9XYzVhWVljY2NBREYtV1ZOX2xZS2ZmYU5kN2FERGVtMnhCTTZzWEJB?oc=5",
+     "at": "Mon, 09 Nov 2026 08:26:15 GMT",
+     "channel": "gnews"
+    },
+    {
      "head": "ترامب يتحدى الانتقادات: سأهاجم إيران مجددًا إذا أتيحت لي الفرصة - بوابة أخبار اليوم الإلكترونية",
      "he": "",
      "grade": "",
      "src": "بوابة أخبار اليوم الإلكترونية",
      "link": "https://news.google.com/rss/articles/CBMi_gJBVV95cUxNeG1MT045ZlRkXzU3Tjg1QXhTTmt4Qjdfc3QzTGhtaFc4dHZXc1I0SFBGUUJHZ0wzM3FhZm13eFY3d1RHRzBpTmFVRDJzX0g1SlFwQWh1dTNWQmZNcHRwZ2tLeGFEenFUeGo5OUwzaUhrYnJkbG91NmxDcWhVeDBsWTZUcTlpanNtNkJZVC1IR2haSUZkbDF5X0tJTTJRVmFfOExZNkRBcGFRQndpd2U1SXFzYXNiNEM4MC1wS0U1VDRzOGJWTjdnc1VTREk2eWxEMVdEb25GejR0dklfY2Flby1DUjU0Ymp6QWhpMmpQbTd6OVNzQzFpdW1wWVRRc1ppbHFyakNyX1lIaDcyUDlMM2staTBPc2loUjkyb3gzZnRRVTZrRzQzR2JtRE82VFBCZmxJMFZyRHFCQ2t5ZDU5dmxWc25fRU1mbFBtT2QyTHV5MnZ5eWNvRktFMnlGTmMzcVJjY0taSTF6Q0l4MmowaC1MU1F5a0N4cXQ2MEpB?oc=5",
      "at": "Mon, 09 Nov 2026 01:32:31 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "أكسيوس: ترامب يلتقي رئيس وزراء قطر في واشنطن لبحث جهود الوساطة مع إيران - بوابة الأهرام",
-     "he": "",
-     "grade": "",
-     "src": "بوابة الأهرام",
-     "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE8tbDcyMldwaUpMY0JiZFY1U2JySlFqaG9ETV9kUWZZa21ka2dpQVFGa1dOS25Tckw1VEFMdHQyWWRfZ1oxekFRWG5DaWM2ckZtRXBrMHFR?oc=5",
-     "at": "Mon, 09 Nov 2026 07:57:00 GMT",
      "channel": "gnews"
     }
    ]
@@ -680,7 +680,7 @@
     },
     {
      "head": "عراقجي يوجه رسالة إلى أمريكا بشأن فتح مضيق هرمز.. ويهدد بـ\"الجحيم\"",
-     "he": "Araghchi Warns US on Strait of Hormuz, Threatens 'Hell'",
+     "he": "Araghchi Warns US on Hormuz Strait, Threatens 'Hell'",
      "grade": "حسن",
      "src": "CNN Arabic",
      "link": "https://arabic.cnn.com/middle-east/article/2026/11/08/araqchi-sends-a-message-to-the-us-regarding-the-opening-of-the-strait-of-hormuz",
@@ -724,15 +724,6 @@
      "channel": "gnews"
     },
     {
-     "head": "من هرمز إلى قزوين.. واشنطن توسع الحصار على إيران - سكاي نيوز عربية",
-     "he": "",
-     "grade": "",
-     "src": "سكاي نيوز عربية",
-     "link": "https://news.google.com/rss/articles/CBMizgJBVV95cUxQZXFRS2VxZ0xsZXUzei04Y1dmQmNEVk9JUkhQOFdqQ2dLdjk5VXRiMUdsMHdTQ0Z2a09LQ05oTFdpY0dQUkZobzd2RzE3ZTBIOXBKOUwtQjVnWTBndTFlcmJqSk4wYzhDR3lnNEhYTW5yT2dVOFlJcmFuU2NHeXJyX3lxYTJibTZuUm9vbldtVENNRTZhSVdoRTR5T2g4WEJrOGRNb3hXM2d3eDBuaEp5bHVZaWNjVzhBQXdqS2Z4YnNkX3pvT0p5cTFDdUpoRENWZzFRQUE4Y0hvVlFwZFBONWJyWkZsSzh0RWZzSlV5c0hXamViTl94cW93UjJ5MXRwcmlaZzd0c2NpcTVpQm9kbl9sQUdqY0Jrbm15OXNJbnNFTmxqTVhLOGRxOFdGalNsSGhwQXNUd0V0d0JwajRVTHBBTHZhZnZ5UzNDamZn0gHTAkFVX3lxTE53bnprNjBrX1J5QTNoc0VpUmtYUy1SWU5PRU9aNDNSZHNraW1OOVJSZVFKNmZmS3N1Y3NjUzZMeEtPSGt2aUV3TEdVOUZJdVFNUzdpQmpsNlotZUt6U19oajVvVWZ6SXoyY29JWTRraEEyVHFqbVlxdXREcU1tVkhIRkphbDJqc0xZdmVuWmlqQkU0SzJ5MzlXYnpCM1htQWV3WFdoQ0kzVkN1YUplTzl5YnJENmQ5WWYySzR3aXEyY0FkUmUzX3QzbzdoSUFmVHpERnRUSk5YZXE4V1VOZklwaW5pc2J2LTZFcVBsTUh0ZXdOWWJVc2NTZGhIanVIZW12WGxwRUNmT09RcmM3U0VwWmtKOXFtdEQ3V3NGc3g0NnE5Y3VrME1vckRyazllakZoQ09EbUFURWlYZklYazZzSTViU3dTaExUSVJDTXg1NC01bw?oc=5",
-     "at": "Mon, 09 Nov 2026 08:15:41 GMT",
-     "channel": "gnews"
-    },
-    {
      "head": "معادلة \"البوابة الحديدية\" ومضيق هرمز - اليوم السابع",
      "he": "",
      "grade": "",
@@ -766,6 +757,138 @@
      "src": "بوابة الأهرام",
      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFA3TkRsdkJIOXB2SjhrSmRxVmd4WGx2YnZQT2VBNl9SMmY5bGdFR05jU2E4UUVxTEhBOW84T19yei1HME82b0JCNUhJMHktb0pWWHpJQUN3?oc=5",
      "at": "Sun, 08 Nov 2026 21:19:00 GMT",
+     "channel": "gnews"
+    },
+    {
+     "head": "عراقجي يمهل واشنطن يومين لقبول مقترح إنهاء الحرب مقابل فتح مضيق هرمز بالكامل - معلومات مباشر",
+     "he": "",
+     "grade": "",
+     "src": "معلومات مباشر",
+     "link": "https://news.google.com/rss/articles/CBMi4gRBVV95cUxNcUQ2N1NRbjh5aUpGSW11TG41UHZKRzFmY0xBQXgwb2d5aWs0TEpDRHZKRWVQM2JIa1owSjg1TGdlTjZVR2ZwTXpleTZoRGNMUmVodzNFWHJfUnAycGdMMmJOOXBKckN2ZVBtaWVnRWdqWHVDeUw3SElGQi11QzUwM21tRnhpRjlGUk0yV1FRbS1RNDFkbFBmaExLelBrOFZDTkQwbjZGYXFxTm51OFBCTFlXNnlGOVJ2UEJhSTJMVmRWRi1xS3BsWXg2cmFqckRrbmFJYi1uYzFaZmFuRDM2bGo5TmtQa1dxUUlEWk9jYU93NEpFZjhkZGh1bHNvdFprTHBSOGN0R243NGNZdENZd0dYam83UEJ5YUtvbk83c2FpZlU1WHBVamFVVzdRZWxNdUF6Tm5tU1dqZ3A0VkstcUR3WDJLWlJ1V09TU0FTZm93aGZPb25FZ1VwSk5ReHZ3aVUxVGY5WXhuT2oyTzZhdTh3MEppWl9abGlIRkQ4My1XbEc5R0ExUjNyc21tdVpmcUhOUmgwZjFPdzRLLU1BWWVWcEE1c1Baa2dCeklDckZVSkhtRVR2dzdlaEQ1WExXM0NHYXJEWG51SnVyeDJUMUpfaElsdkVZQXNHNzRWT25pV0RoR29WU1FDOGpuTVZ6cEZYVk9wd3JIai1FdlNZMGwxaFhqanFZcnRzTlFIaUpmZ2haLVZaS0ZVUWtPV1lDV092ZkpiX0tVVmU2VmQzZ2xtQnBNUmdyY255UXJtaWVncGNsRnVVM3NiZXpIVDBKTkpEMV9aY2VMSU9QSzEwMXR3?oc=5",
+     "at": "Sun, 08 Nov 2026 22:08:09 GMT",
+     "channel": "gnews"
+    }
+   ]
+  },
+  {
+   "term": "الحوثي",
+   "en": "Houthi",
+   "kind": "keyword",
+   "topic": "اليمن",
+   "heat": 72,
+   "n_sanad": 4,
+   "n_open": 8,
+   "sahih": 0,
+   "hasan": 4,
+   "summary": "«الحوثي»: 4 خبرًا مُسنَدًا من سَنَد (0 صحيح · 4 حسن) و8 إشارة مفتوحة من الأخبار.",
+   "summary_en": "“Houthi”: 4 graded Sanad hits (0 verified · 4 credible) and 8 open news signals.",
+   "hits": [
+    {
+     "head": "الحكومة اليمنية تجدد اتهامها لإيران بتسليح الحوثيين وإدارة عملياتهم",
+     "he": "Yemeni Government Renews Accusations Against Iran Over Arming and Directing Houthis",
+     "grade": "حسن",
+     "src": "الجزيرة نت",
+     "link": "https://www.aljazeera.net/news/2026/11/9/%d8%a7%d9%84%d8%ad%d9%83%d9%88%d9%85%d8%a9-%d8%a7%d9%84%d9%8a%d9%85%d9%86%d9%8a%d8%a9-%d8%aa%d8%ac%d8%af%d8%af-%d8%a7%d8%aa%d9%87%d8%a7%d9%85%d9%87%d8%a7-%d9%84%d8%a5%d9%8a%d8%b1%d8%a7%d9%86?traffic_source=rss",
+     "at": "2026-11-09T07:14+00:00",
+     "channel": "sanad"
+    },
+    {
+     "head": "كيف يرى معارضو السعودية حرب الرياض مع الحوثيين؟",
+     "he": "How Saudi Opponents View Riyadh's War with the Houthis",
+     "grade": "حسن",
+     "src": "بي بي سي فارسي",
+     "link": "https://www.bbc.com/persian/articles/cw80z9kxnk7jo?at_medium=RSS&at_campaign=rss",
+     "at": "2026-11-08T21:53+00:00",
+     "channel": "sanad"
+    },
+    {
+     "head": "قطر تدين هجمات الحوثيين على السعودية وتؤكد تضامنها مع الرياض",
+     "he": "Qatar Condemns Houthi Attacks on Saudi Arabia, Affirms Solidarity with Riyadh",
+     "grade": "حسن",
+     "src": "الجزيرة نت",
+     "link": "https://www.aljazeera.net/news/2026/11/8/%D8%B9%D8%A7%D8%AC%D9%84-%D8%A7%D9%84%D8%AE%D8%A7%D8%B1%D8%AC%D9%8A%D8%A9-%D8%A7%D9%84%D9%82%D8%B7%D8%B1%D9%8A%D8%A9-%D9%86%D8%AF%D9%8A%D9%86-%D8%A8%D8%B4%D8%AF%D8%A9",
+     "at": "2026-11-08T13:15+00:00",
+     "channel": "sanad"
+    },
+    {
+     "head": "ردا على تقرير لوول ستريت جورنال.. السعودية تنفي وجود مطالب قدمها الحوثيون",
+     "he": "Responding to WSJ Report, Saudi Arabia Denies Receiving Houthi Demands",
+     "grade": "حسن",
+     "src": "الجزيرة نت",
+     "link": "https://www.aljazeera.net/news/2026/11/5/%D8%B1%D8%AF%D8%A7-%D8%B9%D9%84%D9%89-%D8%AA%D9%82%D8%B1%D9%8A%D8%B1-%D9%84%D9%88%D9%88%D9%84-%D8%B3%D8%AA%D8%B1%D9%8A%D8%AA-%D8%AC%D9%88%D8%B1%D9%86%D8%A7%D9%84",
+     "at": "2026-11-05T20:29+00:00",
+     "channel": "sanad"
+    },
+    {
+     "head": "حكومة اليمن ترد على بيان إيران: غطاء سياسي لميليشيا الحوثي ولم تقدموا سوى \"خبراء الخراب\" - CNN Arabic",
+     "he": "",
+     "grade": "",
+     "src": "CNN Arabic",
+     "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQd2dGMlZ2WW1QZG0ydFNnb2h6T3ZHbFFlQ19pcWI2dDVQdUMyVWhhZWZWbGx2Rl9TQWtQcmpWSzJZYXNWUHg3Ukh5RjdKZGxadlJWU0MzTEZlN0M5anVTSXJzdG9jNGFWemxGTGlXcWptcmM5U1I3X2h4c3lQbFE4Y1U1aTd1SkpFYkVWMGpXTTFWRzl5YklFdGhFQzhzWmVFQlhQMHlidVlBdw?oc=5",
+     "at": "Mon, 09 Nov 2026 05:06:16 GMT",
+     "channel": "gnews"
+    },
+    {
+     "head": "من تعز إلى الجوف ومأرب.. معارك برية وهجمات بالصواريخ والمسيرات - الجزيرة نت",
+     "he": "",
+     "grade": "",
+     "src": "الجزيرة نت",
+     "link": "https://news.google.com/rss/articles/CBMiswJBVV95cUxNVFBOQk0wRmlNLWk3X2xJQ0cyNDZpaUNqZF9ieEtsb3lnZ3A5ckhacFhtNVNSVWR1MHgwU2E1b1E2VUtaMFJVanY3ZXpLc2JmYWs3Um4wZGFTakJIT2VOWk9nSjh1MTR5LUhsWWhjRUUxR0hqS3BVTnFqTzR1LTZ5RFMzeGNNRmdhSlZpcWc2TnBPaVZ5Y3RKNkVHQmV4S3F6UzBkOTgzZElYNEllQ1pVOGJKWmxub2R1M25rUjByd3pGRG9QU2pUSTZKQmFpNTRiV01FMzc1MlJ6QzA1WUtjZEh2WXZSU2hzMmFjakJYdjh5d0NMbXZ1RV8wYURPSjNpUlNJZWMxY3lZaXVKMXFOcU80S2FLdjVpa3R4bEtVRHNzSUl4TGtiUldETHNoSlY5YjZ3?oc=5",
+     "at": "Mon, 09 Nov 2026 08:29:30 GMT",
+     "channel": "gnews"
+    },
+    {
+     "head": "\"أنصار الله\" تتبنى استهداف مركز الملك عبد الله المالي في الرياض، والسعودية تعلن \"محاولة استهداف\" مبنى لشركة أرامكو - BBC",
+     "he": "",
+     "grade": "",
+     "src": "BBC",
+     "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5FTjdJeVQyYWZmbDkwcHlXTkNXZHhLbHVkdUFBU1cwQ1YxdW1iYmRlZk91czc2R2dKR1VKYVhEUmZTNmtmeWpSQXlMeXQ1Y1hERVRHc2VKLW5tcEIwQXfSAWNBVV95cUxNLVNJWEE2U0RKcHBtUUJfLVEzaXdXREZXUHlGRkhmeHZtT3d0RV9fSk13a1VQckdHcVdQcERONDB3cUk3MllMOU9LbWlPRlVURVp1cFJCaUluc2VLZ1N3elR5OGs?oc=5",
+     "at": "Sun, 08 Nov 2026 14:31:22 GMT",
+     "channel": "gnews"
+    },
+    {
+     "head": "السعودية: اعتراض وتدمير 4 صواريخ باليستية وكروز حوثية - سكاي نيوز عربية",
+     "he": "",
+     "grade": "",
+     "src": "سكاي نيوز عربية",
+     "link": "https://news.google.com/rss/articles/CBMiygNBVV95cUxPcFFHSWdFMGt1YV96WTJYVVE5RXlxTGw1RWYtZmd0eTRpd1B2Yk05M3VyWndYNDNacXNGS2pEUGotQ2RwR21OY2xKa180dXJJWW9rYjQtT0Jqdk14Vy1lb0hOUmNLaHNBQXkzWEpZejFiUW9sZjA3QTVUMGw0ME9FSkVhMHJacEpyazVSWS1ZUUppNlJYcUNHRklUTE9BSzNFbUdrdUxZU1VqTndvc0xSRTBtUnZpYXZTeWJDRkhLSThIWWNLUFRkX0d2MFZRVndjY1B2RWdQTXA3NWhhX0FYX2RnZlp5OHdXejluX2NDQUNBYTdEeEJjbUlOTWhmVnduWjFqb1YzODlGUXZuRzdySl9WeFBYcEVXLXRYbnJnSUtOd09mNzZlTG1iSTJaRWxrZTR1UzY5Q1VkTEJzZjhpbUlSd2ZrZ2lvVGZJZWM5R2FMTndmcXBIbG94RHl0cEJJenE2T1NRajRNSVQ4WjZzNmVTY2RLX1o3T3RqU2pON0o2eDBmQS05Rms0ZVM1aEJNYVJpbXBHbkhpaWE3NU82Y19YNkJiOG1vZmZDN1dzbm9od0dUanc5eDhRdmxIaGo3T2Y2clV3NmN5QdIBzwNBVV95cUxPbnhvLU5KUU82alluRXI2NWtmanNBWUk1OWU0WWVNUGZFY1FDOWhManYwTUVKdUlZZVFYWnVtZFJmNzRhSDVlcVhjVGx4TWRXQVppakNfQWswQkE2X2FWUTVYU3NmSWkwMC11MlE4cHZGNDBYbllWODg4QmIxRGxLZERudG9ROWR4dV9xX0VTRHNlenhCZklUeW1aamd3MUFDWG02eXdWb2dqem5JMXgtN0ZIc3BxNmdCd044MEFQckQzMzQ5NkpocjBqMWpVNUNpZndJUlpQOWZmZ29jekloYk13RUlJZjJCZmtUZ2lUV2pmZWN3aHBmdnZvdmdrQ3VJVDVVT2otRDU2YnFHaEs1US02Ynp6T2p4eEdNN1M1MWpRXzZwV0xfdkdiYW5WckRnaXI5NFVJYlUzeXdSQW43SEo1cy1jLWptSkk1bEJPNFdpSk1TSDdKMl92T29VNko1Nl9DOVMxemMwejRucTl3Q2tWMjNSU3hsZnNhMks2THI2aFlQdzBPOWJLUUZ5bnhkSXg2TjJuQURMdmdiVnZLOXNWNVh0cUlwa1JwV0ZYa2IwS2NVaE04X3hRLVgycjdHT3AtbEZBOU9LMnMxRnZZ?oc=5",
+     "at": "Sun, 08 Nov 2026 07:09:00 GMT",
+     "channel": "gnews"
+    },
+    {
+     "head": "العالم الليلة | العربية تنشر خريطة منصات صواريخ الحوثي.. وترمب: تراجعنا كثيراً للوراء - العربية",
+     "he": "",
+     "grade": "",
+     "src": "العربية",
+     "link": "https://news.google.com/rss/articles/CBMinAVBVV95cUxOOFVLZFFQX29YX3NWSVdRTTZyREdWNEd3eTFTWEI1Y1hoUFp1bUZpanJFWWl3SDV1UXAteFNIOHZXTGE5VFBvYW53NFkyZXFJd0tSSXJMdVVoMHh5WlFtbFBFRzY1RjRWTjMwNW1wOUdmUWdSdVljWndmblJmZ2hNYkpfeGxTbW5PNWpwelhlbHRHNHRxQ1RKZm5zS0QtdXA3MHZ2Mm5MN0hMQmd5NlRZQkdHTGJpRU9CQTZoVE10RUNOVWdLU21jUGp1N1hkNHRsSzVxel9NVExtbUF3VG9jRVV6YUpHemVQSTc4cmZxektCZWg0VElpV1F3MGdQMWlNWkxxbFN3ZG5uMGk0WVhKTTQ2TzFvQzcxUEU2cFZIeXh1UGxvUDc5dGQ3LTJhaHhNeFc5ZFlnclBOVnMxTlRpOHp5V3JCSWJvdGxLY3lfbGlrQzJlM0pTSGpfd3Rsd2dSTW51aTFWdmRoRUdfTXpCZ0RtcWlMX29yeXRqSVhfT3BxZ3NHXzRib09xMEYwVWx0R081WklpWl9LRi1sU2xxNUNvUE4xVU1veGc0S181MUhIaEVhWWFpUk1LaDBjbGhMTTVqTTNzbjhyX2lpX0E5TWVPOXlvZFBOSFpzNVdocmktOTNuSHRraV9XYTczcjhRbC00b3haZmdrQm9sV211cC00bnIwN2VfS2FWU0FWSEFLYmk0NzM2SGd2Y2RCbVA4OHJ4Y3pGTEVIM3dxQ2Y0OF9JNFc3UnYwcWY5bU4xOGpXR2hhVnd2c2pyWnROVWt5RFRqYUNKWXdkeTFCa1UxM3pIYjlERVdQTnpCY2h5WDBBSlc4ejM3RmZGNXJrZDZ6cXVkbDlBVTBHX2EwZTNaSlZIclh5aVpQT2VtZdIBogVBVV95cUxOMGxSRGREMmdkcFNKcUp3eHBSY3U5N2ZrbXBpRm41TEluWXF2OG5vV0l5MWJsNE1xbFdWSDQ0eEd4ekw2TFdHU1gwYTJMOS1zdC1ReFJxR3N4ZFgzWlk1Qm5kc2d0RkZWOHhCcHJBSWRuMlNBSklZSl9NR3RPcmh3OTBzV2IzeHp0a0x1Z05NNWZ2TlhKS1I3WFZZUzlWWTBPS0ZjUGlvMWNoWlFFdUg1OVNwRG1DS2V3bklkb3gxUFBBcV85aDJmcmxnU3lpX2FveUt2aUphYUVHVVAzeERSRTlIZGdTdC1lSkEydkMwWXJUVnp6alByUnVOVEh0clA3Uk9DaUo5eEIyVkNsSmhMc3FJWjFiZ1VBcGNVZUtlQ2huRGRVdm5ZXzFlQWQ3NDBVWFJha3RmcGd0RVN3WG4zSDhNajJteXBXZGdQWVRmbERQM3NrTmo1RVJaa3h0cEs1cGpCYUliLURUTTg4aDBRZUQxWEpLYzdwbHlhOUl1NnNYRVFwVUl6SWNYdFFIOEctWkw0bHoxcWloQV9uc0tMNDNoQVJQMnk4RnJ6aFJfWS11RC1DSV9uNXdaOGRlT1VSejR3cFNZSEgtSUZZNEV1a2NBRldudXdreXZLN1V6SFBUbWh6aVg2bGM0UlB1aWpHOTNkVGF2aEQzYnV6RlFJN1lXNEdrVGtEanFzWWt5aWdzMHdUc0dWNTUyTUdEQ25XSEp0Vzh4VE9OWTNBTGJ6NU83WTM3MHB6MDQ3MEItb3hQbE1VMmNrU1V6czdGVHNfaFJyTm9SM2ZjTXExd1RGYXBlRGkwRWx0N1M5YnNQc1RfSVdzWEFKQXlpdjA3SjVaN04xNVRmMUxJU2lyMjBFX2RfWnUxeGFITC10VlVYbE9hZw?oc=5",
+     "at": "Mon, 09 Nov 2026 01:13:00 GMT",
+     "channel": "gnews"
+    },
+    {
+     "head": "وسط إدانات لاستمرار الاعتداءات على أراضى السعودية.. تدمير 5 صواريخ ومسيرة أطلقها الحوثيون تجاه المملكة.. أضرار مادية محدودة دون إصابات بمحاولة استهداف مبنى تابع لأرامكو.. فجر اليمن: تنفيذ 875 عملية خلال 24 ساعة - اليوم السابع",
+     "he": "",
+     "grade": "",
+     "src": "اليوم السابع",
+     "link": "https://news.google.com/rss/articles/CBMilwRBVV95cUxQbW5HYjBUOHVTZk9oY2JIcHBrOEZrNmZsRjFCcXhKeTg0TExwNzU5OWU4MHE5UTV3ZnVNUFg1U0N2dVE4bzl2OUxLWTdXSUJLYzFwZ1hMWEJ3NDRtLVlkckczWlp4ZDBQaTdmR3g5ZlhqZnpEN1dQZEJnUTc5YVFQbDkxWV9rOWZOOWRLUk9LZWNweWJacEJvQ25QN0FaVVVUQkV1U1lVZ1ljLTd6V0drTE9lTWtMWlNPOUVGV1VNclMtMFJrOWU4THozTDR1eC1FVXJuNzNqWi1yZTZtSlZTQVFVcXVaSjFKRkp4ei14aVJhMEhYQS0wTm1ubDAyQ1FNb2N2cnpCOXRfTS1Vc1JGMHc1VUM0WWRLMEVOcHF6UkdMc3NEVVlVdl93ZHVaelUydjNObVhuc2l3b09sTWtoOHI5R0lNM01xTDlMMjZyNWp5R0Izay1fV1dLQ3VzLUpOS1BVWXFDRWpTelZzUXJFeDVZQnVlRndYeEdkNlEtamlrcHVjc0RxZlZHek9tZnlNdmFnZEkwcko3T3cwZk93M3NIMFJRYW03aXVxRGVNR3MtVEV4MDVEdGc1dmFxelRPcnZaRW15ZW8xdUUzUkhkOFhfYWV2Q0ZuLWplSW5VZkRCSDhiNFQwWEw3dk5Wc0tPcWRpRGRpODBsOXpjekF0LTM3TmV1a0xYWXVxSFh5VG56NEZZemxj0gGSBEFVX3lxTFAyWmg3eGlYRXUzd1I1eWZPRDc2Wm9QT2JrV0tJWWpvQWMzb2F3aGd0aHJ5blg4OVlWVzBxVmFDdjl6Vkk0TldmM0VyN2d1RU1lZ19OVDNYMmVJMVJNbmJnQUw1UWFCU0dXOTdpeElpc2w2Y2g1eHRpZU1xbFg2TmxoTGxJc0ljbEpsVHYtUE83Rllxc05GSk53SHQ2YnBHNEpaME8yWEJTX21ZOE9hZTgtNDNKYm9FYk5iZFMwbFhlckRmUXpKWGxlNERTa2pNb3RKamJRbkpBU2RRY3NCaThKR0ZHeTQ3WFpkQjJ3RVhaVHBIdmEzTmczRDhZaGtKaUx6N21WeHUtVkViUUxUcDJGaHZCSUxNQkNoTjdTcGlWRlg4UFF6TjNZWDdsYUYtWFZRdWcwMWFSTXlRRWhEVElOMGNLTldlZVFmdmVvYW5ja0pOZXQ4c25qM25hNHJGU09GMl9jSWo5U0xxTFZRemJrYW12RFluMk5LZ1ViWU9xTU1OSzE5VjlBVlhjdGRCcnJvb09jMmQxTHAxVkgyMWZzUENDc0taWVhMY0k2ZlNRNm5mYVBfQmp5S2ZBamRCNjVTY1FRLUFyQjJ3RmJWOWhSeGk1QWlrZkJqbm05d01wNzhfVlJjbHA1LTlaaURGLVpWUUVjM1ZTRHhiZEE2cHhLcm1ZeEJDYUQ3N2lxNUttc1BR?oc=5",
+     "at": "Sun, 08 Nov 2026 15:40:00 GMT",
+     "channel": "gnews"
+    },
+    {
+     "head": "هل قوة الحوثي حقيقية أم وهمية؟ - الشرق الأوسط",
+     "he": "",
+     "grade": "",
+     "src": "الشرق الأوسط",
+     "link": "https://news.google.com/rss/articles/CBMiuAJBVV95cUxOTHhCMmxLZUxIekI2dXF0QktveHE5Zk5rYktPTkNxaWVnMkQtZmRvZDZZTjFnVS02SVo3NWZRM2RDZTJTT2hQTGFIRlJmME9TWEFKcWNEWEtXZEtsRVhuUkRmSWVJUmtuZmVqNkVyNU83SU1zTGQ4M0hQT0JQT2pWRTZpeE5QR0pLWjlVeXNScGpiRm5WR3ZaeElqYnNwdG41SFZ2X0VTZW94WEZQVUx2TnF2eEJaY050T2x2cDFoNjNNa2NyaTdnZFkzdm5OZjdQeHVmcUE3VXZMMW9MRzloTmNaWm5hYmc4MUtVQ0ZzTkREWFdValQ1dERPWnROZWZWOXJWSnJ6VGZtNlo4ajdGZHhIbUtkb0VkRHlQNFYtRTF2MFM3bUdFN3NTYVZyY1hhQ01RYTZUUTk?oc=5",
+     "at": "Sun, 08 Nov 2026 19:52:31 GMT",
+     "channel": "gnews"
+    },
+    {
+     "head": "آلية الحوثيين لعبور البحر الأحمر.. كيف يمكن أن تؤثر على مصر؟ - Masrawy",
+     "he": "",
+     "grade": "",
+     "src": "Masrawy",
+     "link": "https://news.google.com/rss/articles/CBMihgRBVV95cUxQN2JTZjM1d1QwQW5KTUM1NENuSURreXU5WXlXWE9xSjZoRU1hQkRhX1BZdlpPd19UeVRaeUdrYm16VGlCa1E0akpMbHFZNzROTExuZm1YVHJXalNLZ2JVUk9KWmJfMkdPSU9EbUg0amR1aVByRTJvVFE0UjEyNGpuMWRTMXEtNlNSbHUyM3F0M3ZnRmxxSHk2TzdXeVdya1hUZUxXRTRSVmJRbWUxNmlES2F4Zl9Qbjl6RVpTdXk4ZW1lbko2VGpaNlBBUkc0RV9VcElMbUg2WTZFMlZPLTZfY1RLdjBSMWh4Y3pydXk5dE9qa041ZklvR0gxS0duMVVPRUdvR0dvYUw5ck1fazl5LXlnR09vTkw5TTk3NHhJR1JOaXBSWW53elBYNmczd1VuODdhT0hOdUFJbUJzQ3pXeG8zTkRCaTBqRlR6V2FEZjRzWDVpUGs3WUtEYy1fbDRSWlFvZXM4ekJxdEpBM3NZVXRMd0pmYTRMVlhoWE1VdWFtSnpMdDN3VFBGVVM2WlBINVQ0OG51NkxqQlpRT3RDT0FSTG8wMktMendqMGxUMUdQcXlsa2JsMll2LV8xM0NkU3dWX0d3MktENTNTMTM3UEJON3lTTDQ3UzhsVkhQUVdBVFVWWU9XMkJScVdrSUUtZzkyb1c5VTFQV1hsRzExR0xQelAzUdIBiwRBVV95cUxNMVEyc3I4R3hjcUx5TVZjZ1Jqb1pjUEdlOF9LYlU2VDRSRUJSbGQxeHMwMHlva3EybThpLV9COHVsYUtoVWlzWWw2Y044MU00NTdxSlNQVVNwWWtmVi1kcDFFUWhfdmhDLWdPT2g5cTVISU80LU55RzhSV3g4RWVrMThtRUg4Y1RhcFh3WWRjRk1NUkNMTjY0VVNFX2VTdk5ockp2X3VnbkhhNzNvNmpFMnQ3ZkJRV2dtdWFwR25ETTJMQ1NaaTItMVRsMmI2RXFoTmlKbVhkTVVKM2FCcE9ZckRQWHVKY2VoUUFYWlY1b0ZJNnlCckxET2dtdU10bTJfU19YZzNWbEVGNm5zbVNrYW9fbGRHbGF6WVNKS19taXJmUktiTWJEVFFYSDhsWTU1QUpnLXZzeVNoRHl3R1JXOXZ6S2N5ZjBjTjhidTVoOElzTGNpMTFuc0lzSEs5T0lnNnFqTGVQYjB4Wm5TSnRqQXdWai0tSnVCQzF5aVJ3Sm1wdnNBYmVoa3dHQ0hXbUhORXhuZVdsVmpBM2gxZExHQkhia2lveUZORHNLbGdzMWtYY2J0Q1gzcUpFTVR0YU1NM0Fzd3lUekVfQTdUSlozbG1DV1FaemZFM3NfVjVQemNtTmxTbnktREVzQ1VVWGpHNFlWa2FDUEc5UFVPM29ILXFBMWppSDBpS0o4?oc=5",
+     "at": "Sun, 08 Nov 2026 21:30:36 GMT",
      "channel": "gnews"
     }
    ]
@@ -803,7 +926,7 @@
     },
     {
      "head": "عراقجي يوجه رسالة إلى أمريكا بشأن فتح مضيق هرمز.. ويهدد بـ\"الجحيم\"",
-     "he": "Araghchi Warns US on Strait of Hormuz, Threatens 'Hell'",
+     "he": "Araghchi Warns US on Hormuz Strait, Threatens 'Hell'",
      "grade": "حسن",
      "src": "CNN Arabic",
      "link": "https://arabic.cnn.com/middle-east/article/2026/11/08/araqchi-sends-a-message-to-the-us-regarding-the-opening-of-the-strait-of-hormuz",
@@ -847,15 +970,6 @@
      "channel": "gnews"
     },
     {
-     "head": "عراقجي يوجه رسالة إلى أمريكا بشأن فتح مضيق هرمز.. ويهدد بـ\"الجحيم\" - CNN Arabic",
-     "he": "",
-     "grade": "",
-     "src": "CNN Arabic",
-     "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPQTZMdXRKaFFfeHg0Ukw1S2xRazEzQVlWMkticW1PTjQxZHdzTVlXSWlkLXlUWUpwcDk5WkI2amY5bkxJMUdHcHZKRkg4RVdkcHBsSlM4QnhDcGhQVWZUMzZLQW1MRW05ZEhnaUp6X0lHZzB0b0dpOHdtdlZOZkhubDJfcmFaQ1dlbXhwQy1QYUNMNkVoaXVBRjdTa0k0eFBpNGhvTTRNSFQ3cnBEYk1VZ1BKX1BjOVdYRTJ4UmtoRUlsSEY1RWEwSDF4ejlZUQ?oc=5",
-     "at": "Sun, 08 Nov 2026 18:19:16 GMT",
-     "channel": "gnews"
-    },
-    {
      "head": "إيران تجدد تمسكها بـ\"خطة اليومين\" لفتح مضيق هرمز بعد تلبية مطالبها - CNN Arabic",
      "he": "",
      "grade": "",
@@ -874,135 +988,30 @@
      "channel": "gnews"
     },
     {
+     "head": "عراقجي يمهل واشنطن يومين لقبول مقترح إنهاء الحرب مقابل فتح مضيق هرمز بالكامل - معلومات مباشر",
+     "he": "",
+     "grade": "",
+     "src": "معلومات مباشر",
+     "link": "https://news.google.com/rss/articles/CBMi4gRBVV95cUxNcUQ2N1NRbjh5aUpGSW11TG41UHZKRzFmY0xBQXgwb2d5aWs0TEpDRHZKRWVQM2JIa1owSjg1TGdlTjZVR2ZwTXpleTZoRGNMUmVodzNFWHJfUnAycGdMMmJOOXBKckN2ZVBtaWVnRWdqWHVDeUw3SElGQi11QzUwM21tRnhpRjlGUk0yV1FRbS1RNDFkbFBmaExLelBrOFZDTkQwbjZGYXFxTm51OFBCTFlXNnlGOVJ2UEJhSTJMVmRWRi1xS3BsWXg2cmFqckRrbmFJYi1uYzFaZmFuRDM2bGo5TmtQa1dxUUlEWk9jYU93NEpFZjhkZGh1bHNvdFprTHBSOGN0R243NGNZdENZd0dYam83UEJ5YUtvbk83c2FpZlU1WHBVamFVVzdRZWxNdUF6Tm5tU1dqZ3A0VkstcUR3WDJLWlJ1V09TU0FTZm93aGZPb25FZ1VwSk5ReHZ3aVUxVGY5WXhuT2oyTzZhdTh3MEppWl9abGlIRkQ4My1XbEc5R0ExUjNyc21tdVpmcUhOUmgwZjFPdzRLLU1BWWVWcEE1c1Baa2dCeklDckZVSkhtRVR2dzdlaEQ1WExXM0NHYXJEWG51SnVyeDJUMUpfaElsdkVZQXNHNzRWT25pV0RoR29WU1FDOGpuTVZ6cEZYVk9wd3JIai1FdlNZMGwxaFhqanFZcnRzTlFIaUpmZ2haLVZaS0ZVUWtPV1lDV092ZkpiX0tVVmU2VmQzZ2xtQnBNUmdyY255UXJtaWVncGNsRnVVM3NiZXpIVDBKTkpEMV9aY2VMSU9QSzEwMXR3?oc=5",
+     "at": "Sun, 08 Nov 2026 22:08:09 GMT",
+     "channel": "gnews"
+    },
+    {
+     "head": "عراقجي يوجه رسالة إلى أمريكا بشأن فتح مضيق هرمز.. ويهدد بـ\"الجحيم\" - CNN Arabic",
+     "he": "",
+     "grade": "",
+     "src": "CNN Arabic",
+     "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPQTZMdXRKaFFfeHg0Ukw1S2xRazEzQVlWMkticW1PTjQxZHdzTVlXSWlkLXlUWUpwcDk5WkI2amY5bkxJMUdHcHZKRkg4RVdkcHBsSlM4QnhDcGhQVWZUMzZLQW1MRW05ZEhnaUp6X0lHZzB0b0dpOHdtdlZOZkhubDJfcmFaQ1dlbXhwQy1QYUNMNkVoaXVBRjdTa0k0eFBpNGhvTTRNSFQ3cnBEYk1VZ1BKX1BjOVdYRTJ4UmtoRUlsSEY1RWEwSDF4ejlZUQ?oc=5",
+     "at": "Sun, 08 Nov 2026 18:19:16 GMT",
+     "channel": "gnews"
+    },
+    {
      "head": "سفينة وسط سحابة من الدخان.. صورة فضائية ترصد مشهدا لافتا قرب هرمز - الجزيرة نت",
      "he": "",
      "grade": "",
      "src": "الجزيرة نت",
      "link": "https://news.google.com/rss/articles/CBMi0wJBVV95cUxNSmdkRjl6bnRUZWtWNFdZenFHMGlDZDNuV3pLYkV1dWFhRXl1LW9GalhwVjNnS1pVaHhJRWZpci1xNWEyenZZdUtnVDRPRlhWVGdRU0Frc3dIVE1TS1dMYWR4X2hnVlQ3dVFxT2drbUczMUxPbHJtMlhNb292LUd0Z1ZWT0RqWXkyaHpfMm9qZEpueFV6Z1Rpb3JzYjRXekc0UFZ4MlVZUlJ0YmJfV3RXc2ZfQjM5WUZnS3BnQkktYlBnM3R3dmRnLWVlczI1MnBETHlKaE1RMWZOLUloUm42ZkhBZlBIbjdCNGpDNm1EYXBlVVV1LUJhcV9QSjlXblYxcHJkOXNRLXJPR2pWTjBwZnhRZFJvOG1CWldlTzFnWE5laGFETU5uOXN2YnJEbHRRbXhsSUk3bXdBZjZGZkFKOUMwOUJyTzJwZ19xV1UyY1ZBYVU?oc=5",
      "at": "Sun, 08 Nov 2026 21:17:59 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "معادلة \"البوابة الحديدية\" ومضيق هرمز - اليوم السابع",
-     "he": "",
-     "grade": "",
-     "src": "اليوم السابع",
-     "link": "https://news.google.com/rss/articles/CBMizwJBVV95cUxOODVyb3drclZhTVpvYk85Vm5LY2hrdFF0U3JzbHFEMTdQNTdNUHN5ZGdyTTM5SlI4UHROdHdEU0R1ZHF4QlRMdHVXWV9aM0V1eGtMZGRWSHc4aG14d3FaTURKdTZ0MXNOWnpoaHAzVE1iWWp3Ml9mVTBFcmsxbWpid01WR3o0R0taVjFwaWpqZzZZMkxCMmFXT3Z3OGFHRHV3SVpfbkJsSDhSQ0hMMVFNZWJ0aW9sUmNxbjdDdEdHUm81Q1FqZ3Mwa1ZmUFQ4QmNjdXBXeGI3UUpsQW52X2g3UVVOT29UUWp3dmxvWC1EZGs2dmZWMkVlX0pzZjdORVcxNkFqZEdSOU9wWThGQVRGUWdxZHRBQzd2VUhQUXJPbVdfYUg0d2tJNHRmQXNjVHVnVXFMMEVqV2Fnbi1UbklwNlJwa2ZzUXB2ajczTTdMY9IBygJBVV95cUxQSzZTT3lRYl9hVF9ycVhHcmVhMVBCM1F5czBfTkhpSEV1Z001YXpRSGlLYVNfbEJaWnJxN1M4NlZ3UkJkOU1DQlJQeHVTeG01azdWZ2V2Q2V3Z2dONmFLRWh2cFVjb2xVUnNBU0ZFbGszTXdQY05LRFo2c3E4RVZHT0JIUFBWZlhKck1ISi1ZTXktTk5EWld3dXNpbWdONXZqTHFrcmlQTnVJVWNNZmdBeE9QS2hva2VaTm9lUmlCZVhlZDRmSi0wcEVWSDVwNVZOdVV0c3hxZENOeHV1Yzh3RkRPanZlUW1YUkJOVXRFaDc3NWVOTVl0T0RjRGg5cEk4SEJsRHplVE9SeGhMaTdhWGh0dXhkakh0eGNFb3V1UHZMWnAwUUh5VlhTMlpRTU5ESWZPSFp6aUxORmM1clRJNzhZSDdCT1dIUEE?oc=5",
-     "at": "Sun, 08 Nov 2026 22:28:21 GMT",
-     "channel": "gnews"
-    }
-   ]
-  },
-  {
-   "term": "الحوثي",
-   "en": "Houthi",
-   "kind": "keyword",
-   "topic": "اليمن",
-   "heat": 62,
-   "n_sanad": 3,
-   "n_open": 8,
-   "sahih": 0,
-   "hasan": 3,
-   "summary": "«الحوثي»: 3 خبرًا مُسنَدًا من سَنَد (0 صحيح · 3 حسن) و8 إشارة مفتوحة من الأخبار.",
-   "summary_en": "“Houthi”: 3 graded Sanad hits (0 verified · 3 credible) and 8 open news signals.",
-   "hits": [
-    {
-     "head": "كيف يرى المعارضون السعوديون حرب الرياض مع الحوثيين؟",
-     "he": "How Saudi Dissidents View Riyadh’s Conflict with the Houthis",
-     "grade": "حسن",
-     "src": "بي بي سي فارسي",
-     "link": "https://www.bbc.com/persian/articles/cw80z9kxnk7jo?at_medium=RSS&at_campaign=rss",
-     "at": "2026-11-08T21:53+00:00",
-     "channel": "sanad"
-    },
-    {
-     "head": "قطر تدين هجمات الحوثيين على السعودية وتؤكد تضامنها مع الرياض",
-     "he": "Qatar Condemns Houthi Attacks on Saudi Arabia, Affirms Solidarity with Riyadh",
-     "grade": "حسن",
-     "src": "الجزيرة نت",
-     "link": "https://www.aljazeera.net/news/2026/11/8/%D8%B9%D8%A7%D8%AC%D9%84-%D8%A7%D9%84%D8%AE%D8%A7%D8%B1%D8%AC%D9%8A%D8%A9-%D8%A7%D9%84%D9%82%D8%B7%D8%B1%D9%8A%D8%A9-%D9%86%D8%AF%D9%8A%D9%86-%D8%A8%D8%B4%D8%AF%D8%A9",
-     "at": "2026-11-08T13:15+00:00",
-     "channel": "sanad"
-    },
-    {
-     "head": "ردا على تقرير لوول ستريت جورنال.. السعودية تنفي وجود مطالب قدمها الحوثيون",
-     "he": "Responding to WSJ Report, Saudi Arabia Denies Receiving Houthi Demands",
-     "grade": "حسن",
-     "src": "الجزيرة نت",
-     "link": "https://www.aljazeera.net/news/2026/11/5/%D8%B1%D8%AF%D8%A7-%D8%B9%D9%84%D9%89-%D8%AA%D9%82%D8%B1%D9%8A%D8%B1-%D9%84%D9%88%D9%88%D9%84-%D8%B3%D8%AA%D8%B1%D9%8A%D8%AA-%D8%AC%D9%88%D8%B1%D9%86%D8%A7%D9%84",
-     "at": "2026-11-05T20:29+00:00",
-     "channel": "sanad"
-    },
-    {
-     "head": "من الجوف إلى تعز ومأرب.. معارك برية وهجمات بالصواريخ والمسيرات - الجزيرة نت",
-     "he": "",
-     "grade": "",
-     "src": "الجزيرة نت",
-     "link": "https://news.google.com/rss/articles/CBMiswJBVV95cUxNVFBOQk0wRmlNLWk3X2xJQ0cyNDZpaUNqZF9ieEtsb3lnZ3A5ckhacFhtNVNSVWR1MHgwU2E1b1E2VUtaMFJVanY3ZXpLc2JmYWs3Um4wZGFTakJIT2VOWk9nSjh1MTR5LUhsWWhjRUUxR0hqS3BVTnFqTzR1LTZ5RFMzeGNNRmdhSlZpcWc2TnBPaVZ5Y3RKNkVHQmV4S3F6UzBkOTgzZElYNEllQ1pVOGJKWmxub2R1M25rUjByd3pGRG9QU2pUSTZKQmFpNTRiV01FMzc1MlJ6QzA1WUtjZEh2WXZSU2hzMmFjakJYdjh5d0NMbXZ1RV8wYURPSjNpUlNJZWMxY3lZaXVKMXFOcU80S2FLdjVpa3R4bEtVRHNzSUl4TGtiUldETHNoSlY5YjZ3?oc=5",
-     "at": "Mon, 09 Nov 2026 08:29:30 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "حتى تفهم «الحوثي».. مرة أخرى - العربية",
-     "he": "",
-     "grade": "",
-     "src": "العربية",
-     "link": "https://news.google.com/rss/articles/CBMilgJBVV95cUxPMThkZi1SLW5sbXlpRVAtTmV4UlhMN21rcklqQ2lyQVVkdl9Ia292M3h4MTdKWWNyVWk3bWdSNWd6Vk0zTzZTODBhQmo1V19UMVdLRUE0OTBwNWZhRDNpVUJpYUhEQjVpa1B2dVlod0dlTUt2Q2d1NXdCdGZzMHZUNW8zMW1rWVJ1Wi1ySnJ4Nzd5WWVaSDFCenlCbFZHTGRCVjRnU1dLd3l6V0h1elZIUTZFQTdxSEs2TGF0RFZaSVJWTVg2WHB6VEk4SDlWU3Q2Si00RFFsYk5OYkx1cjFkWHBWRkQ0RVlhM3ZYVU9PQjBheVRPQnQtSXFnRVppTVdMYml1M2FVMnRCTW82SmVfSmdoYkU0Z9IBmwJBVV95cUxPWkZuYkpxcFdaQXkwNC1DYkNfeXJsdEY0cmo3RnJtVGxTX092TG1ZT3RXZzFnbjVGOG54SVlydmhDSlBqcC1SZV9UZkdLSEJnTmU0aVNMX3psVFBtay13V1JJMmVXSFllVU5mYzA0X1AwMG4zaTRWVkFWU2VEZl9qTlJoWmx1N25wSm5ya2YzSnNPUDJEeUVKOUpMbUFNSUpNX21veEFsY2RZRDZrazdzNjd5QUxHenVwRU1uQlI2T1RpQWtvMVktN084OWRvN29aM0J4NGZxbU1OblRGdmFJbmhaeWFfYXdfeEJXMGFIdWxlUVlTNmRWZUpRSWRLcWhqMEFId2FsNVpUSUFWNGVVeVA4eFoxMGpmM3BV?oc=5",
-     "at": "Mon, 09 Nov 2026 07:06:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "«الحرس الثوري» الإيراني في اليمن - العربية",
-     "he": "",
-     "grade": "",
-     "src": "العربية",
-     "link": "https://news.google.com/rss/articles/CBMivAJBVV95cUxPbHFoTHdweGpPNUtvczVJYzVmandOTk02SnJORzBQTE8xRXpOZl9oaGE2UllGVlNkbmJWVXlXaUw0SHg5S2RYdEFZWU55bVFFUXBRQnExM0JzLWpvMmhsNlJLM0xSbEcyRHk4OFNiVnIwUW5JNmRZd3AxV3FRR1BwNWVYMlNJZzBpUEdWUGxrS204UmFhbHJFUFN1NGh6eEF3RTNzeWlDc2J2eVpWSlJFOFROSEUtM3cyQ29VN0g2SVROdXZ3MlBCanhhX1lWWjB6RmZjeUtrTEl0Z0FNMHAycUdnckFjczRielM5M29Oc3BtR1V4NUxscTBUd21XM3oyVTZZQ29CQklBNDNLR2UyT0IxNmZnUGdhbV9Dd2dDeW1BX0xoXzFvQXVEWXRZZ3RPaVlOZXUyVEwwQ1kw0gHCAkFVX3lxTE9DbGZacVp4VFJjekRhVmktSExGWUNpclJHV3dUbHByZ182bVNWcFB5cUlWcVJSTGhhZEx1clIwR3NGT1Vud01NU2ZNS21ZUFFWYkFVRWpOU3pCX1FHelplTWtkN1pRcm5MSjQ4WG5UM3JpYm4wRTZ0dHh1NDdvQndWWHhPNmFYck5YVjgwZEx1amVmZlZWcWdkeGQtMlh5bVdUTGhwTHlLdzBqQy1maUxTVFJ4NVVpbmhhMUxRQkZjZVpwVTJ4dVA3QzJWSGF2WlptRWFGMS1HQ1NZc3NtZktWd2h2bU1ZUXVVYU9fQk8yZzlBTHVjV0R0eXB3Mmt6YldkZ0hObm0zSzFJcWhteklJOVhNRXpmdTY4ZUM4RDliS2phRm1Qa09UOTVDWk5zZENhMTk2MnpuU3BmSmdTbHR0WlE?oc=5",
-     "at": "Mon, 09 Nov 2026 08:11:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "الشئون القانونية اليمنية: تحرك برلماني لتجريم الحوثيين واستكمال محاسبة إيران - اليوم السابع",
-     "he": "",
-     "grade": "",
-     "src": "اليوم السابع",
-     "link": "https://news.google.com/rss/articles/CBMi9gRBVV95cUxPM1I3YlVPQXVJVTdoa2FRXzd5bWZFd0dPa1EwOHViQUszZWp2WXRPY09tS3VDRExwV2YyOHlsRnBuOHo0Y1JyVGxjTENtcTZlOFYya1l6NENIWGl4UWtpQzR4bmpmWkJic29Ga25WOWkwblQzQ1BJNWl6TGFNMnRucDJFOFhRSGlWNURQUkpkMWNUNUJjaDktR3k4MjNfQWNFNmxHMkRUb283aHFtblBCS3M2Ml9hdy1xMlJ3T0ROakZkcVoyaHdJeEJVRXVHV2VQemRIMVM2WnRZZTMwcnY1NTlGU1dnMm4tSHZqNVF0bkwyTTB6SVJidV9IbVBKUkJnZlZ2N21EdWVFRXBBRlA5bkhiTkxjLUhaeHJrOV83WDVYSTFJM0pIT0JsbkY4bThQbUt5NVZFNWJaMVZWUmUyaDR2WV9xWll4NExLTXFQU3BBNHdCZk4tYVFTTl85YmlSTE9FcGtfcDdWRnNOQXdLTmNPQkVMdWtMR0VmXzktdTVYakh2S3dQWm5rTDdvRHZrV3lmaDZKeHpHRnhGVndOZ2RyZWRVeldfZEx3YTJteTYzUlhibnhzcVg0ZUcwckZmSDEtN3FidDJUSmhLZFJrWlNHbDRPR0N4cjBMRTVzeS1BMTJrWXhLc05WMDQ1M1BGdEpRUDV5dUFycE43eXZST2steGk1NWZ1cEZWRFBlei12WFdJSzA1SlhtQmxfOHJpSmFWd1ZfV1pUVkN4WENEU3RjaW1MeHVFVWlDdl9XbGM2d0wzNzBxb2Q4ZnZta0VsbVl2QXA2YkhZT25FWVJWZlgtRDJwR0dZaC1YanZ0X1JrWVJIRkHSAfAEQVVfeXFMUEwwSnRzN2VVMHZPaTFrOXhuc0dfTWNPUUoycFVRR1BqS3MzOUk5MGVBYzV4VEJDV2JGSkE5NVl2SmRfMTdHWGs4dk9hQ0xhVXFUWk91eGRvZXlac3I1ZE5ES1pEd1R5ZzBIVE9vZWkxNW9GcTdFbTE3WFhPaGp0TXZlbU9kQzBSX3h6MXg5ZW1mX1lPbWl4UTBNMUZwTWVuMnB0VXZ6UnRvQ3lIdE8zV0t4YUp2UGxEemNTZGNWb2s0Qy1OOFFFbFNINzB2aW5yVlRUdUQwYU5pdHZsR29QLWdmTU5GUlZHc21Rc05sSG5tTkFHZHl1OVl3UG5qYnM2eFlnZEJrS3lVUTZrT0dGbmdmUl92aWMzOHJIQlFsLTNtSUZjbjI1Y3pUUmRUblI2S2RCRU9wdXZNV1RITzYyUzk4QUFROWFnRjg3Y1VPeF9Zb2FZd2JCSlJxUTJST3hEZU9hRUJaX1JNcjh4R0F1RDN4ZEc4c1NlZTIxbDgyVGRIUm1nbEUwdWlFVm5QMXJickFHMHd1c3lUTFc3V3dBakFrT19nR1pBRTBfWTFsZGRzR0xkTEZwaktlTndmX1pjLU52WFdIQW1nVUtnRmJPTXhSSGZMNF9fZ0ZONFNxZHNNbV9xUDZfWS02OHEtWGVZblJoLUJ5RVZXLU5hX29aUjRoaXBpc2h2ZVlPdEZwV0J5dzRaWG9FSC02MnRYaUJ1NFRFZDdfVkZ0NUtUTVJyQ09MZ09lTkRTdGt4eFNlWGMzUWsxNHJ2N2tHeS0ydjJ4U2c5c0hJWEFuQlRVZFdWc2dZNGlqZ1c3NF9XNU8tdTgt?oc=5",
-     "at": "Sun, 08 Nov 2026 18:33:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "\"أنصار الله\" تتبنى استهداف مركز الملك عبدالله المالي في الرياض، والسعودية تعلن \"محاولة استهداف\" مبنى لشركة أرامكو - BBC",
-     "he": "",
-     "grade": "",
-     "src": "BBC",
-     "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5FTjdJeVQyYWZmbDkwcHlXTkNXZHhLbHVkdUFBU1cwQ1YxdW1iYmRlZk91czc2R2dKR1VKYVhEUmZTNmtmeWpSQXlMeXQ1Y1hERVRHc2VKLW5tcEIwQXfSAWNBVV95cUxNLVNJWEE2U0RKcHBtUUJfLVEzaXdXREZXUHlGRkhmeHZtT3d0RV9fSk13a1VQckdHcVdQcERONDB3cUk3MllMOU9LbWlPRlVURVp1cFJCaUluc2VLZ1N3elR5OGs?oc=5",
-     "at": "Sun, 08 Nov 2026 14:31:22 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "السعودية: اعتراض وتدمير 4 صواريخ باليستية وكروز حوثية - سكاي نيوز عربية",
-     "he": "",
-     "grade": "",
-     "src": "سكاي نيوز عربية",
-     "link": "https://news.google.com/rss/articles/CBMiygNBVV95cUxPcFFHSWdFMGt1YV96WTJYVVE5RXlxTGw1RWYtZmd0eTRpd1B2Yk05M3VyWndYNDNacXNGS2pEUGotQ2RwR21OY2xKa180dXJJWW9rYjQtT0Jqdk14Vy1lb0hOUmNLaHNBQXkzWEpZejFiUW9sZjA3QTVUMGw0ME9FSkVhMHJacEpyazVSWS1ZUUppNlJYcUNHRklUTE9BSzNFbUdrdUxZU1VqTndvc0xSRTBtUnZpYXZTeWJDRkhLSThIWWNLUFRkX0d2MFZRVndjY1B2RWdQTXA3NWhhX0FYX2RnZlp5OHdXejluX2NDQUNBYTdEeEJjbUlOTWhmVnduWjFqb1YzODlGUXZuRzdySl9WeFBYcEVXLXRYbnJnSUtOd09mNzZlTG1iSTJaRWxrZTR1UzY5Q1VkTEJzZjhpbUlSd2ZrZ2lvVGZJZWM5R2FMTndmcXBIbG94RHl0cEJJenE2T1NRajRNSVQ4WjZzNmVTY2RLX1o3T3RqU2pON0o2eDBmQS05Rms0ZVM1aEJNYVJpbXBHbkhpaWE3NU82Y19YNkJiOG1vZmZDN1dzbm9od0dUanc5eDhRdmxIaGo3T2Y2clV3NmN5QdIBzwNBVV95cUxPbnhvLU5KUU82alluRXI2NWtmanNBWUk1OWU0WWVNUGZFY1FDOWhManYwTUVKdUlZZVFYWnVtZFJmNzRhSDVlcVhjVGx4TWRXQVppakNfQWswQkE2X2FWUTVYU3NmSWkwMC11MlE4cHZGNDBYbllWODg4QmIxRGxLZERudG9ROWR4dV9xX0VTRHNlenhCZklUeW1aamd3MUFDWG02eXdWb2dqem5JMXgtN0ZIc3BxNmdCd044MEFQckQzMzQ5NkpocjBqMWpVNUNpZndJUlpQOWZmZ29jekloYk13RUlJZjJCZmtUZ2lUV2pmZWN3aHBmdnZvdmdrQ3VJVDVVT2otRDU2YnFHaEs1US02Ynp6T2p4eEdNN1M1MWpRXzZwV0xfdkdiYW5WckRnaXI5NFVJYlUzeXdSQW43SEo1cy1jLWptSkk1bEJPNFdpSk1TSDdKMl92T29VNko1Nl9DOVMxemMwejRucTl3Q2tWMjNSU3hsZnNhMks2THI2aFlQdzBPOWJLUUZ5bnhkSXg2TjJuQURMdmdiVnZLOXNWNVh0cUlwa1JwV0ZYa2IwS2NVaE04X3hRLVgycjdHT3AtbEZBOU9LMnMxRnZZ?oc=5",
-     "at": "Sun, 08 Nov 2026 07:09:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "وسط إدانات لاستمرار الاعتداءات على أراضى السعودية.. تدمير 5 صواريخ ومسيرة أطلقها الحوثيون تجاه المملكة.. أضرار مادية محدودة دون إصابات بمحاولة استهداف مبنى تابع لأرامكو.. فجر اليمن: تنفيذ 875 عملية خلال 24 ساعة - اليوم السابع",
-     "he": "",
-     "grade": "",
-     "src": "اليوم السابع",
-     "link": "https://news.google.com/rss/articles/CBMilwRBVV95cUxQbW5HYjBUOHVTZk9oY2JIcHBrOEZrNmZsRjFCcXhKeTg0TExwNzU5OWU4MHE5UTV3ZnVNUFg1U0N2dVE4bzl2OUxLWTdXSUJLYzFwZ1hMWEJ3NDRtLVlkckczWlp4ZDBQaTdmR3g5ZlhqZnpEN1dQZEJnUTc5YVFQbDkxWV9rOWZOOWRLUk9LZWNweWJacEJvQ25QN0FaVVVUQkV1U1lVZ1ljLTd6V0drTE9lTWtMWlNPOUVGV1VNclMtMFJrOWU4THozTDR1eC1FVXJuNzNqWi1yZTZtSlZTQVFVcXVaSjFKRkp4ei14aVJhMEhYQS0wTm1ubDAyQ1FNb2N2cnpCOXRfTS1Vc1JGMHc1VUM0WWRLMEVOcHF6UkdMc3NEVVlVdl93ZHVaelUydjNObVhuc2l3b09sTWtoOHI5R0lNM01xTDlMMjZyNWp5R0Izay1fV1dLQ3VzLUpOS1BVWXFDRWpTelZzUXJFeDVZQnVlRndYeEdkNlEtamlrcHVjc0RxZlZHek9tZnlNdmFnZEkwcko3T3cwZk93M3NIMFJRYW03aXVxRGVNR3MtVEV4MDVEdGc1dmFxelRPcnZaRW15ZW8xdUUzUkhkOFhfYWV2Q0ZuLWplSW5VZkRCSDhiNFQwWEw3dk5Wc0tPcWRpRGRpODBsOXpjekF0LTM3TmV1a0xYWXVxSFh5VG56NEZZemxj0gGSBEFVX3lxTFAyWmg3eGlYRXUzd1I1eWZPRDc2Wm9QT2JrV0tJWWpvQWMzb2F3aGd0aHJ5blg4OVlWVzBxVmFDdjl6Vkk0TldmM0VyN2d1RU1lZ19OVDNYMmVJMVJNbmJnQUw1UWFCU0dXOTdpeElpc2w2Y2g1eHRpZU1xbFg2TmxoTGxJc0ljbEpsVHYtUE83Rllxc05GSk53SHQ2YnBHNEpaME8yWEJTX21ZOE9hZTgtNDNKYm9FYk5iZFMwbFhlckRmUXpKWGxlNERTa2pNb3RKamJRbkpBU2RRY3NCaThKR0ZHeTQ3WFpkQjJ3RVhaVHBIdmEzTmczRDhZaGtKaUx6N21WeHUtVkViUUxUcDJGaHZCSUxNQkNoTjdTcGlWRlg4UFF6TjNZWDdsYUYtWFZRdWcwMWFSTXlRRWhEVElOMGNLTldlZVFmdmVvYW5ja0pOZXQ4c25qM25hNHJGU09GMl9jSWo5U0xxTFZRemJrYW12RFluMk5LZ1ViWU9xTU1OSzE5VjlBVlhjdGRCcnJvb09jMmQxTHAxVkgyMWZzUENDc0taWVhMY0k2ZlNRNm5mYVBfQmp5S2ZBamRCNjVTY1FRLUFyQjJ3RmJWOWhSeGk1QWlrZkJqbm05d01wNzhfVlJjbHA1LTlaaURGLVpWUUVjM1ZTRHhiZEE2cHhLcm1ZeEJDYUQ3N2lxNUttc1BR?oc=5",
-     "at": "Sun, 08 Nov 2026 15:40:00 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "هل قوة الحوثي حقيقية أم وهمية؟ - الشرق الأوسط",
-     "he": "",
-     "grade": "",
-     "src": "الشرق الأوسط",
-     "link": "https://news.google.com/rss/articles/CBMiuAJBVV95cUxOTHhCMmxLZUxIekI2dXF0QktveHE5Zk5rYktPTkNxaWVnMkQtZmRvZDZZTjFnVS02SVo3NWZRM2RDZTJTT2hQTGFIRlJmME9TWEFKcWNEWEtXZEtsRVhuUkRmSWVJUmtuZmVqNkVyNU83SU1zTGQ4M0hQT0JQT2pWRTZpeE5QR0pLWjlVeXNScGpiRm5WR3ZaeElqYnNwdG41SFZ2X0VTZW94WEZQVUx2TnF2eEJaY050T2x2cDFoNjNNa2NyaTdnZFkzdm5OZjdQeHVmcUE3VXZMMW9MRzloTmNaWm5hYmc4MUtVQ0ZzTkREWFdValQ1dERPWnROZWZWOXJWSnJ6VGZtNlo4ajdGZHhIbUtkb0VkRHlQNFYtRTF2MFM3bUdFN3NTYVZyY1hhQ01RYTZUUTk?oc=5",
-     "at": "Sun, 08 Nov 2026 19:52:31 GMT",
      "channel": "gnews"
     }
    ]
@@ -1180,7 +1189,7 @@
      "channel": "gnews"
     },
     {
-     "head": "الأربعاء..بدء إدراج صكوك \"بيتك تير 1 ص 3\" في بورصة الكويت - معلومات مباشر",
+     "head": "الأربعاء.. بدء إدراج صكوك \"بيتك تير 1 ص 3\" في بورصة الكويت - معلومات مباشر",
      "he": "",
      "grade": "",
      "src": "معلومات مباشر",
@@ -1189,12 +1198,12 @@
      "channel": "gnews"
     },
     {
-     "head": "أدنوك للحفر تفوز بعقدين لتوريد حفارتين بحريتين لشركة نفط الكويت بقيمة تصل إلى 1.12 مليار درهم - ارقام : اخبار ومعلومات سوق الأسهم السعودي - تاسي",
+     "head": "\"اشترط سحب التنظيم من الكويت\" .. حقيقة رفض كريستيانو رونالدو المشاركة في كأس السوبر السعودي - Goal.com",
      "he": "",
      "grade": "",
-     "src": "ارقام : اخبار ومعلومات سوق الأسهم السعودي - تاسي",
-     "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9yZWk0d2QyWU5kT0F6MVBMSm93UGg4dDAzMXAwTzZTUHZPM01aQ2pMM1VZMXNFblRxZlpHdkRJTFIwT3U5aHdWV0RUWWF1cm5qekJOTEFWLTgxb1JVODN1clRWMzFmdjJJVXc?oc=5",
-     "at": "Mon, 09 Nov 2026 07:13:11 GMT",
+     "src": "Goal.com",
+     "link": "https://news.google.com/rss/articles/CBMijAVBVV95cUxQekdzWXpjTXpHVEJERmNsRUdpVXAzTTlDTm5VX1o4RUN2VUpGWldzc195OUVic2UzTENSdzA4ZXE0UDZ5OTdTV2tBeFdhbTZES2JKU0pjTGVBSUctVHpsU3BYOU9udE5LNWVzOWVlRmxCakFQLWRZWGRrR2VBSG5Jb1R1M2hDUzllc1JEVTFTelFra3EyM0VqZG4wYjQyMUdOMnU0TjdyRTA5N19hSV9qQXBqeXUxTEdPN2hUVFRBWjl3M3p0Zk1FOUtpNDJ0Mm5XXzJvMHhZMVZudFZ0ZXJkZEk5ZDg3STFLeU5yUHI4SVNIRFlmd3pPM0VGbk5jMEZaaXJDeDBBQWZLRWFVc2VoTkxXYlJWY1daa3dialVmUWN2V3h2RS1nUlhRdkRNNmF2VmUxcWxWeVZNaXlxTlB3cVBTcWxpTDNMTm4zRHE5S1dYY2lteTR5SXZxY3MtZTdOVVdSakJVS3Vtem5PWDFwRW1IZmVULV9WVWNNbkk2MlFJMFVha1FxeFJucVlxcjhud3JIaXB4YWk3RkRXeEUyRXF4T25nSDJ2bHhFdzBseVNmX0l1ak9PUktOX3JKZmpPbDF0TWE3Sm4xVzNZWFpDYXRTM3lYZ2tTNkRlaXRTaVZtU2Q0eDBhV3d6MnQ1UklZRGJQM00tOUZYNGlQNmtGeXhVY3NsWXEzWl8wS09ubUVFNjdDU1VQX2ZuM04ySVVsR3A1NmpyYnhVM3h0X2NzTFBXcXkyRFNaWVhfZURwWDhDN01OUW1sM2RhQnBDa2RGcXNfaHFCYXotOTR0Qk1wV3Z3NERna1dVS2NYWVQzcG9BZ0RLb2hvTFN0SU84UXBUZGhUelhvcUx5bmhi?oc=5",
+     "at": "Sun, 08 Nov 2026 08:18:41 GMT",
      "channel": "gnews"
     },
     {
@@ -1483,12 +1492,12 @@
    "summary_en": "“Iran sanctions”: 0 graded Sanad hits and 8 open news signals.",
    "hits": [
     {
-     "head": "أميركا تفرض عقوبات على شركات كندية بسبب معاملات تتعلق بإيران - العربية",
+     "head": "الخارجية الأمريكية: العقوبات الأمريكية تستهدف شل الشبكات المالية الداعمة للنظام الإيراني - اليوم السابع",
      "he": "",
      "grade": "",
-     "src": "العربية",
-     "link": "https://news.google.com/rss/articles/CBMihARBVV95cUxOR09rVEJzWFd2bjItbEZ5eWNTMElNYmdrZVNFUWxhTkVKRG5LM3ExLTdwZWlYdWk3ODN0Y05tX1E2T0xFTGZfckJMOEVPcmJ3djVIODhtQlZmZWRpYm1Lb2p2VGZvNGFDYXpuZzBpUGVLLWpMWENGUzFhWk54c3ZnOURfWDlhSXlReDYxYXBscXFWcm1mY293S1V0U0RucmJJS2NmcUQ3R1R6ZzI0TFB6VmNBclQ0TGQ0N3lid0kzX293OUllWG5sSTl3YklIQ3dKTmVWSVBNLU9FOGNEQ3hJc2R2OWhNWXJjZDNlWkxfNnI0SDhCRzFJd3FEbWtFeUtTNGFNSUN0eWxLVFRlNXBOdXR6bjEyaFRiRUllV1hUYjB0WTh1ZjlJVWEwX3A4NHN5OEVsYzF0aFRGVW5TaGFmaG1UWFdON1UtTU9NUnA0QzA1a3BXbjdmQTlRMDlnM240TjVCdGpwSWpvNkZFR0hEaWNjb0pMTlM3WDR1WDdKUm1idWoyc0NWTVRiV01wY0x2SjR3a05aRGlBclRvamI1SndqdXcyX0RLcmNfOFpyUHNRY1RoRy1LamlFTzkyVlo3eFVIS3dXcjVodXBqLS1Ob3NQVkxzaUhCMGZzUkdVbWczaVhZNG52NEF4aS0wTjVrcVZzYm50OEN0dG9TTnpFckR6YVnSAYoEQVVfeXFMTm9OMzEtNFgzRVczdGFTVjZvWVdqTkhRRDA3cmpSSVRpV0hMR3NvakNmSnVTZ202WHN3b3hHek9FNFgwX2o3bmNJYjJhczBBSW1sWnU2UXZ6bnp0TDVpRlhYeWw0QS1tekJZckVlZXRWRFQxanhUNjMxbmxHWnhjX2N3aUw3SEg3QmpjdkxRZzkxS3RNemxZUTZmYkY4YXJfQ01Ia0VMT09RZzhTOWVfa3RnYmRVTDMwNjVQbHdRa2FRanhJX3c2djNjcHd3cVQ3ck5kbnJPelpJMm9LZi1RMkhyYVY4djBKeWp6MkdHQnhjSlRiMHhXRXJsbGpta1NEeU9xR2FDU25zbEQzal93NEE0SWlVeHBKZXZjNVhCUTFjUmtvUjNHVDNyWWFsUXdraFpscXVrMnlSbDBBRTRzX3lWSjZONno3NG8wangtMm1lSHVoNzJjRWR3V2lvYWEyVGZmUWZWVTVXYlRNMVFYNzVoYkxKYllkR0MxYnF4OXEwalQxZGE1YWJrTGlnS19uaDRqS3N6aE40UE1NaW9KUl8xUkpxbkFqMTB4alRyQTM0NkczQ09idVJQUUwtbC1wUmNlZ3FsNDdpcUY0N0hpRHJVVnZHYVVFdGVRM2ZyZ0E0MnNpemtmRE12QlRFVFhtdElIZzdtWWk5Uml0TGlqbnE4aXdBaVJSV2xB?oc=5",
-     "at": "Sat, 07 Nov 2026 06:14:00 GMT",
+     "src": "اليوم السابع",
+     "link": "https://news.google.com/rss/articles/CBMijgVBVV95cUxOeGtqTXZsM1gzTFRheVFVZDdzUm1xZTZRRFdJRFpyM1JWSG94ZlFub21nVmRmdEwwQnFfSFhqYk5XX1N4bW8xLUo5Mm50VnNHTTdyS3llTWpLVTVNb051SWJQVUlYZGgyRlB1cTgxQXFfVkRwZWhiWE9oeTkyVVI2RnB2dElfaEVwZ003Q3QtTUtET3YyNC13Nl9qZlZ3MVZWZk1yV1gwZ2FCZjlDLTUtR3pyemx3dE8tTnJEWmVkbGZTRXFKa3JvZHQ0UDdFRTQ4LTgtQXQ5bHpuV1V1RDdIdHNaMFVwUmRld0JyTEhxM0pqV29ESlhzLWdJQWpFaEZmMlIwRlZoYzcwYUZfUW5USTZOc08weUFmSHR0cHFHM1pWZUd5d2xvb1RxbnIxeUtCNHloMl9HTU1KbWszZGNOZ1RhQ0ZwNFBZNkR4UjRIRjA0c083cWRkOFJBU0hBZGZpTmtab1hIM0tON3l3ZkZ3M1Jya3NtZG9JNlY1MHo1azZKSzh2RXFVOGp0ckpqRGNuaW10dGgtX0lXZHBFMDFodGxYdkVzSHhJcFlpOGxSZlMwLXB3VWhEeDNVR1RoT2hOTE5rMktoYXJ6Mk10Z2FZQXowT2d2ZEhzbjZFRUJ3ZjA0SEloOG9EOHE5emgxNXJvbXItakxPUHRidjd6NXdHb1VJN1oxZXFNM3l3dlRqSDBYOGIzNVNTdHdsMEkzUnBvUmJDQ2FzZDNndlpnTVo3M3p6ZExjckpNd3FHSzJHeUdWdlUtVy1ncldZcnhkamJ1OUVZQm9wbVROYTN6WHY0S2FkcEhxcExtb3A1dmtNRDY2WS1US1RoYVRkM3JrRXpxTEZPd3ZMNzlleWVyQkHSAYgFQVVfeXFMTlVDYUhtN1F4ZTlhMVdYZHhRMWJoVExjZzdneEVuWlFlcTZXVUYyTUI3YW9fdzN5VjdhdDBMVzA3NkhuSUlBcVh2OG16Tk1JVmdZd1pJanRhN1MwSENyVXMwak54TE5WRUpEZGRBT2JUSjZ5d3BYSk1qZ0piY25CRGxJbWk5OXdNcDhfa0FzNERjZmE4elZMQmtGTTR2S3k2d1NvWXdIWkNNU0hjdHd3ZTNrR05KU3J2VlpIc0cxcXFua052bk9qaWtEUW9LVzlfTXBLeWF4ZUtDZjdXS0dxZkxndm1xTm1ySi11MlZRaWM4OXNpSG9TUFNLejVOYmRXdmVkekF6WFlwRUdtSTUwZ0N5Y3g3aE9uWUtOQmRtT2dyLTZJVmJRQllNYTVvTkVjWFhwUlZMZmR3U2tudG9iZ1NSbjMtdWllWFhZN1R2dU90X1RBbHVCWmtlb0NDQXRGUmZoVUZXQldpQ09Tb0NMNnRGS0l3c3otbUY1LWMyWkR6bk95MllzYjhRMmVSOEppRkE2UlpSSGFVUjI4djlEbWV5M3ppRzVlUWlPNHNwUGhRMzNZaUg5enlPOEZoXzFiRTJ6OG9VNkFhUmhqbTczajltN0lJU29HSUZXNzFjc09QT29XX2xhZzlMSUROeXA0VGVIVXRmTFZtMWs0Y0JkSjlDcFNNbGdMSzc2SmIzNVdpYnp1RDVPemZ4SEliVFR5OFR1SXFwbHFfR2FscFE0ek5Rb21FTVliOUo3WUlxMFN6Wlg5UTRQNVRGZXdjYk5GNnRDYW11Yi1PRnF5bWRWTmU1SG4yckhseW1fV01fa2dPQzVlY2JQaGoyTDIwN2c1cG1HeXAwM1lu?oc=5",
+     "at": "Sat, 07 Nov 2026 12:10:00 GMT",
      "channel": "gnews"
     },
     {
@@ -1546,12 +1555,12 @@
      "channel": "gnews"
     },
     {
-     "head": "أمريكا تفرض عقوبات على شركات كندية بسبب معاملات تتعلق بإيران - Reuters",
+     "head": "أعلام مزيفة وسجلات وهمية.. كيف تواصل ناقلات النفط الإيراني الإبحار رغم العقوبات؟ - الجزيرة نت",
      "he": "",
      "grade": "",
-     "src": "Reuters",
-     "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBlQk41S3FrUzhId0luNVNDYXpWSTNJMENGY2pMOGNBS0dQTkgtRV96Q2tKejlFRkxJZUZveU9YOU1EbmVlcnNERGhYWFM5NjJjNmxDd3ZwNG1sSWo0bW95NmY1N1dvZnRlSGlWQ3ZDWElqQzZyS2ctV1pkZw?oc=5",
-     "at": "Fri, 06 Nov 2026 21:23:41 GMT",
+     "src": "الجزيرة نت",
+     "link": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxNYllsZHdJSDlmV1VSbVV6ZVRoS2ZGYTcxc0gyS0JtVDcxRG9mcGNnd3g2WlV5ajA1TDR6WDVyVFVOVkJpZU85R0RxZXdGVWlnbGtPUnNXSlVHNmt0NFlkR2RHNHZEaFVpQUNYVHE4NUZfVy14eXU1ejRRVThXaF9FUlFqSjNJRTNmbS1pcmR5WFotQjlSWUphYmdNeW5iakgzYU1tZ08tMFBYNlo3T3N0cXpDM0ktWHQxbG9DTTBEUFlyT1FLaDJHWDNmMnRSUERYV1FuSFNiUHFYeEJZcFBCOWZDYm9ENzZRNXExZWt5Ujl6NWNIWEEzUkFMaDlHTUtEVVRHMDRGVl9ydnRXa1JIdldxUkJMZWdPMHF4bHpwVFp1VEcxSzAxaW0yXzBfTGpRbWw1b1h6dHR3dlIwTjZOTWpR?oc=5",
+     "at": "Thu, 05 Nov 2026 14:40:10 GMT",
      "channel": "gnews"
     }
    ]
@@ -1588,21 +1597,12 @@
      "channel": "gnews"
     },
     {
-     "head": "شركة إماراتية تبيع ناقلتي نفط عملاقتين - الطاقة - أول منصة عربية متخصصة في أخبار الطاقة",
+     "head": "KC-10 إكستندر لمصر أم المغرب؟.. ناقلة الوقود الأمريكية العملاقة بسعة 161 طناً ومدى يصل إلى 18,500 كيلومتر - موقع الدفاع العربي",
      "he": "",
      "grade": "",
-     "src": "الطاقة - أول منصة عربية متخصصة في أخبار الطاقة",
-     "link": "https://news.google.com/rss/articles/CBMizAJBVV95cUxQamVkMS0tN3V5dUpqYnYtS3JXa2dYejhEX0tGU0dvbkJKVTc2b2VOcEFNQzhwQVNIdDNkakg2WUl0c2JVeWc4RlhERXloZEVEeEk0X21ManNUUmlxdzhvbWVrczdZZzg4djlQU2xNQU9MRjhMYWFMRTNXY2lqa0FVdTk1bDRnV2JzQUdFdy1oMGpxclI5d0hNQnZWSjJIUE5KU0pKZ3BYZFJ0QThKeENBLVVaSUkzSmx4cUtFSEpmS1VTcUs0TUYxSXRqVHhtdzhGLW1fSUwxWnpjSVlrQXFaSUFFUk1CUk9zRFRqeGNEa2Q1R3BQaF9qM3ZocVZnNmxxQmh6VHBFcDBkOW1wZHhoZ3c2SWRaSGdnM2NCUExHeFlBOVZaaUd6bDRGWm4xd0ZhNnZwVTNoYzV4bEdMcm9XT3QwRnlMUkRiUHhnRA?oc=5",
-     "at": "Mon, 09 Nov 2026 09:22:04 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "مقابل 24.3 مليون ريال.. أسياد للنقل البحري تبيع الناقلة \"هيماء\" - معلومات مباشر",
-     "he": "",
-     "grade": "",
-     "src": "معلومات مباشر",
-     "link": "https://news.google.com/rss/articles/CBMi1ANBVV95cUxPUkp5a1hKSjJIbUxHaFRfVmJqUWNyQ0dvNFVmVTVlSEhhV0lmYjFweVJPQUxxVDd3dWhJX01memw3ZlpLWFVSR1VlZVU4aENsYkVtMnFabF9BNUlVTXc0ckM5cmpVWURmaUZOMmhWZUE4LVA1ZllNUE9MalM2Qng1c05ZNTU3UWZITS1CR3VVR2lDTFJ4SjNzTGkxZDI1TV92R21aU1poSF93RGZnNjFwM2tnNUdfTXZrSXpMcWdIMzFkT1BkTjc3dlh2TkVVNllVdlp0QUExeVlDN25SRVEtWks4SFVkbnl6ZUVvUDR6SHRsbkhneHpxZEs4cS0yS3FuWE9EZTVXdWh6MkJzTks0QlY5SDl6Q24wM2VTTnFNc0FPRU91MzU0cmFjdXFfWFRaUG1Ga0w3cU9qdGdITFgwTHhUVG1UTUZHNnQwaWZja0RzNUFGcElVem80Q2dOVGZrb3R3ODRDNEZNdEpFaWo2bE9Tb2RBMERpQlEyd0NVTDR3WVpid3gtVWhMbFFGa2JsT3l6RDNzMlg5T1Zod0VQQTBmSEVCQzZmaHVHTXRXbXpORXV3RFZ3bUdPbWpURzF0T1Q4dmEzODRja1E3V1RNbmxoNVQ?oc=5",
-     "at": "Mon, 09 Nov 2026 07:13:55 GMT",
+     "src": "موقع الدفاع العربي",
+     "link": "https://news.google.com/rss/articles/CBMi3AJBVV95cUxOQzFkcktvTmtMZFVEaU9ya2tXLWRZbTl4OEt3UVNBRDhyd2VwYUUyWGNrYndCZURkVXRfM25Kc0JhODNDMXdqUmtHaThnRE01TmN2QklJQXRzdGg3amV2SjJCc3RBYjFFVlBYTy14X2FXWjdaa294VnAyaVh4S0szS2tJQ3VZS1hUbzhuU1o4QXg1MUVHTC1Qa090alRIZXNMLW12ZXJVQkZKLXJIdGhCWERQTnU5OGVyRm8xTUdBTWFUb1ZlSUtsR1A1dEtfU2Y1VHdPMW4wREI0bDJWRVpJNlA4WWJoeVBEZ0U0WnRnZnhHdWo2RFNIQW9QN2Jiamkta0p6OGZHRTBBZXNXMUVrZkpjMVN6Y0pWMXZ3R2JCb1k0dWdxRUY2Z0ZZSWZ6X01MTDlhSzl0RUtJUGtwcDZRaUhkMEd2cjFCRm1XdmdyeFZFelFSaU15Y0FvMnM?oc=5",
+     "at": "Sun, 08 Nov 2026 17:20:59 GMT",
      "channel": "gnews"
     },
     {
@@ -1615,30 +1615,39 @@
      "channel": "gnews"
     },
     {
-     "head": "الجيش الإيراني: اشتعال ناقلة نفط اصطدمت بلغم في مضيق هرمز - Anadolu Ajansı",
+     "head": "إيران.. الحرس الثوري يتوعد واشنطن واستهداف ناقلة نفط في البصرة - الجزيرة نت",
      "he": "",
      "grade": "",
-     "src": "Anadolu Ajansı",
-     "link": "https://news.google.com/rss/articles/CBMi6ANBVV95cUxNVF83dS03OUR1Nl9uc0l0ZkJvSTE2MWo2aTZ1SERUQTZLNUI4V1pDWWVfZUNCYTV3RWk2SWtNbDVzeTh1dkZTczl4ZjJQTzhvYVRQSjd4VUdsRGJIcC1XV0k4M2duUzBsemt1YUwydWoxZ19SSTRjcmo4MjZqQlJhSElpclhzcjBTeHAxNl9KWUlFSWNzWGRackJrUjItSTJEQ01GYWlkdVIzLW1SYXpfZXlJaVhXWlU1M1pQMkpqX0tqSDlYUWw0UHkyeElHRmMwb0FWOEhnQVk0RXZVeE5KX1VHMmVDZkJWeGc5WHE5SVBWUGZ1Z2pvbzJmREdoMno2R0RoZlRYWGhVWWtVd1VYejBnekg1dm1jZVJPWmZMRHEyYU1RX1JsMDlBcG5XSWJlMGlfMlZzbFB3NTlRWWlhamNMV2owQ3k4VFhCeFI3dFpkRnN2anYySm8yUXlPcjh0WVRSQzlka0hxVk85NmJ2WlBsWmtjclllaDVxZVAwaUprMVVOcDhhUHY4b0lwV3pITHBvaExJRm9Yd0ZvSFJnS3R3NEVRQjZrdEROMkZlUTZ6OGh5VHZLSmo4Q1otLVNFTTJqeXNCSGFnb2NCRmg2SWFHdHBUZk4tRkFJZWF2ZkZWblc2cEZ4OQ?oc=5",
-     "at": "Sun, 08 Nov 2026 21:20:41 GMT",
+     "src": "الجزيرة نت",
+     "link": "https://news.google.com/rss/articles/CBMi3gJBVV95cUxPYmV5UHRWS2s1Z2NUQ2V4TXZrTVUyU1FheGQ4TTlITi1BVWpxeDlXWks5MjNhU2hHWVlsNlJMTGthc1JtRC1INlZRMzNBek5NRUpLOGg0TzJkUFFlVFk1VW9nYllOX3B3emJwdTAwUThFVVJCMUE3U3Bzd19BaE1rV2M4dWdtWi1TeDRIM0lBRHlPbUxLajdKZTBzY1ZYNm5DWmZoUjByMWFKNlFYTUVNNGJxV21PemNnT0d0LVU0eWxUUXYyODZ2X0d0aVJDTl82MHNZRGZDQWF6ZzBOY1d1ZF8wQ19VaTdpTzRrM09NS2pEb0lXX2lud3hiakR5SU9QTk55Rmpid2Q5VUlubWdDMmdsX2lnZmxlaHJ4WHVINWkwRFVPYmVROHJMSXJLcnEyclB5M2x4UVQyN19ET2xVbl9EM090RXdfVWJPUi1BYm9PRTVNUlNoWVpOazZYdw?oc=5",
+     "at": "Wed, 09 Sep 2026 07:00:00 GMT",
      "channel": "gnews"
     },
     {
-     "head": "اشتعال النيران بناقلة نفط إثر اصطدامها بلغم بحري في مضيق هرمز - قناة الغد",
+     "head": "شركات نفط كبرى تسعى لاستخدام ناقلات مدرجة على القائمة السوداء - الشرق بلومبرغ",
      "he": "",
      "grade": "",
-     "src": "قناة الغد",
-     "link": "https://news.google.com/rss/articles/CBMivgRBVV95cUxOSW4yckhBNDlPWkJydElWYTlVNHJEYVJqVUdsUGktM2RsR2JEOHhfbDJvSk8xU3hiVHFySFZuc2htdno5R3AyYlJCVkY5TlFQYl9pSFQ5RFNvWTk2em90QUVia2tNUlkwTjF4c2NhbG5xUFBYbEpnV2FucF9ESXFPM2JjaTBuZ3JNQkd3aDQzbFduM1c5dURTRGxhZURwRkFHT0dvMEczYmJmMlN2U0lOZnFXMlM2Y1IxZTRRLXFLV1RtekhMUFgyYVp5RkhwdVhia1BYRjROeW1DNnZEa3hhU0hoNTlVdUNEVjFLX21uTXZ2YWpUdmZqOS1KZklIZkVUa0RxSVlDM3VTXzhxZkJsUGRsei1DZ3FNTlF3dzF2MUE0SkNtLXhrLXZXdDgzTE9uLUFteUJQMFh6MWxfanA2UVI1eUJ0U2NuNUN4TktwXzFoazRXQVRiTXRmUndnSzM4SnhUcVRWaW9zanozdnI5X01SN0VPeDdUU3J4bkt0Ulc2TV9GLXNJeUttT3FHOUpabU8wTnlnMWNPVmtoZFliRG1GcHNwLWFpOU80LTNkR2FBZUxWeUxlY3Q0QVRPbUhKd1ZXV25WQ2k4WG9XeFdsVVVOMmRUWldNMVhhLWJmWm9sOEMtaVdsYnNxNDVPcFZBV0JZZ2xRVTA5UF9iNzBhNVVObFpVU1YtZUhzc0ZkUnpmcmZaQ21wdXlJS1UyaExvcGcwczI2ZUVnd082d2EyeEd1bHVDNTd2dFpXWFNB?oc=5",
-     "at": "Sun, 08 Nov 2026 17:43:50 GMT",
+     "src": "الشرق بلومبرغ",
+     "link": "https://news.google.com/rss/articles/CBMi5wNBVV95cUxNV3YzbEhSM2xkNFdCMEJrQ3BQX0pfb0NOcE9VcUxneVhNSFBYWDU5YmtpdUsxYTJobzlJTG52VUNmZXJ2VWVuTUptaFFTUmU1WGdkZWhUNUlQRHFtYzJnTzVldy1DbFlJZ2hrNU9qcU1SS0FjNXV3b1V2NjVKQlFFOW9tSmpaVUMzaXNYbHRWUVlwOE9mM2pWYzVaNlJUXzJDTGt0VkNvT0RMVGEyN0d0cEVmZlhwTDdQeU5YUlJHQ1VrNUZqZDFXZThPUWMzekZWekthZTQ2bWRpQzdwLWhXVFlsUGZwWU83ME5NcW9QVnEyM01FU1RybVRPLVpnMFJlcnJ5bWtYVl9NbmJNeWZOQW1BRi1XdVE3ZWdwZW1iMmJyWE5xMUIyUVo0LUJQSlc3Sl9iOHpONlgzWkotamhLQ2tXcjVLcVRkLXkxQ2R3ZDNtZUx5alBnZVlnRTBfdkFpbFNMZ092bkhUUFJlb2p2M1o0cl9hZnZqanJtN2MtX1NWTm9seGVWbE1GT05scWtfUTRLeGVZT0tCTmZGWm5ULTc3c3ByZFE1ZC12dWxtdWdteHZOeWpCZDVXZkpKTUFPNWVlaGNxaVhGYWt1NXpoSUFjbUI3TVRpX0ZibnJYd1lzdjZQOTJR?oc=5",
+     "at": "Fri, 06 Nov 2026 22:13:43 GMT",
      "channel": "gnews"
     },
     {
-     "head": "إيران: اشتعال النيران بناقلة نفط بعد اصطدامها بلغم شرقي مضيق هرمز - Reuters",
+     "head": "انفجار ناقلة نفط ومقتل بحار في حادثين منفصلين بمضيق هرمز - الجزيرة نت",
      "he": "",
      "grade": "",
-     "src": "Reuters",
-     "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1ySVR3SkNzYnpTNmxmU1NkYXF6Q0pGSDdKNk1ZVFdQNlJyQjN5X054S3BKNkxSVnR3a3ZtTzRKczFQalBfc3hJdTc4MURDSGsxVlNZVUpVM2hiSG5IY3Zxc3BhNjdlbFpnbTlaeC1fdWladVB1RG9weko3MHVmOFE?oc=5",
-     "at": "Sun, 08 Nov 2026 16:34:49 GMT",
+     "src": "الجزيرة نت",
+     "link": "https://news.google.com/rss/articles/CBMi0wJBVV95cUxPZFlGVElqM3hnT3JycGtFa0ZpX25tWW96VXdvSERLZVYxTnhSOHZzeUhoNlFPRTB3T0VsWDUtdXBtQUJsTkMxUFdqbGlSNEFFQzdIWGEzbUo2U0JlUXRGYkZLNmZQZW04WHRfczNVRS1rN0pxUW9vRy1lbG1KdjhaQTR1Y1JMdFA3djhFdFBSV1ZfYWhNRjE4RF9ReFVxbkV1Q0d5SUdSSE9pcmtFclVoODNXRXIyaTFZOHdsYktIWVpxdUc5YXBuSldXOHh2MUNoY3dXUEF3RFFmbjBYRGJncENMUk5GdW5OVGg4d0lnYnhSWHgxYldWOEJIcEVtcmZ1Y2g2QVpuX3llZ2tkaGdvRHg4dmRNcDh1UHFoS2c2YzRBanpGY19yQS1KdGJtLTlYdGpvaHpFRk5abkFidTFoU0lmNFFrUUR5UlpxSUlEVk1PSlU?oc=5",
+     "at": "Fri, 06 Nov 2026 20:20:47 GMT",
+     "channel": "gnews"
+    },
+    {
+     "head": "مقتل بحار في هجوم على ناقلة نفط في الخليج - عرب 48",
+     "he": "",
+     "grade": "",
+     "src": "عرب 48",
+     "link": "https://news.google.com/rss/articles/CBMiswRBVV95cUxOVmpIWkhKUDdVa3ZNaGZRY0pfbzMxZ3pwZmZYYkJHOTk3SFlzMVVIbUJqWXdUQ1BOVkVQbWlhSEoydzg0OEVRS0Jvb0NVbE9Vc2FkZWhBTVdLWWhieFA2RGlsUDJ5azhLSHREd1Ryb0pBOVppcmEzak92Rko1V2N6NWZIcFZCdEZCM21FTy0wTGtjdnctSFVpOXk5SUc3TmpMRjF5MWpSUDdvVHNydXJ2R1FvMTI0TE1UWmU1TkNZbTAyM1NsN1lKXzNDcUhOVV9neXRxNFlFbnhxTzBYWFdhMk5ycVdqV2duYVJfSHVjWWdHLXFDVHlwdzBFUXhiNnF4TnNXOWs1RV9TVEVxcHluRjZZX0FzRFNZci1XWGZhSVgwR3NDV000RmRRN3FXTWl5TkUzb1dEWEI3Q2lyTlpwRWJpa0M2WjhnaXEyMzVZTkNrVnljMm5BMlNNY3g0cE9zUm1iRUx4Zm4tRE54ekEwVVZjTlgwQ0VFU0huNzl6NTlDUURFM1ZjNVYyc0hDUUw5TDZoS01zMGJ3VHB2OEVZU2RwTVc0QVVBZEpXS1drb3Q1Q040QjdrUE5KR1JRVnUyYWl0a0thQ3Joek85V0V5d0lZNEdiUTk1UzRVcXhnaXBadWxxbjYydkRyR2dlbXFSNXdiamJPUzRJYU82Zl91eFpsSVR3SUhuamlhaHNuak51VFNCWkFXemxXWkVDenZTYjc4dmM1eUd0MXl4TDFIRFdhONIBuARBVV95cUxPY2xjcnh4VVpUcmNfNGVPY2ZaT0JoMVBkczJubnhHR1lrRlFGZThWb3E4LWxzNDJ1ekNaejlJaXpOQ2pFSFl5ZVRVWktKb28tVllGT29nVTN6SjkxckUxV253eTh6cWxERkNhTFdtb0V6VjZucGoxaU91RmxJZ3NqaEhNbTNlUkZvUXdXYjJ4VDRwVDNhQ2FmSGpYRE45S2xFUlRWanFCXzJTcjVXRWJ2anFFM3VTV1kxNlR3bm5XbHkwMUFzdGIwSWlLOWZUaHRLQ0o2aFlEemhsZGtRZ3VhSDU1OTdROUQ0OXA5N3lldlg3bDBzSEJrMXJEYkVrUHFxeXh4MzFmdXA2VzB3THZTNFo2V0xJM08xTzJxM3pjdjd1ZWNPS1lTTjYzRk12UVFTSnR4ZWMyZ2NVN1AzNmt2WHJ1R0hXT1JPdk5kdllYbkVVbnJDLURaNWxkeHZXUE9reDFQSS0ya1FmZWpzeGstVWFfeVhNSzJiSERtbHJNX01Ta3dNVGFkaV8zNDZKc3RleVBXVDQ2TGluTVN2ZkE5Sk5adzhrbUR4U2I0WmI4cGNRZnEwTGtCME1RVm9jdmFCV1VsNUxYSkZYNDdWdFh3UGxITDI4Mko3bk5HM01NQk1lTEQ4MzRCczlYVDdqR1NxNUZ3QjRqdlQzemFwOEVrNXZyeFB0MWtlM254Njk2eU1kZ1NLcE9oQU1RVHdLbnJPdmY5azY0WGVkZ29HT19wZ18yQlRPczY4?oc=5",
+     "at": "Fri, 06 Nov 2026 19:39:00 GMT",
      "channel": "gnews"
     }
    ]
@@ -1684,24 +1693,6 @@
      "channel": "gnews"
     },
     {
-     "head": "رويترز: ضربة صاروخية تستهدف ناقلة نفط ومقتل أحد أفراد طاقمها في الخليج - Masrawy",
-     "he": "",
-     "grade": "",
-     "src": "Masrawy",
-     "link": "https://news.google.com/rss/articles/CBMi3gRBVV95cUxNakwyRFpwWWhNYzhZN3dDUG1nb2JXRlBicHlpdGtMSjI3RW9qY3owb2ZRakNFZDJBcVMxWFNEeFBLajFKWGlnRzZSMnZ2alB3M1VyMWlOUUpzcHdBRnlmbHlGQUVza0F0aXpaRGpjelFtSWNIZjc1WDJNc0hwTjZfVTJBaG00WG00a2Y4dGZ4akRVVmlfb2lpSGUwa3ZCRVVvaFg1cXpLZHJqWFJfYVhfNUptMkk4UUZNcjhwVzJhY21BNDUxV2pmV1dGbkhCbTdHVWVTWVNleTYtMkktQTFKX05MamFkcHZmbkZVNE1CcXpCdW1pYUhKTW5EcG9RMW1ENVBtWlpKeGdVY3JnWGtySkc1LVpOcWtsRUw2dW5ndHVzaGhTWkRBQlY2ZUNIMlBkMUFra0ZMWEJuX0VSTFNTZmJUTFJ6Q3JNMTRlRjV5cElXMk53enp3YlZxVFdaUWFhMHI2NFl1cGs1V1I1ellWc2huRFZkQU9mcFM2MmNFcnBDbGlndTNHZ0I3UkFkZExYTmhmdHViNXdIREVzZThmYXlydEtGVVZlQzZmd2lud3NxOE5Yb1A5eTA4NzRQTkVhUUk4aklkMGRTSTM4dk9kOHpUZGJEckRYYTFtRjdIV0MxckJQZGVSV19kVHB2cWJZOTNEek04SGFMb3pGcnlYUFUteTNVdWR3ZGFLMkY4VWNUZ1g0MXMwYjhiQjhqN2ZWOTZ0YTQ2T2JzMy1QZjRTSzl6Y0k3U1hjQXZLUEpLb1drZUlSWDJrSEFUYWJyNXg2aGNuREdWeWVadnQ5aGfSAeMEQVVfeXFMTms5a0wwNEhoSEktVGRuT2h4aVZFN1lQVXdwM0NwbV9zWmF6NzJPanhFZ1d0RHlYVVlDTnJhZlh6aktfeDgxanIzR0s0bENWMDlESUViZ015c1Vfbl8zMTl4dTlPeWRFckdLVkxNS1dOSmJIZzBNOHNMYmhzbEpGN3c2Q2hORURycGpHQnhfdDF2V09tTXdMaDI5VEt1QlVrNkdTRW1naTdoVWppLTFoWHVNYlRUSUxCVnNTU3hBRENpZGRQak9aRDlPSlNRaG44UlMwVmlRZVNJU1hObGw3ZU9UZ3Z0cGtERXN1dzFSN3B3SC16ZC1DM3U2UjZIeTRwSy03cW5FbVBLc2FvRzEyYjI0R3huVWtaRHhhNE1US29jQU55M0ZVS042UzIzLU5pYmpxMGJBX3ZfMEFZVGUtME5EVUppNThzczJkRHpPMWRJNnVqNU9RNV9xbmhMbXJ2Vm13UnVxRklzWUZZRjQxWEMwZWdZX3l0SzdzQjFXZTdDYkJzYzlUeUU3S1RzYzZFWkQtX0JQbTV1MEMtelpqeXNKTjQzdEZDUFVYWGtVbGZYU1g5UWEtNjJieFhfSUZBano2by1PX0U0STVDZ3pnT2ZkaUZoQmJFMlZSME1qekthZHgybzh0UDZzcEFtUHp1LVFJYXkwWWRaYVJRWnZHV3dzeUE3N0J2UlkwNkR4aHJKVVpkT0Vmb1lWV241YVlTYjkybmFMQUFZLS16WkNxdEFnMlhTWElVRVNrQU50aFVjWXhLQk9EZHpsQjB2TFd1WmhUeC1fZ0dGV0Q2ZWdmYkRsVkk?oc=5",
-     "at": "Fri, 06 Nov 2026 14:29:14 GMT",
-     "channel": "gnews"
-    },
-    {
-     "head": "مقتل بحار في هجوم صاروخي على ناقلة نفط في الخليج - بوابة الشروق",
-     "he": "",
-     "grade": "",
-     "src": "بوابة الشروق",
-     "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNUEM4U1V5NHBIbzhhTXVPUkozUGs3UUttM2hsaTVYcTdoRTV2Umw0RU8tUE16YXEyczNzTGNTa2FiN0xjNXdsWVZvRGtWN2hHNmhMRXkwY3FmRHd2QVQzM1RBMGdMRnlUTkIxeGt4bkxFcnJoZlZ6WmFzREZCLUFnblVlbE9JR3czbVAzVDFNMXpYNGVKVFZFaEw0MFdwbnExcWlZd0dIUQ?oc=5",
-     "at": "Fri, 06 Nov 2026 14:32:09 GMT",
-     "channel": "gnews"
-    },
-    {
      "head": "إيران.. الحرس الثوري يتوعد واشنطن واستهداف ناقلة نفط في البصرة - الجزيرة نت",
      "he": "",
      "grade": "",
@@ -1726,6 +1717,24 @@
      "src": "France 24",
      "link": "https://news.google.com/rss/articles/CBMimgZBVV95cUxNMll3dmhIYWREbjdsVEJ2QkpMdVhUZk5RWDJhMlVnc24zWi1SRHp2MHBPZ1FMbS0waEMxMGEtdUp5R1pQVElDNFdDU2lqd0ltX0hsVG9kSElPSVNEeFNXeUtxWXB2SEFBN1dXa3VQTm9sbE9Jc1RnOFlJcmlHek1XYUdSSTV6X19kVkRvNGR0X1Nvc1NHUWY4WnVWR0Z0X09PekYwRnU5RkdXU21VaGx6NlRlNF9pd2RKTUxTMHZ6aDdUd2YzZDFTTVU1bGstYW5OYmV3enQyZU1hOGtzSWw3aHFvUWlzR1FodGRvYkh4TEI0S1NWeEJUa2N1WmN2dDVHOXZHTUwwNy0xMzM4QXJnTjR1Vld6dE1RVkhYZmtvallFLXNjcTJwdGhpVGZJT21MWXo0bjI0YWF4dVkwM2xJTkpTeDk1cWZJUWlKMC1EY1htM2dZbG1MWG5uSXNIMndXTWQwdGhNRHR3aENGVkczdnNrclBYLTJQUjU5eC1PRXBkdWdFbzczMzUtU25rMjRPRVBjS0FxQ3RJWU9zU3BCc3RoR0FNbTdYVWtpSEJ3amxHQW4zZUpRSzNnREhvTGowdUpjcElIa1dLNG9kRzZSeTFaX3hDVTR3VTVDSHJTZTJVZjZlMjZWUmdEbkp4Y2RCVjlWTnlHTmY2QUZhSERzSDNhbHVCMjFQdlBock02b0M1WllLcmpIN0pNZjFDNmZEUjNCVDVZWGkzQ1dPOWlqckVFcUt2ajdzRjkyZ3pEam11TVY4UTk1RDBEbHRYZ3VpaW1zN3hfUTZBVEthU2psNmZrWWxXemxJZ3BlRVdOV3FSNUJXSVBucFhxOTcxVmtqU3ZiVnBicFhfTGFLRFVObG1aMkhLb3YtcEdCZVJ1N0k3YnRyeDdpWXhEc3BHcU5QNHJtRGNYNUhZekYyS2hhdDVxdXkwNUVPcVFrYnN4bmt1VlNQQjJmeGxxTENzRjlwUjdYaWI5ZnR1ZHROYlhybWlacTBsblloal9mX21tYkxLdlNBSnJmV1hPbkdnT0hPVVh0TEZDdWdidw?oc=5",
      "at": "Fri, 06 Nov 2026 17:05:17 GMT",
+     "channel": "gnews"
+    },
+    {
+     "head": "انفجار ناقلة نفط ومقتل بحار في حادثين منفصلين بمضيق هرمز - الجزيرة نت",
+     "he": "",
+     "grade": "",
+     "src": "الجزيرة نت",
+     "link": "https://news.google.com/rss/articles/CBMi0wJBVV95cUxPZFlGVElqM3hnT3JycGtFa0ZpX25tWW96VXdvSERLZVYxTnhSOHZzeUhoNlFPRTB3T0VsWDUtdXBtQUJsTkMxUFdqbGlSNEFFQzdIWGEzbUo2U0JlUXRGYkZLNmZQZW04WHRfczNVRS1rN0pxUW9vRy1lbG1KdjhaQTR1Y1JMdFA3djhFdFBSV1ZfYWhNRjE4RF9ReFVxbkV1Q0d5SUdSSE9pcmtFclVoODNXRXIyaTFZOHdsYktIWVpxdUc5YXBuSldXOHh2MUNoY3dXUEF3RFFmbjBYRGJncENMUk5GdW5OVGg4d0lnYnhSWHgxYldWOEJIcEVtcmZ1Y2g2QVpuX3llZ2tkaGdvRHg4dmRNcDh1UHFoS2c2YzRBanpGY19yQS1KdGJtLTlYdGpvaHpFRk5abkFidTFoU0lmNFFrUUR5UlpxSUlEVk1PSlU?oc=5",
+     "at": "Fri, 06 Nov 2026 20:20:47 GMT",
+     "channel": "gnews"
+    },
+    {
+     "head": "الحرس الثوري يعلن اصطدام ناقلتي نفط بألغام بحرية في هرمز - البوابة نيوز",
+     "he": "",
+     "grade": "",
+     "src": "البوابة نيوز",
+     "link": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1aODZHeUw0NGxiUmVfdXdCb2hFRm5FdVJGaU1venlsV3RFSk9Fd18yQlFzMWZlNlZJTzJjZVBadnl6cDRFV09URlRTSW8?oc=5",
+     "at": "Sun, 08 Nov 2026 00:05:00 GMT",
      "channel": "gnews"
     }
    ]
