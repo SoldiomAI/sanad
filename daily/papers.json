@@ -1,103 +1,105 @@
 {
- "updated": "2026-11-08T18:41+00:00",
+ "updated": "2026-11-09T10:06+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2611.06500",
-   "title": "Tools Need Not Speak in Text: Latent Context Compression for Agents",
-   "abstract": "Large language model (LLM) agents typically append raw tool outputs to their context. Over multi-step interactions, long and noisy observations incur substantial context overhead and dilute the agent's attention to task-relevant information. Existing token pruning and summarization methods remain constrained by discrete text representations, limiting the achievable compression ratios. In this work, we challenge the prevailing assumption that agents must consume tool observations as explicit text tokens. To this end, we propose Coca-Cola, a continuous latent context compression model for LLM ag",
+   "id": "2611.01182",
+   "title": "Fast and Exact Relative-Position Attention via Structure-Aware Kernels",
+   "abstract": "Relative-position attention mechanisms offer compelling alternatives to RoPE across various transformer architectures, delivering superior performance in domains such as audio. These mechanisms typically modify attention scores by adding content-position or bias-position terms. Unlike RoPE, which encodes position via per-token rotations directly on the queries and keys, relative-position terms generally require pairwise offset-dependent computation or lookups, complicating their integration into fused attention kernels and introducing severe memory, bandwidth, and compute overheads as sequence",
    "authors": [
-    "Yuetong Liu",
-    "Zhehao Zhou",
-    "Yitong Zhang",
-    "Haorui Chen"
+    "Delyan Boychev",
+    "Ivo Petrov",
+    "Dimitar I. Dimitrov"
    ],
-   "link": "https://huggingface.co/papers/2611.06500",
+   "link": "https://huggingface.co/papers/2611.01182",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-31T00:00",
+   "title_ar": "الانتباه السريع والدقيق للمواضع النسبية عبر نوى مدركة للبنية",
+   "summary_ar": "تقدم آليات الانتباه للمواضع النسبية بدائل مقنعة لـ RoPE عبر مختلف بنى المحولات، محققةً أداءً متفوقًا في مجالات مثل الصوتيات. وتُعدل هذه الآليات عادةً درجات الانتباه بإضافة حدود لموضع المحتوى أو موضع الانحياز."
+  },
+  {
+   "id": "2611.09113",
+   "title": "Authorization Drift in LLM Agents: Evaluating Boundary Compliance in Multi-Step Tool Use",
+   "abstract": "LLM agents can exceed their authorization boundaries while pursuing user goals without an adversary. We formalize this phenomenon as authorization drift across data, tool, scope, and time, and introduce the Authorization Drift Benchmark (ADB): 648 samples across seven domains, each pairing a sufficient compliant path with an attractive unauthorized shortcut. To ensure executable tasks, tempting shortcuts, and feasible compliant paths, Staged Execution-Reflective Synthesis (SERS) grounds benchmark validation in real agent rollouts rather than LLM self-critique. Across 13 LLMs and three framewor",
+   "authors": [
+    "Chuxue Cao",
+    "Jingru Zeng",
+    "Boqin Yin",
+    "Yujin Zhou"
+   ],
+   "link": "https://huggingface.co/papers/2611.09113",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-06T07:47",
+   "title_ar": "انحراف التفويض في وكلاء النماذج اللغوية الكبيرة: تقييم الامتثال للحدود في الاستخدام متعدد الخطوات للأدوات",
+   "summary_ar": "يمكن لوكلاء النماذج اللغوية الكبيرة تجاوز حدود تفويضهم أثناء السعي لتحقيق أهداف المستخدم دون وجود خصم. وتُصيغ الورقة هذه الظاهرة رسميًا بوصفها انحرافًا في التفويض عبر البيانات والأداة والنطاق والزمن، مع تقديم معيار انحراف التفويض (ADB) الذي يضم 648 عينة عبر سبعة مجالات."
+  },
+  {
+   "id": "2611.00448",
+   "title": "Learning to evolve by matching velocities",
+   "abstract": "Learning the continuous-time evolution of nonlinear dynamical systems relies on trajectory-based objectives, which require simulating the learned dynamics during training and backpropagating through the numerical scheme, at a cost that grows with the rollout horizon. We show that trajectory-based objectives degenerate as the rollout horizon increases, hindering gradient-based optimization, and that the numerical scheme biases the learned dynamics by constraining the spectrum of the learned Jacobian to its absolute stability region. To overcome these limitations, we introduce Velocity Matching ",
+   "authors": [
+    "Nicola Farenga",
+    "Andrea Manzoni"
+   ],
+   "link": "https://huggingface.co/papers/2611.00448",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-10-30T23:03",
+   "title_ar": "التعلم للتطور عبر مطابقة السرعات المتجهة",
+   "summary_ar": "يعتمد تعلّم التطور المستمر عبر الزمن للأنظمة الديناميكية غير الخطية على أهداف مبنية على المسارات، والتي تتطلب محاكاة الديناميكيات المتعلمة أثناء التدريب وإجراء التمرير الخلفي عبر المخطط العددي. وتتزايد تكلفة هذه العملية مع اتساع أفق التمديد الزمني."
+  },
+  {
+   "id": "2611.06844",
+   "title": "Where to Connect? Boosting MLLMs via Dynamic Gated Pathways across ALL ViT and LLM Layers",
+   "abstract": "A central yet under-explored question in Multimodal Large Language Models (MLLMs) is where to connect---how visual information from a hierarchical vision encoder should be wired into the layer-wise semantics of a large language model. Mainstream MLLMs inject a fixed single-layer visual representation into the LLM and treat all LLM layers as a single consumer, ignoring that different layers demand different visual granularities. Recent multi-layer fusion methods either compress hierarchical features on the encoder side or rely on predefined sparse or hierarchical layer-to-layer connections, and",
+   "authors": [
+    "Yingying Yan",
+    "Jiaqi Tang",
+    "Wei Wei",
+    "Qianzhou Wang"
+   ],
+   "link": "https://huggingface.co/papers/2611.06844",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-04T00:00",
-   "title_ar": "لا حاجة لأن تتحدث الأدوات بالنص: ضغط السياق الكامن للوكلاء",
-   "summary_ar": "يُلحق وكلاء النماذج اللغوية الكبيرة عادةً مخرجات الأدوات الخام بسياقهم، مما يفرض أعباءً سياقية كبيرة ويشتت انتباه الوكيل عن المعلومات ذات الصلة بالمهمة عبر التفاعلات متعددة الخطوات المشوبة بالضجيج والطول. تظل الطرق الحالية لتقليم الرموز وتلخيصها ضمن هذا الإطار."
+   "title_ar": "أين يتم الاتصال؟ تعزيز النماذج اللغوية الكبيرة متعددة الوسائط عبر مسارات ديناميكية مبوبة عبر جميع طبقات ViT وLLM",
+   "summary_ar": "يُعدّ تحديد مكان الاتصال سؤالًا محوريًا وغير مدروس بعمق في النماذج اللغوية الكبيرة متعددة الوسائط، وتحديدًا كيفية ربط المعلومات المرئية من مشفر الرؤية الهرمي بدلالات الطبقات في النموذج اللغوي الكبير. وتقوم النماذج السائدة حاليًا بحقن تمثيل مرئي ثابت من طبقة واحدة."
   },
   {
-   "id": "2611.06498",
-   "title": "Signed but Steerable: Measuring and Closing the Text-Vector Integrity Gap in Offline Retrieval-Augmented Generation",
-   "abstract": "Offline retrieval-augmented generation (RAG) on edge devices is updated through signed knowledge packs that carry text and precomputed embedding vectors. A signature proves who published a pack, not that its vectors encode its text. We study this text-vector integrity gap. A verifier that recomputes vectors and accepts them within a cosine tolerance concedes a predictable share of queries to an attacker who controls the vectors: the hijack rate equals the distribution of angular retrieval margins at the tolerance (the margin law). Margins are small in five corpora and two embedding models, so ",
+   "id": "2611.08290",
+   "title": "AutoCompress: Automated Hardware-Guided Model Compression",
+   "abstract": "LLM pruning must preserve quality while meeting hardware- and workload-specific constraints on latency, throughput, and memory. Existing pruning workflows often target parameter counts, requiring practitioners to manually select model sizes that meet latency, throughput, and GPU memory limits. However, parameter count alone does not predict these metrics, which depend on the model architecture, workload, hardware, and serving engine. We introduce AutoCompress, a hardware-guided compression framework that directly incorporates such constraints into differentiable architecture search. AutoCompre",
    "authors": [
-    "Georgios Feretzakis",
-    "Alexandros Papaspyridis"
+    "Sheldon Liang",
+    "Ali Taghibakhshi",
+    "Saurav Muralidharan",
+    "Sharath Turuvekere Sreenivas"
    ],
-   "link": "https://huggingface.co/papers/2611.06498",
+   "link": "https://huggingface.co/papers/2611.08290",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-04T13:32",
-   "title_ar": "موقعة لكن قابلة للتوجيه: قياس فجوة تكامل النص والمتجه وسدها في التوليد المعزز بالاسترجاع دون اتصال",
-   "summary_ar": "يُحدَّث التوليد المعزز بالاسترجاع دون اتصال بالإنترنت على الأجهزة الطرفية عبر حزم معرفية موقعة تتضمن نصوصاً ومتجهات تضمين محسوبة مسبقاً. يثبت التوقيع جهة نشر الحزمة، لكنه لا يثبت أن متجهاتها تشفّر نصها، لذا تدرس الورقة فجوة تكامل النص والمتجه هذه وما يتصل بإعادة الحساب للتحقق."
+   "published": "2026-11-05T16:53",
+   "title_ar": "الضغط التلقائي: ضغط النماذج المؤتمت والموجّه بالعتاد",
+   "summary_ar": "يجب أن يحافظ تشذيب النماذج اللغوية الكبيرة على الجودة مع تلبية القيود الخاصة بالعتاد وعبء العمل المتعلقة بزمن الانتقال، والإنتاجية، والذاكرة. وتستهدف مسارات عمل التشذيب الحالية غالبًا عدد المعاملات، مما يتطلب من الممارسين تحديد أحجام النماذج يدويًا لتلبية حدود زمن الانتقال والإنتاجية وذاكرة معالج الرسوميات."
   },
   {
-   "id": "2611.04386",
-   "title": "StepX-OPD: Rethinking Multi-Teacher On-Policy Distillation in Diffusion Models",
-   "abstract": "A deployable text-to-image diffusion model must hold several capabilities at once, such as instruction following, text rendering and human preference, and must sample in a few steps. Capabilities and few-step sampling are built in separate stages: a full-step model first consolidates capabilities through multi-teacher on-policy distillation, then serves as a fixed teacher for step distillation. Every full-step model we evaluate scores lower once compressed, and the second stage cannot begin until the first finishes. We introduce StepX-OPD, which merges the two stages: one student acquires ever",
+   "id": "2611.06856",
+   "title": "LongBanana: An Expert-Verified Benchmark for Long-Context Multi-Reference Image Synthesis",
+   "abstract": "We introduce LongBanana, to our knowledge the first expert-designed and expert-verified benchmark for long-context multi-reference image synthesis in the age of agent-driven image generation. The task requires retrieving dispersed visual evidence, rejecting distractors, binding entities and relations, and composing one coherent final image from multiple references. LongBanana contains 90 carefully designed tasks organized by a 3-by-3 taxonomy; each task includes about 32 reference images, 20 constraints, and 50 evaluation items, yielding 4,670 expert-specified atomic evaluation items in total.",
    "authors": [
-    "Chenru Wang",
-    "Xuanyang Zhang",
-    "Yucheng Han",
-    "Wenbo Nie"
+    "Haoxiang Cao",
+    "Yuxuan Zhang",
+    "Penghui Du",
+    "Bo Li"
    ],
-   "link": "https://huggingface.co/papers/2611.04386",
+   "link": "https://huggingface.co/papers/2611.06856",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-03T00:00",
-   "title_ar": "StepX-OPD: إعادة التفكير في التقطير متعدد المعلمين القائم على السياسة المتبعة في نماذج الانتشار",
-   "summary_ar": "يجب أن يمتلك نموذج الانتشار القابل للنشر لتحويل النص إلى صورة قدرات متعددة معاً كاتباع التعليمات وتصيير النصوص وتفضيل البشر، مع توليد العينات في خطوات قليلة. تُبنى القدرات وأخذ العينات في خطوات معدودة عبر مراحل منفصلة، بحيث يدمج نموذج كامل الخطوات القدرات أولاً."
-  },
-  {
-   "id": "2611.08483",
-   "title": "SwarmEvolve: Latent Agent Swarms for Evolutionary Discovery and Optimization",
-   "abstract": "LLM-guided evolutionary search uses AI agents to improve programs for mathematical and computational problems by iteratively refining solutions and combining high-scoring methods. However, the process is often slow because the LLM generates a long textual chain of thought for each round and must repeat this generation many times to maintain population diversity. We present SwarmEvolve, a framework in which hundreds of low-cost agents per round work in swarms, reason in latent space without decoding to text, and share information by passing KV caches. Each swarm studies the problem from a diffe",
-   "authors": [
-    "Qile Jiang",
-    "George Em Karniadakis"
-   ],
-   "link": "https://huggingface.co/papers/2611.08483",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-05T00:00",
-   "title_ar": "SwarmEvolve: أسراب الوكلاء الكامنة للاكتشاف والتطوير التطوري",
-   "summary_ar": "يستخدم البحث التطوري الموجه بالنماذج اللغوية الكبيرة وكلاء الذكاء الاصطناعي لتحسين البرامج الخاصة بالمسائل الرياضية والحاسوبية عبر تحسين الحلول تكرارياً والجمع بين الطرق ذات الدرجات العالية. ومع ذلك، غالباً ما تكون هذه العملية بطيئة لأن النموذج اللغوي يولد سلسلة أفكار نصية طويلة لكل جولة ويضطر للتكرار."
-  },
-  {
-   "id": "2610.37739",
-   "title": "OpenFrontiers: A Collection of Open Research Problems and a Benchmark for Scientific Rediscovery",
-   "abstract": "Large language models (LLMs) have shown increasing promise in research-level problem solving, yet a comprehensive collection of such problems is still missing, and evaluating them on research-level problems remains challenging. We introduce OpenFrontiers, a cross-disciplinary resource that combines a structured corpus of open research problems with a retrospective benchmark of recently resolved problems in mathematics. The corpus records problem statements, context, progress, and other information for 12,151 problems. The benchmark contains 200 problems, 110 resolved in 2026 and 90 still open,",
-   "authors": [
-    "Jiarui Yao",
-    "Ruida Wang",
-    "Tong Zhang"
-   ],
-   "link": "https://huggingface.co/papers/2610.37739",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-27T00:00",
-   "title_ar": "OpenFrontiers: مجموعة من المشكلات البحثية المفتوحة ومعيار لإعادة الاكتشاف العلمي",
-   "summary_ar": "أظهرت النماذج اللغوية الكبيرة إمكانات واعدة متزايدة في حل المشكلات على المستوى البحثي، ومع ذلك لا تزال هناك حاجة لمجموعة شاملة من هذه المشكلات ويظل تقييم النماذج عليها أمراً صعباً. تقدم الورقة OpenFrontiers كمورد متعدد التخصصات يجمع هذه العناصر."
-  },
-  {
-   "id": "2611.08237",
-   "title": "Terminal-style Mathematical Modeling Bench: The First Agentic and Verifiable Benchmark for Mathematical Modeling",
-   "abstract": "Mathematical modeling turns an open-ended real-world problem into assumptions, a model, a solution, and a defended recommendation, and its answers matter only if they are both close to a credible reference and physically feasible; existing benchmarks either score solver fragments or grade reports with an LLM judge, leaving those numbers unchecked. We introduce TB-MathModel (the Terminal-style Mathematical Modeling Bench), the first benchmark to make complete contest-style modeling problems agentic, verifiable, and terminal at once, over 18 real CUMCM and MCM problems (2023--2025). Each task sh",
-   "authors": [
-    "Xiaojun Wu",
-    "Cehao Yang",
-    "Xuhui Jiang",
-    "Chengjin Xu"
-   ],
-   "link": "https://huggingface.co/papers/2611.08237",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-05T16:18",
-   "title_ar": "معيار النمذجة الرياضية بأسلوب الطرفية: أول معيار قائم على الوكلاء وقابل للتحقق للنمذجة الرياضية",
-   "summary_ar": "تحول النمذجة الرياضية مشكلة واقعية مفتوحة إلى افتراضات ونموذج وحل وتوصية مدعومة، ولا تكون إجاباتها ذات قيمة إلا إذا كانت قريبة من مرجع موثوق وممكنة فيزيائياً. تقتصر المعايير الحالية على تقييم أجزاء من أدوات الحل أو تصحيح التقارير."
+   "published": "2026-11-04T18:11",
+   "title_ar": "لونغ بنانا: معيار تم التحقق منه بواسطة الخبراء لتوليد الصور متعددة المراجع ذات السياق الطويل",
+   "summary_ar": "تقدم الورقة \"لونغ بنانا\"، وهو المعيار الأول المصمم والمتحقق منه بواسطة الخبراء لتوليد الصور متعددة المراجع في السياقات الطويلة في عصر توليد الصور الموجه بالوكلاء. وتتطلب هذه المهمة استرجاع الأدلة البصرية المشتتة، ورفض المشتتات، وربط الكيانات والعلاقات."
   }
  ],
  "n": 6
