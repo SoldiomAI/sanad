@@ -676,10 +676,12 @@ test('API forwards production OIDC only to the worker for complete image, video,
       assert.equal(captured.mediaDetails.kind, fixture.kind);
       assert.ok(Buffer.isBuffer(captured.mediaDetails.buffer));
       assert.equal(captured.mediaDetails.buffer.equals(fixture.body), true);
-      assert.equal(response.json.media.provider, 'gemini');
+      assert.equal(response.json.media.provider, 'media-worker');
       assert.equal(response.json.media.provider_status, 'completed');
       assert.equal(response.json.media.bytes_analyzed, fixture.body.length);
-      assert.equal(response.json.media.model_version, 'gemini-2.5-flash');
+      // اسمُ النموذجِ لا يخرجُ — بصمتُه تخرج، فالتغييرُ يبقى قابلًا للتحقّق
+      assert.equal(response.json.media.model_version, 'ext-de40dabae318');
+      assert.match(JSON.stringify(response.json), /^(?![\s\S]*gemini)[\s\S]*$/i);
       assert.equal(JSON.stringify(response.json).includes('production-oidc-token'), false);
     });
   }
@@ -1142,4 +1144,49 @@ test('UI includes bilingual media scope, evidence, limitations, and live-region 
   ]) {
     assert.ok(html.includes(marker), marker);
   }
+});
+
+// ═══ أسماءُ المزوّدين لا تخرجُ في ردِّ التحقّق ═══
+// الردُّ عامٌّ ويُقرأُ آليًّا؛ وكانَ يحملُ الاسمَ في ثلاثةِ مواضعَ لا واحد:
+// نصُّ النموذجِ نفسُه، و`tier`/`cost_tier`، و`media.provider`/`media.model_version`.
+test('the public verify payload never names a model vendor', async () => {
+  verify._internals.clearCache();
+  const pageUrl = 'https://example.test/vendor-leak';
+  const handler = verify.createHandler({
+    apiKey: 'test-key',
+    matchFeed: async () => null,
+    loadControl: async () => ({
+      verify_enabled: true,
+      verify_per_ip_hour: 50,
+      verify_daily_budget_usd: 1,
+      paid_kill_switch: false,
+    }),
+    lookup: PUBLIC_DNS,
+    requestUrl: network({
+      [pageUrl]: {
+        headers: { 'content-type': 'text/html' },
+        body: Buffer.from('<html><head><title>Vendor leak</title></head><body>Public claim text.</body></html>'),
+      },
+    }),
+    callGrok: async () => ({
+      ok: true,
+      usd: 0.001,
+      parsed: { claim: 'Grok reviewed this claim via Gemini and x.ai tooling.' },
+    }),
+  });
+  const res = await invoke(handler, pageUrl, '198.51.100.91');
+  assert.equal(res.statusCode, 200);
+  const body = JSON.stringify(res.json);
+  for (const name of ['grok', 'gemini', 'x.ai', 'vertex ai']) {
+    assert.equal(body.toLowerCase().includes(name), false, `اسمُ المزوّد «${name}» ظهرَ في الردّ`);
+  }
+  assert.equal(res.json.tier, 'paid');
+  assert.equal(res.json.cost_tier, 'text-model');
+  // الخبرُ نفسُه لا يُحرَّف: أسماءٌ هي موضوعُ الخبرِ تبقى كما هي
+  assert.equal(
+    verify._internals.noVendor
+      ? verify._internals.noVendor('بيان OpenAI عن ChatGPT')
+      : 'بيان OpenAI عن ChatGPT',
+    'بيان OpenAI عن ChatGPT'
+  );
 });

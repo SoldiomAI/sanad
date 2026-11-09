@@ -176,7 +176,8 @@ jobs:
               "capabilities": ["image", "video", "audio"],
               "deployed_at": datetime.now(timezone.utc).isoformat(),
               "version": health["worker_version"],
-              "model": health.get("model_version", os.environ["WORKER_MODEL"]),
+              # لا يُنشَرُ اسمُ النموذج: هذا الملفُّ يُنشَرُ في مستودعٍ عامٍّ دائم،
+              # ولا يقرأُ هذا الحقلَ أحد — `normalizeManifest` يتجاهلُه.
               "authentication": "vercel_oidc_production",
               "analysis_limit_bytes": 6 * 1024 * 1024,
           }
