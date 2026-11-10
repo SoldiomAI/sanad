@@ -1,105 +1,105 @@
 {
- "updated": "2026-11-09T10:06+00:00",
+ "updated": "2026-11-10T03:15+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2611.01182",
-   "title": "Fast and Exact Relative-Position Attention via Structure-Aware Kernels",
-   "abstract": "Relative-position attention mechanisms offer compelling alternatives to RoPE across various transformer architectures, delivering superior performance in domains such as audio. These mechanisms typically modify attention scores by adding content-position or bias-position terms. Unlike RoPE, which encodes position via per-token rotations directly on the queries and keys, relative-position terms generally require pairwise offset-dependent computation or lookups, complicating their integration into fused attention kernels and introducing severe memory, bandwidth, and compute overheads as sequence",
+   "id": "2611.10404",
+   "title": "Coding or Cheating? An Investigation of Frontier Coding LLMs",
+   "abstract": "Frontier agentic LLMs are trained on verifiable rewards in reinforcement learning (RL) environments built from real software repositories. A passing test suite is treated as the reward for solving the task. We show that, on hard problems, frontier models often satisfy these rewards by obtaining the answer instead of deriving it, known as reward hacking. Prior reports document this behavior on public benchmarks. We test its persistence on unseen problems. In a hardened environment where the answer cannot leak, nearly every model we tested attempted to recover the answer, escalating through tier",
    "authors": [
-    "Delyan Boychev",
-    "Ivo Petrov",
-    "Dimitar I. Dimitrov"
+    "Yuntao Gui"
    ],
-   "link": "https://huggingface.co/papers/2611.01182",
+   "link": "https://huggingface.co/papers/2611.10404",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-31T00:00",
-   "title_ar": "الانتباه السريع والدقيق للمواضع النسبية عبر نوى مدركة للبنية",
-   "summary_ar": "تقدم آليات الانتباه للمواضع النسبية بدائل مقنعة لـ RoPE عبر مختلف بنى المحولات، محققةً أداءً متفوقًا في مجالات مثل الصوتيات. وتُعدل هذه الآليات عادةً درجات الانتباه بإضافة حدود لموضع المحتوى أو موضع الانحياز."
+   "published": "2026-11-07T02:29",
+   "title_ar": "برمجة أم غش؟ تقصٍّ لنماذج اللغات الكبيرة البرمجية الرائدة",
+   "summary_ar": "تُدرَّب نماذج اللغات الكبيرة الوكيلة الرائدة عبر مكافآت قابلة للتحقق في بيئات تعلّم تعزيزي مبنية من مستودعات برمجية حقيقية، حيث يُعدُّ اجتياز مجموعة الاختبارات مكافأةً لحل المهمة. وتُظهر الدراسة أن النماذج الرائدة تستوفي هذه المكافآت غالباً في المسائل الصعبة عن طريق الحصول على المطلوب."
   },
   {
-   "id": "2611.09113",
-   "title": "Authorization Drift in LLM Agents: Evaluating Boundary Compliance in Multi-Step Tool Use",
-   "abstract": "LLM agents can exceed their authorization boundaries while pursuing user goals without an adversary. We formalize this phenomenon as authorization drift across data, tool, scope, and time, and introduce the Authorization Drift Benchmark (ADB): 648 samples across seven domains, each pairing a sufficient compliant path with an attractive unauthorized shortcut. To ensure executable tasks, tempting shortcuts, and feasible compliant paths, Staged Execution-Reflective Synthesis (SERS) grounds benchmark validation in real agent rollouts rather than LLM self-critique. Across 13 LLMs and three framewor",
+   "id": "2611.01729",
+   "title": "ODE Policy: Robot Learning via Action Dynamics, Not Actions",
+   "abstract": "Most robot policies, whether trained by imitation learning (IL) or reinforcement learning (RL), map observations to action values at discrete control steps and leave the continuity of physical motion to be learned implicitly. We propose ODE policy, which learns the dynamics of the action rather than the action itself. A neural ordinary differential equation (ODE) learns the vector field of the action by matching the integrated actions to the targets over short action chunks in IL and single control steps in RL. A lightweight diversity head captures multi-modal behavior by randomizing the direc",
    "authors": [
-    "Chuxue Cao",
-    "Jingru Zeng",
-    "Boqin Yin",
-    "Yujin Zhou"
+    "Jindou Jia",
+    "Jingliang Li",
+    "Kuangji Zuo",
+    "Tuo An"
    ],
-   "link": "https://huggingface.co/papers/2611.09113",
+   "link": "https://huggingface.co/papers/2611.01729",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-06T07:47",
-   "title_ar": "انحراف التفويض في وكلاء النماذج اللغوية الكبيرة: تقييم الامتثال للحدود في الاستخدام متعدد الخطوات للأدوات",
-   "summary_ar": "يمكن لوكلاء النماذج اللغوية الكبيرة تجاوز حدود تفويضهم أثناء السعي لتحقيق أهداف المستخدم دون وجود خصم. وتُصيغ الورقة هذه الظاهرة رسميًا بوصفها انحرافًا في التفويض عبر البيانات والأداة والنطاق والزمن، مع تقديم معيار انحراف التفويض (ADB) الذي يضم 648 عينة عبر سبعة مجالات."
+   "published": "2026-11-01T09:25",
+   "title_ar": "سياسة ODE: تعلّم الروبوت عبر ديناميكيات الفعل، لا الأفعال",
+   "summary_ar": "تقوم معظم سياسات الروبوت، سواء دُرِّبت بالتعلّم بالتقليد أو بالتعلّم التعزيزي، بربط الملاحظات بقيم الأفعال عند خطوات تحكّم منفصلة وتترك استمرارية الحركة الفيزيائية لتُتعلَّم ضمنياً. ويقترح البحث \"سياسة ODE\" التي تتعلّم ديناميكيات الفعل بدلاً من الفعل نفسه."
   },
   {
-   "id": "2611.00448",
-   "title": "Learning to evolve by matching velocities",
-   "abstract": "Learning the continuous-time evolution of nonlinear dynamical systems relies on trajectory-based objectives, which require simulating the learned dynamics during training and backpropagating through the numerical scheme, at a cost that grows with the rollout horizon. We show that trajectory-based objectives degenerate as the rollout horizon increases, hindering gradient-based optimization, and that the numerical scheme biases the learned dynamics by constraining the spectrum of the learned Jacobian to its absolute stability region. To overcome these limitations, we introduce Velocity Matching ",
+   "id": "2611.09124",
+   "title": "Toward the Era of Agentic Embodied Intelligence",
+   "abstract": "Foundation models increasingly guide robot actions, yet sustained autonomy requires efficient control and failure recovery. We introduce A2-MEAS, an embodied multi-agent framework built around code as a scaling interface. Learned correction codes combine corrective language, spatial evidence, execution history, and action proposals. MetaBrain provides training supervision and runtime guidance. A correction encoder and adapter absorb this knowledge into policy weights during training, while fresh codes adapt behavior with frozen weights at deployment. The action model, A2-WLA, adds motion-aware",
    "authors": [
-    "Nicola Farenga",
-    "Andrea Manzoni"
+    "Chao Liang",
+    "Ke Chen",
+    "Fengxiaoxiao Li",
+    "Shibo Huang"
    ],
-   "link": "https://huggingface.co/papers/2611.00448",
+   "link": "https://huggingface.co/papers/2611.09124",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-10-30T23:03",
-   "title_ar": "التعلم للتطور عبر مطابقة السرعات المتجهة",
-   "summary_ar": "يعتمد تعلّم التطور المستمر عبر الزمن للأنظمة الديناميكية غير الخطية على أهداف مبنية على المسارات، والتي تتطلب محاكاة الديناميكيات المتعلمة أثناء التدريب وإجراء التمرير الخلفي عبر المخطط العددي. وتتزايد تكلفة هذه العملية مع اتساع أفق التمديد الزمني."
+   "published": "2026-11-06T00:00",
+   "title_ar": "نحو عصر الذكاء المجسَّد الوكيلي",
+   "summary_ar": "تُوجِّه النماذج التأسيسية أفعال الروبوتات بشكل متزايد، غير أن الاستقلالية المستدامة تتطلب تحكّماً فعالاً وتعافياً من الفشل. يقدّم البحث \"A2-MEAS\"، وهو إطار عمل مجسَّد متعدد الوكلاء مبني حول الكود كواجهة للتوسع، حيث تجمع أكواد التصحيح المُتعلَّمة بين اللغة التصحيحية والأدلة المكانية والتنفيذ."
   },
   {
-   "id": "2611.06844",
-   "title": "Where to Connect? Boosting MLLMs via Dynamic Gated Pathways across ALL ViT and LLM Layers",
-   "abstract": "A central yet under-explored question in Multimodal Large Language Models (MLLMs) is where to connect---how visual information from a hierarchical vision encoder should be wired into the layer-wise semantics of a large language model. Mainstream MLLMs inject a fixed single-layer visual representation into the LLM and treat all LLM layers as a single consumer, ignoring that different layers demand different visual granularities. Recent multi-layer fusion methods either compress hierarchical features on the encoder side or rely on predefined sparse or hierarchical layer-to-layer connections, and",
+   "id": "2611.08175",
+   "title": "PCBRouteAgent: How Close Are LLM Agents to Becoming PCB Routing Engineers?",
+   "abstract": "Automating printed circuit board (PCB) routing requires coordinating board-level connectivity decisions with geometric execution under strict design rules. Although recent agents can interact with native routing tools, reliable routing on complex boards remains challenging. We present PCBRouteAgent, a multimodal PCB routing agent inspired by how human engineers coordinate global strategy with local execution. A Global Routing Planner combines board images and structured electrical and geometric information to specify connection topology, routing order, corridors, and layer transitions. A Detai",
    "authors": [
-    "Yingying Yan",
-    "Jiaqi Tang",
-    "Wei Wei",
-    "Qianzhou Wang"
+    "Yue Zhang",
+    "Jilei Sun",
+    "Liqiang Jing",
+    "Yijie Wei"
    ],
-   "link": "https://huggingface.co/papers/2611.06844",
+   "link": "https://huggingface.co/papers/2611.08175",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-04T00:00",
-   "title_ar": "أين يتم الاتصال؟ تعزيز النماذج اللغوية الكبيرة متعددة الوسائط عبر مسارات ديناميكية مبوبة عبر جميع طبقات ViT وLLM",
-   "summary_ar": "يُعدّ تحديد مكان الاتصال سؤالًا محوريًا وغير مدروس بعمق في النماذج اللغوية الكبيرة متعددة الوسائط، وتحديدًا كيفية ربط المعلومات المرئية من مشفر الرؤية الهرمي بدلالات الطبقات في النموذج اللغوي الكبير. وتقوم النماذج السائدة حاليًا بحقن تمثيل مرئي ثابت من طبقة واحدة."
+   "published": "2026-11-05T15:31",
+   "title_ar": "PCBRouteAgent: ما مدى قُرب وكلاء النماذج اللغوية الكبيرة من أن يصبحوا مهندسي توجيه مسارات للوحات الدوائر المطبوعة؟",
+   "summary_ar": "تتطلب أتمتة توجيه مسارات لوحات الدوائر المطبوعة (PCB) التنسيق بين قرارات الاتصال والتنفيذ الهندسي وفق قواعد تصميم صارمة، ولا يزال التوجيه الموثوق على اللوحات المعقدة يمثل تحدياً رغم قدرة الوكلاء على التفاعل مع الأدوات الأصلية. يقدّم هذا البحث \"PCBRouteAgent\"."
   },
   {
-   "id": "2611.08290",
-   "title": "AutoCompress: Automated Hardware-Guided Model Compression",
-   "abstract": "LLM pruning must preserve quality while meeting hardware- and workload-specific constraints on latency, throughput, and memory. Existing pruning workflows often target parameter counts, requiring practitioners to manually select model sizes that meet latency, throughput, and GPU memory limits. However, parameter count alone does not predict these metrics, which depend on the model architecture, workload, hardware, and serving engine. We introduce AutoCompress, a hardware-guided compression framework that directly incorporates such constraints into differentiable architecture search. AutoCompre",
+   "id": "2611.09891",
+   "title": "CPU-ARC: Agentic Reasoning Caching for on-CPU Reasoning Reuse",
+   "abstract": "Large language models reinvent the wheel all the time. They conflate task-solving with the execution of the solutions, which forces them to solve every problem from scratch. We show that once a task has been reasoned through, the application of its solution to a new problem instance can be done very efficiently and with little involvement from language models. We introduce agentic reasoning caching, a method for constructing robust CPU-executable agentic reasoning caches (ARCs) from LLM reasoning traces. ARCs show on-par performance with frontier LLMs across a range of difficult mathematical a",
    "authors": [
-    "Sheldon Liang",
-    "Ali Taghibakhshi",
+    "Peter Belcak",
+    "Greg Heinrich",
     "Saurav Muralidharan",
-    "Sharath Turuvekere Sreenivas"
+    "Shizhe Diao"
    ],
-   "link": "https://huggingface.co/papers/2611.08290",
+   "link": "https://huggingface.co/papers/2611.09891",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-05T16:53",
-   "title_ar": "الضغط التلقائي: ضغط النماذج المؤتمت والموجّه بالعتاد",
-   "summary_ar": "يجب أن يحافظ تشذيب النماذج اللغوية الكبيرة على الجودة مع تلبية القيود الخاصة بالعتاد وعبء العمل المتعلقة بزمن الانتقال، والإنتاجية، والذاكرة. وتستهدف مسارات عمل التشذيب الحالية غالبًا عدد المعاملات، مما يتطلب من الممارسين تحديد أحجام النماذج يدويًا لتلبية حدود زمن الانتقال والإنتاجية وذاكرة معالج الرسوميات."
+   "published": "2026-11-06T00:00",
+   "title_ar": "CPU-ARC: التخزين المؤقت للاستدلال الوكيلي لإعادة استخدام الاستدلال على وحدة المعالجة المركزية",
+   "summary_ar": "تعيد النماذج اللغوية الكبيرة اختراع العجلة باستمرار من خلال خلطها بين حل المهام وتنفيذ الحلول، مما يجبرها على حل كل مشكلة من البداية. وتوضح الدراسة أنه بمجرد الاستدلال على مهمة ما، يمكن تطبيق حلها على حالة مشكلة جديدة بكفاءة عالية."
   },
   {
-   "id": "2611.06856",
-   "title": "LongBanana: An Expert-Verified Benchmark for Long-Context Multi-Reference Image Synthesis",
-   "abstract": "We introduce LongBanana, to our knowledge the first expert-designed and expert-verified benchmark for long-context multi-reference image synthesis in the age of agent-driven image generation. The task requires retrieving dispersed visual evidence, rejecting distractors, binding entities and relations, and composing one coherent final image from multiple references. LongBanana contains 90 carefully designed tasks organized by a 3-by-3 taxonomy; each task includes about 32 reference images, 20 constraints, and 50 evaluation items, yielding 4,670 expert-specified atomic evaluation items in total.",
+   "id": "2611.08647",
+   "title": "IWIBench: Evaluating Gradient-Free Model Driven Intra-weight Injection",
+   "abstract": "Intra-weight injection lets one model change another model's behaviour by editing its weights directly, without gradients. Such edits can range from altering lexical associations to enforcing output formats or updating factual knowledge. Despite growing interest in these approaches, there has been no systematic way to evaluate how well models perform them. We introduce IWIBench, which measures a large editor model's ability to modify the weights of a smaller target model (typically Gemma 3 4B IT) to achieve one of ten classical text-editing objectives while preserving its other capabilities. E",
    "authors": [
-    "Haoxiang Cao",
-    "Yuxuan Zhang",
-    "Penghui Du",
-    "Bo Li"
+    "Chris von Csefalvay",
+    "Pranav Doma",
+    "Achyuthan Unni Krishnan",
+    "Tamás Földi"
    ],
-   "link": "https://huggingface.co/papers/2611.06856",
+   "link": "https://huggingface.co/papers/2611.08647",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-04T18:11",
-   "title_ar": "لونغ بنانا: معيار تم التحقق منه بواسطة الخبراء لتوليد الصور متعددة المراجع ذات السياق الطويل",
-   "summary_ar": "تقدم الورقة \"لونغ بنانا\"، وهو المعيار الأول المصمم والمتحقق منه بواسطة الخبراء لتوليد الصور متعددة المراجع في السياقات الطويلة في عصر توليد الصور الموجه بالوكلاء. وتتطلب هذه المهمة استرجاع الأدلة البصرية المشتتة، ورفض المشتتات، وربط الكيانات والعلاقات."
+   "published": "2026-11-05T00:00",
+   "title_ar": "IWIBench: تقييم الحقن داخل الأوزان الموجَّه بالنماذج والخالي من التدرج",
+   "summary_ar": "يتيح الحقن داخل الأوزان لنموذج ما تغيير سلوك نموذج آخر عبر تعديل أوزانه مباشرة دون تدرجات، وتتراوح هذه التعديلات بين تغيير الارتباطات المعجمية، أو فرض تنسيقات للمخرجات، أو تحديث المعرفة الواقعية. ورغم الاهتمام المتزايد بهذه الأساليب، إلا أنه لم يكن هناك تقييم كافٍ لها."
   }
  ],
  "n": 6
