@@ -1,105 +1,104 @@
 {
- "updated": "2026-11-12T17:44+00:00",
+ "updated": "2026-11-13T10:34+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2611.11306",
-   "title": "ScrapeBench: Evaluating Legal Compliance of AI Agents in Website Scraping",
-   "abstract": "AI agents deployed on the open web are becoming more capable of performing actions that may breach contractual provisions and violate computer security laws. In this paper, we introduce ScrapeBench, the first agentic benchmark for empirically evaluating the legal compliance of AI agents with website scraping policies, namely terms of service (ToS) and robots.txt directives. Across widely used closed-weight and open-weight AI agents, we find that most agents exhibit low compliance rates (< 5%) when instructed to scrape websites in our sample of 1,626 popular websites that explicitly prohibit sc",
+   "id": "2611.15844",
+   "title": "Open Vision Banana: A Fully Open Recipe for Generative Visual Perception",
+   "abstract": "Recent work suggests that pretrained image generators encode real-world understanding beyond image synthesis. Vision Banana exploits this by framing vision tasks as conditional image editing. However, its data, weights, code, and implementation details are not public. We present Open Vision Banana (OVB), a fully open and reproducible recipe for converting pretrained generators into unified multi-task perception systems. Our analyses identify the design choices that matter most for generalization, including color encoding, prompt design, parameter adaptation, and task balancing. These choices i",
    "authors": [
-    "Joseph Marvin Imperial",
-    "Daniel Slate",
-    "Noam Kolt"
+    "Arpit Jadon",
+    "Valentinos Pariza",
+    "Jona Ruthardt",
+    "Ryousuke Yamada"
    ],
-   "link": "https://huggingface.co/papers/2611.11306",
+   "link": "https://huggingface.co/papers/2611.15844",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-11T00:00",
+   "title_ar": "أوبن فيجن بنانا: وصفة مفتوحة بالكامل للإدراك البصري التوليدي",
+   "summary_ar": "تشير أعمال حديثة إلى أن مولدات الصور المدربة مسبقًا تشفر فهمًا للعالم الحقيقي يتجاوز توليد الصور، وهو ما يستغله \"فيجن بنانا\" عبر صياغة مهام الرؤية كتحرير مشروط للصور. ومع ذلك، فإن بياناته وأوزانه وشفرته وتفاصيل تنفيذه ليست عامة، لذا نقدم \"أوبن فيجن بنانا\"."
+  },
+  {
+   "id": "2611.14256",
+   "title": "A Cross-Scenario Survey and Analysis of Self-Evolving Multimodal Agents",
+   "abstract": "Recent work shows that multimodal agents increasingly self-improve without recurring human annotation. However, each self-improvement mechanism is designed and evaluated within a single scenario, leaving its preconditions unverified under cross-scenario transfer. This survey investigates the structural source of asymmetric mechanism transfer across four scenarios: multimodal reasoning, multimodal generation, GUI and Web navigation, and embodied manipulation. We first formalize the self-evolving multimodal agent by four criteria and a differentia of self-reference, and adopt the three-stage sel",
+   "authors": [
+    "Jingjing Jiang"
+   ],
+   "link": "https://huggingface.co/papers/2611.14256",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-10T00:00",
-   "title_ar": "ScrapeBench: تقييم الامتثال القانوني لوكلاء الذكاء الاصطناعي في كشط المواقع الإلكترونية",
-   "summary_ar": "أصبحت وكلاء الذكاء الاصطناعي على الويب المفتوح أكثر قدرة على تنفيذ إجراءات قد تخرق الشروط التعاقدية وتنتهك قوانين أمن الحواسيب. تُقدّم هذه الورقة \"ScrapeBench\"، وهو أول معيار تقييمي قائم على الوكلاء للتقييم التجريبي لمدى امتثال وكلاء الذكاء الاصطناعي قانونياً لمواقع الويب."
+   "title_ar": "مسح وتحليل عبر السيناريوهات للوكلاء متعددين الوسائط ذاتيي التطور",
+   "summary_ar": "تُظهر أعمال حديثة أن الوكلاء متعددي الوسائط يطورون أنفسهم ذاتيًا بشكل متزايد دون الحاجة إلى تعليقات توضيحية بشرية متكررة. ومع ذلك، يُصمم كل نهج للتحسين الذاتي ويُقيّم ضمن سيناريو واحد، مما يترك شروطه المسبقة غير مؤكدة عند الانتقال عبر سيناريوهات مختلفة، ويبحث هذا المسح في تلك البنية."
   },
   {
-   "id": "2611.13766",
-   "title": "FAME-QP: A GPU-Accelerated Quadratic-Programming Solver for Real-Time Model Predictive Control",
-   "abstract": "We present FAME-QP, a GPU-accelerated solver for dense quadratic programs arising in linear model predictive control. FAME-QP combines constraint-dependent operator representations with fused single- and two-kernel iterations replayed through CUDA graphs, automatically selecting the execution configuration through device calibration and problem-specific timing. It probes a cached operator bank to select the initial penalty and updates operators lazily when problem matrices change. Numerical benchmarks and simulated humanoid and quadrotor control experiments demonstrate reduced latency relative",
+   "id": "2611.08318",
+   "title": "Learning the Task or Learning the Verifier? Rethinking Criteria Exposure in Embodied Self-Improvement",
+   "abstract": "Self-improving embodied agents are increasingly being developed and compared on robot simulation benchmarks. Several recent works expose the benchmark's success criteria to the learning agent, a practice we call Criteria Exposure (CE). These criteria, originally written to verify policies trained by imitation learning, often demand more than the corresponding language instructions, so a score from such a verifier may not faithfully reflect whether the instructed task was completed, especially for robot-control programs written by an agent. As embodied coding agents report ever higher benchmark",
    "authors": [
-    "Santosh Mohan Rajkumar",
-    "Debdipta Goswami",
-    "Stephanie Stockar"
+    "Wenbo Huang",
+    "Jianxin Bi",
+    "Shunyu Yang",
+    "Ruiyang Si"
    ],
-   "link": "https://huggingface.co/papers/2611.13766",
+   "link": "https://huggingface.co/papers/2611.08318",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-05T00:00",
+   "title_ar": "تعلم المهمة أم تعلم أداة التحقق؟ إعادة التفكير في كشف المعايير في التحسين الذاتي المتجسد",
+   "summary_ar": "يُطوَّر الوكلاء المتجسدون ذاتيو التحسين ويُقارنون بشكل متزايد على معايير محاكاة الروبوتات. تكشف العديد من الأعمال الحديثة معايير نجاح المعيار المرجعي للوكيل المتعلم، وهي ممارسة نطلق عليها \"كشف المعايير\"، رغم أنها كُتبت في الأصل للتحقق من السياسات المدربة."
+  },
+  {
+   "id": "2607.13920",
+   "title": "DeepStress: Stress-Testing Deep Search Agents",
+   "abstract": "While search agents demonstrate impressive capabilities in multi-step question answering, their robustness to poor-quality evidence remains under-explored. Such evidence is rare in benchmark corpora, and resulting failures are hard to reproduce. We propose DeepStress, a dynamic stress-testing framework that subjects agents to degraded evidence at controlled rates. It replaces the retrieval module with a synthetic environment where documents are generated dynamically for each query, under independent control of their trustworthiness, relevance, and factuality. To characterize behavior under str",
+   "authors": [
+    "Ismael Rousseau",
+    "Geraldine Damnati",
+    "Frederic Bechet"
+   ],
+   "link": "https://huggingface.co/papers/2607.13920",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-12T00:00",
+   "title_ar": "ديب ستريس: اختبار إجهاد وكلاء البحث العميق",
+   "summary_ar": "بينما يُظهر وكلاء البحث قدرات مبهرة في الإجابة عن الأسئلة متعددة الخطوات، فإن متانتهم أمام الأدلة رديئة الجودة تظل غير مستكشفة بما يكفي. تعد مثل هذه الأدلة نادرة في مجموعات المعايير المرجعية وتصعب إعادة إنتاج الإخفاقات الناتجة عنها، لذا نقترح \"ديب ستريس\" كإطار عمل ديناميكي لاختبار الإجهاد."
+  },
+  {
+   "id": "2611.14046",
+   "title": "Structured Confidence Perturbation via Fisher Geometry for Adversarial Training",
+   "abstract": "Adversarial training is often plagued by \"pseudo-attacks\", perturbations that significantly increase the loss value but fail to truly alter the model's confidence structure. To address this, we propose two complementary approaches to directly attack and defend against confidence structure deformation. First, building upon the traditional loss maximization perspective, we introduce a hybrid objective that integrates cross-entropy and KL divergence, encouraging adversarial examples to simultaneously disrupt prediction accuracy and distribution consistency. Second, we geometrically reconstruct ad",
+   "authors": [
+    "Chenlong Wei",
+    "Hanling Wang",
+    "Chong Zhang",
+    "Qinkai Yu"
+   ],
+   "link": "https://huggingface.co/papers/2611.14046",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-10T00:00",
-   "title_ar": "FAME-QP: حلال برمجة تربيعية مسرّع بوحدات معالجة الرسوميات للتحكم التنبؤي بالنماذج في الوقت الفعلي",
-   "summary_ar": "نقدّم FAME-QP، وهو حلال مسرّع بوحدات معالجة الرسوميات لمسائل البرمجة التربيعية الكثيفة الناتجة عن التحكم التنبؤي الخطي بالنماذج. يجمع FAME-QP بين تمثيلات العوامل المعتمدة على القيود وتكرارات النواة المدمجة المُعادة عبر رسوميات CUDA، مع اختيار إعدادات التنفيذ تلقائياً."
+   "title_ar": "اضطراب الثقة المنظم عبر هندسة فيشر للتدريب العدائي",
+   "summary_ar": "غالبًا ما يعاني التدريب العدائي من \"الهجمات الزائفة\"، وهي اضطرابات تزيد قيمة الخسارة بشكل كبير لكنها تفشل في تغيير بنية ثقة النموذج بشكل حقيقي. ولمعالجة ذلك، نقترح نهجين متكاملين للهجوم المباشر والدفاع ضد تشوه بنية الثقة."
   },
   {
-   "id": "2611.12304",
-   "title": "Evolving Infra: Agent-Adaptive LLM Serving at Scale",
-   "abstract": "Agentic workloads are a major source of LLM inference demand. Existing prefill--decode (PD) disaggregated serving systems offer limited flexibility for runtime adaptation of compute allocation and KV cache management, and rely on coarse signals that only partly capture the diverse and dynamic agent workload. These limitations lead to load imbalance between prefill and decode nodes and eviction of KV caches that agents will reuse. We present Evolving Infra, an agent-adaptive serving framework that adapts compute allocation to agent workloads and KV cache management to agent context management a",
+   "id": "2611.12872",
+   "title": "HiVe-Mem: Interleaving Horizontal Memory Expansion and Vertical Evidence Composition for Multimodal Agents",
+   "abstract": "As multimodal agents accumulate increasingly long interaction histories, effectively retrieving and utilizing past information becomes critical for long-term interaction. Existing memory systems typically rely on semantic retrieval over compressed memories and expose predefined representations, which may miss relevant memories and overlook heterogeneous evidence needs across queries. We introduce \\hivemem, a multimodal memory framework that interleaves \\textsc{H}or\\textsc{i}zontal Memory Expansion with \\textsc{Ve}rtical Evidence Composition. For horizontal memory expansion, \\hivemem organizes ",
    "authors": [
-    "Hao Kang",
-    "Weili Xu",
-    "Ziyang Li",
-    "Zheng Du"
+    "Haozhen Zhang",
+    "Bohan Liu",
+    "Jianzhu Bao",
+    "Qingyuan Liu"
    ],
-   "link": "https://huggingface.co/papers/2611.12304",
+   "link": "https://huggingface.co/papers/2611.12872",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-09T00:00",
-   "title_ar": "البنية التحتية المتطورة: تقديم نماذج اللغة الكبيرة المتكيف مع الوكلاء على نطاق واسع",
-   "summary_ar": "تشكّل أعباء عمل الوكلاء مصدراً رئيساً للطلب على استدلال نماذج اللغة الكبيرة. توفر أنظمة التقديم المنفصلة الحالية مرونة محدودة للتكيف أثناء التشغيل مع تخصيص الحوسبة وإدارة ذاكرة التخزين المؤقت لـ KV، وتعتمد على إشارات تقريبية لا تلتقط ديناميكية وتنوع الوكلاء إلا جزئياً."
-  },
-  {
-   "id": "2611.05862",
-   "title": "CARTBench: Rubric-Based Evaluation of Shopping Advice for Complex and Ambiguous Requests with Timelines",
-   "abstract": "Large language model (LLM) shopping assistants now recommend products in multi-turn conversations. However, reliable evaluation faces Data scarcity and Difficulty Standardizing Criteria. To address these obstacles, we introduce CARTBench for CART (Complex and Ambiguous Requests with Timelines). For Data scarcity, we curate cases from real commercial shopping needs across 17 retail domains, pairing timestamped dialogue with 1,603 product records. For Difficulty Standardizing Criteria, we develop case-specific rubrics guided by Ideal Response Principles, distilled from excellent replies manually",
-   "authors": [
-    "Yuqin Dai",
-    "Zhanwei Zhang",
-    "Honghui Yang",
-    "Zhouheng Yao"
-   ],
-   "link": "https://huggingface.co/papers/2611.05862",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-04T00:00",
-   "title_ar": "CARTBench: تقييم مبني على معايير لنصائح التسوق في الطلبات المعقدة والغامضة ذات الجداول الزمنية",
-   "summary_ar": "يوصي مساعدو التسوق المعتمدون على نماذج اللغة الكبيرة بالمنتجات في محادثات متعددة الجولات، غير أن التقييم الموثوق يواجه ندرة البيانات وصعوبة توحيد المعايير. ولمعالجة هذه العقبات، نقدّم CARTBench المخصص لتقييم الطلبات المعقدة والغامضة ذات الجداول الزمنية."
-  },
-  {
-   "id": "2611.12869",
-   "title": "Where Does Alignment Emerge and What Does It Mean? A Closer Look at the Platonic Representation Hypothesis",
-   "abstract": "The Platonic Representation Hypothesis (PRH) suggests that neural networks are converging toward similar representation spaces. As language models become more capable, their representations are aligning with those of vision models. However, recent work has questioned whether this trend continues to hold for newer language models. Moreover, it has been shown that representation similarity metrics can be confounded by model depth and width, requiring appropriate baselines for interpretation. In this work, we first investigate where alignment emerges between unimodal models across model layers an",
-   "authors": [
-    "Julia Herbst",
-    "Simon Roschmann",
-    "Quentin Bouniot",
-    "Zeynep Akata"
-   ],
-   "link": "https://huggingface.co/papers/2611.12869",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-09T18:53",
-   "title_ar": "أين ينشأ المحاذاة وماذا يعني؟ نظرة فاحصة على فرضية التمثيل الأفلاطوني",
-   "summary_ar": "تشير فرضية التمثيل الأفلاطوني إلى أن الشبكات العصبية تتقارب نحو فضاءات تمثيل متشابهة، حيث تتوافق تمثيلات النماذج اللغوية مع نماذج الرؤية مع زيادة قدرتها. ومع ذلك، شككت أعمال حديثة في مدى استمرار هذا الاتجاه."
-  },
-  {
-   "id": "2611.14418",
-   "title": "Precision on Demand: Escalating Weight Bits at Uncertain Decoding Steps in a Small Local Model",
-   "abstract": "Local decoding usually fixes one weight precision for the whole generation. We study a different allocation: store 8-bit weights, decode with their top 4 bits, and redo a step at 8 bits only when the low-precision output distribution looks uncertain (entropy above a threshold or a small top-two margin). Quantization is simulated, the model is Qwen3-0.6B, and the benchmark is GSM8K. Cost is counted in weight bytes read per token. On 36724 replayed steps the entropy of the low pass ranks argmax flips with AUC 0.93. At a 15% escalation budget it catches 78% of flips and the margin gate 94%, again",
-   "authors": [
-    "Mohammed Nayeem Khan",
-    "Logesh L",
-    "Aliyas Ahmad Misri"
-   ],
-   "link": "https://huggingface.co/papers/2611.14418",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-10T00:00",
-   "title_ar": "الدقة عند الطلب: تصعيد بتات الأوزان عند خطوات فك التشفير غير المؤكدة في نموذج محلي صغير",
-   "summary_ar": "يثبّت فك التشفير المحلي عادةً دقة وزن واحدة لكامل عملية التوليد. ندرس هنا تخصيصاً مختلفاً يقوم على تخزين أوزان بـ 8 بت وفك التشفير بأعلى 4 بت، مع إعادة الخطوة بدقة 8 بت فقط عند ظهور عدم يقين في توزيع مخرجات الدقة المنخفضة."
+   "title_ar": "هاي-ميم: تداخل التوسع الأفقي للذاكرة وتكوين الأدلة الرأسي للوكلاء متعددي الوسائط",
+   "summary_ar": "مع تراكم سجلات تفاعل طويلة بشكل متزايد لدى الوكلاء متعددي الوسائط، يصبح استرجاع المعلومات السابقة واستخدامها بفعالية أمرًا بالغ الأهمية للتفاعل طويل الأمد. تعتمد أنظمة الذاكرة الحالية عادةً على الاسترجاع الدلالي عبر ذكريات مضغوطة وتكشف عن تمثيلات محددة مسبقًا."
   }
  ],
  "n": 6
