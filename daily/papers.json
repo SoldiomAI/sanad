@@ -1,104 +1,106 @@
 {
- "updated": "2026-11-13T10:34+00:00",
+ "updated": "2026-11-14T00:27+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2611.15844",
-   "title": "Open Vision Banana: A Fully Open Recipe for Generative Visual Perception",
-   "abstract": "Recent work suggests that pretrained image generators encode real-world understanding beyond image synthesis. Vision Banana exploits this by framing vision tasks as conditional image editing. However, its data, weights, code, and implementation details are not public. We present Open Vision Banana (OVB), a fully open and reproducible recipe for converting pretrained generators into unified multi-task perception systems. Our analyses identify the design choices that matter most for generalization, including color encoding, prompt design, parameter adaptation, and task balancing. These choices i",
+   "id": "2611.17336",
+   "title": "Back to Pixels: Lifting Latent Video Diffusion into Pixel Space",
+   "abstract": "Frontier video generation models work in a VAE latent space that compresses video in both space and time. This compression made training tractable, but now limits high-resolution, controllable, and interactive generation -- doubling resolution quadruples token count, conditions apply to groups of frames rather than individual ones, and each response must wait for the rest of its multi-frame block. We present PixVid, a simple yet effective method that lifts a pretrained latent video model to directly generate every frame in pixel space. PixVid keeps the diffusion transformer and replaces the VA",
    "authors": [
-    "Arpit Jadon",
-    "Valentinos Pariza",
-    "Jona Ruthardt",
-    "Ryousuke Yamada"
+    "Yanke Song",
+    "Shuo Chen",
+    "Chris Rockwell",
+    "Guande He"
    ],
-   "link": "https://huggingface.co/papers/2611.15844",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-11T00:00",
-   "title_ar": "أوبن فيجن بنانا: وصفة مفتوحة بالكامل للإدراك البصري التوليدي",
-   "summary_ar": "تشير أعمال حديثة إلى أن مولدات الصور المدربة مسبقًا تشفر فهمًا للعالم الحقيقي يتجاوز توليد الصور، وهو ما يستغله \"فيجن بنانا\" عبر صياغة مهام الرؤية كتحرير مشروط للصور. ومع ذلك، فإن بياناته وأوزانه وشفرته وتفاصيل تنفيذه ليست عامة، لذا نقدم \"أوبن فيجن بنانا\"."
-  },
-  {
-   "id": "2611.14256",
-   "title": "A Cross-Scenario Survey and Analysis of Self-Evolving Multimodal Agents",
-   "abstract": "Recent work shows that multimodal agents increasingly self-improve without recurring human annotation. However, each self-improvement mechanism is designed and evaluated within a single scenario, leaving its preconditions unverified under cross-scenario transfer. This survey investigates the structural source of asymmetric mechanism transfer across four scenarios: multimodal reasoning, multimodal generation, GUI and Web navigation, and embodied manipulation. We first formalize the self-evolving multimodal agent by four criteria and a differentia of self-reference, and adopt the three-stage sel",
-   "authors": [
-    "Jingjing Jiang"
-   ],
-   "link": "https://huggingface.co/papers/2611.14256",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-10T00:00",
-   "title_ar": "مسح وتحليل عبر السيناريوهات للوكلاء متعددين الوسائط ذاتيي التطور",
-   "summary_ar": "تُظهر أعمال حديثة أن الوكلاء متعددي الوسائط يطورون أنفسهم ذاتيًا بشكل متزايد دون الحاجة إلى تعليقات توضيحية بشرية متكررة. ومع ذلك، يُصمم كل نهج للتحسين الذاتي ويُقيّم ضمن سيناريو واحد، مما يترك شروطه المسبقة غير مؤكدة عند الانتقال عبر سيناريوهات مختلفة، ويبحث هذا المسح في تلك البنية."
-  },
-  {
-   "id": "2611.08318",
-   "title": "Learning the Task or Learning the Verifier? Rethinking Criteria Exposure in Embodied Self-Improvement",
-   "abstract": "Self-improving embodied agents are increasingly being developed and compared on robot simulation benchmarks. Several recent works expose the benchmark's success criteria to the learning agent, a practice we call Criteria Exposure (CE). These criteria, originally written to verify policies trained by imitation learning, often demand more than the corresponding language instructions, so a score from such a verifier may not faithfully reflect whether the instructed task was completed, especially for robot-control programs written by an agent. As embodied coding agents report ever higher benchmark",
-   "authors": [
-    "Wenbo Huang",
-    "Jianxin Bi",
-    "Shunyu Yang",
-    "Ruiyang Si"
-   ],
-   "link": "https://huggingface.co/papers/2611.08318",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-05T00:00",
-   "title_ar": "تعلم المهمة أم تعلم أداة التحقق؟ إعادة التفكير في كشف المعايير في التحسين الذاتي المتجسد",
-   "summary_ar": "يُطوَّر الوكلاء المتجسدون ذاتيو التحسين ويُقارنون بشكل متزايد على معايير محاكاة الروبوتات. تكشف العديد من الأعمال الحديثة معايير نجاح المعيار المرجعي للوكيل المتعلم، وهي ممارسة نطلق عليها \"كشف المعايير\"، رغم أنها كُتبت في الأصل للتحقق من السياسات المدربة."
-  },
-  {
-   "id": "2607.13920",
-   "title": "DeepStress: Stress-Testing Deep Search Agents",
-   "abstract": "While search agents demonstrate impressive capabilities in multi-step question answering, their robustness to poor-quality evidence remains under-explored. Such evidence is rare in benchmark corpora, and resulting failures are hard to reproduce. We propose DeepStress, a dynamic stress-testing framework that subjects agents to degraded evidence at controlled rates. It replaces the retrieval module with a synthetic environment where documents are generated dynamically for each query, under independent control of their trustworthiness, relevance, and factuality. To characterize behavior under str",
-   "authors": [
-    "Ismael Rousseau",
-    "Geraldine Damnati",
-    "Frederic Bechet"
-   ],
-   "link": "https://huggingface.co/papers/2607.13920",
+   "link": "https://huggingface.co/papers/2611.17336",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-12T00:00",
-   "title_ar": "ديب ستريس: اختبار إجهاد وكلاء البحث العميق",
-   "summary_ar": "بينما يُظهر وكلاء البحث قدرات مبهرة في الإجابة عن الأسئلة متعددة الخطوات، فإن متانتهم أمام الأدلة رديئة الجودة تظل غير مستكشفة بما يكفي. تعد مثل هذه الأدلة نادرة في مجموعات المعايير المرجعية وتصعب إعادة إنتاج الإخفاقات الناتجة عنها، لذا نقترح \"ديب ستريس\" كإطار عمل ديناميكي لاختبار الإجهاد."
+   "title_ar": "العودة إلى البكسلات: رفع انتشار الفيديو الكامن إلى فضاء البكسل",
+   "summary_ar": "تعمل نماذج توليد الفيديو الرائدة في فضاء كامن لمرمزات VAE يضغط الفيديو مكانيًا وزمنيًا لتسهيل التدريب. غير أن هذا الضغط يحد حاليًا من التوليد عالي الدقة والقابل للتحكم والتفاعلي؛ إذ تؤدي مضاعفة الدقة إلى زيادة الرموز أربعة أضعاف وتُطبق الشروط على مجموعات من الإطارات."
   },
   {
-   "id": "2611.14046",
-   "title": "Structured Confidence Perturbation via Fisher Geometry for Adversarial Training",
-   "abstract": "Adversarial training is often plagued by \"pseudo-attacks\", perturbations that significantly increase the loss value but fail to truly alter the model's confidence structure. To address this, we propose two complementary approaches to directly attack and defend against confidence structure deformation. First, building upon the traditional loss maximization perspective, we introduce a hybrid objective that integrates cross-entropy and KL divergence, encouraging adversarial examples to simultaneously disrupt prediction accuracy and distribution consistency. Second, we geometrically reconstruct ad",
+   "id": "2611.17190",
+   "title": "Consensus Capture in Reference-Based UAV Video Stabilization: A Benchmark on Dynamic Urban Scenes",
+   "abstract": "Reference-frame stabilization registers every frame of a hovering-drone video onto one reference frame, keeping object positions comparable. The registration pipelines it relies on are selected on feature-matching benchmarks in which only the camera moves. Over a busy intersection, vehicles moving together supply mutually consistent correspondences that can draw the robust homography estimate toward their motion: consensus capture, which inlier statistics cannot flag. A two-part benchmark measures it and the object masking meant to prevent it. A static protocol scores ten pipelines under exact",
    "authors": [
-    "Chenlong Wei",
-    "Hanling Wang",
-    "Chong Zhang",
-    "Qinkai Yu"
+    "Robert Fonod",
+    "Nikolas Geroliminis"
    ],
-   "link": "https://huggingface.co/papers/2611.14046",
+   "link": "https://huggingface.co/papers/2611.17190",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-10T00:00",
-   "title_ar": "اضطراب الثقة المنظم عبر هندسة فيشر للتدريب العدائي",
-   "summary_ar": "غالبًا ما يعاني التدريب العدائي من \"الهجمات الزائفة\"، وهي اضطرابات تزيد قيمة الخسارة بشكل كبير لكنها تفشل في تغيير بنية ثقة النموذج بشكل حقيقي. ولمعالجة ذلك، نقترح نهجين متكاملين للهجوم المباشر والدفاع ضد تشوه بنية الثقة."
+   "published": "2026-11-12T00:00",
+   "title_ar": "التقاط الإجماع في تثبيت فيديو الطائرات المسيرة بالاعتماد على إطار مرجعي: معيار تقييم للمشاهد الحضرية الديناميكية",
+   "summary_ar": "يسجل التثبيت المستند إلى إطار مرجعي كل إطار من فيديو طائرة مسيرة تحوم في الجو على إطار مرجعي واحد للحفاظ على قابلية مقارنة مواقع الأجسام. وتُختار مسارات التسجيل المعتمدة بناءً على معايير مطابقة المعالم التي تقتصر على حركة الكاميرا، بينما تتحرك المركبات عند التقاطعات المزدحمة."
   },
   {
-   "id": "2611.12872",
-   "title": "HiVe-Mem: Interleaving Horizontal Memory Expansion and Vertical Evidence Composition for Multimodal Agents",
-   "abstract": "As multimodal agents accumulate increasingly long interaction histories, effectively retrieving and utilizing past information becomes critical for long-term interaction. Existing memory systems typically rely on semantic retrieval over compressed memories and expose predefined representations, which may miss relevant memories and overlook heterogeneous evidence needs across queries. We introduce \\hivemem, a multimodal memory framework that interleaves \\textsc{H}or\\textsc{i}zontal Memory Expansion with \\textsc{Ve}rtical Evidence Composition. For horizontal memory expansion, \\hivemem organizes ",
+   "id": "2611.09567",
+   "title": "TurtLES: A Large-Scale Benchmark for Turbulent 3D Neural PDE Surrogates",
+   "abstract": "Machine-learning surrogates are increasingly used to accelerate computational fluid dynamics, yet progress is limited by the lack of benchmarks capturing realistic, time-dependent turbulent flows. We introduce TurtLES, a 14 TB dataset of 3D turbulent cylinder wakes in the shear-layer transition regime, computed via high-fidelity implicit large-eddy simulations. The dataset contains 400 trajectories of 400 time steps each, with 3-11 million points per frame, spanning variations in geometry, Reynolds number, and angle of attack. Unlike existing datasets, TurtLES combines (i) physically realistic",
    "authors": [
-    "Haozhen Zhang",
-    "Bohan Liu",
-    "Jianzhu Bao",
-    "Qingyuan Liu"
+    "Jarno Platenburg",
+    "Armand Kassaï Koupaï",
+    "Paola Cinnella",
+    "Patrick Gallinari"
    ],
-   "link": "https://huggingface.co/papers/2611.12872",
+   "link": "https://huggingface.co/papers/2611.09567",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-06T00:00",
+   "title_ar": "TurtLES: معيار تقييم واسع النطاق للبدائل العصبية للمعادلات التفاضلية الجزئية في التدفقات ثلاثية الأبعاد المضطربة",
+   "summary_ar": "تُستخدم بدائل التعلم الآلي لتسريع ديناميكا الموائع الحسابية، لكن التقدم مقيد بغياب معايير تقييم تُمثل تدفقات مضطربة وواقعية تعتمد على الزمن. ولذا نُقدم TurtLES، وهي مجموعة بيانات بحجم 14 تيرابايت لمسارات اضطراب أسطوانية ثلاثية الأبعاد في منطقة انتقال طبقة القص."
+  },
+  {
+   "id": "2611.16961",
+   "title": "The Value of Thinking: Learning When to Reason in Hybrid Decision Models",
+   "abstract": "Existing adaptive-reasoning methods shorten the explicit reasoning a model writes, or skip it by switching modes; either way the answer is still written out token by token. Rather than deciding how much to think, we explore a different paradigm, zero-or-T thinking: a single model either answers from the implicit thinking inside one forward pass, generating no token, or performs full autoregressive reasoning at a cost of T tokens when that is worth paying. We realise it in a hybrid decision model (HDM), where one frozen backbone serves both modes and a lightweight self-routing block chooses bet",
+   "authors": [
+    "Zhengxu Yu",
+    "Ke Xu",
+    "Meng Fang",
+    "Haitham Ammar"
+   ],
+   "link": "https://huggingface.co/papers/2611.16961",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-12T00:00",
+   "title_ar": "قيمة التفكير: تعلم متى يُستدل في نماذج اتخاذ القرار الهجينة",
+   "summary_ar": "تختصر أساليب الاستدلال التكيفي الحالية ما يكتبه النموذج صراحةً أو تتخطاه بتغيير الأوضاع، مع استمرار كتابة الإجابة رمزًا تلو الآخر في كلتا الحالتين. وبدلًا من تحديد مقدار التفكير، نستكشف نموذجًا مختلفًا يُدعى التفكير الصفري أو بعدد T، حيث يجيب النموذج مباشرة أو يستدل قبل ذلك."
+  },
+  {
+   "id": "2611.12750",
+   "title": "The Narrative Gap: Can LLMs Help Us Navigate Diverse Narratives Across Languages?",
+   "abstract": "Large language models (LLMs) increasingly mediate how people seek and consume information, including accounts that differ across languages and regions, especially on contested topics. Supporting diverse information seeking requires models to help users navigate competing narratives across languages and information streams. We define six capabilities necessary for diverse multilingual information seeking: three foundational capabilities for narrative inclusion, narrative exclusion, and missing narrative identification; and three higher-level capabilities for presenting diverse narratives, prese",
+   "authors": [
+    "Nikhil Sharma",
+    "Kelly Marchisio",
+    "Kenton Murray",
+    "Ziang Xiao"
+   ],
+   "link": "https://huggingface.co/papers/2611.12750",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-09T00:00",
-   "title_ar": "هاي-ميم: تداخل التوسع الأفقي للذاكرة وتكوين الأدلة الرأسي للوكلاء متعددي الوسائط",
-   "summary_ar": "مع تراكم سجلات تفاعل طويلة بشكل متزايد لدى الوكلاء متعددي الوسائط، يصبح استرجاع المعلومات السابقة واستخدامها بفعالية أمرًا بالغ الأهمية للتفاعل طويل الأمد. تعتمد أنظمة الذاكرة الحالية عادةً على الاسترجاع الدلالي عبر ذكريات مضغوطة وتكشف عن تمثيلات محددة مسبقًا."
+   "title_ar": "فجوة الروايات: هل يمكن للنماذج اللغوية الكبيرة مساعدتنا في استكشاف روايات متنوعة عبر اللغات؟",
+   "summary_ar": "تتوسط النماذج اللغوية الكبيرة بنحو متزايد في كيفية بحث الناس عن المعلومات واستهلاكها، بما في ذلك الروايات المتباينة بين اللغات والمناطق خاصة في القضايا الخلافية. ويتطلب دعم البحث المتنوع مساعدة المستخدمين في استكشاف الروايات المتنافسة عبر اللغات."
+  },
+  {
+   "id": "2611.15094",
+   "title": "A frontier machine intelligence for human neuroimaging",
+   "abstract": "Medical imaging is essential for diagnosing disease, guiding treatment and monitoring patients over time. Although artificial intelligence has advanced image interpretation, existing medical models often address restricted tasks, while general-purpose proprietary models lack access to private clinical imaging required to achieve medical expertise. Developing models that can interpret complex examinations and communicate their findings in the context of clinical decisions remains a major challenge. Here, we show that Neuro-VL, a vision-language model trained on nearly one million neuroimaging s",
+   "authors": [
+    "Chenhui Zhao",
+    "Akshay Rao",
+    "Akhil Kondepudi",
+    "Yiwei Lyu"
+   ],
+   "link": "https://huggingface.co/papers/2611.15094",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-11T00:00",
+   "title_ar": "ذكاء آلي رائد للتصوير العصبي البشري",
+   "summary_ar": "يُعد التصوير الطبي ضروريًا لتشخيص الأمراض وتوجيه العلاج ومراقبة المرضى بمرور الوقت. ومع إحراز الذكاء الاصطناعي تقدمًا في تفسير الصور، إلا أن النماذج الطبية الحالية تعالج مهامًا محدودة، بينما تفتقر النماذج الاحتكارية العامة إلى الوصول للبيانات السريرية الخاصة."
   }
  ],
  "n": 6
