@@ -1,7 +1,41 @@
 {
- "updated": "2026-11-14T00:27+00:00",
+ "updated": "2026-11-14T13:59+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
+  {
+   "id": "2611.10439",
+   "title": "Who Remembers What? Multi-Granularity Memory Extraction for Multi-User, Multi-Agent Interaction",
+   "abstract": "Self-evolving agents improve their own skills, memory, and harness code from experience without retraining the base LLM, and group-evolving agents go further by sharing these lessons across agents. Yet most such systems overlook that sharing across users and heterogeneous agents requires deciding who can benefit from each lesson and what information must remain private. We present MixUA, a memory system that distills independent user-agent trajectories into lessons and assigns each lesson to a user-agent pair, user, agent, or global scope according to whom it benefits and what it may disclose.",
+   "authors": [
+    "Yunzhe Wang",
+    "Mesut Erhan Unal",
+    "Sheng Zhang",
+    "Shabnam Ghadar"
+   ],
+   "link": "https://huggingface.co/papers/2611.10439",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-07T00:00",
+   "title_ar": "من يتذكر ماذا؟ استخراج الذاكرة متعدد الحُبيبية للتفاعل متعدد المستخدمين ومتعدد الوكلاء",
+   "summary_ar": "تُحسِّن الوكلاء ذاتية التطور مهاراتها وذاكرتها وتستغل الشيفرات من التجربة دون إعادة تدريب النموذج اللغوي الأساسي، وتتجاوز الوكلاء متطورة المجموعات ذلك بمشاركة هذه الدروس عبر الوكلاء. ومع ذلك، تغفل معظم هذه الأنظمة أن المشاركة عبر المستخدمين والوكلاء غير المتجانسين تتطلب اتخاذ قرارات بشأن ما تتم مشاركته."
+  },
+  {
+   "id": "2611.16728",
+   "title": "EgoX: Egocentric Cross-Embodiment Manipulation with Embodiment Dreaming",
+   "abstract": "Generalist manipulation policies can benefit from the complementary experience of humans, real robots, and simulated agents. However, differences in morphology, sensing, and control interfaces make it difficult to learn effectively from their combined demonstrations. We introduce EgoX, an egocentric cross-embodiment learning framework that organizes heterogeneous demonstrations through semantically corresponding observation and action modalities. EgoX pretrains a Modularized Cross-Embodiment Transformer with Embodiment Dreaming (MXT+) on this mixture and fine-tunes it on target-embodiment demo",
+   "authors": [
+    "Yaru Niu",
+    "Binghong Chen",
+    "Changwei Yao",
+    "Shangtao Li"
+   ],
+   "link": "https://huggingface.co/papers/2611.16728",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-12T00:00",
+   "title_ar": "EgoX: تلاعب ذاتي المنظور وعابر للتجسيد عبر التجسيد الحالم",
+   "summary_ar": "يمكن لسياسات التلاعب العامة الاستفادة من الخبرات المتكاملة للبشر، والروبوتات الحقيقية، والوكلاء المحاكين. ورغم ذلك، فإن الاختلافات في البنية والشعور وواجهات التحكم تجعل التعلم الفعال من عروضهم التوضيحية المشتركة أمرًا صعبًا، ولهذا نقدم EgoX كنهج ذي منظور ذاتي."
+  },
   {
    "id": "2611.17336",
    "title": "Back to Pixels: Lifting Latent Video Diffusion into Pixel Space",
@@ -17,7 +51,7 @@
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-12T00:00",
    "title_ar": "العودة إلى البكسلات: رفع انتشار الفيديو الكامن إلى فضاء البكسل",
-   "summary_ar": "تعمل نماذج توليد الفيديو الرائدة في فضاء كامن لمرمزات VAE يضغط الفيديو مكانيًا وزمنيًا لتسهيل التدريب. غير أن هذا الضغط يحد حاليًا من التوليد عالي الدقة والقابل للتحكم والتفاعلي؛ إذ تؤدي مضاعفة الدقة إلى زيادة الرموز أربعة أضعاف وتُطبق الشروط على مجموعات من الإطارات."
+   "summary_ar": "تعمل نماذج توليد الفيديو الرائدة في فضاء كامن لمشفر تلقائي تبايني (VAE) يضغط الفيديو مكانيًا وزمانيًا. ورغم أن هذا الضغط جعل التدريب ممكنًا، فإنه يحد حاليًا من التوليد عالي الدقة والقابل للتحكم والتفاعلي، حيث تؤدي مضاعفة الدقة إلى مضاعفة عدد الرموز أربع مرات وتُطبق الشروط على مجموعات من الإطارات."
   },
   {
    "id": "2611.17190",
@@ -31,8 +65,8 @@
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-12T00:00",
-   "title_ar": "التقاط الإجماع في تثبيت فيديو الطائرات المسيرة بالاعتماد على إطار مرجعي: معيار تقييم للمشاهد الحضرية الديناميكية",
-   "summary_ar": "يسجل التثبيت المستند إلى إطار مرجعي كل إطار من فيديو طائرة مسيرة تحوم في الجو على إطار مرجعي واحد للحفاظ على قابلية مقارنة مواقع الأجسام. وتُختار مسارات التسجيل المعتمدة بناءً على معايير مطابقة المعالم التي تقتصر على حركة الكاميرا، بينما تتحرك المركبات عند التقاطعات المزدحمة."
+   "title_ar": "التقاط الإجماع في تثبيت فيديو الطائرات المسيرة القائم على الإسناد: معيار لتقييم المشاهد الحضرية الديناميكية",
+   "summary_ar": "يسجل تثبيت إطار الإسناد كل إطار من فيديو طائرة مسيرة تحوم فوق إطار إسناد واحد، مما يحافظ على قابلية مقارنة مواقع الأجسام. وتُختار مسارات التسجيل التي يعتمد عليها بناءً على معايير مطابقة السمات التي تتحرك فيها الكاميرا فقط، وذلك فوق تقاطع مزدحم تتحرك فيه المركبات."
   },
   {
    "id": "2611.09567",
@@ -48,8 +82,8 @@
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-06T00:00",
-   "title_ar": "TurtLES: معيار تقييم واسع النطاق للبدائل العصبية للمعادلات التفاضلية الجزئية في التدفقات ثلاثية الأبعاد المضطربة",
-   "summary_ar": "تُستخدم بدائل التعلم الآلي لتسريع ديناميكا الموائع الحسابية، لكن التقدم مقيد بغياب معايير تقييم تُمثل تدفقات مضطربة وواقعية تعتمد على الزمن. ولذا نُقدم TurtLES، وهي مجموعة بيانات بحجم 14 تيرابايت لمسارات اضطراب أسطوانية ثلاثية الأبعاد في منطقة انتقال طبقة القص."
+   "title_ar": "TurtLES: معيار واسع النطاق لبدائل المعادلات التفاضلية الجزئية العصبية ثلاثية الأبعاد المضطربة",
+   "summary_ar": "تُستخدم بدائل التعلم الآلي بشكل متزايد لتسريع ديناميكا الموائع الحسابية، لكن التقدم لا يزال محدودًا بسبب غياب معايير تقيس التدفقات المضطربة الواقعية المعتمدة على الزمن. نقدم TurtLES، وهي مجموعة بيانات بحجم 14 تيرابايت لمجاري أسطوانية مضطربة ثلاثية الأبعاد في منطقة انتقال طبقة القص."
   },
   {
    "id": "2611.16961",
@@ -65,42 +99,8 @@
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-12T00:00",
-   "title_ar": "قيمة التفكير: تعلم متى يُستدل في نماذج اتخاذ القرار الهجينة",
-   "summary_ar": "تختصر أساليب الاستدلال التكيفي الحالية ما يكتبه النموذج صراحةً أو تتخطاه بتغيير الأوضاع، مع استمرار كتابة الإجابة رمزًا تلو الآخر في كلتا الحالتين. وبدلًا من تحديد مقدار التفكير، نستكشف نموذجًا مختلفًا يُدعى التفكير الصفري أو بعدد T، حيث يجيب النموذج مباشرة أو يستدل قبل ذلك."
-  },
-  {
-   "id": "2611.12750",
-   "title": "The Narrative Gap: Can LLMs Help Us Navigate Diverse Narratives Across Languages?",
-   "abstract": "Large language models (LLMs) increasingly mediate how people seek and consume information, including accounts that differ across languages and regions, especially on contested topics. Supporting diverse information seeking requires models to help users navigate competing narratives across languages and information streams. We define six capabilities necessary for diverse multilingual information seeking: three foundational capabilities for narrative inclusion, narrative exclusion, and missing narrative identification; and three higher-level capabilities for presenting diverse narratives, prese",
-   "authors": [
-    "Nikhil Sharma",
-    "Kelly Marchisio",
-    "Kenton Murray",
-    "Ziang Xiao"
-   ],
-   "link": "https://huggingface.co/papers/2611.12750",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-09T00:00",
-   "title_ar": "فجوة الروايات: هل يمكن للنماذج اللغوية الكبيرة مساعدتنا في استكشاف روايات متنوعة عبر اللغات؟",
-   "summary_ar": "تتوسط النماذج اللغوية الكبيرة بنحو متزايد في كيفية بحث الناس عن المعلومات واستهلاكها، بما في ذلك الروايات المتباينة بين اللغات والمناطق خاصة في القضايا الخلافية. ويتطلب دعم البحث المتنوع مساعدة المستخدمين في استكشاف الروايات المتنافسة عبر اللغات."
-  },
-  {
-   "id": "2611.15094",
-   "title": "A frontier machine intelligence for human neuroimaging",
-   "abstract": "Medical imaging is essential for diagnosing disease, guiding treatment and monitoring patients over time. Although artificial intelligence has advanced image interpretation, existing medical models often address restricted tasks, while general-purpose proprietary models lack access to private clinical imaging required to achieve medical expertise. Developing models that can interpret complex examinations and communicate their findings in the context of clinical decisions remains a major challenge. Here, we show that Neuro-VL, a vision-language model trained on nearly one million neuroimaging s",
-   "authors": [
-    "Chenhui Zhao",
-    "Akshay Rao",
-    "Akhil Kondepudi",
-    "Yiwei Lyu"
-   ],
-   "link": "https://huggingface.co/papers/2611.15094",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-11T00:00",
-   "title_ar": "ذكاء آلي رائد للتصوير العصبي البشري",
-   "summary_ar": "يُعد التصوير الطبي ضروريًا لتشخيص الأمراض وتوجيه العلاج ومراقبة المرضى بمرور الوقت. ومع إحراز الذكاء الاصطناعي تقدمًا في تفسير الصور، إلا أن النماذج الطبية الحالية تعالج مهامًا محدودة، بينما تفتقر النماذج الاحتكارية العامة إلى الوصول للبيانات السريرية الخاصة."
+   "title_ar": "قيمة التفكير: تعلم متى يتم التفكير الاستدلالي في نماذج القرار الهجينة",
+   "summary_ar": "تختصر أساليب الاستدلال التكيفي الحالية الاستدلال الصريح الذي يكتبه النموذج أو تتخطاه عبر تبديل الأنماط، وفي كلتا الحالتين تُكتب الإجابة رمزًا تلو الآخر. وبدلاً من تحديد مقدار التفكير، نستكشف نموذجًا مختلفًا وهو التفكير \"صفر أو T\"، حيث يُجيب نموذج واحد إما مباشرةً وإما عبر استدلال كامل."
   }
  ],
  "n": 6
