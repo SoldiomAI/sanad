@@ -1,106 +1,103 @@
 {
- "updated": "2026-11-15T16:52+00:00",
+ "updated": "2026-11-16T08:22+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2611.10439",
-   "title": "Who Remembers What? Multi-Granularity Memory Extraction for Multi-User, Multi-Agent Interaction",
-   "abstract": "Self-evolving agents improve their own skills, memory, and harness code from experience without retraining the base LLM, and group-evolving agents go further by sharing these lessons across agents. Yet most such systems overlook that sharing across users and heterogeneous agents requires deciding who can benefit from each lesson and what information must remain private. We present MixUA, a memory system that distills independent user-agent trajectories into lessons and assigns each lesson to a user-agent pair, user, agent, or global scope according to whom it benefits and what it may disclose.",
+   "id": "2611.16378",
+   "title": "Evidence-Governed Adoption of Self-Generated Updates in Autonomous AI Agents",
+   "abstract": "Autonomous agents modify prompts, memories, tools, workflows, and policies using interaction histories. Yet a plausible modification is not necessarily suitable for persistent adoption: candidate selection is adaptive, evaluators may be imperfect, and local gains can hide degradation against an earlier baseline. We introduce Evidence-Governed Evolution (EGE), a framework for governing adoption of self-generated agent modifications. EGE separates candidate generation from confirmatory adoption, evaluates frozen candidates on fresh paired audits, requires meaningful improvement on a prespecified",
    "authors": [
-    "Yunzhe Wang",
-    "Mesut Erhan Unal",
-    "Sheng Zhang",
-    "Shabnam Ghadar"
+    "Subodh Lonkar"
    ],
-   "link": "https://huggingface.co/papers/2611.10439",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-07T00:00",
-   "title_ar": "من يتذكر ماذا؟ استخراج الذاكرة متعدد الحُبيبيات للتفاعل متعدد المستخدمين ومتعدد الوكلاء",
-   "summary_ar": "تُحسّن الوكلاء ذاتية التطور مهاراتها وذاكرتها وشيفراتها من التجربة دون إعادة تدريب النموذج اللغوي الأساسي، بينما يذهب التطور الجماعي لأبعد من ذلك بمشاركة الدروس عبر الوكلاء. ومع ذلك، تتجاهل معظم هذه الأنظمة أن المشاركة عبر المستخدمين والوكلاء غير المتجانسين تتطلب اتخاذ قرار بشأن ما يجب مشاركته."
-  },
-  {
-   "id": "2611.16728",
-   "title": "EgoX: Egocentric Cross-Embodiment Manipulation with Embodiment Dreaming",
-   "abstract": "Generalist manipulation policies can benefit from the complementary experience of humans, real robots, and simulated agents. However, differences in morphology, sensing, and control interfaces make it difficult to learn effectively from their combined demonstrations. We introduce EgoX, an egocentric cross-embodiment learning framework that organizes heterogeneous demonstrations through semantically corresponding observation and action modalities. EgoX pretrains a Modularized Cross-Embodiment Transformer with Embodiment Dreaming (MXT+) on this mixture and fine-tunes it on target-embodiment demo",
-   "authors": [
-    "Yaru Niu",
-    "Binghong Chen",
-    "Changwei Yao",
-    "Shangtao Li"
-   ],
-   "link": "https://huggingface.co/papers/2611.16728",
+   "link": "https://huggingface.co/papers/2611.16378",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-12T00:00",
-   "title_ar": "EgoX: تلاعب عبر التجسيدات من منظور الشخص الأول مع تخيل التجسيد",
-   "summary_ar": "يمكن لسياسات التلاعب العامة الاستفادة من الخبرات التكاملية للبشر والروبوتات الحقيقية والوكلاء المحاكين. ورغم ذلك، فإن الاختلافات في البنية والشعور وواجهات التحكم تجعل التعلم الفعال من عروضهم التوضيحية المجمعة أمرًا صعبًا، لذا نقدم EgoX كمنهج من منظور الشخص الأول."
+   "title_ar": "التبني المحكوم بالأدلة للتحديثات المُولَّدة ذاتياً في وكلاء الذكاء الاصطناعي الذاتيين",
+   "summary_ar": "يُعدِّل الوكلاء الذاتيون المحثات والذكريات والأدوات وسير العمل والسياسات باستخدام سجلات التفاعل. ومع ذلك، فإن التعديل المقبول ليس بالضرورة مناسباً للتبني المستمر، نظراً لكون اختيار المرشحين تكيفياً، والمُقيِّمون قد لا يكونون مثاليين، والمكاسب المحلية قد تخفي تراجعاً مقارنة بما سبق."
   },
   {
-   "id": "2611.17336",
-   "title": "Back to Pixels: Lifting Latent Video Diffusion into Pixel Space",
-   "abstract": "Frontier video generation models work in a VAE latent space that compresses video in both space and time. This compression made training tractable, but now limits high-resolution, controllable, and interactive generation -- doubling resolution quadruples token count, conditions apply to groups of frames rather than individual ones, and each response must wait for the rest of its multi-frame block. We present PixVid, a simple yet effective method that lifts a pretrained latent video model to directly generate every frame in pixel space. PixVid keeps the diffusion transformer and replaces the VA",
+   "id": "2611.18482",
+   "title": "MMFlash: Faster Speculative Decoding for Vision-Language Models",
+   "abstract": "Speculative decoding accelerates generation by letting a lightweight drafter propose tokens for parallel verification by a target model. Diffusion drafters such as DFlash propose an entire token block in a single forward pass, but mainly focus on text-only tasks, leaving multimodal drafting underexplored. To study this setting, we first introduce a metric of token-level visual dependence based on the KL divergence between next-token distributions with and without visual input. We find that acceptance rates decrease from 46% in the lowest visual-dependence quartile to 22% in the highest, with t",
    "authors": [
-    "Yanke Song",
-    "Shuo Chen",
-    "Chris Rockwell",
-    "Guande He"
+    "Sicheng Feng",
+    "Zigeng Chen",
+    "Song Wang",
+    "Gongfan Fang"
    ],
-   "link": "https://huggingface.co/papers/2611.17336",
+   "link": "https://huggingface.co/papers/2611.18482",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-12T00:00",
-   "title_ar": "العودة إلى البكسلات: رفع انتشار الفيديو الكامن إلى فضاء البكسل",
-   "summary_ar": "تعمل نماذج توليد الفيديو الرائدة في فضاء كامن لمشفر تلقائي متغير يضغط الفيديو مكانيًا وزمانيًا. ورغم أن هذا الضغط جعل التدريب ممكنًا، إلا أنه يحد حاليًا من التوليد عالي الدقة والقابل للتحكم والتفاعلي."
+   "published": "2026-11-13T00:00",
+   "title_ar": "MMFlash: فك تشفير تخميني أسرع لنماذج الرؤية واللغة",
+   "summary_ar": "يُسرّع فك التشفير التخميني عملية التوليد بالسماح لمُسوِّد خفيف باقتراح رموز للتحقق منها بالتوازي بواسطة نموذج مستهدف. تقترح المسوِّدات القائمة على الانتشار مثل DFlash كتلة رموز كاملة في تمريرة أمامية واحدة، لكنها تركز بشكل رئيسي على المهام النصية فقط وتترك التسويد متعدد الوسائط دون استكشاف كافٍ."
   },
   {
-   "id": "2611.17190",
-   "title": "Consensus Capture in Reference-Based UAV Video Stabilization: A Benchmark on Dynamic Urban Scenes",
-   "abstract": "Reference-frame stabilization registers every frame of a hovering-drone video onto one reference frame, keeping object positions comparable. The registration pipelines it relies on are selected on feature-matching benchmarks in which only the camera moves. Over a busy intersection, vehicles moving together supply mutually consistent correspondences that can draw the robust homography estimate toward their motion: consensus capture, which inlier statistics cannot flag. A two-part benchmark measures it and the object masking meant to prevent it. A static protocol scores ten pipelines under exact",
+   "id": "2611.18130",
+   "title": "JFinBench: A Continuously Refreshable Japanese Financial Benchmark from the Latest Certification Exams",
+   "abstract": "Large language models (LLMs) are increasingly applied to finance, creating a need for benchmarks that evaluate their capabilities across financial systems with different regulations and practices. However, existing financial benchmarks provide limited coverage of country-specific financial systems, and they are difficult to keep up to date as released questions leak into training data. We introduce JFinBench, a Japanese financial benchmark comprising 321 examples from the 2026 editions of six regularly administered certification exams covering accounting, tax, financial planning, and banking. ",
    "authors": [
-    "Robert Fonod",
-    "Nikolas Geroliminis"
+    "Issa Sugiura",
+    "Taro Makino",
+    "Takashi Ishida"
    ],
-   "link": "https://huggingface.co/papers/2611.17190",
+   "link": "https://huggingface.co/papers/2611.18130",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-12T00:00",
-   "title_ar": "التقاط الإجماع في تثبيت فيديو الطائرات المسيرة المعتمد على مرجع: معيار للمشاهد الحضرية الديناميكية",
-   "summary_ar": "يُسجل تثبيت الإطار المرجعي كل إطار من فيديو طائرة مسيرة تحوم في إطار مرجعي واحد، مما يحافظ على قابلية مقارنة مواقع الكائنات. وتُختار مسارات التسجيل المعتمدة على معايير مطابقة الميزات التي لا تتحرك فيها سوى الكاميرا فقط، في حين تتحرك المركبات عبر التقاطعات المزدحمة."
+   "published": "2026-11-13T00:00",
+   "title_ar": "JFinBench: معيار مالي ياباني قابل للتحديث المستمر مستمد من أحدث اختبارات الشهادات",
+   "summary_ar": "تزداد وتيرة تطبيق النماذج اللغوية الكبيرة في المالية، مما يخلق حاجة لمعايير تقيّم قدراتها عبر الأنظمة المالية ذات اللوائح والممارسات المختلفة. ومع ذلك، توفر المعايير المالية الحالية تغطية محدودة للأنظمة المالية الخاصة بكل بلد."
   },
   {
-   "id": "2611.09567",
-   "title": "TurtLES: A Large-Scale Benchmark for Turbulent 3D Neural PDE Surrogates",
-   "abstract": "Machine-learning surrogates are increasingly used to accelerate computational fluid dynamics, yet progress is limited by the lack of benchmarks capturing realistic, time-dependent turbulent flows. We introduce TurtLES, a 14 TB dataset of 3D turbulent cylinder wakes in the shear-layer transition regime, computed via high-fidelity implicit large-eddy simulations. The dataset contains 400 trajectories of 400 time steps each, with 3-11 million points per frame, spanning variations in geometry, Reynolds number, and angle of attack. Unlike existing datasets, TurtLES combines (i) physically realistic",
+   "id": "2611.18529",
+   "title": "eDIAR: Training-Free Open-Speaker Streaming Diarization for Long Meetings and Large Archives via e-means",
+   "abstract": "Meetings last up to an hour, and nobody knows in advance how many people will speak. Neural diarizers with a fixed number of output slots, such as Streaming Sortformer and Nemotron-3, are accurate and run online, but they cannot name more speakers than they have slots. We remove this limit without retraining. The slot head keeps deciding who is active and when speech overlaps, and speaker embeddings are clustered inside a single slot, with the official e-means algorithm, only after every slot has been used. In the streaming system, re-clustering is confined to a bounded window, labels are revi",
    "authors": [
-    "Jarno Platenburg",
-    "Armand Kassaï Koupaï",
-    "Paola Cinnella",
-    "Patrick Gallinari"
+    "Kyudan Jung",
+    "Jihwan Kim",
+    "Minwoo Lee",
+    "Eunji Shin"
    ],
-   "link": "https://huggingface.co/papers/2611.09567",
+   "link": "https://huggingface.co/papers/2611.18529",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-06T00:00",
-   "title_ar": "TurtLES: معيار واسع النطاق لبدائل المعادلات التفاضلية الجزئية العصبية ثلاثية الأبعاد المضطربة",
-   "summary_ar": "تُستخدم بدائل تعلم الآلة بشكل متزايد لتسريع ديناميكا الموائع الحسابية، لكن التقدم يظل محدودًا بسبب نقص المعايير التي تلتقط التدفقات المضطربة الواقعية المعتمدة على الزمن. ونقدم هنا TurtLES، وهي مجموعة بيانات بحجم 14 تيرابايت لمجاري أسطوانات ثلاثية الأبعاد مضطربة في منطقة انتقال طبقة القص."
+   "published": "2026-11-13T00:00",
+   "title_ar": "eDIAR: تمييز المتحدثين التدريجي بدون تدريب ومفتوح العدد للاجتماعات الطويلة والأرشيفات الضخمة عبر خوارزمية e-means",
+   "summary_ar": "تستمر الاجتماعات لمدة تصل إلى ساعة ولا أحد يعلم مسبقاً عدد المتحدثين. تتميز أدوات تمييز المتحدثين العصبية ذات المنافذ المحددة بالدقة والعمل المباشر، لكنها تعجز عن تسمية متحدثين يتجاوزون عدد منافذها، ونحن نزيل هذا القيد دون إعادة تدريب."
   },
   {
-   "id": "2611.16961",
-   "title": "The Value of Thinking: Learning When to Reason in Hybrid Decision Models",
-   "abstract": "Existing adaptive-reasoning methods shorten the explicit reasoning a model writes, or skip it by switching modes; either way the answer is still written out token by token. Rather than deciding how much to think, we explore a different paradigm, zero-or-T thinking: a single model either answers from the implicit thinking inside one forward pass, generating no token, or performs full autoregressive reasoning at a cost of T tokens when that is worth paying. We realise it in a hybrid decision model (HDM), where one frozen backbone serves both modes and a lightweight self-routing block chooses bet",
+   "id": "2611.02822",
+   "title": "Disen-Forcing: Disentangling Semantic Anchoring from Motion for Autoregressive Video Diffusion",
+   "abstract": "Autoregressive video diffusion models (AR-VDMs) enable real-time, long-horizon video generation but degrade rapidly once the inference horizon outruns the training horizon, due to compounding exposure bias. To stabilize long rollouts, recent methods heuristically adopt frame sink, keeping initial frames as a persistent model context, inspired by attention sinks in LLMs. We revisit this design and find that the mechanism by which initial frames stabilize long-range consistency in AR-VDMs is not an LLM-style attention sink; instead, long-range consistency is anchored through a sparse subset of a",
    "authors": [
-    "Zhengxu Yu",
-    "Ke Xu",
-    "Meng Fang",
-    "Haitham Ammar"
+    "Zhengyang Yu",
+    "Akio Hayakawa",
+    "Masato Ishii",
+    "Qingtao Yu"
    ],
-   "link": "https://huggingface.co/papers/2611.16961",
+   "link": "https://huggingface.co/papers/2611.02822",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-12T00:00",
-   "title_ar": "قيمة التفكير: تعلم متى يُستدل في نماذج اتخاذ القرار الهجينة",
-   "summary_ar": "تختصر أساليب الاستدلال التكيفي الحالية التفكير الصريح الذي يكتبه النموذج أو تتخطاه عبر تبديل الأوضاع، وفي كلتا الحالتين تُكتب الإجابة رمزًا تلو الآخر. وعوضًا عن تحديد مقدار التفكير، نستكشف نموذجًا مختلفًا يعتمد على التفكير الصفري أو بعدد T، حيث يجيب نموذج واحد إما مباشرة أو عبر التفكير."
+   "published": "2026-11-02T00:00",
+   "title_ar": "Disen-Forcing: فصل التثبيت الدلالي عن الحركة لنماذج انتشار الفيديو ذاتية الانحدار",
+   "summary_ar": "تتيح نماذج انتشار الفيديو ذاتية الانحدار توليد فيديو آني وطويل الأمد، لكن جودتها تتدهور سريعاً بمجرد تجاوز أفق الاستدلال لأفق التدريب بسبب تحيز التعرض التراكمي. ولتثبيت عمليات التوليد الطويلة، تتبنى الطرق الحديثة أسلوب حوض الإطارات تجريبياً من خلال الاحتفاظ بالإطارات الأولية."
+  },
+  {
+   "id": "2611.18549",
+   "title": "JVT: Just Video Transformer makes pixel-space video diffusion simple",
+   "abstract": "Direct diffusion modeling of high-dimensional raw video data is challenging, and existing pixel-space methods often rely on specialized architectures. We introduce JVT (Just Video Transformer), a simple large-patch DiT-style Transformer for pixel-space video diffusion, without a pretrained autoencoder, auxiliary detailers, cascaded stages, or U-Net-style skip connections. We systematically examine video patch embeddings, register tokens, and adaptive layer normalization to identify design choices that balance generation quality and computational efficiency. The resulting JVT design achieves ge",
+   "authors": [
+    "Jianjun Zhou",
+    "Hua Geng",
+    "Haoyu Guo"
+   ],
+   "link": "https://huggingface.co/papers/2611.18549",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-13T00:00",
+   "title_ar": "JVT: محوّل الفيديو البسيط يجعل انتشار الفيديو في فضاء البكسل بسيطاً",
+   "summary_ar": "تُعد النمذجة المباشرة بالانتشار لبيانات الفيديو الخام عالية الأبعاد أمراً صعباً، وغالباً ما تعتمد طرق فضاء البكسل الحالية على بنيات متخصصة. نُقدّم JVT، وهو محوّل بسيط بنمط DiT ورقع كبيرة لانتشار الفيديو في فضاء البكسل دون الحاجة إلى مُرمِّز تلقائي مُدرَّب مسبقاً."
   }
  ],
  "n": 6
