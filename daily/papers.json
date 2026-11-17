@@ -1,103 +1,102 @@
 {
- "updated": "2026-11-16T08:22+00:00",
+ "updated": "2026-11-17T02:22+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2611.16378",
-   "title": "Evidence-Governed Adoption of Self-Generated Updates in Autonomous AI Agents",
-   "abstract": "Autonomous agents modify prompts, memories, tools, workflows, and policies using interaction histories. Yet a plausible modification is not necessarily suitable for persistent adoption: candidate selection is adaptive, evaluators may be imperfect, and local gains can hide degradation against an earlier baseline. We introduce Evidence-Governed Evolution (EGE), a framework for governing adoption of self-generated agent modifications. EGE separates candidate generation from confirmatory adoption, evaluates frozen candidates on fresh paired audits, requires meaningful improvement on a prespecified",
+   "id": "2611.16661",
+   "title": "Reducing Batch Makespan for LLM Agent Workloads through Inference-Environment Coordination",
+   "abstract": "Efficient batch execution of agent tasks is critical to LLM training and development workflows, including benchmark evaluation, synthetic-data generation, and RL rollouts. Since these tasks alternate between LLM inference and environment interaction, we present coordinated optimizations to reduce batch makespan, the time required to complete all tasks in a batch. For hybrid LLMs, a workload-based resource model guides GPU-memory allocation between key-value (KV) cache and recurrent state and provides a reference sample concurrency to exploit parallelism while limiting recomputation. Trajectory",
    "authors": [
-    "Subodh Lonkar"
+    "Wei Feng",
+    "Meiling Chen",
+    "Boxiao Chen",
+    "Lu Liu"
    ],
-   "link": "https://huggingface.co/papers/2611.16378",
+   "link": "https://huggingface.co/papers/2611.16661",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-12T00:00",
-   "title_ar": "التبني المحكوم بالأدلة للتحديثات المُولَّدة ذاتياً في وكلاء الذكاء الاصطناعي الذاتيين",
-   "summary_ar": "يُعدِّل الوكلاء الذاتيون المحثات والذكريات والأدوات وسير العمل والسياسات باستخدام سجلات التفاعل. ومع ذلك، فإن التعديل المقبول ليس بالضرورة مناسباً للتبني المستمر، نظراً لكون اختيار المرشحين تكيفياً، والمُقيِّمون قد لا يكونون مثاليين، والمكاسب المحلية قد تخفي تراجعاً مقارنة بما سبق."
+   "title_ar": "تقليص زمن إنجاز الدفعات لأحمال عمل وكلاء النماذج اللغوية الكبيرة عبر التنسيق بين الاستدلال والبيئة",
+   "summary_ar": "يُعد التنفيذ الفعال للدفعات في مهام الوكلاء أمرًا حاسمًا لتدريب وتطوير النماذج اللغوية الكبيرة، مثل تقييم المعايير وتوليد البيانات التركيبية وتجارب التعلم المعزز. ونظرًا لأن هذه المهام تتناوب بين استدلال النماذج والتفاعل مع البيئة، يقدم هذا العمل تحسينات منسقة لتقليص زمن الإنجاز."
   },
   {
-   "id": "2611.18482",
-   "title": "MMFlash: Faster Speculative Decoding for Vision-Language Models",
-   "abstract": "Speculative decoding accelerates generation by letting a lightweight drafter propose tokens for parallel verification by a target model. Diffusion drafters such as DFlash propose an entire token block in a single forward pass, but mainly focus on text-only tasks, leaving multimodal drafting underexplored. To study this setting, we first introduce a metric of token-level visual dependence based on the KL divergence between next-token distributions with and without visual input. We find that acceptance rates decrease from 46% in the lowest visual-dependence quartile to 22% in the highest, with t",
+   "id": "2611.16010",
+   "title": "Iris-Z: Scaling One Generative Model Past Specialist Geometry Models",
+   "abstract": "Language moved from many task-specific models to one unified model: a single generative model with a single generative training task that handles all of them within the same backbone, and keeps improving with data, parameters and compute. We believe the bitter lesson applies just as much to computer vision, 3D and spatial understanding, in the end to visual intelligence: the effort should go into general architectures that solve all these tasks in a unified way, and into scaling them, rather than into task-specific designs. We test this on monocular geometry, a task that has belonged to specia",
    "authors": [
-    "Sicheng Feng",
-    "Zigeng Chen",
-    "Song Wang",
-    "Gongfan Fang"
+    "Alejandro Cañada",
+    "Chema Garabito"
    ],
-   "link": "https://huggingface.co/papers/2611.18482",
+   "link": "https://huggingface.co/papers/2611.16010",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-11T00:00",
+   "title_ar": "Iris-Z: توسيع نموذج توليدي واحد ليتفوق على النماذج الهندسية المتخصصة",
+   "summary_ar": "انتقلت معالجة اللغة من نماذج متعددة خاصة بمهام معينة إلى نموذج موحد يتعامل معها جميعًا ضمن البنية ذاتها ويتحسن بزيادة البيانات والمعلمات والحوسبة. ويرى الباحثون أن هذا \"الدرس المرير\" ينطبق تمامًا وبنفس القدر على الرؤية الحاسوبية."
+  },
+  {
+   "id": "2611.17321",
+   "title": "BrickFlow: Connectivity-Guided Brick Reconstruction",
+   "abstract": "Given a set of LEGO parts and an image of an assembled object, our task is to infer the pose of each part to assemble the object. In contrast with traditional 3D reconstruction, doing so requires satisfying discrete physical constraints, which provide structure but render the problem combinatorial and highly sensitive to small pose errors. To learn a prior over how parts fit together, we train a set-conditioned SE(3) flow model on procedurally generated assemblies. We then finetune this model to inject image conditioning, using 1% as much data. However, while the learned flow captures global s",
+   "authors": [
+    "Peter Kulits",
+    "Cordelia Schmid"
+   ],
+   "link": "https://huggingface.co/papers/2611.17321",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-12T00:00",
+   "title_ar": "BrickFlow: إعادة بناء قطع التركيب الموجهة بقابلية الاتصال",
+   "summary_ar": "تتمثل مهمة هذا العمل في تقدير وضعية كل قطعة لتجميع مجسم بناءً على مجموعة من قطع ليغو وصورة للمجسم المُجمَّع. وعلى عكس إعادة البناء ثلاثية الأبعاد التقليدية، يتطلب ذلك استيفاء قيود فيزيائية منفصلة تمنح هيكلية للمجسم ولكنها تجعل المشكلة توليفية."
+  },
+  {
+   "id": "2611.18550",
+   "title": "Restoring Diversity in Distilled Image and Video Generators by Probing Activations",
+   "abstract": "Distilling diffusion models into few-step student models substantially reduces sampling latency, but induces severe diversity collapse: samples generated from different random seeds show minimal variation. In this work, we investigate the root cause of this failure by probing the internal representations of student models relative to their teachers. We find that distilled students maintain total activation variance comparable to their teachers, but concentrate it into substantially fewer directions. This directional collapse is localized to an identifiable intermediate block at the initial den",
+   "authors": [
+    "Furkan Horoz",
+    "Ozgur Kara",
+    "Kaan Oktay",
+    "Adil Kaan Akan"
+   ],
+   "link": "https://huggingface.co/papers/2611.18550",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-13T00:00",
-   "title_ar": "MMFlash: فك تشفير تخميني أسرع لنماذج الرؤية واللغة",
-   "summary_ar": "يُسرّع فك التشفير التخميني عملية التوليد بالسماح لمُسوِّد خفيف باقتراح رموز للتحقق منها بالتوازي بواسطة نموذج مستهدف. تقترح المسوِّدات القائمة على الانتشار مثل DFlash كتلة رموز كاملة في تمريرة أمامية واحدة، لكنها تركز بشكل رئيسي على المهام النصية فقط وتترك التسويد متعدد الوسائط دون استكشاف كافٍ."
+   "title_ar": "استعادة التنوع في مولدات الصور والفيديو المقطرة عبر فحص التنشيطات",
+   "summary_ar": "يؤدي تقطير نماذج الانتشار إلى نماذج تلميذة قليلة الخطوات إلى تقليل زمن الاستعيان بشكل كبير، ولكنه يسبب انهيارًا حادًا في التنوع بحيث تُظهر العينات المولدة من بذور عشوائية مختلفة تباينًا طفيفًا. يبحث هذا العمل في السبب الجذري لهذا الفشل عبر فحص التمثيلات الداخلية."
   },
   {
-   "id": "2611.18130",
-   "title": "JFinBench: A Continuously Refreshable Japanese Financial Benchmark from the Latest Certification Exams",
-   "abstract": "Large language models (LLMs) are increasingly applied to finance, creating a need for benchmarks that evaluate their capabilities across financial systems with different regulations and practices. However, existing financial benchmarks provide limited coverage of country-specific financial systems, and they are difficult to keep up to date as released questions leak into training data. We introduce JFinBench, a Japanese financial benchmark comprising 321 examples from the 2026 editions of six regularly administered certification exams covering accounting, tax, financial planning, and banking. ",
+   "id": "2611.14487",
+   "title": "Re-Search: Dissecting LLM Ideation Through a Two-Player Questioning Game",
+   "abstract": "Research ideation is iterative: researchers refine their ideas step by step based on feedback. Yet existing evaluations obscure this search process, making it difficult to understand how LLMs explore the space of research ideas and what limits their progress. We introduce Re-Search, which adapts the format of Twenty Questions to research ideation: given only the research problem of a published paper, a model must rediscover the paper's core idea by asking yes-or-no questions. Built from 200 ICML 2026 papers, Re-Search tracks how a model's idea evolves as it asks questions and receives binary o",
    "authors": [
-    "Issa Sugiura",
-    "Taro Makino",
-    "Takashi Ishida"
+    "Muhan Gao",
+    "Hangxiao Zhu",
+    "Xinqi Su",
+    "Yu Zhang"
    ],
-   "link": "https://huggingface.co/papers/2611.18130",
+   "link": "https://huggingface.co/papers/2611.14487",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-13T00:00",
-   "title_ar": "JFinBench: معيار مالي ياباني قابل للتحديث المستمر مستمد من أحدث اختبارات الشهادات",
-   "summary_ar": "تزداد وتيرة تطبيق النماذج اللغوية الكبيرة في المالية، مما يخلق حاجة لمعايير تقيّم قدراتها عبر الأنظمة المالية ذات اللوائح والممارسات المختلفة. ومع ذلك، توفر المعايير المالية الحالية تغطية محدودة للأنظمة المالية الخاصة بكل بلد."
+   "published": "2026-11-10T00:00",
+   "title_ar": "Re-Search: تشريح توليد الأفكار في النماذج اللغوية الكبيرة عبر لعبة طرح أسئلة بين لاعبين",
+   "summary_ar": "يُعد توليد الأفكار البحثية عملية تكرارية يُحسّن فيها الباحثون أفكارهم خطوة بخطوة بناءً على التغذية الراجعة، غير أن التقييمات الحالية تحجب عملية البحث هذه مما يُصعّب فهم كيفية استكشاف النماذج لفضاء الأفكار ومعرفة ما يحد من تقدمها. يقدم الباحثون إطار Re-Search لمعالجة هذا الأمر من خلال تكييف لعبة لطرح الأسئلة."
   },
   {
-   "id": "2611.18529",
-   "title": "eDIAR: Training-Free Open-Speaker Streaming Diarization for Long Meetings and Large Archives via e-means",
-   "abstract": "Meetings last up to an hour, and nobody knows in advance how many people will speak. Neural diarizers with a fixed number of output slots, such as Streaming Sortformer and Nemotron-3, are accurate and run online, but they cannot name more speakers than they have slots. We remove this limit without retraining. The slot head keeps deciding who is active and when speech overlaps, and speaker embeddings are clustered inside a single slot, with the official e-means algorithm, only after every slot has been used. In the streaming system, re-clustering is confined to a bounded window, labels are revi",
+   "id": "2611.05843",
+   "title": "Dual Flow: Joint Image-Measurement Interpolation for Inverse Problems",
+   "abstract": "Generative model-based approaches to linear inverse problems typically use the acquired noisy measurement to condition or guide sampling in the image domain. In this work, we introduce Dual Flow, a novel joint-flow model for solving linear inverse problems by jointly estimating the clean image and corresponding noise-free measurement from the observation. Specifically, Dual Flow formulates image reconstruction and measurement denoising as a coupled estimation problem, using coupled flows in the image and measurement domains. The acquired noisy measurement is used only to initialize the measure",
    "authors": [
-    "Kyudan Jung",
-    "Jihwan Kim",
-    "Minwoo Lee",
-    "Eunji Shin"
+    "Sevket Ege Yesilyurt",
+    "Figen S. Oktem"
    ],
-   "link": "https://huggingface.co/papers/2611.18529",
+   "link": "https://huggingface.co/papers/2611.05843",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-13T00:00",
-   "title_ar": "eDIAR: تمييز المتحدثين التدريجي بدون تدريب ومفتوح العدد للاجتماعات الطويلة والأرشيفات الضخمة عبر خوارزمية e-means",
-   "summary_ar": "تستمر الاجتماعات لمدة تصل إلى ساعة ولا أحد يعلم مسبقاً عدد المتحدثين. تتميز أدوات تمييز المتحدثين العصبية ذات المنافذ المحددة بالدقة والعمل المباشر، لكنها تعجز عن تسمية متحدثين يتجاوزون عدد منافذها، ونحن نزيل هذا القيد دون إعادة تدريب."
-  },
-  {
-   "id": "2611.02822",
-   "title": "Disen-Forcing: Disentangling Semantic Anchoring from Motion for Autoregressive Video Diffusion",
-   "abstract": "Autoregressive video diffusion models (AR-VDMs) enable real-time, long-horizon video generation but degrade rapidly once the inference horizon outruns the training horizon, due to compounding exposure bias. To stabilize long rollouts, recent methods heuristically adopt frame sink, keeping initial frames as a persistent model context, inspired by attention sinks in LLMs. We revisit this design and find that the mechanism by which initial frames stabilize long-range consistency in AR-VDMs is not an LLM-style attention sink; instead, long-range consistency is anchored through a sparse subset of a",
-   "authors": [
-    "Zhengyang Yu",
-    "Akio Hayakawa",
-    "Masato Ishii",
-    "Qingtao Yu"
-   ],
-   "link": "https://huggingface.co/papers/2611.02822",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-02T00:00",
-   "title_ar": "Disen-Forcing: فصل التثبيت الدلالي عن الحركة لنماذج انتشار الفيديو ذاتية الانحدار",
-   "summary_ar": "تتيح نماذج انتشار الفيديو ذاتية الانحدار توليد فيديو آني وطويل الأمد، لكن جودتها تتدهور سريعاً بمجرد تجاوز أفق الاستدلال لأفق التدريب بسبب تحيز التعرض التراكمي. ولتثبيت عمليات التوليد الطويلة، تتبنى الطرق الحديثة أسلوب حوض الإطارات تجريبياً من خلال الاحتفاظ بالإطارات الأولية."
-  },
-  {
-   "id": "2611.18549",
-   "title": "JVT: Just Video Transformer makes pixel-space video diffusion simple",
-   "abstract": "Direct diffusion modeling of high-dimensional raw video data is challenging, and existing pixel-space methods often rely on specialized architectures. We introduce JVT (Just Video Transformer), a simple large-patch DiT-style Transformer for pixel-space video diffusion, without a pretrained autoencoder, auxiliary detailers, cascaded stages, or U-Net-style skip connections. We systematically examine video patch embeddings, register tokens, and adaptive layer normalization to identify design choices that balance generation quality and computational efficiency. The resulting JVT design achieves ge",
-   "authors": [
-    "Jianjun Zhou",
-    "Hua Geng",
-    "Haoyu Guo"
-   ],
-   "link": "https://huggingface.co/papers/2611.18549",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-13T00:00",
-   "title_ar": "JVT: محوّل الفيديو البسيط يجعل انتشار الفيديو في فضاء البكسل بسيطاً",
-   "summary_ar": "تُعد النمذجة المباشرة بالانتشار لبيانات الفيديو الخام عالية الأبعاد أمراً صعباً، وغالباً ما تعتمد طرق فضاء البكسل الحالية على بنيات متخصصة. نُقدّم JVT، وهو محوّل بسيط بنمط DiT ورقع كبيرة لانتشار الفيديو في فضاء البكسل دون الحاجة إلى مُرمِّز تلقائي مُدرَّب مسبقاً."
+   "published": "2026-11-12T00:00",
+   "title_ar": "التدفق المزدوج: استيفاء مشترك بين الصورة والقياس للمسائل العكسية",
+   "summary_ar": "تستخدم المناهج القائمة على النماذج التوليدية لحل المسائل العكسية الخطية عادةً القياس المشوش المكتسب لتوجيه أو تكييف الاستعيان في مجال الصورة. يُقدم هذا العمل \"التدفق المزدوج\"، وهو نموذج تدفق مشترك وجديد لحل المسائل العكسية الخطية عبر التقدير المشترك لكل من الصورة النظيفة والقياس."
   }
  ],
  "n": 6
