@@ -1,102 +1,104 @@
 {
- "updated": "2026-11-17T02:22+00:00",
+ "updated": "2026-11-17T19:45+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2611.16661",
-   "title": "Reducing Batch Makespan for LLM Agent Workloads through Inference-Environment Coordination",
-   "abstract": "Efficient batch execution of agent tasks is critical to LLM training and development workflows, including benchmark evaluation, synthetic-data generation, and RL rollouts. Since these tasks alternate between LLM inference and environment interaction, we present coordinated optimizations to reduce batch makespan, the time required to complete all tasks in a batch. For hybrid LLMs, a workload-based resource model guides GPU-memory allocation between key-value (KV) cache and recurrent state and provides a reference sample concurrency to exploit parallelism while limiting recomputation. Trajectory",
+   "id": "2611.20595",
+   "title": "Invariant-Aware Harness Enforcement to Protect LLM Agents from Silent API Failures",
+   "abstract": "LLM agents answer questions by calling APIs and trusting the results. An API can fail silently. It ignores part of a request, such as a misnamed filter, yet returns HTTP 200 and a plausible but wrong result. Current fixes, such as checklists, reviewer models and LLM judges, ask the model to catch it. But models often see the problem and answer anyway. We present SilentGuard, which moves the decision from the model to the harness running tool calls. It tests each result against invariants that any correct API must satisfy and withholds values that break one. We find silent failures in 11 of 15 ",
    "authors": [
-    "Wei Feng",
-    "Meiling Chen",
-    "Boxiao Chen",
-    "Lu Liu"
+    "Sajib Acharjee Dip",
+    "Brian Ouyang",
+    "Lala Motlhabi"
    ],
-   "link": "https://huggingface.co/papers/2611.16661",
+   "link": "https://huggingface.co/papers/2611.20595",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-16T00:00",
+   "title_ar": "فرض قيود واعية بالثوابت لحماية وكلاء النماذج اللغوية الكبيرة من الإخفاقات الصامتة لواجهات برمجة التطبيقات",
+   "summary_ar": "يجيب وكلاء النماذج اللغوية الكبيرة عن الأسئلة عبر استدعاء واجهات برمجة التطبيقات والوثوق بنتائجها، غير أن هذه الواجهات قد تخفق بصمت بتجاهل جزء من الطلب وإرجاع نتيجة خاطئة تبدو مقبولة مع رمز نجاح. وتطلب الحلول الحالية من النموذج اكتشاف هذا الخلل عبر قوائم التحقق أو نماذج المراجعة أو المقيمين المعتمدين على النماذج اللغوية."
+  },
+  {
+   "id": "2611.16694",
+   "title": "When Expert Disagreement Hurts: Prestige and Selectivity in LLM Decision Revision",
+   "abstract": "When language models revise a decision after another agent disagrees, neither reversal counts nor final accuracy shows whether they are fixing mistakes or abandoning correct answers. We introduce a controlled two-pass audit that holds the question, the evidence, and the model's initial answer fixed and varies only the revision context: neutral reflection, anonymous disagreement, or disagreement attributed to a domain expert. For binary decisions the accounting is exact: revision raises accuracy only if it is selective enough, reversing wrong answers more than a/(1-a) times as often as correct ",
+   "authors": [
+    "Yupeng Tang",
+    "Mingfeng Lin"
+   ],
+   "link": "https://huggingface.co/papers/2611.16694",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-12T00:00",
-   "title_ar": "تقليص زمن إنجاز الدفعات لأحمال عمل وكلاء النماذج اللغوية الكبيرة عبر التنسيق بين الاستدلال والبيئة",
-   "summary_ar": "يُعد التنفيذ الفعال للدفعات في مهام الوكلاء أمرًا حاسمًا لتدريب وتطوير النماذج اللغوية الكبيرة، مثل تقييم المعايير وتوليد البيانات التركيبية وتجارب التعلم المعزز. ونظرًا لأن هذه المهام تتناوب بين استدلال النماذج والتفاعل مع البيئة، يقدم هذا العمل تحسينات منسقة لتقليص زمن الإنجاز."
+   "title_ar": "عندما يضر خلاف الخبراء: المكانة والانتقائية في تعديل قرارات النماذج اللغوية الكبيرة",
+   "summary_ar": "عندما تعدل النماذج اللغوية قراراً إثر مخالفة وكيل آخر لها، لا توضح معدلات التراجع ولا الدقة النهائية ما إذا كانت تصلح أخطاءها أم تتخلى عن إجابات صحيحة. يقدم العمل تدقيقاً مضبوطاً من مرحلتين يثبت السؤال والأدلة وإجابة النموذج الأولية."
   },
   {
-   "id": "2611.16010",
-   "title": "Iris-Z: Scaling One Generative Model Past Specialist Geometry Models",
-   "abstract": "Language moved from many task-specific models to one unified model: a single generative model with a single generative training task that handles all of them within the same backbone, and keeps improving with data, parameters and compute. We believe the bitter lesson applies just as much to computer vision, 3D and spatial understanding, in the end to visual intelligence: the effort should go into general architectures that solve all these tasks in a unified way, and into scaling them, rather than into task-specific designs. We test this on monocular geometry, a task that has belonged to specia",
+   "id": "2611.21605",
+   "title": "ViRA: Toward Ultra-High-Resolution Visual Agents via Cross-Input Relative Policy Optimization",
+   "abstract": "Visual agents answer questions about ultra-high-resolution photos by zooming into the relevant regions. However, existing agents often answer from common sense instead of reading the evidence. Reinforcement learning (RL) on the final answer cannot correct this, because a guess earns the same reward as reading. We propose Cross-Input Relative Policy Optimization (CrossRPO), which trains agents on contrast sets. A contrast set asks one question about several versions of an image that differ only in a small region with the evidence and have different answers, so only reading the evidence solves t",
    "authors": [
-    "Alejandro Cañada",
-    "Chema Garabito"
+    "Huawei Lin",
+    "Jinting Liu",
+    "Tongyan Wang",
+    "Xuyang Chen"
    ],
-   "link": "https://huggingface.co/papers/2611.16010",
+   "link": "https://huggingface.co/papers/2611.21605",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-11T00:00",
-   "title_ar": "Iris-Z: توسيع نموذج توليدي واحد ليتفوق على النماذج الهندسية المتخصصة",
-   "summary_ar": "انتقلت معالجة اللغة من نماذج متعددة خاصة بمهام معينة إلى نموذج موحد يتعامل معها جميعًا ضمن البنية ذاتها ويتحسن بزيادة البيانات والمعلمات والحوسبة. ويرى الباحثون أن هذا \"الدرس المرير\" ينطبق تمامًا وبنفس القدر على الرؤية الحاسوبية."
+   "published": "2026-11-16T00:00",
+   "title_ar": "فيرا: نحو وكلاء بصريين للصور فائقة الدقة عبر التحسين النسبي للسياسة عبر المدخلات",
+   "summary_ar": "يجيب الوكلاء البصريون عن الأسئلة المتعلقة بالصور فائقة الدقة عبر التقريب نحو المناطق ذات الصلة، لكن الوكلاء الحاليين يجيبون غالباً استناداً إلى المنطق العام بدلاً من قراءة الأدلة. ولا يستطيع التعلم التعزيزي المعتمد على الإجابة النهائية تصحيح ذلك، لأن التخمين ينال المكافأة نفسها."
   },
   {
-   "id": "2611.17321",
-   "title": "BrickFlow: Connectivity-Guided Brick Reconstruction",
-   "abstract": "Given a set of LEGO parts and an image of an assembled object, our task is to infer the pose of each part to assemble the object. In contrast with traditional 3D reconstruction, doing so requires satisfying discrete physical constraints, which provide structure but render the problem combinatorial and highly sensitive to small pose errors. To learn a prior over how parts fit together, we train a set-conditioned SE(3) flow model on procedurally generated assemblies. We then finetune this model to inject image conditioning, using 1% as much data. However, while the learned flow captures global s",
+   "id": "2611.18981",
+   "title": "GPBam: A Retrieval-Aware German Public Law Exam Benchmark",
+   "abstract": "Legal reasoning in civil-law systems is not rule-lookup: the German state examination asks for a structured opinion (Gutachten) that names the governing norms, applies them to the facts, and argues to a conclusion. We introduce GPBam (German Public Law Bar-style Exam), 81 public-law examination cases with reference solutions, paired with a recitation task over 200 statutory provisions. Drawn from state examination preparation, the cases are broad and rarely repeat, and are not publicly available - we find no evidence of exact-solution memorisation in the models we evaluate, and keeping them pr",
    "authors": [
-    "Peter Kulits",
-    "Cordelia Schmid"
+    "Abdullah Al Zubaer",
+    "Lorenz Wendlinger",
+    "Simon Alexander Nonn",
+    "Michael Granitzer"
    ],
-   "link": "https://huggingface.co/papers/2611.17321",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-12T00:00",
-   "title_ar": "BrickFlow: إعادة بناء قطع التركيب الموجهة بقابلية الاتصال",
-   "summary_ar": "تتمثل مهمة هذا العمل في تقدير وضعية كل قطعة لتجميع مجسم بناءً على مجموعة من قطع ليغو وصورة للمجسم المُجمَّع. وعلى عكس إعادة البناء ثلاثية الأبعاد التقليدية، يتطلب ذلك استيفاء قيود فيزيائية منفصلة تمنح هيكلية للمجسم ولكنها تجعل المشكلة توليفية."
-  },
-  {
-   "id": "2611.18550",
-   "title": "Restoring Diversity in Distilled Image and Video Generators by Probing Activations",
-   "abstract": "Distilling diffusion models into few-step student models substantially reduces sampling latency, but induces severe diversity collapse: samples generated from different random seeds show minimal variation. In this work, we investigate the root cause of this failure by probing the internal representations of student models relative to their teachers. We find that distilled students maintain total activation variance comparable to their teachers, but concentrate it into substantially fewer directions. This directional collapse is localized to an identifiable intermediate block at the initial den",
-   "authors": [
-    "Furkan Horoz",
-    "Ozgur Kara",
-    "Kaan Oktay",
-    "Adil Kaan Akan"
-   ],
-   "link": "https://huggingface.co/papers/2611.18550",
+   "link": "https://huggingface.co/papers/2611.18981",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-13T00:00",
-   "title_ar": "استعادة التنوع في مولدات الصور والفيديو المقطرة عبر فحص التنشيطات",
-   "summary_ar": "يؤدي تقطير نماذج الانتشار إلى نماذج تلميذة قليلة الخطوات إلى تقليل زمن الاستعيان بشكل كبير، ولكنه يسبب انهيارًا حادًا في التنوع بحيث تُظهر العينات المولدة من بذور عشوائية مختلفة تباينًا طفيفًا. يبحث هذا العمل في السبب الجذري لهذا الفشل عبر فحص التمثيلات الداخلية."
+   "title_ar": "جي بي بام: معيار لاختبارات القانون العام الألماني يراعي الاسترجاع",
+   "summary_ar": "لا يقتصر الاستدلال القانوني في أنظمة القانون المدني على البحث عن القواعد، إذ يتطلب امتحان الدولة الألماني رأياً قانونياً منظماً يحدد القواعد الحاكمة ويطبقها على الوقائع ويستدل للوصول إلى استنتاج. يقدم هذا العمل معيار \"جي بي بام\" الذي يضم 81 قضية من امتحانات القانون العام."
   },
   {
-   "id": "2611.14487",
-   "title": "Re-Search: Dissecting LLM Ideation Through a Two-Player Questioning Game",
-   "abstract": "Research ideation is iterative: researchers refine their ideas step by step based on feedback. Yet existing evaluations obscure this search process, making it difficult to understand how LLMs explore the space of research ideas and what limits their progress. We introduce Re-Search, which adapts the format of Twenty Questions to research ideation: given only the research problem of a published paper, a model must rediscover the paper's core idea by asking yes-or-no questions. Built from 200 ICML 2026 papers, Re-Search tracks how a model's idea evolves as it asks questions and receives binary o",
+   "id": "2611.09825",
+   "title": "BitDecoding-FP4: Native FP4 KV Cache Decoding via Algorithm-System Co-Design",
+   "abstract": "The key-value (KV) cache dominates memory capacity and bandwidth in long-context LLM serving. While 4-bit microscaling formats (NVFP4, MXFP4) shrink the cache and run attention on FP4 Tensor Cores, a fundamental gap remains between algorithmic quantization and system-aware acceleration: existing FP4 KV systems use vanilla quantization that causes severe accuracy drops, whereas accuracy-oriented 4-bit algorithms rely on vector codebooks whose lookup overhead degrades decoding throughput. We present BitDecoding-FP4, an algorithm--system co-design for accurate and efficient native FP4 KV decoding",
    "authors": [
-    "Muhan Gao",
-    "Hangxiao Zhu",
-    "Xinqi Su",
-    "Yu Zhang"
+    "Dayou Du",
+    "Woon Yee Ng",
+    "Guangming Sheng",
+    "Nick Lau"
    ],
-   "link": "https://huggingface.co/papers/2611.14487",
+   "link": "https://huggingface.co/papers/2611.09825",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-10T00:00",
-   "title_ar": "Re-Search: تشريح توليد الأفكار في النماذج اللغوية الكبيرة عبر لعبة طرح أسئلة بين لاعبين",
-   "summary_ar": "يُعد توليد الأفكار البحثية عملية تكرارية يُحسّن فيها الباحثون أفكارهم خطوة بخطوة بناءً على التغذية الراجعة، غير أن التقييمات الحالية تحجب عملية البحث هذه مما يُصعّب فهم كيفية استكشاف النماذج لفضاء الأفكار ومعرفة ما يحد من تقدمها. يقدم الباحثون إطار Re-Search لمعالجة هذا الأمر من خلال تكييف لعبة لطرح الأسئلة."
+   "published": "2026-11-06T00:00",
+   "title_ar": "بت ديكودينغ-إف بي 4: فك ترميز ذاكرة المفتاح والقيمة بتنسيق FP4 أصيل عبر التصميم المشترك للخوارزمية والنظام",
+   "summary_ar": "تهيمن ذاكرة المفتاح والقيمة المؤقتة على سعة الذاكرة ونطاقها الترددي أثناء تشغيل النماذج اللغوية ذات السياق الطويل. ورغم أن تنسيقات القياس المجهري بدقة 4 بت تقلص هذه الذاكرة وتتيح تشغيل الانتباه، إلا أن فجوة جوهرية لا تزال قائمة بين التكميم الخوارزمي والتسريع المراعي للنظام."
   },
   {
-   "id": "2611.05843",
-   "title": "Dual Flow: Joint Image-Measurement Interpolation for Inverse Problems",
-   "abstract": "Generative model-based approaches to linear inverse problems typically use the acquired noisy measurement to condition or guide sampling in the image domain. In this work, we introduce Dual Flow, a novel joint-flow model for solving linear inverse problems by jointly estimating the clean image and corresponding noise-free measurement from the observation. Specifically, Dual Flow formulates image reconstruction and measurement denoising as a coupled estimation problem, using coupled flows in the image and measurement domains. The acquired noisy measurement is used only to initialize the measure",
+   "id": "2611.14960",
+   "title": "Termination Lag: Coding Agents Solve Early but Stop Late",
+   "abstract": "Coding agents can solve a task well before they stop working on it. We characterize termination lag--the number of steps between an agent's first correct patch and the end of its run--across five models, two agent frameworks, and three SWE-bench datasets by recording and testing every distinct repository patch generated during execution. Our analysis reveals that 38--82% of successful runs achieve a correct solution on their initial source-code edit. However, agents continue to expend substantial effort after correct patches, with post-solution steps accounting for a median of 35--37% for Qwen",
    "authors": [
-    "Sevket Ege Yesilyurt",
-    "Figen S. Oktem"
+    "Musa Cim",
+    "Burak Topcu",
+    "Mahmut Taylan Kandemir"
    ],
-   "link": "https://huggingface.co/papers/2611.05843",
+   "link": "https://huggingface.co/papers/2611.14960",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-12T00:00",
-   "title_ar": "التدفق المزدوج: استيفاء مشترك بين الصورة والقياس للمسائل العكسية",
-   "summary_ar": "تستخدم المناهج القائمة على النماذج التوليدية لحل المسائل العكسية الخطية عادةً القياس المشوش المكتسب لتوجيه أو تكييف الاستعيان في مجال الصورة. يُقدم هذا العمل \"التدفق المزدوج\"، وهو نموذج تدفق مشترك وجديد لحل المسائل العكسية الخطية عبر التقدير المشترك لكل من الصورة النظيفة والقياس."
+   "published": "2026-11-11T00:00",
+   "title_ar": "تباطؤ الإنهاء: وكلاء البرمجة يحلون المهام مبكراً لكنهم يتوقفون متأخراً",
+   "summary_ar": "يمكن لوكلاء البرمجة حل المهمة قبل وقت طويل من توقفهم عن العمل عليها. يحدد هذا العمل سمات \"تباطؤ الإنهاء\" -أي عدد الخطوات بين أول تصحيح سليم يقدمه الوكيل ونهاية تشغيله- عبر نماذج وأطر عمل ومجموعات بيانات متعددة من خلال تسجيل واختبار التعديلات البرمجية."
   }
  ],
  "n": 6
