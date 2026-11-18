@@ -1,6 +1,6 @@
 {
  "schema_version": "1.0",
- "updated": "2026-11-18T10:38+00:00",
+ "updated": "2026-11-18T11:09+00:00",
  "policy": "observed facts and conservative deterministic clustering; no paid model calls",
  "events": [
   {
@@ -11,10 +11,10 @@
    "observed_facts": [
     "فرانس ٢٤ عربي published: الولايات المتحدة تفقد تصنيفها دولة خالية من الحصبة وسط تزايد الإصابات وتسجيل وفيات في بنسلفانيا"
    ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "sanad_assessment": "1 attributable observation(s); 0 carry an existing SANAD source grade.",
    "inference": "",
    "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
+   "confidence": 0.45,
    "severity": "info",
    "countries": [
     "fr",
@@ -29,7 +29,7 @@
      "id": "ev_d9375402b04a9b8e",
      "url": "https://www.france24.com/ar/%D8%A3%D9%85%D8%B1%D9%8A%D9%83%D8%A7/20261118-%D8%A7%D9%84%D9%88%D9%84%D8%A7%D9%8A%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D8%AA%D8%AD%D8%AF%D8%A9-%D8%AA%D8%B5%D9%86%D9%8A%D9%81-%D8%A7%D9%84%D8%AD%D8%B5%D8%A8%D8%A9-%D8%B5%D8%AD%D8%A9-%D8%B9%D8%AF%D9%88%D9%89",
      "source_name": "فرانس ٢٤ عربي",
-     "source_grade": "حسن",
+     "source_grade": "ضعيف الإسناد",
      "observed_at": "2026-11-18T09:59+00:00",
      "title": "الولايات المتحدة تفقد تصنيفها دولة خالية من الحصبة وسط تزايد الإصابات وتسجيل وفيات في بنسلفانيا",
      "title_en": "",
@@ -38,7 +38,7 @@
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_019e4b0e2b335e06",
@@ -73,44 +73,6 @@
    "contradictions": [],
    "created_at": "2026-11-14T22:58+00:00",
    "updated_at": "2026-11-15T09:48+00:00"
-  },
-  {
-   "id": "evt_0210c501ae1886b2",
-   "type": "observed-event",
-   "title": "الداخلية المصرية تصدر بيانًا بشأن انتحار \"طبيب المنيا\" وتكشف آخر رسائل هاتفية تلقاها",
-   "title_en": "",
-   "observed_facts": [
-    "CNN بالعربية published: الداخلية المصرية تصدر بيانًا بشأن انتحار \"طبيب المنيا\" وتكشف آخر رسائل هاتفية تلقاها"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "eg"
-   ],
-   "sectors": [
-    "health"
-   ],
-   "topics": [
-    "health"
-   ],
-   "evidence": [
-    {
-     "id": "ev_3933c72afbb934d2",
-     "url": "https://arabic.cnn.com/middle-east/article/2026/11/15/egyptian-interior-ministry-issues-statement-regarding-the-suicide-minya-doctor",
-     "source_name": "CNN بالعربية",
-     "source_grade": "حسن",
-     "observed_at": "2026-11-14T22:31+00:00",
-     "title": "الداخلية المصرية تصدر بيانًا بشأن انتحار \"طبيب المنيا\" وتكشف آخر رسائل هاتفية تلقاها",
-     "title_en": "",
-     "dataset": "map"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
   },
   {
    "id": "evt_024afa1462f0cb2e",
@@ -339,7 +301,7 @@
    "id": "evt_07523b6314b82cd0",
    "type": "observed-event",
    "title": "الأزمات التقنية الأخيرة تدفع للتساؤل.. هل ينهار العالم؟",
-   "title_en": "Recent Tech Crises Prompt the Question: Is the World Collapsing?",
+   "title_en": "Recent Tech Turmoil Sparks Fears: Is the World Collapsing?",
    "observed_facts": [
     "الجزيرة نت published: الأزمات التقنية الأخيرة تدفع للتساؤل.. هل ينهار العالم؟"
    ],
@@ -350,9 +312,11 @@
    "severity": "info",
    "countries": [],
    "sectors": [
+    "energy",
     "technology"
    ],
    "topics": [
+    "economy",
     "technology",
     "اقتصاد"
    ],
@@ -364,13 +328,13 @@
      "source_grade": "حسن",
      "observed_at": "2026-11-16T16:31+00:00",
      "title": "الأزمات التقنية الأخيرة تدفع للتساؤل.. هل ينهار العالم؟",
-     "title_en": "Recent Tech Crises Prompt the Question: Is the World Collapsing?",
+     "title_en": "Recent Tech Turmoil Sparks Fears: Is the World Collapsing?",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_0820cfb7afc70e17",
@@ -426,7 +390,6 @@
    "sectors": [],
    "topics": [
     "conflict",
-    "عالم",
     "غزة",
     "فلسطين"
    ],
@@ -439,49 +402,12 @@
      "observed_at": "2026-11-17T22:46+00:00",
      "title": "بينهم طفل... قصف إسرائيلي يودي بحياة 4 أشخاص في غزة",
      "title_en": "Israeli Strike Kills 4 in Gaza, Including a Child",
-     "dataset": "news"
+     "dataset": "osint"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-17T19:45+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
-  },
-  {
-   "id": "evt_0aa11731ead2b6e8",
-   "type": "observed-event",
-   "title": "بيان دولي يطالب إسرائيل بفتح جميع المعابر إلى غزة وفتح معابر الأردن ومصر",
-   "title_en": "International Statement Urges Israel to Open All Gaza Crossings, Jordan and Egypt Passages",
-   "observed_facts": [
-    "الجزيرة نت published: بيان دولي يطالب إسرائيل بفتح جميع المعابر إلى غزة وفتح معابر الأردن ومصر"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "eg",
-    "il",
-    "jo",
-    "ps"
-   ],
-   "sectors": [],
-   "topics": [],
-   "evidence": [
-    {
-     "id": "ev_89369b055abbfa3b",
-     "url": "https://www.aljazeera.net/news/2026/11/12/53-%D8%AF%D9%88%D9%84%D8%A9-%D9%88%D9%85%D9%86%D8%B8%D9%85%D8%A9-%D8%AA%D8%B7%D8%A7%D9%84%D8%A8-%D8%A8%D8%B6%D9%85%D8%A7%D9%86-%D9%88%D8%B5%D9%88%D9%84",
-     "source_name": "الجزيرة نت",
-     "source_grade": "حسن",
-     "observed_at": "2026-11-12T16:25+00:00",
-     "title": "بيان دولي يطالب إسرائيل بفتح جميع المعابر إلى غزة وفتح معابر الأردن ومصر",
-     "title_en": "International Statement Urges Israel to Open All Gaza Crossings, Jordan and Egypt Passages",
-     "dataset": "map"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-11-12T17:44+00:00",
-   "updated_at": "2026-11-13T10:34+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_0c05e204f6069ef6",
@@ -709,40 +635,6 @@
    "updated_at": "2026-11-13T03:33+00:00"
   },
   {
-   "id": "evt_11d03f128e72a4cc",
-   "type": "observed-event",
-   "title": "ارتفاع سعر الذهب في السودان.. الغرام يقترب من 1.2 مليون جنيه",
-   "title_en": "Gold Prices Rise in Sudan: Gram Approaches 1.2 Million Pounds",
-   "observed_facts": [
-    "العربية published: ارتفاع سعر الذهب في السودان.. الغرام يقترب من 1.2 مليون جنيه"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "sd"
-   ],
-   "sectors": [],
-   "topics": [],
-   "evidence": [
-    {
-     "id": "ev_52443b4b33b5f4cf",
-     "url": "https://www.alarabiya.net/aswaq/financial-markets/2026/11/11/%D8%A7%D8%B1%D8%AA%D9%81%D8%A7%D8%B9-%D8%B3%D8%B9%D8%B1-%D8%A7%D9%84%D8%B0%D9%87%D8%A8-%D9%81%D9%8A-%D8%A7%D9%84%D8%B3%D9%88%D8%AF%D8%A7%D9%86-%D8%A7%D9%84%D8%BA%D8%B1%D8%A7%D9%85-%D9%8A%D9%82%D8%AA%D8%B1%D8%A8-%D9%85%D9%86-12-%D9%85%D9%84%D9%8A%D9%88%D9%86-%D8%AC%D9%86%D9%8A%D9%87",
-     "source_name": "العربية",
-     "source_grade": "حسن",
-     "observed_at": "2026-11-11T10:42+00:00",
-     "title": "ارتفاع سعر الذهب في السودان.. الغرام يقترب من 1.2 مليون جنيه",
-     "title_en": "Gold Prices Rise in Sudan: Gram Approaches 1.2 Million Pounds",
-     "dataset": "map"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-11-12T09:21+00:00",
-   "updated_at": "2026-11-14T13:59+00:00"
-  },
-  {
    "id": "evt_1247f4a263089f72",
    "type": "observed-event",
    "title": "رونالدو \"جونيور\" يسجل ظهوره الأول مع منتخب البرتغال تحت 17 عاما بعد اعتزال والده دوليا",
@@ -775,44 +667,6 @@
    "contradictions": [],
    "created_at": "2026-11-15T21:31+00:00",
    "updated_at": "2026-11-18T02:12+00:00"
-  },
-  {
-   "id": "evt_136cf806bab1d6ef",
-   "type": "observed-event",
-   "title": "الأعطال التقنية ومخاوف الذكاء الاصطناعي تشعلان موجة بيع في \"وول ستريت\"",
-   "title_en": "Tech Outages and AI Concerns Trigger Wall Street Selloff",
-   "observed_facts": [
-    "اندبندنت عربية published: الأعطال التقنية ومخاوف الذكاء الاصطناعي تشعلان موجة بيع في \"وول ستريت\""
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [],
-   "sectors": [
-    "technology"
-   ],
-   "topics": [
-    "artificial-intelligence",
-    "technology",
-    "اقتصاد"
-   ],
-   "evidence": [
-    {
-     "id": "ev_c16cc7273a68d6a9",
-     "url": "https://www.independentarabia.com/node/663116/",
-     "source_name": "اندبندنت عربية",
-     "source_grade": "حسن",
-     "observed_at": "2026-11-18T01:51+00:00",
-     "title": "الأعطال التقنية ومخاوف الذكاء الاصطناعي تشعلان موجة بيع في \"وول ستريت\"",
-     "title_en": "Tech Outages and AI Concerns Trigger Wall Street Selloff",
-     "dataset": "news"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
   },
   {
    "id": "evt_1379510c38fd7905",
@@ -877,8 +731,7 @@
     "artificial-intelligence",
     "security",
     "الخليج",
-    "الكويت",
-    "ايران"
+    "الكويت"
    ],
    "evidence": [
     {
@@ -889,18 +742,18 @@
      "observed_at": "2026-11-18T07:30+00:00",
      "title": "الكويت تدين هجمات إيرانية جديدة بالمسيّرات وتؤكد حقها في الدفاع عن أراضيها",
      "title_en": "Kuwait Condemns New Iranian Drone Attacks, Affirms Right to Self-Defense",
-     "dataset": "news"
+     "dataset": "osint"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_154f4f93a526b334",
    "type": "observed-event",
    "title": "\"إلى أطفال غزة.. أنتم فلسطين\" حين يصبح الأدب أداة للشفاء",
-   "title_en": "'To the Children of Gaza... You Are Palestine': When Literature Becomes a Tool for Healing",
+   "title_en": "'To the Children of Gaza... You Are Palestine': When Literature Becomes a Healing Tool",
    "observed_facts": [
     "الجزيرة نت published: \"إلى أطفال غزة.. أنتم فلسطين\" حين يصبح الأدب أداة للشفاء"
    ],
@@ -924,13 +777,13 @@
      "source_grade": "حسن",
      "observed_at": "2026-11-16T17:00+00:00",
      "title": "\"إلى أطفال غزة.. أنتم فلسطين\" حين يصبح الأدب أداة للشفاء",
-     "title_en": "'To the Children of Gaza... You Are Palestine': When Literature Becomes a Tool for Healing",
+     "title_en": "'To the Children of Gaza... You Are Palestine': When Literature Becomes a Healing Tool",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T02:12+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_165af0c1cf33261a",
@@ -981,7 +834,6 @@
    "severity": "medium",
    "countries": [
     "fr",
-    "ru",
     "ua"
    ],
    "sectors": [],
@@ -1002,13 +854,13 @@
    ],
    "contradictions": [],
    "created_at": "2026-11-17T19:45+00:00",
-   "updated_at": "2026-11-18T02:12+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_1888f018636fcfe1",
    "type": "observed-event",
    "title": "انقطاعات غامضة تهز أميركا.. وهولي يطالب \"الشيوخ\" بإحاطة عاجلة",
-   "title_en": "Mysterious Outages Shake US as Hawley Demands Urgent Senate Briefing",
+   "title_en": "Mysterious Outages Hit US as Hawley Demands Urgent Senate Briefing",
    "observed_facts": [
     "العربية published: انقطاعات غامضة تهز أميركا.. وهولي يطالب \"الشيوخ\" بإحاطة عاجلة"
    ],
@@ -1030,13 +882,13 @@
      "source_grade": "حسن",
      "observed_at": "2026-11-17T18:33+00:00",
      "title": "انقطاعات غامضة تهز أميركا.. وهولي يطالب \"الشيوخ\" بإحاطة عاجلة",
-     "title_en": "Mysterious Outages Shake US as Hawley Demands Urgent Senate Briefing",
+     "title_en": "Mysterious Outages Hit US as Hawley Demands Urgent Senate Briefing",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T02:12+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_18c244d52d5f8bd7",
@@ -1076,10 +928,10 @@
   {
    "id": "evt_18c49e4c6d077571",
    "type": "observed-event",
-   "title": "«أين أنتِ؟ أنا على الشاحن»؛ رواية نساء إيرانيات يقضين محكوميتهن بالسوار الإلكتروني",
-   "title_en": "'Where Are You? I'm on the Charger': Iranian Women Recount Serving Sentences via Electronic Ankle Monitors",
+   "title": "«أين أنت؟ أنا عند الشاحن»؛ رواية إيرانيات يقضين محكوميتهن بالسوار الإلكتروني",
+   "title_en": "'Where Are You? By the Charger': Iranian Women Recount Life Under Ankle Monitors",
    "observed_facts": [
-    "بي بي سي فارسي published: «أين أنتِ؟ أنا على الشاحن»؛ رواية نساء إيرانيات يقضين محكوميتهن بالسوار الإلكتروني"
+    "بي بي سي فارسي published: «أين أنت؟ أنا عند الشاحن»؛ رواية إيرانيات يقضين محكوميتهن بالسوار الإلكتروني"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -1100,14 +952,14 @@
      "source_name": "بي بي سي فارسي",
      "source_grade": "حسن",
      "observed_at": "2026-11-18T07:57+00:00",
-     "title": "«أين أنتِ؟ أنا على الشاحن»؛ رواية نساء إيرانيات يقضين محكوميتهن بالسوار الإلكتروني",
-     "title_en": "'Where Are You? I'm on the Charger': Iranian Women Recount Serving Sentences via Electronic Ankle Monitors",
+     "title": "«أين أنت؟ أنا عند الشاحن»؛ رواية إيرانيات يقضين محكوميتهن بالسوار الإلكتروني",
+     "title_en": "'Where Are You? By the Charger': Iranian Women Recount Life Under Ankle Monitors",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_1bc2c26d0eae7f56",
@@ -1150,10 +1002,48 @@
    "updated_at": "2026-11-18T10:38+00:00"
   },
   {
+   "id": "evt_1cbfde715ee886bb",
+   "type": "observed-event",
+   "title": "\"ألفيا\": ارتفاع معدلات استخدام منصات الاستثمار الرقمية في السعودية",
+   "title_en": "Alfiya: Digital Investment Platform Usage Surges in Saudi Arabia",
+   "observed_facts": [
+    "العربية published: \"ألفيا\": ارتفاع معدلات استخدام منصات الاستثمار الرقمية في السعودية"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "sa",
+    "us"
+   ],
+   "sectors": [],
+   "topics": [
+    "الخليج",
+    "السعودية"
+   ],
+   "evidence": [
+    {
+     "id": "ev_b00ad3939d24d2be",
+     "url": "https://www.alarabiya.net/aswaq/saudi-economy/2026/11/18/%D8%A7%D9%84%D9%81%D9%8A%D8%A7-%D8%A7%D8%B1%D8%AA%D9%81%D8%A7%D8%B9-%D9%85%D8%B9%D8%AF%D9%84%D8%A7%D8%AA-%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D8%A7%D9%85-%D9%85%D9%86%D8%B5%D8%A7%D8%AA-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A%D8%A9-%D9%81%D9%8A-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9",
+     "source_name": "العربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-18T08:24+00:00",
+     "title": "\"ألفيا\": ارتفاع معدلات استخدام منصات الاستثمار الرقمية في السعودية",
+     "title_en": "Alfiya: Digital Investment Platform Usage Surges in Saudi Arabia",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-11-18T11:09+00:00",
+   "updated_at": "2026-11-18T11:09+00:00"
+  },
+  {
    "id": "evt_1d745109fa42e541",
    "type": "observed-event",
    "title": "وسط مشاورات تشكيل الحكومة الإسرائيلية، مرشح معارضي نتنياهو رئيساً للكنيست",
-   "title_en": "Amid Coalition Talks, Netanyahu Opponents' Candidate Elected Israeli Knesset Speaker",
+   "title_en": "Netanyahu Opponents Put Forward Knesset Speaker Candidate Amid Coalition Talks",
    "observed_facts": [
     "إيران إنترناشونال published: وسط مشاورات تشكيل الحكومة الإسرائيلية، مرشح معارضي نتنياهو رئيساً للكنيست"
    ],
@@ -1171,6 +1061,7 @@
     "government"
    ],
    "topics": [
+    "conflict",
     "ايران",
     "عالم"
    ],
@@ -1182,13 +1073,13 @@
      "source_grade": "حسن",
      "observed_at": "2026-11-18T08:23+00:00",
      "title": "وسط مشاورات تشكيل الحكومة الإسرائيلية، مرشح معارضي نتنياهو رئيساً للكنيست",
-     "title_en": "Amid Coalition Talks, Netanyahu Opponents' Candidate Elected Israeli Knesset Speaker",
+     "title_en": "Netanyahu Opponents Put Forward Knesset Speaker Candidate Amid Coalition Talks",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_1d76f2994d1f322c",
@@ -1205,7 +1096,6 @@
    "severity": "info",
    "countries": [
     "au",
-    "cn",
     "in",
     "jp"
    ],
@@ -1228,15 +1118,15 @@
    ],
    "contradictions": [],
    "created_at": "2026-11-17T19:45+00:00",
-   "updated_at": "2026-11-18T02:12+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_1e1237eb9549db38",
    "type": "observed-event",
-   "title": "شراكة بين Le Groupe Figaro وOpenAI لدمج صحافة Le Figaro في ChatGPT",
-   "title_en": "Le Groupe Figaro Partners with OpenAI to Integrate Journalism into ChatGPT",
+   "title": "شراكة بين Le Groupe Figaro وOpenAI لجلب صحافة Le Figaro إلى ChatGPT",
+   "title_en": "Le Groupe Figaro and OpenAI Partner to Bring Le Figaro Journalism to ChatGPT",
    "observed_facts": [
-    "أوبن إيه آي published: شراكة بين Le Groupe Figaro وOpenAI لدمج صحافة Le Figaro في ChatGPT"
+    "أوبن إيه آي published: شراكة بين Le Groupe Figaro وOpenAI لجلب صحافة Le Figaro إلى ChatGPT"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -1258,14 +1148,14 @@
      "source_name": "أوبن إيه آي",
      "source_grade": "حسن",
      "observed_at": "2026-11-18T00:00+00:00",
-     "title": "شراكة بين Le Groupe Figaro وOpenAI لدمج صحافة Le Figaro في ChatGPT",
-     "title_en": "Le Groupe Figaro Partners with OpenAI to Integrate Journalism into ChatGPT",
+     "title": "شراكة بين Le Groupe Figaro وOpenAI لجلب صحافة Le Figaro إلى ChatGPT",
+     "title_en": "Le Groupe Figaro and OpenAI Partner to Bring Le Figaro Journalism to ChatGPT",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_1e55b45c320d0c35",
@@ -1306,6 +1196,38 @@
    "contradictions": [],
    "created_at": "2026-11-12T23:16+00:00",
    "updated_at": "2026-11-13T03:33+00:00"
+  },
+  {
+   "id": "evt_21bcb3d24e9c454d",
+   "type": "observed-event",
+   "title": "\"نخيل\" تكشف عن المرحلة السكنية الأولى من مشروع \"بالم سبرينغز\" في جنوب دبي",
+   "title_en": "",
+   "observed_facts": [
+    "وكالة أنباء الإمارات (وام) published: \"نخيل\" تكشف عن المرحلة السكنية الأولى من مشروع \"بالم سبرينغز\" في جنوب دبي"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 0 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.45,
+   "severity": "info",
+   "countries": [],
+   "sectors": [],
+   "topics": [],
+   "evidence": [
+    {
+     "id": "ev_b9edd7523fa6181f",
+     "url": "https://news.google.com/rss/articles/CBMixARBVV95cUxOc1d5aVlieDgwQlNDNDByTFBYVkttOXhyMzY5amZwMjFlWXg2TEdVaDN1QTdhVGgybjR2a3h3RE1QOVJBV2dCcGVYZFBSd0FsZE5PVi02TTRiMmFBYWtRcmhacmJzY2VQTzd1SXBSRGl5WkQwS3ljdjVKVHZxcGI0c0Noa0dxWGZJdmdhVlBXNmprUG8wLTVaQWlTS2xMRFJzb21wc3FCZUFOSnRZYzhJN3RrYklaS2p1RndyVVpLRm4yc2d5OEY3amd5WFJmRUF6OEkxS0NBdUhhSUhEMFo0NS05eklkNzhnTS1CeEQtT2R3Q3lVWHMyem1yb29XaTdORWR0TV9HZ2RLcWFmellfckZROUZrbUJESDhneFhCU2hVUlhrdnJMcmhxRGp2WnQ1MHlCZmZfRzdsUDBDZFpldXRtbGpMcENROTdnT1hVcVlkRGk0VFpxRU81Nk1rT3lvVjAxaDd4VjdJV1g2MVFQUGxnMzFmNlF1ZTN2c0d1dTZNQlgzclE1REdpRWw0ZFRVR2tiUVJUY2xRRVE1N2RycGUxbkZEcDN3MmFsbXB0WVN0ZENWQV9UcDlnQTZPem5nZlZWa05QV05LbXZvcFAzYmE4dmRmMGlrWms2Y3FWcF9sVFZqOENmLXB0VkduaXBHRUJHVmhDbm1BX1UtZWlPRzNYNDVFUWtwZlRodFhxVm8xUk9GVjhMZ0tJaVBFM0l6TFllM1RhVWpreWlmR2RCZjZ2Z1JRODFDRFE1ejJpU3I4cG5u?oc=5",
+     "source_name": "وكالة أنباء الإمارات (وام)",
+     "source_grade": "",
+     "observed_at": "2026-11-18T11:09+00:00",
+     "title": "\"نخيل\" تكشف عن المرحلة السكنية الأولى من مشروع \"بالم سبرينغز\" في جنوب دبي",
+     "title_en": "",
+     "dataset": "official"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-11-18T11:09+00:00",
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_22d70a87beb835f3",
@@ -1421,7 +1343,7 @@
    "id": "evt_251cd9390536f848",
    "type": "observed-event",
    "title": "6 أسئلة يعجز الذكاء الاصطناعي عن الإجابة عنها",
-   "title_en": "6 Questions AI Cannot Answer",
+   "title_en": "6 Questions AI Still Cannot Answer",
    "observed_facts": [
     "الجزيرة نت published: 6 أسئلة يعجز الذكاء الاصطناعي عن الإجابة عنها"
    ],
@@ -1446,13 +1368,13 @@
      "source_grade": "حسن",
      "observed_at": "2026-11-18T07:23+00:00",
      "title": "6 أسئلة يعجز الذكاء الاصطناعي عن الإجابة عنها",
-     "title_en": "6 Questions AI Cannot Answer",
+     "title_en": "6 Questions AI Still Cannot Answer",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_25a2e039e90a3a9d",
@@ -1489,41 +1411,6 @@
    "updated_at": "2026-11-17T02:22+00:00"
   },
   {
-   "id": "evt_25fa4947faa07bbe",
-   "type": "observed-event",
-   "title": "بين الذكاء الاصطناعي ومشروع عملاق",
-   "title_en": "Between Artificial Intelligence and a Mega-Project",
-   "observed_facts": [
-    "الشرق الأوسط published: بين الذكاء الاصطناعي ومشروع عملاق"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [],
-   "sectors": [],
-   "topics": [
-    "artificial-intelligence",
-    "تقنية"
-   ],
-   "evidence": [
-    {
-     "id": "ev_f22d964c1cf19a45",
-     "url": "https://aawsat.com/%D8%A7%D9%84%D8%B1%D8%A3%D9%8A/5342545-%D8%A8%D9%8A%D9%86-%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A-%D9%88%D9%85%D8%B4%D8%B1%D9%88%D8%B9-%D8%B9%D9%85%D9%84%D8%A7%D9%82",
-     "source_name": "الشرق الأوسط",
-     "source_grade": "حسن",
-     "observed_at": "2026-11-18T00:06+00:00",
-     "title": "بين الذكاء الاصطناعي ومشروع عملاق",
-     "title_en": "Between Artificial Intelligence and a Mega-Project",
-     "dataset": "news"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
-  },
-  {
    "id": "evt_26cf95985941f502",
    "type": "observed-event",
    "title": "محافظة هرمزغان: الهجوم الأمريكي على قشم لم يسفر عن أي خسائر",
@@ -1549,7 +1436,7 @@
      "url": "https://www.bbc.co.uk/persian/live/cj4gnx0vr1ewt?at_medium=RSS&at_campaign=rss",
      "source_name": "بي بي سي فارسي",
      "source_grade": "حسن",
-     "observed_at": "2026-11-18T10:37+00:00",
+     "observed_at": "2026-11-18T11:09+00:00",
      "title": "محافظة هرمزغان: الهجوم الأمريكي على قشم لم يسفر عن أي خسائر",
      "title_en": "Hormozgan Province: US Strike on Qeshm Caused No Casualties or Damage",
      "dataset": "osint"
@@ -1557,7 +1444,7 @@
    ],
    "contradictions": [],
    "created_at": "2026-11-17T02:22+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_27715914bc204919",
@@ -1599,6 +1486,81 @@
    "contradictions": [],
    "created_at": "2026-11-16T18:51+00:00",
    "updated_at": "2026-11-17T02:22+00:00"
+  },
+  {
+   "id": "evt_278a4ba5f59ddb65",
+   "type": "observed-event",
+   "title": "أسعار الذهب تهبط في مصر.. هل حان وقت الشراء؟",
+   "title_en": "Gold Prices Drop in Egypt: Is It Time to Buy?",
+   "observed_facts": [
+    "سكاي نيوز عربية published: أسعار الذهب تهبط في مصر.. هل حان وقت الشراء؟"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "eg"
+   ],
+   "sectors": [],
+   "topics": [
+    "عالم"
+   ],
+   "evidence": [
+    {
+     "id": "ev_2094e3d10df98db7",
+     "url": "https://www.skynewsarabia.com/varieties/1905443-%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D8%A7%D9%84%D8%B0%D9%87%D8%A8-%D8%AA%D9%87%D8%A8%D8%B7-%D9%85%D8%B5%D8%B1-%D8%AD%D8%A7%D9%86-%D9%88%D9%82%D8%AA-%D8%A7%D9%84%D8%B4%D8%B1%D8%A7%D8%A1",
+     "source_name": "سكاي نيوز عربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-18T07:57+00:00",
+     "title": "أسعار الذهب تهبط في مصر.. هل حان وقت الشراء؟",
+     "title_en": "Gold Prices Drop in Egypt: Is It Time to Buy?",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-11-18T11:09+00:00",
+   "updated_at": "2026-11-18T11:09+00:00"
+  },
+  {
+   "id": "evt_27ddd6dfd83319ad",
+   "type": "observed-event",
+   "title": "نشرة الخليج: البحرين تتصدى ومبادرة بمسقط ورقابة سعودية وتنبيهات بالفجيرة، وتحذير كويتي",
+   "title_en": "",
+   "observed_facts": [
+    "العربية published: نشرة الخليج: البحرين تتصدى ومبادرة بمسقط ورقابة سعودية وتنبيهات بالفجيرة، وتحذير كويتي"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "bh",
+    "kw",
+    "om",
+    "sa"
+   ],
+   "sectors": [],
+   "topics": [
+    "الخليج"
+   ],
+   "evidence": [
+    {
+     "id": "ev_3370dcde7db9d741",
+     "url": "https://www.alarabiya.net/arab-and-world/gulf/social/2026/11/18/%D9%86%D8%B4%D8%B1%D8%A9-%D8%A7%D9%84%D8%AE%D9%84%D9%8A%D8%AC-%D8%A7%D9%84%D8%A8%D8%AD%D8%B1%D9%8A%D9%86-%D8%AA%D8%AA%D8%B5%D8%AF%D9%89-%D9%88%D9%85%D8%A8%D8%A7%D8%AF%D8%B1%D8%A9-%D8%A8%D9%85%D8%B3%D9%82%D8%B7-%D9%88%D8%B1%D9%82%D8%A7%D8%A8%D8%A9-%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D9%88%D8%AA%D9%86%D8%A8%D9%8A%D9%87%D8%A7%D8%AA-%D8%A8%D8%A7%D9%84%D9%81%D8%AC%D9%8A%D8%B1%D8%A9-%D9%88%D8%AA%D8%AD%D8%B0%D9%8A%D8%B1-%D9%83%D9%88%D9%8A%D8%AA%D9%8A-",
+     "source_name": "العربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-18T09:51+00:00",
+     "title": "نشرة الخليج: البحرين تتصدى ومبادرة بمسقط ورقابة سعودية وتنبيهات بالفجيرة، وتحذير كويتي",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-11-18T11:09+00:00",
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_28a826e2476d995b",
@@ -1680,12 +1642,49 @@
    "updated_at": "2026-11-18T10:38+00:00"
   },
   {
+   "id": "evt_29c2829353c254b7",
+   "type": "observed-event",
+   "title": "أمريكا تشن ضربات جديدة على إيران.. ومصدر يوضح السبب",
+   "title_en": "US Launches Fresh Strikes on Iran as Source Clarifies Motive",
+   "observed_facts": [
+    "CNN Arabic published: أمريكا تشن ضربات جديدة على إيران.. ومصدر يوضح السبب"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "ir",
+    "us"
+   ],
+   "sectors": [],
+   "topics": [
+    "ايران"
+   ],
+   "evidence": [
+    {
+     "id": "ev_4637cb10e84174e4",
+     "url": "https://arabic.cnn.com/middle-east/article/2026/11/18/us-carries-out-self-defense-strikes-on-iranian-missile-launch-site",
+     "source_name": "CNN Arabic",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-17T21:47+00:00",
+     "title": "أمريكا تشن ضربات جديدة على إيران.. ومصدر يوضح السبب",
+     "title_en": "US Launches Fresh Strikes on Iran as Source Clarifies Motive",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-11-18T11:09+00:00",
+   "updated_at": "2026-11-18T11:09+00:00"
+  },
+  {
    "id": "evt_29e7c0d5f6de3947",
    "type": "observed-event",
-   "title": "ميزات جديدة في Ask Maps للمساعدة في رحلات العطلات والاستعداد لها",
-   "title_en": "New Features in Ask Maps to Aid and Prepare for Holiday Travel",
+   "title": "ميزات جديدة في Ask Maps للمساعدة في الاستعداد والسفر خلال العطلات",
+   "title_en": "Ask Maps Adds New Features for Holiday Travel and Preparation",
    "observed_facts": [
-    "مدونة غوغل published: ميزات جديدة في Ask Maps للمساعدة في رحلات العطلات والاستعداد لها"
+    "مدونة غوغل published: ميزات جديدة في Ask Maps للمساعدة في الاستعداد والسفر خلال العطلات"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -1693,11 +1692,8 @@
    "confidence": 0.72,
    "severity": "info",
    "countries": [],
-   "sectors": [
-    "technology"
-   ],
+   "sectors": [],
    "topics": [
-    "artificial-intelligence",
     "ذكاء-اصطناعي"
    ],
    "evidence": [
@@ -1707,14 +1703,14 @@
      "source_name": "مدونة غوغل",
      "source_grade": "حسن",
      "observed_at": "2026-11-16T14:00+00:00",
-     "title": "ميزات جديدة في Ask Maps للمساعدة في رحلات العطلات والاستعداد لها",
-     "title_en": "New Features in Ask Maps to Aid and Prepare for Holiday Travel",
+     "title": "ميزات جديدة في Ask Maps للمساعدة في الاستعداد والسفر خلال العطلات",
+     "title_en": "Ask Maps Adds New Features for Holiday Travel and Preparation",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-16T18:51+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_2a697b4d38fd3c6b",
@@ -1753,10 +1749,10 @@
   {
    "id": "evt_2c4c94ba19911809",
    "type": "observed-event",
-   "title": "شي يستقبل ترامب بعد لقائه بـ\"صديقه القديم\" بوتين قبيل قمة ثلاثية تاريخية",
-   "title_en": "Xi Welcomes Trump After Meeting 'Old Friend' Putin Ahead of Historic Trilateral Summit",
+   "title": "قمة ترامب وبوتين وشي جين بينغ في الصين: ماذا تعني لأوكرانيا ولماذا تثير قلق أوروبا؟",
+   "title_en": "Trump, Putin, and Xi Summit in China: What It Means for Ukraine and Why It Alarms Europe",
    "observed_facts": [
-    "بي بي سي عربي published: شي يستقبل ترامب بعد لقائه بـ\"صديقه القديم\" بوتين قبيل قمة ثلاثية تاريخية"
+    "BBC published: قمة ترامب وبوتين وشي جين بينغ في الصين: ماذا تعني لأوكرانيا ولماذا تثير قلق أوروبا؟"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -1764,27 +1760,33 @@
    "confidence": 0.72,
    "severity": "info",
    "countries": [
-    "ru"
+    "cn",
+    "gb",
+    "ru",
+    "ua"
    ],
-   "sectors": [],
+   "sectors": [
+    "technology"
+   ],
    "topics": [
+    "artificial-intelligence",
     "عالم"
    ],
    "evidence": [
     {
      "id": "ev_d817b58901f289a6",
-     "url": "https://www.bbc.com/arabic/articles/c64gn38dpqnxo?at_medium=RSS&at_campaign=rss",
-     "source_name": "بي بي سي عربي",
+     "url": "https://www.bbc.com/arabic/articles/c64gn38dpqnxo",
+     "source_name": "BBC",
      "source_grade": "حسن",
-     "observed_at": "2026-11-18T09:34+00:00",
-     "title": "شي يستقبل ترامب بعد لقائه بـ\"صديقه القديم\" بوتين قبيل قمة ثلاثية تاريخية",
-     "title_en": "Xi Welcomes Trump After Meeting 'Old Friend' Putin Ahead of Historic Trilateral Summit",
+     "observed_at": "2026-11-18T09:51+00:00",
+     "title": "قمة ترامب وبوتين وشي جين بينغ في الصين: ماذا تعني لأوكرانيا ولماذا تثير قلق أوروبا؟",
+     "title_en": "Trump, Putin, and Xi Summit in China: What It Means for Ukraine and Why It Alarms Europe",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_2c5ad84654ce76cb",
@@ -1866,7 +1868,7 @@
    "id": "evt_2f5f1a85cb5f6731",
    "type": "observed-event",
    "title": "\"غوغل\" تنضم إلى موجة أعطال التكنولوجيا بطريقة غير متوقعة",
-   "title_en": "Google Joins Wave of Tech Outages in Unexpected Way",
+   "title_en": "Google Caught Up in Wave of Tech Disruptions in Unexpected Fashion",
    "observed_facts": [
     "العربية published: \"غوغل\" تنضم إلى موجة أعطال التكنولوجيا بطريقة غير متوقعة"
    ],
@@ -1891,13 +1893,52 @@
      "source_grade": "حسن",
      "observed_at": "2026-11-18T08:36+00:00",
      "title": "\"غوغل\" تنضم إلى موجة أعطال التكنولوجيا بطريقة غير متوقعة",
-     "title_en": "Google Joins Wave of Tech Outages in Unexpected Way",
+     "title_en": "Google Caught Up in Wave of Tech Disruptions in Unexpected Fashion",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
+  },
+  {
+   "id": "evt_30bb600e08fb1501",
+   "type": "observed-event",
+   "title": "\"إنها مجرد لعبة\".. كيف يمكن تضليل نماذج الذكاء الاصطناعي لتحديد مدنيين أهدافاً عسكرية؟",
+   "title_en": "'Just a Game': How AI Models Can Be Tricked into Targeting Civilians",
+   "observed_facts": [
+    "العربية published: \"إنها مجرد لعبة\".. كيف يمكن تضليل نماذج الذكاء الاصطناعي لتحديد مدنيين أهدافاً عسكرية؟"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [],
+   "sectors": [
+    "defense",
+    "technology"
+   ],
+   "topics": [
+    "artificial-intelligence",
+    "conflict",
+    "تقنية"
+   ],
+   "evidence": [
+    {
+     "id": "ev_76d0c269e2c50cb9",
+     "url": "https://www.alarabiya.net/technology/ai/2026/11/18/%D8%A7%D9%86%D9%87%D8%A7-%D9%85%D8%AC%D8%B1%D8%AF-%D9%84%D8%B9%D8%A8%D8%A9-%D9%83%D9%8A%D9%81-%D9%8A%D9%85%D9%83%D9%86-%D8%AA%D8%B6%D9%84%D9%8A%D9%84-%D9%86%D9%85%D8%A7%D8%B0%D8%AC-%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A-%D9%84%D8%AA%D8%AD%D8%AF%D9%8A%D8%AF-%D9%85%D8%AF%D9%86%D9%8A%D9%8A%D9%86-%D8%A7%D9%87%D8%AF%D8%A7%D9%81%D8%A7-%D8%B9%D8%B3%D9%83%D8%B1%D9%8A%D8%A9-",
+     "source_name": "العربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-18T08:49+00:00",
+     "title": "\"إنها مجرد لعبة\".. كيف يمكن تضليل نماذج الذكاء الاصطناعي لتحديد مدنيين أهدافاً عسكرية؟",
+     "title_en": "'Just a Game': How AI Models Can Be Tricked into Targeting Civilians",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-11-18T11:09+00:00",
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_310a25f8f552b0c1",
@@ -1937,6 +1978,46 @@
    "updated_at": "2026-11-18T02:12+00:00"
   },
   {
+   "id": "evt_3412ad9dbc7f15b0",
+   "type": "observed-event",
+   "title": "فيديو.. إسرائيل تعلن تفكيك نفق لحزب الله في جنوب لبنان",
+   "title_en": "",
+   "observed_facts": [
+    "سكاي نيوز عربية published: فيديو.. إسرائيل تعلن تفكيك نفق لحزب الله في جنوب لبنان"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "ae",
+    "il",
+    "lb"
+   ],
+   "sectors": [],
+   "topics": [
+    "حزب-الله",
+    "عالم",
+    "لبنان"
+   ],
+   "evidence": [
+    {
+     "id": "ev_4a361527bb56ea69",
+     "url": "https://www.skynewsarabia.com/middle-east/1905565-%D9%81%D9%8A%D8%AF%D9%8A%D9%88-%D8%A5%D8%B3%D8%B1%D8%A7%D8%A6%D9%8A%D9%84-%D8%AA%D8%B9%D9%84%D9%86-%D8%AA%D9%81%D9%83%D9%8A%D9%83-%D9%86%D9%81%D9%82-%D9%84%D8%AD%D8%B2%D8%A8-%D8%A7%D9%84%D9%84%D9%87-%D8%AC%D9%86%D9%88%D8%A8-%D9%84%D8%A8%D9%86%D8%A7%D9%86",
+     "source_name": "سكاي نيوز عربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-18T10:34+00:00",
+     "title": "فيديو.. إسرائيل تعلن تفكيك نفق لحزب الله في جنوب لبنان",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-11-18T11:09+00:00",
+   "updated_at": "2026-11-18T11:09+00:00"
+  },
+  {
    "id": "evt_352753ddd1929120",
    "type": "observed-event",
    "title": "في عصر الذكاء الاصطناعي.. \"إنسان\" كلمة العام 2026",
@@ -1963,7 +2044,7 @@
      "url": "https://www.skynewsarabia.com/technology/1905513-%D8%B9%D8%B5%D8%B1-%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A-%D8%A5%D9%86%D8%B3%D8%A7%D9%86-%D9%83%D9%84%D9%85%D8%A9-%D8%A7%D9%84%D8%B9%D8%A7%D9%85-2026",
      "source_name": "سكاي نيوز عربية",
      "source_grade": "حسن",
-     "observed_at": "2026-11-18T09:06+00:00",
+     "observed_at": "2026-11-18T09:15+00:00",
      "title": "في عصر الذكاء الاصطناعي.. \"إنسان\" كلمة العام 2026",
      "title_en": "In the Age of AI, 'Human' Named Word of the Year for 2026",
      "dataset": "news"
@@ -1971,15 +2052,15 @@
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_35d9713566ad51bc",
    "type": "observed-event",
-   "title": "ترامب يعلن وضع اللمسات الأخيرة على «اتفاق تجاري كبير جداً» مع الفلبين",
-   "title_en": "Trump Announces Finalization of 'Very Big Trade Deal' with Philippines",
+   "title": "ترامب يعلن إتمام «اتفاق تجاري ضخم للغاية» مع الفلبين",
+   "title_en": "Trump Announces 'Very Large Trade Deal' with Philippines",
    "observed_facts": [
-    "إيران إنترناشونال published: ترامب يعلن وضع اللمسات الأخيرة على «اتفاق تجاري كبير جداً» مع الفلبين"
+    "إيران إنترناشونال published: ترامب يعلن إتمام «اتفاق تجاري ضخم للغاية» مع الفلبين"
    ],
    "sanad_assessment": "1 attributable observation(s); 0 carry an existing SANAD source grade.",
    "inference": "",
@@ -1999,22 +2080,22 @@
      "source_name": "إيران إنترناشونال",
      "source_grade": "ضعيف الإسناد",
      "observed_at": "2026-11-18T08:30+00:00",
-     "title": "ترامب يعلن وضع اللمسات الأخيرة على «اتفاق تجاري كبير جداً» مع الفلبين",
-     "title_en": "Trump Announces Finalization of 'Very Big Trade Deal' with Philippines",
+     "title": "ترامب يعلن إتمام «اتفاق تجاري ضخم للغاية» مع الفلبين",
+     "title_en": "Trump Announces 'Very Large Trade Deal' with Philippines",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_36275f21a1138b2a",
    "type": "observed-event",
-   "title": "أداة Astra for Law تتصدر مجال الذكاء القانوني",
-   "title_en": "Astra for Law Leads the Legal Intelligence Field",
+   "title": "نموذج Astra for Law يتصدر في مجال الذكاء القانوني",
+   "title_en": "Astra for Law Model Leads in Legal Intelligence",
    "observed_facts": [
-    "أوبن إيه آي published: أداة Astra for Law تتصدر مجال الذكاء القانوني"
+    "أوبن إيه آي published: نموذج Astra for Law يتصدر في مجال الذكاء القانوني"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -2024,7 +2105,8 @@
    "countries": [],
    "sectors": [],
    "topics": [
-    "ذكاء-اصطناعي"
+    "artificial-intelligence",
+    "تقنية"
    ],
    "evidence": [
     {
@@ -2033,14 +2115,14 @@
      "source_name": "أوبن إيه آي",
      "source_grade": "صحيح",
      "observed_at": "2026-11-17T00:00+00:00",
-     "title": "أداة Astra for Law تتصدر مجال الذكاء القانوني",
-     "title_en": "Astra for Law Leads the Legal Intelligence Field",
+     "title": "نموذج Astra for Law يتصدر في مجال الذكاء القانوني",
+     "title_en": "Astra for Law Model Leads in Legal Intelligence",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-17T19:45+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_364882bb47648549",
@@ -2060,9 +2142,7 @@
     "ru"
    ],
    "sectors": [],
-   "topics": [
-    "عالم"
-   ],
+   "topics": [],
    "evidence": [
     {
      "id": "ev_279bd4ae3a3293a0",
@@ -2072,12 +2152,46 @@
      "observed_at": "2026-11-18T09:00+00:00",
      "title": "ترامب يصل إلى الصين قبيل لقاء شي جين بينغ وبوتين",
      "title_en": "",
-     "dataset": "news"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
+  },
+  {
+   "id": "evt_38d66756b2059c5d",
+   "type": "observed-event",
+   "title": "\"الكوكب الأزرق 3\": ديفيد أتنبره لا يزال قادرا على الإبهار",
+   "title_en": "",
+   "observed_facts": [
+    "اندبندنت عربية published: \"الكوكب الأزرق 3\": ديفيد أتنبره لا يزال قادرا على الإبهار"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [],
+   "sectors": [],
+   "topics": [
+    "عالم"
+   ],
+   "evidence": [
+    {
+     "id": "ev_1c0c93d820985cba",
+     "url": "https://www.independent.co.uk/arts-entertainment/tv/reviews/blue-planet-iii-david-attenborough-bbc-review-b3076511.html",
+     "source_name": "اندبندنت عربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-15T16:39+00:00",
+     "title": "\"الكوكب الأزرق 3\": ديفيد أتنبره لا يزال قادرا على الإبهار",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-11-18T11:09+00:00",
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_3a451cedd4bd114c",
@@ -2296,43 +2410,6 @@
    "updated_at": "2026-11-14T00:27+00:00"
   },
   {
-   "id": "evt_40571d2488c587da",
-   "type": "observed-event",
-   "title": "ليس كل خبز ينقذ جائعا.. مأساة أطفال السيلياك في غزة",
-   "title_en": "Not All Bread Saves the Starving: The Plight of Celiac Children in Gaza",
-   "observed_facts": [
-    "الجزيرة نت published: ليس كل خبز ينقذ جائعا.. مأساة أطفال السيلياك في غزة"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "ps"
-   ],
-   "sectors": [],
-   "topics": [
-    "غزة",
-    "فلسطين"
-   ],
-   "evidence": [
-    {
-     "id": "ev_5415d14ee10a1c6e",
-     "url": "https://www.aljazeera.net/health/2026/11/17/%D8%BA%D8%B2%D8%A9-%D8%A3%D8%B7%D9%81%D8%A7%D9%84-%D8%AD%D8%B3%D8%A7%D8%B3%D9%8A%D8%A9-%D8%A7%D9%84%D9%82%D9%85%D8%AD-%D8%A3%D8%B7%D9%81%D8%A7%D9%84-%D8%A7%D9%84%D8%B3%D9%8A%D9%84%D9%8A%D8%A7%D9%83",
-     "source_name": "الجزيرة نت",
-     "source_grade": "حسن",
-     "observed_at": "2026-11-17T10:47+00:00",
-     "title": "ليس كل خبز ينقذ جائعا.. مأساة أطفال السيلياك في غزة",
-     "title_en": "Not All Bread Saves the Starving: The Plight of Celiac Children in Gaza",
-     "dataset": "osint"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-11-17T19:45+00:00",
-   "updated_at": "2026-11-18T02:12+00:00"
-  },
-  {
    "id": "evt_4584108c4ceb8a8a",
    "type": "observed-event",
    "title": "الكويت تبيع شحنة نفتا بنظام التسليم على ظهر السفينة",
@@ -2505,9 +2582,7 @@
     "cn"
    ],
    "sectors": [],
-   "topics": [
-    "الخليج"
-   ],
+   "topics": [],
    "evidence": [
     {
      "id": "ev_936a32660bea6de9",
@@ -2517,20 +2592,20 @@
      "observed_at": "2026-11-18T10:19+00:00",
      "title": "نتائج قوية لإنفيديا.. لكن الصين ورحيل هوانغ يثيران القلق",
      "title_en": "",
-     "dataset": "news"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_48d0069e44b54e59",
    "type": "observed-event",
-   "title": "الحكم بالسجن 27 عاماً على آصف رضا مرشانت بتهمة تدبير مخطط اغتيال وتلقي أموال من الحرس الثوري",
-   "title_en": "Asif Raza Merchant Sentenced to 27 Years in Prison for Assassination Plot and Receiving IRGC Funds",
+   "title": "الحكم على آصف رضا مرشانت بالسجن 27 عاماً بتهمة تدبير مخطط اغتيال وتلقي أموال من الحرس الثوري",
+   "title_en": "Asif Raza Merchant Sentenced to 27 Years for IRGC-Funded Assassination Plot",
    "observed_facts": [
-    "بي بي سي فارسي published: الحكم بالسجن 27 عاماً على آصف رضا مرشانت بتهمة تدبير مخطط اغتيال وتلقي أموال من الحرس الثوري"
+    "بي بي سي فارسي published: الحكم على آصف رضا مرشانت بالسجن 27 عاماً بتهمة تدبير مخطط اغتيال وتلقي أموال من الحرس الثوري"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -2549,14 +2624,14 @@
      "source_name": "بي بي سي فارسي",
      "source_grade": "حسن",
      "observed_at": "2026-11-18T00:57+00:00",
-     "title": "الحكم بالسجن 27 عاماً على آصف رضا مرشانت بتهمة تدبير مخطط اغتيال وتلقي أموال من الحرس الثوري",
-     "title_en": "Asif Raza Merchant Sentenced to 27 Years in Prison for Assassination Plot and Receiving IRGC Funds",
+     "title": "الحكم على آصف رضا مرشانت بالسجن 27 عاماً بتهمة تدبير مخطط اغتيال وتلقي أموال من الحرس الثوري",
+     "title_en": "Asif Raza Merchant Sentenced to 27 Years for IRGC-Funded Assassination Plot",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T02:12+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_48f3c37d178b0af1",
@@ -2700,79 +2775,6 @@
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
-  },
-  {
-   "id": "evt_4b92a30b51412dbe",
-   "type": "observed-event",
-   "title": "قناة السويس تحصد 180 مليار دولار عبر تاريخها",
-   "title_en": "",
-   "observed_facts": [
-    "سكاي نيوز عربية published: قناة السويس تحصد 180 مليار دولار عبر تاريخها"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "ae"
-   ],
-   "sectors": [],
-   "topics": [
-    "الخليج"
-   ],
-   "evidence": [
-    {
-     "id": "ev_47e76a8643c2057f",
-     "url": "https://www.skynewsarabia.com/business/1905549-%D9%82%D9%86%D8%A7%D8%A9-%D8%A7%D9%84%D8%B3%D9%88%D9%8A%D8%B3-%D8%AA%D8%AD%D8%B5%D8%AF-180-%D9%85%D9%84%D9%8A%D8%A7%D8%B1-%D8%AF%D9%88%D9%84%D8%A7%D8%B1-%D8%B9%D8%A8%D8%B1-%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE%D9%87%D8%A7",
-     "source_name": "سكاي نيوز عربية",
-     "source_grade": "حسن",
-     "observed_at": "2026-11-18T09:46+00:00",
-     "title": "قناة السويس تحصد 180 مليار دولار عبر تاريخها",
-     "title_en": "",
-     "dataset": "news"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
-  },
-  {
-   "id": "evt_4da09d032917efc9",
-   "type": "observed-event",
-   "title": "تبادل إطلاق النار بين إيران وأمريكا رغم محادثات مع وسطاء",
-   "title_en": "",
-   "observed_facts": [
-    "Reuters published: تبادل إطلاق النار بين إيران وأمريكا رغم محادثات مع وسطاء"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "ir",
-    "us"
-   ],
-   "sectors": [],
-   "topics": [
-    "ايران"
-   ],
-   "evidence": [
-    {
-     "id": "ev_156abb64d631af0e",
-     "url": "https://www.reuters.com/ar/world/HXPVGOXWT5OYXH6AANFTUVLNFI-2026-11-17/",
-     "source_name": "Reuters",
-     "source_grade": "حسن",
-     "observed_at": "2026-11-17T05:28+00:00",
-     "title": "تبادل إطلاق النار بين إيران وأمريكا رغم محادثات مع وسطاء",
-     "title_en": "",
-     "dataset": "news"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-11-17T11:31+00:00",
    "updated_at": "2026-11-18T10:38+00:00"
   },
   {
@@ -2961,10 +2963,10 @@
   {
    "id": "evt_545ed4ebf3e25088",
    "type": "observed-event",
-   "title": "هل يحل الزعفران الإيراني محل الذهب الأحمر في كشمير؟",
-   "title_en": "Will Iranian Saffron Replace Kashmir's Red Gold?",
+   "title": "هل يحل الزعفران الإيراني محل الذهب الأحمر الكشميري؟",
+   "title_en": "Will Iranian Saffron Replace Kashmiri 'Red Gold'?",
    "observed_facts": [
-    "بي بي سي فارسي published: هل يحل الزعفران الإيراني محل الذهب الأحمر في كشمير؟"
+    "بي بي سي فارسي published: هل يحل الزعفران الإيراني محل الذهب الأحمر الكشميري؟"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -2985,14 +2987,14 @@
      "source_name": "بي بي سي فارسي",
      "source_grade": "حسن",
      "observed_at": "2026-11-18T00:38+00:00",
-     "title": "هل يحل الزعفران الإيراني محل الذهب الأحمر في كشمير؟",
-     "title_en": "Will Iranian Saffron Replace Kashmir's Red Gold?",
+     "title": "هل يحل الزعفران الإيراني محل الذهب الأحمر الكشميري؟",
+     "title_en": "Will Iranian Saffron Replace Kashmiri 'Red Gold'?",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T02:12+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_5529fc6239fbfdd8",
@@ -3026,12 +3028,12 @@
      "observed_at": "2026-11-18T09:03+00:00",
      "title": "ما قاله صدام حسين عن السعودية و\"أطماع إيران\" بمذكرات من معتقله كتبها عام 2006 تعيد ابنته نشرها",
      "title_en": "",
-     "dataset": "news"
+     "dataset": "osint"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_558ed52e9acddd93",
@@ -3247,10 +3249,49 @@
    "updated_at": "2026-11-18T02:12+00:00"
   },
   {
+   "id": "evt_5b53fb73d3bd65bd",
+   "type": "observed-event",
+   "title": "اختراق طبي محتمل.. علاج يساعد القلب على ترميم نفسه",
+   "title_en": "",
+   "observed_facts": [
+    "سكاي نيوز عربية published: اختراق طبي محتمل.. علاج يساعد القلب على ترميم نفسه"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "ae"
+   ],
+   "sectors": [
+    "health"
+   ],
+   "topics": [
+    "health",
+    "الخليج"
+   ],
+   "evidence": [
+    {
+     "id": "ev_0106544450e5e267",
+     "url": "https://www.skynewsarabia.com/technology/1905560-%D8%A7%D8%AE%D8%AA%D8%B1%D8%A7%D9%82-%D8%B7%D8%A8%D9%8A-%D9%85%D8%AD%D8%AA%D9%85%D9%84-%D8%B9%D9%84%D8%A7%D8%AC-%D9%8A%D8%B3%D8%A7%D8%B9%D8%AF-%D8%A7%D9%84%D9%82%D9%84%D8%A8-%D8%AA%D8%B1%D9%85%D9%8A%D9%85-%D9%86%D9%81%D8%B3%D9%87",
+     "source_name": "سكاي نيوز عربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-18T10:52+00:00",
+     "title": "اختراق طبي محتمل.. علاج يساعد القلب على ترميم نفسه",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-11-18T11:09+00:00",
+   "updated_at": "2026-11-18T11:09+00:00"
+  },
+  {
    "id": "evt_5b9bb470a90608ca",
    "type": "observed-event",
    "title": "انتخاب متان كهانا حليف آيزنكوت رئيساً للكنيست الإسرائيلي",
-   "title_en": "Eisenkot Ally Matan Kahana Elected Israeli Knesset Speaker",
+   "title_en": "",
    "observed_facts": [
     "بي بي سي عربي published: انتخاب متان كهانا حليف آيزنكوت رئيساً للكنيست الإسرائيلي"
    ],
@@ -3274,13 +3315,13 @@
      "source_grade": "حسن",
      "observed_at": "2026-11-18T03:46+00:00",
      "title": "انتخاب متان كهانا حليف آيزنكوت رئيساً للكنيست الإسرائيلي",
-     "title_en": "Eisenkot Ally Matan Kahana Elected Israeli Knesset Speaker",
+     "title_en": "",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_5d1cfe79261a1169",
@@ -3301,9 +3342,7 @@
     "qa"
    ],
    "sectors": [],
-   "topics": [
-    "عالم"
-   ],
+   "topics": [],
    "evidence": [
     {
      "id": "ev_d3cd7581960f4479",
@@ -3313,12 +3352,12 @@
      "observed_at": "2026-11-18T07:04+00:00",
      "title": "\"الأردن بلد الأمان\".. التعمري يكشف سر احتفاله أمام أستراليا",
      "title_en": "",
-     "dataset": "news"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_5d39ccf147b9441d",
@@ -3361,10 +3400,10 @@
   {
    "id": "evt_5e284fcd302be559",
    "type": "observed-event",
-   "title": "أنظمة معطلة وحرب لا تنتهي؛ هل يواجه البيت الأبيض أزمة ثقة عامة؟",
-   "title_en": "Failing Systems and Endless War: Is the White House Facing a Crisis of Public Trust?",
+   "title": "أنظمة معطلة وحرب لا نهاية لها؛ هل يواجه البيت الأبيض أزمة ثقة عامة؟",
+   "title_en": "Failing Systems and an Endless War: Is the White House Facing a Public Trust Crisis?",
    "observed_facts": [
-    "بي بي سي فارسي published: أنظمة معطلة وحرب لا تنتهي؛ هل يواجه البيت الأبيض أزمة ثقة عامة؟"
+    "بي بي سي فارسي published: أنظمة معطلة وحرب لا نهاية لها؛ هل يواجه البيت الأبيض أزمة ثقة عامة؟"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -3389,14 +3428,14 @@
      "source_name": "بي بي سي فارسي",
      "source_grade": "حسن",
      "observed_at": "2026-11-18T08:05+00:00",
-     "title": "أنظمة معطلة وحرب لا تنتهي؛ هل يواجه البيت الأبيض أزمة ثقة عامة؟",
-     "title_en": "Failing Systems and Endless War: Is the White House Facing a Crisis of Public Trust?",
+     "title": "أنظمة معطلة وحرب لا نهاية لها؛ هل يواجه البيت الأبيض أزمة ثقة عامة؟",
+     "title_en": "Failing Systems and an Endless War: Is the White House Facing a Public Trust Crisis?",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_601916dfce1272f1",
@@ -3450,8 +3489,7 @@
    "confidence": 0.72,
    "severity": "info",
    "countries": [
-    "ml",
-    "us"
+    "ml"
    ],
    "sectors": [
     "finance"
@@ -3474,41 +3512,7 @@
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
-  },
-  {
-   "id": "evt_613452b3fe16e8d6",
-   "type": "observed-event",
-   "title": "بعد الفضيحة واستقالة هوانغ.. أرقام مفاجئة لشركة \"إنفيديا\"",
-   "title_en": "Following Scandal and Huang's Resignation, Nvidia Posts Surprising Numbers",
-   "observed_facts": [
-    "سكاي نيوز عربية published: بعد الفضيحة واستقالة هوانغ.. أرقام مفاجئة لشركة \"إنفيديا\""
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [],
-   "sectors": [],
-   "topics": [
-    "اقتصاد"
-   ],
-   "evidence": [
-    {
-     "id": "ev_788e0cbf0e202140",
-     "url": "https://www.skynewsarabia.com/varieties/1905404-%D8%A7%D9%84%D9%81%D8%B6%D9%8A%D8%AD%D8%A9-%D9%88%D8%A7%D8%B3%D8%AA%D9%82%D8%A7%D9%84%D8%A9-%D9%87%D9%88%D8%A7%D9%86%D8%BA-%D8%A3%D8%B1%D9%82%D8%A7%D9%85-%D9%85%D9%81%D8%A7%D8%AC%D8%A6%D8%A9-%D9%84%D8%B4%D8%B1%D9%83%D8%A9-%D8%A5%D9%86%D9%81%D9%8A%D8%AF%D9%8A%D8%A7",
-     "source_name": "سكاي نيوز عربية",
-     "source_grade": "حسن",
-     "observed_at": "2026-11-18T00:58+00:00",
-     "title": "بعد الفضيحة واستقالة هوانغ.. أرقام مفاجئة لشركة \"إنفيديا\"",
-     "title_en": "Following Scandal and Huang's Resignation, Nvidia Posts Surprising Numbers",
-     "dataset": "news"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-11-18T02:12+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_6143b49fc32b9869",
@@ -3680,9 +3684,7 @@
     "sa"
    ],
    "sectors": [],
-   "topics": [
-    "الخليج"
-   ],
+   "topics": [],
    "evidence": [
     {
      "id": "ev_cdd8f3af8cc09279",
@@ -3692,12 +3694,12 @@
      "observed_at": "2026-11-18T10:24+00:00",
      "title": "المنتخب السعودي للشابات يتأهب لـ«غرب آسيا» بـ25 لاعبة",
      "title_en": "",
-     "dataset": "news"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_6444f04eb10b3799",
@@ -3775,6 +3777,42 @@
    "updated_at": "2026-11-15T09:48+00:00"
   },
   {
+   "id": "evt_66f635b4a2d86692",
+   "type": "observed-event",
+   "title": "من بينها الحمص والأرز البني.. هذه أبرز مصادر فيتامين \"B5\"",
+   "title_en": "",
+   "observed_facts": [
+    "CNN بالعربية published: من بينها الحمص والأرز البني.. هذه أبرز مصادر فيتامين \"B5\""
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "us"
+   ],
+   "sectors": [],
+   "topics": [
+    "عالم"
+   ],
+   "evidence": [
+    {
+     "id": "ev_0bcabbbe7ac0187d",
+     "url": "https://arabic.cnn.com/science-and-health/article/2026/11/18/vitamin-b5-health-benefits-infographic",
+     "source_name": "CNN بالعربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-18T10:56+00:00",
+     "title": "من بينها الحمص والأرز البني.. هذه أبرز مصادر فيتامين \"B5\"",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-11-18T11:09+00:00",
+   "updated_at": "2026-11-18T11:09+00:00"
+  },
+  {
    "id": "evt_673dd9abf7c60356",
    "type": "observed-event",
    "title": "وفاة «العراب» لتجارة المخدرات في المكسيك والشريك السابق لإسكوبار",
@@ -3847,10 +3885,10 @@
   {
    "id": "evt_68c3c1cb3b52d356",
    "type": "observed-event",
-   "title": "تتعاون Hugging Face وOpenRouter لتسهيل تشغيل النماذج مفتوحة الأوزان",
-   "title_en": "Hugging Face and OpenRouter Partner to Simplify Running Open-Weight Models",
+   "title": "تعاون بين Hugging Face وOpenRouter لتسهيل تشغيل النماذج مفتوحة الأوزان",
+   "title_en": "Hugging Face and OpenRouter Partner to Streamline Open-Weight Model Deployment",
    "observed_facts": [
-    "هَغِنغ فيس published: تتعاون Hugging Face وOpenRouter لتسهيل تشغيل النماذج مفتوحة الأوزان"
+    "هَغِنغ فيس published: تعاون بين Hugging Face وOpenRouter لتسهيل تشغيل النماذج مفتوحة الأوزان"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -3870,20 +3908,20 @@
      "source_name": "هَغِنغ فيس",
      "source_grade": "حسن",
      "observed_at": "2026-11-16T00:00+00:00",
-     "title": "تتعاون Hugging Face وOpenRouter لتسهيل تشغيل النماذج مفتوحة الأوزان",
-     "title_en": "Hugging Face and OpenRouter Partner to Simplify Running Open-Weight Models",
+     "title": "تعاون بين Hugging Face وOpenRouter لتسهيل تشغيل النماذج مفتوحة الأوزان",
+     "title_en": "Hugging Face and OpenRouter Partner to Streamline Open-Weight Model Deployment",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-16T18:51+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_69c3dac419f2ea9d",
    "type": "observed-event",
    "title": "الأعطال التقنية والهجمات السيبرانية تتصاعد بشكل متسارع",
-   "title_en": "Tech Outages and Cyberattacks Surge at Rapid Pace",
+   "title_en": "Tech Outages and Cyberattacks Escalate Rapidly",
    "observed_facts": [
     "سكاي نيوز عربية published: الأعطال التقنية والهجمات السيبرانية تتصاعد بشكل متسارع"
    ],
@@ -3909,13 +3947,13 @@
      "source_grade": "حسن",
      "observed_at": "2026-11-17T18:09+00:00",
      "title": "الأعطال التقنية والهجمات السيبرانية تتصاعد بشكل متسارع",
-     "title_en": "Tech Outages and Cyberattacks Surge at Rapid Pace",
+     "title_en": "Tech Outages and Cyberattacks Escalate Rapidly",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_6a4bdc78daab62e8",
@@ -3947,12 +3985,12 @@
      "observed_at": "2026-11-18T04:32+00:00",
      "title": "ترامب: نبلي بلاء حسناً في إيران.. وروبيو يعلّق على \"القنبلة القذرة\"",
      "title_en": "Trump: We Are Doing Great in Iran; Rubio Comments on 'Dirty Bomb'",
-     "dataset": "news"
+     "dataset": "osint"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_6b524da70848f9ad",
@@ -4048,8 +4086,7 @@
    "confidence": 0.72,
    "severity": "info",
    "countries": [
-    "ie",
-    "ua"
+    "ie"
    ],
    "sectors": [],
    "topics": [
@@ -4069,7 +4106,7 @@
    ],
    "contradictions": [],
    "created_at": "2026-11-13T19:16+00:00",
-   "updated_at": "2026-11-14T06:55+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_6bdacc38ad436bd7",
@@ -4106,40 +4143,6 @@
    "contradictions": [],
    "created_at": "2026-11-16T10:41+00:00",
    "updated_at": "2026-11-18T02:12+00:00"
-  },
-  {
-   "id": "evt_6c5f6f5c8e16a258",
-   "type": "observed-event",
-   "title": "جرعات زيت الزيتون رائجة بين المؤثرين فما فائدتها الحقيقية؟",
-   "title_en": "",
-   "observed_facts": [
-    "اندبندنت عربية published: جرعات زيت الزيتون رائجة بين المؤثرين فما فائدتها الحقيقية؟"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [],
-   "sectors": [],
-   "topics": [
-    "عالم"
-   ],
-   "evidence": [
-    {
-     "id": "ev_dc62ab73dc263b5f",
-     "url": "https://www.independent.co.uk/life-style/health-and-families/olive-oil-shots-celebrities-viral-weight-b3084173.html",
-     "source_name": "اندبندنت عربية",
-     "source_grade": "حسن",
-     "observed_at": "2026-11-15T16:29+00:00",
-     "title": "جرعات زيت الزيتون رائجة بين المؤثرين فما فائدتها الحقيقية؟",
-     "title_en": "",
-     "dataset": "news"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-11-17T02:22+00:00",
-   "updated_at": "2026-11-17T02:22+00:00"
   },
   {
    "id": "evt_6cf5d1e7741acb20",
@@ -4251,22 +4254,21 @@
   {
    "id": "evt_6ea51669932a0be8",
    "type": "observed-event",
-   "title": "كيف وقع الهجوم على جسر القرم الذي يحظى بأهمية كبيرة لدى بوتين؟",
-   "title_en": "How the Attack on the Strategically Vital Crimean Bridge Unfolded for Putin",
+   "title": "كيف استهدف جسر القرم، وما سر أهميته بالنسبة إلى بوتين؟",
+   "title_en": "How the Crimean Bridge Was Targeted and Why It Matters to Putin",
    "observed_facts": [
-    "BBC published: كيف وقع الهجوم على جسر القرم الذي يحظى بأهمية كبيرة لدى بوتين؟"
+    "BBC published: كيف استهدف جسر القرم، وما سر أهميته بالنسبة إلى بوتين؟"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
    "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
    "confidence": 0.72,
-   "severity": "medium",
+   "severity": "info",
    "countries": [
     "ru"
    ],
    "sectors": [],
    "topics": [
-    "security",
     "عالم"
    ],
    "evidence": [
@@ -4276,20 +4278,20 @@
      "source_name": "BBC",
      "source_grade": "حسن",
      "observed_at": "2026-11-18T04:36+00:00",
-     "title": "كيف وقع الهجوم على جسر القرم الذي يحظى بأهمية كبيرة لدى بوتين؟",
-     "title_en": "How the Attack on the Strategically Vital Crimean Bridge Unfolded for Putin",
+     "title": "كيف استهدف جسر القرم، وما سر أهميته بالنسبة إلى بوتين؟",
+     "title_en": "How the Crimean Bridge Was Targeted and Why It Matters to Putin",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_6f1c9d6858c1bbfc",
    "type": "observed-event",
    "title": "الكويت تتصدى لطائرات مسيرة.. والبحرين تنبه لـ\"وجود خطر\"",
-   "title_en": "Kuwait Confronts Drones as Bahrain Warns of Impending Danger",
+   "title_en": "Kuwait Intercepts Drones as Bahrain Warns of Impending Danger",
    "observed_facts": [
     "سكاي نيوز عربية published: الكويت تتصدى لطائرات مسيرة.. والبحرين تنبه لـ\"وجود خطر\""
    ],
@@ -4319,13 +4321,13 @@
      "source_grade": "حسن",
      "observed_at": "2026-11-18T00:00+00:00",
      "title": "الكويت تتصدى لطائرات مسيرة.. والبحرين تنبه لـ\"وجود خطر\"",
-     "title_en": "Kuwait Confronts Drones as Bahrain Warns of Impending Danger",
+     "title_en": "Kuwait Intercepts Drones as Bahrain Warns of Impending Danger",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T02:12+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_6feb665447fd04d0",
@@ -4435,41 +4437,6 @@
    "updated_at": "2026-11-17T19:45+00:00"
   },
   {
-   "id": "evt_749c8037678b00f7",
-   "type": "observed-event",
-   "title": "الأمانة العامة لمجلس التعاون تنسق تقييم ميداني خليجي مشترك للجاهزية الصحية في منفذي خطم الشكلة الإماراتي والخطم العُماني",
-   "title_en": "",
-   "observed_facts": [
-    "الأمانة العامة لمجلس التعاون لدول الخليج العربية published: الأمانة العامة لمجلس التعاون تنسق تقييم ميداني خليجي مشترك للجاهزية الصحية في منفذي خطم الشكلة الإماراتي والخطم العُماني"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "ae",
-    "om"
-   ],
-   "sectors": [],
-   "topics": [],
-   "evidence": [
-    {
-     "id": "ev_edb406c8a5094cad",
-     "url": "https://www.gcc-sg.org/ar/MediaCenter/News/Pages//news-2026-11-17-6.aspx",
-     "source_name": "الأمانة العامة لمجلس التعاون لدول الخليج العربية",
-     "source_grade": "حسن",
-     "observed_at": "2026-11-17T13:36+00:00",
-     "title": "الأمانة العامة لمجلس التعاون تنسق تقييم ميداني خليجي مشترك للجاهزية الصحية في منفذي خطم الشكلة الإماراتي والخطم العُماني",
-     "title_en": "",
-     "dataset": "map"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-11-17T19:45+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
-  },
-  {
    "id": "evt_7579187e512a4869",
    "type": "observed-event",
    "title": "زيلينسكي: أمريكا اقترحت تخلي أوكرانيا عن دونباس مقابل الانضمام إلى الناتو",
@@ -4518,7 +4485,6 @@
    "confidence": 0.72,
    "severity": "info",
    "countries": [
-    "sa",
     "ye"
    ],
    "sectors": [
@@ -4539,7 +4505,7 @@
    ],
    "contradictions": [],
    "created_at": "2026-11-17T19:45+00:00",
-   "updated_at": "2026-11-18T02:12+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_763b82b5bab78ec6",
@@ -4578,6 +4544,45 @@
    "contradictions": [],
    "created_at": "2026-11-17T19:45+00:00",
    "updated_at": "2026-11-18T10:38+00:00"
+  },
+  {
+   "id": "evt_7c0841dc3685d67f",
+   "type": "observed-event",
+   "title": "مجلس السلام: الأوضاع الكارثية في غزة تهدد \"اتفاق وقف إطلاق النار\"",
+   "title_en": "Peace Council: Catastrophic Gaza Conditions Threaten Ceasefire Deal",
+   "observed_facts": [
+    "الجزيرة نت published: مجلس السلام: الأوضاع الكارثية في غزة تهدد \"اتفاق وقف إطلاق النار\""
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "ps"
+   ],
+   "sectors": [],
+   "topics": [
+    "climate",
+    "diplomacy",
+    "غزة",
+    "فلسطين"
+   ],
+   "evidence": [
+    {
+     "id": "ev_7f2d2c3f6ed69b4d",
+     "url": "https://www.aljazeera.net/news/2026/11/18/%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85-%D8%A7%D9%84%D8%A3%D9%88%D8%B6%D8%A7%D8%B9-%D8%A7%D9%84%D9%83%D8%A7%D8%B1%D8%AB%D9%8A%D8%A9-%D9%81%D9%8A-%D8%BA%D8%B2%D8%A9",
+     "source_name": "الجزيرة نت",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-18T00:56+00:00",
+     "title": "مجلس السلام: الأوضاع الكارثية في غزة تهدد \"اتفاق وقف إطلاق النار\"",
+     "title_en": "Peace Council: Catastrophic Gaza Conditions Threaten Ceasefire Deal",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-11-18T11:09+00:00",
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_7cb17118f990b195",
@@ -4648,43 +4653,6 @@
    "contradictions": [],
    "created_at": "2026-11-18T02:12+00:00",
    "updated_at": "2026-11-18T02:12+00:00"
-  },
-  {
-   "id": "evt_7e66d2d0c90c2def",
-   "type": "observed-event",
-   "title": "\"جيميناي\" يتيح الاحتفاظ بسجل المحادثات دون استخدامها في تدريب الذكاء الاصطناعي",
-   "title_en": "Gemini Allows Keeping Chat History Without Using It for AI Training",
-   "observed_facts": [
-    "العربية published: \"جيميناي\" يتيح الاحتفاظ بسجل المحادثات دون استخدامها في تدريب الذكاء الاصطناعي"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [],
-   "sectors": [
-    "technology"
-   ],
-   "topics": [
-    "artificial-intelligence",
-    "تقنية"
-   ],
-   "evidence": [
-    {
-     "id": "ev_2e52f14041c4d0fc",
-     "url": "https://www.alarabiya.net/technology/ai/2026/11/17/%D8%AC%D9%8A%D9%85%D9%8A%D9%86%D8%A7%D9%8A-%D9%8A%D8%AA%D9%8A%D8%AD-%D8%A7%D9%84%D8%A7%D8%AD%D8%AA%D9%81%D8%A7%D8%B8-%D8%A8%D8%B3%D8%AC%D9%84-%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D8%AF%D8%AB%D8%A7%D8%AA-%D8%AF%D9%88%D9%86-%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D8%A7%D9%85%D9%87%D8%A7-%D9%81%D9%8A-%D8%AA%D8%AF%D8%B1%D9%8A%D8%A8-%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A",
-     "source_name": "العربية",
-     "source_grade": "حسن",
-     "observed_at": "2026-11-17T10:02+00:00",
-     "title": "\"جيميناي\" يتيح الاحتفاظ بسجل المحادثات دون استخدامها في تدريب الذكاء الاصطناعي",
-     "title_en": "Gemini Allows Keeping Chat History Without Using It for AI Training",
-     "dataset": "news"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-11-18T02:12+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
   },
   {
    "id": "evt_7f545dab859f232a",
@@ -4835,6 +4803,46 @@
    "updated_at": "2026-11-17T02:22+00:00"
   },
   {
+   "id": "evt_889ae2897ff14904",
+   "type": "observed-event",
+   "title": "واشنطن تستبعد وقوف قراصنة أو دول أجنبية خلف الأعطال التقنية",
+   "title_en": "",
+   "observed_facts": [
+    "سكاي نيوز عربية published: واشنطن تستبعد وقوف قراصنة أو دول أجنبية خلف الأعطال التقنية"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "ae",
+    "us"
+   ],
+   "sectors": [
+    "technology"
+   ],
+   "topics": [
+    "technology",
+    "الخليج"
+   ],
+   "evidence": [
+    {
+     "id": "ev_25aa1764abc8399c",
+     "url": "https://www.skynewsarabia.com/business/1905570-%D9%88%D8%A7%D8%B4%D9%86%D8%B7%D9%86-%D8%AA%D8%B3%D8%AA%D8%A8%D8%B9%D8%AF-%D9%88%D9%82%D9%88%D9%81-%D9%82%D8%B1%D8%A7%D8%B5%D9%86%D8%A9-%D8%AF%D9%88%D9%84-%D8%A3%D8%AC%D9%86%D8%A8%D9%8A%D8%A9-%D8%AE%D9%84%D9%81-%D8%A7%D9%84%D8%A3%D8%B9%D8%B7%D8%A7%D9%84-%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9",
+     "source_name": "سكاي نيوز عربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-18T10:39+00:00",
+     "title": "واشنطن تستبعد وقوف قراصنة أو دول أجنبية خلف الأعطال التقنية",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-11-18T11:09+00:00",
+   "updated_at": "2026-11-18T11:09+00:00"
+  },
+  {
    "id": "evt_8a5fbea97c77ee66",
    "type": "observed-event",
    "title": "«المركزي الأوروبي» يحذر فرنسا والدول المثقلة بالديون من ارتفاع تكاليف الاقتراض",
@@ -4851,9 +4859,7 @@
     "fr"
    ],
    "sectors": [],
-   "topics": [
-    "اقتصاد"
-   ],
+   "topics": [],
    "evidence": [
     {
      "id": "ev_03cb4fd1c0e5f4b3",
@@ -4863,12 +4869,12 @@
      "observed_at": "2026-11-18T10:11+00:00",
      "title": "«المركزي الأوروبي» يحذر فرنسا والدول المثقلة بالديون من ارتفاع تكاليف الاقتراض",
      "title_en": "",
-     "dataset": "news"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_8ae35b23062a8483",
@@ -4912,40 +4918,6 @@
    "updated_at": "2026-11-17T19:45+00:00"
   },
   {
-   "id": "evt_8fc9d5e060b0f5ec",
-   "type": "observed-event",
-   "title": "«إنسان»... كلمة عام 2026 لقاموس كامبريدج وسط صعود الذكاء الاصطناعي",
-   "title_en": "",
-   "observed_facts": [
-    "الشرق الأوسط published: «إنسان»... كلمة عام 2026 لقاموس كامبريدج وسط صعود الذكاء الاصطناعي"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [],
-   "sectors": [],
-   "topics": [
-    "تقنية"
-   ],
-   "evidence": [
-    {
-     "id": "ev_3af26b12373b2f0a",
-     "url": "https://aawsat.com/node/5342677",
-     "source_name": "الشرق الأوسط",
-     "source_grade": "حسن",
-     "observed_at": "2026-11-18T10:07+00:00",
-     "title": "«إنسان»... كلمة عام 2026 لقاموس كامبريدج وسط صعود الذكاء الاصطناعي",
-     "title_en": "",
-     "dataset": "news"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
-  },
-  {
    "id": "evt_90043deb7a95f3b2",
    "type": "observed-event",
    "title": "قيادي في كتائب حزب الله العراقية: لن ننسحب من جرف الصخر",
@@ -4987,7 +4959,7 @@
    "id": "evt_903c20570554b3f1",
    "type": "observed-event",
    "title": "سعر الدولار في مصر يسجل خسارة جديدة",
-   "title_en": "US Dollar Posts Fresh Loss in Egypt",
+   "title_en": "US Dollar Drops Further in Egypt",
    "observed_facts": [
     "العربية published: سعر الدولار في مصر يسجل خسارة جديدة"
    ],
@@ -5011,49 +4983,13 @@
      "source_grade": "حسن",
      "observed_at": "2026-11-17T08:34+00:00",
      "title": "سعر الدولار في مصر يسجل خسارة جديدة",
-     "title_en": "US Dollar Posts Fresh Loss in Egypt",
+     "title_en": "US Dollar Drops Further in Egypt",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-17T19:45+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
-  },
-  {
-   "id": "evt_91628b2ec9693d7f",
-   "type": "observed-event",
-   "title": "بفوز ألاسكا.. الديمقراطيون يعززون أغلبيتهم في مجلس الشيوخ",
-   "title_en": "",
-   "observed_facts": [
-    "سكاي نيوز عربية published: بفوز ألاسكا.. الديمقراطيون يعززون أغلبيتهم في مجلس الشيوخ"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "ae"
-   ],
-   "sectors": [],
-   "topics": [
-    "الخليج"
-   ],
-   "evidence": [
-    {
-     "id": "ev_0bee27bab114260a",
-     "url": "https://www.skynewsarabia.com/world/1905541-%D8%A8%D9%81%D9%88%D8%B2-%D8%A3%D9%84%D8%A7%D8%B3%D9%83%D8%A7-%D8%A7%D9%84%D8%AF%D9%8A%D9%85%D9%82%D8%B1%D8%A7%D8%B7%D9%8A%D9%88%D9%86-%D9%8A%D8%B9%D8%B2%D8%B2%D9%88%D9%86-%D8%A3%D8%BA%D9%84%D8%A8%D9%8A%D8%AA%D9%87%D9%85-%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D8%B4%D9%8A%D9%88%D8%AE",
-     "source_name": "سكاي نيوز عربية",
-     "source_grade": "حسن",
-     "observed_at": "2026-11-18T09:36+00:00",
-     "title": "بفوز ألاسكا.. الديمقراطيون يعززون أغلبيتهم في مجلس الشيوخ",
-     "title_en": "",
-     "dataset": "news"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_9236c7de13609c0d",
@@ -5127,7 +5063,7 @@
    "id": "evt_926c1460fb256dd6",
    "type": "observed-event",
    "title": "لا أبواق ولا توصيل بالمسيرات.. مدينة صينية تدخل \"الصمت الإجباري\" لاستقبال قادة العالم",
-   "title_en": "No Horns, No Drone Deliveries: Chinese City Enters 'Mandatory Silence' to Welcome World Leaders",
+   "title_en": "No Horns, No Drone Deliveries: Chinese City Imposes 'Mandatory Silence' for World Leaders",
    "observed_facts": [
     "العربية published: لا أبواق ولا توصيل بالمسيرات.. مدينة صينية تدخل \"الصمت الإجباري\" لاستقبال قادة العالم"
    ],
@@ -5149,13 +5085,13 @@
      "source_grade": "حسن",
      "observed_at": "2026-11-17T09:32+00:00",
      "title": "لا أبواق ولا توصيل بالمسيرات.. مدينة صينية تدخل \"الصمت الإجباري\" لاستقبال قادة العالم",
-     "title_en": "No Horns, No Drone Deliveries: Chinese City Enters 'Mandatory Silence' to Welcome World Leaders",
+     "title_en": "No Horns, No Drone Deliveries: Chinese City Imposes 'Mandatory Silence' for World Leaders",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T02:12+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_947576f633a53cf5",
@@ -5242,8 +5178,7 @@
    "confidence": 0.72,
    "severity": "info",
    "countries": [
-    "ml",
-    "qa"
+    "ml"
    ],
    "sectors": [
     "finance"
@@ -5265,7 +5200,7 @@
    ],
    "contradictions": [],
    "created_at": "2026-11-17T19:45+00:00",
-   "updated_at": "2026-11-18T02:12+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_97e8b34f0eaead71",
@@ -5646,6 +5581,43 @@
    "updated_at": "2026-11-17T02:22+00:00"
   },
   {
+   "id": "evt_a0168b3c5060e937",
+   "type": "observed-event",
+   "title": "أسهم أوروبا تستقر واليابان ترتفع بدعم شركات الذكاء الاصطناعي",
+   "title_en": "",
+   "observed_facts": [
+    "الجزيرة نت published: أسهم أوروبا تستقر واليابان ترتفع بدعم شركات الذكاء الاصطناعي"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "jp",
+    "qa"
+   ],
+   "sectors": [],
+   "topics": [
+    "تقنية"
+   ],
+   "evidence": [
+    {
+     "id": "ev_7d12fddc30e89d7c",
+     "url": "https://www.aljazeera.net/ebusiness/2026/11/18/%d8%a3%d8%b3%d9%87%d9%85-%d8%a3%d9%88%d8%b1%d9%88%d8%a8%d8%a7-%d8%aa%d8%b3%d8%aa%d9%82%d8%b1-%d8%a7%d9%84%d9%8a%d8%a7%d8%a8%d8%a7%d9%86-%d8%aa%d8%b1%d8%aa%d9%81%d8%b9?traffic_source=rss",
+     "source_name": "الجزيرة نت",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-18T07:18+00:00",
+     "title": "أسهم أوروبا تستقر واليابان ترتفع بدعم شركات الذكاء الاصطناعي",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-11-18T11:09+00:00",
+   "updated_at": "2026-11-18T11:09+00:00"
+  },
+  {
    "id": "evt_a201944f28fb4ebd",
    "type": "observed-event",
    "title": "ترامب: سأتحدث مع شي وبوتين بشأن إيران",
@@ -5672,7 +5644,7 @@
      "url": "https://www.bbc.co.uk/persian/live/credq81lwnqdt?at_medium=RSS&at_campaign=rss",
      "source_name": "بي بي سي فارسي",
      "source_grade": "حسن",
-     "observed_at": "2026-11-18T10:37+00:00",
+     "observed_at": "2026-11-18T11:09+00:00",
      "title": "ترامب: سأتحدث مع شي وبوتين بشأن إيران",
      "title_en": "Trump: I Will Speak with Xi and Putin Regarding Iran",
      "dataset": "osint"
@@ -5680,7 +5652,7 @@
    ],
    "contradictions": [],
    "created_at": "2026-11-16T01:23+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_a218da96452f4cf5",
@@ -5761,10 +5733,10 @@
   {
    "id": "evt_a5cae3159f351882",
    "type": "observed-event",
-   "title": "الإعلان عن نسختي Astra وSol من نموذج GPT-6.2",
-   "title_en": "Astra and Sol Editions of GPT-6.2 Model Announced",
+   "title": "تقديم GPT-6.2 Astra وSol",
+   "title_en": "Introducing GPT-6.2 Astra and Sol",
    "observed_facts": [
-    "أوبن إيه آي published: الإعلان عن نسختي Astra وSol من نموذج GPT-6.2"
+    "أوبن إيه آي published: تقديم GPT-6.2 Astra وSol"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -5774,8 +5746,7 @@
    "countries": [],
    "sectors": [],
    "topics": [
-    "artificial-intelligence",
-    "تقنية"
+    "ذكاء-اصطناعي"
    ],
    "evidence": [
     {
@@ -5784,14 +5755,14 @@
      "source_name": "أوبن إيه آي",
      "source_grade": "صحيح",
      "observed_at": "2026-11-17T17:45+00:00",
-     "title": "الإعلان عن نسختي Astra وSol من نموذج GPT-6.2",
-     "title_en": "Astra and Sol Editions of GPT-6.2 Model Announced",
+     "title": "تقديم GPT-6.2 Astra وSol",
+     "title_en": "Introducing GPT-6.2 Astra and Sol",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-17T19:45+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_a6a07501b7b5608e",
@@ -5924,9 +5895,7 @@
     "us"
    ],
    "sectors": [],
-   "topics": [
-    "الخليج"
-   ],
+   "topics": [],
    "evidence": [
     {
      "id": "ev_833ea2e800bbb1e2",
@@ -5936,12 +5905,12 @@
      "observed_at": "2026-11-18T10:15+00:00",
      "title": "ترامب بين شي وبوتين.. هل تعيد القمة ترتيب موازين القوى؟",
      "title_en": "",
-     "dataset": "news"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_a9e26b2194457208",
@@ -5983,7 +5952,7 @@
    "id": "evt_aa6eeb22197e9be9",
    "type": "observed-event",
    "title": "هل كشف عطل مايكروسوفت مخاطر الاعتماد الكلي على التكنولوجيا؟",
-   "title_en": "Did Microsoft Outage Reveal the Risks of Complete Tech Dependency?",
+   "title_en": "Did the Microsoft Outage Reveal the Risks of Complete Tech Dependency?",
    "observed_facts": [
     "BBC published: هل كشف عطل مايكروسوفت مخاطر الاعتماد الكلي على التكنولوجيا؟"
    ],
@@ -6006,13 +5975,52 @@
      "source_grade": "حسن",
      "observed_at": "2026-11-15T17:20+00:00",
      "title": "هل كشف عطل مايكروسوفت مخاطر الاعتماد الكلي على التكنولوجيا؟",
-     "title_en": "Did Microsoft Outage Reveal the Risks of Complete Tech Dependency?",
+     "title_en": "Did the Microsoft Outage Reveal the Risks of Complete Tech Dependency?",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-15T21:31+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
+  },
+  {
+   "id": "evt_ab81b356b71bb179",
+   "type": "observed-event",
+   "title": "تهريب النفط من جرف الصخر.. مطالب بكشف المتورطين",
+   "title_en": "",
+   "observed_facts": [
+    "سكاي نيوز عربية published: تهريب النفط من جرف الصخر.. مطالب بكشف المتورطين"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "ae"
+   ],
+   "sectors": [
+    "energy"
+   ],
+   "topics": [
+    "economy",
+    "اقتصاد"
+   ],
+   "evidence": [
+    {
+     "id": "ev_a246b97e759a013b",
+     "url": "https://www.skynewsarabia.com/middle-east/1905507-%D8%AA%D9%87%D8%B1%D9%8A%D8%A8-%D8%A7%D9%84%D9%86%D9%81%D8%B7-%D8%AC%D8%B1%D9%81-%D8%A7%D9%84%D8%B5%D8%AE%D8%B1-%D9%85%D8%B7%D8%A7%D9%84%D8%A8-%D8%A8%D9%83%D8%B4%D9%81-%D8%A7%D9%84%D9%85%D8%AA%D9%88%D8%B1%D8%B7%D9%8A%D9%86",
+     "source_name": "سكاي نيوز عربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-18T10:48+00:00",
+     "title": "تهريب النفط من جرف الصخر.. مطالب بكشف المتورطين",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-11-18T11:09+00:00",
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_ad4d8b662c22d3ce",
@@ -6087,10 +6095,10 @@
   {
    "id": "evt_addf0b94f6f2c376",
    "type": "observed-event",
-   "title": "رفض طلب تغيير الاستضافة؛ تراكتور يُجبر مجدداً على السفر غير المباشر إلى عُمان",
-   "title_en": "Venue Change Request Denied: Tractor Forced Again into Indirect Travel to Oman",
+   "title": "رفض طلب تغيير مكان الاستضافة؛ تراكتور يضطر مجدداً للسفر غير المباشر إلى عمان",
+   "title_en": "Venue Change Request Denied; Tractor Forced Once Again into Indirect Travel to Oman",
    "observed_facts": [
-    "إيران إنترناشونال published: رفض طلب تغيير الاستضافة؛ تراكتور يُجبر مجدداً على السفر غير المباشر إلى عُمان"
+    "إيران إنترناشونال published: رفض طلب تغيير مكان الاستضافة؛ تراكتور يضطر مجدداً للسفر غير المباشر إلى عمان"
    ],
    "sanad_assessment": "1 attributable observation(s); 0 carry an existing SANAD source grade.",
    "inference": "",
@@ -6105,7 +6113,7 @@
    ],
    "topics": [
     "artificial-intelligence",
-    "الخليج"
+    "ايران"
    ],
    "evidence": [
     {
@@ -6114,14 +6122,14 @@
      "source_name": "إيران إنترناشونال",
      "source_grade": "ضعيف الإسناد",
      "observed_at": "2026-11-18T07:30+00:00",
-     "title": "رفض طلب تغيير الاستضافة؛ تراكتور يُجبر مجدداً على السفر غير المباشر إلى عُمان",
-     "title_en": "Venue Change Request Denied: Tractor Forced Again into Indirect Travel to Oman",
+     "title": "رفض طلب تغيير مكان الاستضافة؛ تراكتور يضطر مجدداً للسفر غير المباشر إلى عمان",
+     "title_en": "Venue Change Request Denied; Tractor Forced Once Again into Indirect Travel to Oman",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_af18e54411522cd3",
@@ -6160,10 +6168,10 @@
   {
    "id": "evt_afc24aa43bb5c59a",
    "type": "observed-event",
-   "title": "رفض شكوى تراكتور ضد أجانب استقلال؛ وشكوى استقلال ضد يلدرم لم تصل إلى نتيجة",
-   "title_en": "Tractor's Complaint Against Esteghlal's Foreign Players Dismissed; Esteghlal's Grievance Against Yildirim Leads Nowhere",
+   "title": "رفض شكوى تراكتور ضد أجانب استقلال؛ شكوى استقلال ضد إيلدروم لم تسفر عن نتيجة",
+   "title_en": "Tractor's Complaint Against Esteghlal Foreigners Dismissed; Esteghlal Case Against Yildirim Leads Nowhere",
    "observed_facts": [
-    "إيران إنترناشونال published: رفض شكوى تراكتور ضد أجانب استقلال؛ وشكوى استقلال ضد يلدرم لم تصل إلى نتيجة"
+    "إيران إنترناشونال published: رفض شكوى تراكتور ضد أجانب استقلال؛ شكوى استقلال ضد إيلدروم لم تسفر عن نتيجة"
    ],
    "sanad_assessment": "1 attributable observation(s); 0 carry an existing SANAD source grade.",
    "inference": "",
@@ -6185,14 +6193,14 @@
      "source_name": "إيران إنترناشونال",
      "source_grade": "ضعيف الإسناد",
      "observed_at": "2026-11-18T07:57+00:00",
-     "title": "رفض شكوى تراكتور ضد أجانب استقلال؛ وشكوى استقلال ضد يلدرم لم تصل إلى نتيجة",
-     "title_en": "Tractor's Complaint Against Esteghlal's Foreign Players Dismissed; Esteghlal's Grievance Against Yildirim Leads Nowhere",
+     "title": "رفض شكوى تراكتور ضد أجانب استقلال؛ شكوى استقلال ضد إيلدروم لم تسفر عن نتيجة",
+     "title_en": "Tractor's Complaint Against Esteghlal Foreigners Dismissed; Esteghlal Case Against Yildirim Leads Nowhere",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_b5a0cec5d55e7642",
@@ -6265,42 +6273,43 @@
    "updated_at": "2026-11-17T02:22+00:00"
   },
   {
-   "id": "evt_b7f948a394e43666",
+   "id": "evt_b8a97788a1f0270a",
    "type": "observed-event",
-   "title": "ملياردير أفريقي يضخ 2.2 مليار دولار لتحديث شبكة الطرق في بلاده",
-   "title_en": "African Billionaire Injects $2.2 Billion to Upgrade Nation's Road Network",
+   "title": "\"هذه هي الحياة\".. شاهد رد ترامب على الانقطاعات التقنية التي أثارت قلقا بأمريكا",
+   "title_en": "",
    "observed_facts": [
-    "العربية published: ملياردير أفريقي يضخ 2.2 مليار دولار لتحديث شبكة الطرق في بلاده"
+    "CNN بالعربية published: \"هذه هي الحياة\".. شاهد رد ترامب على الانقطاعات التقنية التي أثارت قلقا بأمريكا"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
    "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
    "confidence": 0.72,
    "severity": "info",
-   "countries": [],
+   "countries": [
+    "us"
+   ],
    "sectors": [
-    "technology",
-    "transport"
+    "technology"
    ],
    "topics": [
-    "artificial-intelligence",
-    "اقتصاد"
+    "technology",
+    "عالم"
    ],
    "evidence": [
     {
-     "id": "ev_782853d4f091ea0c",
-     "url": "https://www.alarabiya.net/aswaq/special-stories/2026/11/16/%D9%85%D9%84%D9%8A%D8%A7%D8%B1%D8%AF%D9%8A%D8%B1-%D8%A7%D9%81%D8%B1%D9%8A%D9%82%D9%8A-%D9%8A%D8%B6%D8%AE-22-%D9%85%D9%84%D9%8A%D8%A7%D8%B1-%D8%AF%D9%88%D9%84%D8%A7%D8%B1-%D9%84%D8%AA%D8%AD%D8%AF%D9%8A%D8%AB-%D8%B4%D8%A8%D9%83%D8%A9-%D8%A7%D9%84%D8%B7%D8%B1%D9%82-%D9%81%D9%8A-%D8%A8%D9%84%D8%A7%D8%AF%D9%87",
-     "source_name": "العربية",
+     "id": "ev_6842713a249c2c45",
+     "url": "https://arabic.cnn.com/world/video/2026/11/18/v205520-trump-given-grand-welcome-in-asia-amid-us-tech-outages-hnk-digvid",
+     "source_name": "CNN بالعربية",
      "source_grade": "حسن",
-     "observed_at": "2026-11-16T13:32+00:00",
-     "title": "ملياردير أفريقي يضخ 2.2 مليار دولار لتحديث شبكة الطرق في بلاده",
-     "title_en": "African Billionaire Injects $2.2 Billion to Upgrade Nation's Road Network",
+     "observed_at": "2026-11-18T10:59+00:00",
+     "title": "\"هذه هي الحياة\".. شاهد رد ترامب على الانقطاعات التقنية التي أثارت قلقا بأمريكا",
+     "title_en": "",
      "dataset": "news"
     }
    ],
    "contradictions": [],
-   "created_at": "2026-11-17T19:45+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "created_at": "2026-11-18T11:09+00:00",
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_b9232f2d9c1965a8",
@@ -6322,10 +6331,7 @@
    "sectors": [
     "energy"
    ],
-   "topics": [
-    "الخليج",
-    "السعودية"
-   ],
+   "topics": [],
    "evidence": [
     {
      "id": "ev_56dbea282ceedad7",
@@ -6335,44 +6341,12 @@
      "observed_at": "2026-11-17T13:20+00:00",
      "title": "دلتا السعودية للطاقة تستكشف استثمارا بـ30 مليار دولار في باكستان",
      "title_en": "Saudi Delta Energy Explores $30 Billion Investment in Pakistan",
-     "dataset": "osint"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-17T19:45+00:00",
-   "updated_at": "2026-11-18T02:12+00:00"
-  },
-  {
-   "id": "evt_b9f1ddb5db8e01a4",
-   "type": "observed-event",
-   "title": "منافسات قوية في \"أمير الشعراء\" مع انطلاق الحلقات المباشرة",
-   "title_en": "",
-   "observed_facts": [
-    "وكالة أنباء الإمارات (وام) published: منافسات قوية في \"أمير الشعراء\" مع انطلاق الحلقات المباشرة"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 0 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.45,
-   "severity": "info",
-   "countries": [],
-   "sectors": [],
-   "topics": [],
-   "evidence": [
-    {
-     "id": "ev_1198626d73b2ef6a",
-     "url": "https://news.google.com/rss/articles/CBMilAVBVV95cUxOTk5xaEtUTmR3N2UwcW1qcVRzUFM3ZUdTRmc5ODZSMExUZVJVYVRwRFJQRktuTUFuenB3VVJRV3ppekc3VFl6TVkyMTc3Wm96VXBVM0I3SW5NWkVabjFmMEhEam8zdENUWmVPZmFuZGFydjRsenpSQVJsUndxQzRreXhEbXFoc1dNT1l6NG10YzRSNFJ1OW9TTzY4VG40RnZrS0NFb09XQlNnRERaZkFVajFzaFkzQ1R3eVVtZ1lhT2I5b3ZTMzNfeVFhLXBZcWJPTmZBN3gtYUJBSWY3dlI1R1dYUXBhSmpNVWRhUUVTLUlPSDRiNTk1ZXJwNklIUnZfalRTYThuNDVzUDJDdGpZMlNZR2RQSnEyX0xMZFp4UTRjWWMxdF8wTFAwQ2sxeElVQ3Z1c1EzRHRpZWQ5QzY4djl6ZC03RE9oN0tHUHo4OFBaR1RoX2JZWDVLY3FXaEFDYUFSbXhoNm5oRDBxVXdzMENvLVhGekxzaEYtc29ZMWk5Ym1pbHFjUWRkTzdWN2pGazI5UFozLVJuMVlNVnNkSWtacllZbjRGMU1sbzYwLUs5SW00UTBHMEl1ZGt0bUhJdTFjdldkMVBRSUM3dkxhTjg1c3ZWTFRpbmxTWEpTOC1YUTlac0I1djVjSjVUSWRfVlp6dHk3eF9KZG8yTE1pX0pGQWdlS1lwblZCcWctSzFsZEw0TTJDNTMteXhWRy1vYlZKUFdDXzNJY3BIOUVoRzhqaHNvT1AzN1cxaXBNRGtsXzhPVHJCUzFEYXFMMDQ5aGc0RTBSYzl5X3FuVk9ZQldOV2F6YURFSVpXS0h2eld6XzJUMnp6ZUFOT3NGLUZ1dnJEQmgtYUtpSUR6aGR2WjVaazg?oc=5",
-     "source_name": "وكالة أنباء الإمارات (وام)",
-     "source_grade": "",
-     "observed_at": "2026-11-18T10:30+00:00",
-     "title": "منافسات قوية في \"أمير الشعراء\" مع انطلاق الحلقات المباشرة",
-     "title_en": "",
-     "dataset": "official"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_baf04c01c9684f41",
@@ -6411,12 +6385,52 @@
    "updated_at": "2026-11-17T19:45+00:00"
   },
   {
+   "id": "evt_bd0881d62edcaa89",
+   "type": "observed-event",
+   "title": "الجيش الأردني: 5 إصابات جراء تحطم مروحية في تمرين عسكري",
+   "title_en": "",
+   "observed_facts": [
+    "CNN بالعربية published: الجيش الأردني: 5 إصابات جراء تحطم مروحية في تمرين عسكري"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "jo",
+    "us"
+   ],
+   "sectors": [
+    "defense"
+   ],
+   "topics": [
+    "conflict",
+    "عالم"
+   ],
+   "evidence": [
+    {
+     "id": "ev_98b69ad70cad452d",
+     "url": "https://arabic.cnn.com/middle-east/article/2026/11/18/jordan-armed-forces-announces-helicopter-crashed",
+     "source_name": "CNN بالعربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-18T10:54+00:00",
+     "title": "الجيش الأردني: 5 إصابات جراء تحطم مروحية في تمرين عسكري",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-11-18T11:09+00:00",
+   "updated_at": "2026-11-18T11:09+00:00"
+  },
+  {
    "id": "evt_bd0cd42dc3f5baf7",
    "type": "observed-event",
-   "title": "الولايات المتحدة تستهدف موقعاً في جزيرة قشم، وهجمات إيرانية على الكويت والبحرين",
-   "title_en": "US Targets Site on Qeshm Island Amid Iranian Attacks on Kuwait and Bahrain",
+   "title": "الكويت والبحرين تعلنان التصدي لهجمات إيرانية جديدة",
+   "title_en": "Kuwait and Bahrain Announce Interception of Fresh Iranian Attacks",
    "observed_facts": [
-    "BBC published: الولايات المتحدة تستهدف موقعاً في جزيرة قشم، وهجمات إيرانية على الكويت والبحرين"
+    "بي بي سي عربي published: الكويت والبحرين تعلنان التصدي لهجمات إيرانية جديدة"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -6434,28 +6448,26 @@
    ],
    "topics": [
     "artificial-intelligence",
-    "conflict",
     "security",
     "الخليج",
     "الكويت",
-    "ايران",
-    "ترامب-ايران"
+    "ايران"
    ],
    "evidence": [
     {
      "id": "ev_01fdadd6ce9c4fc0",
-     "url": "https://www.bbc.com/arabic/articles/cq4gnp3zl3n0o",
-     "source_name": "BBC",
+     "url": "https://www.bbc.com/arabic/articles/cq4gnp3zl3n0o?at_medium=RSS&at_campaign=rss",
+     "source_name": "بي بي سي عربي",
      "source_grade": "حسن",
-     "observed_at": "2026-11-18T05:17+00:00",
-     "title": "الولايات المتحدة تستهدف موقعاً في جزيرة قشم، وهجمات إيرانية على الكويت والبحرين",
-     "title_en": "US Targets Site on Qeshm Island Amid Iranian Attacks on Kuwait and Bahrain",
+     "observed_at": "2026-11-18T11:06+00:00",
+     "title": "الكويت والبحرين تعلنان التصدي لهجمات إيرانية جديدة",
+     "title_en": "Kuwait and Bahrain Announce Interception of Fresh Iranian Attacks",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-17T11:03+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_bd556b96035dede7",
@@ -6532,38 +6544,41 @@
    "updated_at": "2026-11-18T10:38+00:00"
   },
   {
-   "id": "evt_c3bc93810d68059f",
+   "id": "evt_c25268211ee3c118",
    "type": "observed-event",
-   "title": "لماذا ستضعف قبضة نتنياهو على السلطة بعد انتخاب رئيس جديد للكنيست؟",
-   "title_en": "Why Netanyahu's Grip on Power Weakens Following Election of New Knesset Speaker",
+   "title": "بريطانيا... التضخم يسجل أعلى مستوى له منذ عام",
+   "title_en": "",
    "observed_facts": [
-    "CNN Arabic published: لماذا ستضعف قبضة نتنياهو على السلطة بعد انتخاب رئيس جديد للكنيست؟"
+    "سكاي نيوز عربية published: بريطانيا... التضخم يسجل أعلى مستوى له منذ عام"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
    "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
    "confidence": 0.72,
    "severity": "info",
-   "countries": [],
+   "countries": [
+    "ae",
+    "gb"
+   ],
    "sectors": [],
    "topics": [
-    "عالم"
+    "اقتصاد"
    ],
    "evidence": [
     {
-     "id": "ev_aa38d71728d64960",
-     "url": "https://arabic.cnn.com/middle-east/article/2026/11/18/israels-parliament-elects-new-knesset-speaker-weakening-netanyahus-grip-on-power",
-     "source_name": "CNN Arabic",
+     "id": "ev_9a294e82158808d0",
+     "url": "https://www.skynewsarabia.com/business/1905568-%D8%A8%D8%B1%D9%8A%D8%B7%D8%A7%D9%86%D9%8A%D8%A7-%D8%A7%D9%84%D8%AA%D8%B6%D8%AE%D9%85-%D9%8A%D8%B3%D8%AC%D9%84-%D8%A3%D8%B9%D9%84%D9%89-%D9%85%D8%B3%D8%AA%D9%88%D9%89-%D9%84%D9%87-%D8%B9%D8%A7%D9%85",
+     "source_name": "سكاي نيوز عربية",
      "source_grade": "حسن",
-     "observed_at": "2026-11-18T01:40+00:00",
-     "title": "لماذا ستضعف قبضة نتنياهو على السلطة بعد انتخاب رئيس جديد للكنيست؟",
-     "title_en": "Why Netanyahu's Grip on Power Weakens Following Election of New Knesset Speaker",
+     "observed_at": "2026-11-18T10:30+00:00",
+     "title": "بريطانيا... التضخم يسجل أعلى مستوى له منذ عام",
+     "title_en": "",
      "dataset": "news"
     }
    ],
    "contradictions": [],
-   "created_at": "2026-11-18T02:12+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "created_at": "2026-11-18T11:09+00:00",
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_c3c36845caeca503",
@@ -6579,7 +6594,6 @@
    "confidence": 0.72,
    "severity": "info",
    "countries": [
-    "cn",
     "ru"
    ],
    "sectors": [],
@@ -6598,7 +6612,7 @@
    ],
    "contradictions": [],
    "created_at": "2026-11-17T19:45+00:00",
-   "updated_at": "2026-11-18T02:12+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_c43ce7d8e79485c1",
@@ -6718,13 +6732,10 @@
    "confidence": 0.72,
    "severity": "info",
    "countries": [
-    "ae",
     "ne"
    ],
    "sectors": [],
-   "topics": [
-    "الخليج"
-   ],
+   "topics": [],
    "evidence": [
     {
      "id": "ev_c93479dbcef8062e",
@@ -6734,12 +6745,12 @@
      "observed_at": "2026-11-18T09:44+00:00",
      "title": "النيجر.. تصعيد ضد المحاميد وأسئلة بشأن دوافع الطرد",
      "title_en": "",
-     "dataset": "news"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_c6ece74264391efc",
@@ -6791,13 +6802,10 @@
    "confidence": 0.72,
    "severity": "info",
    "countries": [
-    "cn",
-    "us"
+    "cn"
    ],
    "sectors": [],
-   "topics": [
-    "عالم"
-   ],
+   "topics": [],
    "evidence": [
     {
      "id": "ev_291607960f4768f2",
@@ -6807,18 +6815,18 @@
      "observed_at": "2026-11-18T09:39+00:00",
      "title": "شي جينبينغ يستقبل ترامب عند سلم الطائرة لدى وصوله إلى الصين",
      "title_en": "",
-     "dataset": "news"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_c7e96159d101d619",
    "type": "observed-event",
    "title": "الحوثيون: كيف تحولت حركة صعدة المغمورة إلى صداع إقليمي ودولي؟",
-   "title_en": "The Houthis: How an Obscure Saada Movement Became a Regional and Global Headache",
+   "title_en": "The Houthis: How an Obscure Saada Movement Became a Global Headache",
    "observed_facts": [
     "بي بي سي عربي published: الحوثيون: كيف تحولت حركة صعدة المغمورة إلى صداع إقليمي ودولي؟"
    ],
@@ -6840,13 +6848,13 @@
      "source_grade": "ضعيف الإسناد",
      "observed_at": "2026-11-18T09:00+00:00",
      "title": "الحوثيون: كيف تحولت حركة صعدة المغمورة إلى صداع إقليمي ودولي؟",
-     "title_en": "The Houthis: How an Obscure Saada Movement Became a Regional and Global Headache",
+     "title_en": "The Houthis: How an Obscure Saada Movement Became a Global Headache",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_c8be45f1c51ce381",
@@ -6861,9 +6869,7 @@
    "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
    "confidence": 0.72,
    "severity": "info",
-   "countries": [
-    "us"
-   ],
+   "countries": [],
    "sectors": [],
    "topics": [
     "عالم"
@@ -6882,7 +6888,7 @@
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_c8c429daeb76cb4c",
@@ -6926,10 +6932,10 @@
   {
    "id": "evt_ca4be82286176df8",
    "type": "observed-event",
-   "title": "الصين تستضيف قادة العالم في عالم الذكاء الاصطناعي المذهل في شنتشن. إليكم ما لن يروه",
-   "title_en": "China Hosts World Leaders in Dazzling AI Hub Shenzhen: Here's What They Won't See",
+   "title": "الصين تستضيف قادة الدول في عالم الذكاء الاصطناعي المذهل في شنتشن. إليكم ما لن يروه",
+   "title_en": "China Welcomes World Leaders to Shenzhen's AI Showcase: Here Is What They Won't See",
    "observed_facts": [
-    "BBC published: الصين تستضيف قادة العالم في عالم الذكاء الاصطناعي المذهل في شنتشن. إليكم ما لن يروه"
+    "BBC published: الصين تستضيف قادة الدول في عالم الذكاء الاصطناعي المذهل في شنتشن. إليكم ما لن يروه"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -6951,14 +6957,14 @@
      "source_name": "BBC",
      "source_grade": "حسن",
      "observed_at": "2026-11-17T15:45+00:00",
-     "title": "الصين تستضيف قادة العالم في عالم الذكاء الاصطناعي المذهل في شنتشن. إليكم ما لن يروه",
-     "title_en": "China Hosts World Leaders in Dazzling AI Hub Shenzhen: Here's What They Won't See",
+     "title": "الصين تستضيف قادة الدول في عالم الذكاء الاصطناعي المذهل في شنتشن. إليكم ما لن يروه",
+     "title_en": "China Welcomes World Leaders to Shenzhen's AI Showcase: Here Is What They Won't See",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-17T19:45+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_ca81f539661ccc47",
@@ -7047,8 +7053,7 @@
    "confidence": 0.72,
    "severity": "info",
    "countries": [
-    "ar",
-    "gb"
+    "ar"
    ],
    "sectors": [],
    "topics": [],
@@ -7066,7 +7071,7 @@
    ],
    "contradictions": [],
    "created_at": "2026-11-17T19:45+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_caee89b26c43c79f",
@@ -7106,11 +7111,11 @@
    "id": "evt_cb0faef5d17d814a",
    "type": "observed-event",
    "title": "تستخدمها البنوك والمؤسسات الحكومية حول العالم.. اكتشاف ثغرة في لغة جافا",
-   "title_en": "",
+   "title_en": "Used by Global Banks and Governments: Vulnerability Discovered in Java",
    "observed_facts": [
     "الجزيرة نت published: تستخدمها البنوك والمؤسسات الحكومية حول العالم.. اكتشاف ثغرة في لغة جافا"
    ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "sanad_assessment": "2 attributable observation(s); 2 carry an existing SANAD source grade.",
    "inference": "",
    "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
    "confidence": 0.72,
@@ -7118,11 +7123,25 @@
    "countries": [
     "qa"
    ],
-   "sectors": [],
+   "sectors": [
+    "finance",
+    "government"
+   ],
    "topics": [
-    "عالم"
+    "economy",
+    "تقنية"
    ],
    "evidence": [
+    {
+     "id": "ev_3aed2717d23d4b01",
+     "url": "https://www.aljazeera.net/tech/2026/11/18/%D8%AA%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%D9%87%D8%A7-%D8%A7%D9%84%D8%A8%D9%86%D9%88%D9%83-%D9%88%D8%A7%D9%84%D9%85%D8%A4%D8%B3%D8%B3%D8%A7%D8%AA-%D8%A7%D9%84%D8%AD%D9%83%D9%88%D9%85%D9%8A%D8%A9",
+     "source_name": "الجزيرة نت",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-18T10:07+00:00",
+     "title": "تستخدمها البنوك والمؤسسات الحكومية حول العالم.. اكتشاف ثغرة في لغة جافا",
+     "title_en": "Used by Global Banks and Governments: Vulnerability Discovered in Java",
+     "dataset": "news"
+    },
     {
      "id": "ev_dc6b53ea3170a1ed",
      "url": "https://www.aljazeera.net/tech/2026/11/18/%d8%aa%d8%b3%d8%aa%d8%ae%d8%af%d9%85%d9%87%d8%a7-%d8%a7%d9%84%d8%a8%d9%86%d9%88%d9%83-%d9%88%d8%a7%d9%84%d9%85%d8%a4%d8%b3%d8%b3%d8%a7%d8%aa-%d8%a7%d9%84%d8%ad%d9%83%d9%88%d9%85%d9%8a%d8%a9?traffic_source=rss",
@@ -7131,12 +7150,12 @@
      "observed_at": "2026-11-18T07:07+00:00",
      "title": "تستخدمها البنوك والمؤسسات الحكومية حول العالم.. اكتشاف ثغرة في لغة جافا",
      "title_en": "",
-     "dataset": "news"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_ce5cb04864193ba5",
@@ -7175,6 +7194,40 @@
    "contradictions": [],
    "created_at": "2026-11-13T19:16+00:00",
    "updated_at": "2026-11-14T00:27+00:00"
+  },
+  {
+   "id": "evt_d2e29abc294294e0",
+   "type": "observed-event",
+   "title": "\"القنبلة القذرة\".. سلاح الرعب الإشعاعي يستنفر واشنطن",
+   "title_en": "'Dirty Bomb': Radiological Weapon Threat Puts Washington on High Alert",
+   "observed_facts": [
+    "العربية published: \"القنبلة القذرة\".. سلاح الرعب الإشعاعي يستنفر واشنطن"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [],
+   "sectors": [],
+   "topics": [
+    "عالم"
+   ],
+   "evidence": [
+    {
+     "id": "ev_f453df2d004dbb1f",
+     "url": "https://www.alarabiya.net/science/2026/11/18/%D9%82%D9%86%D8%A8%D9%84%D8%A9-%D9%82%D8%B0%D8%B1%D8%A9-%D9%84%D8%A7-%D8%AA%D8%AD%D8%AA%D8%A7%D8%AC-%D9%84%D8%A7%D9%86%D9%81%D8%AC%D8%A7%D8%B1-%D9%86%D9%88%D9%88%D9%8A-%D8%B3%D9%84%D8%A7%D8%AD-%D8%A7%D9%84%D8%B1%D8%B9%D8%A8-%D8%A7%D9%84%D8%A7%D8%B4%D8%B9%D8%A7%D8%B9%D9%8A-%D9%8A%D8%B6%D8%B9-%D9%88%D8%A7%D8%B4%D9%86%D8%B7%D9%86-%D8%A8%D8%AD%D8%A7%D9%84%D8%A9-%D8%A7%D8%B3%D8%AA%D9%86%D9%81%D8%A7%D8%B1",
+     "source_name": "العربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-18T08:57+00:00",
+     "title": "\"القنبلة القذرة\".. سلاح الرعب الإشعاعي يستنفر واشنطن",
+     "title_en": "'Dirty Bomb': Radiological Weapon Threat Puts Washington on High Alert",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-11-18T11:09+00:00",
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_d30ab3389b5df3dc",
@@ -7220,7 +7273,7 @@
    "id": "evt_d496e174a00c260a",
    "type": "observed-event",
    "title": "قرقاش يعلق بعد هجوم الرئيس الصومالي على الإمارات: يعكس تقلبات مواقفه | CNN Arabic | CNN",
-   "title_en": "Gargash Responds to Somali President's Attack on UAE: Reflects Shifting Stances",
+   "title_en": "Gargash Reacts to Somali President's Attack on UAE: Reflects Shifting Stances",
    "observed_facts": [
     "CNN Arabic published: قرقاش يعلق بعد هجوم الرئيس الصومالي على الإمارات: يعكس تقلبات مواقفه | CNN Arabic | CNN"
    ],
@@ -7251,13 +7304,50 @@
      "source_grade": "حسن",
      "observed_at": "2026-11-18T08:15+00:00",
      "title": "قرقاش يعلق بعد هجوم الرئيس الصومالي على الإمارات: يعكس تقلبات مواقفه | CNN Arabic | CNN",
-     "title_en": "Gargash Responds to Somali President's Attack on UAE: Reflects Shifting Stances",
+     "title_en": "Gargash Reacts to Somali President's Attack on UAE: Reflects Shifting Stances",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
+  },
+  {
+   "id": "evt_d4fd74d5f78d9937",
+   "type": "observed-event",
+   "title": "من الشراكة إلى القطيعة.. ميسي يهدد بمقاضاة الاتحاد الأرجنتيني",
+   "title_en": "",
+   "observed_facts": [
+    "الجزيرة نت published: من الشراكة إلى القطيعة.. ميسي يهدد بمقاضاة الاتحاد الأرجنتيني"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [
+    "ar",
+    "qa"
+   ],
+   "sectors": [],
+   "topics": [
+    "عالم"
+   ],
+   "evidence": [
+    {
+     "id": "ev_885e724028d098d8",
+     "url": "https://www.aljazeera.net/sport/2026/11/18/%d9%85%d9%8a%d8%b3%d9%8a-%d9%82%d8%b6%d8%a7%d8%a1-%d9%85%d8%ad%d8%a7%d9%83%d9%85%d8%a9-%d8%a7%d9%84%d8%a7%d8%aa%d8%ad%d8%a7%d8%af-%d8%a7%d9%84%d8%a3%d8%b1%d8%ac%d9%86%d8%aa%d9%8a%d9%86?traffic_source=rss",
+     "source_name": "الجزيرة نت",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-18T07:26+00:00",
+     "title": "من الشراكة إلى القطيعة.. ميسي يهدد بمقاضاة الاتحاد الأرجنتيني",
+     "title_en": "",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-11-18T11:09+00:00",
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_d6247c93172de6a6",
@@ -7336,14 +7426,15 @@
    "id": "evt_d76a48fb845af325",
    "type": "observed-event",
    "title": "الصين تدعو لتعزيز التعاون الدولي في مجال الذكاء الاصطناعي",
-   "title_en": "China Calls for Strengthening International Cooperation on AI",
+   "title_en": "China Calls for Deeper Global Cooperation in Artificial Intelligence",
    "observed_facts": [
+    "اقتصاد سكاي نيوز عربية published: الصين تدعو لتعزيز التعاون الدولي في مجال الذكاء الاصطناعي",
     "سكاي نيوز عربية published: الصين تدعو لتعزيز التعاون الدولي في مجال الذكاء الاصطناعي"
    ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
+   "sanad_assessment": "2 attributable observation(s); 2 carry an existing SANAD source grade.",
+   "inference": "Multiple named sources appear to describe the same event; linkage is based on URL or conservative headline overlap.",
    "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
+   "confidence": 0.8,
    "severity": "info",
    "countries": [
     "cn"
@@ -7357,6 +7448,16 @@
    ],
    "evidence": [
     {
+     "id": "ev_76e44c07198a2cc1",
+     "url": "https://www.snabusiness.com/article/1905514-%D8%A7%D9%84%D8%B5%D9%8A%D9%86-%D8%AA%D8%AF%D8%B9%D9%88-%D9%84%D8%AA%D8%B9%D8%B2%D9%8A%D8%B2-%D8%A7%D9%84%D8%AA%D8%B9%D8%A7%D9%88%D9%86-%D8%A7%D9%84%D8%AF%D9%88%D9%84%D9%8A-%D9%85%D8%AC%D8%A7%D9%84-%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A",
+     "source_name": "اقتصاد سكاي نيوز عربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-18T09:00+00:00",
+     "title": "الصين تدعو لتعزيز التعاون الدولي في مجال الذكاء الاصطناعي",
+     "title_en": "China Calls for Deeper Global Cooperation in Artificial Intelligence",
+     "dataset": "news"
+    },
+    {
      "id": "ev_e2df7d506b1de775",
      "url": "https://www.skynewsarabia.com/business/1905514-%D8%A7%D9%84%D8%B5%D9%8A%D9%86-%D8%AA%D8%AF%D8%B9%D9%88-%D9%84%D8%AA%D8%B9%D8%B2%D9%8A%D8%B2-%D8%A7%D9%84%D8%AA%D8%B9%D8%A7%D9%88%D9%86-%D8%A7%D9%84%D8%AF%D9%88%D9%84%D9%8A-%D9%85%D8%AC%D8%A7%D9%84-%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A",
      "source_name": "سكاي نيوز عربية",
@@ -7364,12 +7465,12 @@
      "observed_at": "2026-11-18T08:43+00:00",
      "title": "الصين تدعو لتعزيز التعاون الدولي في مجال الذكاء الاصطناعي",
      "title_en": "China Calls for Strengthening International Cooperation on AI",
-     "dataset": "news"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_d95267e39729ef55",
@@ -7518,44 +7619,6 @@
    "updated_at": "2026-11-17T02:22+00:00"
   },
   {
-   "id": "evt_e121eddd0ca451b1",
-   "type": "observed-event",
-   "title": "أحكام بالمؤبد والسجن 15 عاماً في أكبر محاكمة لرجال دين شيعة في البحرين",
-   "title_en": "Life Sentences and 15-Year Terms Handed Down in Bahrain's Largest Trial of Shia Clerics",
-   "observed_facts": [
-    "بي بي سي عربي published: أحكام بالمؤبد والسجن 15 عاماً في أكبر محاكمة لرجال دين شيعة في البحرين"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "bh"
-   ],
-   "sectors": [
-    "technology"
-   ],
-   "topics": [
-    "artificial-intelligence"
-   ],
-   "evidence": [
-    {
-     "id": "ev_718c4d383d517aa1",
-     "url": "https://www.bbc.com/arabic/articles/cm9q87y2xd29o?at_medium=RSS&at_campaign=rss",
-     "source_name": "بي بي سي عربي",
-     "source_grade": "حسن",
-     "observed_at": "2026-11-16T18:11+00:00",
-     "title": "أحكام بالمؤبد والسجن 15 عاماً في أكبر محاكمة لرجال دين شيعة في البحرين",
-     "title_en": "Life Sentences and 15-Year Terms Handed Down in Bahrain's Largest Trial of Shia Clerics",
-     "dataset": "map"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-11-16T18:51+00:00",
-   "updated_at": "2026-11-17T19:45+00:00"
-  },
-  {
    "id": "evt_e1b1a87a8b1ba69a",
    "type": "observed-event",
    "title": "إيطاليا تغرم \"ميتا\" 805 ملايين يورو بسبب الوصول غير المصرح به لبيانات المستخدمين",
@@ -7702,7 +7765,7 @@
    "id": "evt_e4a544eeaef321de",
    "type": "observed-event",
    "title": "هوانغ يكسر صمته بعد كشف \"خيانته\" واستقالته من \"إنفيديا\"",
-   "title_en": "Huang Breaks Silence Following 'Betrayal' Revelations and Resignation from Nvidia",
+   "title_en": "Huang Breaks Silence Following 'Betrayal' Allegations and Nvidia Resignation",
    "observed_facts": [
     "سكاي نيوز عربية published: هوانغ يكسر صمته بعد كشف \"خيانته\" واستقالته من \"إنفيديا\""
    ],
@@ -7722,15 +7785,15 @@
      "url": "https://www.skynewsarabia.com/varieties/1905383-%D9%87%D9%88%D8%A7%D9%86%D8%BA-%D9%8A%D9%83%D8%B3%D8%B1-%D8%B5%D9%85%D8%AA%D9%87-%D9%83%D8%B4%D9%81-%D8%AE%D9%8A%D8%A7%D9%86%D8%AA%D9%87-%D9%88%D8%A7%D8%B3%D8%AA%D9%82%D8%A7%D9%84%D8%AA%D9%87-%D8%A5%D9%86%D9%81%D9%8A%D8%AF%D9%8A%D8%A7",
      "source_name": "سكاي نيوز عربية",
      "source_grade": "حسن",
-     "observed_at": "2026-11-17T17:31+00:00",
+     "observed_at": "2026-11-17T17:34+00:00",
      "title": "هوانغ يكسر صمته بعد كشف \"خيانته\" واستقالته من \"إنفيديا\"",
-     "title_en": "Huang Breaks Silence Following 'Betrayal' Revelations and Resignation from Nvidia",
+     "title_en": "Huang Breaks Silence Following 'Betrayal' Allegations and Nvidia Resignation",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-17T19:45+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_e58a9d32181371c2",
@@ -7916,12 +7979,12 @@
      "observed_at": "2026-11-18T10:19+00:00",
      "title": "«التعاون الخليجي»: تدخُّل إيران في القضاء البحريني مرفوض وانتهاك للسيادة",
      "title_en": "",
-     "dataset": "news"
+     "dataset": "osint"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_e9efcfefc2f6f626",
@@ -7937,7 +8000,6 @@
    "confidence": 0.72,
    "severity": "info",
    "countries": [
-    "ae",
     "bh",
     "ir",
     "kw",
@@ -7965,96 +8027,20 @@
      "observed_at": "2026-11-18T10:11+00:00",
      "title": "السعودية تندد بالاعتداءات الإيرانية على الكويت والبحرين وناقلة نفط إماراتية",
      "title_en": "",
-     "dataset": "news"
+     "dataset": "osint"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
-  },
-  {
-   "id": "evt_eb4ca2ba3483d7dd",
-   "type": "observed-event",
-   "title": "تعاون خليجي دولي لتعزيز الجاهزية للطوارئ الإشعاعية في الكويت",
-   "title_en": "Gulf-International Cooperation to Boost Radiological Emergency Preparedness in Kuwait",
-   "observed_facts": [
-    "العربية published: تعاون خليجي دولي لتعزيز الجاهزية للطوارئ الإشعاعية في الكويت"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "kw"
-   ],
-   "sectors": [
-    "technology"
-   ],
-   "topics": [
-    "artificial-intelligence"
-   ],
-   "evidence": [
-    {
-     "id": "ev_08a5bc86175f7206",
-     "url": "https://www.alarabiya.net/arab-and-world/gulf/2026/11/15/%D8%AA%D8%B9%D8%A7%D9%88%D9%86-%D8%AE%D9%84%D9%8A%D8%AC%D9%8A-%D8%AF%D9%88%D9%84%D9%8A-%D9%84%D8%AA%D8%B9%D8%B2%D9%8A%D8%B2-%D8%A7%D9%84%D8%AC%D8%A7%D9%87%D8%B2%D9%8A%D8%A9-%D9%84%D9%84%D8%B7%D9%88%D8%A7%D8%B1%D8%A6-%D8%A7%D9%84%D8%A7%D8%B4%D8%B9%D8%A7%D8%B9%D9%8A%D8%A9-%D9%81%D9%8A-%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA",
-     "source_name": "العربية",
-     "source_grade": "حسن",
-     "observed_at": "2026-11-15T13:34+00:00",
-     "title": "تعاون خليجي دولي لتعزيز الجاهزية للطوارئ الإشعاعية في الكويت",
-     "title_en": "Gulf-International Cooperation to Boost Radiological Emergency Preparedness in Kuwait",
-     "dataset": "map"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-11-15T16:52+00:00",
-   "updated_at": "2026-11-18T02:12+00:00"
-  },
-  {
-   "id": "evt_eb5695afc81c4a20",
-   "type": "observed-event",
-   "title": "الحكم بالسجن المؤبد على عشرات «المواطنين الشيعة» في البحرين بتهمة الارتباط بالحرس الثوري",
-   "title_en": "Bahrain Sentences Dozens of Shia Citizens to Life Over Alleged IRGC Ties",
-   "observed_facts": [
-    "بي بي سي فارسي published: الحكم بالسجن المؤبد على عشرات «المواطنين الشيعة» في البحرين بتهمة الارتباط بالحرس الثوري"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "bh"
-   ],
-   "sectors": [
-    "technology"
-   ],
-   "topics": [
-    "artificial-intelligence"
-   ],
-   "evidence": [
-    {
-     "id": "ev_f136fd2977f4588e",
-     "url": "https://www.bbc.com/persian/articles/c6n90gj5rngyo?at_medium=RSS&at_campaign=rss",
-     "source_name": "بي بي سي فارسي",
-     "source_grade": "حسن",
-     "observed_at": "2026-11-16T16:32+00:00",
-     "title": "الحكم بالسجن المؤبد على عشرات «المواطنين الشيعة» في البحرين بتهمة الارتباط بالحرس الثوري",
-     "title_en": "Bahrain Sentences Dozens of Shia Citizens to Life Over Alleged IRGC Ties",
-     "dataset": "map"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-11-16T18:51+00:00",
-   "updated_at": "2026-11-17T11:03+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_ec9da7c57177c38f",
    "type": "observed-event",
-   "title": "إطلاق مبادرة OpenAI for Chile",
-   "title_en": "OpenAI for Chile Initiative Launched",
+   "title": "تقديم مبادرة OpenAI for Chile",
+   "title_en": "Introducing OpenAI for Chile Initiative",
    "observed_facts": [
-    "أوبن إيه آي published: إطلاق مبادرة OpenAI for Chile"
+    "أوبن إيه آي published: تقديم مبادرة OpenAI for Chile"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -8078,20 +8064,20 @@
      "source_name": "أوبن إيه آي",
      "source_grade": "حسن",
      "observed_at": "2026-11-17T00:00+00:00",
-     "title": "إطلاق مبادرة OpenAI for Chile",
-     "title_en": "OpenAI for Chile Initiative Launched",
+     "title": "تقديم مبادرة OpenAI for Chile",
+     "title_en": "Introducing OpenAI for Chile Initiative",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-17T19:45+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_ecc915d5e0ac653b",
    "type": "observed-event",
    "title": "بريطانيا وحلفاؤها يدعون إسرائيل إلى السماح بوصول المساعدات الإنسانية سريعاً إلى غزة",
-   "title_en": "UK and Allies Urge Israel to Allow Rapid Humanitarian Aid Access to Gaza",
+   "title_en": "UK and Allies Urge Israel to Allow Swift Humanitarian Aid Access into Gaza",
    "observed_facts": [
     "BBC published: بريطانيا وحلفاؤها يدعون إسرائيل إلى السماح بوصول المساعدات الإنسانية سريعاً إلى غزة"
    ],
@@ -8119,13 +8105,13 @@
      "source_grade": "حسن",
      "observed_at": "2026-11-17T09:35+00:00",
      "title": "بريطانيا وحلفاؤها يدعون إسرائيل إلى السماح بوصول المساعدات الإنسانية سريعاً إلى غزة",
-     "title_en": "UK and Allies Urge Israel to Allow Rapid Humanitarian Aid Access to Gaza",
+     "title_en": "UK and Allies Urge Israel to Allow Swift Humanitarian Aid Access into Gaza",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-17T11:03+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_ecdc15dfb024cdd6",
@@ -8242,7 +8228,7 @@
    "id": "evt_efc060b2715829bd",
    "type": "observed-event",
    "title": "صحيفة \"النهار\" اللبنانية تفتح النقاش حول إلغاء قانون يجرّم المثلية",
-   "title_en": "Lebanon's An-Nahar Opens Debate on Decriminalizing Homosexuality",
+   "title_en": "Lebanon's Annahar Daily Sparks Debate on Decriminalizing Homosexuality",
    "observed_facts": [
     "بي بي سي عربي published: صحيفة \"النهار\" اللبنانية تفتح النقاش حول إلغاء قانون يجرّم المثلية"
    ],
@@ -8254,8 +8240,11 @@
    "countries": [
     "lb"
    ],
-   "sectors": [],
+   "sectors": [
+    "technology"
+   ],
    "topics": [
+    "artificial-intelligence",
     "عالم"
    ],
    "evidence": [
@@ -8266,13 +8255,13 @@
      "source_grade": "ضعيف الإسناد",
      "observed_at": "2026-11-18T06:31+00:00",
      "title": "صحيفة \"النهار\" اللبنانية تفتح النقاش حول إلغاء قانون يجرّم المثلية",
-     "title_en": "Lebanon's An-Nahar Opens Debate on Decriminalizing Homosexuality",
+     "title_en": "Lebanon's Annahar Daily Sparks Debate on Decriminalizing Homosexuality",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_f13213d32cf52434",
@@ -8328,7 +8317,6 @@
    "confidence": 0.72,
    "severity": "info",
    "countries": [
-    "gb",
     "om"
    ],
    "sectors": [],
@@ -8347,7 +8335,7 @@
    ],
    "contradictions": [],
    "created_at": "2026-11-17T19:45+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_f23f001369df7b18",
@@ -8480,7 +8468,7 @@
      "url": "https://www.bbc.co.uk/persian/live/cm879d8q0292t?at_medium=RSS&at_campaign=rss",
      "source_name": "بي بي سي فارسي",
      "source_grade": "حسن",
-     "observed_at": "2026-11-18T10:37+00:00",
+     "observed_at": "2026-11-18T11:09+00:00",
      "title": "لقاء بين شي وبوتين قبيل الاجتماع مع ترامب",
      "title_en": "Xi and Putin Meet Ahead of Talks with Trump",
      "dataset": "news"
@@ -8488,13 +8476,50 @@
    ],
    "contradictions": [],
    "created_at": "2026-11-18T02:12+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
+  },
+  {
+   "id": "evt_f820246ec4fd6230",
+   "type": "observed-event",
+   "title": "الرئيس الصيني يدعو لتعزيز التعاون الدولي في مجال الذكاء الاصطناعي",
+   "title_en": "Chinese President Urges Stronger International Cooperation on AI",
+   "observed_facts": [
+    "العربية published: الرئيس الصيني يدعو لتعزيز التعاون الدولي في مجال الذكاء الاصطناعي"
+   ],
+   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
+   "inference": "",
+   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
+   "confidence": 0.72,
+   "severity": "info",
+   "countries": [],
+   "sectors": [
+    "technology"
+   ],
+   "topics": [
+    "artificial-intelligence",
+    "تقنية"
+   ],
+   "evidence": [
+    {
+     "id": "ev_139a56fa5a922d7e",
+     "url": "https://www.alarabiya.net/arab-and-world/2026/11/18/%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3-%D8%A7%D9%84%D8%B5%D9%8A%D9%86%D9%8A-%D9%8A%D8%AF%D8%B9%D9%88-%D9%84%D8%AA%D8%B9%D8%B2%D9%8A%D8%B2-%D8%A7%D9%84%D8%AA%D8%B9%D8%A7%D9%88%D9%86-%D8%A7%D9%84%D8%AF%D9%88%D9%84%D9%8A-%D9%81%D9%8A-%D9%85%D8%AC%D8%A7%D9%84-%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A-",
+     "source_name": "العربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-18T03:27+00:00",
+     "title": "الرئيس الصيني يدعو لتعزيز التعاون الدولي في مجال الذكاء الاصطناعي",
+     "title_en": "Chinese President Urges Stronger International Cooperation on AI",
+     "dataset": "news"
+    }
+   ],
+   "contradictions": [],
+   "created_at": "2026-11-18T11:09+00:00",
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_f83a8ad222e19541",
    "type": "observed-event",
    "title": "تعزيز الدفاعات السيبرانية لحلف NATO والحلفاء باستخدام الذكاء الاصطناعي",
-   "title_en": "Bolstering NATO and Allied Cyber Defenses with Artificial Intelligence",
+   "title_en": "Bolstering NATO and Allied Cyber Defenses with AI",
    "observed_facts": [
     "أوبن إيه آي published: تعزيز الدفاعات السيبرانية لحلف NATO والحلفاء باستخدام الذكاء الاصطناعي"
    ],
@@ -8505,7 +8530,8 @@
    "severity": "info",
    "countries": [],
    "sectors": [
-    "defense"
+    "defense",
+    "technology"
    ],
    "topics": [
     "artificial-intelligence",
@@ -8520,13 +8546,13 @@
      "source_grade": "صحيح",
      "observed_at": "2026-11-17T00:00+00:00",
      "title": "تعزيز الدفاعات السيبرانية لحلف NATO والحلفاء باستخدام الذكاء الاصطناعي",
-     "title_en": "Bolstering NATO and Allied Cyber Defenses with Artificial Intelligence",
+     "title_en": "Bolstering NATO and Allied Cyber Defenses with AI",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-17T11:03+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_f852887f33c6f9ae",
@@ -8565,10 +8591,10 @@
   {
    "id": "evt_f915f062182802d0",
    "type": "observed-event",
-   "title": "سخر Gemini للعمل من أجلك",
-   "title_en": "Put Gemini to Work for You",
+   "title": "سخر Gemini ليعمل من أجلك",
+   "title_en": "Harness Gemini to Work for You",
    "observed_facts": [
-    "مدونة غوغل published: سخر Gemini للعمل من أجلك"
+    "مدونة غوغل published: سخر Gemini ليعمل من أجلك"
    ],
    "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
    "inference": "",
@@ -8587,14 +8613,14 @@
      "source_name": "مدونة غوغل",
      "source_grade": "حسن",
      "observed_at": "2026-11-17T17:00+00:00",
-     "title": "سخر Gemini للعمل من أجلك",
-     "title_en": "Put Gemini to Work for You",
+     "title": "سخر Gemini ليعمل من أجلك",
+     "title_en": "Harness Gemini to Work for You",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-17T19:45+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_f9ba24303c984210",
@@ -8614,9 +8640,7 @@
     "uy"
    ],
    "sectors": [],
-   "topics": [
-    "الخليج"
-   ],
+   "topics": [],
    "evidence": [
     {
      "id": "ev_3ddd2e0a1acec4e8",
@@ -8626,12 +8650,12 @@
      "observed_at": "2026-11-18T10:08+00:00",
      "title": "أوروغواي تسحق الدومينيكان بخماسية ودياً",
      "title_en": "",
-     "dataset": "news"
+     "dataset": "map"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_fb2bd89033735e5e",
@@ -8709,7 +8733,7 @@
    "id": "evt_fca0da29e7dfcfa6",
    "type": "observed-event",
    "title": "روبيو يعلق إن كان هناك رابط مشترك بين الانقطاعات التقنية الضخمة التي شهدتها أمريكا",
-   "title_en": "Rubio Comments on Potential Common Link Among Massive US Tech Outages",
+   "title_en": "Rubio Comments on Possible Links Between Massive US Tech Outages",
    "observed_facts": [
     "CNN Arabic published: روبيو يعلق إن كان هناك رابط مشترك بين الانقطاعات التقنية الضخمة التي شهدتها أمريكا"
    ],
@@ -8736,13 +8760,13 @@
      "source_grade": "حسن",
      "observed_at": "2026-11-18T09:17+00:00",
      "title": "روبيو يعلق إن كان هناك رابط مشترك بين الانقطاعات التقنية الضخمة التي شهدتها أمريكا",
-     "title_en": "Rubio Comments on Potential Common Link Among Massive US Tech Outages",
+     "title_en": "Rubio Comments on Possible Links Between Massive US Tech Outages",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   },
   {
    "id": "evt_fe05b2026c5ab1ea",
@@ -8779,40 +8803,6 @@
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
    "updated_at": "2026-11-18T10:38+00:00"
-  },
-  {
-   "id": "evt_fe2457a763c650cf",
-   "type": "observed-event",
-   "title": "الجزيرة الإنجليزية تحتفي بالذكرى العشرين لانطلاقتها بهوية بصرية جديدة",
-   "title_en": "",
-   "observed_facts": [
-    "الجزيرة نت published: الجزيرة الإنجليزية تحتفي بالذكرى العشرين لانطلاقتها بهوية بصرية جديدة"
-   ],
-   "sanad_assessment": "1 attributable observation(s); 1 carry an existing SANAD source grade.",
-   "inference": "",
-   "uncertainty": "Headline-level deterministic clustering only; evidence links should be read before operational use.",
-   "confidence": 0.72,
-   "severity": "info",
-   "countries": [
-    "qa"
-   ],
-   "sectors": [],
-   "topics": [],
-   "evidence": [
-    {
-     "id": "ev_b210300ec29e1744",
-     "url": "https://www.aljazeera.net/media/2026/11/17/%d8%a7%d9%84%d8%ac%d8%b2%d9%8a%d8%b1%d8%a9-%d8%a7%d9%84%d8%a5%d9%86%d8%ac%d9%84%d9%8a%d8%b2%d9%8a%d8%a9-%d8%aa%d8%ad%d8%aa%d9%81%d9%8a-%d8%a8%d8%a7%d9%84%d8%b0%d9%83%d8%b1%d9%89?traffic_source=rss",
-     "source_name": "الجزيرة نت",
-     "source_grade": "حسن",
-     "observed_at": "2026-11-17T16:31+00:00",
-     "title": "الجزيرة الإنجليزية تحتفي بالذكرى العشرين لانطلاقتها بهوية بصرية جديدة",
-     "title_en": "",
-     "dataset": "map"
-    }
-   ],
-   "contradictions": [],
-   "created_at": "2026-11-17T19:45+00:00",
-   "updated_at": "2026-11-18T02:12+00:00"
   },
   {
    "id": "evt_fe29bd85a1c62e55",
@@ -8926,10 +8916,10 @@
   {
    "id": "evt_fff9536d31f5ff4b",
    "type": "observed-event",
-   "title": "رسائل تضامن مع آبدانان من أنحاء إيران كافة: شجاعتكم أشعلت شعلة الأمل مجدداً",
-   "title_en": "Messages of Solidarity Pour in for Abdanan Across Iran: 'Your Courage Has Reignited Hope'",
+   "title": "رسائل تضامن مع آبدانان من أنحاء إيران: شجاعتكم أشعلت نور الأمل من جديد",
+   "title_en": "Messages of Solidarity with Abdanan Across Iran: 'Your Courage Has Rekindled Hope'",
    "observed_facts": [
-    "إيران إنترناشونال published: رسائل تضامن مع آبدانان من أنحاء إيران كافة: شجاعتكم أشعلت شعلة الأمل مجدداً"
+    "إيران إنترناشونال published: رسائل تضامن مع آبدانان من أنحاء إيران: شجاعتكم أشعلت نور الأمل من جديد"
    ],
    "sanad_assessment": "1 attributable observation(s); 0 carry an existing SANAD source grade.",
    "inference": "",
@@ -8951,14 +8941,14 @@
      "source_name": "إيران إنترناشونال",
      "source_grade": "ضعيف الإسناد",
      "observed_at": "2026-11-18T10:00+00:00",
-     "title": "رسائل تضامن مع آبدانان من أنحاء إيران كافة: شجاعتكم أشعلت شعلة الأمل مجدداً",
-     "title_en": "Messages of Solidarity Pour in for Abdanan Across Iran: 'Your Courage Has Reignited Hope'",
+     "title": "رسائل تضامن مع آبدانان من أنحاء إيران: شجاعتكم أشعلت نور الأمل من جديد",
+     "title_en": "Messages of Solidarity with Abdanan Across Iran: 'Your Courage Has Rekindled Hope'",
      "dataset": "news"
     }
    ],
    "contradictions": [],
    "created_at": "2026-11-18T10:38+00:00",
-   "updated_at": "2026-11-18T10:38+00:00"
+   "updated_at": "2026-11-18T11:09+00:00"
   }
  ]
 }
