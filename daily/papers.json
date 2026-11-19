@@ -1,106 +1,95 @@
 {
- "updated": "2026-11-18T10:38+00:00",
+ "updated": "2026-11-19T01:06+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2611.19857",
-   "title": "PanDWM: Panoramic 4D Driving World Models",
-   "abstract": "Driving world models usually generate videos from six pinhole cameras with separate optical centres and small overlaps, and must learn to keep these views consistent. We present PanDWM, which stitches them into one 360^circ panoramic band. Camera boundaries then fall inside one image, so keeping the views consistent means keeping the image continuous, and each pixel still records its camera ray. Conditioned on layouts, a causal student generates the band window by window in four steps; it is distilled from a causal teacher and trained on its own rollouts. A feed-forward decoder lifts each fram",
+   "id": "2611.11937",
+   "title": "Attention at Absolute Zero",
+   "abstract": "Attention scores candidate supports of an answer, which we call witnesses, and reads the scores at a temperature. We build a higher-order attention layer whose state lives on pairs of items: for a pair (a, b), each third item k is a witness judged through its legs (a, k) and (k, b). It reads witnesses at zero temperature, keeping the best and the number tied with it, passes on only bits comparing such counts, rebuilds its pair state from the input and these bits at every loop, and is trained from answers alone. Each choice removes one way soft attention fails at size: dispersed weight, unresol",
    "authors": [
-    "Jiajun Sun",
-    "Zeyu Zhang",
-    "Zeyu Ren",
-    "Guangfeng Jiang"
+    "Mostafa &#39;Neo&#39; Mohsenvand"
    ],
-   "link": "https://huggingface.co/papers/2611.19857",
+   "link": "https://huggingface.co/papers/2611.11937",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-15T00:00",
-   "title_ar": "PanDWM: نماذج عالم القيادة البانورامية رباعية الأبعاد",
-   "summary_ar": "تُولِّد نماذج عالم القيادة عادةً مقاطع فيديو من ست كاميرات ذات ثقب بمراكز بصرية منفصلة وتداخلات صغيرة، ويجب عليها تعلُّم الحفاظ على اتساق هذه المشاهد. نُقدِّم PanDWM الذي يدمجها في شريط بانورامي واحد بزاوية 360 درجة، مما يجعل حدود الكاميرات تقع داخل صورة واحدة."
+   "published": "2026-11-17T00:00",
+   "title_ar": "الانتباه عند الصفر المطلق",
+   "summary_ar": "يُقيّم الانتباه الركائز المرشحة للإجابة، والتي نسميها شهودًا، ويقرأ الدرجات عند درجة حرارة معينة. وقد بنينا طبقة انتباه من رتبة أعلى تعيش حالتها على أزواج من العناصر، حيث يُعد كل عنصر ثالث شاهداً لزوج ما ويُحكَم عليه من خلال ساقيه."
   },
   {
-   "id": "2611.17048",
-   "title": "Beyond Answering: Learning to Speak First and Act in Streaming Video",
-   "abstract": "Most AI assistants respond only when prompted, remaining silent even when events in the video stream offer meaningful opportunities for conversation. To move beyond purely user-driven interaction, we present AURA 2.0, a streaming video large language model that introduces three core upgrades to AURA. The key advance is Model-Initiated Conversation (MIC), which enables the model to identify topics worth discussing in the evolving visual stream and initiate conversations at appropriate moments without a user query. Stream-Aware Tool Calling (SATC) lets the model act on what it sees by invoking e",
+   "id": "2611.20995",
+   "title": "CONGA: Compiling Gaussian Fiber Geometry for Structured Bayesian Inference",
+   "abstract": "In structured Bayesian models, a large latent block is often Gaussian conditional on a smaller set of parameters, yet generic inference methods relearn this geometry during warmup. We study how this structure can be used to construct transports for posterior inference. The conditional mean and precision determine exact affine maps, including symmetric Brenier and triangular Knothe-Rosenblatt maps, that separate a standard normal block from the remaining non-Gaussian core. KL and relative Fisher objectives then reduce to objectives on this core. We introduce CONGA, a compiler that identifies ca",
    "authors": [
-    "Shuhan Li",
-    "Huankang Guan",
-    "Xintong Guo",
-    "Yang Bo"
+    "Víctor Gallego"
    ],
-   "link": "https://huggingface.co/papers/2611.17048",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-15T00:00",
-   "title_ar": "ما وراء الإجابة: تعلُّم التحدث أولاً والتصرف في الفيديو المتدفق",
-   "summary_ar": "تستجيب معظم مساعدات الذكاء الاصطناعي فقط عند توجيه طلب إليها، وتظل صامتة حتى عندما تتيح الأحداث في تدفق الفيديو فرصاً مفيدة للمحادثة. ولتجاوز التفاعل المدفوع بالمستخدم فقط، نُقدِّم AURA 2.0، وهو نموذج لغوي كبير للفيديو المتدفق يُقدِّم ثلاث ترقيات أساسية لـ AURA."
-  },
-  {
-   "id": "2611.15671",
-   "title": "The Noise Floor of a Quantization Comparison: Engine, restart, batch and kernel drift, measured against 8-bit and 4-bit effects in two decision models",
-   "abstract": "A quantized model is usually judged by comparing it with its BF16 original, but that comparison changes more than the weights. It often changes the serving engine, it always runs on a different server instance, it may change how requests are batched, and on some stacks the library selects a different kernel depending only on which packages import. We measure each of these sources on the same 2,400 public decisions for two of Cloudflare's decision models, Clef-flash (9B) and Clef (27B), on an NVIDIA GB10, and state every quantization effect as the excess over them. Sources that are not quantiza",
-   "authors": [
-    "Aleks Blagojevich",
-    "Trevor Sunderland"
-   ],
-   "link": "https://huggingface.co/papers/2611.15671",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-11T00:00",
-   "title_ar": "أرضية الضوضاء لمقارنة التكميم: انحراف المحرك، وإعادة التشغيل، والدُفعة، والنواة، مقيساً مقابل تأثيرات 8 بت و4 بت في نموذجي اتخاذ قرار",
-   "summary_ar": "يُحكَم عادةً على النموذج المُكمَّم بمقارنته بنسخته الأصلية بتنسيق BF16، لكن هذه المقارنة تُغيِّر ما هو أكثر من مجرد الأوزان. فهي تُغيِّر غالباً محرك التقديم، وتعمل دائماً على خادم مختلف، وقد تُغيِّر كيفية تجميع الطلبات في دفعات، كما تختار المكتبة نواة مختلفة في بعض البيئات البرمجية."
-  },
-  {
-   "id": "2611.21392",
-   "title": "VideoNexus: Video Perception Beyond the Reasoning Context",
-   "abstract": "Understanding long videos requires locating evidence, resolving visual details, and integrating observations into an answer. Even when relevant evidence is present, performing these operations within long, dense visual sequences burdens both perception and reasoning. Video agents enable selective inspection, but returning frames to the planner still accumulates visual information in its reasoning context. Delegating perception reduces this burden, yet sparse sampling can miss decisive details, and per-frame descriptions can preserve context growth. We introduce VideoNexus, a training-free fram",
-   "authors": [
-    "Yancheng Long",
-    "Xuanyu Zheng",
-    "Wei Chen",
-    "Luoyuan Zhang"
-   ],
-   "link": "https://huggingface.co/papers/2611.21392",
+   "link": "https://huggingface.co/papers/2611.20995",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-16T00:00",
-   "title_ar": "VideoNexus: إدراك الفيديو إلى ما بعد سياق الاستدلال",
-   "summary_ar": "يتطلب فهم مقاطع الفيديو الطويلة تحديد موقع الأدلة، وتوضيح التفاصيل البصرية، ودمج الملاحظات في إجابة. وحتى مع وجود الأدلة ذات الصلة، فإن إجراء هذه العمليات ضمن تسلسلات بصرية طويلة وكثيفة يُشكِّل عبئاً على كل من الإدراك والاستدلال، وتُمكِّن وكلاء الفيديو من المعالجة الانتقائية."
+   "title_ar": "كونغا: تصريف هندسة الألياف الغاوسية للاستدلال البايزي المنظم",
+   "summary_ar": "في النماذج البايزية المنظمة، غالباً ما تكون كتلة كامنة كبيرة غاوسيةً بالشرط على مجموعة أصغر من المعلمات، ومع ذلك تعيد طرق الاستدلال العامة تعلم هذه الهندسة أثناء فترة الإحماء. نبحث في كيفية استخدام هذا الهيكل لبناء عمليات نقل للاستدلال البعدي."
   },
   {
-   "id": "2611.23034",
-   "title": "M3OPD-Reasoner: An Open Recipe for Post-Training Multimodal Reasoning with Multi-Teacher On-Policy Distillation",
-   "abstract": "Multi-Teacher On-Policy Distillation (MOPD) enables a single student to absorb the skills of several domain teachers by learning from its own generated responses. We present Multimodal Model Multi-Teacher On-Policy Distillation Reasoner (M3OPD-Reasoner), a fully open recipe for post-training vision-language models (VLMs) over three reasoning domains: image STEM, image perception, and video. We curate two datasets, M3OPD-SFT-1.35M for supervised fine-tuning (SFT) and M3OPD-RL-193K for reinforcement learning (RL) with verifiable rewards. On these data, we compare post-training recipes that start",
+   "id": "2611.20003",
+   "title": "The novelty exposed: ablation, reproducibility and transparency in 40 technical reports of open-weight large language models (LLMs)",
+   "abstract": "In 2025 alone, 48 new large language model (LLM) architectures were added to the Hugging Face transformers library, and many of them arrive with a technical report that presents the model as new. What is actually new in these models, and is it tested? We put this question to LLM technical reports. We look at three things: what the reference code shows about how new open-weight architectures differ from earlier ones; what 40 randomly sampled technical reports claim as new and whether they support it with ablation studies; and what they disclose for reproducibility and transparency. In the libra",
    "authors": [
-    "Nguyen Quang Trung",
-    "Hoang Phan",
-    "Shuo Sun",
-    "Longyin Zhang"
+    "Bahaeddin Türkoğlu"
    ],
-   "link": "https://huggingface.co/papers/2611.23034",
+   "link": "https://huggingface.co/papers/2611.20003",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-15T00:00",
+   "title_ar": "كشف الجدة: دراسات الاستئصال، وقابلية التكرار، والشفافية في 40 تقريرًا تقنيًا للنماذج اللغوية الكبيرة مفتوحة الأوزان",
+   "summary_ar": "أُضيف 48 معمارية جديدة للنماذج اللغوية الكبيرة إلى مكتبة محولات هجينغ فيس في عام 2025 وحده، ويأتي العديد منها بتقرير تقني يقدم النموذج على أنه جديد. نطرح في هذا العمل تساؤلاً حول ما هو جديد فعلياً في هذه النماذج وعما إذا كان قد جرى اختباره، موجّهين هذا السؤال لتقاريرها التقنية."
+  },
+  {
+   "id": "2611.18553",
+   "title": "WeightBench: Evaluating Language Models as Weight-Space Programmers",
+   "abstract": "Recent work shows that large language models (LLMs) can operate directly on the parameters of other neural networks. They can read what a network was trained to do, fix a network that fails, and write working networks from scratch, all without gradient descent. This capability has been termed Weight-Space Programming (WSP). Exploring this new paradigm systematically requires a robust benchmark. We introduce WEIGHTBENCH, a benchmark that evaluates LLMs of increasing capability on 42 WSP tasks across five tracks: reading, fixing and writing weights, recognizing edits that are impossible, and dat",
+   "authors": [
+    "Aayush Marasini",
+    "Barsat Khadka",
+    "Nick Rahimi"
+   ],
+   "link": "https://huggingface.co/papers/2611.18553",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-13T00:00",
+   "title_ar": "ويت بنش: تقييم النماذج اللغوية كمبرمجين في فضاء الأوزان",
+   "summary_ar": "تُظهر الأعمال الحديثة أن النماذج اللغوية الكبيرة يمكنها العمل مباشرة على معلمات الشبكات العصبية الأخرى دون انحدار تدرجي. وتستطيع هذه النماذج قراءة ما دُرِّبت عليه الشبكة، وإصلاح الشبكة المتعطلة، وكتابة شبكات عاملة من الصفر، وهي قدرة أُطلق عليها اسم فضاء الأوزان."
+  },
+  {
+   "id": "2611.20321",
+   "title": "Unreasonable Confidence from Simulator Misspecification: Directional Robustness on the SPEED+ Sim-to-Real Benchmark",
+   "abstract": "Vision-based navigation systems for orbit must be trained almost entirely on synthetic imagery, because real labelled images of a given spacecraft in flight rarely exist. Benchmarks like SPEED+ are built for that situation: the training set comes from a simulator, and the test sets are real images of a satellite mockup under two kinds of lighting. That simulator approximates how light reflects off mylar and aluminium, and like every scientific simulator it is misspecified. Its error is radiometric, since it misses the specular highlights, hard shadows and sensor saturation common in real image",
+   "authors": [
+    "Nikolay Dolgov"
+   ],
+   "link": "https://huggingface.co/papers/2611.20321",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-15T00:00",
+   "title_ar": "ثقة غير معقولة ناتجة عن التحديد الخاطئ للمحاكي: المتانة الاتجاهية على معيار النقل من المحاكاة إلى الواقع SPEED+",
+   "summary_ar": "يجب تدريب أنظمة الملاحة القائمة على الرؤية في المدار بالكامل تقريباً على صور تركيبية، لندرة وجود صور حقيقية موسومة لمركبة فضائية معينة أثناء الطيران. وبُنيت معايير تقييم مثل SPEED+ لمثل هذه الحالات، حيث تأتي مجموعة التدريب من محاكٍ بينما تكون مجموعات الاختبار صوراً حقيقية."
+  },
+  {
+   "id": "2611.23140",
+   "title": "GameRealm: Grounding Visual Learning in Interactive Games",
+   "abstract": "Visual foundation models are central to physical intelligence, yet their development remains constrained by fragmented training datasets, inconsistent annotation quality, and limited multimodal supervision. To address these challenges, we introduce GameRealm, a large-scale, richly annotated dataset that grounds visual observations in synchronized, game-native supervision. GameRealm encompasses over 120 million RGB frames and 1,000 hours of gameplay footage across all views. Beyond its unprecedented scale, GameRealm provides rich multimodal supervision, including metric depth, camera parameters",
+   "authors": [
+    "Weiguang Zhao",
+    "Yifan Wang",
+    "Ni Yang",
+    "Yating Wang"
+   ],
+   "link": "https://huggingface.co/papers/2611.23140",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-17T00:00",
-   "title_ar": "M3OPD-Reasoner: وصفة مفتوحة للاستدلال متعدد الوسائط بعد التدريب مع التقطير على السياسة متعدد المعلمين",
-   "summary_ar": "يُتيح التقطير على السياسة متعدد المعلمين (MOPD) لطالب واحد استيعاب مهارات عدة معلمين متخصصين عبر التعلُّم من إجاباته المُولَّدة ذاتياً. نُقدِّم M3OPD-Reasoner، وهو وصفة مفتوحة بالكامل لما بعد تدريب نماذج الرؤية."
-  },
-  {
-   "id": "2611.23026",
-   "title": "TPHC: Improving Hyper-Connections with Tensor-Parallel Grouped Updates",
-   "abstract": "Hyper-Connections (HC) expand the residual stream of a Transformer into N parallel streams, and manifold-constrained HC (mHC) stabilizes them at scale. However, mHC benefits little from more than four streams, partly because each sublayer writes a single output to all streams, limiting how differently they can be updated. In this work, we propose TPHC, which integrates tensor-parallel (TP) shards with HC streams to promote greater independence across streams. Specifically, we route a separate mixture of the residual streams to each TP shard and keep the individual shard outputs separate during",
-   "authors": [
-    "Xinying Hu",
-    "You Wu",
-    "Haoyi Wu",
-    "Jianchao Tan"
-   ],
-   "link": "https://huggingface.co/papers/2611.23026",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-17T00:00",
-   "title_ar": "TPHC: تحسين الاتصالات الفائقة باستخدام تحديثات مجمعة متوازية الموترات",
-   "summary_ar": "تُوسِّع الاتصالات الفائقة (HC) المسار المتبقي لنموذج المحوّل إلى N من المسارات المتوازية، ويُثبِّتها نظام mHC على النطاقات الكبيرة. ومع ذلك، فإن mHC بالكاد يستفيد من أكثر من أربعة مسارات، ويُعزى ذلك جزئياً إلى أن كل طبقة فرعية تكتب مُخرَجاً واحداً لجميع المسارات، مما يحد من تباينها."
+   "title_ar": "غيم ريلم: ترسيخ التعلم البصري في الألعاب التفاعلية",
+   "summary_ar": "تُعد النماذج البصرية التأسيسية عنصراً محورياً للذكاء الفيزيائي، إلا أن تطورها لا يزال مقيداً بتجزؤ مجموعات بيانات التدريب، وتفاوت جودة التوسيم، ومحدودية الإشراف متعدد الوسائط. ولمواجهة هذه التحديات، نقدم GameRealm، وهي مجموعة بيانات واسعة النطاق وموسومة بغزارة."
   }
  ],
  "n": 6
