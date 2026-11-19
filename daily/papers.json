@@ -1,95 +1,106 @@
 {
- "updated": "2026-11-19T01:06+00:00",
+ "updated": "2026-11-19T18:32+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2611.11937",
-   "title": "Attention at Absolute Zero",
-   "abstract": "Attention scores candidate supports of an answer, which we call witnesses, and reads the scores at a temperature. We build a higher-order attention layer whose state lives on pairs of items: for a pair (a, b), each third item k is a witness judged through its legs (a, k) and (k, b). It reads witnesses at zero temperature, keeping the best and the number tied with it, passes on only bits comparing such counts, rebuilds its pair state from the input and these bits at every loop, and is trained from answers alone. Each choice removes one way soft attention fails at size: dispersed weight, unresol",
+   "id": "2611.22382",
+   "title": "RICoT: Recurrent Interleaved Chain-of-Thought for Page Stream Segmentation",
+   "abstract": "Large language models (LLMs) have renewed interest in Page Stream Segmentation (PSS), splitting a multi-page file into its constituent documents. Yet published LLM methods still frame the task as boundary classification over one or a few neighboring pages, and commercial document-splitting APIs do not disclose their methods. We reimagine PSS for LLMs as a sequential process over the whole stream and propose RICoT (Recurrent Interleaved Chain-of-Thought), a prompting framework that works through the pages as a reader would: within a sliding window it reasons about each page and commits its boun",
    "authors": [
-    "Mostafa &#39;Neo&#39; Mohsenvand"
+    "Prashant Khatri",
+    "Bhavana Malagavalli",
+    "Saiful Haq",
+    "Niyati Chhaya"
    ],
-   "link": "https://huggingface.co/papers/2611.11937",
+   "link": "https://huggingface.co/papers/2611.22382",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-17T00:00",
-   "title_ar": "الانتباه عند الصفر المطلق",
-   "summary_ar": "يُقيّم الانتباه الركائز المرشحة للإجابة، والتي نسميها شهودًا، ويقرأ الدرجات عند درجة حرارة معينة. وقد بنينا طبقة انتباه من رتبة أعلى تعيش حالتها على أزواج من العناصر، حيث يُعد كل عنصر ثالث شاهداً لزوج ما ويُحكَم عليه من خلال ساقيه."
+   "title_ar": "ريكوت (RICoT): سلسلة أفكار تكرارية متداخلة لتجزئة تدفق الصفحات",
+   "summary_ar": "جددت النماذج اللغوية الكبيرة الاهتمام بتجزئة تدفق الصفحات، وهي عملية تقسيم ملف متعدد الصفحات إلى مستنداته المكونة له. ومع ذلك، لا تزال أساليب النماذج اللغوية الكبيرة المنشورة تصيغ المهمة كتصنيف للحدود عبر صفحة واحدة أو بضع صفحات متجاورة، كما أن واجهات برمجة التطبيقات التجارية لتقسيم المستندات لا تفعل ذلك."
   },
   {
-   "id": "2611.20995",
-   "title": "CONGA: Compiling Gaussian Fiber Geometry for Structured Bayesian Inference",
-   "abstract": "In structured Bayesian models, a large latent block is often Gaussian conditional on a smaller set of parameters, yet generic inference methods relearn this geometry during warmup. We study how this structure can be used to construct transports for posterior inference. The conditional mean and precision determine exact affine maps, including symmetric Brenier and triangular Knothe-Rosenblatt maps, that separate a standard normal block from the remaining non-Gaussian core. KL and relative Fisher objectives then reduce to objectives on this core. We introduce CONGA, a compiler that identifies ca",
+   "id": "2611.21553",
+   "title": "BLIP-Live: Balancing Timeliness & Firing Precision in Proactive Streaming Video Agents",
+   "abstract": "Streaming video understanding is becoming increasingly important for real-world interactive systems. Such systems must be proactive for natural and useful human interaction: they should respond as soon as sufficient evidence becomes available while avoiding premature, redundant, or incorrect responses. We present BLIP-Live, a framework unifying data, metrics, harness, and training around a shared formulation of proactivity as effective causal response decisions balancing the two competing objectives of responding vs silence. First, we construct BLIP-Live-780K dataset containing human annotatio",
    "authors": [
-    "Víctor Gallego"
+    "Kanchana Ranasinghe",
+    "Honglu Zhou",
+    "Dominick Reilly",
+    "Le Xue"
    ],
-   "link": "https://huggingface.co/papers/2611.20995",
+   "link": "https://huggingface.co/papers/2611.21553",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-16T00:00",
-   "title_ar": "كونغا: تصريف هندسة الألياف الغاوسية للاستدلال البايزي المنظم",
-   "summary_ar": "في النماذج البايزية المنظمة، غالباً ما تكون كتلة كامنة كبيرة غاوسيةً بالشرط على مجموعة أصغر من المعلمات، ومع ذلك تعيد طرق الاستدلال العامة تعلم هذه الهندسة أثناء فترة الإحماء. نبحث في كيفية استخدام هذا الهيكل لبناء عمليات نقل للاستدلال البعدي."
+   "title_ar": "بليب-لايف (BLIP-Live): موازنة التوقيت المناسب ودقة الإطلاق في وكلاء الفيديو التدفقي الاستباقيين",
+   "summary_ar": "يكتسب فهم الفيديو التدفقي أهمية متزايدة للأنظمة التفاعلية في العالم الحقيقي. ويجب أن تكون هذه الأنظمة استباقية لتحقيق تفاعل بشري طبيعي ومفيد؛ بحيث تستجيب بمجرد توفر الأدلة الكافية مع تجنب الردود المبكرة أو الزائدة عن الحاجة أو غير الصحيحة."
   },
   {
-   "id": "2611.20003",
-   "title": "The novelty exposed: ablation, reproducibility and transparency in 40 technical reports of open-weight large language models (LLMs)",
-   "abstract": "In 2025 alone, 48 new large language model (LLM) architectures were added to the Hugging Face transformers library, and many of them arrive with a technical report that presents the model as new. What is actually new in these models, and is it tested? We put this question to LLM technical reports. We look at three things: what the reference code shows about how new open-weight architectures differ from earlier ones; what 40 randomly sampled technical reports claim as new and whether they support it with ablation studies; and what they disclose for reproducibility and transparency. In the libra",
+   "id": "2611.16933",
+   "title": "Kezek: Splitting Mono Two-Person Conversations into Per-Speaker Tracks for Full-Duplex Dialogue Data",
+   "abstract": "Full-duplex spoken dialogue models learn turn-taking, overlaps and backchannels from conversations recorded with one channel per speaker, but most available conversational audio is a single mono mix. We present Kezek, a model that turns a mono recording of exactly two people into one track per person with the original length and timing; overlaps and short replies (\"yeah\", \"mm-hm\") stay on the track of the person who said them. Kezek decides who speaks when and who is who once for the whole recording (stage 1: a two-voice activity model guided by a speaker fingerprint trained to be insensitive ",
    "authors": [
-    "Bahaeddin Türkoğlu"
+    "Bagzhan Karl",
+    "Alizhan Karl"
    ],
-   "link": "https://huggingface.co/papers/2611.20003",
+   "link": "https://huggingface.co/papers/2611.16933",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-15T00:00",
-   "title_ar": "كشف الجدة: دراسات الاستئصال، وقابلية التكرار، والشفافية في 40 تقريرًا تقنيًا للنماذج اللغوية الكبيرة مفتوحة الأوزان",
-   "summary_ar": "أُضيف 48 معمارية جديدة للنماذج اللغوية الكبيرة إلى مكتبة محولات هجينغ فيس في عام 2025 وحده، ويأتي العديد منها بتقرير تقني يقدم النموذج على أنه جديد. نطرح في هذا العمل تساؤلاً حول ما هو جديد فعلياً في هذه النماذج وعما إذا كان قد جرى اختباره، موجّهين هذا السؤال لتقاريرها التقنية."
+   "published": "2026-11-12T00:00",
+   "title_ar": "كيزيك (Kezek): تقسيم المحادثات الثنائية أحادية القناة إلى مسارات لكل متحدث لبيانات الحوار مزدوج الاتجاه بالكامل",
+   "summary_ar": "تتعلم نماذج الحوار الصوتي مزدوج الاتجاه بالكامل تبادل الأدوار والتداخلات وردود الفعل التعزيزية من المحادثات المسجلة بقناة واحدة لكل متحدث، ولكن معظم الصوتيات الحوارية المتاحة هي مزيج أحادي القناة. نقدم \"كيزيك\"، وهو نموذج يحول تسجيلاً أحادي القناة لشخصين بالضبط إلى مسار واحد لكل شخص."
   },
   {
-   "id": "2611.18553",
-   "title": "WeightBench: Evaluating Language Models as Weight-Space Programmers",
-   "abstract": "Recent work shows that large language models (LLMs) can operate directly on the parameters of other neural networks. They can read what a network was trained to do, fix a network that fails, and write working networks from scratch, all without gradient descent. This capability has been termed Weight-Space Programming (WSP). Exploring this new paradigm systematically requires a robust benchmark. We introduce WEIGHTBENCH, a benchmark that evaluates LLMs of increasing capability on 42 WSP tasks across five tracks: reading, fixing and writing weights, recognizing edits that are impossible, and dat",
+   "id": "2611.23257",
+   "title": "StatePortal: Agentic Checkpoint Synthesis for Testing Deep States in Interactive Software",
+   "abstract": "Large language models have reduced the effort to generate code for interactive software with graphical user interfaces (GUIs). For such software, a key testing bottleneck is reaching a deep state, one that requires a long interaction history. The cost of reaching it recurs across commits, and the GUI automation that could amortize it assumes a DOM or accessibility tree that self-rendered engines do not expose. We introduce StatePortal, an agent that synthesizes a checkpoint, an artifact that restores that state and can be versioned and replayed, from a natural-language functional test case and",
    "authors": [
-    "Aayush Marasini",
-    "Barsat Khadka",
-    "Nick Rahimi"
+    "Zhiyuan Peng",
+    "Wei Tao",
+    "Chenhao Ying",
+    "Yuan Luo"
    ],
-   "link": "https://huggingface.co/papers/2611.18553",
+   "link": "https://huggingface.co/papers/2611.23257",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-13T00:00",
-   "title_ar": "ويت بنش: تقييم النماذج اللغوية كمبرمجين في فضاء الأوزان",
-   "summary_ar": "تُظهر الأعمال الحديثة أن النماذج اللغوية الكبيرة يمكنها العمل مباشرة على معلمات الشبكات العصبية الأخرى دون انحدار تدرجي. وتستطيع هذه النماذج قراءة ما دُرِّبت عليه الشبكة، وإصلاح الشبكة المتعطلة، وكتابة شبكات عاملة من الصفر، وهي قدرة أُطلق عليها اسم فضاء الأوزان."
+   "published": "2026-09-29T00:00",
+   "title_ar": "ستيت بورتال (StatePortal): توليد نقاط فحص معتمدة على الوكلاء لاختبار الحالات العميقة في البرمجيات التفاعلية",
+   "summary_ar": "قللت النماذج اللغوية الكبيرة من الجهد المبذول لتوليد التعليمات البرمجية للبرمجيات التفاعلية ذات واجهات المستخدم الرسومية. وتتمثل عقبة الاختبار الرئيسية لمثل هذه البرمجيات في الوصول إلى حالة عميقة تتطلب تاريخ تفاعل طويلاً، حيث تتكرر تكلفة الوصول إليها عبر الالتزامات البرمجية المختلفة والواجهات الرسومية."
   },
   {
-   "id": "2611.20321",
-   "title": "Unreasonable Confidence from Simulator Misspecification: Directional Robustness on the SPEED+ Sim-to-Real Benchmark",
-   "abstract": "Vision-based navigation systems for orbit must be trained almost entirely on synthetic imagery, because real labelled images of a given spacecraft in flight rarely exist. Benchmarks like SPEED+ are built for that situation: the training set comes from a simulator, and the test sets are real images of a satellite mockup under two kinds of lighting. That simulator approximates how light reflects off mylar and aluminium, and like every scientific simulator it is misspecified. Its error is radiometric, since it misses the specular highlights, hard shadows and sensor saturation common in real image",
+   "id": "2611.23994",
+   "title": "WaveView: The Novel View Is in the Noise",
+   "abstract": "Generative novel view synthesis (NVS) employs a diffusion model to render a static or dynamic scene from a target camera view. Explicit warp methods complete a reprojection of the source with video diffusion models, and implicit methods encode the camera parameters or 3D cues. Both add inference overhead, and the generated layout often drifts from the ground truth. We present WaveView, which injects the warped source into the phase of the initial noise of a pretrained generator. The Dual-Tree Complex Wavelet Packet Transform (DT-CWPT) allows local and anisotropic phase injection. The generator",
    "authors": [
-    "Nikolay Dolgov"
+    "Kaiwen Wang",
+    "Jan-Hendrik Pauls",
+    "Yinzhe Shen",
+    "Frank Bieder"
    ],
-   "link": "https://huggingface.co/papers/2611.20321",
+   "link": "https://huggingface.co/papers/2611.23994",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-15T00:00",
-   "title_ar": "ثقة غير معقولة ناتجة عن التحديد الخاطئ للمحاكي: المتانة الاتجاهية على معيار النقل من المحاكاة إلى الواقع SPEED+",
-   "summary_ar": "يجب تدريب أنظمة الملاحة القائمة على الرؤية في المدار بالكامل تقريباً على صور تركيبية، لندرة وجود صور حقيقية موسومة لمركبة فضائية معينة أثناء الطيران. وبُنيت معايير تقييم مثل SPEED+ لمثل هذه الحالات، حيث تأتي مجموعة التدريب من محاكٍ بينما تكون مجموعات الاختبار صوراً حقيقية."
+   "published": "2026-11-18T00:00",
+   "title_ar": "ويف فيو (WaveView): المنظور الجديد يكمن في الضجيج",
+   "summary_ar": "يستخدم توليد المناظير الجديدة التوليدي نموذج انتشار لتصيير مشهد ثابت أو ديناميكي من زاوية كاميرا مستهدفة. وتُكمل أساليب التشويه الصريح إعادة إسقاط المصدر باستخدام نماذج انتشار الفيديو، بينما تُشفر الأساليب الضمنية معلمات الكاميرا أو الإشارات ثلاثية الأبعاد، وكلاهما يضيف عبئاً استدلالياً."
   },
   {
-   "id": "2611.23140",
-   "title": "GameRealm: Grounding Visual Learning in Interactive Games",
-   "abstract": "Visual foundation models are central to physical intelligence, yet their development remains constrained by fragmented training datasets, inconsistent annotation quality, and limited multimodal supervision. To address these challenges, we introduce GameRealm, a large-scale, richly annotated dataset that grounds visual observations in synchronized, game-native supervision. GameRealm encompasses over 120 million RGB frames and 1,000 hours of gameplay footage across all views. Beyond its unprecedented scale, GameRealm provides rich multimodal supervision, including metric depth, camera parameters",
+   "id": "2611.24408",
+   "title": "StrideWorld: Benchmarking Scene Rigidity and Action Consistency in Interactive Video World Model",
+   "abstract": "Interactive video world models turn user commands into the exploration of a generated scene, which requires the scene to keep its 3D structure as the camera moves and each action to keep a stable effect. Existing benchmarks mostly evaluate these properties against references fitted to the video under test, either a scene reconstructed from its own frames or a camera trajectory aligned to the command path with a free scale. Such references can absorb gradual scene deformation and changes in pace and route length, so these errors can pass undetected. We therefore introduce StrideWorld, a benchma",
    "authors": [
-    "Weiguang Zhao",
-    "Yifan Wang",
-    "Ni Yang",
-    "Yating Wang"
+    "Chuang Wang",
+    "Rui Nie",
+    "Jie Song",
+    "Junyuan Gao"
    ],
-   "link": "https://huggingface.co/papers/2611.23140",
+   "link": "https://huggingface.co/papers/2611.24408",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-17T00:00",
-   "title_ar": "غيم ريلم: ترسيخ التعلم البصري في الألعاب التفاعلية",
-   "summary_ar": "تُعد النماذج البصرية التأسيسية عنصراً محورياً للذكاء الفيزيائي، إلا أن تطورها لا يزال مقيداً بتجزؤ مجموعات بيانات التدريب، وتفاوت جودة التوسيم، ومحدودية الإشراف متعدد الوسائط. ولمواجهة هذه التحديات، نقدم GameRealm، وهي مجموعة بيانات واسعة النطاق وموسومة بغزارة."
+   "published": "2026-11-18T00:00",
+   "title_ar": "سترايد وورلد (StrideWorld): تقييم صلابة المشهد واتساق الحركة في نموذج عالم الفيديو التفاعلي",
+   "summary_ar": "تُحوّل نماذج عالم الفيديو التفاعلية أوامر المستخدم إلى استكشاف لمشهد مُولَّد، مما يتطلب من المشهد الحفاظ على بنيته ثلاثية الأبعاد أثناء تحرك الكاميرا، وأن يحتفظ كل إجراء بتأثير مستقر. وتقيّم المعايير المرجعية الحالية هذه الخصائص في الغالب مقابل مراجع ملائمة للفيديو قيد الاختبار."
   }
  ],
  "n": 6
