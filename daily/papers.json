@@ -1,106 +1,105 @@
 {
- "updated": "2026-11-19T18:32+00:00",
+ "updated": "2026-11-20T08:07+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2611.22382",
-   "title": "RICoT: Recurrent Interleaved Chain-of-Thought for Page Stream Segmentation",
-   "abstract": "Large language models (LLMs) have renewed interest in Page Stream Segmentation (PSS), splitting a multi-page file into its constituent documents. Yet published LLM methods still frame the task as boundary classification over one or a few neighboring pages, and commercial document-splitting APIs do not disclose their methods. We reimagine PSS for LLMs as a sequential process over the whole stream and propose RICoT (Recurrent Interleaved Chain-of-Thought), a prompting framework that works through the pages as a reader would: within a sliding window it reasons about each page and commits its boun",
+   "id": "2611.26444",
+   "title": "Mind2Act World: A Diagnostic Benchmark for Embodied Mind, Physical Action, and Mind-Action Composition in Robotic Manipulation",
+   "abstract": "Embodied intelligence aims to let robots perform complex physical tasks with human-like adaptability and reliability, which requires three complementary capabilities: history-based cognitive reasoning, precise and timely physical execution, and the composition of reasoning and execution through environmental feedback. Yet existing benchmarks either evaluate reasoning and execution within the same tasks or assess them separately without their composition, so they reveal little about whether a failure comes from reasoning, execution, or their composition. We introduce Mind2Act World, a diagnosti",
    "authors": [
-    "Prashant Khatri",
-    "Bhavana Malagavalli",
-    "Saiful Haq",
-    "Niyati Chhaya"
+    "Yuzhi Huang",
+    "Jie Wu",
+    "Fanding Huang",
+    "Junchao Lin"
    ],
-   "link": "https://huggingface.co/papers/2611.22382",
+   "link": "https://huggingface.co/papers/2611.26444",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-17T00:00",
-   "title_ar": "ريكوت (RICoT): سلسلة أفكار تكرارية متداخلة لتجزئة تدفق الصفحات",
-   "summary_ar": "جددت النماذج اللغوية الكبيرة الاهتمام بتجزئة تدفق الصفحات، وهي عملية تقسيم ملف متعدد الصفحات إلى مستنداته المكونة له. ومع ذلك، لا تزال أساليب النماذج اللغوية الكبيرة المنشورة تصيغ المهمة كتصنيف للحدود عبر صفحة واحدة أو بضع صفحات متجاورة، كما أن واجهات برمجة التطبيقات التجارية لتقسيم المستندات لا تفعل ذلك."
+   "published": "2026-11-19T00:00",
+   "title_ar": "عالم Mind2Act: معيار تشخيصي للعقل المتجسد، والفعل الفيزيائي، والتركيب بين العقل والفعل في المعالجة الروبوتية",
+   "summary_ar": "يهدف الذكاء المتجسد إلى تمكين الروبوتات من تنفيذ مهام فيزيائية معقدة بتكيف وموثوقية شبيهين بالإنسان. يتطلب ذلك ثلاث قدرات تكاملية تشمل الاستدلال المعرفي المستند إلى التاريخ، والتنفيذ الفيزيائي الدقيق والمناسب زمنيًا، والتركيب بين الاستدلال والتنفيذ عبر البيئة."
   },
   {
-   "id": "2611.21553",
-   "title": "BLIP-Live: Balancing Timeliness & Firing Precision in Proactive Streaming Video Agents",
-   "abstract": "Streaming video understanding is becoming increasingly important for real-world interactive systems. Such systems must be proactive for natural and useful human interaction: they should respond as soon as sufficient evidence becomes available while avoiding premature, redundant, or incorrect responses. We present BLIP-Live, a framework unifying data, metrics, harness, and training around a shared formulation of proactivity as effective causal response decisions balancing the two competing objectives of responding vs silence. First, we construct BLIP-Live-780K dataset containing human annotatio",
+   "id": "2611.00911",
+   "title": "S1CogBench: What System One Decision Models Can and Cannot Do on Cognitive Experiments",
+   "abstract": "Decision-making in humans and AI involves multiple cognitive abilities. System One decision models produce fast, structured choices. Their cognitive strengths and limitations, however, remain poorly understood. We introduce S1CogBench, a benchmark of 24 established cognitive tasks and 27 evaluation modes, evaluating seven open models and the API model Jev. It combines human-response prediction, autonomous execution, and controlled task manipulations to reveal strengths and failures that aggregate scores miss. We find distinct behavioral profiles across the evaluated models. In these models, st",
    "authors": [
-    "Kanchana Ranasinghe",
-    "Honglu Zhou",
-    "Dominick Reilly",
-    "Le Xue"
+    "Dengzhe Hou",
+    "Kazunori D Yamada"
    ],
-   "link": "https://huggingface.co/papers/2611.21553",
+   "link": "https://huggingface.co/papers/2611.00911",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-14T00:00",
+   "title_ar": "S1CogBench: ما يمكن وما لا يمكن لنماذج اتخاذ القرار من النظام الأول فعله في التجارب المعرفية",
+   "summary_ar": "يتضمن اتخاذ القرار لدى البشر والذكاء الاصطناعي قدرات معرفية متعددة، حيث تنتج نماذج النظام الأول قرارات سريعة ومنظمة، غير أن نقاط قوتها وحدودها المعرفية لا تزال غير مفهومة جيدًا. بناءً على ذلك، نُقدّم S1CogBench، وهو معيار يضم 24 مهمة معرفية راسخة و27 تقييمًا."
+  },
+  {
+   "id": "2611.25980",
+   "title": "Learning What Actions Change: Action Effect Matching for Dynamics-Faithful World Models",
+   "abstract": "World models aim to predict environment dynamics under actions, enabling the prediction of action consequences without executing them in the real world. Yet despite producing increasingly realistic videos, current world models often fail to capture how small action changes affect future observations. This limits their use in tasks such as robotic policy evaluation and model-based planning, where nearly identical actions can lead to qualitatively different outcomes. To address this, we propose AFFECT, an auxiliary training objective for learning the distribution of visual changes induced by act",
+   "authors": [
+    "John Won",
+    "Yonghoon Dong",
+    "Jinwoo Shin"
+   ],
+   "link": "https://huggingface.co/papers/2611.25980",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-19T00:00",
+   "title_ar": "تعلّم ما تغيّره الأفعال: مطابقة تأثير الفعل لنماذج عالمية أمينة للديناميكيات",
+   "summary_ar": "تهدف النماذج العالمية إلى التنبؤ بديناميكيات البيئة تحت تأثير الأفعال، مما يتيح توقع عواقبها دون تنفيذها في العالم الحقيقي. ومع ذلك، ورغم إنتاجها مقاطع فيديو واقعية بصورة متزايدة، غالبًا ما تفشل النماذج العالمية الحالية في التقاط كيفية تأثير التغييرات الطفيفة في الأفعال على الملاحظات المستقبلية."
+  },
+  {
+   "id": "2611.20455",
+   "title": "Embeddings vs. Grep: Rethinking the Dense Advantage in Code Search",
+   "abstract": "Code-search benchmarks show dense encoders well ahead of BM25, yet coding agents do well with grep. What does this dense advantage measure? Existing benchmarks cannot tell: they use curated queries, old code and a handicapped BM25. To find out, we build Repo-Premium, a realistic repository-level code-search benchmark. It ranks files in real repositories, with curated and raw queries in Python, JavaScript, TypeScript, Go, Rust and Java, pull requests from 2022 to 2026, and a preregistered test pool over 91 repositories. Our experiments trace the advantage to two sources: evaluation choices that",
+   "authors": [
+    "Siqiao Xue",
+    "Ziyin Zhang",
+    "Zihan Liao",
+    "Jin Qin"
+   ],
+   "link": "https://huggingface.co/papers/2611.20455",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-16T00:00",
-   "title_ar": "بليب-لايف (BLIP-Live): موازنة التوقيت المناسب ودقة الإطلاق في وكلاء الفيديو التدفقي الاستباقيين",
-   "summary_ar": "يكتسب فهم الفيديو التدفقي أهمية متزايدة للأنظمة التفاعلية في العالم الحقيقي. ويجب أن تكون هذه الأنظمة استباقية لتحقيق تفاعل بشري طبيعي ومفيد؛ بحيث تستجيب بمجرد توفر الأدلة الكافية مع تجنب الردود المبكرة أو الزائدة عن الحاجة أو غير الصحيحة."
+   "title_ar": "التضمينات مقابل Grep: إعادة التفكير في ميزة التضمين الكثيف في البحث عن الكود",
+   "summary_ar": "تُظهر معايير البحث عن الكود تفوق المشفرات الكثيفة بفارق كبير على BM25، ومع ذلك تحقق وكلاء البرمجة أداءً جيدًا باستخدام grep، ولا تستطيع المعايير الحالية توضيح ما تقيسه هذه الميزة بسبب اعتمادها على استعلامات منتقاة وكود قديم ونسخة مقيدة من BM25. ولمعرفة ذلك، قمنا ببناء Repo-Premium، وهو معيار واقعي للبحث في الأكواد على مستوى المستودعات."
   },
   {
-   "id": "2611.16933",
-   "title": "Kezek: Splitting Mono Two-Person Conversations into Per-Speaker Tracks for Full-Duplex Dialogue Data",
-   "abstract": "Full-duplex spoken dialogue models learn turn-taking, overlaps and backchannels from conversations recorded with one channel per speaker, but most available conversational audio is a single mono mix. We present Kezek, a model that turns a mono recording of exactly two people into one track per person with the original length and timing; overlaps and short replies (\"yeah\", \"mm-hm\") stay on the track of the person who said them. Kezek decides who speaks when and who is who once for the whole recording (stage 1: a two-voice activity model guided by a speaker fingerprint trained to be insensitive ",
+   "id": "2611.26414",
+   "title": "ZeroVLN: Learning to Navigate without Supervised Fine-Tuning of the VLM Brain",
+   "abstract": "Representative vision-language navigation (VLN) methods typically couple a vision-language model (VLM) brain with a learnable action head and fine-tune the VLM brain on navigation-domain data to predict geometric goals. However, such adaptation can substantially alter base VLM weights and degrade general visual capabilities. We introduce ZeroVLN, a slow-fast navigation framework that achieves effective navigation with zero navigation-domain SFT of the VLM brain. Rather than teaching the brain to predict geometric goals, we equip it with a semantic tool-calling interface for conveying movement ",
    "authors": [
-    "Bagzhan Karl",
-    "Alizhan Karl"
+    "Zixuan Huang",
+    "Yang Zhou",
+    "Guli Zhang",
+    "Sunzhu Li"
    ],
-   "link": "https://huggingface.co/papers/2611.16933",
+   "link": "https://huggingface.co/papers/2611.26414",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-12T00:00",
-   "title_ar": "كيزيك (Kezek): تقسيم المحادثات الثنائية أحادية القناة إلى مسارات لكل متحدث لبيانات الحوار مزدوج الاتجاه بالكامل",
-   "summary_ar": "تتعلم نماذج الحوار الصوتي مزدوج الاتجاه بالكامل تبادل الأدوار والتداخلات وردود الفعل التعزيزية من المحادثات المسجلة بقناة واحدة لكل متحدث، ولكن معظم الصوتيات الحوارية المتاحة هي مزيج أحادي القناة. نقدم \"كيزيك\"، وهو نموذج يحول تسجيلاً أحادي القناة لشخصين بالضبط إلى مسار واحد لكل شخص."
+   "published": "2026-11-19T00:00",
+   "title_ar": "ZeroVLN: تعلّم الملاحة دون ضبط دقيق خاضع للإشراف لدماغ نموذج الرؤية واللغة",
+   "summary_ar": "تربط أساليب الملاحة القائمة على الرؤية واللغة عادةً بين دماغ نموذج الرؤية واللغة ورأس إجراءات قابل للتعلّم، مع ضبط دماغ النموذج دقيقًا على بيانات مجال الملاحة للتنبؤ بالأهداف الهندسية. غير أن هذا التكيف قد يغير أوزان نموذج الرؤية واللغة الأساسي بشكل كبير ويقلل من قدراته العامة."
   },
   {
-   "id": "2611.23257",
-   "title": "StatePortal: Agentic Checkpoint Synthesis for Testing Deep States in Interactive Software",
-   "abstract": "Large language models have reduced the effort to generate code for interactive software with graphical user interfaces (GUIs). For such software, a key testing bottleneck is reaching a deep state, one that requires a long interaction history. The cost of reaching it recurs across commits, and the GUI automation that could amortize it assumes a DOM or accessibility tree that self-rendered engines do not expose. We introduce StatePortal, an agent that synthesizes a checkpoint, an artifact that restores that state and can be versioned and replayed, from a natural-language functional test case and",
+   "id": "2611.26298",
+   "title": "DailySafe: Benchmarking Dynamic Safety Awareness in Everyday Multi-Turn Multimodal Interactions",
+   "abstract": "As multimodal large language models (MLLMs) become increasingly integrated into everyday life, their ability to provide safe and reliable assistance in realistic daily activities remains insufficiently explored. Existing safety benchmarks primarily focus on isolated harmful requests or adversarial scenarios, overlooking the safety risks that may arise as ordinary tasks unfold. In practice, users pursue legitimate goals through multi-turn, multimodal interactions, where seemingly benign requests may become safety-critical when considered alongside earlier actions and visual observations. This c",
    "authors": [
-    "Zhiyuan Peng",
-    "Wei Tao",
-    "Chenhao Ying",
-    "Yuan Luo"
+    "Xuankun Rong",
+    "Xinhao Deng",
+    "Wenzhang Jiang",
+    "Ziheng Peng"
    ],
-   "link": "https://huggingface.co/papers/2611.23257",
+   "link": "https://huggingface.co/papers/2611.26298",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-09-29T00:00",
-   "title_ar": "ستيت بورتال (StatePortal): توليد نقاط فحص معتمدة على الوكلاء لاختبار الحالات العميقة في البرمجيات التفاعلية",
-   "summary_ar": "قللت النماذج اللغوية الكبيرة من الجهد المبذول لتوليد التعليمات البرمجية للبرمجيات التفاعلية ذات واجهات المستخدم الرسومية. وتتمثل عقبة الاختبار الرئيسية لمثل هذه البرمجيات في الوصول إلى حالة عميقة تتطلب تاريخ تفاعل طويلاً، حيث تتكرر تكلفة الوصول إليها عبر الالتزامات البرمجية المختلفة والواجهات الرسومية."
-  },
-  {
-   "id": "2611.23994",
-   "title": "WaveView: The Novel View Is in the Noise",
-   "abstract": "Generative novel view synthesis (NVS) employs a diffusion model to render a static or dynamic scene from a target camera view. Explicit warp methods complete a reprojection of the source with video diffusion models, and implicit methods encode the camera parameters or 3D cues. Both add inference overhead, and the generated layout often drifts from the ground truth. We present WaveView, which injects the warped source into the phase of the initial noise of a pretrained generator. The Dual-Tree Complex Wavelet Packet Transform (DT-CWPT) allows local and anisotropic phase injection. The generator",
-   "authors": [
-    "Kaiwen Wang",
-    "Jan-Hendrik Pauls",
-    "Yinzhe Shen",
-    "Frank Bieder"
-   ],
-   "link": "https://huggingface.co/papers/2611.23994",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-18T00:00",
-   "title_ar": "ويف فيو (WaveView): المنظور الجديد يكمن في الضجيج",
-   "summary_ar": "يستخدم توليد المناظير الجديدة التوليدي نموذج انتشار لتصيير مشهد ثابت أو ديناميكي من زاوية كاميرا مستهدفة. وتُكمل أساليب التشويه الصريح إعادة إسقاط المصدر باستخدام نماذج انتشار الفيديو، بينما تُشفر الأساليب الضمنية معلمات الكاميرا أو الإشارات ثلاثية الأبعاد، وكلاهما يضيف عبئاً استدلالياً."
-  },
-  {
-   "id": "2611.24408",
-   "title": "StrideWorld: Benchmarking Scene Rigidity and Action Consistency in Interactive Video World Model",
-   "abstract": "Interactive video world models turn user commands into the exploration of a generated scene, which requires the scene to keep its 3D structure as the camera moves and each action to keep a stable effect. Existing benchmarks mostly evaluate these properties against references fitted to the video under test, either a scene reconstructed from its own frames or a camera trajectory aligned to the command path with a free scale. Such references can absorb gradual scene deformation and changes in pace and route length, so these errors can pass undetected. We therefore introduce StrideWorld, a benchma",
-   "authors": [
-    "Chuang Wang",
-    "Rui Nie",
-    "Jie Song",
-    "Junyuan Gao"
-   ],
-   "link": "https://huggingface.co/papers/2611.24408",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-18T00:00",
-   "title_ar": "سترايد وورلد (StrideWorld): تقييم صلابة المشهد واتساق الحركة في نموذج عالم الفيديو التفاعلي",
-   "summary_ar": "تُحوّل نماذج عالم الفيديو التفاعلية أوامر المستخدم إلى استكشاف لمشهد مُولَّد، مما يتطلب من المشهد الحفاظ على بنيته ثلاثية الأبعاد أثناء تحرك الكاميرا، وأن يحتفظ كل إجراء بتأثير مستقر. وتقيّم المعايير المرجعية الحالية هذه الخصائص في الغالب مقابل مراجع ملائمة للفيديو قيد الاختبار."
+   "published": "2026-11-19T00:00",
+   "title_ar": "DailySafe: قياس الوعي الديناميكي بالسلامة في التفاعلات اليومية متعددة الأدوار ومتعددة الوسائط",
+   "summary_ar": "مع تزايد دمج النماذج اللغوية الكبيرة متعددة الوسائط في الحياة اليومية، لا تزال قدرتها على تقديم مساعدة آمنة وموثوقة في الأنشطة اليومية الواقعية غير مستكشفة بشكل كافٍ. وتركز معايير السلامة الحالية بشكل أساسي على الطلبات الضارة المعزولة أو الحالات العدائية."
   }
  ],
  "n": 6
