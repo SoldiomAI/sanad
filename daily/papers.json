@@ -1,105 +1,106 @@
 {
- "updated": "2026-11-20T08:07+00:00",
+ "updated": "2026-11-20T23:19+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2611.26444",
-   "title": "Mind2Act World: A Diagnostic Benchmark for Embodied Mind, Physical Action, and Mind-Action Composition in Robotic Manipulation",
-   "abstract": "Embodied intelligence aims to let robots perform complex physical tasks with human-like adaptability and reliability, which requires three complementary capabilities: history-based cognitive reasoning, precise and timely physical execution, and the composition of reasoning and execution through environmental feedback. Yet existing benchmarks either evaluate reasoning and execution within the same tasks or assess them separately without their composition, so they reveal little about whether a failure comes from reasoning, execution, or their composition. We introduce Mind2Act World, a diagnosti",
+   "id": "2611.15941",
+   "title": "Lang-SVG: Hierarchical Image Vectorization with Language Priors",
+   "abstract": "Image vectorization reconstructs raster images as compact scalable vector graph- ics (SVG), providing a structured and editable code representation of images. However, most existing vectorization methods optimize for pixel-level render- ing fidelity, often producing SVGs that lack alignment with human-perceived object-part hierarchies, making them difficult to manipulate. To address this, we propose Lang-SVG, which introduces an explicit tree structure to organize SVG primitives with semantic labels and parent-child relationships. Lang-SVG incorporates granularity-controllable and open-vocabul",
    "authors": [
-    "Yuzhi Huang",
-    "Jie Wu",
-    "Fanding Huang",
-    "Junchao Lin"
+    "Xi Liu",
+    "Chaoyi Zhou",
+    "Run Wang",
+    "Jiaang Li"
    ],
-   "link": "https://huggingface.co/papers/2611.26444",
+   "link": "https://huggingface.co/papers/2611.15941",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-11T00:00",
+   "title_ar": "لانغ-إس في جي: توجيه الصور هرميًا بالاعتماد على مسبقات لغوية",
+   "summary_ar": "يعيد توجيه الصور بناء الصور النقطية كرسومات متجهة قابلة للتوسع (SVG) مدمجة، مما يوفر تمثيلًا برمجيًا منظمًا وقابلًا للتعديل للصور. ومع ذلك، تركز معظم الطرق الحالية على دقة العرض على مستوى البكسل، مما ينتج غالبًا رسومات تفتقر إلى التوافق مع الإنسان."
+  },
+  {
+   "id": "2611.25200",
+   "title": "Squoosh Bench: Evaluating UX-1 on 318 Historical Website A/B Tests",
+   "abstract": "Experimentation teams must decide which proposed website changes to test with live traffic. We evaluated whether forecasts from simulated shoppers could inform that choice. We screened 412 historical website A/B tests and evaluated four systems on the 318 that ran longer than 21 days. Each system predicted an original win, a variant win, or an inconclusive result. Page roles were masked and recorded outcomes were withheld during inference. Squoosh UX-1, a model fine-tuned on human browsing data, simulated 1,000 shoppers per arm and correctly classified 267 of 318 outcomes (84.0%, 95% Wilson in",
+   "authors": [
+    "Rohith Pasula",
+    "Johari Dramiga",
+    "Viraj Shah",
+    "Suzan Halim"
+   ],
+   "link": "https://huggingface.co/papers/2611.25200",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-18T00:00",
+   "title_ar": "مقياس سكوش: تقييم نموذج UX-1 على 318 اختبار A/B تاريخي للمواقع الإلكترونية",
+   "summary_ar": "يتعين على فرق التجربة تحديد أي من التغييرات المقترحة للموقع يجب اختبارها عبر حركة المرور الفعلية، ولذا قيّمنا ما إذا كانت توقعات المتسوقين المحاكاتيين قادرة على توجيه هذا الاختيار. فحصنا 412 اختبار A/B تاريخيًا وقيّمنا أربعة أنظمة على 318 اختبارًا منها استمرت لأكثر من 21 يومًا."
+  },
+  {
+   "id": "2611.26627",
+   "title": "RL Post-Training in Diffusion Transformers Is Activation Steering",
+   "abstract": "Reinforcement learning (RL) post-training substantially improves the visual quality, text rendering, and compositional accuracy of diffusion transformers. Because capabilities such as rendering requested text or composing multiple objects are inherently prompt-dependent, a natural hypothesis is that improving them requires learning complex, input-dependent transformations. To isolate how much of these gains an input-independent shift explains, we probe each RL-tuned model with a deliberately simple parameterization: a fixed set of steering vectors added to the block outputs of the frozen base ",
+   "authors": [
+    "Tuna Han Salih Meral",
+    "Kaan Oktay",
+    "Alec Helbling",
+    "Atakan Kara"
+   ],
+   "link": "https://huggingface.co/papers/2611.26627",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-19T00:00",
-   "title_ar": "عالم Mind2Act: معيار تشخيصي للعقل المتجسد، والفعل الفيزيائي، والتركيب بين العقل والفعل في المعالجة الروبوتية",
-   "summary_ar": "يهدف الذكاء المتجسد إلى تمكين الروبوتات من تنفيذ مهام فيزيائية معقدة بتكيف وموثوقية شبيهين بالإنسان. يتطلب ذلك ثلاث قدرات تكاملية تشمل الاستدلال المعرفي المستند إلى التاريخ، والتنفيذ الفيزيائي الدقيق والمناسب زمنيًا، والتركيب بين الاستدلال والتنفيذ عبر البيئة."
+   "title_ar": "التدريب اللاحق بالتعلم المعزز في محولات الانتشار هو توجيه للتنشيط",
+   "summary_ar": "يُحسّن التدريب اللاحق بالتعلم المعزز جودة الرؤية، وتصيير النصوص، والدقة التكوينية لمحولات الانتشار بشكل كبير. ونظرًا لأن هذه القدرات تعتمد بطبيعتها على التوجيه النصي، فإن الفرضية الطبيعية هي أن هذا التحسين ينشأ عن توجيه التنشيط."
   },
   {
-   "id": "2611.00911",
-   "title": "S1CogBench: What System One Decision Models Can and Cannot Do on Cognitive Experiments",
-   "abstract": "Decision-making in humans and AI involves multiple cognitive abilities. System One decision models produce fast, structured choices. Their cognitive strengths and limitations, however, remain poorly understood. We introduce S1CogBench, a benchmark of 24 established cognitive tasks and 27 evaluation modes, evaluating seven open models and the API model Jev. It combines human-response prediction, autonomous execution, and controlled task manipulations to reveal strengths and failures that aggregate scores miss. We find distinct behavioral profiles across the evaluated models. In these models, st",
+   "id": "2611.23875",
+   "title": "In Situ Training of Optical Neural Networks by Coding Agents",
+   "abstract": "Optical neural networks promise fast, energy-efficient computing, but every device departs from its design and must be trained with the hardware. In situ training relies on an expert-built calibrated digital model of each device or on gradient-free trial and error. Coding agents, large language models that write and run programs, have shown an emergent ability to understand and edit the weights of digital neural networks. Here we introduce optics as code, a method in which a coding agent trains an optical neural network from measurements alone, through a harness that returns camera images of i",
    "authors": [
-    "Dengzhe Hou",
-    "Kazunori D Yamada"
+    "Ilker Oguz",
+    "Colin Christian",
+    "Christophe Moser",
+    "Demetri Psaltis"
    ],
-   "link": "https://huggingface.co/papers/2611.00911",
+   "link": "https://huggingface.co/papers/2611.23875",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-14T00:00",
-   "title_ar": "S1CogBench: ما يمكن وما لا يمكن لنماذج اتخاذ القرار من النظام الأول فعله في التجارب المعرفية",
-   "summary_ar": "يتضمن اتخاذ القرار لدى البشر والذكاء الاصطناعي قدرات معرفية متعددة، حيث تنتج نماذج النظام الأول قرارات سريعة ومنظمة، غير أن نقاط قوتها وحدودها المعرفية لا تزال غير مفهومة جيدًا. بناءً على ذلك، نُقدّم S1CogBench، وهو معيار يضم 24 مهمة معرفية راسخة و27 تقييمًا."
+   "published": "2026-11-18T00:00",
+   "title_ar": "التدريب الموضعي للشبكات العصبية الضوئية بواسطة وكلاء البرمجة",
+   "summary_ar": "تعد الشبكات العصبية الضوئية بحوسبة سريعة وموفرة للطاقة، غير أن كل جهاز يختلف عن تصميمه ويتطلب تدريبه مع العتاد نفسه. ويعتمد التدريب الموضعي تقليديًا على نموذج رقمي معاير يُبنَى بواسطة خبير لكل جهاز أو على التجربة والخطأ دون استخدام التدرج، قبل الاستعانة بوكلاء البرمجة."
   },
   {
-   "id": "2611.25980",
-   "title": "Learning What Actions Change: Action Effect Matching for Dynamics-Faithful World Models",
-   "abstract": "World models aim to predict environment dynamics under actions, enabling the prediction of action consequences without executing them in the real world. Yet despite producing increasingly realistic videos, current world models often fail to capture how small action changes affect future observations. This limits their use in tasks such as robotic policy evaluation and model-based planning, where nearly identical actions can lead to qualitatively different outcomes. To address this, we propose AFFECT, an auxiliary training objective for learning the distribution of visual changes induced by act",
+   "id": "2611.21885",
+   "title": "Language Models Can Rewrite Their Own Weights",
+   "abstract": "Language models are trained once, frozen and deployed: improving one again takes another training run, and a prompt, a scaffold or extra computation at inference is gone once the task ends. A frontier model has been shown to edit the weights of a much smaller one. We ask whether a model can rewrite its own weights to make itself better, and find that it can, by its own reasoning, with no gradients and no training; we call this self-rewriting. Given its weights, graded answers and the ability to run itself, a 27B model diagnoses its failure and edits the weights behind it. It surpasses itself: ",
    "authors": [
-    "John Won",
-    "Yonghoon Dong",
-    "Jinwoo Shin"
+    "Jiajun Fan",
+    "Neil He",
+    "Changyi Yang",
+    "Andy Mao"
    ],
-   "link": "https://huggingface.co/papers/2611.25980",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-19T00:00",
-   "title_ar": "تعلّم ما تغيّره الأفعال: مطابقة تأثير الفعل لنماذج عالمية أمينة للديناميكيات",
-   "summary_ar": "تهدف النماذج العالمية إلى التنبؤ بديناميكيات البيئة تحت تأثير الأفعال، مما يتيح توقع عواقبها دون تنفيذها في العالم الحقيقي. ومع ذلك، ورغم إنتاجها مقاطع فيديو واقعية بصورة متزايدة، غالبًا ما تفشل النماذج العالمية الحالية في التقاط كيفية تأثير التغييرات الطفيفة في الأفعال على الملاحظات المستقبلية."
-  },
-  {
-   "id": "2611.20455",
-   "title": "Embeddings vs. Grep: Rethinking the Dense Advantage in Code Search",
-   "abstract": "Code-search benchmarks show dense encoders well ahead of BM25, yet coding agents do well with grep. What does this dense advantage measure? Existing benchmarks cannot tell: they use curated queries, old code and a handicapped BM25. To find out, we build Repo-Premium, a realistic repository-level code-search benchmark. It ranks files in real repositories, with curated and raw queries in Python, JavaScript, TypeScript, Go, Rust and Java, pull requests from 2022 to 2026, and a preregistered test pool over 91 repositories. Our experiments trace the advantage to two sources: evaluation choices that",
-   "authors": [
-    "Siqiao Xue",
-    "Ziyin Zhang",
-    "Zihan Liao",
-    "Jin Qin"
-   ],
-   "link": "https://huggingface.co/papers/2611.20455",
+   "link": "https://huggingface.co/papers/2611.21885",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-16T00:00",
-   "title_ar": "التضمينات مقابل Grep: إعادة التفكير في ميزة التضمين الكثيف في البحث عن الكود",
-   "summary_ar": "تُظهر معايير البحث عن الكود تفوق المشفرات الكثيفة بفارق كبير على BM25، ومع ذلك تحقق وكلاء البرمجة أداءً جيدًا باستخدام grep، ولا تستطيع المعايير الحالية توضيح ما تقيسه هذه الميزة بسبب اعتمادها على استعلامات منتقاة وكود قديم ونسخة مقيدة من BM25. ولمعرفة ذلك، قمنا ببناء Repo-Premium، وهو معيار واقعي للبحث في الأكواد على مستوى المستودعات."
+   "title_ar": "بإمكان النماذج اللغوية إعادة كتابة أوزانها الخاصة",
+   "summary_ar": "تُدرَّب النماذج اللغوية مرة واحدة وتُجمّد وتُنشَر، حيث يتطلب تحسينها مجددًا تدريبًا آخر، بينما تنتهي تأثيرات التوجيه أو الأطر الحوسبية بمجرد انتهاء المهمة. وقد أظهر نموذج رائد قدرة على تعديل أوزان نموذج أصغر بكثير، مما يدفعنا للتساؤل عما إذا كان بإمكان النموذج إعادة كتابة أوزانه الخاصة."
   },
   {
-   "id": "2611.26414",
-   "title": "ZeroVLN: Learning to Navigate without Supervised Fine-Tuning of the VLM Brain",
-   "abstract": "Representative vision-language navigation (VLN) methods typically couple a vision-language model (VLM) brain with a learnable action head and fine-tune the VLM brain on navigation-domain data to predict geometric goals. However, such adaptation can substantially alter base VLM weights and degrade general visual capabilities. We introduce ZeroVLN, a slow-fast navigation framework that achieves effective navigation with zero navigation-domain SFT of the VLM brain. Rather than teaching the brain to predict geometric goals, we equip it with a semantic tool-calling interface for conveying movement ",
+   "id": "2611.21053",
+   "title": "System 1 agents: a method for local, reliable and fast agentic AI",
+   "abstract": "Agentic artificial intelligence could automate analyses of sensitive clinical data, but current agents depend on large language models (LLMs). Cloud LLMs expose patient data. Local LLMs hallucinate, and an invented value in a tool call propagates through every later step. Here we present a method to build System 1 agents: local agents that call tools without generating text. A deterministic compiler turns each tool's schema and the request into multiple-choice questions whose options come from the request and the schema, then a one-pass decision model answers them. On 1,952 requests to 157 bio",
    "authors": [
-    "Zixuan Huang",
-    "Yang Zhou",
-    "Guli Zhang",
-    "Sunzhu Li"
+    "Eleftherios Tzanis",
+    "Michail E. Klontzas"
    ],
-   "link": "https://huggingface.co/papers/2611.26414",
+   "link": "https://huggingface.co/papers/2611.21053",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-19T00:00",
-   "title_ar": "ZeroVLN: تعلّم الملاحة دون ضبط دقيق خاضع للإشراف لدماغ نموذج الرؤية واللغة",
-   "summary_ar": "تربط أساليب الملاحة القائمة على الرؤية واللغة عادةً بين دماغ نموذج الرؤية واللغة ورأس إجراءات قابل للتعلّم، مع ضبط دماغ النموذج دقيقًا على بيانات مجال الملاحة للتنبؤ بالأهداف الهندسية. غير أن هذا التكيف قد يغير أوزان نموذج الرؤية واللغة الأساسي بشكل كبير ويقلل من قدراته العامة."
-  },
-  {
-   "id": "2611.26298",
-   "title": "DailySafe: Benchmarking Dynamic Safety Awareness in Everyday Multi-Turn Multimodal Interactions",
-   "abstract": "As multimodal large language models (MLLMs) become increasingly integrated into everyday life, their ability to provide safe and reliable assistance in realistic daily activities remains insufficiently explored. Existing safety benchmarks primarily focus on isolated harmful requests or adversarial scenarios, overlooking the safety risks that may arise as ordinary tasks unfold. In practice, users pursue legitimate goals through multi-turn, multimodal interactions, where seemingly benign requests may become safety-critical when considered alongside earlier actions and visual observations. This c",
-   "authors": [
-    "Xuankun Rong",
-    "Xinhao Deng",
-    "Wenzhang Jiang",
-    "Ziheng Peng"
-   ],
-   "link": "https://huggingface.co/papers/2611.26298",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-19T00:00",
-   "title_ar": "DailySafe: قياس الوعي الديناميكي بالسلامة في التفاعلات اليومية متعددة الأدوار ومتعددة الوسائط",
-   "summary_ar": "مع تزايد دمج النماذج اللغوية الكبيرة متعددة الوسائط في الحياة اليومية، لا تزال قدرتها على تقديم مساعدة آمنة وموثوقة في الأنشطة اليومية الواقعية غير مستكشفة بشكل كافٍ. وتركز معايير السلامة الحالية بشكل أساسي على الطلبات الضارة المعزولة أو الحالات العدائية."
+   "published": "2026-11-16T00:00",
+   "title_ar": "وكلاء النظام 1: طريقة لذكاء اصطناعي وكيل محلي وموثوق وسريع",
+   "summary_ar": "يمكن للذكاء الاصطناعي الوكيل أتمتة تحليلات البيانات السريرية الحساسة، إلا أن الوكلاء الحاليين يعتمدون على النماذج اللغوية الكبيرة. وتكشف النماذج السحابية بيانات المرضى بينما تعاني النماذج المحلية من الهلوسة التي تنتشر في الخطوات اللاحقة، وهنا نقدم طريقة لمعالجة ذلك."
   }
  ],
  "n": 6
