@@ -1,7 +1,58 @@
 {
- "updated": "2026-11-20T23:19+00:00",
+ "updated": "2026-11-21T12:56+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
+  {
+   "id": "2611.26232",
+   "title": "Time Series Structure Learning with Local Causal Parent Discovery",
+   "abstract": "Learning and inference on time series can pose significant statistical challenges, including autocorrelated observations, distribution shift over time, and the curse of dimensionality. These challenges complicate the practical application of causal discovery algorithms, which already suffer from high computational and sample complexity in the general case. To mitigate these issues, this work introduces Iterative Temporal Parent Discovery (ITPD): a sound and complete constraint-based procedure for causal structure learning on multivariate time series with causal nonstationarity. ITPD takes a lo",
+   "authors": [
+    "Jacqueline Maasch",
+    "Shu Wan",
+    "Hank Zhu",
+    "Huan Liu"
+   ],
+   "link": "https://huggingface.co/papers/2611.26232",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-19T00:00",
+   "title_ar": "تعلم بنية السلاسل الزمنية عبر الاكتشاف السببي للآباء محليًا",
+   "summary_ar": "يمكن أن يفرض التعلم والاستدلال في السلاسل الزمنية تحديات إحصائية كبيرة، بما في ذلك الملاحظات ذات الارتباط الذاتي، وانزياح التوزيع عبر الزمن، ولعنة الأبعاد. وتزيد هذه التحديات من تعقيد التطبيق العملي لخوارزميات الاكتشاف السببي التي تعاني بالأساس من صعوبات."
+  },
+  {
+   "id": "2611.26239",
+   "title": "Teaching Vision-Language-Action Models to Stop Safely",
+   "abstract": "Vision-language-action (VLA) models enable robots to perform diverse tasks from visual observations and language instructions. While prior work has explored task suppression and refusal, stopping prohibited behavior once execution is underway and controlling the resulting physical response remain challenging. Our evaluation reveals that policies which suppress a task from its initial state can still complete it when taking over partway through execution. Even when the task remains unfinished, the robot may drop a held object, making non-completion an incomplete measure of safety. To address th",
+   "authors": [
+    "Zheyuan Liu",
+    "Chuhan Wang",
+    "Jinduo Guo",
+    "Yue Huang"
+   ],
+   "link": "https://huggingface.co/papers/2611.26239",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-19T00:00",
+   "title_ar": "تعليم نماذج الرؤية واللغة والعمل التوقف بأمان",
+   "summary_ar": "تمكّن نماذج الرؤية واللغة والعمل (VLA) الروبوتات من أداء مهام متنوعة استنادًا إلى الملاحظات البصرية والتعليمات اللغوية. ورغم أن الأعمال السابقة قد بحثت في قمع المهام ورفضها، فإن إيقاف السلوك المحظور بمجرد بدء التنفيذ والتحكم في الاستجابة المادية الناتجة لا يزالان يمثلان تحديًا."
+  },
+  {
+   "id": "2611.25604",
+   "title": "PAD: Policy-Aware Data Valuation for Autonomous Driving",
+   "abstract": "End-to-end autonomous driving increasingly depends on scaling training demonstrations, yet data growth does not guarantee proportional gains. However, additional data do not guarantee better policies: a demonstration that benefits one planner may be redundant or harmful to another. Existing curation methods typically infer data value from intrinsic sample properties or training-dependent proxies that do not measure downstream policy utility. To address this, we introduce Policy-Aware Data Valuation (PAD), a framework that assigns each candidate demonstration a utility specific to the target dr",
+   "authors": [
+    "Chengkai Xu",
+    "Yicheng Guo",
+    "Jiaqi Liu",
+    "Yiming Cui"
+   ],
+   "link": "https://huggingface.co/papers/2611.25604",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-19T00:00",
+   "title_ar": "PAD: تقييم البيانات المدرك للسياسات في القيادة الذاتية",
+   "summary_ar": "تعتمد القيادة الذاتية الشاملة (طرف إلى طرف) بشكل متزايد على زيادة العروض التدريبية التوضيحية، غير أن نمو البيانات لا يضمن تحقيق مكاسب متناسبة أو سياسات أفضل. فالتوضيح التدريبي الذي يفيد مخططًا معينًا قد يكون فائضًا أو ضارًا لآخر، وهو ما لا تعالجه عمليات التنقية الحالية."
+  },
   {
    "id": "2611.15941",
    "title": "Lang-SVG: Hierarchical Image Vectorization with Language Priors",
@@ -16,8 +67,8 @@
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-11T00:00",
-   "title_ar": "لانغ-إس في جي: توجيه الصور هرميًا بالاعتماد على مسبقات لغوية",
-   "summary_ar": "يعيد توجيه الصور بناء الصور النقطية كرسومات متجهة قابلة للتوسع (SVG) مدمجة، مما يوفر تمثيلًا برمجيًا منظمًا وقابلًا للتعديل للصور. ومع ذلك، تركز معظم الطرق الحالية على دقة العرض على مستوى البكسل، مما ينتج غالبًا رسومات تفتقر إلى التوافق مع الإنسان."
+   "title_ar": "Lang-SVG: تنميط الصور متجهيًا بشكل هرمي باستخدام المسبقات اللغوية",
+   "summary_ar": "يعيد تنميط الصور متجهيًا بناء الصور النقطية على شكل رسوميات متجهة قابلة للتوسع (SVG) ومدمجة، مما يوفر تمثيلًا برمجيًا مهيكلًا وقابلًا للتعديل للصور. ومع ذلك، تركز معظم الطرق الحالية على دقة التصيير على مستوى البكسل، مما ينتج غالبًا ملفات SVG تفتقر إلى التوافق مع الإدراك البشري."
   },
   {
    "id": "2611.25200",
@@ -33,8 +84,8 @@
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-18T00:00",
-   "title_ar": "مقياس سكوش: تقييم نموذج UX-1 على 318 اختبار A/B تاريخي للمواقع الإلكترونية",
-   "summary_ar": "يتعين على فرق التجربة تحديد أي من التغييرات المقترحة للموقع يجب اختبارها عبر حركة المرور الفعلية، ولذا قيّمنا ما إذا كانت توقعات المتسوقين المحاكاتيين قادرة على توجيه هذا الاختيار. فحصنا 412 اختبار A/B تاريخيًا وقيّمنا أربعة أنظمة على 318 اختبارًا منها استمرت لأكثر من 21 يومًا."
+   "title_ar": "مقياس Squoosh: تقييم نموذج UX-1 على 318 اختبار A/B تاريخيًا للمواقع",
+   "summary_ar": "يتعين على فرق التجريب اتخاذ قرارات بشأن أي التغييرات المقترحة على الموقع يجب اختبارها باستخدام الزيارات المباشرة، وقد قيّمنا ما إذا كانت توقعات المتسوقين المحاكيين قادرة على توجيه هذا الاختيار. فحصنا 412 اختبار A/B تاريخيًا وقيّمنا أربعة أنظمة على 318 اختبارًا استمرت لأكثر من 21 يومًا."
   },
   {
    "id": "2611.26627",
@@ -51,56 +102,7 @@
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-19T00:00",
    "title_ar": "التدريب اللاحق بالتعلم المعزز في محولات الانتشار هو توجيه للتنشيط",
-   "summary_ar": "يُحسّن التدريب اللاحق بالتعلم المعزز جودة الرؤية، وتصيير النصوص، والدقة التكوينية لمحولات الانتشار بشكل كبير. ونظرًا لأن هذه القدرات تعتمد بطبيعتها على التوجيه النصي، فإن الفرضية الطبيعية هي أن هذا التحسين ينشأ عن توجيه التنشيط."
-  },
-  {
-   "id": "2611.23875",
-   "title": "In Situ Training of Optical Neural Networks by Coding Agents",
-   "abstract": "Optical neural networks promise fast, energy-efficient computing, but every device departs from its design and must be trained with the hardware. In situ training relies on an expert-built calibrated digital model of each device or on gradient-free trial and error. Coding agents, large language models that write and run programs, have shown an emergent ability to understand and edit the weights of digital neural networks. Here we introduce optics as code, a method in which a coding agent trains an optical neural network from measurements alone, through a harness that returns camera images of i",
-   "authors": [
-    "Ilker Oguz",
-    "Colin Christian",
-    "Christophe Moser",
-    "Demetri Psaltis"
-   ],
-   "link": "https://huggingface.co/papers/2611.23875",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-18T00:00",
-   "title_ar": "التدريب الموضعي للشبكات العصبية الضوئية بواسطة وكلاء البرمجة",
-   "summary_ar": "تعد الشبكات العصبية الضوئية بحوسبة سريعة وموفرة للطاقة، غير أن كل جهاز يختلف عن تصميمه ويتطلب تدريبه مع العتاد نفسه. ويعتمد التدريب الموضعي تقليديًا على نموذج رقمي معاير يُبنَى بواسطة خبير لكل جهاز أو على التجربة والخطأ دون استخدام التدرج، قبل الاستعانة بوكلاء البرمجة."
-  },
-  {
-   "id": "2611.21885",
-   "title": "Language Models Can Rewrite Their Own Weights",
-   "abstract": "Language models are trained once, frozen and deployed: improving one again takes another training run, and a prompt, a scaffold or extra computation at inference is gone once the task ends. A frontier model has been shown to edit the weights of a much smaller one. We ask whether a model can rewrite its own weights to make itself better, and find that it can, by its own reasoning, with no gradients and no training; we call this self-rewriting. Given its weights, graded answers and the ability to run itself, a 27B model diagnoses its failure and edits the weights behind it. It surpasses itself: ",
-   "authors": [
-    "Jiajun Fan",
-    "Neil He",
-    "Changyi Yang",
-    "Andy Mao"
-   ],
-   "link": "https://huggingface.co/papers/2611.21885",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-16T00:00",
-   "title_ar": "بإمكان النماذج اللغوية إعادة كتابة أوزانها الخاصة",
-   "summary_ar": "تُدرَّب النماذج اللغوية مرة واحدة وتُجمّد وتُنشَر، حيث يتطلب تحسينها مجددًا تدريبًا آخر، بينما تنتهي تأثيرات التوجيه أو الأطر الحوسبية بمجرد انتهاء المهمة. وقد أظهر نموذج رائد قدرة على تعديل أوزان نموذج أصغر بكثير، مما يدفعنا للتساؤل عما إذا كان بإمكان النموذج إعادة كتابة أوزانه الخاصة."
-  },
-  {
-   "id": "2611.21053",
-   "title": "System 1 agents: a method for local, reliable and fast agentic AI",
-   "abstract": "Agentic artificial intelligence could automate analyses of sensitive clinical data, but current agents depend on large language models (LLMs). Cloud LLMs expose patient data. Local LLMs hallucinate, and an invented value in a tool call propagates through every later step. Here we present a method to build System 1 agents: local agents that call tools without generating text. A deterministic compiler turns each tool's schema and the request into multiple-choice questions whose options come from the request and the schema, then a one-pass decision model answers them. On 1,952 requests to 157 bio",
-   "authors": [
-    "Eleftherios Tzanis",
-    "Michail E. Klontzas"
-   ],
-   "link": "https://huggingface.co/papers/2611.21053",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-16T00:00",
-   "title_ar": "وكلاء النظام 1: طريقة لذكاء اصطناعي وكيل محلي وموثوق وسريع",
-   "summary_ar": "يمكن للذكاء الاصطناعي الوكيل أتمتة تحليلات البيانات السريرية الحساسة، إلا أن الوكلاء الحاليين يعتمدون على النماذج اللغوية الكبيرة. وتكشف النماذج السحابية بيانات المرضى بينما تعاني النماذج المحلية من الهلوسة التي تنتشر في الخطوات اللاحقة، وهنا نقدم طريقة لمعالجة ذلك."
+   "summary_ar": "يحسّن التدريب اللاحق بالتعلم المعزز (RL) جودة الرؤية، وتصيير النصوص، والدقة التركيبية لمحولات الانتشار بشكل كبير. ولأن قدرات مثل تصيير النص المطلوب أو تركيب كائنات متعددة تعتمد بطبيعتها على النص التوجيهي، فإن الفرضية الطبيعية تكمن في ذلك."
   }
  ],
  "n": 6
