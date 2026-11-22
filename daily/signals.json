@@ -1,6 +1,6 @@
 {
  "schema_version": "1.0",
- "updated": "2026-11-22T07:17+00:00",
+ "updated": "2026-11-22T10:45+00:00",
  "thresholds": {
   "country_risk_score": 60,
   "watch_heat": 50,
@@ -13,7 +13,7 @@
    "title": "Watch term active: ترامب إيران",
    "title_en": "Watch term active: Trump Iran",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-11-22T07:17+00:00",
+   "observed_at": "2026-11-22T10:45+00:00",
    "observed_facts": [
     "5 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 82."
    ],
@@ -82,58 +82,54 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-10-05T09:29+00:00",
-   "updated_at": "2026-11-22T07:17+00:00"
+   "updated_at": "2026-11-22T10:45+00:00"
   },
   {
-   "id": "sig_0615b851b674126f",
-   "type": "ai-repository-trend",
-   "title": "AI repository activity: Multimodal",
-   "title_en": "AI repository activity: Multimodal",
-   "summary": "The live GitHub radar contains a repeated repository class after deterministic ranking and deduplication.",
-   "observed_at": "2026-11-15T19:46:34Z",
+   "id": "sig_1f169b9e79a68432",
+   "type": "watchlist-match",
+   "title": "Watch term active: عقوبات",
+   "title_en": "Watch term active: sanctions",
+   "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
+   "observed_at": "2026-11-22T10:45+00:00",
    "observed_facts": [
-    "2 recently pushed, non-fork repositories share this SANAD radar classification."
+    "2 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 52."
    ],
-   "assessment": "The live GitHub radar contains a repeated repository class after deterministic ranking and deduplication.",
-   "inference": "Repository activity and stars indicate attention, not code quality, safety, or suitability.",
-   "uncertainty": "GitHub search coverage and popularity metrics are incomplete and can be gamed.",
-   "confidence": 0.62,
+   "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
+   "inference": "Term matching indicates attention, not intent, coordination, or threat.",
+   "uncertainty": "Keyword matching can include unrelated uses of the same term.",
+   "confidence": 0.7,
    "severity": "info",
    "countries": [],
-   "sectors": [
-    "technology"
-   ],
+   "sectors": [],
    "topics": [
-    "artificial-intelligence",
-    "multimodal",
-    "open-source"
+    "اقتصاد"
    ],
    "evidence": [
     {
-     "id": "ev_7fae58d739c94e83",
-     "url": "https://github.com/microsoft/AI-For-Beginners",
-     "source_name": "GitHub Search API",
-     "source_grade": "",
-     "observed_at": "2026-11-15T19:46:34Z",
-     "title": "microsoft/AI-For-Beginners",
-     "title_en": "12 Weeks, 24 Lessons, AI for All!",
-     "dataset": "repos"
+     "id": "ev_9639c2353b35916d",
+     "url": "https://www.aljazeera.net/video/2026/11/22/%d8%b9%d9%82%d9%88%d8%a8%d8%a7%d8%aa-%d8%a8%d8%b1%d9%8a%d8%b7%d8%a7%d9%86%d9%8a%d8%a9-%d8%b9%d9%84%d9%89-8-%d8%b4%d8%b1%d9%83%d8%a7%d8%aa-%d8%a7%d8%b3%d8%aa%d9%8a%d8%b7%d8%a7%d9%86%d9%8a%d8%a9?traffic_source=rss",
+     "source_name": "الجزيرة نت",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-22T07:07+00:00",
+     "title": "عقوبات بريطانية على 8 شركات استيطانية.. فما هي الكيانات ومن يقف خلفها؟",
+     "title_en": "",
+     "dataset": "osint"
     },
     {
-     "id": "ev_ec2a1fb5129b99e9",
-     "url": "https://github.com/hacksider/Deep-Live-Cam",
-     "source_name": "GitHub Search API",
-     "source_grade": "",
-     "observed_at": "2026-11-08T08:37:24Z",
-     "title": "hacksider/Deep-Live-Cam",
-     "title_en": "real time face swap and one-click video deepfake with only a single image",
-     "dataset": "repos"
+     "id": "ev_be480804a6fd1687",
+     "url": "https://www.skynewsarabia.com/middle-east/1906143-%D9%88%D8%A7%D8%B4%D9%86%D8%B7%D9%86-%D8%A3%D8%AD%D8%AF%D8%AB-%D9%85%D9%88%D8%AC%D8%A9-%D8%B9%D9%82%D9%88%D8%A8%D8%A7%D8%AA-%D8%A7%D9%84%D9%86%D8%B8%D8%A7%D9%85-%D8%A7%D9%84%D8%A5%D9%8A%D8%B1%D8%A7%D9%86%D9%8A-%D8%B3%D9%81%D9%8A%D9%86%D8%A9-%D8%AA%D8%BA%D8%B1%D9%82",
+     "source_name": "سكاي نيوز عربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-20T22:39+00:00",
+     "title": "واشنطن بعد أحدث موجة عقوبات: النظام الإيراني سفينة تغرق",
+     "title_en": "",
+     "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
-   "created_at": "2026-11-22T07:17+00:00",
-   "updated_at": "2026-11-22T07:17+00:00"
+   "created_at": "2026-11-22T10:45+00:00",
+   "updated_at": "2026-11-22T10:45+00:00"
   },
   {
    "id": "sig_24c7c29a11f8a3ab",
@@ -141,7 +137,7 @@
    "title": "Watch term active: #السعودية",
    "title_en": "Watch term active: #Saudi",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-11-22T07:17+00:00",
+   "observed_at": "2026-11-22T10:45+00:00",
    "observed_facts": [
     "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
@@ -157,13 +153,23 @@
    ],
    "evidence": [
     {
-     "id": "ev_03fe9d2bd40aa03b",
-     "url": "https://news.google.com/rss/articles/CBMiugNBVV95cUxPRzl4d1dGME53dk5OdHc3ZTB6Vk9INHZVYkNoZExGOVdESjBIVXhGRnUyekNmR285VlFHeERsWXA3QV9fTVJaM2YyVlhuandEQVZ0aXJRRGh4TEJhU3RSX2o4bmdCbmVuM3ZLRzd6WHJqWHl4bDdSWGRwNVAybmxqYVlEb1ViSGhYcTJXakpyUnBtSVotZGtMTVZ4a1FKMFA0dTl4bnFLTUt0b2tHb3lwSXF6R0pXdDZzN0gzZDNoSXUwV3A1Sld3VmNPNmFZNlN2YVczajQ3ZWpocE15dGNQd0dSVDBZWXRBRnc2LUNaUVVfSl95dzhMc1B4eDJzZE11dTdZVFhLWG9BejVtMHBNV3EtcHF6dXZfdXlRZ3pwXzdVc3pLMnpybHlsLTNjN2NhMkMzdnNWTjc2dXZhcFhOUVgxRlBwZnVaSUZYTS1vdWJ1ZnBYejF2Skl2RnpNYkYycklYV0pFY3ktLXR0UkNIZWN5bHdHelJfX2hoMldxMWYzWHA4MG10aUc0bWtiWks4b2YzZDE1Y3hWTURqek0zUUlCLV90VGhMM21GZUJiMzVoSTItOVpab0d30gG_A0FVX3lxTFA1RUJ5RnRLNXV2c3VIeUpOdVJhWC1pNDFVWlFUaEVJWVRhVVE1TElGa2pCYjUyMzMtVVJzUmdLdlJuQ0hYS0VTLUtuUG5LQUd3T2xjTDNTVTduT2pMMWYxRWowVWRsTlJBdjJVRUJoOVVDX2R1SHhzbUwwUWtHYUlrLTNrVXRHYjdINGtMS2lPTUp2d1l6MjZWMC1oWVBkSkZXWWRhU09OZFFvM3ZZZ3czR2RVRWR2NldFLXhGcDA5VVpEV0t0U0h2S1c3dVVDczZfSUNHV0h6X2NCU0E0STJvU2xKQVQ0czljYkI5WTdGWUNlZ2pSSnM0YUhBZlR0X0pNTk5SV0FTdWxWTG5aaWNsWUtnM2xsb25WMlFYTWJ0YVBZYWw0ZllrMkh0ZW00S2hHX0JZQXpVTlE0aXN4TDVvVkJDQlFjNlJnVTlUYXNmajI1dTMxU2p2WERFUFh6WDI0UXJES3NCQWhXakhNRDNUTmVzZGdiZWhGVTRPV0J5UDFINGxOUjhuWFI4T3BwUThmNmdDU2xTOWVXYzJVdzVSX2hFUWNIVHJCOVNUdHJmYmJjRUQ1N181M0t2ZUFLNA?oc=5",
-     "source_name": "سكاي نيوز عربية",
+     "id": "ev_039875347257dd7f",
+     "url": "https://www.alarabiya.net/aswaq/saudi-economy/2026/11/22/%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D9%88%D8%B3%D8%AA%D8%B1%D8%A7%D9%8A%D8%AF-%D9%81%D9%86%D8%AA%D8%B4%D8%B1%D8%B2-%D8%AA%D9%88%D9%82%D8%B9%D8%A7%D9%86-%D9%85%D8%B0%D9%83%D8%B1%D8%A9-%D9%84%D8%AF%D8%B9%D9%85-%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A8%D9%80500-%D9%85%D9%84%D9%8A%D9%88%D9%86-%D8%AF%D9%88%D9%84%D8%A7%D8%B1",
+     "source_name": "العربية",
      "source_grade": "حسن",
-     "observed_at": "2026-11-21T02:39+00:00",
-     "title": "السعودية تعلن اعتراض 3 صواريخ بالستية ومسيّرة حوثية",
-     "title_en": "Saudi Arabia Intercepts 3 Ballistic Missiles and Houthi Drone",
+     "observed_at": "2026-11-22T06:25+00:00",
+     "title": "\"الاستثمار السعودية\" و\"سترايد فنتشرز\" توقعان مذكرة لدعم استثمارات بـ500 مليون دولار",
+     "title_en": "Saudi Ministry of Investment and Stride Ventures Sign MoU to Support $500M in Investments",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_1c1d285784ce1848",
+     "url": "https://www.alarabiya.net/aswaq/saudi-economy/2026/11/22/%D9%86%D9%85%D9%88-%D8%A7%D9%8A%D8%B1%D8%A7%D8%AF%D8%A7%D8%AA-%D8%A7%D9%84%D8%A7%D8%B9%D9%85%D8%A7%D9%84-%D9%82%D8%B5%D9%8A%D8%B1%D8%A9-%D8%A7%D9%84%D9%85%D8%AF%D9%89-%D8%A8%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%AE%D9%84%D8%A7%D9%84-%D8%B3%D8%A8%D8%AA%D9%85%D8%A8%D8%B1",
+     "source_name": "العربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-22T07:26+00:00",
+     "title": "نمو إيرادات الأعمال قصيرة المدى بالسعودية خلال سبتمبر",
+     "title_en": "Saudi Short-Term Business Revenue Grows in September",
      "dataset": "osint"
     },
     {
@@ -177,13 +183,23 @@
      "dataset": "osint"
     },
     {
+     "id": "ev_41113842be33531e",
+     "url": "https://www.france24.com/ar/%D9%81%D9%8A%D8%AF%D9%8A%D9%88/20261122-%D8%A7%D9%84%D8%AA%D8%AD%D8%A7%D9%84%D9%81-%D8%A7%D8%B9%D8%AA%D8%B1%D8%A7%D8%B6-%D8%B5%D8%A7%D8%B1%D9%88%D8%AE-%D9%84%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%8A%D9%86-%D8%A7%D8%B3%D8%AA%D9%87%D8%AF%D9%81-%D8%A7%D9%84%D9%85%D9%86%D8%B7%D9%82%D8%A9-%D8%A7%D9%84%D8%BA%D8%B1%D8%A8%D9%8A%D8%A9-%D8%A8%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9",
+     "source_name": "فرانس ٢٤ عربي",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-22T10:26+00:00",
+     "title": "التحالف: اعتراض صاروخ للحوثيين استهدف المنطقة الغربية بالسعودية",
+     "title_en": "Coalition: Houthi Missile Targeting Western Saudi Arabia Intercepted",
+     "dataset": "osint"
+    },
+    {
      "id": "ev_5578d9bd0dcf536e",
      "url": "https://www.bbc.com/arabic/articles/c63egv9y93k2o",
      "source_name": "BBC",
      "source_grade": "حسن",
      "observed_at": "2026-11-22T01:14+00:00",
      "title": "السعودية تعلن مجدداً اعتراض صاروخ باليستي أطلقه الحوثيون باتجاه المنطقة الغربية",
-     "title_en": "Saudi Arabia Reports Intercepting Another Houthi Ballistic Missile Fired Toward Western Region",
+     "title_en": "Saudi Arabia Intercepts Another Houthi Ballistic Missile Fired Toward Western Region",
      "dataset": "osint"
     },
     {
@@ -197,33 +213,13 @@
      "dataset": "osint"
     },
     {
-     "id": "ev_cef5a460f955b7a3",
-     "url": "https://aawsat.com/%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A/%D8%A7%D9%84%D8%AE%D9%84%D9%8A%D8%AC/5344096-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%AA%D8%AD%D8%B0%D8%B1-%D9%85%D9%86-%D8%B9%D9%88%D8%A7%D9%82%D8%A8-%D9%83%D8%A7%D8%B1%D8%AB%D9%8A%D8%A9-%D9%84%D8%A5%D8%AF%D8%A7%D8%B1%D8%A9-%D8%A3%D8%B2%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D9%86%D8%B7%D9%82%D8%A9-%D8%AF%D9%88%D9%86-%D9%85%D8%B9%D8%A7%D9%84%D8%AC%D8%A9-%D8%AC%D8%B0%D8%B1%D9%8A%D8%A9",
-     "source_name": "الشرق الأوسط",
+     "id": "ev_ab16fdd40e1aa5a0",
+     "url": "https://www.alarabiya.net/aswaq/saudi-economy/2026/11/22/%D9%85%D8%A4%D8%B4%D8%B1-%D8%A7%D9%84%D8%B3%D9%88%D9%82-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D9%8A%D8%AA%D8%B1%D8%A7%D8%AC%D8%B9-1-%D9%81%D9%8A-%D9%85%D8%B3%D8%AA%D9%87%D9%84-%D8%AC%D9%84%D8%B3%D8%A9-%D8%A7%D9%84%D9%8A%D9%88%D9%85",
+     "source_name": "العربية",
      "source_grade": "حسن",
-     "observed_at": "2026-11-21T18:43+00:00",
-     "title": "السعودية تحذر من عواقب كارثية لإدارة أزمات المنطقة دون معالجة جذرية",
-     "title_en": "Saudi Arabia Warns of Catastrophic Fall-out from Managing Regional Crises Without Root Solutions",
-     "dataset": "osint"
-    },
-    {
-     "id": "ev_cf7b745d2dc4fe06",
-     "url": "https://www.skynewsarabia.com/middle-east/1906260-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D8%A8%D8%AD%D8%B1%D9%8A%D9%86-%D8%AA%D8%B9%D9%84%D9%86%D8%A7%D9%86-%D8%A7%D9%84%D8%AA%D8%B5%D8%AF%D9%8A-%D9%84%D9%87%D8%AC%D9%85%D8%A7%D8%AA-%D9%84%D9%8A%D9%84%D9%8A%D8%A9",
-     "source_name": "سكاي نيوز عربية",
-     "source_grade": "حسن",
-     "observed_at": "2026-11-21T21:52+00:00",
-     "title": "السعودية والبحرين تعلنان التصدي لهجمات ليلية",
-     "title_en": "Saudi Arabia and Bahrain Announce Interception of Overnight Attacks",
-     "dataset": "osint"
-    },
-    {
-     "id": "ev_f5900b2a1f3e0cc1",
-     "url": "https://aawsat.com/%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6%D8%A9/%D8%B1%D9%8A%D8%A7%D8%B6%D8%A9-%D8%B9%D8%A7%D9%84%D9%85%D9%8A%D8%A9/5343940-%D9%85%D9%88%D9%86%D8%AF%D9%8A%D8%A7%D9%84-%D8%A7%D9%84%D9%86%D8%A7%D8%B4%D8%A6%D9%8A%D9%86-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D9%88%D9%85%D8%B5%D8%B1-%D9%84%D9%84%D8%AA%D8%B9%D9%88%D9%8A%D8%B6%E2%80%A6-%D9%88%D9%82%D8%B7%D8%B1-%D9%84%D9%85%D9%88%D8%A7%D8%B5%D9%84%D8%A9-%D8%A7%D9%84%D8%A7%D9%86%D8%AA%D8%B5%D8%A7%D8%B1%D8%A7%D8%AA",
-     "source_name": "الشرق الأوسط",
-     "source_grade": "حسن",
-     "observed_at": "2026-11-21T22:14+00:00",
-     "title": "مونديال الناشئين: السعودية ومصر للتعويض… وقطر لمواصلة الانتصارات",
-     "title_en": "U-17 World Cup: Saudi Arabia and Egypt Seek Recovery as Qatar Aims to Extend Winning Streak",
+     "observed_at": "2026-11-22T07:12+00:00",
+     "title": "مؤشر السوق السعودية يتراجع 1% في مستهل جلسة اليوم",
+     "title_en": "Saudi Market Index Drops 1% at Start of Today's Session",
      "dataset": "osint"
     },
     {
@@ -240,7 +236,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-11-22T07:17+00:00"
+   "updated_at": "2026-11-22T10:45+00:00"
   },
   {
    "id": "sig_25d4dc8c032b76c2",
@@ -248,9 +244,9 @@
    "title": "AI repository activity: Models / inference",
    "title_en": "AI repository activity: Models / inference",
    "summary": "The live GitHub radar contains a repeated repository class after deterministic ranking and deduplication.",
-   "observed_at": "2026-11-22T03:13:47Z",
+   "observed_at": "2026-11-22T10:34:21Z",
    "observed_facts": [
-    "4 recently pushed, non-fork repositories share this SANAD radar classification."
+    "3 recently pushed, non-fork repositories share this SANAD radar classification."
    ],
    "assessment": "The live GitHub radar contains a repeated repository class after deterministic ranking and deduplication.",
    "inference": "Repository activity and stars indicate attention, not code quality, safety, or suitability.",
@@ -278,40 +274,30 @@
      "dataset": "repos"
     },
     {
-     "id": "ev_56bce697cfa3de99",
-     "url": "https://github.com/Kong/kong",
+     "id": "ev_53d940334a2a5afd",
+     "url": "https://github.com/huggingface/transformers",
      "source_name": "GitHub Search API",
      "source_grade": "",
-     "observed_at": "2026-11-20T13:02:22Z",
-     "title": "Kong/kong",
-     "title_en": "🦍 The API and AI Gateway",
+     "observed_at": "2026-11-22T10:34:21Z",
+     "title": "huggingface/transformers",
+     "title_en": "🤗 Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training.",
      "dataset": "repos"
     },
     {
-     "id": "ev_b03e856411c0697d",
-     "url": "https://github.com/jingyaogong/minimind",
+     "id": "ev_77b4be38215d4c71",
+     "url": "https://github.com/ollama/ollama",
      "source_name": "GitHub Search API",
      "source_grade": "",
-     "observed_at": "2026-11-21T09:14:27Z",
-     "title": "jingyaogong/minimind",
-     "title_en": "🧠 两小时从 0 训出你的 64M 大模型。Train your own 64M LLM from scratch in 2 hours.",
-     "dataset": "repos"
-    },
-    {
-     "id": "ev_e0cbbf211a55e79f",
-     "url": "https://github.com/rasbt/LLMs-from-scratch",
-     "source_name": "GitHub Search API",
-     "source_grade": "",
-     "observed_at": "2026-11-21T17:08:43Z",
-     "title": "rasbt/LLMs-from-scratch",
-     "title_en": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
+     "observed_at": "2026-11-22T10:10:02Z",
+     "title": "ollama/ollama",
+     "title_en": "Get up and running with Kimi, GLM, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models.",
      "dataset": "repos"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-11-21T10:43+00:00",
-   "updated_at": "2026-11-22T07:17+00:00"
+   "updated_at": "2026-11-22T10:45+00:00"
   },
   {
    "id": "sig_32c738617239f618",
@@ -319,9 +305,9 @@
    "title": "AI repository activity: Agents / workflows",
    "title_en": "AI repository activity: Agents / workflows",
    "summary": "The live GitHub radar contains a repeated repository class after deterministic ranking and deduplication.",
-   "observed_at": "2026-11-22T07:09:37Z",
+   "observed_at": "2026-11-22T10:20:33Z",
    "observed_facts": [
-    "3 recently pushed, non-fork repositories share this SANAD radar classification."
+    "5 recently pushed, non-fork repositories share this SANAD radar classification."
    ],
    "assessment": "The live GitHub radar contains a repeated repository class after deterministic ranking and deduplication.",
    "inference": "Repository activity and stars indicate attention, not code quality, safety, or suitability.",
@@ -339,40 +325,60 @@
    ],
    "evidence": [
     {
+     "id": "ev_38c3408d933af173",
+     "url": "https://github.com/DietrichGebert/ponytail",
+     "source_name": "GitHub Search API",
+     "source_grade": "",
+     "observed_at": "2026-11-22T02:31:58Z",
+     "title": "DietrichGebert/ponytail",
+     "title_en": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
+     "dataset": "repos"
+    },
+    {
      "id": "ev_7fc08de27bce1b0c",
      "url": "https://github.com/Significant-Gravitas/AutoGPT",
      "source_name": "GitHub Search API",
      "source_grade": "",
-     "observed_at": "2026-11-22T07:09:37Z",
+     "observed_at": "2026-11-22T10:19:43Z",
      "title": "Significant-Gravitas/AutoGPT",
      "title_en": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
      "dataset": "repos"
     },
     {
-     "id": "ev_b5a44c85aa774585",
-     "url": "https://github.com/OpenHands/OpenHands",
+     "id": "ev_890a56b0d2aff0c9",
+     "url": "https://github.com/deepseek-ai/deepseek-harness",
      "source_name": "GitHub Search API",
      "source_grade": "",
-     "observed_at": "2026-11-22T01:35:04Z",
-     "title": "OpenHands/OpenHands",
-     "title_en": "🙌 OpenHands: AI-Driven Development",
+     "observed_at": "2026-11-22T03:18:55Z",
+     "title": "deepseek-ai/deepseek-harness",
+     "title_en": "DeepSeek Harness: Everything is a Plugin.",
      "dataset": "repos"
     },
     {
-     "id": "ev_c7c9684abfb72529",
-     "url": "https://github.com/usestrix/strix",
+     "id": "ev_ec2b8bd43eefd65f",
+     "url": "https://github.com/NousResearch/hermes-agent",
      "source_name": "GitHub Search API",
      "source_grade": "",
-     "observed_at": "2026-11-19T23:54:39Z",
-     "title": "usestrix/strix",
-     "title_en": "Open-source AI penetration testing tool to find and fix your app’s vulnerabilities.",
+     "observed_at": "2026-11-22T10:20:33Z",
+     "title": "NousResearch/hermes-agent",
+     "title_en": "The agent that grows with you",
+     "dataset": "repos"
+    },
+    {
+     "id": "ev_edb3a626875732de",
+     "url": "https://github.com/affaan-m/ECC",
+     "source_name": "GitHub Search API",
+     "source_grade": "",
+     "observed_at": "2026-11-20T01:13:45Z",
+     "title": "affaan-m/ECC",
+     "title_en": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
      "dataset": "repos"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-11-21T10:43+00:00",
-   "updated_at": "2026-11-22T07:17+00:00"
+   "updated_at": "2026-11-22T10:45+00:00"
   },
   {
    "id": "sig_34a63e60e757a938",
@@ -380,7 +386,7 @@
    "title": "Watch term active: #الكويت",
    "title_en": "Watch term active: #Kuwait",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-11-22T07:17+00:00",
+   "observed_at": "2026-11-22T10:45+00:00",
    "observed_facts": [
     "3 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 62."
    ],
@@ -429,7 +435,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-11-21T12:56+00:00",
-   "updated_at": "2026-11-22T07:17+00:00"
+   "updated_at": "2026-11-22T10:45+00:00"
   },
   {
    "id": "sig_6fbc90c289184252",
@@ -437,7 +443,7 @@
    "title": "Watch term active: #غزة",
    "title_en": "Watch term active: #Gaza",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-11-22T07:17+00:00",
+   "observed_at": "2026-11-22T10:45+00:00",
    "observed_facts": [
     "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
@@ -453,13 +459,13 @@
    ],
    "evidence": [
     {
-     "id": "ev_2a97fafca63ef591",
-     "url": "https://www.bbc.com/arabic/articles/cmn90vp0r411o",
-     "source_name": "BBC",
+     "id": "ev_1705daaf3ed10550",
+     "url": "https://www.tasnimnews.ir/ar/news/2026/11/22/3754001/%D8%B9%D8%A7%D8%A6%D8%AF%D9%88%D9%86-%D9%85%D9%86-%D8%B9%D8%AA%D9%85%D8%A9-%D8%A7%D9%84%D8%B1%DA%A9%D8%A7%D9%85-%D8%AA%D8%B3%D8%B9%D8%A9-%D9%88%D8%B3%D8%AA%D9%88%D9%86-%D9%82%D9%85%D8%B1%D8%A7%D9%8B-%DB%8C%D8%B6%DB%8C%D8%A6%D9%88%D9%86-%D8%B3%D9%85%D8%A7%D8%A1-%D8%B4%D9%85%D8%A7%D9%84-%D8%BA%D8%B2%D8%A9",
+     "source_name": "تسنیم",
      "source_grade": "حسن",
-     "observed_at": "2026-11-20T17:55+00:00",
-     "title": "مسيّرات إسرائيلية تلقي منشورات تدعو للتواصل مع ضباط أمن وأخرى تلقي عبوات متفجرة في غزة",
-     "title_en": "Israeli Drones Drop Flyers Urging Contact With Security Officers and Explosives Over Gaza",
+     "observed_at": "2026-11-22T06:42+00:00",
+     "title": "عائدون من عتمة الركام: تسعة وستون قمراً يضيئون سماء شمال غزة",
+     "title_en": "Rising from the Rubble: 69 Moons Light Up North Gaza's Sky",
      "dataset": "osint"
     },
     {
@@ -479,37 +485,7 @@
      "source_grade": "حسن",
      "observed_at": "2026-11-21T13:46+00:00",
      "title": "غزة تلاحق نتنياهو.. كيف انتهى طريق الحرب إلى محكمة لاهاي؟",
-     "title_en": "Gaza Pursues Netanyahu: How the War Led to The Hague",
-     "dataset": "osint"
-    },
-    {
-     "id": "ev_8e758cf15cbf5bab",
-     "url": "https://aawsat.com/%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A/%D8%A7%D9%84%D9%85%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A/5343637-%D8%A7%D9%84%D8%AC%D9%8A%D8%B4-%D8%A7%D9%84%D8%A5%D8%B3%D8%B1%D8%A7%D8%A6%D9%8A%D9%84%D9%8A-%D9%85%D9%82%D8%AA%D9%84-3-%D8%B9%D9%86%D8%A7%D8%B5%D8%B1-%D9%85%D9%86-%D8%AD%D9%85%D8%A7%D8%B3-%D9%88%D8%A7%D9%84%D8%AC%D9%87%D8%A7%D8%AF-%D9%81%D9%8A-%D8%BA%D8%B2%D8%A9",
-     "source_name": "الشرق الأوسط",
-     "source_grade": "حسن",
-     "observed_at": "2026-11-20T22:18+00:00",
-     "title": "الجيش الإسرائيلي: مقتل 3 عناصر من «حماس» و«الجهاد» في غزة",
-     "title_en": "Israeli Military: Three Hamas and Islamic Jihad Operatives Killed in Gaza",
-     "dataset": "osint"
-    },
-    {
-     "id": "ev_90dfedb290594f60",
-     "url": "https://www.skynewsarabia.com/middle-east/1906182-%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85-%D9%8A%D9%84%D9%88%D8%AD-%D8%A8%D8%A7%D9%84%D8%A7%D9%86%D8%B3%D8%AD%D8%A7%D8%A8-%D9%88%D8%A7%D9%84%D8%AA%D8%AE%D9%84%D9%8A-%D9%85%D9%87%D9%85%D8%AA%D9%87-%D8%BA%D8%B2%D8%A9",
-     "source_name": "سكاي نيوز عربية",
-     "source_grade": "حسن",
-     "observed_at": "2026-11-21T08:54+00:00",
-     "title": "مجلس السلام يلوّح بالانسحاب والتخلي عن مهمته في غزة",
-     "title_en": "Peace Council Threatens to Withdraw and Abandon Mission in Gaza",
-     "dataset": "osint"
-    },
-    {
-     "id": "ev_ab472e68a197ae21",
-     "url": "https://www.skynewsarabia.com/middle-east/1906128-6-%D9%82%D8%AA%D9%84%D9%89-%D8%BA%D8%B2%D8%A9-%D8%BA%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A5%D8%B3%D8%B1%D8%A7%D8%A6%D9%8A%D9%84%D9%8A%D8%A9-%D8%AA%D8%B7%D8%A7%D9%84-%D8%A7%D9%84%D8%A8%D8%B1%D9%8A%D8%AC-%D9%88%D9%85%D8%AE%D9%8A%D9%85%D9%8A-%D9%86%D8%A7%D8%B2%D8%AD%D9%8A%D9%86",
-     "source_name": "سكاي نيوز عربية",
-     "source_grade": "حسن",
-     "observed_at": "2026-11-20T19:08+00:00",
-     "title": "6 قتلى في غزة.. غارات إسرائيلية تطال البريج ومخيمي نازحين",
-     "title_en": "Six Killed in Gaza as Israeli Air Raids Target Al-Bureij and Displaced Persons Camps",
+     "title_en": "Gaza Haunts Netanyahu: How the War Led to the Hague",
      "dataset": "osint"
     },
     {
@@ -523,6 +499,16 @@
      "dataset": "osint"
     },
     {
+     "id": "ev_ea70c9daa52cc509",
+     "url": "https://www.ajnet.me/news/2026/11/21/%D8%B9%D8%A7%D8%AC%D9%84-%D9%88%D8%B2%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%B5%D8%AD%D8%A9-%D9%81%D9%8A-%D8%BA%D8%B2%D8%A9-9-%D8%B4%D9%87%D8%AF%D8%A7%D8%A1-%D9%8855-%D9%85%D8%B5%D8%A7%D8%A8%D8%A7",
+     "source_name": "الجزيرة نت",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-21T10:17+00:00",
+     "title": "كانوا ينقلون الطعام للنازحين.. إسرائيل تغتال 3 من عمال الإغاثة بغزة",
+     "title_en": "Delivering Aid to Displaced Civilians: Israel Kills 3 Aid Workers in Gaza",
+     "dataset": "osint"
+    },
+    {
      "id": "ev_f555265fa00f0bfe",
      "url": "https://aawsat.com/%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A/%D8%A7%D9%84%D9%85%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A/5343988-%D8%A5%D8%B3%D8%B1%D8%A7%D8%A6%D9%8A%D9%84-%D8%AA%D9%83%D8%AA%D8%B4%D9%81-%D8%A3%D9%86%D9%81%D8%A7%D9%82%D8%A7%D9%8B-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-%D9%81%D9%8A-%D8%BA%D8%B2%D8%A9-%D8%A8%D8%B9%D8%AF-%D8%A3%D8%B9%D9%88%D8%A7%D9%85-%D9%85%D9%86-%D8%AD%D8%B1%D8%A8-%D9%85%D8%AF%D9%85%D8%B1%D8%A9",
      "source_name": "الشرق الأوسط",
@@ -531,12 +517,32 @@
      "title": "إسرائيل تكتشف أنفاقاً جديدة في غزة بعد أعوام من حرب مدمرة",
      "title_en": "Israel Uncovers New Tunnels in Gaza Years After Devastating War",
      "dataset": "osint"
+    },
+    {
+     "id": "ev_f7f4fc7f77c6bda9",
+     "url": "https://www.independentarabia.com/node/663404/%D8%B3%D9%8A%D8%A7%D8%B3%D8%A9/%D8%AA%D9%82%D8%A7%D8%B1%D9%8A%D8%B1/%D8%BA%D8%B2%D8%A9-%D8%A8%D9%84%D8%A7-%D9%85%D8%B5%D9%84-%D9%84%D9%84%D8%B3%D8%B9%D8%A7%D8%B1%E2%80%A6-%D9%88%D8%A7%D9%84%D9%83%D9%84%D8%A7%D8%A8-%D8%A7%D9%84%D8%B6%D8%A7%D9%84%D8%A9-%D8%AA%D8%B9%D8%B6-%D8%A7%D9%84%D9%86%D8%A7%D8%B2%D8%AD%D9%8A%D9%86-%D9%81%D9%8A-%D8%AE%D9%8A%D9%85%D9%87%D9%85",
+     "source_name": "اندبندنت عربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-22T07:50+00:00",
+     "title": "غزة بلا مصل للسعار… والكلاب الضالة تعض النازحين في خيمهم",
+     "title_en": "Rabies Vaccines Depleted in Gaza as Stray Dogs Bite Displaced Persons in Tents",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_fb8b1bb9ac983b97",
+     "url": "https://www.aljazeera.net/news/2026/11/21/%D8%A7%D9%84%D8%AD%D9%8A%D8%A9-%D9%85%D8%B4%D8%B1%D9%88%D8%B9-%D8%A5%D8%B3%D8%B1%D8%A7%D8%A6%D9%8A%D9%84-%D8%A7%D9%84%D9%83%D8%A8%D8%B1%D9%89-%D8%AF%D8%AE%D9%84-%D8%AD%D9%8A%D8%B2",
+     "source_name": "الجزيرة نت",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-21T15:22+00:00",
+     "title": "الحية: مشروع \"إسرائيل الكبرى\" دخل حيز التنفيذ وغزة تواجه التجويع",
+     "title_en": "Al-Hayya: 'Greater Israel' Plan Implemented as Gaza Faces Starvation",
+     "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-11-22T07:17+00:00"
+   "updated_at": "2026-11-22T10:45+00:00"
   },
   {
    "id": "sig_7ce5e1ca05c1e737",
@@ -544,9 +550,9 @@
    "title": "Watch term active: الحوثي",
    "title_en": "Watch term active: Houthi",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-11-22T07:17+00:00",
+   "observed_at": "2026-11-22T10:45+00:00",
    "observed_facts": [
-    "5 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
+    "6 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
    "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
    "inference": "Term matching indicates attention, not intent, coordination, or threat.",
@@ -586,7 +592,7 @@
      "source_grade": "حسن",
      "observed_at": "2026-11-22T01:14+00:00",
      "title": "السعودية تعلن مجدداً اعتراض صاروخ باليستي أطلقه الحوثيون باتجاه المنطقة الغربية",
-     "title_en": "Saudi Arabia Reports Intercepting Another Houthi Ballistic Missile Fired Toward Western Region",
+     "title_en": "Saudi Arabia Intercepts Another Houthi Ballistic Missile Fired Toward Western Region",
      "dataset": "osint"
     },
     {
@@ -608,12 +614,73 @@
      "title": "الدفاعات السعودية تدمر صاروخين باليستيين أطلقتهما ميليشيا الحوثي باتجاه جازان",
      "title_en": "Saudi Defenses Destroy Two Houthi Ballistic Missiles Fired Toward Jazan",
      "dataset": "osint"
+    },
+    {
+     "id": "ev_e173cbcc4694c455",
+     "url": "https://www.aljazeera.net/politics/2026/11/22/%d8%a7%d9%84%d9%85%d8%b4%d9%87%d8%af-%d8%a7%d9%84%d9%8a%d9%85%d9%86%d9%8a-%d8%a8%d9%8a%d9%86-%d8%a7%d9%86%d9%82%d8%b3%d8%a7%d9%85%d8%a7%d8%aa-%d8%a7%d9%84%d8%b4%d8%b1%d8%b9%d9%8a%d8%a9-2?traffic_source=rss",
+     "source_name": "الجزيرة نت",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-22T06:34+00:00",
+     "title": "المشهد اليمني بين انقسامات الشرعية وتمدد الحوثيين",
+     "title_en": "",
+     "dataset": "osint"
     }
    ],
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-11-17T11:03+00:00",
-   "updated_at": "2026-11-22T07:17+00:00"
+   "updated_at": "2026-11-22T10:45+00:00"
+  },
+  {
+   "id": "sig_87c20191a60886e2",
+   "type": "ai-repository-trend",
+   "title": "AI repository activity: RAG / knowledge",
+   "title_en": "AI repository activity: RAG / knowledge",
+   "summary": "The live GitHub radar contains a repeated repository class after deterministic ranking and deduplication.",
+   "observed_at": "2026-11-22T10:35:38Z",
+   "observed_facts": [
+    "2 recently pushed, non-fork repositories share this SANAD radar classification."
+   ],
+   "assessment": "The live GitHub radar contains a repeated repository class after deterministic ranking and deduplication.",
+   "inference": "Repository activity and stars indicate attention, not code quality, safety, or suitability.",
+   "uncertainty": "GitHub search coverage and popularity metrics are incomplete and can be gamed.",
+   "confidence": 0.62,
+   "severity": "info",
+   "countries": [],
+   "sectors": [
+    "technology"
+   ],
+   "topics": [
+    "artificial-intelligence",
+    "open-source",
+    "rag-knowledge"
+   ],
+   "evidence": [
+    {
+     "id": "ev_97dcab4759c83fdb",
+     "url": "https://github.com/langgenius/dify",
+     "source_name": "GitHub Search API",
+     "source_grade": "",
+     "observed_at": "2026-11-22T10:35:38Z",
+     "title": "langgenius/dify",
+     "title_en": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
+     "dataset": "repos"
+    },
+    {
+     "id": "ev_e9dbf459bd01dca3",
+     "url": "https://github.com/firecrawl/firecrawl",
+     "source_name": "GitHub Search API",
+     "source_grade": "",
+     "observed_at": "2026-11-22T06:23:11Z",
+     "title": "firecrawl/firecrawl",
+     "title_en": "Knowledge infrastructure to make your agents smarter. Search, scrape and access 550+ data providers through one API.",
+     "dataset": "repos"
+    }
+   ],
+   "contradictions": [],
+   "event_ids": [],
+   "created_at": "2026-11-22T10:45+00:00",
+   "updated_at": "2026-11-22T10:45+00:00"
   },
   {
    "id": "sig_9fafb493aca3836e",
@@ -671,7 +738,7 @@
    "title": "Watch term active: #إيران",
    "title_en": "Watch term active: #Iran",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-11-22T07:17+00:00",
+   "observed_at": "2026-11-22T10:45+00:00",
    "observed_facts": [
     "8 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 100."
    ],
@@ -697,6 +764,26 @@
      "dataset": "osint"
     },
     {
+     "id": "ev_137eda2f8d4f62a1",
+     "url": "https://www.skynewsarabia.com/middle-east/1906310-%D8%A7%D9%84%D8%A5%D9%85%D8%A7%D8%B1%D8%A7%D8%AA-%D8%AA%D8%AF%D9%8A%D9%86-%D8%A8%D8%B4%D8%AF%D8%A9-%D8%AA%D8%AC%D8%AF%D8%AF-%D8%A7%D9%84%D9%87%D8%AC%D9%88%D9%85-%D8%A7%D9%84%D8%A5%D9%8A%D8%B1%D8%A7%D9%86%D9%8A-%D8%A7%D9%84%D8%B9%D8%AF%D9%88%D8%A7%D9%86%D9%8A-%D8%A7%D9%84%D8%A8%D8%AD%D8%B1%D9%8A%D9%86",
+     "source_name": "سكاي نيوز عربية",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-22T09:19+00:00",
+     "title": "الإمارات تدين بشدة تجدد الهجوم الإيراني العدواني على البحرين",
+     "title_en": "UAE Strongly Condemns Renewed Iranian Aggression Against Bahrain",
+     "dataset": "osint"
+    },
+    {
+     "id": "ev_2423808204417a0a",
+     "url": "https://www.bbc.com/persian/articles/c6zxvgg7z2yro?at_medium=RSS&at_campaign=rss",
+     "source_name": "بي بي سي فارسي",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-22T08:14+00:00",
+     "title": "من «شبح الحرب» إلى المدن الصاروخية؛ «الردع المطلق» بعد حربين",
+     "title_en": "From 'Specter of War' to Missile Cities: 'Absolute Deterrence' After Two Conflicts",
+     "dataset": "osint"
+    },
+    {
      "id": "ev_400f6b55eaa02e84",
      "url": "https://www.bbc.com/arabic/articles/cm20vxl62wy4o?at_medium=RSS&at_campaign=rss",
      "source_name": "بي بي سي عربي",
@@ -707,12 +794,12 @@
      "dataset": "osint"
     },
     {
-     "id": "ev_44ced5136256b26a",
-     "url": "https://arabic.cnn.com/middle-east/article/2026/11/22/iran-claims-f16-struck-missile-centsom-response",
-     "source_name": "CNN بالعربية",
+     "id": "ev_570ffece153b2fa3",
+     "url": "https://www.skynewsarabia.com/world/1906313-%D8%A7%D9%84%D8%AC%D9%8A%D8%B4-%D8%A7%D9%84%D8%B1%D9%88%D8%B3%D9%8A-%D9%8A%D8%B3%D9%8A%D8%B7%D8%B1-%D8%A8%D9%84%D8%AF%D8%A9-%D9%85%D9%82%D8%A7%D8%B7%D8%B9%D8%A9-%D8%AE%D8%A7%D8%B1%D9%83%D9%8A%D9%81",
+     "source_name": "سكاي نيوز عربية",
      "source_grade": "حسن",
-     "observed_at": "2026-11-22T04:48+00:00",
-     "title": "إيران تدعي اعتراض مقاتلة F-16 وإصابتها بانفجار صاروخ قربها والجيش الأمريكي يرد",
+     "observed_at": "2026-11-22T09:43+00:00",
+     "title": "الجيش الروسي يسيطر على بلدة في مقاطعة خاركيف",
      "title_en": "",
      "dataset": "osint"
     },
@@ -723,37 +810,17 @@
      "source_grade": "حسن",
      "observed_at": "2026-11-22T06:51+00:00",
      "title": "فقدان عشرات الأشخاص إثر حريق في مصنع للحلويات في إندونيسيا",
-     "title_en": "Dozens Missing After Fire at Confectionery Factory in Indonesia",
+     "title_en": "Dozens Missing Following Fire at Indonesia Confectionery Factory",
      "dataset": "osint"
     },
     {
-     "id": "ev_a44305c086cdb792",
-     "url": "https://www.iranintl.com/202611224847",
-     "source_name": "إيران إنترناشونال",
+     "id": "ev_849ba844e3869189",
+     "url": "https://www.skynewsarabia.com/middle-east/1906311-%D9%82%D8%B1%D9%82%D8%A7%D8%B4-%D8%AA%D9%86%D8%A7%D9%81%D8%B3-%D8%AC%D9%8A%D9%88%D8%B3%D9%8A%D8%A7%D8%B3%D9%8A-%D9%85%D9%88%D8%A7%D8%B2-%D9%84%D9%84%D8%AD%D8%B1%D8%A8-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D9%8A%D9%82%D9%84-%D8%AE%D8%B7%D9%88%D8%B1%D8%A9",
+     "source_name": "سكاي نيوز عربية",
      "source_grade": "حسن",
-     "observed_at": "2026-11-22T05:06+00:00",
-     "title": "إدخال 33 شخصاً إلى المستشفى في نيسابور بسبب التسمم الكحولي ووفاة ثلاثة أشخاص",
-     "title_en": "33 Hospitalized, Three Dead from Alcohol Poisoning in Nishapur",
-     "dataset": "osint"
-    },
-    {
-     "id": "ev_df8847527dfa0c9e",
-     "url": "https://www.iranintl.com/202611225528",
-     "source_name": "إيران إنترناشونال",
-     "source_grade": "حسن",
-     "observed_at": "2026-11-22T04:27+00:00",
-     "title": "محافظ أذربيجان الغربية: حجم بحيرة أورمية تضاعف أكثر من 10 مرات مقارنة بالعام الماضي",
-     "title_en": "West Azerbaijan Governor: Lake Urmia Water Volume More Than Decupled Year-on-Year",
-     "dataset": "osint"
-    },
-    {
-     "id": "ev_ea9c837ff4b95794",
-     "url": "https://www.iranintl.com/202611229986",
-     "source_name": "إيران إنترناشونال",
-     "source_grade": "حسن",
-     "observed_at": "2026-11-22T04:46+00:00",
-     "title": "وزارة الصحة تعلن عن تسجيل نحو 390 إصابة جديدة بالسرطان يومياً في إيران",
-     "title_en": "Health Ministry Reports Nearly 390 New Cancer Cases Daily in Iran",
+     "observed_at": "2026-11-22T09:26+00:00",
+     "title": "قرقاش: التنافس الجيوسياسي لا يقل خطورة عن الحرب مع إيران",
+     "title_en": "",
      "dataset": "osint"
     },
     {
@@ -770,7 +837,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-08-29T23:02+00:00",
-   "updated_at": "2026-11-22T07:17+00:00"
+   "updated_at": "2026-11-22T10:45+00:00"
   },
   {
    "id": "sig_c4aa304287325e90",
@@ -778,9 +845,9 @@
    "title": "Watch term active: ناقلة",
    "title_en": "Watch term active: tanker",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-11-22T07:17+00:00",
+   "observed_at": "2026-11-22T10:45+00:00",
    "observed_facts": [
-    "2 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 52."
+    "3 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 62."
    ],
    "assessment": "The configured public watch term met the minimum graded-hit and heat thresholds.",
    "inference": "Term matching indicates attention, not intent, coordination, or threat.",
@@ -793,6 +860,16 @@
     "طاقة"
    ],
    "evidence": [
+    {
+     "id": "ev_0c4e1c86abb8a72a",
+     "url": "https://www.bbc.co.uk/persian/live/c539gj7rnrg1t?at_medium=RSS&at_campaign=rss",
+     "source_name": "بي بي سي فارسي",
+     "source_grade": "حسن",
+     "observed_at": "2026-11-22T10:45+00:00",
+     "title": "سنتكوم: الحصار البحري لإيران بلغ 130 يوماً؛ تانكر تراكرز: المعلومات المتعلقة بحركة ناقلة النفط الإيرانية مزيفة",
+     "title_en": "CENTCOM: Iran Naval Blockade Reaches 130 Days; TankerTrackers Says Tanker Movement Data Falsified",
+     "dataset": "osint"
+    },
     {
      "id": "ev_5b7f5c88fdd4b73e",
      "url": "https://www.alarabiya.net/iran/2026/11/20/%D8%A7%D9%86%D9%81%D8%AC%D8%A7%D8%B1-%D8%AC%D8%AF%D9%8A%D8%AF-%D9%81%D9%8A-%D8%AC%D8%B2%D9%8A%D8%B1%D8%A9-%D9%82%D8%B4%D9%85-%D9%88%D9%87%D8%AC%D9%88%D9%85-%D8%B9%D9%84%D9%89-%D9%86%D8%A7%D9%82%D9%84%D8%A9-%D8%A8%D9%85%D8%B6%D9%8A%D9%82-%D9%87%D8%B1%D9%85%D8%B2",
@@ -807,7 +884,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-11-17T11:03+00:00",
-   "updated_at": "2026-11-22T07:17+00:00"
+   "updated_at": "2026-11-22T10:45+00:00"
   },
   {
    "id": "sig_d16a97b1c2740ac8",
@@ -815,7 +892,7 @@
    "title": "Watch term active: #هرمز",
    "title_en": "Watch term active: #Hormuz",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-11-22T07:17+00:00",
+   "observed_at": "2026-11-22T10:45+00:00",
    "observed_facts": [
     "6 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 92."
    ],
@@ -894,7 +971,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-11-21T19:59+00:00",
-   "updated_at": "2026-11-22T07:17+00:00"
+   "updated_at": "2026-11-22T10:45+00:00"
   },
   {
    "id": "sig_f28d27c3c609459d",
@@ -902,7 +979,7 @@
    "title": "Watch term active: مضيق هرمز",
    "title_en": "Watch term active: Strait of Hormuz",
    "summary": "The configured public watch term met the minimum graded-hit and heat thresholds.",
-   "observed_at": "2026-11-22T07:17+00:00",
+   "observed_at": "2026-11-22T10:45+00:00",
    "observed_facts": [
     "4 graded SANAD hit(s) and 8 attributable open-news hit(s); heat 72."
    ],
@@ -961,7 +1038,7 @@
    "contradictions": [],
    "event_ids": [],
    "created_at": "2026-11-21T19:59+00:00",
-   "updated_at": "2026-11-22T07:17+00:00"
+   "updated_at": "2026-11-22T10:45+00:00"
   }
  ]
 }
