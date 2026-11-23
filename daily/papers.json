@@ -1,108 +1,105 @@
 {
- "updated": "2026-11-22T21:34+00:00",
+ "updated": "2026-11-23T11:05+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2611.26232",
-   "title": "Time Series Structure Learning with Local Causal Parent Discovery",
-   "abstract": "Learning and inference on time series can pose significant statistical challenges, including autocorrelated observations, distribution shift over time, and the curse of dimensionality. These challenges complicate the practical application of causal discovery algorithms, which already suffer from high computational and sample complexity in the general case. To mitigate these issues, this work introduces Iterative Temporal Parent Discovery (ITPD): a sound and complete constraint-based procedure for causal structure learning on multivariate time series with causal nonstationarity. ITPD takes a lo",
+   "id": "2611.22479",
+   "title": "Exploited Before It Was Fixed? Vulnerability Timelines from Open, Machine-Readable Evidence",
+   "abstract": "-05-X-03), Known Exploited Vulnerabilities (KEV) catalogs, and exploitation sightings. We introduce an evidence model implemented in Vulnerability-Lookup that selects the earliest evidence for each lifecycle event, distinguishes vulnerability-specific records, preserves date precision, and ensures traceability to original sources. Among 3,758 vulnerability identifiers with exploitation evidence, 98% have disclosure dates, while only 15.7% have patch evidence. Vendor-side dates required by VTEM are entirely absent. Most exploitation dates originate from catalog listings, including 1,041 entries",
    "authors": [
-    "Jacqueline Maasch",
-    "Shu Wan",
-    "Hank Zhu",
-    "Huan Liu"
+    "Cédric Bonhomme",
+    "Alexandre Dulaunoy"
    ],
-   "link": "https://huggingface.co/papers/2611.26232",
+   "link": "https://huggingface.co/papers/2611.22479",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-19T00:00",
-   "title_ar": "تعلم بنية السلاسل الزمنية عبر الاكتشاف السببي للأصول المحلية",
-   "summary_ar": "يفرض التعلم والاستدلال في السلاسل الزمنية تحديات إحصائية كبيرة تشمل الارتباط الذاتي للملاحظات، وتغير التوزيع عبر الزمن، ولعنة الأبعاد. وتزيد هذه التحديات من تعقيد التطبيق العملي لخوارزميات الاكتشاف السببي التي تعاني بالأساس من صعوبات."
+   "published": "2026-11-17T00:00",
+   "title_ar": "هل استُغلت قبل إصلاحها؟ جداول زمنية للثغرات الأمنية من أدلة مفتوحة وقابلة للقراءة آلياً",
+   "summary_ar": "نقدم نموذج أدلة مُنفّذاً في \"Vulnerability-Lookup\" يختار أبكر دليل لكل حدث في دورة الحياة، ويميز السجلات الخاصة بكل ثغرة. كما يحافظ النموذج على دقة التواريخ ويضمنها، استناداً إلى كتالوجات الثغرات المستغلة المعروفة ورصد عمليات الاستغلال."
   },
   {
-   "id": "2611.26239",
-   "title": "Teaching Vision-Language-Action Models to Stop Safely",
-   "abstract": "Vision-language-action (VLA) models enable robots to perform diverse tasks from visual observations and language instructions. While prior work has explored task suppression and refusal, stopping prohibited behavior once execution is underway and controlling the resulting physical response remain challenging. Our evaluation reveals that policies which suppress a task from its initial state can still complete it when taking over partway through execution. Even when the task remains unfinished, the robot may drop a held object, making non-completion an incomplete measure of safety. To address th",
+   "id": "2611.25252",
+   "title": "Moving Generality from Model to Modeler: LLM Agents for PHM on a Deployment-Style Benchmark",
+   "abstract": "Coding agents built on large language models (LLMs) now help develop many models published as general solutions. Should generality instead reside in the agent that builds a model for each new task? We examine this question in prognostics and health management (PHM), where every model must work on unseen equipment. Our deployment-style benchmark, NextUnit-Bench, covers 24 public datasets split into 58 folds that hold out units or operating conditions; each agent has two hours to deliver an executable predictor, then run on the hidden units. First, frontier agents outperform AutoML, which reache",
    "authors": [
-    "Zheyuan Liu",
-    "Chuhan Wang",
-    "Jinduo Guo",
-    "Yue Huang"
+    "Zhenling Chen",
+    "Zhiguo Zeng",
+    "Anne Barros"
    ],
-   "link": "https://huggingface.co/papers/2611.26239",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-19T00:00",
-   "title_ar": "تعليم نماذج الرؤية واللغة والعمل التوقف بأمان",
-   "summary_ar": "تُمكّن نماذج الرؤية واللغة والعمل الروبوتات من تنفيذ مهام متنوعة استناداً إلى الملاحظات البصرية والتعليمات اللغوية. ورغم استكشاف الأعمال السابقة لإلغاء المهام ورفضها، فإن إيقاف السلوك المحظور فور بدء تنفيذه والتحكم في الاستجابة الفيزيائية الناتجة يظلان أمرين ينطويان على تحديات."
-  },
-  {
-   "id": "2611.25604",
-   "title": "PAD: Policy-Aware Data Valuation for Autonomous Driving",
-   "abstract": "End-to-end autonomous driving increasingly depends on scaling training demonstrations, yet data growth does not guarantee proportional gains. However, additional data do not guarantee better policies: a demonstration that benefits one planner may be redundant or harmful to another. Existing curation methods typically infer data value from intrinsic sample properties or training-dependent proxies that do not measure downstream policy utility. To address this, we introduce Policy-Aware Data Valuation (PAD), a framework that assigns each candidate demonstration a utility specific to the target dr",
-   "authors": [
-    "Chengkai Xu",
-    "Yicheng Guo",
-    "Jiaqi Liu",
-    "Yiming Cui"
-   ],
-   "link": "https://huggingface.co/papers/2611.25604",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-19T00:00",
-   "title_ar": "PAD: تقييم البيانات المدرك للسياسات في القيادة الذاتية",
-   "summary_ar": "تعتمد القيادة الذاتية الشاملة بشكل متزايد على زيادة عروض التدريب، غير أن نمو البيانات لا يضمن مكاسب متناسبة أو سياسات أفضل. فالتوضيح الذي يفيد مخططاً معيناً قد يكون فائضاً عن الحاجة أو ضاراً لآخر، ولا تضمن البيانات الإضافية تحسين السياسات."
-  },
-  {
-   "id": "2611.15941",
-   "title": "Lang-SVG: Hierarchical Image Vectorization with Language Priors",
-   "abstract": "Image vectorization reconstructs raster images as compact scalable vector graph- ics (SVG), providing a structured and editable code representation of images. However, most existing vectorization methods optimize for pixel-level render- ing fidelity, often producing SVGs that lack alignment with human-perceived object-part hierarchies, making them difficult to manipulate. To address this, we propose Lang-SVG, which introduces an explicit tree structure to organize SVG primitives with semantic labels and parent-child relationships. Lang-SVG incorporates granularity-controllable and open-vocabul",
-   "authors": [
-    "Xi Liu",
-    "Chaoyi Zhou",
-    "Run Wang",
-    "Jiaang Li"
-   ],
-   "link": "https://huggingface.co/papers/2611.15941",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-11T00:00",
-   "title_ar": "Lang-SVG: إشعاع متجهي هرمي للصور باستخدام خلفيات لغوية سابقة",
-   "summary_ar": "يعيد توجيه الصور بناء الصور النقطية كرسومات متجهية قابلة للتطوير ومدمجة، مما يوفر تمثيلاً برمجياً منظماً وقابلاً للتعديل للصور. ومع ذلك، تُركز معظم الأساليب الحالية على دقة العرض على مستوى البكسل، مما يُنتج غالباً رسومات تفتقر إلى التوافق مع الإدراك البشري."
-  },
-  {
-   "id": "2611.25200",
-   "title": "Squoosh Bench: Evaluating UX-1 on 318 Historical Website A/B Tests",
-   "abstract": "Experimentation teams must decide which proposed website changes to test with live traffic. We evaluated whether forecasts from simulated shoppers could inform that choice. We screened 412 historical website A/B tests and evaluated four systems on the 318 that ran longer than 21 days. Each system predicted an original win, a variant win, or an inconclusive result. Page roles were masked and recorded outcomes were withheld during inference. Squoosh UX-1, a model fine-tuned on human browsing data, simulated 1,000 shoppers per arm and correctly classified 267 of 318 outcomes (84.0%, 95% Wilson in",
-   "authors": [
-    "Rohith Pasula",
-    "Johari Dramiga",
-    "Viraj Shah",
-    "Suzan Halim"
-   ],
-   "link": "https://huggingface.co/papers/2611.25200",
+   "link": "https://huggingface.co/papers/2611.25252",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-18T00:00",
-   "title_ar": "Squoosh Bench: تقييم UX-1 على 318 اختبار A/B تاريخي للمواقع الإلكترونية",
-   "summary_ar": "يجب على فِرق التجريب تحديد التغييرات المقترحة على المواقع الإلكترونية لاختبارها مع حركة الزوار الحية، حيث قمنا بتقييم ما إذا كانت تنبؤات المتسوقين المحاكيين يمكن أن تدعم هذا الاختيار. فحصنا 412 اختبار A/B تاريخياً للمواقع وقيّمنا أربعة أنظمة على 318 اختباراً منها استمرت لأكثر من 21 يوماً."
+   "title_ar": "نقل العمومية من النموذج إلى المصمم: وكلاء النماذج اللغوية الكبيرة لإدارة التنبؤات والحالة الصحية على معيار تقييم بأسلوب النشر",
+   "summary_ar": "نبحث في مسألة ما إذا كان ينبغي للعمومية أن تستقر في الوكيل الذي يبني نموذجاً لكل مهمة جديدة بدلاً من النماذج نفسها، وذلك في مجال التنبؤ وإدارة الحالة الصحية. ويأتي هذا في ظل مساعدة وكلاء البرمجة المعتمدين على النماذج اللغوية الكبيرة في تطوير العديد من النماذج المنشورة كحلول عامة."
   },
   {
-   "id": "2611.26627",
-   "title": "RL Post-Training in Diffusion Transformers Is Activation Steering",
-   "abstract": "Reinforcement learning (RL) post-training substantially improves the visual quality, text rendering, and compositional accuracy of diffusion transformers. Because capabilities such as rendering requested text or composing multiple objects are inherently prompt-dependent, a natural hypothesis is that improving them requires learning complex, input-dependent transformations. To isolate how much of these gains an input-independent shift explains, we probe each RL-tuned model with a deliberately simple parameterization: a fixed set of steering vectors added to the block outputs of the frozen base ",
+   "id": "2611.19247",
+   "title": "GameWM: Toward Next-Generation Video Games with Interaction-Centric World Models",
+   "abstract": "For more than half a century, video games have pursued better graphics, more natural interaction, and more engaging gameplay. Generative video models (VMs) now bear on all three. Neural networks already draw most of the pixels in shipped games, and recent world models let a lightweight game engine keep the world state while a VM turns the engine's coarse proxy video into final frames. These systems, however, treat the VM as a renderer that only restyles motion the engine has already authored, which leaves most of its generative capacity unused and limits the diversity a game can offer. We pres",
    "authors": [
-    "Tuna Han Salih Meral",
-    "Kaan Oktay",
-    "Alec Helbling",
-    "Atakan Kara"
+    "Bing He",
+    "Runze Wang",
+    "Fei Zha",
+    "Zhongyuan Wu"
    ],
-   "link": "https://huggingface.co/papers/2611.26627",
+   "link": "https://huggingface.co/papers/2611.19247",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-19T00:00",
-   "title_ar": "التدريب اللاحق بالتعلم المعزز في محولات الانتشار هو توجيه للتنشيط",
-   "summary_ar": "يُحسّن التدريب اللاحق بالتعلم المعزز بشكل كبير الجودة البصرية، وعرض النصوص، والدقة التركيبية لمحولات الانتشار. ونظراً لأن قدرات مثل عرض النص المطلوب أو تركيب كائنات متعددة تعتمد بطبيعتها على الأوامر، فإن الفرضية الطبيعية تطرح تفسيراً لذلك."
+   "published": "2026-11-14T00:00",
+   "title_ar": "GameWM: نحو الجيل القادم من ألعاب الفيديو باستخدام نماذج العالم المتمحورة حول التفاعل",
+   "summary_ar": "تؤثر نماذج الفيديو التوليدية حالياً على مساعي ألعاب الفيديو المستمرة منذ أكثر من نصف قرن لتحقيق رسوميات أفضل، وتفاعل أكثر طبيعية، وأسلوب لعب أكثر جاذبية. وترسم الشبكات العصبية بالفعل معظم البكسلات في الألعاب المطروحة، بينما تتيح نماذج العالم الحديثة لمحرك ألعاب خفيف العمل بفعالية."
+  },
+  {
+   "id": "2611.22495",
+   "title": "Motion-Aware Reward Modeling for Instruction-Guided Video Editing",
+   "abstract": "Reward models for instruction-guided video editing can favor temporal consistency at the expense of motion. We study this failure, termed motion collapse, using controlled motion-suppression variants of real edits. On VE-Bench, the evaluated composite reward prefers a motion-suppressed candidate in 97% of cases. Learned video rewards and a VLM judge also struggle with mild suppression, while latent optimization and reward-guided fine-tuning exploit this weakness to increase reward as motion declines. A linear probe of our base reward backbone performs near chance on mild suppression, motivatin",
+   "authors": [
+    "Li Li",
+    "Xiangbo Gao",
+    "Bo Ni",
+    "Samyadeep Basu"
+   ],
+   "link": "https://huggingface.co/papers/2611.22495",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-17T00:00",
+   "title_ar": "نمذجة المكافأة المدركة للحركة لتحرير الفيديو الموجه بالتعليمات",
+   "summary_ar": "ندرس مشكلة تفضيل نماذج المكافأة في تحرير الفيديو الموجه بالتعليمات للاتساق الزمني على حساب الحركة، وهو إخفاق يُعرف بـ \"انهيار الحركة\"، وذلك باستخدام متغيرات مضبوطة لكبت الحركة في تعديلات حقيقية. وتُظهر النتائج على معيار VE-Bench أن المكافأة المركبة المُقيمة تُفضل خياراً مكبوت الحركة."
+  },
+  {
+   "id": "2611.24025",
+   "title": "Intent Contracts: Taking Tools Away from Agents",
+   "abstract": "Intent contracts are an authorization interface for tool-using LLM agents in which the planning model holds no tools. For each step it submits a short logged contract: a goal, a verbatim quotation of the user, and scope fields. Code validates the contract, and a small trusted model checks it against the user's words and writes the tool call itself. Provided the validation and dispatch code is correct, every executed call is written by the trusted model, the planner's influence on a call is confined to a contract logged before it, and the trusted side decides how much of a request to carry out.",
+   "authors": [
+    "Ziyuan Wang",
+    "Genliang Zhu",
+    "Xiaobo Chen",
+    "Chu Wang"
+   ],
+   "link": "https://huggingface.co/papers/2611.24025",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-18T00:00",
+   "title_ar": "عقود النوايا: تجريد الوكلاء من الأدوات",
+   "summary_ar": "تمثل عقود النوايا واجهة تخويل لوكلاء النماذج اللغوية الكبيرة المستخدمين للأدوات بحيث لا يمتلك نموذج التخطيط أي أدوات. ويقدم النموذج في كل خطوة عقداً مسجلاً يتضمن هدفاً، واقتباساً حرفياً للمستخدم، وحقول النطاق؛ لتقوم برمجية بالتحقق من العقد ويفحصه نموذج موثوق وصغير."
+  },
+  {
+   "id": "2611.27915",
+   "title": "StereoVLM: Binocular Vision-Language Models for Metric 3D Spatial Reasoning",
+   "abstract": "Vision-language models (VLMs) exhibit strong semantic understanding but remain limited in their ability to reason about metric 3D space in the physical world. Existing VLMs typically infer 3D scene structure from one or more images without known camera calibration or cross-view geometric constraints. This makes metric 3D inference inherently ambiguous and leaves it unclear whether their spatial predictions are grounded in visual evidence or driven primarily by semantic priors. In contrast, calibrated stereo provides explicit cross-view geometry that resolves this ambiguity and offers a more re",
+   "authors": [
+    "Chi Yan",
+    "Guoyang Zhao",
+    "Wentao Yuan",
+    "Yixiao Ge"
+   ],
+   "link": "https://huggingface.co/papers/2611.27915",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-20T17:52",
+   "title_ar": "StereoVLM: نماذج لغة ورؤية ثنائية العيَن للاستدلال المكاني ثلاثي الأبعاد المتري",
+   "summary_ar": "تُظهر نماذج الرؤية واللغة فهماً دلالياً قوياً، لكن قدرتها على الاستدلال حول الفضاء ثلاثي الأبعاد المتري في العالم المادي تظل محدودة. وتستنتج النماذج الحالية عادةً بنية المشهد ثلاثي الأبعاد من صورة واحدة أو أكثر دون معايرة معروفة للكاميرا أو قيود هندسية عبر زوايا الرؤية المختلفة."
   }
  ],
  "n": 6
