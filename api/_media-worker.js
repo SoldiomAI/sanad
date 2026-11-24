@@ -26,6 +26,25 @@ const MIMES_BY_KIND = Object.freeze({
 
 let manifestCache = null;
 
+// العاملُ يُسمّي مزوّدَه ونموذجَه في ردِّه، وردُّه يُنشَرُ للقارئِ كما هو. الاسمُ
+// يُستبدَلُ بوظيفتِه هنا — عند الحدِّ الذي نملكُه ونَنشرُه في ثوانٍ — فلا يعتمدُ
+// الحجبُ على نشرِ العاملِ من جديد. ونسخةُ النموذجِ تُختزَلُ إلى بصمةٍ ثابتة:
+// الجهةُ المؤسسيّةُ تستطيعُ أن تتحقّقَ أنّ النموذجَ لم يتغيّرْ أثناءَ التعاقد،
+// والعامّةُ لا تتعلّمُ منها اسمًا.
+const PROVIDER_LABEL = 'media-worker';
+const VENDOR_RE = /\b(gemini|grok|gpt|claude|llama|vertex|x\.?ai|openai|anthropic)\b/i;
+function publicProvider(value) {
+  const v = String(value || '');
+  if (!v) return 'none';
+  return VENDOR_RE.test(v) ? PROVIDER_LABEL : v;
+}
+function publicModelVersion(value) {
+  const v = String(value || '').slice(0, 128);
+  if (!v) return '';
+  if (!VENDOR_RE.test(v)) return v;
+  return 'ext-' + crypto.createHash('sha256').update(v).digest('hex').slice(0, 12);
+}
+
 function insufficient(media, status, limitation) {
   return {
     verdict: 'insufficient',
@@ -37,7 +56,7 @@ function insufficient(media, status, limitation) {
     signals_for: [],
     signals_against: [],
     limitations: [limitation],
-    provider: 'gemini',
+    provider: PROVIDER_LABEL,
     provider_status: status,
     checked_at: new Date().toISOString(),
     analysis_scope: media?.analysis_scope || 'none',
@@ -171,7 +190,7 @@ function normalizeWorkerEvidence(value, media, expectedVersion = '') {
     signals_for: signalsFor,
     signals_against: signalsAgainst,
     limitations: cleanStrings(value.limitations),
-    provider: 'gemini',
+    provider: PROVIDER_LABEL,
     provider_status: providerStatus === 'completed' && !versionValid
       ? 'worker_version_mismatch'
       : completed
@@ -180,7 +199,7 @@ function normalizeWorkerEvidence(value, media, expectedVersion = '') {
     checked_at: String(value.checked_at || new Date().toISOString()).slice(0, 64),
     analysis_scope: String(value.analysis_scope || media.analysis_scope || 'none').slice(0, 120),
     bytes_analyzed: completed && bytesValid ? bytesAnalyzed : 0,
-    model_version: String(value.model_version || '').slice(0, 128),
+    model_version: publicModelVersion(value.model_version),
     worker_version: workerVersion,
     sampling: value.sampling && typeof value.sampling === 'object' ? value.sampling : undefined,
     usd: 0,
@@ -283,6 +302,7 @@ function clearManifestCache() {
 
 module.exports = {
   ALLOWED_MIMES,
+  PROVIDER_LABEL,
   DEFAULT_MANIFEST_URL,
   MAX_MEDIA_BYTES,
   analyzeWithWorker,
@@ -290,5 +310,7 @@ module.exports = {
   loadWorkerManifest,
   normalizeManifest,
   normalizeWorkerEvidence,
+  publicModelVersion,
+  publicProvider,
   validWorkerEndpoint,
 };
