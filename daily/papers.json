@@ -1,105 +1,107 @@
 {
- "updated": "2026-11-23T11:05+00:00",
+ "updated": "2026-11-24T06:47+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2611.22479",
-   "title": "Exploited Before It Was Fixed? Vulnerability Timelines from Open, Machine-Readable Evidence",
-   "abstract": "-05-X-03), Known Exploited Vulnerabilities (KEV) catalogs, and exploitation sightings. We introduce an evidence model implemented in Vulnerability-Lookup that selects the earliest evidence for each lifecycle event, distinguishes vulnerability-specific records, preserves date precision, and ensures traceability to original sources. Among 3,758 vulnerability identifiers with exploitation evidence, 98% have disclosure dates, while only 15.7% have patch evidence. Vendor-side dates required by VTEM are entirely absent. Most exploitation dates originate from catalog listings, including 1,041 entries",
+   "id": "2611.30813",
+   "title": "HIVE-Bench: Evaluating Patch-Level Visual Representations for Egocentric Robot Manipulation",
+   "abstract": "Pretrained vision is a common start for robot learning, but most comparisons still score one pooled vector from a third-person image. Bimanual policies instead read dense patch tokens from cameras on the robot. We introduce HIVE-Bench: one shared flow-matching policy reads 20 encoders from seven families on 24 egocentric bimanual tasks, across adaptation, task sharing, and sweeps of data, model size, and layer. Keeping the patches matters. Averaging each view to one token removes most of the success, adaptation helps every pair we test, and one shared policy keeps most of the success of separa",
    "authors": [
-    "Cédric Bonhomme",
-    "Alexandre Dulaunoy"
+    "Qiwei Liang",
+    "Zhengtu Liang",
+    "Minghao Lai",
+    "Yikeng Chen"
    ],
-   "link": "https://huggingface.co/papers/2611.22479",
+   "link": "https://huggingface.co/papers/2611.30813",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-17T00:00",
-   "title_ar": "هل استُغلت قبل إصلاحها؟ جداول زمنية للثغرات الأمنية من أدلة مفتوحة وقابلة للقراءة آلياً",
-   "summary_ar": "نقدم نموذج أدلة مُنفّذاً في \"Vulnerability-Lookup\" يختار أبكر دليل لكل حدث في دورة الحياة، ويميز السجلات الخاصة بكل ثغرة. كما يحافظ النموذج على دقة التواريخ ويضمنها، استناداً إلى كتالوجات الثغرات المستغلة المعروفة ورصد عمليات الاستغلال."
+   "published": "2026-11-23T00:00",
+   "title_ar": "منصة HIVE-Bench: تقييم التمثيلات البصرية على مستوى الرقع للتحكم بالروبوت من منظور ذاتي",
+   "summary_ar": "تُعد الرؤية المسبقة التدريب بداية شائعة لتعلم الروبوتات، لكن معظم المقارنات ما زالت تُقيّم متجهاً مجمعاً واحداً من صورة بمنظور الشخص الثالث، بينما تقرأ سياسات التحكم بكلتا اليدين رموز رقع كثيفة من كاميرات مثبتة على الروبوت. نُقدّم HIVE-Bench حيث تقرأ سياسة مطابقة تدفق مشتركة واحدة 20 مُشفِّراً من سبع عائلات."
   },
   {
-   "id": "2611.25252",
-   "title": "Moving Generality from Model to Modeler: LLM Agents for PHM on a Deployment-Style Benchmark",
-   "abstract": "Coding agents built on large language models (LLMs) now help develop many models published as general solutions. Should generality instead reside in the agent that builds a model for each new task? We examine this question in prognostics and health management (PHM), where every model must work on unseen equipment. Our deployment-style benchmark, NextUnit-Bench, covers 24 public datasets split into 58 folds that hold out units or operating conditions; each agent has two hours to deliver an executable predictor, then run on the hidden units. First, frontier agents outperform AutoML, which reache",
+   "id": "2611.31115",
+   "title": "RUIBench: What Makes a Good Robot-Use Interface?",
+   "abstract": "Foundation models can reason about complex physical tasks, yet translating this intelligence into reliable robot execution remains challenging. We argue that a critical, often overlooked factor is the robot-use interface (RUI), which determines how agents express and execute physical actions. To systematically study its impact, we introduce RUIBench, comprising 30 manipulation tasks across five suites spanning world knowledge, in-context learning, discovery, dynamic interaction, and contact-rich manipulation. We further develop RUIKit, a unified framework that crosses six action abstractions w",
    "authors": [
-    "Zhenling Chen",
-    "Zhiguo Zeng",
-    "Anne Barros"
+    "Yanzhe Chen",
+    "Zhijun Cao",
+    "Zechen Bai",
+    "Wenzheng Zeng"
    ],
-   "link": "https://huggingface.co/papers/2611.25252",
+   "link": "https://huggingface.co/papers/2611.31115",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-18T00:00",
-   "title_ar": "نقل العمومية من النموذج إلى المصمم: وكلاء النماذج اللغوية الكبيرة لإدارة التنبؤات والحالة الصحية على معيار تقييم بأسلوب النشر",
-   "summary_ar": "نبحث في مسألة ما إذا كان ينبغي للعمومية أن تستقر في الوكيل الذي يبني نموذجاً لكل مهمة جديدة بدلاً من النماذج نفسها، وذلك في مجال التنبؤ وإدارة الحالة الصحية. ويأتي هذا في ظل مساعدة وكلاء البرمجة المعتمدين على النماذج اللغوية الكبيرة في تطوير العديد من النماذج المنشورة كحلول عامة."
+   "published": "2026-11-23T00:00",
+   "title_ar": "RUIBench: ما الذي يجعل واجهة استخدام الروبوت جيدة؟",
+   "summary_ar": "يمكن للنماذج التأسيسية التفكير في مهام فيزيائية معقدة، غير أن ترجمة هذا الذكاء إلى تنفيذ روبوتي موثوق تظل أمراً صعباً. نرى أن واجهة استخدام الروبوت (RUI)، التي تحدد كيفية تعبير الوكلاء عن الأفعال الفيزيائية وتنفيذها، تمثل عاملاً حاسماً غالباً ما يُغفل."
   },
   {
-   "id": "2611.19247",
-   "title": "GameWM: Toward Next-Generation Video Games with Interaction-Centric World Models",
-   "abstract": "For more than half a century, video games have pursued better graphics, more natural interaction, and more engaging gameplay. Generative video models (VMs) now bear on all three. Neural networks already draw most of the pixels in shipped games, and recent world models let a lightweight game engine keep the world state while a VM turns the engine's coarse proxy video into final frames. These systems, however, treat the VM as a renderer that only restyles motion the engine has already authored, which leaves most of its generative capacity unused and limits the diversity a game can offer. We pres",
+   "id": "2611.30989",
+   "title": "WorldLeague: Benchmarking Physical Agency",
+   "abstract": "AI systems can now operate Blender, follow instructions in complex video games, and manipulate objects with robot arms. What range of physical goals can today's AI systems achieve autonomously? Answering this question requires testing systems on tasks that demand different combinations of perception, memory, planning, and action. We introduce WorldLeague, a benchmark that compares AI systems on a common set of 60 simulated robot tasks by measuring progress toward each task's physical goal from the robot's trajectory. Robots explore scenes to gather evidence in WorldSeek, rearrange objects in W",
    "authors": [
-    "Bing He",
-    "Runze Wang",
-    "Fei Zha",
-    "Zhongyuan Wu"
+    "Xinyang Zhou",
+    "Qi Li",
+    "Xinchao Wang"
    ],
-   "link": "https://huggingface.co/papers/2611.19247",
+   "link": "https://huggingface.co/papers/2611.30989",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-14T00:00",
-   "title_ar": "GameWM: نحو الجيل القادم من ألعاب الفيديو باستخدام نماذج العالم المتمحورة حول التفاعل",
-   "summary_ar": "تؤثر نماذج الفيديو التوليدية حالياً على مساعي ألعاب الفيديو المستمرة منذ أكثر من نصف قرن لتحقيق رسوميات أفضل، وتفاعل أكثر طبيعية، وأسلوب لعب أكثر جاذبية. وترسم الشبكات العصبية بالفعل معظم البكسلات في الألعاب المطروحة، بينما تتيح نماذج العالم الحديثة لمحرك ألعاب خفيف العمل بفعالية."
+   "published": "2026-11-23T00:00",
+   "title_ar": "WorldLeague: قياس أداء الفاعلية الفيزيائية",
+   "summary_ar": "بات بمقدور أنظمة الذكاء الاصطناعي تشغيل برنامج Blender، واتباع التعليمات في ألعاب الفيديو المعقدة، والتحكم بالأشياء بواسطة أذرع روبوتية. تتطلب الإجابة عن مدى الأهداف الفيزيائية التي يمكن لهذه الأنظمة تحقيقها ذاتياً اختبارها في مهام تتطلب توليفات مختلفة من الإدراك."
   },
   {
-   "id": "2611.22495",
-   "title": "Motion-Aware Reward Modeling for Instruction-Guided Video Editing",
-   "abstract": "Reward models for instruction-guided video editing can favor temporal consistency at the expense of motion. We study this failure, termed motion collapse, using controlled motion-suppression variants of real edits. On VE-Bench, the evaluated composite reward prefers a motion-suppressed candidate in 97% of cases. Learned video rewards and a VLM judge also struggle with mild suppression, while latent optimization and reward-guided fine-tuning exploit this weakness to increase reward as motion declines. A linear probe of our base reward backbone performs near chance on mild suppression, motivatin",
+   "id": "2611.30573",
+   "title": "Write, Evolve, Read: Streaming Cameras into a Persistent World State for 4D Occupancy Forecasting",
+   "abstract": "4D occupancy forecasting predicts the 3D semantic occupancy of a driving scene seconds ahead. Over a few seconds, the scene changes little while the vehicle moves, so most of the space ahead has already been seen. Sorting the future into unchanged, changed, and unseen space, we find that current camera-based world models fall short on the unchanged part: they fail to hold on to what they have already seen, rather than to forecast what will change. We therefore make what the model has seen its state. PersistWorld streams camera frames into a persistent 3D world state anchored in the scene, writ",
    "authors": [
-    "Li Li",
-    "Xiangbo Gao",
-    "Bo Ni",
-    "Samyadeep Basu"
+    "ZiAn Wang",
+    "Tianyi Wang",
+    "Zhihao Chen",
+    "Manni Cui"
    ],
-   "link": "https://huggingface.co/papers/2611.22495",
+   "link": "https://huggingface.co/papers/2611.30573",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-17T00:00",
-   "title_ar": "نمذجة المكافأة المدركة للحركة لتحرير الفيديو الموجه بالتعليمات",
-   "summary_ar": "ندرس مشكلة تفضيل نماذج المكافأة في تحرير الفيديو الموجه بالتعليمات للاتساق الزمني على حساب الحركة، وهو إخفاق يُعرف بـ \"انهيار الحركة\"، وذلك باستخدام متغيرات مضبوطة لكبت الحركة في تعديلات حقيقية. وتُظهر النتائج على معيار VE-Bench أن المكافأة المركبة المُقيمة تُفضل خياراً مكبوت الحركة."
+   "published": "2026-11-23T00:00",
+   "title_ar": "اكتب، طوّر، اقرأ: بث الكاميرات في حالة عالمية مستمرة للتنبؤ بالإشغال رباعي الأبعاد",
+   "summary_ar": "يتنبأ التنبؤ بالإشغال رباعي الأبعاد بالإشغال الدلالي ثلاثي الأبعاد لمشهد القيادة قبل ثوانٍ من حدوثه. لا يتغير المشهد كثيراً خلال بضع ثوانٍ أثناء حركة المركبة، مما يعني أن معظم المساحة الأمامية قد رُئيت بالفعل، ويُظهر فرز المستقبل إلى مساحات غير متغيرة ومتغيرة وغير مرئية نتائج تخص الكاميرات الحالية."
   },
   {
-   "id": "2611.24025",
-   "title": "Intent Contracts: Taking Tools Away from Agents",
-   "abstract": "Intent contracts are an authorization interface for tool-using LLM agents in which the planning model holds no tools. For each step it submits a short logged contract: a goal, a verbatim quotation of the user, and scope fields. Code validates the contract, and a small trusted model checks it against the user's words and writes the tool call itself. Provided the validation and dispatch code is correct, every executed call is written by the trusted model, the planner's influence on a call is confined to a contract logged before it, and the trusted side decides how much of a request to carry out.",
+   "id": "2611.31048",
+   "title": "Distill the Correction, Not the Rewrite: Hindsight Twins for Self-Improving Text-to-Image Models",
+   "abstract": "Text-to-image models can learn from their own mistakes by distilling a self-teacher conditioned on a vision-language critic's revised prompt. However, such self-teachers barely improve alignment, and both they and their hindsight-contrast variants absorb the critic's unintended additions to the scene, such as lighting or scenery. We attribute this to two factors: (1) the prompt already specifies the desired fix, so a useful revision must go beyond the failed span, often rewriting the entire scene and adding details that overshadow the fix; (2) although the critic localizes the error to a singl",
    "authors": [
-    "Ziyuan Wang",
-    "Genliang Zhu",
-    "Xiaobo Chen",
-    "Chu Wang"
+    "Jiaze Li",
+    "Jingyang Chen",
+    "Wenhao Zhao",
+    "Haoran Xu"
    ],
-   "link": "https://huggingface.co/papers/2611.24025",
+   "link": "https://huggingface.co/papers/2611.31048",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-18T00:00",
-   "title_ar": "عقود النوايا: تجريد الوكلاء من الأدوات",
-   "summary_ar": "تمثل عقود النوايا واجهة تخويل لوكلاء النماذج اللغوية الكبيرة المستخدمين للأدوات بحيث لا يمتلك نموذج التخطيط أي أدوات. ويقدم النموذج في كل خطوة عقداً مسجلاً يتضمن هدفاً، واقتباساً حرفياً للمستخدم، وحقول النطاق؛ لتقوم برمجية بالتحقق من العقد ويفحصه نموذج موثوق وصغير."
+   "published": "2026-11-23T00:00",
+   "title_ar": "تقطير التصحيح لا إعادة الصياغة: التوائم بأثر رجعي لنماذج تحويل النص إلى صورة ذاتية التحسين",
+   "summary_ar": "يمكن لنماذج تحويل النص إلى صورة التعلم من أخطائها عبر تقطير مُعلِّم ذاتي مشروط بمطالبة مُعدَّلة من ناقد بصري لغوي. ومع ذلك، بالكاد تُحسّن هذه المعلمات الذاتية من التوافق، كما تمتص هي وبدائل التباين بأثر رجعي الإضافات غير المقصودة التي يُدخلها الناقد على المشهد."
   },
   {
-   "id": "2611.27915",
-   "title": "StereoVLM: Binocular Vision-Language Models for Metric 3D Spatial Reasoning",
-   "abstract": "Vision-language models (VLMs) exhibit strong semantic understanding but remain limited in their ability to reason about metric 3D space in the physical world. Existing VLMs typically infer 3D scene structure from one or more images without known camera calibration or cross-view geometric constraints. This makes metric 3D inference inherently ambiguous and leaves it unclear whether their spatial predictions are grounded in visual evidence or driven primarily by semantic priors. In contrast, calibrated stereo provides explicit cross-view geometry that resolves this ambiguity and offers a more re",
+   "id": "2611.30771",
+   "title": "GameDojo: Benchmarking Real-Time Interactive Agents in Video Games",
+   "abstract": "Interactive intelligence requires agents to act on observations and adapt to the consequences of actions. Studying these abilities calls for diverse, challenging tasks under controlled conditions. We introduce GameDojo, a controllable interactive gameplay benchmark of 120 boss encounters across 20 games for evaluating model capabilities, learning algorithms, and agent harnesses. Coding agents reconstruct the environments and write gameplay scripts, producing GameDojo-Data with 600 hours of gameplay trajectories. Experiments reveal substantial challenges for frontier models, especially in real-",
    "authors": [
-    "Chi Yan",
-    "Guoyang Zhao",
-    "Wentao Yuan",
-    "Yixiao Ge"
+    "Kuan Zhang",
+    "Zhihao Yang",
+    "Yukun Chen",
+    "Xingyilang Yin"
    ],
-   "link": "https://huggingface.co/papers/2611.27915",
+   "link": "https://huggingface.co/papers/2611.30771",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-20T17:52",
-   "title_ar": "StereoVLM: نماذج لغة ورؤية ثنائية العيَن للاستدلال المكاني ثلاثي الأبعاد المتري",
-   "summary_ar": "تُظهر نماذج الرؤية واللغة فهماً دلالياً قوياً، لكن قدرتها على الاستدلال حول الفضاء ثلاثي الأبعاد المتري في العالم المادي تظل محدودة. وتستنتج النماذج الحالية عادةً بنية المشهد ثلاثي الأبعاد من صورة واحدة أو أكثر دون معايرة معروفة للكاميرا أو قيود هندسية عبر زوايا الرؤية المختلفة."
+   "published": "2026-11-23T00:00",
+   "title_ar": "GameDojo: قياس أداء الوكلاء التفاعليين في ألعاب الفيديو في الوقت الفعلي",
+   "summary_ar": "يتطلب الذكاء التفاعلي من الوكلاء التصرف بناءً على الملاحظات والتكيف مع عواقب الأفعال، وتستدعي دراسة هذه القدرات مهاماً متنوعة وصعبة في ظل ظروف محكومة. نُقدّم GameDojo، وهو معيار تفاعلي متحكم به لأسلوب اللعب يضم 120 مواجهة لزعماء عبر 20 لعبة."
   }
  ],
  "n": 6
