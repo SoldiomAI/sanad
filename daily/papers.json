@@ -1,107 +1,104 @@
 {
- "updated": "2026-11-24T06:47+00:00",
+ "updated": "2026-11-25T03:00+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2611.30813",
-   "title": "HIVE-Bench: Evaluating Patch-Level Visual Representations for Egocentric Robot Manipulation",
-   "abstract": "Pretrained vision is a common start for robot learning, but most comparisons still score one pooled vector from a third-person image. Bimanual policies instead read dense patch tokens from cameras on the robot. We introduce HIVE-Bench: one shared flow-matching policy reads 20 encoders from seven families on 24 egocentric bimanual tasks, across adaptation, task sharing, and sweeps of data, model size, and layer. Keeping the patches matters. Averaging each view to one token removes most of the success, adaptation helps every pair we test, and one shared policy keeps most of the success of separa",
+   "id": "2611.28649",
+   "title": "S-Mind: Internalizing Multi-View Geometry for Spatial Intelligence",
+   "abstract": "Spatial intelligence, the ability to reason about 3D space from visual observations, becomes essential as multimodal large language models (MLLMs) move into the physical world. Beyond perceiving each view, it rests on two cornerstones of human cognition: fusing multiple views into one coherent 3D scene and mentally transforming that scene to new viewpoints as reasoning unfolds. Yet our spatial probes reveal that MLLMs largely lack both capabilities, even after spatial fine-tuning. We therefore present S-Mind, which internalizes multi-view geometry within the MLLM through a compact set of spati",
    "authors": [
-    "Qiwei Liang",
-    "Zhengtu Liang",
-    "Minghao Lai",
-    "Yikeng Chen"
+    "Muxin Fu",
+    "Peike Yu",
+    "Guibin Zhang",
+    "Wenrui Zhou"
    ],
-   "link": "https://huggingface.co/papers/2611.30813",
+   "link": "https://huggingface.co/papers/2611.28649",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-23T00:00",
-   "title_ar": "منصة HIVE-Bench: تقييم التمثيلات البصرية على مستوى الرقع للتحكم بالروبوت من منظور ذاتي",
-   "summary_ar": "تُعد الرؤية المسبقة التدريب بداية شائعة لتعلم الروبوتات، لكن معظم المقارنات ما زالت تُقيّم متجهاً مجمعاً واحداً من صورة بمنظور الشخص الثالث، بينما تقرأ سياسات التحكم بكلتا اليدين رموز رقع كثيفة من كاميرات مثبتة على الروبوت. نُقدّم HIVE-Bench حيث تقرأ سياسة مطابقة تدفق مشتركة واحدة 20 مُشفِّراً من سبع عائلات."
+   "published": "2026-11-21T00:00",
+   "title_ar": "إس-مايند: استيعاب الهندسة متعددة المشاهد للذكاء المكاني",
+   "summary_ar": "يصبح الذكاء المكاني، وهو القدرة على التفكير في الفضاء ثلاثي الأبعاد من الملاحظات البصرية، أمرًا ضروريًا مع انتقال النماذج اللغوية الكبيرة متعددة الوسائط إلى العالم المادي. وإلى جانب إدراك كل مشهد، يرتكز هذا الذكاء على ركيزتين من الإدراك البشري، أولهما دمج مشاهد متعددة في مشهد ثلاثي الأبعاد متماسك واحد."
   },
   {
-   "id": "2611.31115",
-   "title": "RUIBench: What Makes a Good Robot-Use Interface?",
-   "abstract": "Foundation models can reason about complex physical tasks, yet translating this intelligence into reliable robot execution remains challenging. We argue that a critical, often overlooked factor is the robot-use interface (RUI), which determines how agents express and execute physical actions. To systematically study its impact, we introduce RUIBench, comprising 30 manipulation tasks across five suites spanning world knowledge, in-context learning, discovery, dynamic interaction, and contact-rich manipulation. We further develop RUIKit, a unified framework that crosses six action abstractions w",
+   "id": "2611.25595",
+   "title": "LoopedWAM: Looped World Action Models for Elastic Inference",
+   "abstract": "World action models (WAMs) couple generative video modeling with robotic action prediction but typically require large video and action transformers, limiting deployment efficiency. We present LoopedWAM, a compact WAM that recurrently applies a shared six-block core in each expert, executing 30 transformer layers while storing only 12 blocks per expert. To account for their asymmetric inference costs, the video and action experts can operate at different depths: visual features are computed once per query, whereas action computation repeats at every sampling step. We further propose elastic se",
    "authors": [
-    "Yanzhe Chen",
-    "Zhijun Cao",
-    "Zechen Bai",
-    "Wenzheng Zeng"
+    "Anh Dao",
+    "Xinxin Liu",
+    "Hang Yu",
+    "Jeffrey A Chan Santiago"
    ],
-   "link": "https://huggingface.co/papers/2611.31115",
+   "link": "https://huggingface.co/papers/2611.25595",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-23T00:00",
-   "title_ar": "RUIBench: ما الذي يجعل واجهة استخدام الروبوت جيدة؟",
-   "summary_ar": "يمكن للنماذج التأسيسية التفكير في مهام فيزيائية معقدة، غير أن ترجمة هذا الذكاء إلى تنفيذ روبوتي موثوق تظل أمراً صعباً. نرى أن واجهة استخدام الروبوت (RUI)، التي تحدد كيفية تعبير الوكلاء عن الأفعال الفيزيائية وتنفيذها، تمثل عاملاً حاسماً غالباً ما يُغفل."
+   "published": "2026-11-19T00:00",
+   "title_ar": "لوبد-وام: نماذج أفعال العالم الحلقية للاستدلال المرن",
+   "summary_ar": "تقرن نماذج أفعال العالم بين نمذجة الفيديو التوليدية والتنبؤ بأفعال الروبوت، لكنها تتطلب عادةً محولات فيديو وأفعال كبيرة مما يحد من كفاءة النشر. يقدم البحث \"لوبد-وام\"، وهو نموذج أفعال عالم مدمج يطبق بشكل تكراري نواة مشتركة من ست كتل في كل خبير، منفذًا 30 عملية تحويل."
   },
   {
-   "id": "2611.30989",
-   "title": "WorldLeague: Benchmarking Physical Agency",
-   "abstract": "AI systems can now operate Blender, follow instructions in complex video games, and manipulate objects with robot arms. What range of physical goals can today's AI systems achieve autonomously? Answering this question requires testing systems on tasks that demand different combinations of perception, memory, planning, and action. We introduce WorldLeague, a benchmark that compares AI systems on a common set of 60 simulated robot tasks by measuring progress toward each task's physical goal from the robot's trajectory. Robots explore scenes to gather evidence in WorldSeek, rearrange objects in W",
+   "id": "2611.30219",
+   "title": "RoomTokens: Masked Diffusion over Structured Tokens for Indoor Scene Synthesis",
+   "abstract": "Generating 3D indoor scenes requires a representation that captures object semantics, instance identity, height structure, and orientation while respecting room geometry. Methods that model scenes as sequences of object vectors learn spatial constraints implicitly, leaving collisions and boundary violations to losses or post-processing; semantic-map methods make occupancy explicit, but collapse instance and directional structure. We introduce RoomTokens, a sliced structured-token representation in which each token stores semantic class, instance-color identity, and facing field. This represent",
    "authors": [
-    "Xinyang Zhou",
-    "Qi Li",
-    "Xinchao Wang"
+    "Xiaohao Sun",
+    "Angel X. Chang"
    ],
-   "link": "https://huggingface.co/papers/2611.30989",
+   "link": "https://huggingface.co/papers/2611.30219",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-23T00:00",
-   "title_ar": "WorldLeague: قياس أداء الفاعلية الفيزيائية",
-   "summary_ar": "بات بمقدور أنظمة الذكاء الاصطناعي تشغيل برنامج Blender، واتباع التعليمات في ألعاب الفيديو المعقدة، والتحكم بالأشياء بواسطة أذرع روبوتية. تتطلب الإجابة عن مدى الأهداف الفيزيائية التي يمكن لهذه الأنظمة تحقيقها ذاتياً اختبارها في مهام تتطلب توليفات مختلفة من الإدراك."
+   "title_ar": "روم-توكنز: الانتشار المقنّع عبر الرموز المهيكلة لتوليد المشاهد الداخلية",
+   "summary_ar": "يتطلب توليد المشاهد الداخلية ثلاثية الأبعاد تمثيلًا يستوعب دلالات الكائنات وهويتها وبنيتها الارتفاعية واتجاهها مع مراعاة هندسة الغرفة. في المقابل، تتعلم الطرق التي تنمذج المشاهد كسلاسل من متجهات الكائنات القيودَ المكانية ضمنيًا، مما يترك تصادمات وانتهاكات للحدود."
   },
   {
-   "id": "2611.30573",
-   "title": "Write, Evolve, Read: Streaming Cameras into a Persistent World State for 4D Occupancy Forecasting",
-   "abstract": "4D occupancy forecasting predicts the 3D semantic occupancy of a driving scene seconds ahead. Over a few seconds, the scene changes little while the vehicle moves, so most of the space ahead has already been seen. Sorting the future into unchanged, changed, and unseen space, we find that current camera-based world models fall short on the unchanged part: they fail to hold on to what they have already seen, rather than to forecast what will change. We therefore make what the model has seen its state. PersistWorld streams camera frames into a persistent 3D world state anchored in the scene, writ",
+   "id": "2611.30149",
+   "title": "LeadVLA: Learning Follower-Aware Route Execution for Robot Leading",
+   "abstract": "Robot leading requires executing a route while continuously adapting to a designated follower. Existing robot-leading systems often mediate follower understanding and physical route execution through explicit states, planners, or modular interfaces; directly learning this coupling through end-to-end trajectory prediction can instead entangle route execution with follower response. We introduce LeadVLA, a structured multimodal policy that preserves the route as an explicit Path reference while learning a Pace for route progress and a Residual for local follower- and scene-conditioned adaptation",
    "authors": [
-    "ZiAn Wang",
-    "Tianyi Wang",
-    "Zhihao Chen",
-    "Manni Cui"
+    "Tianle Zeng",
+    "Hanjing Ye",
+    "Bingyi Xia",
+    "Yuchen Zhou"
    ],
-   "link": "https://huggingface.co/papers/2611.30573",
+   "link": "https://huggingface.co/papers/2611.30149",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-23T00:00",
-   "title_ar": "اكتب، طوّر، اقرأ: بث الكاميرات في حالة عالمية مستمرة للتنبؤ بالإشغال رباعي الأبعاد",
-   "summary_ar": "يتنبأ التنبؤ بالإشغال رباعي الأبعاد بالإشغال الدلالي ثلاثي الأبعاد لمشهد القيادة قبل ثوانٍ من حدوثه. لا يتغير المشهد كثيراً خلال بضع ثوانٍ أثناء حركة المركبة، مما يعني أن معظم المساحة الأمامية قد رُئيت بالفعل، ويُظهر فرز المستقبل إلى مساحات غير متغيرة ومتغيرة وغير مرئية نتائج تخص الكاميرات الحالية."
+   "title_ar": "ليد-في-إل-إيه: تعلّم تنفيذ المسار المدرك للتابع لقيادة الروبوت",
+   "summary_ar": "تتطلب قيادة الروبوت تنفيذ مسار محدد مع التكيف باستمرار مع تابع معيّن. وغالبًا ما تعالج الأنظمة الحالية فهم التابع وتنفيذ المسار المادي عبر حالات صريحة أو مخططات أو واجهات معيارية، بدلًا من تعلم هذا الاقتران مباشرة بنهج شامل من البداية إلى النهاية."
   },
   {
-   "id": "2611.31048",
-   "title": "Distill the Correction, Not the Rewrite: Hindsight Twins for Self-Improving Text-to-Image Models",
-   "abstract": "Text-to-image models can learn from their own mistakes by distilling a self-teacher conditioned on a vision-language critic's revised prompt. However, such self-teachers barely improve alignment, and both they and their hindsight-contrast variants absorb the critic's unintended additions to the scene, such as lighting or scenery. We attribute this to two factors: (1) the prompt already specifies the desired fix, so a useful revision must go beyond the failed span, often rewriting the entire scene and adding details that overshadow the fix; (2) although the critic localizes the error to a singl",
+   "id": "2611.28574",
+   "title": "EvoViM: Recursively Self-Evolving Visual Agents for Exploration with Deferred Queries",
+   "abstract": "Multimodal large language model (MLLM) agents have shown promising capabilities in task-oriented environments. However, they still struggle when queries are deferred until after exploration, requiring them to retain visual evidence before knowing which details will matter. We introduce EvoViM, a recursively self-evolving framework in which a frozen multimodal model turns its own interaction experience into one visual program for memory and skills. The program retains images and computes directly on pixels, and its operations decide how this evidence is used in each task. During memory evolutio",
    "authors": [
-    "Jiaze Li",
-    "Jingyang Chen",
-    "Wenhao Zhao",
-    "Haoran Xu"
+    "Xinyu Cao",
+    "Tianjie Ju",
+    "Zhuosheng Zhang"
    ],
-   "link": "https://huggingface.co/papers/2611.31048",
+   "link": "https://huggingface.co/papers/2611.28574",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-23T00:00",
-   "title_ar": "تقطير التصحيح لا إعادة الصياغة: التوائم بأثر رجعي لنماذج تحويل النص إلى صورة ذاتية التحسين",
-   "summary_ar": "يمكن لنماذج تحويل النص إلى صورة التعلم من أخطائها عبر تقطير مُعلِّم ذاتي مشروط بمطالبة مُعدَّلة من ناقد بصري لغوي. ومع ذلك، بالكاد تُحسّن هذه المعلمات الذاتية من التوافق، كما تمتص هي وبدائل التباين بأثر رجعي الإضافات غير المقصودة التي يُدخلها الناقد على المشهد."
+   "published": "2026-11-21T00:00",
+   "title_ar": "إيفو-في-آي-إم: وكلاء بصريون يتطورون ذاتيًا بشكل تكراري للاستكشاف مع الاستفسارات المؤجلة",
+   "summary_ar": "أظهر وكلاء النماذج اللغوية الكبيرة متعددة الوسائط قدرات واعدة في البيئات الموجهة بالمهام، لكنهم ما زالوا يواجهون صعوبة عندما تُؤجَّل الاستفسارات إلى ما بعد الاستكشاف، مما يلزمهم بالاحتفاظ بالأدلة البصرية قبل معرفة التفاصيل المهمة. ولحل ذلك، يقدّم البحث \"إيفو-في-آي-إم\"، وهو نظام وكلاء يتطور ذاتيًا بشكل تكراري."
   },
   {
-   "id": "2611.30771",
-   "title": "GameDojo: Benchmarking Real-Time Interactive Agents in Video Games",
-   "abstract": "Interactive intelligence requires agents to act on observations and adapt to the consequences of actions. Studying these abilities calls for diverse, challenging tasks under controlled conditions. We introduce GameDojo, a controllable interactive gameplay benchmark of 120 boss encounters across 20 games for evaluating model capabilities, learning algorithms, and agent harnesses. Coding agents reconstruct the environments and write gameplay scripts, producing GameDojo-Data with 600 hours of gameplay trajectories. Experiments reveal substantial challenges for frontier models, especially in real-",
+   "id": "2611.31595",
+   "title": "LUCID: Statistically Grounded Self-Correction for LLM Reasoning Evaluation",
+   "abstract": "Cheap language-model raters grade chain-of-thought reasoning at scale, yet systematic step-rating errors can skew reasoning audits and solution rankings. We introduce LUCID (Loop for Unbiased Calibration via Inference-time Diagnosis), which pairs prompt self-correction with Design-based Supervised Learning (DSL). Without retraining or weight access, LUCID calibrates binary step ratings by aligning predicted and expert soundness rates. From a small expert-labeled set, LUCID summarizes rater bias in plain text and prompts the rater to re-grade unseen steps. For example, on PRM800K, GPT-5-mini gr",
    "authors": [
-    "Kuan Zhang",
-    "Zhihao Yang",
-    "Yukun Chen",
-    "Xingyilang Yin"
+    "Satiyabooshan Murugaboopathy",
+    "Adel Daoud",
+    "Connor T. Jerzak"
    ],
-   "link": "https://huggingface.co/papers/2611.30771",
+   "link": "https://huggingface.co/papers/2611.31595",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-23T00:00",
-   "title_ar": "GameDojo: قياس أداء الوكلاء التفاعليين في ألعاب الفيديو في الوقت الفعلي",
-   "summary_ar": "يتطلب الذكاء التفاعلي من الوكلاء التصرف بناءً على الملاحظات والتكيف مع عواقب الأفعال، وتستدعي دراسة هذه القدرات مهاماً متنوعة وصعبة في ظل ظروف محكومة. نُقدّم GameDojo، وهو معيار تفاعلي متحكم به لأسلوب اللعب يضم 120 مواجهة لزعماء عبر 20 لعبة."
+   "title_ar": "لوسيد: تصحيح ذاتي مؤسس إحصائيًا لتقييم استدلال النماذج اللغوية الكبيرة",
+   "summary_ar": "تُقيّم أدوات التصنيف الرخيصة القائمة على النماذج اللغوية استدلالَ سلسلة الأفكار على نطاق واسع، غير أن الأخطاء المنهجية في تقييم الخطوات قد تحرّف تدقيق الاستدلال وترتيب الحلول. يقدم البحث \"لوسيد\" (حلقة للمعايرة غير المتحيزة عبر التشخيص وقت الاستدلال)، والتي تجمع بين التصحيح الذاتي للمطالبات والتعلّم الخاضع للإشراف المعتمد على التصميم."
   }
  ],
  "n": 6
