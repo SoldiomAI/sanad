@@ -1,104 +1,107 @@
 {
- "updated": "2026-11-25T21:58+00:00",
+ "updated": "2026-11-26T13:41+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2611.32393",
-   "title": "Fractal Neural Synthesis: Constant-Storage Procedural Weight Derivation via Complex Quadratic Boundary Dynamics",
-   "abstract": "Conventional neural networks store synaptic parameters as explicit tensors whose persistent Flash footprint scales linearly (O(W)) with parameter count, constraining resource-limited edge microcontrollers. We formulate and systematically evaluate Fractal Neural Synthesis (FNS), a procedural weight derivation architecture that replaces hidden-layer matrices with a constant 24-byte coordinate seed Theta = (c_x, c_y, ell) in F_64^3 anchored near the complex quadratic bifurcation boundary dM of f_c(z) = z^2 + c. We introduce a large-bailout (R = 256) smooth escape kernel, four zero-overhead geomet",
+   "id": "2611.32335",
+   "title": "GOLD-SLAM: Gaussian-splatting Omnidirectional LiDAR-Depth SLAM",
+   "abstract": "Panoramic cameras capture nearly the entire spherical field of view in a single frame. However, the mismatch between this panoramic coverage and the field of view of LiDAR poses a substantial challenge for panoramic Gaussian splatting SLAM that relies on LiDAR depth priors. We introduce GOLD-SLAM, a Gaussian-splatting Omnidirectional LiDAR-Depth SLAM system that combines high-quality rendering with accurate geometric reconstruction. It performs tracking and mapping in the spherical domain and uses tracked visual features in regions without LiDAR coverage to improve pose estimation. To address ",
    "authors": [
-    "Volkan Dagli",
-    "Zerrin Dagli",
-    "Daghan Dagli"
+    "Weicong Zhang",
+    "Yuan Huang",
+    "Yu Zheng",
+    "Lin Chenxiao"
    ],
-   "link": "https://huggingface.co/papers/2611.32393",
+   "link": "https://huggingface.co/papers/2611.32335",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-24T00:00",
-   "title_ar": "التوليف العصبي الكسوري: اشتقاق إجرائي للأوزان بسعة تخزين ثابتة عبر ديناميكيات الحدود التربيعية المعقدة",
-   "summary_ar": "تُخزّن الشبكات العصبية التقليدية المعاملات المشبكية كموترات صريحة يزداد حجمها في ذاكرة الفلاش خطياً مع عدد المعاملات، مما يفرض قيوداً على المتحكمات الدقيقة الطرفية محدودة الموارد. نقوم بصياغة وتقييم \"التوليف العصبي الكسوري\" (FNS) منهجياً، وهو اشتقاق إجرائي للأوزان."
+   "title_ar": "غولد-سلام: نظام التموضع وبناء الخرائط المتزامن بتقنية التناثر الغوسي والليدار الشامل الاتجاهات",
+   "summary_ar": "تلتقط الكاميرات البانورامية مجال رؤية كروياً شبه كامل في إطار واحد، إلا أن عدم التطابق بين هذه التغطية ومجال رؤية الليدار يشكل تحدياً كبيراً لأنظمة التموضع وبناء الخرائط التي تعتمد على بيانات عمق الليدار المسبقة. يقدم البحث نظام \"غولد-سلام\" لمعالجة هذه المشكلة."
   },
   {
-   "id": "2611.25946",
-   "title": "Point Dynamics as Proxy for Robotic World Models",
-   "abstract": "Robotic world models predict future video frames from the current observation and a sequence of robot actions. While recent models follow the given actions closely, manipulated objects often collapse or move inconsistently with the action. We attribute this to the conditioning: an action, or a rendering of the robot, specifies where the robot goes but not how the scene responds, leaving a single video model to infer the interaction dynamics implicitly while also rendering appearance. We therefore separate dynamics prediction from visual rendering, with 3D point dynamics as the proxy between th",
+   "id": "2611.28244",
+   "title": "Demystifying the Autoresearch Harness: How Context and Skills Shape Self-Evolving Agents",
+   "abstract": "Autoresearch agents, which autonomously design, run, and refine experiments, are accelerating scientific progress, particularly in AI research. However, existing agents rely on harnesses that combine multiple mechanisms, making it difficult to determine how individual components contribute to performance. We systematically study harness design for long-horizon, self-evolving autoresearch agents along two dimensions: context management, which determines what an agent retains from its past attempts, and skill management, which governs how it stores and reuses lessons from those attempts. Across ",
    "authors": [
-    "Dong An",
-    "Tianyu Liu",
-    "Haoran Ding",
-    "Wen Yang"
+    "Kelvin Kiu-Wai Tam",
+    "Newt Hue-Nam K. Nguyen",
+    "Tianshi Zheng",
+    "Yunxiang Mo"
    ],
-   "link": "https://huggingface.co/papers/2611.25946",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-19T00:00",
-   "title_ar": "ديناميكيات النقاط كبديل لنماذج العالم الروبوتية",
-   "summary_ar": "تتنبأ نماذج العالم الروبوتية بإطارات الفيديو المستقبلية استناداً إلى الملاحظة الحالية وسلسلة من إجراءات الروبوت. ورغم أن النماذج الحديثة تتبع الإجراءات المحددة بدقة، إلا أن الأجسام التي يتم التعامل معها غالباً ما تنهار أو تتحرك بشكل غير متسق مع الإجراء، وهو ما نعزوه إلى طبيعة التكييف."
-  },
-  {
-   "id": "2611.27404",
-   "title": "Degradation of Language Models under Controlled Load: Synchronization, Rule Execution and Misfires on the Background",
-   "abstract": "As the load grows, a language model makes more and more errors, but different processes stand behind this decline in quality. The model may lose the correspondence with the source text, it may keep its place in the text but execute a rule wrongly, or it may change a word that no rule concerns. In this work the degradation of a model under controlled load is separated into these three components: synchronization, rule execution and misfires. The load is set by rules that replace one word with another in a meaningless text, and each kind of load (the text length, the position of a word in the an",
-   "authors": [
-    "Hennadii Kutomanov"
-   ],
-   "link": "https://huggingface.co/papers/2611.27404",
+   "link": "https://huggingface.co/papers/2611.28244",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-20T00:00",
-   "title_ar": "تدهور النماذج اللغوية تحت الحمل المضبوط: التزامن، وتنفيذ القواعد، والإخفاقات في الخلفية",
-   "summary_ar": "مع زيادة الحمل، يرتكب النموذج اللغوي المزيد من الأخطاء، لكن عمليات مختلفة تقف وراء هذا التراجع في الجودة. فقد يفقد النموذج تطابقه مع النص المصدر، أو قد يحافظ على موضعه في النص لكنه ينفذ القاعدة بشكل خاطئ، أو قد يغير كلمة لا تتعلق بها أي قاعدة."
+   "title_ar": "إزالة الغموض عن بيئة البحث الآلي: كيف يشكل السياق والمهارات وكلاء يتطورون ذاتياً",
+   "summary_ar": "تعمل وكلاء البحث الآلي على تسريع التقدم العلمي من خلال تصميم التجارب وتشغيلها وتحسينها ذاتياً، لا سيما في أبحاث الذكاء الاصطناعي. ومع ذلك، تعتمد هذه الوكلاء الحالية على بيئات تدمج آليات متعددة، مما يجعل من الصعب تحديد مدى مساهمة المكونات الفردية في الأداء."
   },
   {
-   "id": "2611.30017",
-   "title": "OWE-Bench: A long-horizon benchmark for measuring real-world engineering",
-   "abstract": "We present OWE-Bench (OpenWorldEngineer-Bench), a benchmark of 26 long-horizon engineering tasks written by domain experts in software engineering, physical engineering, machine learning, and scientific computing. Tasks range from optimizing kernels and designing an aircraft, to identifying the faults responsible for an earthquake. Each task requires significant domain knowledge and engineering work, with models averaging hundreds of millions of tokens per task. Solutions are scored on practical measures such as speed, cost and accuracy, both on provided cases the agent could test against and ",
+   "id": "2611.32938",
+   "title": "Efficient Video Retrieval Augmented Generation via Token Allocation",
+   "abstract": "Efficient long-video understanding requires identifying relevant evidence while minimizing the tokens processed by vision-language models (VLMs). Existing video retrieval-augmented generation (RAG) methods rely on frame selection and token compression, but overlook how much each additional token is worth. We introduce Lembas, a plug-and-play framework that formulates video RAG as a token allocation problem over frames and subtitles under a shared budget. Our key insight is that the value of a token diminishes within each item and decreases further as similar evidence receives more tokens. Lemb",
    "authors": [
-    "Jacob Cole",
-    "Martin Dimakis",
-    "Victor Barres",
-    "Bertie Vidgen"
+    "Ayush Barik",
+    "Fan Lai",
+    "Francis Y. Yan"
    ],
-   "link": "https://huggingface.co/papers/2611.30017",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-23T00:00",
-   "title_ar": "OWE-Bench: معيار طويل المدى لقياس الهندسة في العالم الحقيقي",
-   "summary_ar": "نقدم OWE-Bench، وهو معيار يضم 26 مهمة هندسية طويلة المدى كتبها خبراء في مجالات هندسة البرمجيات، والهندسة الفيزيائية، وتعلم الآلة، والحوسبة العلمية. تتراوح المهام بين تحسين النوى وتصميم طائرة، وصولاً إلى تحديد الأعطال."
-  },
-  {
-   "id": "2611.32816",
-   "title": "SpatialArena: Where Do Geometric Foundation Models Stand?",
-   "abstract": "3D perception is shifting from task-specific pipelines to geometric foundation models: monocular depth networks, feed-forward 3D/4D reconstruction models, and vision--language models that predict geometry. However, their progress cannot be measured reliably. Published numbers are not comparable, because every paper samples frames, sets resolutions, and selects test splits differently. They are not robust because the alignment required for every up-to-scale prediction can outweigh the gap between models: fitting depth in the wrong space nearly triples its error, and standard trajectory alignmen",
-   "authors": [
-    "Yu Chen",
-    "Haosen Yang",
-    "Su Ee Tan",
-    "Zhensong Zhang"
-   ],
-   "link": "https://huggingface.co/papers/2611.32816",
+   "link": "https://huggingface.co/papers/2611.32938",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-24T00:00",
-   "title_ar": "SpatialArena: أين تقف النماذج الهندسية التأسيسية؟",
-   "summary_ar": "ينتقل الإدراك ثلاثي الأبعاد من المسارات المخصصة لمهام محددة إلى النماذج الهندسية التأسيسية، مثل شبكات العمق أحادية العين، ونماذج إعادة البناء ثلاثية/رباعية الأبعاد بالتغذية الأمامية، ونماذج الرؤية واللغة التي تتنبأ بالهندسة. ومع ذلك، لا يمكن قياس تقدمها بشكل موثوق؛ فالأرقام المنشورة غير قابلة للمقارنة."
+   "title_ar": "توليد مسترجع معزز وفعال للفيديو عبر تخصيص الرموز",
+   "summary_ar": "يتطلب الفهم الفعال للفيديوهات الطويلة تحديد الأدلة ذات الصلة مع تقليل عدد الرموز التي تعالجها نماذج الرؤية واللغة. تعتمد طرق التوليد المسترجع المعزز الحالية للفيديو على اختيار الإطارات وضغط الرموز، لكنها تغفل مقدار ما يقدمه كل رمز إضافي."
   },
   {
-   "id": "2510.22622",
-   "title": "Mega-MMDF and DeepfakeBench-MM: Benchmarking Multimodal Deepfake Detection Across Diverse Forgery Pipelines",
-   "abstract": "Audio-visual deepfakes can spread misinformation and enable impersonation, undermining trust in digital media. However, existing datasets provide limited coverage of forgery operations and their combinations, constraining detector development and systematic evaluation. We introduce Mega-MMDF, containing 100,000 real and 1.2 million forged clips across 22 pipelines spanning modality-specific manipulations, stacked forgeries, and joint audio-video generation. To assess its training value and enable fair comparisons, we develop DeepfakeBench-MM, which standardizes training and evaluation across 8",
+   "id": "2611.21056",
+   "title": "Evaluation-Free Recursive Self-Improvement for Coding Agents",
+   "abstract": "Recent self-improving coding agents have achieved strong benchmark performance by iteratively modifying their own executable implementations. A common pattern uses downstream task-derived evidence to decide which candidates or lineages continue evolving, which we term evaluate-and-select. Obtaining this signal requires repeatedly executing evolved agents on downstream tasks, so broader exploration incurs increasing evaluation cost, while repeated optimization against a fixed evaluation distribution may encourage benchmark-specific adaptation. We ask: can coding agents self-improve without down",
    "authors": [
-    "Kangran Zhao",
-    "Xiaoyu Zhang",
-    "Yupeng Chen",
-    "Yize Chen"
+    "Zhe Ren",
+    "Guowei Rong",
+    "Yimeng Chen",
+    "Nanbo Li"
    ],
-   "link": "https://huggingface.co/papers/2510.22622",
+   "link": "https://huggingface.co/papers/2611.21056",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-20T00:00",
-   "title_ar": "Mega-MMDF وDeepfakeBench-MM: قياس أداء كشف التزييف العميق متعدد الوسائط عبر مسارات تزوير متنوعة",
-   "summary_ar": "يمكن للتزييف العميق الصوتي والمرئي نشر المعلومات المضللة وتمكين انتحال الشخصية، مما يقوض الثقة في الوسائط الرقمية. ومع ذلك، توفر مجموعات البيانات الحالية تغطية محدودة لعمليات التزوير ومجموعاتها، مما يقيد تطوير أدوات الكشف والتقييم المنهجي؛ ولذا نقدم Mega-MMDF."
+   "published": "2026-11-16T00:00",
+   "title_ar": "تحسين ذاتي تكراري لوكلاء البرمجة دون تقييم",
+   "summary_ar": "حقق وكلاء البرمجة ذاتيو التحسين مؤخراً أداءً قوياً في الاختبارات المعيارية عبر تعديل تطبيقاتهم التنفيذية بشكل متكرر. ويعتمد نمط شائع على أدلة مستمدة من المهام اللاحقة لتحديد أي المرشحين يواصل التطور، وهو ما يُعرف بنمط التقييم والاختيار."
+  },
+  {
+   "id": "2611.34147",
+   "title": "Letting Models Manage Their Own Context: Where We Stand",
+   "abstract": "Agent harnesses today manage context on the model's behalf: when the window fills, the harness triggers a compaction that summarizes the history. We study the alternative, model-driven context management, in which the model itself decides when and what to compact through a context API. We gave models control over their own context in \\nooa, NVIDIA's open source agent harness, and compared the two strategies on document research and machine learning engineering across context budgets from 8K to 512K tokens. Models that use the context API effectively reach higher accuracy, often with fewer inpu",
+   "authors": [
+    "Alessio Devoto",
+    "Avinash Vem",
+    "Tara Safavi",
+    "Sanjay Kariyappa"
+   ],
+   "link": "https://huggingface.co/papers/2611.34147",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-25T00:00",
+   "title_ar": "تمكين النماذج من إدارة سياقها بنفسها: الوضع الراهن",
+   "summary_ar": "تدير أطر عمل الوكلاء اليوم السياق نيابة عن النموذج، حيث تقوم بضغط وتلخيص السجل عند امتلاء نافذة السياق. تدرس هذه الورقة بديلاً تقوده النماذج، بحيث يقرر النموذج نفسه متى وماذا يضغط عبر واجهة برمجة تطبيقات خاصة بالسياق."
+  },
+  {
+   "id": "2611.32786",
+   "title": "Simulator-as-Proxy World Model for Robot Manipulation",
+   "abstract": "Video world models for robots are increasingly conditioned on a simulated or rendered proxy of the scene, on the assumption that the video will show what the proxy shows. Testing this assumption requires a proxy whose state is explicit and can be perturbed. We present SimPWM (Simulator-as-Proxy World Model): given a calibrated camera, it represents, from the first frame alone, the robot by its 3D model and the objects the gripper may touch as 3D points; a rule-based simulator with no trained parameters moves them under the actions, and a video model renders the result. SimPWM returns the reali",
+   "authors": [
+    "Tingting Liao",
+    "Mingjia Huo",
+    "Hao Li",
+    "Zhengzhong Liu"
+   ],
+   "link": "https://huggingface.co/papers/2611.32786",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-24T00:00",
+   "title_ar": "محاكي كنموذج عالمي بديل لمعالجة الروبوتات",
+   "summary_ar": "يتم تكييف نماذج العالم المرئية للروبوتات بشكل متزايد على نموذج بديل محاكى أو مُصيّر للمشهد، استناداً إلى افتراض أن الفيديو سيعرض ما يعرضه النموذج البديل. يتطلب اختبار هذا الافتراض نموذجاً بديلاً تكون حالته واضحة وقابلة للتعديل، وتقدم الورقة نموذج \"سيم بي دبليو إم\"."
   }
  ],
  "n": 6
