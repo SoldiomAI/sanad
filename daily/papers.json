@@ -1,107 +1,102 @@
 {
- "updated": "2026-11-27T04:49+00:00",
+ "updated": "2026-11-27T23:16+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2611.32238",
-   "title": "Boundary-Aware Policy Learning for Agent-Orchestrated Robot Manipulation",
-   "abstract": "Agent-orchestrated robot systems combine the general reasoning capability of multimodal agents with the precise physical control of learned visuomotor policies. Yet such systems often fail at the moment of handoff: a policy is reliable only from a limited set of start states, while the agent may invoke it outside this region. We call this region the policy's handoff boundary. Existing whole-task policies typically have handoff boundaries that are narrow and difficult for an agent to characterize, making reliable coordination challenging. We propose Boundary-Aware Policy Learning, which explici",
+   "id": "2611.33885",
+   "title": "LayoutRecall: Preserving Appearance in Multi-Round 3D Layout-Controlled Image Editing",
+   "abstract": "3D layout-controlled image editing gives users explicit control over object placement and camera viewpoint. In a sequence of edits, however, the latest image can lose the appearance of an object when it is occluded or leaves view. The target layout specifies where the object should reappear, while its appearance must be recovered from earlier observations. We introduce LayoutRecall, a multi-round editor that stores and reuses appearance in the local coordinate systems of 3D boxes. Box-Surface Latent Memory retains image latents on box faces and retrieves them along rays in the target view. Geo",
    "authors": [
-    "Kaipeng Fang",
-    "Yuhao Wang",
-    "Ji Zhang",
-    "Yunsong Zhou"
+    "Yankuan Chi",
+    "Xin Lin",
+    "Baihan Yang",
+    "Yuheng Liu"
    ],
-   "link": "https://huggingface.co/papers/2611.32238",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-24T00:00",
-   "title_ar": "تعلم سياسات مدرك للحدود لمعالجة الروبوت المنسقة بالوكلاء",
-   "summary_ar": "تجمع أنظمة الروبوتات المنسقة بالوكلاء بين قدرة الاستدلال العام للوكلاء متعددي الوسائط والتحكم الفيزيائي الدقيق للسياسات البصرية الحركية المتعلمة. غير أن هذه الأنظمة تفشل غالباً في لحظة التسليم، إذ تكون السياسة موثوقة فقط انطلاقاً من مجموعة محدودة من حالات البداية في حين قد يستدعيها الوكيل بشكل غير ملائم."
-  },
-  {
-   "id": "2611.34719",
-   "title": "Reading, Not Adapting: Unlocking Frozen Visual Knowledge for AI-Generated Image Detection",
-   "abstract": "Generalization to unseen image generators has driven efforts to adapt pretrained visual representations for detection. Yet recent findings show that vision foundation models already encode transferable detection knowledge, while further adaptation can impair generalization. This motivates a shift from backbone adaptation to knowledge readout. Conventional linear probing offers a direct way to read this knowledge but is limited to final-layer RGB features. Multi-cue detectors broaden the evidence base, but their designs introduce other tradeoffs: adaptation may compromise pretrained transferabi",
-   "authors": [
-    "Yuncheng Guo",
-    "Ying Dong",
-    "Xiaodong Gu"
-   ],
-   "link": "https://huggingface.co/papers/2611.34719",
+   "link": "https://huggingface.co/papers/2611.33885",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-25T00:00",
-   "title_ar": "القراءة لا التكييف: إطلاق المعرفة البصرية المجمدة لكشف الصور المولدة بالذكاء الاصطناعي",
-   "summary_ar": "دفعت الرغبة في التعميم على مولدات الصور غير المرئية الجهودَ نحو تكييف التمثيلات البصرية المدربة مسبقاً لأغراض الكشف. ومع ذلك، تُظهر النتائج الحديثة أن النماذج البصرية التأسيسية تشفّر بالفعل معرفة كشف قابلة للنقل، في حين قد يؤدي التكييف الإضافي إلى الإضرار بالتعميم، مما يحفز التحول عن هذا المسار."
+   "title_ar": "لاي آوت ريكول: الحفاظ على المظهر في تحرير الصور متعدد الجولات والموجَّه بتخطيطات ثلاثية الأبعاد",
+   "summary_ar": "يمنح تحرير الصور الموجَّه بتخطيطات ثلاثية الأبعاد تحكمًا صريحًا للمستخدمين في موضع الكائن وزاوية الكاميرا. ومع ذلك، يمكن للصورة الأخيرة في سلسلة من التعديلات أن تفقد مظهر الكائن عندما يُحجب أو يخرج من مجال الرؤية، بينما يحدد التخطيط المستهدف مكان ظهوره مجددًا."
   },
   {
-   "id": "2611.34232",
-   "title": "OS-Omni: Benchmarking Generalist Computer-Using Agents on Long-Horizon Workflows Across Platforms",
-   "abstract": "Computer-using agents are increasingly expected to complete realistic user goals rather than isolated GUI actions. However, existing benchmarks typically isolate web, mobile, or desktop environments, leaving it unclear whether a single generalist agent can execute long-horizon workflows that span multiple operating systems and persistent application states. We introduce OS-Omni, a live cross-platform benchmark and execution environment for evaluating computer-using agents across Windows, Ubuntu, macOS, iOS, Android, and Web environments. OS-Omni is released in versioned waves of 300 tasks each",
+   "id": "2611.30025",
+   "title": "Damped Atomic Wave Integration Neurons (DAWIN): A Universal Primitive for Continuous-Time Spatiotemporal Learning",
+   "abstract": "Conventional artificial neurons separate spatial feature aggregation from continuous physical time, limiting their ability to model irregular observations. We introduce the Damped Atomic Wave Integration Neuron (DAWIN), a continuous-time primitive for replacing standard neural layers in MLPs, Transformers, and graph neural networks. DAWIN couples spatial projection with elapsed-time-dependent wave excitation and integrates it into a local complex state through closed-form damped evolution, avoiding numerical differential equation solvers. We show that DAWIN generalizes static sinusoidal and me",
    "authors": [
-    "Hui Shen",
-    "Yunta Hsieh",
-    "Jianing Ma",
-    "Zhuoran Yin"
+    "Byunggu Yu",
+    "Justin Kim"
    ],
-   "link": "https://huggingface.co/papers/2611.34232",
+   "link": "https://huggingface.co/papers/2611.30025",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-25T00:00",
-   "title_ar": "OS-Omni: تقييم الوكلاء العامين مستخدمي الحاسوب في مسارات عمل طويلة المدى عبر المنصات",
-   "summary_ar": "يُتوقع بشكل متزايد من الوكلاء مستخدمي الحاسوب إنجاز أهداف واقعية للمستخدمين بدلاً من إجراءات واجهة المستخدم الرسومية المعزولة. ومع ذلك، تعزل معايير التقييم الحالية عادةً بيئات الويب أو الهاتف المحمول أو سطح المكتب، مما يترك غموضاً حول قدرة وكيل عام واحد على تنفيذ مسارات عمل طويلة المدى تمتد عبر منصات متعددة."
+   "published": "2026-11-23T00:00",
+   "title_ar": "خلايا تكامل الموجات الذرية المخمدة (داوين): عنصر أولي شامل للتعلم الزمكاني في الزمن المستمر",
+   "summary_ar": "تفصل الخلايا العصبية الاصطناعية التقليدية تجميع الميزات المكانية عن الزمن الفيزيائي المستمر، مما يحد من قدرتها على نمذجة الملاحظات غير المنتظمة. نقدم خلية تكامل الموجات الذرية المخمدة (DAWIN)، وهي عنصر أولي في الزمن المستمر لاستبدال الطبقات العصبية القياسية في شبكات الإدراك متعددة الطبقات والمحولات."
   },
   {
-   "id": "2611.34852",
-   "title": "DRBench Pro: A Knowledge-Centric Benchmark for Professional Deep Research Agents",
-   "abstract": "Deep research agents gather information from multiple sources and synthesize it into reports on complex, open-ended questions. Existing benchmarks assess report quality along several dimensions, but lack a dedicated knowledge-centric evaluation of which research directions a report covers and how deeply it explores them. We introduce DRBench Pro, a benchmark that makes structured knowledge coverage the primary evaluation target. Our automated pipeline builds local knowledge trees from Wikipedia and uses sampled subgraphs to generate research queries and evidence-grounded rubrics. Each rubric c",
+   "id": "2611.30723",
+   "title": "BiSAT: Bidirectionally Aligned Semantic-Acoustic Tokenization for Speech Language Models",
+   "abstract": "Speech language models (LMs) generate speech as sequences of discrete tokens. Their tokenizer must therefore preserve both acoustic detail and linguistic content at a low bitrate. Semantic-enhanced tokenizers may lose acoustic detail, whereas acoustic-oriented tokenizers retain acoustic variation that makes language modeling harder. Unified tokenizers combine both, but representing acoustic detail and linguistic content within a single feature space can cause interference between the two objectives, and existing approaches typically align acoustic representations to fixed semantic targets from",
    "authors": [
-    "Han Huang",
-    "Yuchen Yan",
-    "Xingyu Wu",
-    "Yijun Li"
+    "Y. Lu",
+    "L. Wang",
+    "S. Okada"
    ],
-   "link": "https://huggingface.co/papers/2611.34852",
+   "link": "https://huggingface.co/papers/2611.30723",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-25T00:00",
-   "title_ar": "DRBench Pro: معيار تقييم متمحور حول المعرفة لوكلاء البحث العميق المحترفين",
-   "summary_ar": "يجمع وكلاء البحث العميق المعلومات من مصادر متعددة ويصيغونها في تقارير حول أسئلة معقدة ومفتوحة. تقيّم المعايير الحالية جودة التقارير وفق أبعاد متعددة، لكنها تفتقر إلى تقييم مخصص متمحور حول المعرفة يحدد مسارات البحث التي يغطيها التقرير ومدى عمقها."
+   "published": "2026-11-23T00:00",
+   "title_ar": "باي سات: ترميز صوتي دلالي محاذى ثنائي الاتجاه لنماذج لغة الكلام",
+   "summary_ar": "تُولّد نماذج لغة الكلام الصوت كسلاسل من الرموز المنفصلة، ولذلك يجب على أداة الترميز الحفاظ على كلٍّ من التفاصيل الصوتية والمحتوى اللغوي بمعدل بتات منخفض. قد تفقد أدوات الترميز المعززة دلاليًا التفاصيل الصوتية، بينما تحتفظ الأدوات الموجهة صوتيًا بالتباين الصوتي."
   },
   {
-   "id": "2611.32993",
-   "title": "Decision-Native Multimodal Clinical Modeling via Anatomical Grounding and Confidence Calibration",
-   "abstract": "Structured clinical decisions from volumetric computed tomography (CT) require anatomically grounded predictions and calibrated confidence estimates. However, existing 3D medical multimodal models often suffer from uncalibrated autoregressive decoding and shortcut reliance on irrelevant anatomical regions. We introduce Radev, a decision-native multimodal model that integrates anatomy-guided visual compression, direct candidate prediction, and counterfactual confidence supervision. To bridge global context with fine-grained slice details, a frozen 3D encoder extracts reusable organ-level featur",
+   "id": "2611.27112",
+   "title": "Markdown Is Not a Firewall: four coding agents, one rules file, four boundaries",
+   "abstract": "Teams put a one-page rules file in a repository and call it a control on coding agents. A registered study found agents rarely look up a repository's contribution rules. I asked the security question: what does a rules file do at a boundary, against a gate? I tested one 278-word rules file, with hypotheses and analysis code deposited first. Claude Code, Codex CLI, Gemini CLI and OpenCode with DeepSeek worked through 20 small repositories with hidden tests, 12 for three of them. Three agents met four boundaries I built: a refused endpoint, a destructive shortcut, a planted instruction and a pla",
    "authors": [
-    "Juntao Jiang",
-    "Wenqi Zhong",
-    "Guangyu Guo",
-    "Dexia Chen"
+    "Sandeep Dhuri"
    ],
-   "link": "https://huggingface.co/papers/2611.32993",
+   "link": "https://huggingface.co/papers/2611.27112",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-24T00:00",
-   "title_ar": "النمذجة السريرية متعددة الوسائط الأصيلة لاتخاذ القرار عبر الإرساء التشريحي ومعايرة الثقة",
-   "summary_ar": "تتطلب القرارات السريرية المنظمة المستندة إلى التصوير المقطعي المحوسب ثلاثي الأبعاد تنبؤاتٍ ذات إرساء تشريحي وتقديرات ثقة معايرة. ومع ذلك، غالباً ما تعاني النماذج الطبية الحالية ثلاثية الأبعاد متعددة الوسائط من فك ترميز تراجعي ذاتي غير معاير، ومن الاعتماد المختصر على مناطق تشريحية غير ذات صلة."
+   "published": "2026-11-20T00:00",
+   "title_ar": "ماركداون ليس جدار حماية: أربعة وكلاء برمجة، ملف قواعد واحد، وأربعة حدود",
+   "summary_ar": "تضع الفِرق ملف قواعد من صفحة واحدة في مستودع البرمجيات وتعدّه وسيلة تحكّم في وكلاء البرمجة، في حين وجدت دراسة مسجلة أن الوكلاء نادراً ما يطّلعون على قواعد المساهمة الخاصة بالمستودع. طرحتُ السؤال الأمني حول ما يفعله ملف القواعد عند الحدود في مواجهة البوابات، واختبرتُ ملف قواعد مكوّن من 278 كلمة."
   },
   {
-   "id": "2611.34290",
-   "title": "StateWeaver: Multi-Agent Coordination of Story-State Transitions for Long-Horizon Video Generation",
-   "abstract": "Modern video foundation models generate high-quality short clips, but preserving long-video consistency and correctly depicting event-driven state changes remain challenging. Existing agentic workflows face these challenges because continual planning and repair accumulate context, while reference updates remain limited. We introduce StateWeaver, which combines Active States and Hierarchical Collaboration to connect review-driven visual reference updates with cross-shot state inheritance. Active States translate state discrepancies identified during review into concrete visual asset requirement",
+   "id": "2611.30494",
+   "title": "Revisiting LLMs as Context Engineers",
+   "abstract": "As large language models (LLMs) are used in more and more new tasks, context engineering becomes a fundamental method to efficiently steer LLMs by constructing instruction prompts or metadata without intensive training. A growing number of LLM context engineering (LCE) approaches automate the task by casting the LLM itself as the engineer that draws generalizable instructions or experiences from offline trials as context. Although these methods resemble how humans learn from experiences, it remains unclear when and how LLMs can engineer effective context from data. To answer the question, we f",
    "authors": [
-    "Modi Jin",
-    "Xuying Zhang",
-    "Yijing Guo",
-    "Haoran Li"
+    "Junrui Zhang",
+    "Zeyu Xu",
+    "Runchuan Zhu",
+    "Jie Peng"
    ],
-   "link": "https://huggingface.co/papers/2611.34290",
+   "link": "https://huggingface.co/papers/2611.30494",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-25T00:00",
-   "title_ar": "StateWeaver: تنسيق متعدد الوكلاء لانتقالات حالة القصة لتوليد الفيديو طويل المدى",
-   "summary_ar": "تُنشئ النماذج التأسيسية الحديثة للفيديو مقاطع قصيرة عالية الجودة، لكن الحفاظ على اتساق الفيديو الطويل وتصوير التغيرات في الحالة المدفوعة بالأحداث بشكل صحيح يظلان أمرين صعبين. وتواجه مسارات العمل القائمة على الوكلاء الحالية هذه التحديات لأن التخطيط والإصلاح المستمرين يراكمان السياق، في حين يؤدي تحديث المراجع إلى مشكلات أخرى."
+   "published": "2026-11-23T00:00",
+   "title_ar": "إعادة النظر في النماذج اللغوية الكبيرة كمهندسي سياق",
+   "summary_ar": "مع استخدام النماذج اللغوية الكبيرة في مهام جديدة ومتزايدة، أصبحت هندسة السياق وسيلة أساسية لتوجيه هذه النماذج بكفاءة عبر بناء مطالبات التعليمات أو البيانات الوصفية دون تدريب مكثف. ويعمل عدد متزايد من أساليب هندسة السياق للنماذج اللغوية الكبيرة على أتمتة هذه المهمة."
+  },
+  {
+   "id": "2611.31516",
+   "title": "InitFree-SfM: When Initialization-Free Bundle Adjustment meets Learned Structure-from-Motion",
+   "abstract": "Initialization-free bundle adjustment (InitFree BA) aims to jointly recover camera poses and scene structure without requiring an initial global estimate. It is a very challenging problem, especially compared to traditional BA where a good estimation is assumed. While recent methods optimize surrogate Object Space Error (OSE) objectives from random initialization, a low objective value does not necessarily yield an accurate reconstruction, revealing a gap between optimization and reconstruction. We show that existing InitFree BA pipelines struggle to produce accurate 3D reconstructions on mode",
+   "authors": [
+    "Simon Weber",
+    "Mateo de Mayo",
+    "Je Hyeong Hong",
+    "Carl Olsson"
+   ],
+   "link": "https://huggingface.co/papers/2611.31516",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-23T00:00",
+   "title_ar": "إنيت فري-إس إف إم: عندما يلتقي تعديل الحزم الخالي من التهيئة مع بنية الحركة المتعلمة",
+   "summary_ar": "يهدف تعديل الحزم الخالي من التهيئة إلى استعادة أوضاع الكاميرا وبنية المشهد معًا دون الحاجة إلى تقدير كلي أولي. وتعد هذه المسألة تحديًا كبيرًا، لا سيما مقارنة بتعديل الحزم التقليدي الذي يفترض وجود تقدير جيد، وذلك في حين تُحسّن الطرق الحديثة مقاييس بديلة."
   }
  ],
  "n": 6
