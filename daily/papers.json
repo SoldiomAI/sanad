@@ -1,107 +1,107 @@
 {
- "updated": "2026-11-26T13:41+00:00",
+ "updated": "2026-11-27T04:49+00:00",
  "note": "الورقةُ مصدرٌ أوّل — الرابطُ يُحيلُ إليها نفسِها لا إلى خبرٍ عنها",
  "items": [
   {
-   "id": "2611.32335",
-   "title": "GOLD-SLAM: Gaussian-splatting Omnidirectional LiDAR-Depth SLAM",
-   "abstract": "Panoramic cameras capture nearly the entire spherical field of view in a single frame. However, the mismatch between this panoramic coverage and the field of view of LiDAR poses a substantial challenge for panoramic Gaussian splatting SLAM that relies on LiDAR depth priors. We introduce GOLD-SLAM, a Gaussian-splatting Omnidirectional LiDAR-Depth SLAM system that combines high-quality rendering with accurate geometric reconstruction. It performs tracking and mapping in the spherical domain and uses tracked visual features in regions without LiDAR coverage to improve pose estimation. To address ",
+   "id": "2611.32238",
+   "title": "Boundary-Aware Policy Learning for Agent-Orchestrated Robot Manipulation",
+   "abstract": "Agent-orchestrated robot systems combine the general reasoning capability of multimodal agents with the precise physical control of learned visuomotor policies. Yet such systems often fail at the moment of handoff: a policy is reliable only from a limited set of start states, while the agent may invoke it outside this region. We call this region the policy's handoff boundary. Existing whole-task policies typically have handoff boundaries that are narrow and difficult for an agent to characterize, making reliable coordination challenging. We propose Boundary-Aware Policy Learning, which explici",
    "authors": [
-    "Weicong Zhang",
-    "Yuan Huang",
-    "Yu Zheng",
-    "Lin Chenxiao"
+    "Kaipeng Fang",
+    "Yuhao Wang",
+    "Ji Zhang",
+    "Yunsong Zhou"
    ],
-   "link": "https://huggingface.co/papers/2611.32335",
+   "link": "https://huggingface.co/papers/2611.32238",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-24T00:00",
-   "title_ar": "غولد-سلام: نظام التموضع وبناء الخرائط المتزامن بتقنية التناثر الغوسي والليدار الشامل الاتجاهات",
-   "summary_ar": "تلتقط الكاميرات البانورامية مجال رؤية كروياً شبه كامل في إطار واحد، إلا أن عدم التطابق بين هذه التغطية ومجال رؤية الليدار يشكل تحدياً كبيراً لأنظمة التموضع وبناء الخرائط التي تعتمد على بيانات عمق الليدار المسبقة. يقدم البحث نظام \"غولد-سلام\" لمعالجة هذه المشكلة."
+   "title_ar": "تعلم سياسات مدرك للحدود لمعالجة الروبوت المنسقة بالوكلاء",
+   "summary_ar": "تجمع أنظمة الروبوتات المنسقة بالوكلاء بين قدرة الاستدلال العام للوكلاء متعددي الوسائط والتحكم الفيزيائي الدقيق للسياسات البصرية الحركية المتعلمة. غير أن هذه الأنظمة تفشل غالباً في لحظة التسليم، إذ تكون السياسة موثوقة فقط انطلاقاً من مجموعة محدودة من حالات البداية في حين قد يستدعيها الوكيل بشكل غير ملائم."
   },
   {
-   "id": "2611.28244",
-   "title": "Demystifying the Autoresearch Harness: How Context and Skills Shape Self-Evolving Agents",
-   "abstract": "Autoresearch agents, which autonomously design, run, and refine experiments, are accelerating scientific progress, particularly in AI research. However, existing agents rely on harnesses that combine multiple mechanisms, making it difficult to determine how individual components contribute to performance. We systematically study harness design for long-horizon, self-evolving autoresearch agents along two dimensions: context management, which determines what an agent retains from its past attempts, and skill management, which governs how it stores and reuses lessons from those attempts. Across ",
+   "id": "2611.34719",
+   "title": "Reading, Not Adapting: Unlocking Frozen Visual Knowledge for AI-Generated Image Detection",
+   "abstract": "Generalization to unseen image generators has driven efforts to adapt pretrained visual representations for detection. Yet recent findings show that vision foundation models already encode transferable detection knowledge, while further adaptation can impair generalization. This motivates a shift from backbone adaptation to knowledge readout. Conventional linear probing offers a direct way to read this knowledge but is limited to final-layer RGB features. Multi-cue detectors broaden the evidence base, but their designs introduce other tradeoffs: adaptation may compromise pretrained transferabi",
    "authors": [
-    "Kelvin Kiu-Wai Tam",
-    "Newt Hue-Nam K. Nguyen",
-    "Tianshi Zheng",
-    "Yunxiang Mo"
+    "Yuncheng Guo",
+    "Ying Dong",
+    "Xiaodong Gu"
    ],
-   "link": "https://huggingface.co/papers/2611.28244",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-20T00:00",
-   "title_ar": "إزالة الغموض عن بيئة البحث الآلي: كيف يشكل السياق والمهارات وكلاء يتطورون ذاتياً",
-   "summary_ar": "تعمل وكلاء البحث الآلي على تسريع التقدم العلمي من خلال تصميم التجارب وتشغيلها وتحسينها ذاتياً، لا سيما في أبحاث الذكاء الاصطناعي. ومع ذلك، تعتمد هذه الوكلاء الحالية على بيئات تدمج آليات متعددة، مما يجعل من الصعب تحديد مدى مساهمة المكونات الفردية في الأداء."
-  },
-  {
-   "id": "2611.32938",
-   "title": "Efficient Video Retrieval Augmented Generation via Token Allocation",
-   "abstract": "Efficient long-video understanding requires identifying relevant evidence while minimizing the tokens processed by vision-language models (VLMs). Existing video retrieval-augmented generation (RAG) methods rely on frame selection and token compression, but overlook how much each additional token is worth. We introduce Lembas, a plug-and-play framework that formulates video RAG as a token allocation problem over frames and subtitles under a shared budget. Our key insight is that the value of a token diminishes within each item and decreases further as similar evidence receives more tokens. Lemb",
-   "authors": [
-    "Ayush Barik",
-    "Fan Lai",
-    "Francis Y. Yan"
-   ],
-   "link": "https://huggingface.co/papers/2611.32938",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-24T00:00",
-   "title_ar": "توليد مسترجع معزز وفعال للفيديو عبر تخصيص الرموز",
-   "summary_ar": "يتطلب الفهم الفعال للفيديوهات الطويلة تحديد الأدلة ذات الصلة مع تقليل عدد الرموز التي تعالجها نماذج الرؤية واللغة. تعتمد طرق التوليد المسترجع المعزز الحالية للفيديو على اختيار الإطارات وضغط الرموز، لكنها تغفل مقدار ما يقدمه كل رمز إضافي."
-  },
-  {
-   "id": "2611.21056",
-   "title": "Evaluation-Free Recursive Self-Improvement for Coding Agents",
-   "abstract": "Recent self-improving coding agents have achieved strong benchmark performance by iteratively modifying their own executable implementations. A common pattern uses downstream task-derived evidence to decide which candidates or lineages continue evolving, which we term evaluate-and-select. Obtaining this signal requires repeatedly executing evolved agents on downstream tasks, so broader exploration incurs increasing evaluation cost, while repeated optimization against a fixed evaluation distribution may encourage benchmark-specific adaptation. We ask: can coding agents self-improve without down",
-   "authors": [
-    "Zhe Ren",
-    "Guowei Rong",
-    "Yimeng Chen",
-    "Nanbo Li"
-   ],
-   "link": "https://huggingface.co/papers/2611.21056",
-   "src": "Hugging Face Papers",
-   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
-   "published": "2026-11-16T00:00",
-   "title_ar": "تحسين ذاتي تكراري لوكلاء البرمجة دون تقييم",
-   "summary_ar": "حقق وكلاء البرمجة ذاتيو التحسين مؤخراً أداءً قوياً في الاختبارات المعيارية عبر تعديل تطبيقاتهم التنفيذية بشكل متكرر. ويعتمد نمط شائع على أدلة مستمدة من المهام اللاحقة لتحديد أي المرشحين يواصل التطور، وهو ما يُعرف بنمط التقييم والاختيار."
-  },
-  {
-   "id": "2611.34147",
-   "title": "Letting Models Manage Their Own Context: Where We Stand",
-   "abstract": "Agent harnesses today manage context on the model's behalf: when the window fills, the harness triggers a compaction that summarizes the history. We study the alternative, model-driven context management, in which the model itself decides when and what to compact through a context API. We gave models control over their own context in \\nooa, NVIDIA's open source agent harness, and compared the two strategies on document research and machine learning engineering across context budgets from 8K to 512K tokens. Models that use the context API effectively reach higher accuracy, often with fewer inpu",
-   "authors": [
-    "Alessio Devoto",
-    "Avinash Vem",
-    "Tara Safavi",
-    "Sanjay Kariyappa"
-   ],
-   "link": "https://huggingface.co/papers/2611.34147",
+   "link": "https://huggingface.co/papers/2611.34719",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-25T00:00",
-   "title_ar": "تمكين النماذج من إدارة سياقها بنفسها: الوضع الراهن",
-   "summary_ar": "تدير أطر عمل الوكلاء اليوم السياق نيابة عن النموذج، حيث تقوم بضغط وتلخيص السجل عند امتلاء نافذة السياق. تدرس هذه الورقة بديلاً تقوده النماذج، بحيث يقرر النموذج نفسه متى وماذا يضغط عبر واجهة برمجة تطبيقات خاصة بالسياق."
+   "title_ar": "القراءة لا التكييف: إطلاق المعرفة البصرية المجمدة لكشف الصور المولدة بالذكاء الاصطناعي",
+   "summary_ar": "دفعت الرغبة في التعميم على مولدات الصور غير المرئية الجهودَ نحو تكييف التمثيلات البصرية المدربة مسبقاً لأغراض الكشف. ومع ذلك، تُظهر النتائج الحديثة أن النماذج البصرية التأسيسية تشفّر بالفعل معرفة كشف قابلة للنقل، في حين قد يؤدي التكييف الإضافي إلى الإضرار بالتعميم، مما يحفز التحول عن هذا المسار."
   },
   {
-   "id": "2611.32786",
-   "title": "Simulator-as-Proxy World Model for Robot Manipulation",
-   "abstract": "Video world models for robots are increasingly conditioned on a simulated or rendered proxy of the scene, on the assumption that the video will show what the proxy shows. Testing this assumption requires a proxy whose state is explicit and can be perturbed. We present SimPWM (Simulator-as-Proxy World Model): given a calibrated camera, it represents, from the first frame alone, the robot by its 3D model and the objects the gripper may touch as 3D points; a rule-based simulator with no trained parameters moves them under the actions, and a video model renders the result. SimPWM returns the reali",
+   "id": "2611.34232",
+   "title": "OS-Omni: Benchmarking Generalist Computer-Using Agents on Long-Horizon Workflows Across Platforms",
+   "abstract": "Computer-using agents are increasingly expected to complete realistic user goals rather than isolated GUI actions. However, existing benchmarks typically isolate web, mobile, or desktop environments, leaving it unclear whether a single generalist agent can execute long-horizon workflows that span multiple operating systems and persistent application states. We introduce OS-Omni, a live cross-platform benchmark and execution environment for evaluating computer-using agents across Windows, Ubuntu, macOS, iOS, Android, and Web environments. OS-Omni is released in versioned waves of 300 tasks each",
    "authors": [
-    "Tingting Liao",
-    "Mingjia Huo",
-    "Hao Li",
-    "Zhengzhong Liu"
+    "Hui Shen",
+    "Yunta Hsieh",
+    "Jianing Ma",
+    "Zhuoran Yin"
    ],
-   "link": "https://huggingface.co/papers/2611.32786",
+   "link": "https://huggingface.co/papers/2611.34232",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-25T00:00",
+   "title_ar": "OS-Omni: تقييم الوكلاء العامين مستخدمي الحاسوب في مسارات عمل طويلة المدى عبر المنصات",
+   "summary_ar": "يُتوقع بشكل متزايد من الوكلاء مستخدمي الحاسوب إنجاز أهداف واقعية للمستخدمين بدلاً من إجراءات واجهة المستخدم الرسومية المعزولة. ومع ذلك، تعزل معايير التقييم الحالية عادةً بيئات الويب أو الهاتف المحمول أو سطح المكتب، مما يترك غموضاً حول قدرة وكيل عام واحد على تنفيذ مسارات عمل طويلة المدى تمتد عبر منصات متعددة."
+  },
+  {
+   "id": "2611.34852",
+   "title": "DRBench Pro: A Knowledge-Centric Benchmark for Professional Deep Research Agents",
+   "abstract": "Deep research agents gather information from multiple sources and synthesize it into reports on complex, open-ended questions. Existing benchmarks assess report quality along several dimensions, but lack a dedicated knowledge-centric evaluation of which research directions a report covers and how deeply it explores them. We introduce DRBench Pro, a benchmark that makes structured knowledge coverage the primary evaluation target. Our automated pipeline builds local knowledge trees from Wikipedia and uses sampled subgraphs to generate research queries and evidence-grounded rubrics. Each rubric c",
+   "authors": [
+    "Han Huang",
+    "Yuchen Yan",
+    "Xingyu Wu",
+    "Yijun Li"
+   ],
+   "link": "https://huggingface.co/papers/2611.34852",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-25T00:00",
+   "title_ar": "DRBench Pro: معيار تقييم متمحور حول المعرفة لوكلاء البحث العميق المحترفين",
+   "summary_ar": "يجمع وكلاء البحث العميق المعلومات من مصادر متعددة ويصيغونها في تقارير حول أسئلة معقدة ومفتوحة. تقيّم المعايير الحالية جودة التقارير وفق أبعاد متعددة، لكنها تفتقر إلى تقييم مخصص متمحور حول المعرفة يحدد مسارات البحث التي يغطيها التقرير ومدى عمقها."
+  },
+  {
+   "id": "2611.32993",
+   "title": "Decision-Native Multimodal Clinical Modeling via Anatomical Grounding and Confidence Calibration",
+   "abstract": "Structured clinical decisions from volumetric computed tomography (CT) require anatomically grounded predictions and calibrated confidence estimates. However, existing 3D medical multimodal models often suffer from uncalibrated autoregressive decoding and shortcut reliance on irrelevant anatomical regions. We introduce Radev, a decision-native multimodal model that integrates anatomy-guided visual compression, direct candidate prediction, and counterfactual confidence supervision. To bridge global context with fine-grained slice details, a frozen 3D encoder extracts reusable organ-level featur",
+   "authors": [
+    "Juntao Jiang",
+    "Wenqi Zhong",
+    "Guangyu Guo",
+    "Dexia Chen"
+   ],
+   "link": "https://huggingface.co/papers/2611.32993",
    "src": "Hugging Face Papers",
    "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
    "published": "2026-11-24T00:00",
-   "title_ar": "محاكي كنموذج عالمي بديل لمعالجة الروبوتات",
-   "summary_ar": "يتم تكييف نماذج العالم المرئية للروبوتات بشكل متزايد على نموذج بديل محاكى أو مُصيّر للمشهد، استناداً إلى افتراض أن الفيديو سيعرض ما يعرضه النموذج البديل. يتطلب اختبار هذا الافتراض نموذجاً بديلاً تكون حالته واضحة وقابلة للتعديل، وتقدم الورقة نموذج \"سيم بي دبليو إم\"."
+   "title_ar": "النمذجة السريرية متعددة الوسائط الأصيلة لاتخاذ القرار عبر الإرساء التشريحي ومعايرة الثقة",
+   "summary_ar": "تتطلب القرارات السريرية المنظمة المستندة إلى التصوير المقطعي المحوسب ثلاثي الأبعاد تنبؤاتٍ ذات إرساء تشريحي وتقديرات ثقة معايرة. ومع ذلك، غالباً ما تعاني النماذج الطبية الحالية ثلاثية الأبعاد متعددة الوسائط من فك ترميز تراجعي ذاتي غير معاير، ومن الاعتماد المختصر على مناطق تشريحية غير ذات صلة."
+  },
+  {
+   "id": "2611.34290",
+   "title": "StateWeaver: Multi-Agent Coordination of Story-State Transitions for Long-Horizon Video Generation",
+   "abstract": "Modern video foundation models generate high-quality short clips, but preserving long-video consistency and correctly depicting event-driven state changes remain challenging. Existing agentic workflows face these challenges because continual planning and repair accumulate context, while reference updates remain limited. We introduce StateWeaver, which combines Active States and Hierarchical Collaboration to connect review-driven visual reference updates with cross-shot state inheritance. Active States translate state discrepancies identified during review into concrete visual asset requirement",
+   "authors": [
+    "Modi Jin",
+    "Xuying Zhang",
+    "Yijing Guo",
+    "Haoran Li"
+   ],
+   "link": "https://huggingface.co/papers/2611.34290",
+   "src": "Hugging Face Papers",
+   "via": "انتقاءُ مجتمعِ الباحثين اليوميّ",
+   "published": "2026-11-25T00:00",
+   "title_ar": "StateWeaver: تنسيق متعدد الوكلاء لانتقالات حالة القصة لتوليد الفيديو طويل المدى",
+   "summary_ar": "تُنشئ النماذج التأسيسية الحديثة للفيديو مقاطع قصيرة عالية الجودة، لكن الحفاظ على اتساق الفيديو الطويل وتصوير التغيرات في الحالة المدفوعة بالأحداث بشكل صحيح يظلان أمرين صعبين. وتواجه مسارات العمل القائمة على الوكلاء الحالية هذه التحديات لأن التخطيط والإصلاح المستمرين يراكمان السياق، في حين يؤدي تحديث المراجع إلى مشكلات أخرى."
   }
  ],
  "n": 6
